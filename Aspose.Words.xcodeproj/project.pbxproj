@@ -1,0 +1,354 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8481114D23DAF7B30099DBD4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481114C23DAF7B30099DBD4 /* main.swift */; };
+		84E2CB6223E01E8F0040CC5F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2CB6123E01E8F0040CC5F /* Configuration.swift */; };
+		84E2CB6423E022C60040CC5F /* WordsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2CB6323E022C60040CC5F /* WordsApi.swift */; };
+		84E2CB6723E0245A0040CC5F /* CreateDocumentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2CB6623E0245A0040CC5F /* CreateDocumentRequest.swift */; };
+		84E2CB6923E0262B0040CC5F /* DocumentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2CB6823E0262B0040CC5F /* DocumentResponse.swift */; };
+		84E2CB6B23E0270D0040CC5F /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2CB6A23E0270D0040CC5F /* Document.swift */; };
+		84E2CB6D23E0274E0040CC5F /* WordsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2CB6C23E0274E0040CC5F /* WordsResponse.swift */; };
+		84E2CB7B23E036430040CC5F /* servercreds.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84E2CB7723E0342E0040CC5F /* servercreds.json */; };
+		84E2CB7F23E040F30040CC5F /* ObjectSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2CB7E23E040F30040CC5F /* ObjectSerializer.swift */; };
+		84E2CB8123E048E90040CC5F /* ApiInvoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2CB8023E048E90040CC5F /* ApiInvoker.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8481114723DAF7B30099DBD4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = Settings;
+			dstSubfolderSpec = 16;
+			files = (
+				84E2CB7B23E036430040CC5F /* servercreds.json in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8481114923DAF7B30099DBD4 /* Aspose.Words */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Aspose.Words; sourceTree = BUILT_PRODUCTS_DIR; };
+		8481114C23DAF7B30099DBD4 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		84E2CB6123E01E8F0040CC5F /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		84E2CB6323E022C60040CC5F /* WordsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsApi.swift; sourceTree = "<group>"; };
+		84E2CB6623E0245A0040CC5F /* CreateDocumentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDocumentRequest.swift; sourceTree = "<group>"; };
+		84E2CB6823E0262B0040CC5F /* DocumentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentResponse.swift; sourceTree = "<group>"; };
+		84E2CB6A23E0270D0040CC5F /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		84E2CB6C23E0274E0040CC5F /* WordsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsResponse.swift; sourceTree = "<group>"; };
+		84E2CB7723E0342E0040CC5F /* servercreds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = servercreds.json; sourceTree = "<group>"; };
+		84E2CB7E23E040F30040CC5F /* ObjectSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectSerializer.swift; sourceTree = "<group>"; };
+		84E2CB8023E048E90040CC5F /* ApiInvoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiInvoker.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8481114623DAF7B30099DBD4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8481114023DAF7B30099DBD4 = {
+			isa = PBXGroup;
+			children = (
+				8481114B23DAF7B30099DBD4 /* Aspose.Words */,
+				8481114A23DAF7B30099DBD4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8481114A23DAF7B30099DBD4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8481114923DAF7B30099DBD4 /* Aspose.Words */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8481114B23DAF7B30099DBD4 /* Aspose.Words */ = {
+			isa = PBXGroup;
+			children = (
+				84E2CB6F23E02DD60040CC5F /* Settings */,
+				84E2CB6023E01E320040CC5F /* Model */,
+				84E2CB5F23E01E150040CC5F /* Api */,
+				8481114C23DAF7B30099DBD4 /* main.swift */,
+			);
+			path = Aspose.Words;
+			sourceTree = "<group>";
+		};
+		84E2CB5F23E01E150040CC5F /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				84E2CB6123E01E8F0040CC5F /* Configuration.swift */,
+				84E2CB6323E022C60040CC5F /* WordsApi.swift */,
+				84E2CB7E23E040F30040CC5F /* ObjectSerializer.swift */,
+				84E2CB8023E048E90040CC5F /* ApiInvoker.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		84E2CB6023E01E320040CC5F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84E2CB6523E024320040CC5F /* Requests */,
+				84E2CB6823E0262B0040CC5F /* DocumentResponse.swift */,
+				84E2CB6A23E0270D0040CC5F /* Document.swift */,
+				84E2CB6C23E0274E0040CC5F /* WordsResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84E2CB6523E024320040CC5F /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				84E2CB6623E0245A0040CC5F /* CreateDocumentRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		84E2CB6F23E02DD60040CC5F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				84E2CB7723E0342E0040CC5F /* servercreds.json */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8481114823DAF7B30099DBD4 /* Aspose.Words */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8481115023DAF7B30099DBD4 /* Build configuration list for PBXNativeTarget "Aspose.Words" */;
+			buildPhases = (
+				8481114523DAF7B30099DBD4 /* Sources */,
+				8481114623DAF7B30099DBD4 /* Frameworks */,
+				8481114723DAF7B30099DBD4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Aspose.Words;
+			productName = TestApp;
+			productReference = 8481114923DAF7B30099DBD4 /* Aspose.Words */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8481114123DAF7B30099DBD4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = admin;
+				TargetAttributes = {
+					8481114823DAF7B30099DBD4 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 8481114423DAF7B30099DBD4 /* Build configuration list for PBXProject "Aspose.Words" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 8481114023DAF7B30099DBD4;
+			productRefGroup = 8481114A23DAF7B30099DBD4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8481114823DAF7B30099DBD4 /* Aspose.Words */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8481114523DAF7B30099DBD4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84E2CB6423E022C60040CC5F /* WordsApi.swift in Sources */,
+				84E2CB8123E048E90040CC5F /* ApiInvoker.swift in Sources */,
+				84E2CB6223E01E8F0040CC5F /* Configuration.swift in Sources */,
+				84E2CB7F23E040F30040CC5F /* ObjectSerializer.swift in Sources */,
+				84E2CB6B23E0270D0040CC5F /* Document.swift in Sources */,
+				84E2CB6723E0245A0040CC5F /* CreateDocumentRequest.swift in Sources */,
+				84E2CB6D23E0274E0040CC5F /* WordsResponse.swift in Sources */,
+				8481114D23DAF7B30099DBD4 /* main.swift in Sources */,
+				84E2CB6923E0262B0040CC5F /* DocumentResponse.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8481114E23DAF7B30099DBD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8481114F23DAF7B30099DBD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		8481115123DAF7B30099DBD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		8481115223DAF7B30099DBD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8481114423DAF7B30099DBD4 /* Build configuration list for PBXProject "Aspose.Words" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8481114E23DAF7B30099DBD4 /* Debug */,
+				8481114F23DAF7B30099DBD4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8481115023DAF7B30099DBD4 /* Build configuration list for PBXNativeTarget "Aspose.Words" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8481115123DAF7B30099DBD4 /* Debug */,
+				8481115223DAF7B30099DBD4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8481114123DAF7B30099DBD4 /* Project object */;
+}
