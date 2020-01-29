@@ -9,9 +9,9 @@ public class WordsApi {
         self.apiInvoker = ApiInvoker(configuration: configuration);
     }
     
-    public func createDocument(request : CreateDocumentRequest) -> DocumentResponse {
+    public func createDocument(request : CreateDocumentRequest) throws -> DocumentResponse {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("words/create");
-        var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false);
+        var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
         if (request.getStorage() != nil) {
@@ -26,15 +26,15 @@ public class WordsApi {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()));
         }
         
-        urlBuilder?.queryItems = queryItems;
+        urlBuilder.queryItems = queryItems;
         
-        let response = apiInvoker.invoke(
-            url: urlBuilder!.url!,
+        let response = try apiInvoker.invoke(
+            url: urlBuilder.url!,
             method: "PUT",
             body: nil,
             headers: nil,
             formParams: nil
         );
-        return ObjectSerializer.decode(DocumentResponse.self, from: response!)!;
+        return try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
     }
 }

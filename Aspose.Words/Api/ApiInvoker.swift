@@ -10,8 +10,12 @@ public class ApiInvoker {
     
     private class InvokeResponse {
         public var data : Data?;
-        public var error : Error?;
-        public var response : HTTPURLResponse?;
+        public var errorCode : Int;
+        public var errorMessage : String?;
+        
+        public init(errorCode : Int) {
+            self.errorCode = errorCode;
+        }
     }
     
     private struct AccessTokenResult : Decodable {
@@ -25,7 +29,7 @@ public class ApiInvoker {
         headers: Dictionary<String, String>?,
         formParams: Dictionary<String, Any>?,
         contentType: String = "application/json"
-    ) -> Data? {
+    ) throws -> Data {
         var request = URLRequest(url: url);
         request.httpMethod = method;
         request.setValue(contentType, forHTTPHeaderField: "Content-Type");
@@ -44,24 +48,25 @@ public class ApiInvoker {
         }
         
         if (accessToken == nil) {
-            invokeAuthTokenSync();
+            try invokeAuthTokenSync();
         }
 
-        
         var resp = invokeRequestSync(urlRequest: &request, internalCall: false);
-        if (resp.response?.statusCode == 400) {
-            invokeAuthTokenSync();
+        if (resp.errorCode == 400) {
+            try invokeAuthTokenSync();
             resp = invokeRequestSync(urlRequest: &request, internalCall: false);
         }
         
-        if (resp.response?.statusCode == 200) {
-            print("HTTP OK: \(url.absoluteString) -> \(String(decoding: resp.data!, as: UTF8.self))");
-            return resp.data;
+        if (configuration.isDebugMode()) {
+            let responseDebugMessage = resp.data != nil ? String(decoding: resp.data!, as: UTF8.self) : resp.errorMessage ?? "";
+            print("RESPONSE FROM '\(url.absoluteString)' returns (\(resp.errorCode): \(responseDebugMessage)");
+        }
+        
+        if (resp.errorCode == 200) {
+            return resp.data!;
         }
         else {
-            // TODO: throw error
-            print("HTTP Error: \(url.absoluteString) -> \(resp.response!.statusCode)");
-            return nil;
+            throw ApiError.requestError(errorCode: resp.errorCode, message: resp.errorMessage);
         }
     }
     
@@ -71,11 +76,17 @@ public class ApiInvoker {
         }
         
         let semaphore = DispatchSemaphore(value: 0);
-        let invokeResponse = InvokeResponse();
+        let invokeResponse = InvokeResponse(errorCode: 408);
         let result = URLSession.shared.dataTask(with: urlRequest, completionHandler: { d, r, e in
+            let rawResponse = r as? HTTPURLResponse;
             invokeResponse.data = d;
-            invokeResponse.error = e;
-            invokeResponse.response = r as? HTTPURLResponse;
+            if (rawResponse != nil) {
+                invokeResponse.errorCode = rawResponse!.statusCode;
+                invokeResponse.errorMessage = rawResponse!.description;
+            }
+            else {
+                invokeResponse.errorCode = 400;
+            }
             semaphore.signal();
         });
         result.resume();
@@ -83,17 +94,17 @@ public class ApiInvoker {
         return invokeResponse;
     }
     
-    private func invokeAuthTokenSync() {
+    private func invokeAuthTokenSync() throws {
         let urlPath = URL(string: self.configuration.getBaseUrl())!.appendingPathComponent("connect/token");
         var request = URLRequest(url: urlPath);
         request.httpMethod = "POST";
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type");
         request.httpBody = "grant_type=client_credentials&client_id=\(configuration.getAppSid())&client_secret=\(configuration.getAppKey())".data(using: .utf8);
         let response = invokeRequestSync(urlRequest: &request, internalCall: true);
-        if (response.response?.statusCode == 200) {
-            let result = ObjectSerializer.decode(AccessTokenResult.self, from: response.data!);
-            if (result != nil && result?.access_token != nil) {
-                accessToken = "Bearer " + result!.access_token!;
+        if (response.errorCode == 200) {
+            let result = try ObjectSerializer.deserialize(type: AccessTokenResult.self, from: response.data!);
+            if (result.access_token != nil) {
+                accessToken = "Bearer " + result.access_token!;
             }
         }
     }

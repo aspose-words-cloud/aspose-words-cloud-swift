@@ -18,7 +18,11 @@ class ObjectSerializer {
         }
     }
     
-    public static func decode<T>(_ type: T.Type, from data: Data) -> T? where T : Decodable {
+    public static func serialize<T>(value: T) throws -> Data where T : Encodable {
+        let jsonEncoder = JSONEncoder();
+        return try jsonEncoder.encode(value);
+    }
+    public static func deserialize<T>(type: T.Type, from data: Data) throws -> T where T : Decodable {
         let jsonDecoder = JSONDecoder();
         jsonDecoder.keyDecodingStrategy = .custom { keys in
             let oldKey = keys.last!.stringValue;
@@ -26,11 +30,6 @@ class ObjectSerializer {
             return CustomKey(stringValue: newKey)!;
         }
         
-        do {
-            return try jsonDecoder.decode(type, from: data);
-        }
-        catch {
-            return nil;
-        }
+        return try jsonDecoder.decode(type, from: data);
     }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		843BC85C23E1D1D9005DB19A /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843BC85B23E1D1D9005DB19A /* ApiError.swift */; };
+		843BC86423E1D990005DB19A /* Aspose_Words_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843BC86323E1D990005DB19A /* Aspose_Words_Tests.swift */; };
+		843BC86A23E1DA07005DB19A /* BaseTestContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843BC86923E1DA07005DB19A /* BaseTestContext.swift */; };
 		8481114D23DAF7B30099DBD4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8481114C23DAF7B30099DBD4 /* main.swift */; };
 		84E2CB6223E01E8F0040CC5F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2CB6123E01E8F0040CC5F /* Configuration.swift */; };
 		84E2CB6423E022C60040CC5F /* WordsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2CB6323E022C60040CC5F /* WordsApi.swift */; };
@@ -18,6 +21,16 @@
 		84E2CB7F23E040F30040CC5F /* ObjectSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2CB7E23E040F30040CC5F /* ObjectSerializer.swift */; };
 		84E2CB8123E048E90040CC5F /* ApiInvoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2CB8023E048E90040CC5F /* ApiInvoker.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		843BC86B23E1DCC5005DB19A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8481114123DAF7B30099DBD4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8481114823DAF7B30099DBD4;
+			remoteInfo = Aspose.Words;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8481114723DAF7B30099DBD4 /* CopyFiles */ = {
@@ -33,6 +46,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		843BC85B23E1D1D9005DB19A /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		843BC86123E1D990005DB19A /* Aspose.Words.Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aspose.Words.Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		843BC86323E1D990005DB19A /* Aspose_Words_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aspose_Words_Tests.swift; sourceTree = "<group>"; };
+		843BC86523E1D990005DB19A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		843BC86923E1DA07005DB19A /* BaseTestContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestContext.swift; sourceTree = "<group>"; };
 		8481114923DAF7B30099DBD4 /* Aspose.Words */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Aspose.Words; sourceTree = BUILT_PRODUCTS_DIR; };
 		8481114C23DAF7B30099DBD4 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		84E2CB6123E01E8F0040CC5F /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
@@ -47,6 +65,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		843BC85E23E1D990005DB19A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8481114623DAF7B30099DBD4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -57,10 +82,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		843BC86223E1D990005DB19A /* Aspose.Words.Tests */ = {
+			isa = PBXGroup;
+			children = (
+				843BC86323E1D990005DB19A /* Aspose_Words_Tests.swift */,
+				843BC86523E1D990005DB19A /* Info.plist */,
+				843BC86923E1DA07005DB19A /* BaseTestContext.swift */,
+			);
+			path = Aspose.Words.Tests;
+			sourceTree = "<group>";
+		};
 		8481114023DAF7B30099DBD4 = {
 			isa = PBXGroup;
 			children = (
 				8481114B23DAF7B30099DBD4 /* Aspose.Words */,
+				843BC86223E1D990005DB19A /* Aspose.Words.Tests */,
 				8481114A23DAF7B30099DBD4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				8481114923DAF7B30099DBD4 /* Aspose.Words */,
+				843BC86123E1D990005DB19A /* Aspose.Words.Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,6 +128,7 @@
 				84E2CB6323E022C60040CC5F /* WordsApi.swift */,
 				84E2CB7E23E040F30040CC5F /* ObjectSerializer.swift */,
 				84E2CB8023E048E90040CC5F /* ApiInvoker.swift */,
+				843BC85B23E1D1D9005DB19A /* ApiError.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -125,6 +163,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		843BC86023E1D990005DB19A /* Aspose.Words.Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 843BC86623E1D990005DB19A /* Build configuration list for PBXNativeTarget "Aspose.Words.Tests" */;
+			buildPhases = (
+				843BC85D23E1D990005DB19A /* Sources */,
+				843BC85E23E1D990005DB19A /* Frameworks */,
+				843BC85F23E1D990005DB19A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				843BC86C23E1DCC5005DB19A /* PBXTargetDependency */,
+			);
+			name = Aspose.Words.Tests;
+			productName = Aspose.Words.Tests;
+			productReference = 843BC86123E1D990005DB19A /* Aspose.Words.Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8481114823DAF7B30099DBD4 /* Aspose.Words */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8481115023DAF7B30099DBD4 /* Build configuration list for PBXNativeTarget "Aspose.Words" */;
@@ -152,6 +208,9 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = admin;
 				TargetAttributes = {
+					843BC86023E1D990005DB19A = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					8481114823DAF7B30099DBD4 = {
 						CreatedOnToolsVersion = 10.1;
 					};
@@ -170,11 +229,31 @@
 			projectRoot = "";
 			targets = (
 				8481114823DAF7B30099DBD4 /* Aspose.Words */,
+				843BC86023E1D990005DB19A /* Aspose.Words.Tests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		843BC85F23E1D990005DB19A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		843BC85D23E1D990005DB19A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				843BC86A23E1DA07005DB19A /* BaseTestContext.swift in Sources */,
+				843BC86423E1D990005DB19A /* Aspose_Words_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8481114523DAF7B30099DBD4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -182,6 +261,7 @@
 				84E2CB6423E022C60040CC5F /* WordsApi.swift in Sources */,
 				84E2CB8123E048E90040CC5F /* ApiInvoker.swift in Sources */,
 				84E2CB6223E01E8F0040CC5F /* Configuration.swift in Sources */,
+				843BC85C23E1D1D9005DB19A /* ApiError.swift in Sources */,
 				84E2CB7F23E040F30040CC5F /* ObjectSerializer.swift in Sources */,
 				84E2CB6B23E0270D0040CC5F /* Document.swift in Sources */,
 				84E2CB6723E0245A0040CC5F /* CreateDocumentRequest.swift in Sources */,
@@ -193,7 +273,49 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		843BC86C23E1DCC5005DB19A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8481114823DAF7B30099DBD4 /* Aspose.Words */;
+			targetProxy = 843BC86B23E1DCC5005DB19A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		843BC86723E1D990005DB19A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Aspose.Words.Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "aspose.words.Aspose-Words-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		843BC86823E1D990005DB19A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Aspose.Words.Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "aspose.words.Aspose-Words-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 		8481114E23DAF7B30099DBD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -330,6 +452,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		843BC86623E1D990005DB19A /* Build configuration list for PBXNativeTarget "Aspose.Words.Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				843BC86723E1D990005DB19A /* Debug */,
+				843BC86823E1D990005DB19A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8481114423DAF7B30099DBD4 /* Build configuration list for PBXProject "Aspose.Words" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
