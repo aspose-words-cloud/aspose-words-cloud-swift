@@ -7,4 +7,8 @@ class DocumentTests: BaseTestContext {
         let res = try super.getApi().createDocument(request: req);
         XCTAssert(!res.getRequestId().isEmpty);
     }
+    
+    static var allTests = [
+        ("testCreateDocument", testCreateDocument),
+    ]
 }
