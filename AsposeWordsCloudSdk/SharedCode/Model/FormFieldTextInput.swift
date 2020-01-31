@@ -1,0 +1,83 @@
+/*
+ * --------------------------------------------------------------------------------
+ * <copyright company="Aspose" file="FormFieldTextInput.swift">
+ *   Copyright (c) 2019 Aspose.Words for Cloud
+ * </copyright>
+ * <summary>
+ *   Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ * 
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ * 
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ * </summary>
+ * --------------------------------------------------------------------------------
+ */
+
+import Foundation
+
+public class FormFieldTextInput : FormField {
+    // Gets or sets the type of a text form field.
+    public enum TextInputType
+    { 
+        // Enum value "regular"
+        case regular
+        
+        // Enum value "number"
+        case number
+        
+        // Enum value "date"
+        case date
+        
+        // Enum value "currentDate"
+        case currentDate
+        
+        // Enum value "currentTime"
+        case currentTime
+        
+        // Enum value "calculated"
+        case calculated
+        
+    }
+
+        
+    // Gets or sets maximum length for the text field. Zero when the length is not limited.
+    private let maxLength : Int?;
+    // Gets or sets the default string or a calculation expression of a text form field.
+    private let textInputDefault : String?;
+    // Gets or sets returns or sets the text formatting for a text form field.
+    private let textInputFormat : String?;
+    // Gets or sets the type of a text form field.
+    private let textInputType : TextInputType?;
+        
+    public init(maxLength : Int? = nil, textInputDefault : String? = nil, textInputFormat : String? = nil, textInputType : TextInputType? = nil) {
+        self.maxLength = maxLength;
+        self.textInputDefault = textInputDefault;
+        self.textInputFormat = textInputFormat;
+        self.textInputType = textInputType;
+    }
+        
+    public func getFormFieldTextInput() -> Int? {
+        return self.maxLength;
+    }
+    public func getFormFieldTextInput() -> String? {
+        return self.textInputDefault;
+    }
+    public func getFormFieldTextInput() -> String? {
+        return self.textInputFormat;
+    }
+    public func getFormFieldTextInput() -> TextInputType? {
+        return self.textInputType;
+    }
+}

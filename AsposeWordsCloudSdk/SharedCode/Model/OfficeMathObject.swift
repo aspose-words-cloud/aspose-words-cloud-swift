@@ -1,0 +1,189 @@
+/*
+ * --------------------------------------------------------------------------------
+ * <copyright company="Aspose" file="OfficeMathObject.swift">
+ *   Copyright (c) 2019 Aspose.Words for Cloud
+ * </copyright>
+ * <summary>
+ *   Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ * 
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ * 
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ * </summary>
+ * --------------------------------------------------------------------------------
+ */
+
+import Foundation
+
+public class OfficeMathObject : OfficeMathLink {
+    // Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.
+    public enum DisplayType
+    { 
+        // Enum value "display"
+        case display
+        
+        // Enum value "inline"
+        case inline
+        
+    }
+
+    // Gets or sets /sets Office Math justification.
+    public enum Justification
+    { 
+        // Enum value "centerGroup"
+        case centerGroup
+        
+        // Enum value "_default"
+        case _default
+        
+        // Enum value "center"
+        case center
+        
+        // Enum value "_left"
+        case _left
+        
+        // Enum value "_right"
+        case _right
+        
+        // Enum value "inline"
+        case inline
+        
+    }
+
+    // Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
+    public enum MathObjectType
+    { 
+        // Enum value "omath"
+        case omath
+        
+        // Enum value "omathpara"
+        case omathpara
+        
+        // Enum value "accent"
+        case accent
+        
+        // Enum value "bar"
+        case bar
+        
+        // Enum value "borderBox"
+        case borderBox
+        
+        // Enum value "box"
+        case box
+        
+        // Enum value "delimiter"
+        case delimiter
+        
+        // Enum value "degree"
+        case degree
+        
+        // Enum value "argument"
+        case argument
+        
+        // Enum value "array"
+        case array
+        
+        // Enum value "fraction"
+        case fraction
+        
+        // Enum value "denominator"
+        case denominator
+        
+        // Enum value "numerator"
+        case numerator
+        
+        // Enum value "function"
+        case function
+        
+        // Enum value "functionName"
+        case functionName
+        
+        // Enum value "groupCharacter"
+        case groupCharacter
+        
+        // Enum value "limit"
+        case limit
+        
+        // Enum value "lowerLimit"
+        case lowerLimit
+        
+        // Enum value "upperLimit"
+        case upperLimit
+        
+        // Enum value "matrix"
+        case matrix
+        
+        // Enum value "matrixRow"
+        case matrixRow
+        
+        // Enum value "nary"
+        case nary
+        
+        // Enum value "phantom"
+        case phantom
+        
+        // Enum value "radical"
+        case radical
+        
+        // Enum value "subscriptPart"
+        case subscriptPart
+        
+        // Enum value "superscriptPart"
+        case superscriptPart
+        
+        // Enum value "preSubSuperscript"
+        case preSubSuperscript
+        
+        // Enum value "_subscript"
+        case _subscript
+        
+        // Enum value "subSuperscript"
+        case subSuperscript
+        
+        // Enum value "supercript"
+        case supercript
+        
+    }
+
+        
+    // Gets or sets content of footnote.
+    private let content : StoryChildNodes?;
+    // Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.
+    private let displayType : DisplayType?;
+    // Gets or sets /sets Office Math justification.
+    private let justification : Justification?;
+    // Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
+    private let mathObjectType : MathObjectType?;
+        
+    public init(content : StoryChildNodes? = nil, displayType : DisplayType? = nil, justification : Justification? = nil, mathObjectType : MathObjectType? = nil) {
+        self.content = content;
+        self.displayType = displayType;
+        self.justification = justification;
+        self.mathObjectType = mathObjectType;
+    }
+        
+    public func getOfficeMathObject() -> StoryChildNodes? {
+        return self.content;
+    }
+    public func getOfficeMathObject() -> DisplayType? {
+        return self.displayType;
+    }
+    public func getOfficeMathObject() -> Justification? {
+        return self.justification;
+    }
+    public func getOfficeMathObject() -> MathObjectType? {
+        return self.mathObjectType;
+    }
+}
