@@ -44,6 +44,7 @@ public class GetRunFontRequest : Codable {
         case storage;
         case loadEncoding;
         case password;
+        case invalidCodingKey;
     }
     
     public init(name : String, paragraphPath : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
@@ -58,7 +59,6 @@ public class GetRunFontRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.paragraphPath = try container.decode(.self, forKey: .paragraphPath);
         self.index = try container.decode(.self, forKey: .index);
@@ -85,7 +85,6 @@ public class GetRunFontRequest : Codable {
         if (self.password != nil) {
             try container.encode(self.password, forKey: .password);
         }
-        
     }
     
     public func getName() -> String {

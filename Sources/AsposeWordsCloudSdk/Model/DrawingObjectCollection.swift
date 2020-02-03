@@ -30,14 +30,15 @@ import Foundation
 public class DrawingObjectCollection : LinkElement {
         
     // Gets or sets collection of DrawingObjects links.
-    private let list : [LinkElement]?;
+    private var list : [LinkElement]?;
         
     private enum CodingKeys: String, CodingKey {
         case list;
+        case invalidCodingKey;
     }
         
-    public init(list : [LinkElement]? = nil) {
-        self.list = list;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class DrawingObjectCollection : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setList(list : [LinkElement]?) {
+        self.list = list;
+    }
+    
     public func getList() -> [LinkElement]? {
         return self.list;
     }

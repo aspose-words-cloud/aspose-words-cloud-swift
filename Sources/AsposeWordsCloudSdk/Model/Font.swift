@@ -1239,85 +1239,85 @@ public class Font : LinkElement {
 
         
     // Gets or sets true if the font is formatted as all capital letters.             
-    private let allCaps : Bool?;
+    private var allCaps : Bool?;
     // Gets or sets specifies whether the contents of this run shall have right-to-left characteristics.             
-    private let bidi : Bool?;
+    private var bidi : Bool?;
     // Gets or sets true if the font is formatted as bold.             
-    private let bold : Bool?;
+    private var bold : Bool?;
     // Gets or sets true if the right-to-left text is formatted as bold.             
-    private let boldBi : Bool?;
+    private var boldBi : Bool?;
     // Gets or sets border object that specifies border for the font.
-    private let border : Border?;
+    private var border : Border?;
     // Gets or sets the color of the font.             
-    private let color : XmlColor?;
+    private var color : XmlColor?;
     // Gets or sets specifies whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.             
-    private let complexScript : Bool?;
+    private var complexScript : Bool?;
     // Gets or sets true if the font is formatted as double strikethrough text.             
-    private let doubleStrikeThrough : Bool?;
+    private var doubleStrikeThrough : Bool?;
     // Gets or sets true if the font is formatted as embossed.             
-    private let emboss : Bool?;
+    private var emboss : Bool?;
     // Gets or sets true if the font is formatted as engraved.             
-    private let engrave : Bool?;
+    private var engrave : Bool?;
     // Gets or sets true if the font is formatted as hidden text.             
-    private let hidden : Bool?;
+    private var hidden : Bool?;
     // Gets or sets the highlight (marker) color.             
-    private let highlightColor : XmlColor?;
+    private var highlightColor : XmlColor?;
     // Gets or sets true if the font is formatted as italic.             
-    private let italic : Bool?;
+    private var italic : Bool?;
     // Gets or sets true if the right-to-left text is formatted as italic.             
-    private let italicBi : Bool?;
+    private var italicBi : Bool?;
     // Gets or sets the font size at which kerning starts.             
-    private let kerning : Double?;
+    private var kerning : Double?;
     // Gets or sets the locale identifier (language) of the formatted characters.             
-    private let localeId : Int?;
+    private var localeId : Int?;
     // Gets or sets the locale identifier (language) of the formatted right-to-left characters.             
-    private let localeIdBi : Int?;
+    private var localeIdBi : Int?;
     // Gets or sets the locale identifier (language) of the formatted Asian characters.             
-    private let localeIdFarEast : Int?;
+    private var localeIdFarEast : Int?;
     // Gets or sets the name of the font.             
-    private let name : String?;
+    private var name : String?;
     // Gets or sets returns or sets the font used for Latin text (characters with character codes from 0 (zero) through 127).             
-    private let nameAscii : String?;
+    private var nameAscii : String?;
     // Gets or sets returns or sets the name of the font in a right-to-left language document.             
-    private let nameBi : String?;
+    private var nameBi : String?;
     // Gets or sets returns or sets an East Asian font name.             
-    private let nameFarEast : String?;
+    private var nameFarEast : String?;
     // Gets or sets returns or sets the font used for characters with character codes from 128 through 255.             
-    private let nameOther : String?;
+    private var nameOther : String?;
     // Gets or sets true when the formatted characters are not to be spell checked.
-    private let noProofing : Bool?;
+    private var noProofing : Bool?;
     // Gets or sets true if the font is formatted as outline.             
-    private let outline : Bool?;
+    private var outline : Bool?;
     // Gets or sets the position of text (in points) relative to the base line. A positive number raises the text, and a negative number lowers it.             
-    private let position : Double?;
+    private var position : Double?;
     // Gets or sets character width scaling in percent.             
-    private let scaling : Int?;
+    private var scaling : Int?;
     // Gets or sets true if the font is formatted as shadowed.             
-    private let shadow : Bool?;
+    private var shadow : Bool?;
     // Gets or sets the font size in points.             
-    private let size : Double?;
+    private var size : Double?;
     // Gets or sets the font size in points used in a right-to-left document.             
-    private let sizeBi : Double?;
+    private var sizeBi : Double?;
     // Gets or sets true if the font is formatted as small capital letters.             
-    private let smallCaps : Bool?;
+    private var smallCaps : Bool?;
     // Gets or sets returns or sets the spacing (in points) between characters.             
-    private let spacing : Double?;
+    private var spacing : Double?;
     // Gets or sets true if the font is formatted as strikethrough text.             
-    private let strikeThrough : Bool?;
+    private var strikeThrough : Bool?;
     // Gets or sets the locale independent style identifier of the character style applied to this formatting.
-    private let styleIdentifier : StyleIdentifier?;
+    private var styleIdentifier : StyleIdentifier?;
     // Gets or sets the name of the character style applied to this formatting.             
-    private let styleName : String?;
+    private var styleName : String?;
     // Gets or sets true if the font is formatted as subscript.             
-    private let _subscript : Bool?;
+    private var _subscript : Bool?;
     // Gets or sets true if the font is formatted as superscript.             
-    private let superscript : Bool?;
+    private var superscript : Bool?;
     // Gets or sets the font animation effect.
-    private let textEffect : TextEffect?;
+    private var textEffect : TextEffect?;
     // Gets or sets the type of underline applied to the font.
-    private let underline : Underline?;
+    private var underline : Underline?;
     // Gets or sets the color of the underline applied to the font.
-    private let underlineColor : XmlColor?;
+    private var underlineColor : XmlColor?;
         
     private enum CodingKeys: String, CodingKey {
         case allCaps;
@@ -1360,49 +1360,11 @@ public class Font : LinkElement {
         case textEffect;
         case underline;
         case underlineColor;
+        case invalidCodingKey;
     }
         
-    public init(allCaps : Bool? = nil, bidi : Bool? = nil, bold : Bool? = nil, boldBi : Bool? = nil, border : Border? = nil, color : XmlColor? = nil, complexScript : Bool? = nil, doubleStrikeThrough : Bool? = nil, emboss : Bool? = nil, engrave : Bool? = nil, hidden : Bool? = nil, highlightColor : XmlColor? = nil, italic : Bool? = nil, italicBi : Bool? = nil, kerning : Double? = nil, localeId : Int? = nil, localeIdBi : Int? = nil, localeIdFarEast : Int? = nil, name : String? = nil, nameAscii : String? = nil, nameBi : String? = nil, nameFarEast : String? = nil, nameOther : String? = nil, noProofing : Bool? = nil, outline : Bool? = nil, position : Double? = nil, scaling : Int? = nil, shadow : Bool? = nil, size : Double? = nil, sizeBi : Double? = nil, smallCaps : Bool? = nil, spacing : Double? = nil, strikeThrough : Bool? = nil, styleIdentifier : StyleIdentifier? = nil, styleName : String? = nil, _subscript : Bool? = nil, superscript : Bool? = nil, textEffect : TextEffect? = nil, underline : Underline? = nil, underlineColor : XmlColor? = nil) {
-        self.allCaps = allCaps;
-        self.bidi = bidi;
-        self.bold = bold;
-        self.boldBi = boldBi;
-        self.border = border;
-        self.color = color;
-        self.complexScript = complexScript;
-        self.doubleStrikeThrough = doubleStrikeThrough;
-        self.emboss = emboss;
-        self.engrave = engrave;
-        self.hidden = hidden;
-        self.highlightColor = highlightColor;
-        self.italic = italic;
-        self.italicBi = italicBi;
-        self.kerning = kerning;
-        self.localeId = localeId;
-        self.localeIdBi = localeIdBi;
-        self.localeIdFarEast = localeIdFarEast;
-        self.name = name;
-        self.nameAscii = nameAscii;
-        self.nameBi = nameBi;
-        self.nameFarEast = nameFarEast;
-        self.nameOther = nameOther;
-        self.noProofing = noProofing;
-        self.outline = outline;
-        self.position = position;
-        self.scaling = scaling;
-        self.shadow = shadow;
-        self.size = size;
-        self.sizeBi = sizeBi;
-        self.smallCaps = smallCaps;
-        self.spacing = spacing;
-        self.strikeThrough = strikeThrough;
-        self.styleIdentifier = styleIdentifier;
-        self.styleName = styleName;
-        self._subscript = _subscript;
-        self.superscript = superscript;
-        self.textEffect = textEffect;
-        self.underline = underline;
-        self.underlineColor = underlineColor;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -1575,123 +1537,283 @@ public class Font : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setAllCaps(allCaps : Bool?) {
+        self.allCaps = allCaps;
+    }
+    
     public func getAllCaps() -> Bool? {
         return self.allCaps;
     }
+    public func setBidi(bidi : Bool?) {
+        self.bidi = bidi;
+    }
+    
     public func getBidi() -> Bool? {
         return self.bidi;
     }
+    public func setBold(bold : Bool?) {
+        self.bold = bold;
+    }
+    
     public func getBold() -> Bool? {
         return self.bold;
     }
+    public func setBoldBi(boldBi : Bool?) {
+        self.boldBi = boldBi;
+    }
+    
     public func getBoldBi() -> Bool? {
         return self.boldBi;
     }
+    public func setBorder(border : Border?) {
+        self.border = border;
+    }
+    
     public func getBorder() -> Border? {
         return self.border;
     }
+    public func setColor(color : XmlColor?) {
+        self.color = color;
+    }
+    
     public func getColor() -> XmlColor? {
         return self.color;
     }
+    public func setComplexScript(complexScript : Bool?) {
+        self.complexScript = complexScript;
+    }
+    
     public func getComplexScript() -> Bool? {
         return self.complexScript;
     }
+    public func setDoubleStrikeThrough(doubleStrikeThrough : Bool?) {
+        self.doubleStrikeThrough = doubleStrikeThrough;
+    }
+    
     public func getDoubleStrikeThrough() -> Bool? {
         return self.doubleStrikeThrough;
     }
+    public func setEmboss(emboss : Bool?) {
+        self.emboss = emboss;
+    }
+    
     public func getEmboss() -> Bool? {
         return self.emboss;
     }
+    public func setEngrave(engrave : Bool?) {
+        self.engrave = engrave;
+    }
+    
     public func getEngrave() -> Bool? {
         return self.engrave;
     }
+    public func setHidden(hidden : Bool?) {
+        self.hidden = hidden;
+    }
+    
     public func getHidden() -> Bool? {
         return self.hidden;
     }
+    public func setHighlightColor(highlightColor : XmlColor?) {
+        self.highlightColor = highlightColor;
+    }
+    
     public func getHighlightColor() -> XmlColor? {
         return self.highlightColor;
     }
+    public func setItalic(italic : Bool?) {
+        self.italic = italic;
+    }
+    
     public func getItalic() -> Bool? {
         return self.italic;
     }
+    public func setItalicBi(italicBi : Bool?) {
+        self.italicBi = italicBi;
+    }
+    
     public func getItalicBi() -> Bool? {
         return self.italicBi;
     }
+    public func setKerning(kerning : Double?) {
+        self.kerning = kerning;
+    }
+    
     public func getKerning() -> Double? {
         return self.kerning;
     }
+    public func setLocaleId(localeId : Int?) {
+        self.localeId = localeId;
+    }
+    
     public func getLocaleId() -> Int? {
         return self.localeId;
     }
+    public func setLocaleIdBi(localeIdBi : Int?) {
+        self.localeIdBi = localeIdBi;
+    }
+    
     public func getLocaleIdBi() -> Int? {
         return self.localeIdBi;
     }
+    public func setLocaleIdFarEast(localeIdFarEast : Int?) {
+        self.localeIdFarEast = localeIdFarEast;
+    }
+    
     public func getLocaleIdFarEast() -> Int? {
         return self.localeIdFarEast;
     }
+    public func setName(name : String?) {
+        self.name = name;
+    }
+    
     public func getName() -> String? {
         return self.name;
     }
+    public func setNameAscii(nameAscii : String?) {
+        self.nameAscii = nameAscii;
+    }
+    
     public func getNameAscii() -> String? {
         return self.nameAscii;
     }
+    public func setNameBi(nameBi : String?) {
+        self.nameBi = nameBi;
+    }
+    
     public func getNameBi() -> String? {
         return self.nameBi;
     }
+    public func setNameFarEast(nameFarEast : String?) {
+        self.nameFarEast = nameFarEast;
+    }
+    
     public func getNameFarEast() -> String? {
         return self.nameFarEast;
     }
+    public func setNameOther(nameOther : String?) {
+        self.nameOther = nameOther;
+    }
+    
     public func getNameOther() -> String? {
         return self.nameOther;
     }
+    public func setNoProofing(noProofing : Bool?) {
+        self.noProofing = noProofing;
+    }
+    
     public func getNoProofing() -> Bool? {
         return self.noProofing;
     }
+    public func setOutline(outline : Bool?) {
+        self.outline = outline;
+    }
+    
     public func getOutline() -> Bool? {
         return self.outline;
     }
+    public func setPosition(position : Double?) {
+        self.position = position;
+    }
+    
     public func getPosition() -> Double? {
         return self.position;
     }
+    public func setScaling(scaling : Int?) {
+        self.scaling = scaling;
+    }
+    
     public func getScaling() -> Int? {
         return self.scaling;
     }
+    public func setShadow(shadow : Bool?) {
+        self.shadow = shadow;
+    }
+    
     public func getShadow() -> Bool? {
         return self.shadow;
     }
+    public func setSize(size : Double?) {
+        self.size = size;
+    }
+    
     public func getSize() -> Double? {
         return self.size;
     }
+    public func setSizeBi(sizeBi : Double?) {
+        self.sizeBi = sizeBi;
+    }
+    
     public func getSizeBi() -> Double? {
         return self.sizeBi;
     }
+    public func setSmallCaps(smallCaps : Bool?) {
+        self.smallCaps = smallCaps;
+    }
+    
     public func getSmallCaps() -> Bool? {
         return self.smallCaps;
     }
+    public func setSpacing(spacing : Double?) {
+        self.spacing = spacing;
+    }
+    
     public func getSpacing() -> Double? {
         return self.spacing;
     }
+    public func setStrikeThrough(strikeThrough : Bool?) {
+        self.strikeThrough = strikeThrough;
+    }
+    
     public func getStrikeThrough() -> Bool? {
         return self.strikeThrough;
     }
+    public func setStyleIdentifier(styleIdentifier : StyleIdentifier?) {
+        self.styleIdentifier = styleIdentifier;
+    }
+    
     public func getStyleIdentifier() -> StyleIdentifier? {
         return self.styleIdentifier;
     }
+    public func setStyleName(styleName : String?) {
+        self.styleName = styleName;
+    }
+    
     public func getStyleName() -> String? {
         return self.styleName;
     }
+    public func setSubscript(_subscript : Bool?) {
+        self._subscript = _subscript;
+    }
+    
     public func getSubscript() -> Bool? {
         return self._subscript;
     }
+    public func setSuperscript(superscript : Bool?) {
+        self.superscript = superscript;
+    }
+    
     public func getSuperscript() -> Bool? {
         return self.superscript;
     }
+    public func setTextEffect(textEffect : TextEffect?) {
+        self.textEffect = textEffect;
+    }
+    
     public func getTextEffect() -> TextEffect? {
         return self.textEffect;
     }
+    public func setUnderline(underline : Underline?) {
+        self.underline = underline;
+    }
+    
     public func getUnderline() -> Underline? {
         return self.underline;
     }
+    public func setUnderlineColor(underlineColor : XmlColor?) {
+        self.underlineColor = underlineColor;
+    }
+    
     public func getUnderlineColor() -> XmlColor? {
         return self.underlineColor;
     }

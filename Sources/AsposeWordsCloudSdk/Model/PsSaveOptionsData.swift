@@ -30,14 +30,15 @@ import Foundation
 public class PsSaveOptionsData : FixedPageSaveOptionsData {
         
     // Gets or sets determines whether the document should be saved using a booklet printing layout.
-    private let useBookFoldPrintingSettings : Bool?;
+    private var useBookFoldPrintingSettings : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case useBookFoldPrintingSettings;
+        case invalidCodingKey;
     }
         
-    public init(useBookFoldPrintingSettings : Bool? = nil) {
-        self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class PsSaveOptionsData : FixedPageSaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setUseBookFoldPrintingSettings(useBookFoldPrintingSettings : Bool?) {
+        self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+    }
+    
     public func getUseBookFoldPrintingSettings() -> Bool? {
         return self.useBookFoldPrintingSettings;
     }

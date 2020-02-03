@@ -30,14 +30,15 @@ import Foundation
 public class WordMLSaveOptionsData : SaveOptionsData {
         
     // Gets or sets specifies whether or not use pretty formats output.
-    private let prettyFormat : Bool?;
+    private var prettyFormat : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case prettyFormat;
+        case invalidCodingKey;
     }
         
-    public init(prettyFormat : Bool? = nil) {
-        self.prettyFormat = prettyFormat;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class WordMLSaveOptionsData : SaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setPrettyFormat(prettyFormat : Bool?) {
+        self.prettyFormat = prettyFormat;
+    }
+    
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }

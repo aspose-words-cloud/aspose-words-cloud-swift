@@ -36,6 +36,7 @@ public class CreateDocumentRequest : Codable {
         case storage;
         case fileName;
         case folder;
+        case invalidCodingKey;
     }
     
     public init(storage : String? = null, fileName : String? = null, folder : String? = null) {
@@ -46,7 +47,6 @@ public class CreateDocumentRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.storage = try container.decodeIfPresent(.self, forKey: .storage);
         self.fileName = try container.decodeIfPresent(.self, forKey: .fileName);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
@@ -63,7 +63,6 @@ public class CreateDocumentRequest : Codable {
         if (self.folder != nil) {
             try container.encode(self.folder, forKey: .folder);
         }
-        
     }
     
     public func getStorage() -> String? {

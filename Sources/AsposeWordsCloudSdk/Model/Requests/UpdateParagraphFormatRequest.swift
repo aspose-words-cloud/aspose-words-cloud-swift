@@ -52,6 +52,7 @@ public class UpdateParagraphFormatRequest : Codable {
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
+        case invalidCodingKey;
     }
     
     public init(name : String, dto : ParagraphFormat, nodePath : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null) {
@@ -70,7 +71,6 @@ public class UpdateParagraphFormatRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.dto = try container.decode(.self, forKey: .dto);
         self.nodePath = try container.decode(.self, forKey: .nodePath);
@@ -111,7 +111,6 @@ public class UpdateParagraphFormatRequest : Codable {
         if (self.revisionDateTime != nil) {
             try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
         }
-        
     }
     
     public func getName() -> String {

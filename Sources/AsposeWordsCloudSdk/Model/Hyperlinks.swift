@@ -30,14 +30,15 @@ import Foundation
 public class Hyperlinks : LinkElement {
         
     // Gets or sets array of .
-    private let hyperlinkList : [Hyperlink]?;
+    private var hyperlinkList : [Hyperlink]?;
         
     private enum CodingKeys: String, CodingKey {
         case hyperlinkList;
+        case invalidCodingKey;
     }
         
-    public init(hyperlinkList : [Hyperlink]? = nil) {
-        self.hyperlinkList = hyperlinkList;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class Hyperlinks : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setHyperlinkList(hyperlinkList : [Hyperlink]?) {
+        self.hyperlinkList = hyperlinkList;
+    }
+    
     public func getHyperlinkList() -> [Hyperlink]? {
         return self.hyperlinkList;
     }

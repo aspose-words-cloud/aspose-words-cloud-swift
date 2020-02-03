@@ -30,14 +30,15 @@ import Foundation
 public class WordsApiErrorResponse : WordsResponse {
         
     // Gets or sets error.
-    private let error : ApiError?;
+    private var error : ApiError?;
         
     private enum CodingKeys: String, CodingKey {
         case error;
+        case invalidCodingKey;
     }
         
-    public init(error : ApiError? = nil) {
-        self.error = error;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class WordsApiErrorResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setError(error : ApiError?) {
+        self.error = error;
+    }
+    
     public func getError() -> ApiError? {
         return self.error;
     }

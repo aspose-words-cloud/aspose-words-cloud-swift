@@ -48,6 +48,7 @@ public class InsertFootnoteWithoutNodePathRequest : Codable {
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
+        case invalidCodingKey;
     }
     
     public init(name : String, footnoteDto : Footnote, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null) {
@@ -64,7 +65,6 @@ public class InsertFootnoteWithoutNodePathRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.footnoteDto = try container.decode(.self, forKey: .footnoteDto);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
@@ -101,7 +101,6 @@ public class InsertFootnoteWithoutNodePathRequest : Codable {
         if (self.revisionDateTime != nil) {
             try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
         }
-        
     }
     
     public func getName() -> String {

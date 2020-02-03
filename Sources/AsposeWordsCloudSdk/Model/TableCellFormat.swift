@@ -95,29 +95,29 @@ public class TableCellFormat : LinkElement {
 
         
     // Gets or sets returns or sets the amount of space (in points) to add below the contents of cell.
-    private let bottomPadding : Double?;
+    private var bottomPadding : Double?;
     // Gets or sets if true, fits text in the cell, compressing each paragraph to the width of the cell.
-    private let fitText : Bool?;
+    private var fitText : Bool?;
     // Gets or sets specifies how the cell is merged horizontally with other cells in the row.
-    private let horizontalMerge : HorizontalMerge?;
+    private var horizontalMerge : HorizontalMerge?;
     // Gets or sets returns or sets the amount of space (in points) to add to the left of the contents of cell.
-    private let leftPadding : Double?;
+    private var leftPadding : Double?;
     // Gets or sets returns or sets the orientation of text in a table cell.
-    private let orientation : Orientation?;
+    private var orientation : Orientation?;
     // Gets or sets returns or sets the preferred width of the cell.
-    private let preferredWidth : PreferredWidth?;
+    private var preferredWidth : PreferredWidth?;
     // Gets or sets returns or sets the amount of space (in points) to add to the right of the contents of cell.
-    private let rightPadding : Double?;
+    private var rightPadding : Double?;
     // Gets or sets returns or sets the amount of space (in points) to add above the contents of cell.
-    private let topPadding : Double?;
+    private var topPadding : Double?;
     // Gets or sets returns or sets the vertical alignment of text in the cell.
-    private let verticalAlignment : VerticalAlignment?;
+    private var verticalAlignment : VerticalAlignment?;
     // Gets or sets specifies how the cell is merged with other cells vertically.
-    private let verticalMerge : VerticalMerge?;
+    private var verticalMerge : VerticalMerge?;
     // Gets or sets the width of the cell in points.
-    private let width : Double?;
+    private var width : Double?;
     // Gets or sets if true, wrap text for the cell.
-    private let wrapText : Bool?;
+    private var wrapText : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case bottomPadding;
@@ -132,21 +132,11 @@ public class TableCellFormat : LinkElement {
         case verticalMerge;
         case width;
         case wrapText;
+        case invalidCodingKey;
     }
         
-    public init(bottomPadding : Double? = nil, fitText : Bool? = nil, horizontalMerge : HorizontalMerge? = nil, leftPadding : Double? = nil, orientation : Orientation? = nil, preferredWidth : PreferredWidth? = nil, rightPadding : Double? = nil, topPadding : Double? = nil, verticalAlignment : VerticalAlignment? = nil, verticalMerge : VerticalMerge? = nil, width : Double? = nil, wrapText : Bool? = nil) {
-        self.bottomPadding = bottomPadding;
-        self.fitText = fitText;
-        self.horizontalMerge = horizontalMerge;
-        self.leftPadding = leftPadding;
-        self.orientation = orientation;
-        self.preferredWidth = preferredWidth;
-        self.rightPadding = rightPadding;
-        self.topPadding = topPadding;
-        self.verticalAlignment = verticalAlignment;
-        self.verticalMerge = verticalMerge;
-        self.width = width;
-        self.wrapText = wrapText;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -207,39 +197,87 @@ public class TableCellFormat : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setBottomPadding(bottomPadding : Double?) {
+        self.bottomPadding = bottomPadding;
+    }
+    
     public func getBottomPadding() -> Double? {
         return self.bottomPadding;
     }
+    public func setFitText(fitText : Bool?) {
+        self.fitText = fitText;
+    }
+    
     public func getFitText() -> Bool? {
         return self.fitText;
     }
+    public func setHorizontalMerge(horizontalMerge : HorizontalMerge?) {
+        self.horizontalMerge = horizontalMerge;
+    }
+    
     public func getHorizontalMerge() -> HorizontalMerge? {
         return self.horizontalMerge;
     }
+    public func setLeftPadding(leftPadding : Double?) {
+        self.leftPadding = leftPadding;
+    }
+    
     public func getLeftPadding() -> Double? {
         return self.leftPadding;
     }
+    public func setOrientation(orientation : Orientation?) {
+        self.orientation = orientation;
+    }
+    
     public func getOrientation() -> Orientation? {
         return self.orientation;
     }
+    public func setPreferredWidth(preferredWidth : PreferredWidth?) {
+        self.preferredWidth = preferredWidth;
+    }
+    
     public func getPreferredWidth() -> PreferredWidth? {
         return self.preferredWidth;
     }
+    public func setRightPadding(rightPadding : Double?) {
+        self.rightPadding = rightPadding;
+    }
+    
     public func getRightPadding() -> Double? {
         return self.rightPadding;
     }
+    public func setTopPadding(topPadding : Double?) {
+        self.topPadding = topPadding;
+    }
+    
     public func getTopPadding() -> Double? {
         return self.topPadding;
     }
+    public func setVerticalAlignment(verticalAlignment : VerticalAlignment?) {
+        self.verticalAlignment = verticalAlignment;
+    }
+    
     public func getVerticalAlignment() -> VerticalAlignment? {
         return self.verticalAlignment;
     }
+    public func setVerticalMerge(verticalMerge : VerticalMerge?) {
+        self.verticalMerge = verticalMerge;
+    }
+    
     public func getVerticalMerge() -> VerticalMerge? {
         return self.verticalMerge;
     }
+    public func setWidth(width : Double?) {
+        self.width = width;
+    }
+    
     public func getWidth() -> Double? {
         return self.width;
     }
+    public func setWrapText(wrapText : Bool?) {
+        self.wrapText = wrapText;
+    }
+    
     public func getWrapText() -> Bool? {
         return self.wrapText;
     }

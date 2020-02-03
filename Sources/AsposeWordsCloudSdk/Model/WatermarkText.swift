@@ -30,18 +30,18 @@ import Foundation
 public class WatermarkText : Codable {
         
     // Gets or sets the watermark text.
-    private let text : String?;
+    private var text : String?;
     // Gets or sets the watermark rotation angle.
-    private let rotationAngle : Double;
+    private var rotationAngle : Double?;
         
     private enum CodingKeys: String, CodingKey {
         case text;
         case rotationAngle;
+        case invalidCodingKey;
     }
         
-    public init(text : String? = nil, rotationAngle : Double) {
-        self.text = text;
-        self.rotationAngle = rotationAngle;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -56,14 +56,25 @@ public class WatermarkText : Codable {
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
         }
+        if (self.rotationAngle == nil) {
+            throw WordsApiError.requiredArgumentError("rotationAngle");
+        }
         try container.encode(self.rotationAngle, forKey: .rotationAngle);
         
     }
         
+    public func setText(text : String?) {
+        self.text = text;
+    }
+    
     public func getText() -> String? {
         return self.text;
     }
+    public func setRotationAngle(rotationAngle : Double) {
+        self.rotationAngle = rotationAngle;
+    }
+    
     public func getRotationAngle() -> Double {
-        return self.rotationAngle;
+        return self.rotationAngle!;
     }
 }

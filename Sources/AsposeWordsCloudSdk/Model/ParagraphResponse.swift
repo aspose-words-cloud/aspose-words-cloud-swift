@@ -30,14 +30,15 @@ import Foundation
 public class ParagraphResponse : WordsResponse {
         
     // Gets or sets paragraph.
-    private let paragraph : Paragraph?;
+    private var paragraph : Paragraph?;
         
     private enum CodingKeys: String, CodingKey {
         case paragraph;
+        case invalidCodingKey;
     }
         
-    public init(paragraph : Paragraph? = nil) {
-        self.paragraph = paragraph;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class ParagraphResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setParagraph(paragraph : Paragraph?) {
+        self.paragraph = paragraph;
+    }
+    
     public func getParagraph() -> Paragraph? {
         return self.paragraph;
     }

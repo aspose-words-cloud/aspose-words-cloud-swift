@@ -30,22 +30,21 @@ import Foundation
 public class CompareData : Codable {
         
     // Gets or sets path to document to compare at the server.
-    private let comparingWithDocument : String?;
+    private var comparingWithDocument : String?;
     // Gets or sets initials of the author to use for revisions.
-    private let author : String?;
+    private var author : String?;
     // Gets or sets the date and time to use for revisions.             
-    private let dateTime : Date?;
+    private var dateTime : Date?;
         
     private enum CodingKeys: String, CodingKey {
         case comparingWithDocument;
         case author;
         case dateTime;
+        case invalidCodingKey;
     }
         
-    public init(comparingWithDocument : String? = nil, author : String? = nil, dateTime : Date? = nil) {
-        self.comparingWithDocument = comparingWithDocument;
-        self.author = author;
-        self.dateTime = dateTime;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -70,12 +69,24 @@ public class CompareData : Codable {
         
     }
         
+    public func setComparingWithDocument(comparingWithDocument : String?) {
+        self.comparingWithDocument = comparingWithDocument;
+    }
+    
     public func getComparingWithDocument() -> String? {
         return self.comparingWithDocument;
     }
+    public func setAuthor(author : String?) {
+        self.author = author;
+    }
+    
     public func getAuthor() -> String? {
         return self.author;
     }
+    public func setDateTime(dateTime : Date?) {
+        self.dateTime = dateTime;
+    }
+    
     public func getDateTime() -> Date? {
         return self.dateTime;
     }

@@ -30,18 +30,18 @@ import Foundation
 public class TableRowInsert : Codable {
         
     // Gets or sets table row will be inserted after row with specified 0-based index.
-    private let insertAfter : Int?;
+    private var insertAfter : Int?;
     // Gets or sets count of columns. Default is 1.
-    private let columnsCount : Int;
+    private var columnsCount : Int?;
         
     private enum CodingKeys: String, CodingKey {
         case insertAfter;
         case columnsCount;
+        case invalidCodingKey;
     }
         
-    public init(insertAfter : Int? = nil, columnsCount : Int) {
-        self.insertAfter = insertAfter;
-        self.columnsCount = columnsCount;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -56,14 +56,25 @@ public class TableRowInsert : Codable {
         if (self.insertAfter != nil) {
             try container.encode(self.insertAfter, forKey: .insertAfter);
         }
+        if (self.columnsCount == nil) {
+            throw WordsApiError.requiredArgumentError("columnsCount");
+        }
         try container.encode(self.columnsCount, forKey: .columnsCount);
         
     }
         
+    public func setInsertAfter(insertAfter : Int?) {
+        self.insertAfter = insertAfter;
+    }
+    
     public func getInsertAfter() -> Int? {
         return self.insertAfter;
     }
+    public func setColumnsCount(columnsCount : Int) {
+        self.columnsCount = columnsCount;
+    }
+    
     public func getColumnsCount() -> Int {
-        return self.columnsCount;
+        return self.columnsCount!;
     }
 }

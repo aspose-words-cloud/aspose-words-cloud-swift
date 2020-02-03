@@ -30,18 +30,18 @@ import Foundation
 public class FilesUploadResult : Codable {
         
     // List of uploaded file names
-    private let uploaded : [String]?;
+    private var uploaded : [String]?;
     // List of errors.
-    private let errors : [ModelError]?;
+    private var errors : [ModelError]?;
         
     private enum CodingKeys: String, CodingKey {
         case uploaded;
         case errors;
+        case invalidCodingKey;
     }
         
-    public init(uploaded : [String]? = nil, errors : [ModelError]? = nil) {
-        self.uploaded = uploaded;
-        self.errors = errors;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class FilesUploadResult : Codable {
         
     }
         
+    public func setUploaded(uploaded : [String]?) {
+        self.uploaded = uploaded;
+    }
+    
     public func getUploaded() -> [String]? {
         return self.uploaded;
     }
+    public func setErrors(errors : [ModelError]?) {
+        self.errors = errors;
+    }
+    
     public func getErrors() -> [ModelError]? {
         return self.errors;
     }

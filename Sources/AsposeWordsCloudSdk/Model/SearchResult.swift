@@ -30,18 +30,18 @@ import Foundation
 public class SearchResult : Codable {
         
     // Gets or sets link to result range start node.
-    private let rangeStart : DocumentPosition?;
+    private var rangeStart : DocumentPosition?;
     // Gets or sets link to result range end node.
-    private let rangeEnd : DocumentPosition?;
+    private var rangeEnd : DocumentPosition?;
         
     private enum CodingKeys: String, CodingKey {
         case rangeStart;
         case rangeEnd;
+        case invalidCodingKey;
     }
         
-    public init(rangeStart : DocumentPosition? = nil, rangeEnd : DocumentPosition? = nil) {
-        self.rangeStart = rangeStart;
-        self.rangeEnd = rangeEnd;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class SearchResult : Codable {
         
     }
         
+    public func setRangeStart(rangeStart : DocumentPosition?) {
+        self.rangeStart = rangeStart;
+    }
+    
     public func getRangeStart() -> DocumentPosition? {
         return self.rangeStart;
     }
+    public func setRangeEnd(rangeEnd : DocumentPosition?) {
+        self.rangeEnd = rangeEnd;
+    }
+    
     public func getRangeEnd() -> DocumentPosition? {
         return self.rangeEnd;
     }

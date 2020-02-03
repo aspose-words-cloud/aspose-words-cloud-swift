@@ -42,6 +42,7 @@ public class GetDocumentFieldNamesRequest : Codable {
         case loadEncoding;
         case password;
         case useNonMergeFields;
+        case invalidCodingKey;
     }
     
     public init(name : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, useNonMergeFields : Bool? = null) {
@@ -55,7 +56,6 @@ public class GetDocumentFieldNamesRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
         self.storage = try container.decodeIfPresent(.self, forKey: .storage);
@@ -82,7 +82,6 @@ public class GetDocumentFieldNamesRequest : Codable {
         if (self.useNonMergeFields != nil) {
             try container.encode(self.useNonMergeFields, forKey: .useNonMergeFields);
         }
-        
     }
     
     public func getName() -> String {

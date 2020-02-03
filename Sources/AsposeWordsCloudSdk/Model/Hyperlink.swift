@@ -30,18 +30,18 @@ import Foundation
 public class Hyperlink : LinkElement {
         
     // Gets or sets hypelink&#39;s display text.
-    private let displayText : String?;
+    private var displayText : String?;
     // Gets or sets value.
-    private let value : String?;
+    private var value : String?;
         
     private enum CodingKeys: String, CodingKey {
         case displayText;
         case value;
+        case invalidCodingKey;
     }
         
-    public init(displayText : String? = nil, value : String? = nil) {
-        self.displayText = displayText;
-        self.value = value;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class Hyperlink : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setDisplayText(displayText : String?) {
+        self.displayText = displayText;
+    }
+    
     public func getDisplayText() -> String? {
         return self.displayText;
     }
+    public func setValue(value : String?) {
+        self.value = value;
+    }
+    
     public func getValue() -> String? {
         return self.value;
     }

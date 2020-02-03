@@ -44,6 +44,7 @@ public class ProtectDocumentRequest : Codable {
         case loadEncoding;
         case password;
         case destFileName;
+        case invalidCodingKey;
     }
     
     public init(name : String, protectionRequest : ProtectionRequest, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null) {
@@ -58,7 +59,6 @@ public class ProtectDocumentRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.protectionRequest = try container.decode(.self, forKey: .protectionRequest);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
@@ -87,7 +87,6 @@ public class ProtectDocumentRequest : Codable {
         if (self.destFileName != nil) {
             try container.encode(self.destFileName, forKey: .destFileName);
         }
-        
     }
     
     public func getName() -> String {

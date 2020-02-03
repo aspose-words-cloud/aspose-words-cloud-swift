@@ -30,14 +30,15 @@ import Foundation
 public class ParagraphLinkCollection : LinkElement {
         
     // Gets or sets collection of paragraph&#39;s links.
-    private let paragraphLinkList : [ParagraphLink]?;
+    private var paragraphLinkList : [ParagraphLink]?;
         
     private enum CodingKeys: String, CodingKey {
         case paragraphLinkList;
+        case invalidCodingKey;
     }
         
-    public init(paragraphLinkList : [ParagraphLink]? = nil) {
-        self.paragraphLinkList = paragraphLinkList;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class ParagraphLinkCollection : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setParagraphLinkList(paragraphLinkList : [ParagraphLink]?) {
+        self.paragraphLinkList = paragraphLinkList;
+    }
+    
     public func getParagraphLinkList() -> [ParagraphLink]? {
         return self.paragraphLinkList;
     }

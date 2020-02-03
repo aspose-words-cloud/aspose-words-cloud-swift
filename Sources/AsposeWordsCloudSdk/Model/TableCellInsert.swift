@@ -30,14 +30,15 @@ import Foundation
 public class TableCellInsert : Codable {
         
     // Gets or sets table cell will be inserted after cell with specified 0-based index.
-    private let insertAfter : Int?;
+    private var insertAfter : Int?;
         
     private enum CodingKeys: String, CodingKey {
         case insertAfter;
+        case invalidCodingKey;
     }
         
-    public init(insertAfter : Int? = nil) {
-        self.insertAfter = insertAfter;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class TableCellInsert : Codable {
         
     }
         
+    public func setInsertAfter(insertAfter : Int?) {
+        self.insertAfter = insertAfter;
+    }
+    
     public func getInsertAfter() -> Int? {
         return self.insertAfter;
     }

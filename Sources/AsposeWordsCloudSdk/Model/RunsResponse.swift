@@ -30,14 +30,15 @@ import Foundation
 public class RunsResponse : WordsResponse {
         
     // Gets or sets collection of runs.
-    private let runs : Runs?;
+    private var runs : Runs?;
         
     private enum CodingKeys: String, CodingKey {
         case runs;
+        case invalidCodingKey;
     }
         
-    public init(runs : Runs? = nil) {
-        self.runs = runs;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class RunsResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setRuns(runs : Runs?) {
+        self.runs = runs;
+    }
+    
     public func getRuns() -> Runs? {
         return self.runs;
     }

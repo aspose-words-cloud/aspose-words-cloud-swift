@@ -30,18 +30,18 @@ import Foundation
 public class ProtectionDataResponse : WordsResponse {
         
     // Gets or sets link to the document.
-    private let documentLink : FileLink?;
+    private var documentLink : FileLink?;
     // Gets or sets protection&#39;s data of the document.
-    private let protectionData : ProtectionData?;
+    private var protectionData : ProtectionData?;
         
     private enum CodingKeys: String, CodingKey {
         case documentLink;
         case protectionData;
+        case invalidCodingKey;
     }
         
-    public init(documentLink : FileLink? = nil, protectionData : ProtectionData? = nil) {
-        self.documentLink = documentLink;
-        self.protectionData = protectionData;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class ProtectionDataResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setDocumentLink(documentLink : FileLink?) {
+        self.documentLink = documentLink;
+    }
+    
     public func getDocumentLink() -> FileLink? {
         return self.documentLink;
     }
+    public func setProtectionData(protectionData : ProtectionData?) {
+        self.protectionData = protectionData;
+    }
+    
     public func getProtectionData() -> ProtectionData? {
         return self.protectionData;
     }

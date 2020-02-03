@@ -48,6 +48,7 @@ public class InsertTableWithoutNodePathRequest : Codable {
         case revisionAuthor;
         case revisionDateTime;
         case table;
+        case invalidCodingKey;
     }
     
     public init(name : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, table : TableInsert? = null) {
@@ -64,7 +65,6 @@ public class InsertTableWithoutNodePathRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
         self.storage = try container.decodeIfPresent(.self, forKey: .storage);
@@ -103,7 +103,6 @@ public class InsertTableWithoutNodePathRequest : Codable {
         if (self.table != nil) {
             try container.encode(self.table, forKey: .table);
         }
-        
     }
     
     public func getName() -> String {

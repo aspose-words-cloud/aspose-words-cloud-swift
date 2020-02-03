@@ -30,14 +30,15 @@ import Foundation
 public class RangeDocument : Codable {
         
     // Gets or sets name for new document.
-    private let documentName : String?;
+    private var documentName : String?;
         
     private enum CodingKeys: String, CodingKey {
         case documentName;
+        case invalidCodingKey;
     }
         
-    public init(documentName : String? = nil) {
-        self.documentName = documentName;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class RangeDocument : Codable {
         
     }
         
+    public func setDocumentName(documentName : String?) {
+        self.documentName = documentName;
+    }
+    
     public func getDocumentName() -> String? {
         return self.documentName;
     }

@@ -30,14 +30,15 @@ import Foundation
 public class DrawingObjectsResponse : WordsResponse {
         
     // Gets or sets collection of drawing objects.
-    private let drawingObjects : DrawingObjectCollection?;
+    private var drawingObjects : DrawingObjectCollection?;
         
     private enum CodingKeys: String, CodingKey {
         case drawingObjects;
+        case invalidCodingKey;
     }
         
-    public init(drawingObjects : DrawingObjectCollection? = nil) {
-        self.drawingObjects = drawingObjects;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class DrawingObjectsResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setDrawingObjects(drawingObjects : DrawingObjectCollection?) {
+        self.drawingObjects = drawingObjects;
+    }
+    
     public func getDrawingObjects() -> DrawingObjectCollection? {
         return self.drawingObjects;
     }

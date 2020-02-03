@@ -42,6 +42,7 @@ public class ConvertDocumentRequest : Codable {
         case outPath;
         case fileNameFieldValue;
         case fontsLocation;
+        case invalidCodingKey;
     }
     
     public init(document : URL, format : String, storage : String? = null, outPath : String? = null, fileNameFieldValue : String? = null, fontsLocation : String? = null) {
@@ -55,7 +56,6 @@ public class ConvertDocumentRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.document = try container.decode(.self, forKey: .document);
         self.format = try container.decode(.self, forKey: .format);
         self.storage = try container.decodeIfPresent(.self, forKey: .storage);
@@ -80,7 +80,6 @@ public class ConvertDocumentRequest : Codable {
         if (self.fontsLocation != nil) {
             try container.encode(self.fontsLocation, forKey: .fontsLocation);
         }
-        
     }
     
     public func getDocument() -> URL {

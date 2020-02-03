@@ -30,18 +30,18 @@ import Foundation
 public class TableRow : NodeLink {
         
     // Gets or sets provides access to the formatting properties of the row.
-    private let rowFormat : TableRowFormat?;
+    private var rowFormat : TableRowFormat?;
     // Gets or sets collection of table&#39;s rows.
-    private let tableCellList : [TableCell]?;
+    private var tableCellList : [TableCell]?;
         
     private enum CodingKeys: String, CodingKey {
         case rowFormat;
         case tableCellList;
+        case invalidCodingKey;
     }
         
-    public init(rowFormat : TableRowFormat? = nil, tableCellList : [TableCell]? = nil) {
-        self.rowFormat = rowFormat;
-        self.tableCellList = tableCellList;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class TableRow : NodeLink {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setRowFormat(rowFormat : TableRowFormat?) {
+        self.rowFormat = rowFormat;
+    }
+    
     public func getRowFormat() -> TableRowFormat? {
         return self.rowFormat;
     }
+    public func setTableCellList(tableCellList : [TableCell]?) {
+        self.tableCellList = tableCellList;
+    }
+    
     public func getTableCellList() -> [TableCell]? {
         return self.tableCellList;
     }

@@ -30,31 +30,31 @@ import Foundation
 public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         
     // Gets or sets allows to specify additional System.Drawing.Graphics quality options.
-    private let graphicsQualityOptions : GraphicsQualityOptionsData?;
+    private var graphicsQualityOptions : GraphicsQualityOptionsData?;
     // Gets or sets the horizontal resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.
-    private let horizontalResolution : Double?;
+    private var horizontalResolution : Double?;
     // Gets or sets brightness of image.
-    private let imageBrightness : Double?;
+    private var imageBrightness : Double?;
     // Gets or sets color mode of image.
-    private let imageColorMode : String?;
+    private var imageColorMode : String?;
     // Gets or sets contrast of image.
-    private let imageContrast : Double?;
+    private var imageContrast : Double?;
     // Gets or sets background (paper) color of image.
-    private let paperColor : String?;
+    private var paperColor : String?;
     // Gets or sets pixel format of image.
-    private let pixelFormat : String?;
+    private var pixelFormat : String?;
     // Gets or sets both horizontal and vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.
-    private let resolution : Double?;
+    private var resolution : Double?;
     // Gets or sets zoom factor of image.
-    private let scale : Double?;
+    private var scale : Double?;
     // Gets or sets determine whether or not to use anti-aliasing for rendering.
-    private let useAntiAliasing : Bool?;
+    private var useAntiAliasing : Bool?;
     // Gets or sets a value determining whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
-    private let useGdiEmfRenderer : Bool?;
+    private var useGdiEmfRenderer : Bool?;
     // Gets or sets determine whether or not to use high quality (i.e. slow) rendering algorithms.
-    private let useHighQualityRendering : Bool?;
+    private var useHighQualityRendering : Bool?;
     // Gets or sets the vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.
-    private let verticalResolution : Double?;
+    private var verticalResolution : Double?;
         
     private enum CodingKeys: String, CodingKey {
         case graphicsQualityOptions;
@@ -70,22 +70,11 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         case useGdiEmfRenderer;
         case useHighQualityRendering;
         case verticalResolution;
+        case invalidCodingKey;
     }
         
-    public init(graphicsQualityOptions : GraphicsQualityOptionsData? = nil, horizontalResolution : Double? = nil, imageBrightness : Double? = nil, imageColorMode : String? = nil, imageContrast : Double? = nil, paperColor : String? = nil, pixelFormat : String? = nil, resolution : Double? = nil, scale : Double? = nil, useAntiAliasing : Bool? = nil, useGdiEmfRenderer : Bool? = nil, useHighQualityRendering : Bool? = nil, verticalResolution : Double? = nil) {
-        self.graphicsQualityOptions = graphicsQualityOptions;
-        self.horizontalResolution = horizontalResolution;
-        self.imageBrightness = imageBrightness;
-        self.imageColorMode = imageColorMode;
-        self.imageContrast = imageContrast;
-        self.paperColor = paperColor;
-        self.pixelFormat = pixelFormat;
-        self.resolution = resolution;
-        self.scale = scale;
-        self.useAntiAliasing = useAntiAliasing;
-        self.useGdiEmfRenderer = useGdiEmfRenderer;
-        self.useHighQualityRendering = useHighQualityRendering;
-        self.verticalResolution = verticalResolution;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -150,42 +139,94 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setGraphicsQualityOptions(graphicsQualityOptions : GraphicsQualityOptionsData?) {
+        self.graphicsQualityOptions = graphicsQualityOptions;
+    }
+    
     public func getGraphicsQualityOptions() -> GraphicsQualityOptionsData? {
         return self.graphicsQualityOptions;
     }
+    public func setHorizontalResolution(horizontalResolution : Double?) {
+        self.horizontalResolution = horizontalResolution;
+    }
+    
     public func getHorizontalResolution() -> Double? {
         return self.horizontalResolution;
     }
+    public func setImageBrightness(imageBrightness : Double?) {
+        self.imageBrightness = imageBrightness;
+    }
+    
     public func getImageBrightness() -> Double? {
         return self.imageBrightness;
     }
+    public func setImageColorMode(imageColorMode : String?) {
+        self.imageColorMode = imageColorMode;
+    }
+    
     public func getImageColorMode() -> String? {
         return self.imageColorMode;
     }
+    public func setImageContrast(imageContrast : Double?) {
+        self.imageContrast = imageContrast;
+    }
+    
     public func getImageContrast() -> Double? {
         return self.imageContrast;
     }
+    public func setPaperColor(paperColor : String?) {
+        self.paperColor = paperColor;
+    }
+    
     public func getPaperColor() -> String? {
         return self.paperColor;
     }
+    public func setPixelFormat(pixelFormat : String?) {
+        self.pixelFormat = pixelFormat;
+    }
+    
     public func getPixelFormat() -> String? {
         return self.pixelFormat;
     }
+    public func setResolution(resolution : Double?) {
+        self.resolution = resolution;
+    }
+    
     public func getResolution() -> Double? {
         return self.resolution;
     }
+    public func setScale(scale : Double?) {
+        self.scale = scale;
+    }
+    
     public func getScale() -> Double? {
         return self.scale;
     }
+    public func setUseAntiAliasing(useAntiAliasing : Bool?) {
+        self.useAntiAliasing = useAntiAliasing;
+    }
+    
     public func getUseAntiAliasing() -> Bool? {
         return self.useAntiAliasing;
     }
+    public func setUseGdiEmfRenderer(useGdiEmfRenderer : Bool?) {
+        self.useGdiEmfRenderer = useGdiEmfRenderer;
+    }
+    
     public func getUseGdiEmfRenderer() -> Bool? {
         return self.useGdiEmfRenderer;
     }
+    public func setUseHighQualityRendering(useHighQualityRendering : Bool?) {
+        self.useHighQualityRendering = useHighQualityRendering;
+    }
+    
     public func getUseHighQualityRendering() -> Bool? {
         return self.useHighQualityRendering;
     }
+    public func setVerticalResolution(verticalResolution : Double?) {
+        self.verticalResolution = verticalResolution;
+    }
+    
     public func getVerticalResolution() -> Double? {
         return self.verticalResolution;
     }

@@ -30,14 +30,15 @@ import Foundation
 public class FieldResponse : WordsResponse {
         
     // Gets or sets field information.
-    private let field : Field?;
+    private var field : Field?;
         
     private enum CodingKeys: String, CodingKey {
         case field;
+        case invalidCodingKey;
     }
         
-    public init(field : Field? = nil) {
-        self.field = field;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class FieldResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setField(field : Field?) {
+        self.field = field;
+    }
+    
     public func getField() -> Field? {
         return self.field;
     }

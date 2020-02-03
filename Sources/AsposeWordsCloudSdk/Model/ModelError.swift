@@ -30,26 +30,24 @@ import Foundation
 public class ModelError : Codable {
         
     // Code             
-    private let code : String?;
+    private var code : String?;
     // Message             
-    private let message : String?;
+    private var message : String?;
     // Description             
-    private let _description : String?;
+    private var _description : String?;
     // Inner Error             
-    private let innerError : ErrorDetails?;
+    private var innerError : ErrorDetails?;
         
     private enum CodingKeys: String, CodingKey {
         case code;
         case message;
         case _description;
         case innerError;
+        case invalidCodingKey;
     }
         
-    public init(code : String? = nil, message : String? = nil, _description : String? = nil, innerError : ErrorDetails? = nil) {
-        self.code = code;
-        self.message = message;
-        self._description = _description;
-        self.innerError = innerError;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -78,15 +76,31 @@ public class ModelError : Codable {
         
     }
         
+    public func setCode(code : String?) {
+        self.code = code;
+    }
+    
     public func getCode() -> String? {
         return self.code;
     }
+    public func setMessage(message : String?) {
+        self.message = message;
+    }
+    
     public func getMessage() -> String? {
         return self.message;
     }
+    public func setDescription(_description : String?) {
+        self._description = _description;
+    }
+    
     public func getDescription() -> String? {
         return self._description;
     }
+    public func setInnerError(innerError : ErrorDetails?) {
+        self.innerError = innerError;
+    }
+    
     public func getInnerError() -> ErrorDetails? {
         return self.innerError;
     }

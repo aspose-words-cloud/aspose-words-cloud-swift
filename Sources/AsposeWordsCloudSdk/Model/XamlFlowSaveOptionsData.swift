@@ -30,18 +30,18 @@ import Foundation
 public class XamlFlowSaveOptionsData : SaveOptionsData {
         
     // Gets or sets specifies the physical folder where images are saved when exporting.
-    private let imagesFolder : String?;
+    private var imagesFolder : String?;
     // Gets or sets specifies the name of the folder used to construct image URIs.
-    private let imagesFolderAlias : String?;
+    private var imagesFolderAlias : String?;
         
     private enum CodingKeys: String, CodingKey {
         case imagesFolder;
         case imagesFolderAlias;
+        case invalidCodingKey;
     }
         
-    public init(imagesFolder : String? = nil, imagesFolderAlias : String? = nil) {
-        self.imagesFolder = imagesFolder;
-        self.imagesFolderAlias = imagesFolderAlias;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setImagesFolder(imagesFolder : String?) {
+        self.imagesFolder = imagesFolder;
+    }
+    
     public func getImagesFolder() -> String? {
         return self.imagesFolder;
     }
+    public func setImagesFolderAlias(imagesFolderAlias : String?) {
+        self.imagesFolderAlias = imagesFolderAlias;
+    }
+    
     public func getImagesFolderAlias() -> String? {
         return self.imagesFolderAlias;
     }

@@ -44,18 +44,18 @@ public class PreferredWidth : Codable {
 
         
     // Gets or sets the unit of measure used for this preferred width value.
-    private let type : ModelType;
+    private var type : ModelType?;
     // Gets or sets the preferred width value. The unit of measure is specified in the  property.
-    private let value : Double?;
+    private var value : Double?;
         
     private enum CodingKeys: String, CodingKey {
         case type;
         case value;
+        case invalidCodingKey;
     }
         
-    public init(type : ModelType, value : Double? = nil) {
-        self.type = type;
-        self.value = value;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -67,6 +67,9 @@ public class PreferredWidth : Codable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.type == nil) {
+            throw WordsApiError.requiredArgumentError("type");
+        }
         try container.encode(self.type, forKey: .type);
         if (self.value != nil) {
             try container.encode(self.value, forKey: .value);
@@ -74,9 +77,17 @@ public class PreferredWidth : Codable {
         
     }
         
-    public func getType() -> ModelType {
-        return self.type;
+    public func setType(type : ModelType) {
+        self.type = type;
     }
+    
+    public func getType() -> ModelType {
+        return self.type!;
+    }
+    public func setValue(value : Double?) {
+        self.value = value;
+    }
+    
     public func getValue() -> Double? {
         return self.value;
     }

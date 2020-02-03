@@ -30,14 +30,15 @@ import Foundation
 public class FieldLink : NodeLink {
         
     // Gets or sets field code.
-    private let fieldCode : String?;
+    private var fieldCode : String?;
         
     private enum CodingKeys: String, CodingKey {
         case fieldCode;
+        case invalidCodingKey;
     }
         
-    public init(fieldCode : String? = nil) {
-        self.fieldCode = fieldCode;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class FieldLink : NodeLink {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setFieldCode(fieldCode : String?) {
+        self.fieldCode = fieldCode;
+    }
+    
     public func getFieldCode() -> String? {
         return self.fieldCode;
     }

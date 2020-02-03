@@ -30,14 +30,15 @@ import Foundation
 public class ParagraphInsert : Codable {
         
     // Gets or sets paragraph&#39;s text.
-    private let text : String?;
+    private var text : String?;
         
     private enum CodingKeys: String, CodingKey {
         case text;
+        case invalidCodingKey;
     }
         
-    public init(text : String? = nil) {
-        self.text = text;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class ParagraphInsert : Codable {
         
     }
         
+    public func setText(text : String?) {
+        self.text = text;
+    }
+    
     public func getText() -> String? {
         return self.text;
     }

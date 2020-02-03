@@ -30,14 +30,15 @@ import Foundation
 public class EpubSaveOptionsData : HtmlSaveOptionsData {
         
     // Gets or sets specifies the maximum level of headings populated to the navigation map when exporting.
-    private let epubNavigationMapLevel : Int?;
+    private var epubNavigationMapLevel : Int?;
         
     private enum CodingKeys: String, CodingKey {
         case epubNavigationMapLevel;
+        case invalidCodingKey;
     }
         
-    public init(epubNavigationMapLevel : Int? = nil) {
-        self.epubNavigationMapLevel = epubNavigationMapLevel;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setEpubNavigationMapLevel(epubNavigationMapLevel : Int?) {
+        self.epubNavigationMapLevel = epubNavigationMapLevel;
+    }
+    
     public func getEpubNavigationMapLevel() -> Int? {
         return self.epubNavigationMapLevel;
     }

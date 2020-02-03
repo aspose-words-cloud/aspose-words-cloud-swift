@@ -44,6 +44,7 @@ public class CompareDocumentRequest : Codable {
         case loadEncoding;
         case password;
         case destFileName;
+        case invalidCodingKey;
     }
     
     public init(name : String, compareData : CompareData, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null) {
@@ -58,7 +59,6 @@ public class CompareDocumentRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.compareData = try container.decode(.self, forKey: .compareData);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
@@ -87,7 +87,6 @@ public class CompareDocumentRequest : Codable {
         if (self.destFileName != nil) {
             try container.encode(self.destFileName, forKey: .destFileName);
         }
-        
     }
     
     public func getName() -> String {

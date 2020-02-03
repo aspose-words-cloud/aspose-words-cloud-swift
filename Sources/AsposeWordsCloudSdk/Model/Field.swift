@@ -30,18 +30,18 @@ import Foundation
 public class Field : FieldLink {
         
     // Gets or sets LCID of the field.
-    private let localeId : String?;
+    private var localeId : String?;
     // Gets or sets field result.
-    private let result : String?;
+    private var result : String?;
         
     private enum CodingKeys: String, CodingKey {
         case localeId;
         case result;
+        case invalidCodingKey;
     }
         
-    public init(localeId : String? = nil, result : String? = nil) {
-        self.localeId = localeId;
-        self.result = result;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class Field : FieldLink {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setLocaleId(localeId : String?) {
+        self.localeId = localeId;
+    }
+    
     public func getLocaleId() -> String? {
         return self.localeId;
     }
+    public func setResult(result : String?) {
+        self.result = result;
+    }
+    
     public func getResult() -> String? {
         return self.result;
     }

@@ -30,14 +30,15 @@ import Foundation
 public class CommentsCollection : LinkElement {
         
     // Gets or sets collection of comments.
-    private let commentList : [Comment]?;
+    private var commentList : [Comment]?;
         
     private enum CodingKeys: String, CodingKey {
         case commentList;
+        case invalidCodingKey;
     }
         
-    public init(commentList : [Comment]? = nil) {
-        self.commentList = commentList;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class CommentsCollection : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setCommentList(commentList : [Comment]?) {
+        self.commentList = commentList;
+    }
+    
     public func getCommentList() -> [Comment]? {
         return self.commentList;
     }

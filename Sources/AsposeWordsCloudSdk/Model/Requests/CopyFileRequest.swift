@@ -40,6 +40,7 @@ public class CopyFileRequest : Codable {
         case srcStorageName;
         case destStorageName;
         case versionId;
+        case invalidCodingKey;
     }
     
     public init(destPath : String, srcPath : String, srcStorageName : String? = null, destStorageName : String? = null, versionId : String? = null) {
@@ -52,7 +53,6 @@ public class CopyFileRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.destPath = try container.decode(.self, forKey: .destPath);
         self.srcPath = try container.decode(.self, forKey: .srcPath);
         self.srcStorageName = try container.decodeIfPresent(.self, forKey: .srcStorageName);
@@ -73,7 +73,6 @@ public class CopyFileRequest : Codable {
         if (self.versionId != nil) {
             try container.encode(self.versionId, forKey: .versionId);
         }
-        
     }
     
     public func getDestPath() -> String {

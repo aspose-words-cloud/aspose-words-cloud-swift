@@ -30,14 +30,15 @@ import Foundation
 public class ProtectionData : Codable {
         
     // Gets or sets type of the protection.
-    private let protectionType : String?;
+    private var protectionType : String?;
         
     private enum CodingKeys: String, CodingKey {
         case protectionType;
+        case invalidCodingKey;
     }
         
-    public init(protectionType : String? = nil) {
-        self.protectionType = protectionType;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class ProtectionData : Codable {
         
     }
         
+    public func setProtectionType(protectionType : String?) {
+        self.protectionType = protectionType;
+    }
+    
     public func getProtectionType() -> String? {
         return self.protectionType;
     }

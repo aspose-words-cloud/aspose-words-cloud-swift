@@ -30,14 +30,15 @@ import Foundation
 public class Runs : LinkElement {
         
     // Gets or sets collection of fields.
-    private let list : [Run]?;
+    private var list : [Run]?;
         
     private enum CodingKeys: String, CodingKey {
         case list;
+        case invalidCodingKey;
     }
         
-    public init(list : [Run]? = nil) {
-        self.list = list;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class Runs : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setList(list : [Run]?) {
+        self.list = list;
+    }
+    
     public func getList() -> [Run]? {
         return self.list;
     }

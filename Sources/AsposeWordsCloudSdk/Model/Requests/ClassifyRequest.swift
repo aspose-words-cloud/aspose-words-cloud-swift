@@ -34,6 +34,7 @@ public class ClassifyRequest : Codable {
     private enum CodingKeys: String, CodingKey {
         case text;
         case bestClassesCount;
+        case invalidCodingKey;
     }
     
     public init(text : String, bestClassesCount : String? = null) {
@@ -43,7 +44,6 @@ public class ClassifyRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.text = try container.decode(.self, forKey: .text);
         self.bestClassesCount = try container.decodeIfPresent(.self, forKey: .bestClassesCount);
     }
@@ -54,7 +54,6 @@ public class ClassifyRequest : Codable {
         if (self.bestClassesCount != nil) {
             try container.encode(self.bestClassesCount, forKey: .bestClassesCount);
         }
-        
     }
     
     public func getText() -> String {

@@ -30,14 +30,15 @@ import Foundation
 public class TableCellFormatResponse : WordsResponse {
         
     // Gets or sets table.
-    private let cellFormat : TableCellFormat?;
+    private var cellFormat : TableCellFormat?;
         
     private enum CodingKeys: String, CodingKey {
         case cellFormat;
+        case invalidCodingKey;
     }
         
-    public init(cellFormat : TableCellFormat? = nil) {
-        self.cellFormat = cellFormat;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class TableCellFormatResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setCellFormat(cellFormat : TableCellFormat?) {
+        self.cellFormat = cellFormat;
+    }
+    
     public func getCellFormat() -> TableCellFormat? {
         return self.cellFormat;
     }

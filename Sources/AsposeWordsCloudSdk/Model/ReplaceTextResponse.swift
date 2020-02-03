@@ -30,18 +30,18 @@ import Foundation
 public class ReplaceTextResponse : WordsResponse {
         
     // Gets or sets link to the document.
-    private let documentLink : FileLink?;
+    private var documentLink : FileLink?;
     // Gets or sets number of occurrences of the captured text in the document.
-    private let matches : Int?;
+    private var matches : Int?;
         
     private enum CodingKeys: String, CodingKey {
         case documentLink;
         case matches;
+        case invalidCodingKey;
     }
         
-    public init(documentLink : FileLink? = nil, matches : Int? = nil) {
-        self.documentLink = documentLink;
-        self.matches = matches;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class ReplaceTextResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setDocumentLink(documentLink : FileLink?) {
+        self.documentLink = documentLink;
+    }
+    
     public func getDocumentLink() -> FileLink? {
         return self.documentLink;
     }
+    public func setMatches(matches : Int?) {
+        self.matches = matches;
+    }
+    
     public func getMatches() -> Int? {
         return self.matches;
     }

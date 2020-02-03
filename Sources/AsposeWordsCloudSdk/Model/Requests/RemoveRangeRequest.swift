@@ -46,6 +46,7 @@ public class RemoveRangeRequest : Codable {
         case loadEncoding;
         case password;
         case destFileName;
+        case invalidCodingKey;
     }
     
     public init(name : String, rangeStartIdentifier : String, rangeEndIdentifier : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null) {
@@ -61,7 +62,6 @@ public class RemoveRangeRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.rangeStartIdentifier = try container.decode(.self, forKey: .rangeStartIdentifier);
         self.rangeEndIdentifier = try container.decode(.self, forKey: .rangeEndIdentifier);
@@ -92,7 +92,6 @@ public class RemoveRangeRequest : Codable {
         if (self.destFileName != nil) {
             try container.encode(self.destFileName, forKey: .destFileName);
         }
-        
     }
     
     public func getName() -> String {

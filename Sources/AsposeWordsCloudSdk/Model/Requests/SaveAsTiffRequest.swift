@@ -78,6 +78,7 @@ public class SaveAsTiffRequest : Codable {
         case tiffBinarizationMethod;
         case zipOutput;
         case fontsLocation;
+        case invalidCodingKey;
     }
     
     public init(name : String, saveOptions : TiffSaveOptionsData, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, useAntiAliasing : Bool? = null, useHighQualityRendering : Bool? = null, imageBrightness : Double? = null, imageColorMode : String? = null, imageContrast : Double? = null, numeralFormat : String? = null, pageCount : Int? = null, pageIndex : Int? = null, paperColor : String? = null, pixelFormat : String? = null, resolution : Double? = null, scale : Double? = null, tiffCompression : String? = null, dmlRenderingMode : String? = null, dmlEffectsRenderingMode : String? = null, tiffBinarizationMethod : String? = null, zipOutput : Bool? = null, fontsLocation : String? = null) {
@@ -109,7 +110,6 @@ public class SaveAsTiffRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.saveOptions = try container.decode(.self, forKey: .saveOptions);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
@@ -206,7 +206,6 @@ public class SaveAsTiffRequest : Codable {
         if (self.fontsLocation != nil) {
             try container.encode(self.fontsLocation, forKey: .fontsLocation);
         }
-        
     }
     
     public func getName() -> String {

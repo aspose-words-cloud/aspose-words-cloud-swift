@@ -30,26 +30,24 @@ import Foundation
 public class PdfEncryptionDetailsData : Codable {
         
     // Gets or sets specifies the encryption algorithm to use.
-    private let encryptionAlgorithm : String?;
+    private var encryptionAlgorithm : String?;
     // Gets or sets specifies the owner password for the encrypted PDF document.
-    private let ownerPassword : String?;
+    private var ownerPassword : String?;
     // Gets or sets specifies the operations that are allowed to a user on an encrypted PDF document.
-    private let permissions : String?;
+    private var permissions : String?;
     // Gets or sets specifies the user password required for opening the encrypted PDF document.
-    private let userPassword : String?;
+    private var userPassword : String?;
         
     private enum CodingKeys: String, CodingKey {
         case encryptionAlgorithm;
         case ownerPassword;
         case permissions;
         case userPassword;
+        case invalidCodingKey;
     }
         
-    public init(encryptionAlgorithm : String? = nil, ownerPassword : String? = nil, permissions : String? = nil, userPassword : String? = nil) {
-        self.encryptionAlgorithm = encryptionAlgorithm;
-        self.ownerPassword = ownerPassword;
-        self.permissions = permissions;
-        self.userPassword = userPassword;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -78,15 +76,31 @@ public class PdfEncryptionDetailsData : Codable {
         
     }
         
+    public func setEncryptionAlgorithm(encryptionAlgorithm : String?) {
+        self.encryptionAlgorithm = encryptionAlgorithm;
+    }
+    
     public func getEncryptionAlgorithm() -> String? {
         return self.encryptionAlgorithm;
     }
+    public func setOwnerPassword(ownerPassword : String?) {
+        self.ownerPassword = ownerPassword;
+    }
+    
     public func getOwnerPassword() -> String? {
         return self.ownerPassword;
     }
+    public func setPermissions(permissions : String?) {
+        self.permissions = permissions;
+    }
+    
     public func getPermissions() -> String? {
         return self.permissions;
     }
+    public func setUserPassword(userPassword : String?) {
+        self.userPassword = userPassword;
+    }
+    
     public func getUserPassword() -> String? {
         return self.userPassword;
     }

@@ -30,26 +30,24 @@ import Foundation
 public class PageNumber : Codable {
         
     // Gets or sets page number format, e.g. \&quot;{PAGE} of {NUMPAGES}\&quot;.
-    private let format : String?;
+    private var format : String?;
     // Gets or sets text alignment, possible values are left, right, center or justify.
-    private let alignment : String?;
+    private var alignment : String?;
     // Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.
-    private let isTop : Bool;
+    private var isTop : Bool?;
     // Gets or sets a value indicating whether if true the page number is added on first page too.
-    private let setPageNumberOnFirstPage : Bool;
+    private var setPageNumberOnFirstPage : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case format;
         case alignment;
         case isTop;
         case setPageNumberOnFirstPage;
+        case invalidCodingKey;
     }
         
-    public init(format : String? = nil, alignment : String? = nil, isTop : Bool, setPageNumberOnFirstPage : Bool) {
-        self.format = format;
-        self.alignment = alignment;
-        self.isTop = isTop;
-        self.setPageNumberOnFirstPage = setPageNumberOnFirstPage;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -69,21 +67,43 @@ public class PageNumber : Codable {
         if (self.alignment != nil) {
             try container.encode(self.alignment, forKey: .alignment);
         }
+        if (self.isTop == nil) {
+            throw WordsApiError.requiredArgumentError("isTop");
+        }
         try container.encode(self.isTop, forKey: .isTop);
+        if (self.setPageNumberOnFirstPage == nil) {
+            throw WordsApiError.requiredArgumentError("setPageNumberOnFirstPage");
+        }
         try container.encode(self.setPageNumberOnFirstPage, forKey: .setPageNumberOnFirstPage);
         
     }
         
+    public func setFormat(format : String?) {
+        self.format = format;
+    }
+    
     public func getFormat() -> String? {
         return self.format;
     }
+    public func setAlignment(alignment : String?) {
+        self.alignment = alignment;
+    }
+    
     public func getAlignment() -> String? {
         return self.alignment;
     }
-    public func getIsTop() -> Bool {
-        return self.isTop;
+    public func setIsTop(isTop : Bool) {
+        self.isTop = isTop;
     }
+    
+    public func getIsTop() -> Bool {
+        return self.isTop!;
+    }
+    public func setSetPageNumberOnFirstPage(setPageNumberOnFirstPage : Bool) {
+        self.setPageNumberOnFirstPage = setPageNumberOnFirstPage;
+    }
+    
     public func getSetPageNumberOnFirstPage() -> Bool {
-        return self.setPageNumberOnFirstPage;
+        return self.setPageNumberOnFirstPage!;
     }
 }

@@ -159,26 +159,24 @@ public class OfficeMathObject : OfficeMathLink {
 
         
     // Gets or sets content of footnote.
-    private let content : StoryChildNodes?;
+    private var content : StoryChildNodes?;
     // Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.
-    private let displayType : DisplayType?;
+    private var displayType : DisplayType?;
     // Gets or sets /sets Office Math justification.
-    private let justification : Justification?;
+    private var justification : Justification?;
     // Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
-    private let mathObjectType : MathObjectType?;
+    private var mathObjectType : MathObjectType?;
         
     private enum CodingKeys: String, CodingKey {
         case content;
         case displayType;
         case justification;
         case mathObjectType;
+        case invalidCodingKey;
     }
         
-    public init(content : StoryChildNodes? = nil, displayType : DisplayType? = nil, justification : Justification? = nil, mathObjectType : MathObjectType? = nil) {
-        self.content = content;
-        self.displayType = displayType;
-        self.justification = justification;
-        self.mathObjectType = mathObjectType;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -207,15 +205,31 @@ public class OfficeMathObject : OfficeMathLink {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setContent(content : StoryChildNodes?) {
+        self.content = content;
+    }
+    
     public func getContent() -> StoryChildNodes? {
         return self.content;
     }
+    public func setDisplayType(displayType : DisplayType?) {
+        self.displayType = displayType;
+    }
+    
     public func getDisplayType() -> DisplayType? {
         return self.displayType;
     }
+    public func setJustification(justification : Justification?) {
+        self.justification = justification;
+    }
+    
     public func getJustification() -> Justification? {
         return self.justification;
     }
+    public func setMathObjectType(mathObjectType : MathObjectType?) {
+        self.mathObjectType = mathObjectType;
+    }
+    
     public func getMathObjectType() -> MathObjectType? {
         return self.mathObjectType;
     }

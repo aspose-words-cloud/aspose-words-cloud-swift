@@ -50,6 +50,7 @@ public class DeleteTableCellRequest : Codable {
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
+        case invalidCodingKey;
     }
     
     public init(name : String, tableRowPath : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null) {
@@ -67,7 +68,6 @@ public class DeleteTableCellRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.tableRowPath = try container.decode(.self, forKey: .tableRowPath);
         self.index = try container.decode(.self, forKey: .index);
@@ -106,7 +106,6 @@ public class DeleteTableCellRequest : Codable {
         if (self.revisionDateTime != nil) {
             try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
         }
-        
     }
     
     public func getName() -> String {

@@ -52,6 +52,7 @@ public class InsertWatermarkImageRequest : Codable {
         case revisionDateTime;
         case rotationAngle;
         case image;
+        case invalidCodingKey;
     }
     
     public init(name : String, imageFile : URL? = null, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, rotationAngle : Double? = null, image : String? = null) {
@@ -70,7 +71,6 @@ public class InsertWatermarkImageRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.imageFile = try container.decodeIfPresent(.self, forKey: .imageFile);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
@@ -117,7 +117,6 @@ public class InsertWatermarkImageRequest : Codable {
         if (self.image != nil) {
             try container.encode(self.image, forKey: .image);
         }
-        
     }
     
     public func getName() -> String {

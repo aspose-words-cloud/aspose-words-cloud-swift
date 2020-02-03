@@ -30,14 +30,15 @@ import Foundation
 public class SectionLinkCollection : LinkElement {
         
     // Gets or sets collection of section&#39;s links.
-    private let sectionLinkList : [SectionLink]?;
+    private var sectionLinkList : [SectionLink]?;
         
     private enum CodingKeys: String, CodingKey {
         case sectionLinkList;
+        case invalidCodingKey;
     }
         
-    public init(sectionLinkList : [SectionLink]? = nil) {
-        self.sectionLinkList = sectionLinkList;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class SectionLinkCollection : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setSectionLinkList(sectionLinkList : [SectionLink]?) {
+        self.sectionLinkList = sectionLinkList;
+    }
+    
     public func getSectionLinkList() -> [SectionLink]? {
         return self.sectionLinkList;
     }

@@ -98,17 +98,17 @@ public class Document : Codable {
 
         
     // Gets or sets a list of links that originate from this document.
-    private let links : [Link]?;
+    private var links : [Link]?;
     // Gets or sets the name of the file.
-    private let fileName : String?;
+    private var fileName : String?;
     // Gets or sets the original format of the document.
-    private let sourceFormat : SourceFormat;
+    private var sourceFormat : SourceFormat?;
     // Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.
-    private let isEncrypted : Bool;
+    private var isEncrypted : Bool?;
     // Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
-    private let isSigned : Bool;
+    private var isSigned : Bool?;
     // Gets or sets returns document properties.
-    private let documentProperties : DocumentProperties?;
+    private var documentProperties : DocumentProperties?;
         
     private enum CodingKeys: String, CodingKey {
         case links;
@@ -117,15 +117,11 @@ public class Document : Codable {
         case isEncrypted;
         case isSigned;
         case documentProperties;
+        case invalidCodingKey;
     }
         
-    public init(links : [Link]? = nil, fileName : String? = nil, sourceFormat : SourceFormat, isEncrypted : Bool, isSigned : Bool, documentProperties : DocumentProperties? = nil) {
-        self.links = links;
-        self.fileName = fileName;
-        self.sourceFormat = sourceFormat;
-        self.isEncrypted = isEncrypted;
-        self.isSigned = isSigned;
-        self.documentProperties = documentProperties;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -147,8 +143,17 @@ public class Document : Codable {
         if (self.fileName != nil) {
             try container.encode(self.fileName, forKey: .fileName);
         }
+        if (self.sourceFormat == nil) {
+            throw WordsApiError.requiredArgumentError("sourceFormat");
+        }
         try container.encode(self.sourceFormat, forKey: .sourceFormat);
+        if (self.isEncrypted == nil) {
+            throw WordsApiError.requiredArgumentError("isEncrypted");
+        }
         try container.encode(self.isEncrypted, forKey: .isEncrypted);
+        if (self.isSigned == nil) {
+            throw WordsApiError.requiredArgumentError("isSigned");
+        }
         try container.encode(self.isSigned, forKey: .isSigned);
         if (self.documentProperties != nil) {
             try container.encode(self.documentProperties, forKey: .documentProperties);
@@ -156,21 +161,45 @@ public class Document : Codable {
         
     }
         
+    public func setLinks(links : [Link]?) {
+        self.links = links;
+    }
+    
     public func getLinks() -> [Link]? {
         return self.links;
     }
+    public func setFileName(fileName : String?) {
+        self.fileName = fileName;
+    }
+    
     public func getFileName() -> String? {
         return self.fileName;
     }
+    public func setSourceFormat(sourceFormat : SourceFormat) {
+        self.sourceFormat = sourceFormat;
+    }
+    
     public func getSourceFormat() -> SourceFormat {
-        return self.sourceFormat;
+        return self.sourceFormat!;
     }
+    public func setIsEncrypted(isEncrypted : Bool) {
+        self.isEncrypted = isEncrypted;
+    }
+    
     public func getIsEncrypted() -> Bool {
-        return self.isEncrypted;
+        return self.isEncrypted!;
     }
+    public func setIsSigned(isSigned : Bool) {
+        self.isSigned = isSigned;
+    }
+    
     public func getIsSigned() -> Bool {
-        return self.isSigned;
+        return self.isSigned!;
     }
+    public func setDocumentProperties(documentProperties : DocumentProperties?) {
+        self.documentProperties = documentProperties;
+    }
+    
     public func getDocumentProperties() -> DocumentProperties? {
         return self.documentProperties;
     }

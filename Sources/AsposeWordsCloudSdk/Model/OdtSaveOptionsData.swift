@@ -41,22 +41,21 @@ public class OdtSaveOptionsData : SaveOptionsData {
 
         
     // Gets or sets specifies whether export should correspond to ODT specification 1.1 strictly.
-    private let isStrictSchema11 : Bool?;
+    private var isStrictSchema11 : Bool?;
     // Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
-    private let measureUnit : MeasureUnit?;
+    private var measureUnit : MeasureUnit?;
     // Gets or sets specifies whether or not use pretty formats output.
-    private let prettyFormat : Bool?;
+    private var prettyFormat : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case isStrictSchema11;
         case measureUnit;
         case prettyFormat;
+        case invalidCodingKey;
     }
         
-    public init(isStrictSchema11 : Bool? = nil, measureUnit : MeasureUnit? = nil, prettyFormat : Bool? = nil) {
-        self.isStrictSchema11 = isStrictSchema11;
-        self.measureUnit = measureUnit;
-        self.prettyFormat = prettyFormat;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -81,12 +80,24 @@ public class OdtSaveOptionsData : SaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setIsStrictSchema11(isStrictSchema11 : Bool?) {
+        self.isStrictSchema11 = isStrictSchema11;
+    }
+    
     public func getIsStrictSchema11() -> Bool? {
         return self.isStrictSchema11;
     }
+    public func setMeasureUnit(measureUnit : MeasureUnit?) {
+        self.measureUnit = measureUnit;
+    }
+    
     public func getMeasureUnit() -> MeasureUnit? {
         return self.measureUnit;
     }
+    public func setPrettyFormat(prettyFormat : Bool?) {
+        self.prettyFormat = prettyFormat;
+    }
+    
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }

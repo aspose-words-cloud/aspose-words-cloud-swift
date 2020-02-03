@@ -30,14 +30,15 @@ import Foundation
 public class NodeLink : LinkElement {
         
     // Gets or sets node id.
-    private let nodeId : String?;
+    private var nodeId : String?;
         
     private enum CodingKeys: String, CodingKey {
         case nodeId;
+        case invalidCodingKey;
     }
         
-    public init(nodeId : String? = nil) {
-        self.nodeId = nodeId;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class NodeLink : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setNodeId(nodeId : String?) {
+        self.nodeId = nodeId;
+    }
+    
     public func getNodeId() -> String? {
         return self.nodeId;
     }

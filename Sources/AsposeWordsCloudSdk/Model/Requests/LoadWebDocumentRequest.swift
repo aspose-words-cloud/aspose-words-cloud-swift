@@ -34,6 +34,7 @@ public class LoadWebDocumentRequest : Codable {
     private enum CodingKeys: String, CodingKey {
         case data;
         case storage;
+        case invalidCodingKey;
     }
     
     public init(data : LoadWebDocumentData, storage : String? = null) {
@@ -43,7 +44,6 @@ public class LoadWebDocumentRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.data = try container.decode(.self, forKey: .data);
         self.storage = try container.decodeIfPresent(.self, forKey: .storage);
     }
@@ -54,7 +54,6 @@ public class LoadWebDocumentRequest : Codable {
         if (self.storage != nil) {
             try container.encode(self.storage, forKey: .storage);
         }
-        
     }
     
     public func getData() -> LoadWebDocumentData {

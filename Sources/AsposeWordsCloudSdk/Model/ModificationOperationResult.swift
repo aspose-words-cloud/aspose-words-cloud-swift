@@ -30,18 +30,18 @@ import Foundation
 public class ModificationOperationResult : Codable {
         
     // Gets or sets link to the source document (source for the modification operation).
-    private let source : FileLink?;
+    private var source : FileLink?;
     // Gets or sets link to the dest document (result of the modification operation).
-    private let dest : FileLink?;
+    private var dest : FileLink?;
         
     private enum CodingKeys: String, CodingKey {
         case source;
         case dest;
+        case invalidCodingKey;
     }
         
-    public init(source : FileLink? = nil, dest : FileLink? = nil) {
-        self.source = source;
-        self.dest = dest;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class ModificationOperationResult : Codable {
         
     }
         
+    public func setSource(source : FileLink?) {
+        self.source = source;
+    }
+    
     public func getSource() -> FileLink? {
         return self.source;
     }
+    public func setDest(dest : FileLink?) {
+        self.dest = dest;
+    }
+    
     public func getDest() -> FileLink? {
         return self.dest;
     }

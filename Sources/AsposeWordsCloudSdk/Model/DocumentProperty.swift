@@ -30,22 +30,21 @@ import Foundation
 public class DocumentProperty : LinkElement {
         
     // Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.
-    private let builtIn : Bool?;
+    private var builtIn : Bool?;
     // Gets or sets name of the document property.
-    private let name : String?;
+    private var name : String?;
     // Gets or sets string value of the document property.
-    private let value : String?;
+    private var value : String?;
         
     private enum CodingKeys: String, CodingKey {
         case builtIn;
         case name;
         case value;
+        case invalidCodingKey;
     }
         
-    public init(builtIn : Bool? = nil, name : String? = nil, value : String? = nil) {
-        self.builtIn = builtIn;
-        self.name = name;
-        self.value = value;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -70,12 +69,24 @@ public class DocumentProperty : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setBuiltIn(builtIn : Bool?) {
+        self.builtIn = builtIn;
+    }
+    
     public func getBuiltIn() -> Bool? {
         return self.builtIn;
     }
+    public func setName(name : String?) {
+        self.name = name;
+    }
+    
     public func getName() -> String? {
         return self.name;
     }
+    public func setValue(value : String?) {
+        self.value = value;
+    }
+    
     public func getValue() -> String? {
         return self.value;
     }

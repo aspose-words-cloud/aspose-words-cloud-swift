@@ -46,6 +46,7 @@ public class GetDocumentStatisticsRequest : Codable {
         case includeComments;
         case includeFootnotes;
         case includeTextInShapes;
+        case invalidCodingKey;
     }
     
     public init(name : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, includeComments : Bool? = null, includeFootnotes : Bool? = null, includeTextInShapes : Bool? = null) {
@@ -61,7 +62,6 @@ public class GetDocumentStatisticsRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
         self.storage = try container.decodeIfPresent(.self, forKey: .storage);
@@ -96,7 +96,6 @@ public class GetDocumentStatisticsRequest : Codable {
         if (self.includeTextInShapes != nil) {
             try container.encode(self.includeTextInShapes, forKey: .includeTextInShapes);
         }
-        
     }
     
     public func getName() -> String {

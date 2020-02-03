@@ -30,14 +30,15 @@ import Foundation
 public class FilesList : Codable {
         
     // Files and folders contained by folder .
-    private let value : [StorageFile]?;
+    private var value : [StorageFile]?;
         
     private enum CodingKeys: String, CodingKey {
         case value;
+        case invalidCodingKey;
     }
         
-    public init(value : [StorageFile]? = nil) {
-        self.value = value;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class FilesList : Codable {
         
     }
         
+    public func setValue(value : [StorageFile]?) {
+        self.value = value;
+    }
+    
     public func getValue() -> [StorageFile]? {
         return self.value;
     }

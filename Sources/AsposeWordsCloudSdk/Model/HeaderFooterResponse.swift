@@ -30,14 +30,15 @@ import Foundation
 public class HeaderFooterResponse : WordsResponse {
         
     // Gets or sets headerFooter.
-    private let headerFooter : HeaderFooter?;
+    private var headerFooter : HeaderFooter?;
         
     private enum CodingKeys: String, CodingKey {
         case headerFooter;
+        case invalidCodingKey;
     }
         
-    public init(headerFooter : HeaderFooter? = nil) {
-        self.headerFooter = headerFooter;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class HeaderFooterResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setHeaderFooter(headerFooter : HeaderFooter?) {
+        self.headerFooter = headerFooter;
+    }
+    
     public func getHeaderFooter() -> HeaderFooter? {
         return self.headerFooter;
     }

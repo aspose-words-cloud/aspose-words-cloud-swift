@@ -40,6 +40,7 @@ public class ExecuteMailMergeOnlineRequest : Codable {
         case withRegions;
         case cleanup;
         case documentFileName;
+        case invalidCodingKey;
     }
     
     public init(template : URL, data : URL, withRegions : Bool? = null, cleanup : String? = null, documentFileName : String? = null) {
@@ -52,7 +53,6 @@ public class ExecuteMailMergeOnlineRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.template = try container.decode(.self, forKey: .template);
         self.data = try container.decode(.self, forKey: .data);
         self.withRegions = try container.decodeIfPresent(.self, forKey: .withRegions);
@@ -73,7 +73,6 @@ public class ExecuteMailMergeOnlineRequest : Codable {
         if (self.documentFileName != nil) {
             try container.encode(self.documentFileName, forKey: .documentFileName);
         }
-        
     }
     
     public func getTemplate() -> URL {

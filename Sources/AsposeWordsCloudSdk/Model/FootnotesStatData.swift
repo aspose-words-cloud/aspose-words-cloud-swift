@@ -30,18 +30,18 @@ import Foundation
 public class FootnotesStatData : Codable {
         
     // Gets or sets total count of words in footnotes.
-    private let wordCount : Int;
+    private var wordCount : Int?;
     // Gets or sets total count of paragraphs in footnotes.
-    private let paragraphCount : Int;
+    private var paragraphCount : Int?;
         
     private enum CodingKeys: String, CodingKey {
         case wordCount;
         case paragraphCount;
+        case invalidCodingKey;
     }
         
-    public init(wordCount : Int, paragraphCount : Int) {
-        self.wordCount = wordCount;
-        self.paragraphCount = paragraphCount;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -53,15 +53,29 @@ public class FootnotesStatData : Codable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.wordCount == nil) {
+            throw WordsApiError.requiredArgumentError("wordCount");
+        }
         try container.encode(self.wordCount, forKey: .wordCount);
+        if (self.paragraphCount == nil) {
+            throw WordsApiError.requiredArgumentError("paragraphCount");
+        }
         try container.encode(self.paragraphCount, forKey: .paragraphCount);
         
     }
         
-    public func getWordCount() -> Int {
-        return self.wordCount;
+    public func setWordCount(wordCount : Int) {
+        self.wordCount = wordCount;
     }
+    
+    public func getWordCount() -> Int {
+        return self.wordCount!;
+    }
+    public func setParagraphCount(paragraphCount : Int) {
+        self.paragraphCount = paragraphCount;
+    }
+    
     public func getParagraphCount() -> Int {
-        return self.paragraphCount;
+        return self.paragraphCount!;
     }
 }

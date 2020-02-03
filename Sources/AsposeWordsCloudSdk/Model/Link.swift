@@ -30,26 +30,24 @@ import Foundation
 public class Link : Codable {
         
     // Gets or sets the \&quot;href\&quot; attribute contains the link&#39;s IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference.
-    private let href : String?;
+    private var href : String?;
     // Gets or sets atom:link elements MAY have a \&quot;rel\&quot; attribute that indicates the link relation type.  If the \&quot;rel\&quot; attribute is not present, the link element MUST be interpreted as if the link relation type is \&quot;alternate\&quot;.
-    private let rel : String?;
+    private var rel : String?;
     // Gets or sets on the link element, the \&quot;type\&quot; attribute&#39;s value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced.  Note that the type attribute does not override the actual media type returned with the representation.
-    private let type : String?;
+    private var type : String?;
     // Gets or sets the \&quot;title\&quot; attribute conveys human-readable information about the link.  The content of the \&quot;title\&quot; attribute is Language-Sensitive.
-    private let title : String?;
+    private var title : String?;
         
     private enum CodingKeys: String, CodingKey {
         case href;
         case rel;
         case type;
         case title;
+        case invalidCodingKey;
     }
         
-    public init(href : String? = nil, rel : String? = nil, type : String? = nil, title : String? = nil) {
-        self.href = href;
-        self.rel = rel;
-        self.type = type;
-        self.title = title;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -78,15 +76,31 @@ public class Link : Codable {
         
     }
         
+    public func setHref(href : String?) {
+        self.href = href;
+    }
+    
     public func getHref() -> String? {
         return self.href;
     }
+    public func setRel(rel : String?) {
+        self.rel = rel;
+    }
+    
     public func getRel() -> String? {
         return self.rel;
     }
+    public func setType(type : String?) {
+        self.type = type;
+    }
+    
     public func getType() -> String? {
         return self.type;
     }
+    public func setTitle(title : String?) {
+        self.title = title;
+    }
+    
     public func getTitle() -> String? {
         return self.title;
     }

@@ -30,14 +30,15 @@ import Foundation
 public class WordsResponse : Codable {
         
     // Gets or sets request Id.
-    private let requestId : String?;
+    private var requestId : String?;
         
     private enum CodingKeys: String, CodingKey {
         case requestId;
+        case invalidCodingKey;
     }
         
-    public init(requestId : String? = nil) {
-        self.requestId = requestId;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class WordsResponse : Codable {
         
     }
         
+    public func setRequestId(requestId : String?) {
+        self.requestId = requestId;
+    }
+    
     public func getRequestId() -> String? {
         return self.requestId;
     }

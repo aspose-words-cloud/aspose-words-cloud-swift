@@ -30,14 +30,15 @@ import Foundation
 public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
         
     // Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. Default value is false.             
-    private let exportCidUrlsForMhtmlResources : Bool?;
+    private var exportCidUrlsForMhtmlResources : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case exportCidUrlsForMhtmlResources;
+        case invalidCodingKey;
     }
         
-    public init(exportCidUrlsForMhtmlResources : Bool? = nil) {
-        self.exportCidUrlsForMhtmlResources = exportCidUrlsForMhtmlResources;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setExportCidUrlsForMhtmlResources(exportCidUrlsForMhtmlResources : Bool?) {
+        self.exportCidUrlsForMhtmlResources = exportCidUrlsForMhtmlResources;
+    }
+    
     public func getExportCidUrlsForMhtmlResources() -> Bool? {
         return self.exportCidUrlsForMhtmlResources;
     }

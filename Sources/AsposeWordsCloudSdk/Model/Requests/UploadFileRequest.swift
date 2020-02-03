@@ -36,6 +36,7 @@ public class UploadFileRequest : Codable {
         case fileContent;
         case path;
         case storageName;
+        case invalidCodingKey;
     }
     
     public init(fileContent : URL, path : String, storageName : String? = null) {
@@ -46,7 +47,6 @@ public class UploadFileRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.fileContent = try container.decode(.self, forKey: .fileContent);
         self.path = try container.decode(.self, forKey: .path);
         self.storageName = try container.decodeIfPresent(.self, forKey: .storageName);
@@ -59,7 +59,6 @@ public class UploadFileRequest : Codable {
         if (self.storageName != nil) {
             try container.encode(self.storageName, forKey: .storageName);
         }
-        
     }
     
     public func getFileContent() -> URL {

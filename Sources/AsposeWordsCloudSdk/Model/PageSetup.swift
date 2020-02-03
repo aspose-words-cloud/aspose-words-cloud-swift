@@ -364,63 +364,63 @@ public class PageSetup : LinkElement {
 
         
     // Gets or sets specifies that this section contains bidirectional (complex scripts) text.             
-    private let bidi : Bool?;
+    private var bidi : Bool?;
     // Gets or sets specifies where the page border is positioned relative to intersecting texts and objects.             
-    private let borderAlwaysInFront : Bool?;
+    private var borderAlwaysInFront : Bool?;
     // Gets or sets specifies which pages the page border is printed on.             
-    private let borderAppliesTo : BorderAppliesTo?;
+    private var borderAppliesTo : BorderAppliesTo?;
     // Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.             
-    private let borderDistanceFrom : BorderDistanceFrom?;
+    private var borderDistanceFrom : BorderDistanceFrom?;
     // Gets or sets returns or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.             
-    private let bottomMargin : Double?;
+    private var bottomMargin : Double?;
     // Gets or sets true if a different header or footer is used on the first page.             
-    private let differentFirstPageHeaderFooter : Bool?;
+    private var differentFirstPageHeaderFooter : Bool?;
     // Gets or sets the paper tray (bin) to use for the first page of a section. The value is implementation (printer) specific.             
-    private let firstPageTray : Int?;
+    private var firstPageTray : Int?;
     // Gets or sets returns or sets the distance (in points) between the footer and the bottom of the page.             
-    private let footerDistance : Double?;
+    private var footerDistance : Double?;
     // Gets or sets the amount of extra space added to the margin for document binding.             
-    private let gutter : Double?;
+    private var gutter : Double?;
     // Gets or sets returns or sets the distance (in points) between the header and the top of the page.             
-    private let headerDistance : Double?;
+    private var headerDistance : Double?;
     // Gets or sets returns or sets the distance (in points) between the left edge of the page and the left boundary of the body text.             
-    private let leftMargin : Double?;
+    private var leftMargin : Double?;
     // Gets or sets returns or sets the numeric increment for line numbers.             
-    private let lineNumberCountBy : Int?;
+    private var lineNumberCountBy : Int?;
     // Gets or sets distance between the right edge of line numbers and the left edge of the document.             
-    private let lineNumberDistanceFromText : Double?;
+    private var lineNumberDistanceFromText : Double?;
     // Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.             
-    private let lineNumberRestartMode : LineNumberRestartMode?;
+    private var lineNumberRestartMode : LineNumberRestartMode?;
     // Gets or sets the starting line number.             
-    private let lineStartingNumber : Int?;
+    private var lineStartingNumber : Int?;
     // Gets or sets returns or sets the orientation of the page.             
-    private let orientation : Orientation?;
+    private var orientation : Orientation?;
     // Gets or sets the paper tray (bin) to be used for all but the first page of a section. The value is implementation (printer) specific.             
-    private let otherPagesTray : Int?;
+    private var otherPagesTray : Int?;
     // Gets or sets returns or sets the height of the page in points.             
-    private let pageHeight : Double?;
+    private var pageHeight : Double?;
     // Gets or sets the page number format.             
-    private let pageNumberStyle : PageNumberStyle?;
+    private var pageNumberStyle : PageNumberStyle?;
     // Gets or sets the starting page number of the section.             
-    private let pageStartingNumber : Int?;
+    private var pageStartingNumber : Int?;
     // Gets or sets returns or sets the width of the page in points.             
-    private let pageWidth : Double?;
+    private var pageWidth : Double?;
     // Gets or sets returns or sets the paper size.             
-    private let paperSize : PaperSize?;
+    private var paperSize : PaperSize?;
     // Gets or sets true if page numbering restarts at the beginning of the section.             
-    private let restartPageNumbering : Bool?;
+    private var restartPageNumbering : Bool?;
     // Gets or sets returns or sets the distance (in points) between the right edge of the page and the right boundary of the body text.             
-    private let rightMargin : Double?;
+    private var rightMargin : Double?;
     // Gets or sets whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.             
-    private let rtlGutter : Bool?;
+    private var rtlGutter : Bool?;
     // Gets or sets returns or sets the type of section break for the specified object.             
-    private let sectionStart : SectionStart?;
+    private var sectionStart : SectionStart?;
     // Gets or sets true if endnotes are printed at the end of the next section that doesn&#39;t suppress endnotes.                 Suppressed endnotes are printed before the endnotes in that section.             
-    private let suppressEndnotes : Bool?;
+    private var suppressEndnotes : Bool?;
     // Gets or sets returns or sets the distance (in points) between the top edge of the page and the top boundary of the body text.             
-    private let topMargin : Double?;
+    private var topMargin : Double?;
     // Gets or sets returns or sets the vertical alignment of text on each page in a document or section.             
-    private let verticalAlignment : VerticalAlignment?;
+    private var verticalAlignment : VerticalAlignment?;
         
     private enum CodingKeys: String, CodingKey {
         case bidi;
@@ -452,38 +452,11 @@ public class PageSetup : LinkElement {
         case suppressEndnotes;
         case topMargin;
         case verticalAlignment;
+        case invalidCodingKey;
     }
         
-    public init(bidi : Bool? = nil, borderAlwaysInFront : Bool? = nil, borderAppliesTo : BorderAppliesTo? = nil, borderDistanceFrom : BorderDistanceFrom? = nil, bottomMargin : Double? = nil, differentFirstPageHeaderFooter : Bool? = nil, firstPageTray : Int? = nil, footerDistance : Double? = nil, gutter : Double? = nil, headerDistance : Double? = nil, leftMargin : Double? = nil, lineNumberCountBy : Int? = nil, lineNumberDistanceFromText : Double? = nil, lineNumberRestartMode : LineNumberRestartMode? = nil, lineStartingNumber : Int? = nil, orientation : Orientation? = nil, otherPagesTray : Int? = nil, pageHeight : Double? = nil, pageNumberStyle : PageNumberStyle? = nil, pageStartingNumber : Int? = nil, pageWidth : Double? = nil, paperSize : PaperSize? = nil, restartPageNumbering : Bool? = nil, rightMargin : Double? = nil, rtlGutter : Bool? = nil, sectionStart : SectionStart? = nil, suppressEndnotes : Bool? = nil, topMargin : Double? = nil, verticalAlignment : VerticalAlignment? = nil) {
-        self.bidi = bidi;
-        self.borderAlwaysInFront = borderAlwaysInFront;
-        self.borderAppliesTo = borderAppliesTo;
-        self.borderDistanceFrom = borderDistanceFrom;
-        self.bottomMargin = bottomMargin;
-        self.differentFirstPageHeaderFooter = differentFirstPageHeaderFooter;
-        self.firstPageTray = firstPageTray;
-        self.footerDistance = footerDistance;
-        self.gutter = gutter;
-        self.headerDistance = headerDistance;
-        self.leftMargin = leftMargin;
-        self.lineNumberCountBy = lineNumberCountBy;
-        self.lineNumberDistanceFromText = lineNumberDistanceFromText;
-        self.lineNumberRestartMode = lineNumberRestartMode;
-        self.lineStartingNumber = lineStartingNumber;
-        self.orientation = orientation;
-        self.otherPagesTray = otherPagesTray;
-        self.pageHeight = pageHeight;
-        self.pageNumberStyle = pageNumberStyle;
-        self.pageStartingNumber = pageStartingNumber;
-        self.pageWidth = pageWidth;
-        self.paperSize = paperSize;
-        self.restartPageNumbering = restartPageNumbering;
-        self.rightMargin = rightMargin;
-        self.rtlGutter = rtlGutter;
-        self.sectionStart = sectionStart;
-        self.suppressEndnotes = suppressEndnotes;
-        self.topMargin = topMargin;
-        self.verticalAlignment = verticalAlignment;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -612,90 +585,206 @@ public class PageSetup : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setBidi(bidi : Bool?) {
+        self.bidi = bidi;
+    }
+    
     public func getBidi() -> Bool? {
         return self.bidi;
     }
+    public func setBorderAlwaysInFront(borderAlwaysInFront : Bool?) {
+        self.borderAlwaysInFront = borderAlwaysInFront;
+    }
+    
     public func getBorderAlwaysInFront() -> Bool? {
         return self.borderAlwaysInFront;
     }
+    public func setBorderAppliesTo(borderAppliesTo : BorderAppliesTo?) {
+        self.borderAppliesTo = borderAppliesTo;
+    }
+    
     public func getBorderAppliesTo() -> BorderAppliesTo? {
         return self.borderAppliesTo;
     }
+    public func setBorderDistanceFrom(borderDistanceFrom : BorderDistanceFrom?) {
+        self.borderDistanceFrom = borderDistanceFrom;
+    }
+    
     public func getBorderDistanceFrom() -> BorderDistanceFrom? {
         return self.borderDistanceFrom;
     }
+    public func setBottomMargin(bottomMargin : Double?) {
+        self.bottomMargin = bottomMargin;
+    }
+    
     public func getBottomMargin() -> Double? {
         return self.bottomMargin;
     }
+    public func setDifferentFirstPageHeaderFooter(differentFirstPageHeaderFooter : Bool?) {
+        self.differentFirstPageHeaderFooter = differentFirstPageHeaderFooter;
+    }
+    
     public func getDifferentFirstPageHeaderFooter() -> Bool? {
         return self.differentFirstPageHeaderFooter;
     }
+    public func setFirstPageTray(firstPageTray : Int?) {
+        self.firstPageTray = firstPageTray;
+    }
+    
     public func getFirstPageTray() -> Int? {
         return self.firstPageTray;
     }
+    public func setFooterDistance(footerDistance : Double?) {
+        self.footerDistance = footerDistance;
+    }
+    
     public func getFooterDistance() -> Double? {
         return self.footerDistance;
     }
+    public func setGutter(gutter : Double?) {
+        self.gutter = gutter;
+    }
+    
     public func getGutter() -> Double? {
         return self.gutter;
     }
+    public func setHeaderDistance(headerDistance : Double?) {
+        self.headerDistance = headerDistance;
+    }
+    
     public func getHeaderDistance() -> Double? {
         return self.headerDistance;
     }
+    public func setLeftMargin(leftMargin : Double?) {
+        self.leftMargin = leftMargin;
+    }
+    
     public func getLeftMargin() -> Double? {
         return self.leftMargin;
     }
+    public func setLineNumberCountBy(lineNumberCountBy : Int?) {
+        self.lineNumberCountBy = lineNumberCountBy;
+    }
+    
     public func getLineNumberCountBy() -> Int? {
         return self.lineNumberCountBy;
     }
+    public func setLineNumberDistanceFromText(lineNumberDistanceFromText : Double?) {
+        self.lineNumberDistanceFromText = lineNumberDistanceFromText;
+    }
+    
     public func getLineNumberDistanceFromText() -> Double? {
         return self.lineNumberDistanceFromText;
     }
+    public func setLineNumberRestartMode(lineNumberRestartMode : LineNumberRestartMode?) {
+        self.lineNumberRestartMode = lineNumberRestartMode;
+    }
+    
     public func getLineNumberRestartMode() -> LineNumberRestartMode? {
         return self.lineNumberRestartMode;
     }
+    public func setLineStartingNumber(lineStartingNumber : Int?) {
+        self.lineStartingNumber = lineStartingNumber;
+    }
+    
     public func getLineStartingNumber() -> Int? {
         return self.lineStartingNumber;
     }
+    public func setOrientation(orientation : Orientation?) {
+        self.orientation = orientation;
+    }
+    
     public func getOrientation() -> Orientation? {
         return self.orientation;
     }
+    public func setOtherPagesTray(otherPagesTray : Int?) {
+        self.otherPagesTray = otherPagesTray;
+    }
+    
     public func getOtherPagesTray() -> Int? {
         return self.otherPagesTray;
     }
+    public func setPageHeight(pageHeight : Double?) {
+        self.pageHeight = pageHeight;
+    }
+    
     public func getPageHeight() -> Double? {
         return self.pageHeight;
     }
+    public func setPageNumberStyle(pageNumberStyle : PageNumberStyle?) {
+        self.pageNumberStyle = pageNumberStyle;
+    }
+    
     public func getPageNumberStyle() -> PageNumberStyle? {
         return self.pageNumberStyle;
     }
+    public func setPageStartingNumber(pageStartingNumber : Int?) {
+        self.pageStartingNumber = pageStartingNumber;
+    }
+    
     public func getPageStartingNumber() -> Int? {
         return self.pageStartingNumber;
     }
+    public func setPageWidth(pageWidth : Double?) {
+        self.pageWidth = pageWidth;
+    }
+    
     public func getPageWidth() -> Double? {
         return self.pageWidth;
     }
+    public func setPaperSize(paperSize : PaperSize?) {
+        self.paperSize = paperSize;
+    }
+    
     public func getPaperSize() -> PaperSize? {
         return self.paperSize;
     }
+    public func setRestartPageNumbering(restartPageNumbering : Bool?) {
+        self.restartPageNumbering = restartPageNumbering;
+    }
+    
     public func getRestartPageNumbering() -> Bool? {
         return self.restartPageNumbering;
     }
+    public func setRightMargin(rightMargin : Double?) {
+        self.rightMargin = rightMargin;
+    }
+    
     public func getRightMargin() -> Double? {
         return self.rightMargin;
     }
+    public func setRtlGutter(rtlGutter : Bool?) {
+        self.rtlGutter = rtlGutter;
+    }
+    
     public func getRtlGutter() -> Bool? {
         return self.rtlGutter;
     }
+    public func setSectionStart(sectionStart : SectionStart?) {
+        self.sectionStart = sectionStart;
+    }
+    
     public func getSectionStart() -> SectionStart? {
         return self.sectionStart;
     }
+    public func setSuppressEndnotes(suppressEndnotes : Bool?) {
+        self.suppressEndnotes = suppressEndnotes;
+    }
+    
     public func getSuppressEndnotes() -> Bool? {
         return self.suppressEndnotes;
     }
+    public func setTopMargin(topMargin : Double?) {
+        self.topMargin = topMargin;
+    }
+    
     public func getTopMargin() -> Double? {
         return self.topMargin;
     }
+    public func setVerticalAlignment(verticalAlignment : VerticalAlignment?) {
+        self.verticalAlignment = verticalAlignment;
+    }
+    
     public func getVerticalAlignment() -> VerticalAlignment? {
         return self.verticalAlignment;
     }

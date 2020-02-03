@@ -30,22 +30,21 @@ import Foundation
 public class HeaderFooter : HeaderFooterLink {
         
     // Gets or sets child nodes.
-    private let childNodes : [NodeLink]?;
+    private var childNodes : [NodeLink]?;
     // Gets or sets link to DrawingObjects resource.
-    private let drawingObjects : LinkElement?;
+    private var drawingObjects : LinkElement?;
     // Gets or sets link to Paragraphs resource.
-    private let paragraphs : LinkElement?;
+    private var paragraphs : LinkElement?;
         
     private enum CodingKeys: String, CodingKey {
         case childNodes;
         case drawingObjects;
         case paragraphs;
+        case invalidCodingKey;
     }
         
-    public init(childNodes : [NodeLink]? = nil, drawingObjects : LinkElement? = nil, paragraphs : LinkElement? = nil) {
-        self.childNodes = childNodes;
-        self.drawingObjects = drawingObjects;
-        self.paragraphs = paragraphs;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -70,12 +69,24 @@ public class HeaderFooter : HeaderFooterLink {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setChildNodes(childNodes : [NodeLink]?) {
+        self.childNodes = childNodes;
+    }
+    
     public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }
+    public func setDrawingObjects(drawingObjects : LinkElement?) {
+        self.drawingObjects = drawingObjects;
+    }
+    
     public func getDrawingObjects() -> LinkElement? {
         return self.drawingObjects;
     }
+    public func setParagraphs(paragraphs : LinkElement?) {
+        self.paragraphs = paragraphs;
+    }
+    
     public func getParagraphs() -> LinkElement? {
         return self.paragraphs;
     }

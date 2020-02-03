@@ -142,17 +142,17 @@ public class GraphicsQualityOptionsData : Codable {
 
         
     // Gets or sets a value that specifies how composited images are drawn to this Graphics.
-    private let compositingMode : CompositingMode?;
+    private var compositingMode : CompositingMode?;
     // Gets or sets the rendering quality of composited images drawn to this Graphics.
-    private let compositingQuality : CompositingQuality?;
+    private var compositingQuality : CompositingQuality?;
     // Gets or sets the interpolation mode associated with this Graphics.
-    private let interpolationMode : InterpolationMode?;
+    private var interpolationMode : InterpolationMode?;
     // Gets or sets the rendering quality for this Graphics.
-    private let smoothingMode : SmoothingMode?;
+    private var smoothingMode : SmoothingMode?;
     // Gets or sets text layout information (such as alignment, orientation and tab stops) display manipulations (such as ellipsis insertion and national digit substitution) and OpenType features.
-    private let stringFormat : StringFormatData?;
+    private var stringFormat : StringFormatData?;
     // Gets or sets the rendering mode for text associated with this Graphics.
-    private let textRenderingHint : TextRenderingHint?;
+    private var textRenderingHint : TextRenderingHint?;
         
     private enum CodingKeys: String, CodingKey {
         case compositingMode;
@@ -161,15 +161,11 @@ public class GraphicsQualityOptionsData : Codable {
         case smoothingMode;
         case stringFormat;
         case textRenderingHint;
+        case invalidCodingKey;
     }
         
-    public init(compositingMode : CompositingMode? = nil, compositingQuality : CompositingQuality? = nil, interpolationMode : InterpolationMode? = nil, smoothingMode : SmoothingMode? = nil, stringFormat : StringFormatData? = nil, textRenderingHint : TextRenderingHint? = nil) {
-        self.compositingMode = compositingMode;
-        self.compositingQuality = compositingQuality;
-        self.interpolationMode = interpolationMode;
-        self.smoothingMode = smoothingMode;
-        self.stringFormat = stringFormat;
-        self.textRenderingHint = textRenderingHint;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -206,21 +202,45 @@ public class GraphicsQualityOptionsData : Codable {
         
     }
         
+    public func setCompositingMode(compositingMode : CompositingMode?) {
+        self.compositingMode = compositingMode;
+    }
+    
     public func getCompositingMode() -> CompositingMode? {
         return self.compositingMode;
     }
+    public func setCompositingQuality(compositingQuality : CompositingQuality?) {
+        self.compositingQuality = compositingQuality;
+    }
+    
     public func getCompositingQuality() -> CompositingQuality? {
         return self.compositingQuality;
     }
+    public func setInterpolationMode(interpolationMode : InterpolationMode?) {
+        self.interpolationMode = interpolationMode;
+    }
+    
     public func getInterpolationMode() -> InterpolationMode? {
         return self.interpolationMode;
     }
+    public func setSmoothingMode(smoothingMode : SmoothingMode?) {
+        self.smoothingMode = smoothingMode;
+    }
+    
     public func getSmoothingMode() -> SmoothingMode? {
         return self.smoothingMode;
     }
+    public func setStringFormat(stringFormat : StringFormatData?) {
+        self.stringFormat = stringFormat;
+    }
+    
     public func getStringFormat() -> StringFormatData? {
         return self.stringFormat;
     }
+    public func setTextRenderingHint(textRenderingHint : TextRenderingHint?) {
+        self.textRenderingHint = textRenderingHint;
+    }
+    
     public func getTextRenderingHint() -> TextRenderingHint? {
         return self.textRenderingHint;
     }

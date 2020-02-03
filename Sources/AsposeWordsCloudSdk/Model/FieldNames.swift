@@ -30,14 +30,15 @@ import Foundation
 public class FieldNames : LinkElement {
         
     // Gets or sets collection of fields names.
-    private let names : [String]?;
+    private var names : [String]?;
         
     private enum CodingKeys: String, CodingKey {
         case names;
+        case invalidCodingKey;
     }
         
-    public init(names : [String]? = nil) {
-        self.names = names;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class FieldNames : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setNames(names : [String]?) {
+        self.names = names;
+    }
+    
     public func getNames() -> [String]? {
         return self.names;
     }

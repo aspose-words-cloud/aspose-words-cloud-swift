@@ -32,6 +32,7 @@ public class GetAvailableFontsRequest : Codable {
     
     private enum CodingKeys: String, CodingKey {
         case fontsLocation;
+        case invalidCodingKey;
     }
     
     public init(fontsLocation : String? = null) {
@@ -40,7 +41,6 @@ public class GetAvailableFontsRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation);
     }
 
@@ -49,7 +49,6 @@ public class GetAvailableFontsRequest : Codable {
         if (self.fontsLocation != nil) {
             try container.encode(self.fontsLocation, forKey: .fontsLocation);
         }
-        
     }
     
     public func getFontsLocation() -> String? {

@@ -52,6 +52,7 @@ public class ExecuteMailMergeRequest : Codable {
         case cleanup;
         case useWholeParagraphAsRegion;
         case destFileName;
+        case invalidCodingKey;
     }
     
     public init(name : String, data : String? = null, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, withRegions : Bool? = null, mailMergeDataFile : String? = null, cleanup : String? = null, useWholeParagraphAsRegion : Bool? = null, destFileName : String? = null) {
@@ -70,7 +71,6 @@ public class ExecuteMailMergeRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.data = try container.decodeIfPresent(.self, forKey: .data);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
@@ -117,7 +117,6 @@ public class ExecuteMailMergeRequest : Codable {
         if (self.destFileName != nil) {
             try container.encode(self.destFileName, forKey: .destFileName);
         }
-        
     }
     
     public func getName() -> String {

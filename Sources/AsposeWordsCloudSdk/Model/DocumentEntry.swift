@@ -30,18 +30,18 @@ import Foundation
 public class DocumentEntry : Codable {
         
     // Gets or sets path to document to append at the server.
-    private let href : String?;
+    private var href : String?;
     // Gets or sets defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.
-    private let importFormatMode : String?;
+    private var importFormatMode : String?;
         
     private enum CodingKeys: String, CodingKey {
         case href;
         case importFormatMode;
+        case invalidCodingKey;
     }
         
-    public init(href : String? = nil, importFormatMode : String? = nil) {
-        self.href = href;
-        self.importFormatMode = importFormatMode;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class DocumentEntry : Codable {
         
     }
         
+    public func setHref(href : String?) {
+        self.href = href;
+    }
+    
     public func getHref() -> String? {
         return self.href;
     }
+    public func setImportFormatMode(importFormatMode : String?) {
+        self.importFormatMode = importFormatMode;
+    }
+    
     public func getImportFormatMode() -> String? {
         return self.importFormatMode;
     }

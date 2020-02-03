@@ -30,22 +30,21 @@ import Foundation
 public class OoxmlSaveOptionsData : SaveOptionsData {
         
     // Gets or sets specifies the OOXML version for the output document.
-    private let compliance : String?;
+    private var compliance : String?;
     // Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.
-    private let password : String?;
+    private var password : String?;
     // Gets or sets specifies whether or not use pretty formats output.
-    private let prettyFormat : Bool?;
+    private var prettyFormat : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case compliance;
         case password;
         case prettyFormat;
+        case invalidCodingKey;
     }
         
-    public init(compliance : String? = nil, password : String? = nil, prettyFormat : Bool? = nil) {
-        self.compliance = compliance;
-        self.password = password;
-        self.prettyFormat = prettyFormat;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -70,12 +69,24 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setCompliance(compliance : String?) {
+        self.compliance = compliance;
+    }
+    
     public func getCompliance() -> String? {
         return self.compliance;
     }
+    public func setPassword(password : String?) {
+        self.password = password;
+    }
+    
     public func getPassword() -> String? {
         return self.password;
     }
+    public func setPrettyFormat(prettyFormat : Bool?) {
+        self.prettyFormat = prettyFormat;
+    }
+    
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }

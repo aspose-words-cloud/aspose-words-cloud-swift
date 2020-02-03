@@ -30,18 +30,18 @@ import Foundation
 public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
         
     // Gets or sets specifies the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format. Default is null.
-    private let resourcesFolder : String?;
+    private var resourcesFolder : String?;
     // Gets or sets specifies the name of the folder used to construct image URIs written into an fixed page Xaml document. Default is null.
-    private let resourcesFolderAlias : String?;
+    private var resourcesFolderAlias : String?;
         
     private enum CodingKeys: String, CodingKey {
         case resourcesFolder;
         case resourcesFolderAlias;
+        case invalidCodingKey;
     }
         
-    public init(resourcesFolder : String? = nil, resourcesFolderAlias : String? = nil) {
-        self.resourcesFolder = resourcesFolder;
-        self.resourcesFolderAlias = resourcesFolderAlias;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setResourcesFolder(resourcesFolder : String?) {
+        self.resourcesFolder = resourcesFolder;
+    }
+    
     public func getResourcesFolder() -> String? {
         return self.resourcesFolder;
     }
+    public func setResourcesFolderAlias(resourcesFolderAlias : String?) {
+        self.resourcesFolderAlias = resourcesFolderAlias;
+    }
+    
     public func getResourcesFolderAlias() -> String? {
         return self.resourcesFolderAlias;
     }

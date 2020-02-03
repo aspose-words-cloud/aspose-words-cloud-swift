@@ -46,6 +46,7 @@ public class GetDocumentWithFormatRequest : Codable {
         case password;
         case outPath;
         case fontsLocation;
+        case invalidCodingKey;
     }
     
     public init(name : String, format : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, outPath : String? = null, fontsLocation : String? = null) {
@@ -61,7 +62,6 @@ public class GetDocumentWithFormatRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.format = try container.decode(.self, forKey: .format);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
@@ -94,7 +94,6 @@ public class GetDocumentWithFormatRequest : Codable {
         if (self.fontsLocation != nil) {
             try container.encode(self.fontsLocation, forKey: .fontsLocation);
         }
-        
     }
     
     public func getName() -> String {

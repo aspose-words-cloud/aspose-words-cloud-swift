@@ -30,14 +30,15 @@ import Foundation
 public class CommentsResponse : WordsResponse {
         
     // Gets or sets collection of comments.
-    private let comments : CommentsCollection?;
+    private var comments : CommentsCollection?;
         
     private enum CodingKeys: String, CodingKey {
         case comments;
+        case invalidCodingKey;
     }
         
-    public init(comments : CommentsCollection? = nil) {
-        self.comments = comments;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class CommentsResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setComments(comments : CommentsCollection?) {
+        self.comments = comments;
+    }
+    
     public func getComments() -> CommentsCollection? {
         return self.comments;
     }

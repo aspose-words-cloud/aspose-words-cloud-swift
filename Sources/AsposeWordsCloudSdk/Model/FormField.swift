@@ -30,23 +30,23 @@ import Foundation
 public class FormField : NodeLink {
         
     // Gets or sets true if references to the specified form field are automatically updated whenever the field is exited.
-    private let calculateOnExit : Bool?;
+    private var calculateOnExit : Bool?;
     // Gets or sets true if a form field is enabled.
-    private let enabled : Bool?;
+    private var enabled : Bool?;
     // Gets or sets returns or sets an entry macro name for the form field.
-    private let entryMacro : String?;
+    private var entryMacro : String?;
     // Gets or sets returns or sets an exit macro name for the form field.
-    private let exitMacro : String?;
+    private var exitMacro : String?;
     // Gets or sets returns or sets the text that&#39;s displayed in a message box when the form field has the focus and the user presses F1.
-    private let helpText : String?;
+    private var helpText : String?;
     // Gets or sets the form field name.
-    private let name : String?;
+    private var name : String?;
     // Gets or sets specifies the source of the text that&#39;s displayed in a message box when a form field has the focus and the user presses F1.
-    private let ownHelp : Bool?;
+    private var ownHelp : Bool?;
     // Gets or sets specifies the source of the text that&#39;s displayed in the status bar when a form field has the focus.
-    private let ownStatus : Bool?;
+    private var ownStatus : Bool?;
     // Gets or sets returns or sets the text that&#39;s displayed in the status bar when a form field has the focus.
-    private let statusText : String?;
+    private var statusText : String?;
         
     private enum CodingKeys: String, CodingKey {
         case calculateOnExit;
@@ -58,18 +58,11 @@ public class FormField : NodeLink {
         case ownHelp;
         case ownStatus;
         case statusText;
+        case invalidCodingKey;
     }
         
-    public init(calculateOnExit : Bool? = nil, enabled : Bool? = nil, entryMacro : String? = nil, exitMacro : String? = nil, helpText : String? = nil, name : String? = nil, ownHelp : Bool? = nil, ownStatus : Bool? = nil, statusText : String? = nil) {
-        self.calculateOnExit = calculateOnExit;
-        self.enabled = enabled;
-        self.entryMacro = entryMacro;
-        self.exitMacro = exitMacro;
-        self.helpText = helpText;
-        self.name = name;
-        self.ownHelp = ownHelp;
-        self.ownStatus = ownStatus;
-        self.statusText = statusText;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -118,30 +111,66 @@ public class FormField : NodeLink {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setCalculateOnExit(calculateOnExit : Bool?) {
+        self.calculateOnExit = calculateOnExit;
+    }
+    
     public func getCalculateOnExit() -> Bool? {
         return self.calculateOnExit;
     }
+    public func setEnabled(enabled : Bool?) {
+        self.enabled = enabled;
+    }
+    
     public func getEnabled() -> Bool? {
         return self.enabled;
     }
+    public func setEntryMacro(entryMacro : String?) {
+        self.entryMacro = entryMacro;
+    }
+    
     public func getEntryMacro() -> String? {
         return self.entryMacro;
     }
+    public func setExitMacro(exitMacro : String?) {
+        self.exitMacro = exitMacro;
+    }
+    
     public func getExitMacro() -> String? {
         return self.exitMacro;
     }
+    public func setHelpText(helpText : String?) {
+        self.helpText = helpText;
+    }
+    
     public func getHelpText() -> String? {
         return self.helpText;
     }
+    public func setName(name : String?) {
+        self.name = name;
+    }
+    
     public func getName() -> String? {
         return self.name;
     }
+    public func setOwnHelp(ownHelp : Bool?) {
+        self.ownHelp = ownHelp;
+    }
+    
     public func getOwnHelp() -> Bool? {
         return self.ownHelp;
     }
+    public func setOwnStatus(ownStatus : Bool?) {
+        self.ownStatus = ownStatus;
+    }
+    
     public func getOwnStatus() -> Bool? {
         return self.ownStatus;
     }
+    public func setStatusText(statusText : String?) {
+        self.statusText = statusText;
+    }
+    
     public func getStatusText() -> String? {
         return self.statusText;
     }

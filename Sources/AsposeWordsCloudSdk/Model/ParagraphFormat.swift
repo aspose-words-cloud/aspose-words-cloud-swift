@@ -1249,57 +1249,57 @@ public class ParagraphFormat : LinkElement {
 
         
     // Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.             
-    private let addSpaceBetweenFarEastAndAlpha : Bool?;
+    private var addSpaceBetweenFarEastAndAlpha : Bool?;
     // Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.             
-    private let addSpaceBetweenFarEastAndDigit : Bool?;
+    private var addSpaceBetweenFarEastAndDigit : Bool?;
     // Gets or sets text alignment for the paragraph.             
-    private let alignment : Alignment?;
+    private var alignment : Alignment?;
     // Gets or sets whether this is a right-to-left paragraph.             
-    private let bidi : Bool?;
+    private var bidi : Bool?;
     // Gets or sets the position for a drop cap text.             
-    private let dropCapPosition : DropCapPosition?;
+    private var dropCapPosition : DropCapPosition?;
     // Gets or sets the value (in points) for a first line or hanging indent. Use a positive value to set a first-line indent, and use a negative value to set a hanging indent.             
-    private let firstLineIndent : Double?;
+    private var firstLineIndent : Double?;
     // Gets or sets True when the paragraph is an item in a bulleted or numbered list.
-    private let isListItem : Bool?;
+    private var isListItem : Bool?;
     // Gets or sets true if all lines in the paragraph are to remain on the same page.             
-    private let keepTogether : Bool?;
+    private var keepTogether : Bool?;
     // Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.             
-    private let keepWithNext : Bool?;
+    private var keepWithNext : Bool?;
     // Gets or sets the value (in points) that represents the left indent for paragraph.             
-    private let leftIndent : Double?;
+    private var leftIndent : Double?;
     // Gets or sets the line spacing (in points) for the paragraph.             
-    private let lineSpacing : Double?;
+    private var lineSpacing : Double?;
     // Gets or sets the line spacing for the paragraph.             
-    private let lineSpacingRule : LineSpacingRule?;
+    private var lineSpacingRule : LineSpacingRule?;
     // Gets or sets the number of lines of the paragraph text used to calculate the drop cap height.             
-    private let linesToDrop : Int?;
+    private var linesToDrop : Int?;
     // Gets or sets when true,  and  will be ignored between the paragraphs of the same style.             
-    private let noSpaceBetweenParagraphsOfSameStyle : Bool?;
+    private var noSpaceBetweenParagraphsOfSameStyle : Bool?;
     // Gets or sets specifies the outline level of the paragraph in the document.             
-    private let outlineLevel : OutlineLevel?;
+    private var outlineLevel : OutlineLevel?;
     // Gets or sets true if a page break is forced before the paragraph.             
-    private let pageBreakBefore : Bool?;
+    private var pageBreakBefore : Bool?;
     // Gets or sets the value (in points) that represents the right indent for paragraph.             
-    private let rightIndent : Double?;
+    private var rightIndent : Double?;
     // Gets or sets the amount of spacing (in points) after the paragraph.             
-    private let spaceAfter : Double?;
+    private var spaceAfter : Double?;
     // Gets or sets true if the amount of spacing after the paragraph is set automatically.             
-    private let spaceAfterAuto : Bool?;
+    private var spaceAfterAuto : Bool?;
     // Gets or sets the amount of spacing (in points) before the paragraph.             
-    private let spaceBefore : Double?;
+    private var spaceBefore : Double?;
     // Gets or sets true if the amount of spacing before the paragraph is set automatically.             
-    private let spaceBeforeAuto : Bool?;
+    private var spaceBeforeAuto : Bool?;
     // Gets or sets the locale independent style identifier of the paragraph style applied to this formatting.             
-    private let styleIdentifier : StyleIdentifier?;
+    private var styleIdentifier : StyleIdentifier?;
     // Gets or sets the name of the paragraph style applied to this formatting.             
-    private let styleName : String?;
+    private var styleName : String?;
     // Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.             
-    private let suppressAutoHyphens : Bool?;
+    private var suppressAutoHyphens : Bool?;
     // Gets or sets specifies whether the current paragraph&#39;s lines should be exempted from line numbering which is applied in the parent section.             
-    private let suppressLineNumbers : Bool?;
+    private var suppressLineNumbers : Bool?;
     // Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.             
-    private let widowControl : Bool?;
+    private var widowControl : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case addSpaceBetweenFarEastAndAlpha;
@@ -1328,35 +1328,11 @@ public class ParagraphFormat : LinkElement {
         case suppressAutoHyphens;
         case suppressLineNumbers;
         case widowControl;
+        case invalidCodingKey;
     }
         
-    public init(addSpaceBetweenFarEastAndAlpha : Bool? = nil, addSpaceBetweenFarEastAndDigit : Bool? = nil, alignment : Alignment? = nil, bidi : Bool? = nil, dropCapPosition : DropCapPosition? = nil, firstLineIndent : Double? = nil, isListItem : Bool? = nil, keepTogether : Bool? = nil, keepWithNext : Bool? = nil, leftIndent : Double? = nil, lineSpacing : Double? = nil, lineSpacingRule : LineSpacingRule? = nil, linesToDrop : Int? = nil, noSpaceBetweenParagraphsOfSameStyle : Bool? = nil, outlineLevel : OutlineLevel? = nil, pageBreakBefore : Bool? = nil, rightIndent : Double? = nil, spaceAfter : Double? = nil, spaceAfterAuto : Bool? = nil, spaceBefore : Double? = nil, spaceBeforeAuto : Bool? = nil, styleIdentifier : StyleIdentifier? = nil, styleName : String? = nil, suppressAutoHyphens : Bool? = nil, suppressLineNumbers : Bool? = nil, widowControl : Bool? = nil) {
-        self.addSpaceBetweenFarEastAndAlpha = addSpaceBetweenFarEastAndAlpha;
-        self.addSpaceBetweenFarEastAndDigit = addSpaceBetweenFarEastAndDigit;
-        self.alignment = alignment;
-        self.bidi = bidi;
-        self.dropCapPosition = dropCapPosition;
-        self.firstLineIndent = firstLineIndent;
-        self.isListItem = isListItem;
-        self.keepTogether = keepTogether;
-        self.keepWithNext = keepWithNext;
-        self.leftIndent = leftIndent;
-        self.lineSpacing = lineSpacing;
-        self.lineSpacingRule = lineSpacingRule;
-        self.linesToDrop = linesToDrop;
-        self.noSpaceBetweenParagraphsOfSameStyle = noSpaceBetweenParagraphsOfSameStyle;
-        self.outlineLevel = outlineLevel;
-        self.pageBreakBefore = pageBreakBefore;
-        self.rightIndent = rightIndent;
-        self.spaceAfter = spaceAfter;
-        self.spaceAfterAuto = spaceAfterAuto;
-        self.spaceBefore = spaceBefore;
-        self.spaceBeforeAuto = spaceBeforeAuto;
-        self.styleIdentifier = styleIdentifier;
-        self.styleName = styleName;
-        self.suppressAutoHyphens = suppressAutoHyphens;
-        self.suppressLineNumbers = suppressLineNumbers;
-        self.widowControl = widowControl;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -1473,81 +1449,185 @@ public class ParagraphFormat : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setAddSpaceBetweenFarEastAndAlpha(addSpaceBetweenFarEastAndAlpha : Bool?) {
+        self.addSpaceBetweenFarEastAndAlpha = addSpaceBetweenFarEastAndAlpha;
+    }
+    
     public func getAddSpaceBetweenFarEastAndAlpha() -> Bool? {
         return self.addSpaceBetweenFarEastAndAlpha;
     }
+    public func setAddSpaceBetweenFarEastAndDigit(addSpaceBetweenFarEastAndDigit : Bool?) {
+        self.addSpaceBetweenFarEastAndDigit = addSpaceBetweenFarEastAndDigit;
+    }
+    
     public func getAddSpaceBetweenFarEastAndDigit() -> Bool? {
         return self.addSpaceBetweenFarEastAndDigit;
     }
+    public func setAlignment(alignment : Alignment?) {
+        self.alignment = alignment;
+    }
+    
     public func getAlignment() -> Alignment? {
         return self.alignment;
     }
+    public func setBidi(bidi : Bool?) {
+        self.bidi = bidi;
+    }
+    
     public func getBidi() -> Bool? {
         return self.bidi;
     }
+    public func setDropCapPosition(dropCapPosition : DropCapPosition?) {
+        self.dropCapPosition = dropCapPosition;
+    }
+    
     public func getDropCapPosition() -> DropCapPosition? {
         return self.dropCapPosition;
     }
+    public func setFirstLineIndent(firstLineIndent : Double?) {
+        self.firstLineIndent = firstLineIndent;
+    }
+    
     public func getFirstLineIndent() -> Double? {
         return self.firstLineIndent;
     }
+    public func setIsListItem(isListItem : Bool?) {
+        self.isListItem = isListItem;
+    }
+    
     public func getIsListItem() -> Bool? {
         return self.isListItem;
     }
+    public func setKeepTogether(keepTogether : Bool?) {
+        self.keepTogether = keepTogether;
+    }
+    
     public func getKeepTogether() -> Bool? {
         return self.keepTogether;
     }
+    public func setKeepWithNext(keepWithNext : Bool?) {
+        self.keepWithNext = keepWithNext;
+    }
+    
     public func getKeepWithNext() -> Bool? {
         return self.keepWithNext;
     }
+    public func setLeftIndent(leftIndent : Double?) {
+        self.leftIndent = leftIndent;
+    }
+    
     public func getLeftIndent() -> Double? {
         return self.leftIndent;
     }
+    public func setLineSpacing(lineSpacing : Double?) {
+        self.lineSpacing = lineSpacing;
+    }
+    
     public func getLineSpacing() -> Double? {
         return self.lineSpacing;
     }
+    public func setLineSpacingRule(lineSpacingRule : LineSpacingRule?) {
+        self.lineSpacingRule = lineSpacingRule;
+    }
+    
     public func getLineSpacingRule() -> LineSpacingRule? {
         return self.lineSpacingRule;
     }
+    public func setLinesToDrop(linesToDrop : Int?) {
+        self.linesToDrop = linesToDrop;
+    }
+    
     public func getLinesToDrop() -> Int? {
         return self.linesToDrop;
     }
+    public func setNoSpaceBetweenParagraphsOfSameStyle(noSpaceBetweenParagraphsOfSameStyle : Bool?) {
+        self.noSpaceBetweenParagraphsOfSameStyle = noSpaceBetweenParagraphsOfSameStyle;
+    }
+    
     public func getNoSpaceBetweenParagraphsOfSameStyle() -> Bool? {
         return self.noSpaceBetweenParagraphsOfSameStyle;
     }
+    public func setOutlineLevel(outlineLevel : OutlineLevel?) {
+        self.outlineLevel = outlineLevel;
+    }
+    
     public func getOutlineLevel() -> OutlineLevel? {
         return self.outlineLevel;
     }
+    public func setPageBreakBefore(pageBreakBefore : Bool?) {
+        self.pageBreakBefore = pageBreakBefore;
+    }
+    
     public func getPageBreakBefore() -> Bool? {
         return self.pageBreakBefore;
     }
+    public func setRightIndent(rightIndent : Double?) {
+        self.rightIndent = rightIndent;
+    }
+    
     public func getRightIndent() -> Double? {
         return self.rightIndent;
     }
+    public func setSpaceAfter(spaceAfter : Double?) {
+        self.spaceAfter = spaceAfter;
+    }
+    
     public func getSpaceAfter() -> Double? {
         return self.spaceAfter;
     }
+    public func setSpaceAfterAuto(spaceAfterAuto : Bool?) {
+        self.spaceAfterAuto = spaceAfterAuto;
+    }
+    
     public func getSpaceAfterAuto() -> Bool? {
         return self.spaceAfterAuto;
     }
+    public func setSpaceBefore(spaceBefore : Double?) {
+        self.spaceBefore = spaceBefore;
+    }
+    
     public func getSpaceBefore() -> Double? {
         return self.spaceBefore;
     }
+    public func setSpaceBeforeAuto(spaceBeforeAuto : Bool?) {
+        self.spaceBeforeAuto = spaceBeforeAuto;
+    }
+    
     public func getSpaceBeforeAuto() -> Bool? {
         return self.spaceBeforeAuto;
     }
+    public func setStyleIdentifier(styleIdentifier : StyleIdentifier?) {
+        self.styleIdentifier = styleIdentifier;
+    }
+    
     public func getStyleIdentifier() -> StyleIdentifier? {
         return self.styleIdentifier;
     }
+    public func setStyleName(styleName : String?) {
+        self.styleName = styleName;
+    }
+    
     public func getStyleName() -> String? {
         return self.styleName;
     }
+    public func setSuppressAutoHyphens(suppressAutoHyphens : Bool?) {
+        self.suppressAutoHyphens = suppressAutoHyphens;
+    }
+    
     public func getSuppressAutoHyphens() -> Bool? {
         return self.suppressAutoHyphens;
     }
+    public func setSuppressLineNumbers(suppressLineNumbers : Bool?) {
+        self.suppressLineNumbers = suppressLineNumbers;
+    }
+    
     public func getSuppressLineNumbers() -> Bool? {
         return self.suppressLineNumbers;
     }
+    public func setWidowControl(widowControl : Bool?) {
+        self.widowControl = widowControl;
+    }
+    
     public func getWidowControl() -> Bool? {
         return self.widowControl;
     }

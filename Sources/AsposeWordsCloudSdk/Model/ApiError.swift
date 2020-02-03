@@ -30,15 +30,15 @@ import Foundation
 public class ApiError : Codable {
         
     // Gets or sets api error code.
-    private let code : String?;
+    private var code : String?;
     // Gets or sets error message.
-    private let message : String?;
+    private var message : String?;
     // Gets or sets error description.
-    private let _description : String?;
+    private var _description : String?;
     // Gets or sets server datetime.
-    private let dateTime : Date?;
+    private var dateTime : Date?;
     // Gets or sets inner error.
-    private let innerError : ApiError?;
+    private var innerError : ApiError?;
         
     private enum CodingKeys: String, CodingKey {
         case code;
@@ -46,14 +46,11 @@ public class ApiError : Codable {
         case _description;
         case dateTime;
         case innerError;
+        case invalidCodingKey;
     }
         
-    public init(code : String? = nil, message : String? = nil, _description : String? = nil, dateTime : Date? = nil, innerError : ApiError? = nil) {
-        self.code = code;
-        self.message = message;
-        self._description = _description;
-        self.dateTime = dateTime;
-        self.innerError = innerError;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -86,18 +83,38 @@ public class ApiError : Codable {
         
     }
         
+    public func setCode(code : String?) {
+        self.code = code;
+    }
+    
     public func getCode() -> String? {
         return self.code;
     }
+    public func setMessage(message : String?) {
+        self.message = message;
+    }
+    
     public func getMessage() -> String? {
         return self.message;
     }
+    public func setDescription(_description : String?) {
+        self._description = _description;
+    }
+    
     public func getDescription() -> String? {
         return self._description;
     }
+    public func setDateTime(dateTime : Date?) {
+        self.dateTime = dateTime;
+    }
+    
     public func getDateTime() -> Date? {
         return self.dateTime;
     }
+    public func setInnerError(innerError : ApiError?) {
+        self.innerError = innerError;
+    }
+    
     public func getInnerError() -> ApiError? {
         return self.innerError;
     }

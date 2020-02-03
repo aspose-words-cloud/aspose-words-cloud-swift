@@ -30,17 +30,17 @@ import Foundation
 public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         
     // Gets or sets specified whether images should be embedded into SVG document as base64.
-    private let exportEmbeddedImages : Bool?;
+    private var exportEmbeddedImages : Bool?;
     // Gets or sets specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.
-    private let fitToViewPort : Bool?;
+    private var fitToViewPort : Bool?;
     // Gets or sets specifies the physical folder where resources (images) are saved when exporting.
-    private let resourcesFolder : String?;
+    private var resourcesFolder : String?;
     // Gets or sets specifies the name of the folder used to construct image URIs.
-    private let resourcesFolderAlias : String?;
+    private var resourcesFolderAlias : String?;
     // Gets or sets show/hide page stepper.
-    private let showPageBorder : Bool?;
+    private var showPageBorder : Bool?;
     // Gets or sets determines how text should be rendered.
-    private let textOutputMode : String?;
+    private var textOutputMode : String?;
         
     private enum CodingKeys: String, CodingKey {
         case exportEmbeddedImages;
@@ -49,15 +49,11 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         case resourcesFolderAlias;
         case showPageBorder;
         case textOutputMode;
+        case invalidCodingKey;
     }
         
-    public init(exportEmbeddedImages : Bool? = nil, fitToViewPort : Bool? = nil, resourcesFolder : String? = nil, resourcesFolderAlias : String? = nil, showPageBorder : Bool? = nil, textOutputMode : String? = nil) {
-        self.exportEmbeddedImages = exportEmbeddedImages;
-        self.fitToViewPort = fitToViewPort;
-        self.resourcesFolder = resourcesFolder;
-        self.resourcesFolderAlias = resourcesFolderAlias;
-        self.showPageBorder = showPageBorder;
-        self.textOutputMode = textOutputMode;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -94,21 +90,45 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setExportEmbeddedImages(exportEmbeddedImages : Bool?) {
+        self.exportEmbeddedImages = exportEmbeddedImages;
+    }
+    
     public func getExportEmbeddedImages() -> Bool? {
         return self.exportEmbeddedImages;
     }
+    public func setFitToViewPort(fitToViewPort : Bool?) {
+        self.fitToViewPort = fitToViewPort;
+    }
+    
     public func getFitToViewPort() -> Bool? {
         return self.fitToViewPort;
     }
+    public func setResourcesFolder(resourcesFolder : String?) {
+        self.resourcesFolder = resourcesFolder;
+    }
+    
     public func getResourcesFolder() -> String? {
         return self.resourcesFolder;
     }
+    public func setResourcesFolderAlias(resourcesFolderAlias : String?) {
+        self.resourcesFolderAlias = resourcesFolderAlias;
+    }
+    
     public func getResourcesFolderAlias() -> String? {
         return self.resourcesFolderAlias;
     }
+    public func setShowPageBorder(showPageBorder : Bool?) {
+        self.showPageBorder = showPageBorder;
+    }
+    
     public func getShowPageBorder() -> Bool? {
         return self.showPageBorder;
     }
+    public func setTextOutputMode(textOutputMode : String?) {
+        self.textOutputMode = textOutputMode;
+    }
+    
     public func getTextOutputMode() -> String? {
         return self.textOutputMode;
     }

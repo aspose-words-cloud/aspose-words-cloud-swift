@@ -46,6 +46,7 @@ public class RenderMathObjectWithoutNodePathRequest : Codable {
         case loadEncoding;
         case password;
         case fontsLocation;
+        case invalidCodingKey;
     }
     
     public init(name : String, format : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, fontsLocation : String? = null) {
@@ -61,7 +62,6 @@ public class RenderMathObjectWithoutNodePathRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.format = try container.decode(.self, forKey: .format);
         self.index = try container.decode(.self, forKey: .index);
@@ -92,7 +92,6 @@ public class RenderMathObjectWithoutNodePathRequest : Codable {
         if (self.fontsLocation != nil) {
             try container.encode(self.fontsLocation, forKey: .fontsLocation);
         }
-        
     }
     
     public func getName() -> String {

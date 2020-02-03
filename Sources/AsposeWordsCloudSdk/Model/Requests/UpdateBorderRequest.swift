@@ -52,6 +52,7 @@ public class UpdateBorderRequest : Codable {
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
+        case invalidCodingKey;
     }
     
     public init(name : String, borderProperties : Border, nodePath : String, borderType : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null) {
@@ -70,7 +71,6 @@ public class UpdateBorderRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.borderProperties = try container.decode(.self, forKey: .borderProperties);
         self.nodePath = try container.decode(.self, forKey: .nodePath);
@@ -111,7 +111,6 @@ public class UpdateBorderRequest : Codable {
         if (self.revisionDateTime != nil) {
             try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
         }
-        
     }
     
     public func getName() -> String {

@@ -30,14 +30,15 @@ import Foundation
 public class DocumentEntryList : Codable {
         
     // Gets or sets list of documents.
-    private let documentEntries : [DocumentEntry]?;
+    private var documentEntries : [DocumentEntry]?;
         
     private enum CodingKeys: String, CodingKey {
         case documentEntries;
+        case invalidCodingKey;
     }
         
-    public init(documentEntries : [DocumentEntry]? = nil) {
-        self.documentEntries = documentEntries;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class DocumentEntryList : Codable {
         
     }
         
+    public func setDocumentEntries(documentEntries : [DocumentEntry]?) {
+        self.documentEntries = documentEntries;
+    }
+    
     public func getDocumentEntries() -> [DocumentEntry]? {
         return self.documentEntries;
     }

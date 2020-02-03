@@ -30,15 +30,15 @@ import Foundation
 public class DocumentStatData : Codable {
         
     // Gets or sets total count of words in the document.
-    private let wordCount : Int;
+    private var wordCount : Int?;
     // Gets or sets total count of paragraphs in the document.
-    private let paragraphCount : Int;
+    private var paragraphCount : Int?;
     // Gets or sets total count of pages in the document.
-    private let pageCount : Int;
+    private var pageCount : Int?;
     // Gets or sets detailed statistics of footnotes.
-    private let footnotesStatData : FootnotesStatData?;
+    private var footnotesStatData : FootnotesStatData?;
     // Gets or sets detailed statistics of all pages.
-    private let pageStatData : [PageStatData]?;
+    private var pageStatData : [PageStatData]?;
         
     private enum CodingKeys: String, CodingKey {
         case wordCount;
@@ -46,14 +46,11 @@ public class DocumentStatData : Codable {
         case pageCount;
         case footnotesStatData;
         case pageStatData;
+        case invalidCodingKey;
     }
         
-    public init(wordCount : Int, paragraphCount : Int, pageCount : Int, footnotesStatData : FootnotesStatData? = nil, pageStatData : [PageStatData]? = nil) {
-        self.wordCount = wordCount;
-        self.paragraphCount = paragraphCount;
-        self.pageCount = pageCount;
-        self.footnotesStatData = footnotesStatData;
-        self.pageStatData = pageStatData;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -68,8 +65,17 @@ public class DocumentStatData : Codable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.wordCount == nil) {
+            throw WordsApiError.requiredArgumentError("wordCount");
+        }
         try container.encode(self.wordCount, forKey: .wordCount);
+        if (self.paragraphCount == nil) {
+            throw WordsApiError.requiredArgumentError("paragraphCount");
+        }
         try container.encode(self.paragraphCount, forKey: .paragraphCount);
+        if (self.pageCount == nil) {
+            throw WordsApiError.requiredArgumentError("pageCount");
+        }
         try container.encode(self.pageCount, forKey: .pageCount);
         if (self.footnotesStatData != nil) {
             try container.encode(self.footnotesStatData, forKey: .footnotesStatData);
@@ -80,18 +86,38 @@ public class DocumentStatData : Codable {
         
     }
         
+    public func setWordCount(wordCount : Int) {
+        self.wordCount = wordCount;
+    }
+    
     public func getWordCount() -> Int {
-        return self.wordCount;
+        return self.wordCount!;
     }
+    public func setParagraphCount(paragraphCount : Int) {
+        self.paragraphCount = paragraphCount;
+    }
+    
     public func getParagraphCount() -> Int {
-        return self.paragraphCount;
+        return self.paragraphCount!;
     }
+    public func setPageCount(pageCount : Int) {
+        self.pageCount = pageCount;
+    }
+    
     public func getPageCount() -> Int {
-        return self.pageCount;
+        return self.pageCount!;
     }
+    public func setFootnotesStatData(footnotesStatData : FootnotesStatData?) {
+        self.footnotesStatData = footnotesStatData;
+    }
+    
     public func getFootnotesStatData() -> FootnotesStatData? {
         return self.footnotesStatData;
     }
+    public func setPageStatData(pageStatData : [PageStatData]?) {
+        self.pageStatData = pageStatData;
+    }
+    
     public func getPageStatData() -> [PageStatData]? {
         return self.pageStatData;
     }

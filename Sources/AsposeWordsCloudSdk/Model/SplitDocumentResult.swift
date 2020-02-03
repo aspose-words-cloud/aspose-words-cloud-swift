@@ -30,22 +30,21 @@ import Foundation
 public class SplitDocumentResult : Codable {
         
     // Gets or sets linkt to the source document.
-    private let sourceDocument : FileLink?;
+    private var sourceDocument : FileLink?;
     // Gets or sets array of pages.
-    private let pages : [FileLink]?;
+    private var pages : [FileLink]?;
     // Gets or sets link to the file archive with pages.
-    private let zippedPages : FileLink?;
+    private var zippedPages : FileLink?;
         
     private enum CodingKeys: String, CodingKey {
         case sourceDocument;
         case pages;
         case zippedPages;
+        case invalidCodingKey;
     }
         
-    public init(sourceDocument : FileLink? = nil, pages : [FileLink]? = nil, zippedPages : FileLink? = nil) {
-        self.sourceDocument = sourceDocument;
-        self.pages = pages;
-        self.zippedPages = zippedPages;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -70,12 +69,24 @@ public class SplitDocumentResult : Codable {
         
     }
         
+    public func setSourceDocument(sourceDocument : FileLink?) {
+        self.sourceDocument = sourceDocument;
+    }
+    
     public func getSourceDocument() -> FileLink? {
         return self.sourceDocument;
     }
+    public func setPages(pages : [FileLink]?) {
+        self.pages = pages;
+    }
+    
     public func getPages() -> [FileLink]? {
         return self.pages;
     }
+    public func setZippedPages(zippedPages : FileLink?) {
+        self.zippedPages = zippedPages;
+    }
+    
     public func getZippedPages() -> FileLink? {
         return self.zippedPages;
     }

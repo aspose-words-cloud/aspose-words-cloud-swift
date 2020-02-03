@@ -52,6 +52,7 @@ public class UpdateTablePropertiesRequest : Codable {
         case revisionAuthor;
         case revisionDateTime;
         case properties;
+        case invalidCodingKey;
     }
     
     public init(name : String, nodePath : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, properties : TableProperties? = null) {
@@ -70,7 +71,6 @@ public class UpdateTablePropertiesRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.nodePath = try container.decode(.self, forKey: .nodePath);
         self.index = try container.decode(.self, forKey: .index);
@@ -113,7 +113,6 @@ public class UpdateTablePropertiesRequest : Codable {
         if (self.properties != nil) {
             try container.encode(self.properties, forKey: .properties);
         }
-        
     }
     
     public func getName() -> String {

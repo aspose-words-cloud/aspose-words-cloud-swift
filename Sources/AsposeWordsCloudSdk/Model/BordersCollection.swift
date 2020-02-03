@@ -30,14 +30,15 @@ import Foundation
 public class BordersCollection : LinkElement {
         
     // Gets or sets collection of comments.
-    private let list : [Border]?;
+    private var list : [Border]?;
         
     private enum CodingKeys: String, CodingKey {
         case list;
+        case invalidCodingKey;
     }
         
-    public init(list : [Border]? = nil) {
-        self.list = list;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class BordersCollection : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setList(list : [Border]?) {
+        self.list = list;
+    }
+    
     public func getList() -> [Border]? {
         return self.list;
     }

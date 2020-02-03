@@ -30,14 +30,15 @@ import Foundation
 public class DrawingObjectResponse : WordsResponse {
         
     // Gets or sets drawing object.
-    private let drawingObject : DrawingObject?;
+    private var drawingObject : DrawingObject?;
         
     private enum CodingKeys: String, CodingKey {
         case drawingObject;
+        case invalidCodingKey;
     }
         
-    public init(drawingObject : DrawingObject? = nil) {
-        self.drawingObject = drawingObject;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class DrawingObjectResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setDrawingObject(drawingObject : DrawingObject?) {
+        self.drawingObject = drawingObject;
+    }
+    
     public func getDrawingObject() -> DrawingObject? {
         return self.drawingObject;
     }

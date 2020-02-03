@@ -30,18 +30,18 @@ import Foundation
 public class ClassificationResult : Codable {
         
     // Gets or sets the name of the class.
-    private let className : String?;
+    private var className : String?;
     // Gets or sets the probability of class.
-    private let classProbability : Double;
+    private var classProbability : Double?;
         
     private enum CodingKeys: String, CodingKey {
         case className;
         case classProbability;
+        case invalidCodingKey;
     }
         
-    public init(className : String? = nil, classProbability : Double) {
-        self.className = className;
-        self.classProbability = classProbability;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -56,14 +56,25 @@ public class ClassificationResult : Codable {
         if (self.className != nil) {
             try container.encode(self.className, forKey: .className);
         }
+        if (self.classProbability == nil) {
+            throw WordsApiError.requiredArgumentError("classProbability");
+        }
         try container.encode(self.classProbability, forKey: .classProbability);
         
     }
         
+    public func setClassName(className : String?) {
+        self.className = className;
+    }
+    
     public func getClassName() -> String? {
         return self.className;
     }
+    public func setClassProbability(classProbability : Double) {
+        self.classProbability = classProbability;
+    }
+    
     public func getClassProbability() -> Double {
-        return self.classProbability;
+        return self.classProbability!;
     }
 }

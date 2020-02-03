@@ -30,15 +30,15 @@ import Foundation
 public class PdfDigitalSignatureDetailsData : Codable {
         
     // Gets or sets certificate&#39;s filename using for signing.
-    private let certificateFilename : String?;
+    private var certificateFilename : String?;
     // Gets or sets hash algorithm.
-    private let hashAlgorithm : String?;
+    private var hashAlgorithm : String?;
     // Gets or sets location of the signing.
-    private let location : String?;
+    private var location : String?;
     // Gets or sets reason for the signing.
-    private let reason : String?;
+    private var reason : String?;
     // Gets or sets date of the signing.
-    private let signatureDate : Date?;
+    private var signatureDate : Date?;
         
     private enum CodingKeys: String, CodingKey {
         case certificateFilename;
@@ -46,14 +46,11 @@ public class PdfDigitalSignatureDetailsData : Codable {
         case location;
         case reason;
         case signatureDate;
+        case invalidCodingKey;
     }
         
-    public init(certificateFilename : String? = nil, hashAlgorithm : String? = nil, location : String? = nil, reason : String? = nil, signatureDate : Date? = nil) {
-        self.certificateFilename = certificateFilename;
-        self.hashAlgorithm = hashAlgorithm;
-        self.location = location;
-        self.reason = reason;
-        self.signatureDate = signatureDate;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -86,18 +83,38 @@ public class PdfDigitalSignatureDetailsData : Codable {
         
     }
         
+    public func setCertificateFilename(certificateFilename : String?) {
+        self.certificateFilename = certificateFilename;
+    }
+    
     public func getCertificateFilename() -> String? {
         return self.certificateFilename;
     }
+    public func setHashAlgorithm(hashAlgorithm : String?) {
+        self.hashAlgorithm = hashAlgorithm;
+    }
+    
     public func getHashAlgorithm() -> String? {
         return self.hashAlgorithm;
     }
+    public func setLocation(location : String?) {
+        self.location = location;
+    }
+    
     public func getLocation() -> String? {
         return self.location;
     }
+    public func setReason(reason : String?) {
+        self.reason = reason;
+    }
+    
     public func getReason() -> String? {
         return self.reason;
     }
+    public func setSignatureDate(signatureDate : Date?) {
+        self.signatureDate = signatureDate;
+    }
+    
     public func getSignatureDate() -> Date? {
         return self.signatureDate;
     }

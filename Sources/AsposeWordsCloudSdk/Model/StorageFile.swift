@@ -30,15 +30,15 @@ import Foundation
 public class StorageFile : Codable {
         
     // File or folder name.
-    private let name : String?;
+    private var name : String?;
     // True if it is a folder.
-    private let isFolder : Bool;
+    private var isFolder : Bool?;
     // File or folder last modified .
-    private let modifiedDate : Date?;
+    private var modifiedDate : Date?;
     // File or folder size.
-    private let size : Int64;
+    private var size : Int64?;
     // File or folder path.
-    private let path : String?;
+    private var path : String?;
         
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -46,14 +46,11 @@ public class StorageFile : Codable {
         case modifiedDate;
         case size;
         case path;
+        case invalidCodingKey;
     }
         
-    public init(name : String? = nil, isFolder : Bool, modifiedDate : Date? = nil, size : Int64, path : String? = nil) {
-        self.name = name;
-        self.isFolder = isFolder;
-        self.modifiedDate = modifiedDate;
-        self.size = size;
-        self.path = path;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -71,9 +68,15 @@ public class StorageFile : Codable {
         if (self.name != nil) {
             try container.encode(self.name, forKey: .name);
         }
+        if (self.isFolder == nil) {
+            throw WordsApiError.requiredArgumentError("isFolder");
+        }
         try container.encode(self.isFolder, forKey: .isFolder);
         if (self.modifiedDate != nil) {
             try container.encode(self.modifiedDate, forKey: .modifiedDate);
+        }
+        if (self.size == nil) {
+            throw WordsApiError.requiredArgumentError("size");
         }
         try container.encode(self.size, forKey: .size);
         if (self.path != nil) {
@@ -82,18 +85,38 @@ public class StorageFile : Codable {
         
     }
         
+    public func setName(name : String?) {
+        self.name = name;
+    }
+    
     public func getName() -> String? {
         return self.name;
     }
-    public func getIsFolder() -> Bool {
-        return self.isFolder;
+    public func setIsFolder(isFolder : Bool) {
+        self.isFolder = isFolder;
     }
+    
+    public func getIsFolder() -> Bool {
+        return self.isFolder!;
+    }
+    public func setModifiedDate(modifiedDate : Date?) {
+        self.modifiedDate = modifiedDate;
+    }
+    
     public func getModifiedDate() -> Date? {
         return self.modifiedDate;
     }
-    public func getSize() -> Int64 {
-        return self.size;
+    public func setSize(size : Int64) {
+        self.size = size;
     }
+    
+    public func getSize() -> Int64 {
+        return self.size!;
+    }
+    public func setPath(path : String?) {
+        self.path = path;
+    }
+    
     public func getPath() -> String? {
         return self.path;
     }

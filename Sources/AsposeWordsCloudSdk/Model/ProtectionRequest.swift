@@ -30,22 +30,21 @@ import Foundation
 public class ProtectionRequest : Codable {
         
     // Gets or sets current password.
-    private let password : String?;
+    private var password : String?;
     // Gets or sets new password.
-    private let newPassword : String?;
+    private var newPassword : String?;
     // Gets or sets new type of protection.
-    private let protectionType : String?;
+    private var protectionType : String?;
         
     private enum CodingKeys: String, CodingKey {
         case password;
         case newPassword;
         case protectionType;
+        case invalidCodingKey;
     }
         
-    public init(password : String? = nil, newPassword : String? = nil, protectionType : String? = nil) {
-        self.password = password;
-        self.newPassword = newPassword;
-        self.protectionType = protectionType;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -70,12 +69,24 @@ public class ProtectionRequest : Codable {
         
     }
         
+    public func setPassword(password : String?) {
+        self.password = password;
+    }
+    
     public func getPassword() -> String? {
         return self.password;
     }
+    public func setNewPassword(newPassword : String?) {
+        self.newPassword = newPassword;
+    }
+    
     public func getNewPassword() -> String? {
         return self.newPassword;
     }
+    public func setProtectionType(protectionType : String?) {
+        self.protectionType = protectionType;
+    }
+    
     public func getProtectionType() -> String? {
         return self.protectionType;
     }

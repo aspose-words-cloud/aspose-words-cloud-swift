@@ -30,18 +30,18 @@ import Foundation
 public class XmlColor : Codable {
         
     // Gets or sets hTML string color representation.
-    private let web : String?;
+    private var web : String?;
     // Gets or sets alpha component of color structure.
-    private let alpha : Int;
+    private var alpha : Int?;
         
     private enum CodingKeys: String, CodingKey {
         case web;
         case alpha;
+        case invalidCodingKey;
     }
         
-    public init(web : String? = nil, alpha : Int) {
-        self.web = web;
-        self.alpha = alpha;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -56,14 +56,25 @@ public class XmlColor : Codable {
         if (self.web != nil) {
             try container.encode(self.web, forKey: .web);
         }
+        if (self.alpha == nil) {
+            throw WordsApiError.requiredArgumentError("alpha");
+        }
         try container.encode(self.alpha, forKey: .alpha);
         
     }
         
+    public func setWeb(web : String?) {
+        self.web = web;
+    }
+    
     public func getWeb() -> String? {
         return self.web;
     }
+    public func setAlpha(alpha : Int) {
+        self.alpha = alpha;
+    }
+    
     public func getAlpha() -> Int {
-        return self.alpha;
+        return self.alpha!;
     }
 }

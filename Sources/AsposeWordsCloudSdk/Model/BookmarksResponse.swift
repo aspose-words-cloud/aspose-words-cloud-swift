@@ -30,14 +30,15 @@ import Foundation
 public class BookmarksResponse : WordsResponse {
         
     // Gets or sets bookmarks which are contained in document.
-    private let bookmarks : Bookmarks?;
+    private var bookmarks : Bookmarks?;
         
     private enum CodingKeys: String, CodingKey {
         case bookmarks;
+        case invalidCodingKey;
     }
         
-    public init(bookmarks : Bookmarks? = nil) {
-        self.bookmarks = bookmarks;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class BookmarksResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setBookmarks(bookmarks : Bookmarks?) {
+        self.bookmarks = bookmarks;
+    }
+    
     public func getBookmarks() -> Bookmarks? {
         return self.bookmarks;
     }

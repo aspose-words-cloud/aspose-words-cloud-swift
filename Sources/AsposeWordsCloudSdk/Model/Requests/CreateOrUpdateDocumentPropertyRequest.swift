@@ -50,6 +50,7 @@ public class CreateOrUpdateDocumentPropertyRequest : Codable {
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
+        case invalidCodingKey;
     }
     
     public init(name : String, propertyName : String, property : DocumentProperty, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null) {
@@ -67,7 +68,6 @@ public class CreateOrUpdateDocumentPropertyRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.propertyName = try container.decode(.self, forKey: .propertyName);
         self.property = try container.decode(.self, forKey: .property);
@@ -106,7 +106,6 @@ public class CreateOrUpdateDocumentPropertyRequest : Codable {
         if (self.revisionDateTime != nil) {
             try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
         }
-        
     }
     
     public func getName() -> String {

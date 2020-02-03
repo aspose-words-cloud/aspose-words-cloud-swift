@@ -30,15 +30,15 @@ import Foundation
 public class ReplaceTextParameters : Codable {
         
     // Gets or sets old text value (or regex pattern ) to replace.
-    private let oldValue : String?;
+    private var oldValue : String?;
     // Gets or sets new text value to replace by.
-    private let newValue : String?;
+    private var newValue : String?;
     // Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.
-    private let isMatchCase : Bool;
+    private var isMatchCase : Bool?;
     // Gets or sets a value indicating whether flag, means that only whole word matched are replaced.
-    private let isMatchWholeWord : Bool;
+    private var isMatchWholeWord : Bool?;
     // Gets or sets a value indicating whether flag, means that  contains regex expression.
-    private let isOldValueRegex : Bool;
+    private var isOldValueRegex : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case oldValue;
@@ -46,14 +46,11 @@ public class ReplaceTextParameters : Codable {
         case isMatchCase;
         case isMatchWholeWord;
         case isOldValueRegex;
+        case invalidCodingKey;
     }
         
-    public init(oldValue : String? = nil, newValue : String? = nil, isMatchCase : Bool, isMatchWholeWord : Bool, isOldValueRegex : Bool) {
-        self.oldValue = oldValue;
-        self.newValue = newValue;
-        self.isMatchCase = isMatchCase;
-        self.isMatchWholeWord = isMatchWholeWord;
-        self.isOldValueRegex = isOldValueRegex;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -74,25 +71,54 @@ public class ReplaceTextParameters : Codable {
         if (self.newValue != nil) {
             try container.encode(self.newValue, forKey: .newValue);
         }
+        if (self.isMatchCase == nil) {
+            throw WordsApiError.requiredArgumentError("isMatchCase");
+        }
         try container.encode(self.isMatchCase, forKey: .isMatchCase);
+        if (self.isMatchWholeWord == nil) {
+            throw WordsApiError.requiredArgumentError("isMatchWholeWord");
+        }
         try container.encode(self.isMatchWholeWord, forKey: .isMatchWholeWord);
+        if (self.isOldValueRegex == nil) {
+            throw WordsApiError.requiredArgumentError("isOldValueRegex");
+        }
         try container.encode(self.isOldValueRegex, forKey: .isOldValueRegex);
         
     }
         
+    public func setOldValue(oldValue : String?) {
+        self.oldValue = oldValue;
+    }
+    
     public func getOldValue() -> String? {
         return self.oldValue;
     }
+    public func setNewValue(newValue : String?) {
+        self.newValue = newValue;
+    }
+    
     public func getNewValue() -> String? {
         return self.newValue;
     }
+    public func setIsMatchCase(isMatchCase : Bool) {
+        self.isMatchCase = isMatchCase;
+    }
+    
     public func getIsMatchCase() -> Bool {
-        return self.isMatchCase;
+        return self.isMatchCase!;
     }
+    public func setIsMatchWholeWord(isMatchWholeWord : Bool) {
+        self.isMatchWholeWord = isMatchWholeWord;
+    }
+    
     public func getIsMatchWholeWord() -> Bool {
-        return self.isMatchWholeWord;
+        return self.isMatchWholeWord!;
     }
+    public func setIsOldValueRegex(isOldValueRegex : Bool) {
+        self.isOldValueRegex = isOldValueRegex;
+    }
+    
     public func getIsOldValueRegex() -> Bool {
-        return self.isOldValueRegex;
+        return self.isOldValueRegex!;
     }
 }

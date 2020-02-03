@@ -30,14 +30,15 @@ import Foundation
 public class TableResponse : WordsResponse {
         
     // Gets or sets table.
-    private let table : Table?;
+    private var table : Table?;
         
     private enum CodingKeys: String, CodingKey {
         case table;
+        case invalidCodingKey;
     }
         
-    public init(table : Table? = nil) {
-        self.table = table;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class TableResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setTable(table : Table?) {
+        self.table = table;
+    }
+    
     public func getTable() -> Table? {
         return self.table;
     }

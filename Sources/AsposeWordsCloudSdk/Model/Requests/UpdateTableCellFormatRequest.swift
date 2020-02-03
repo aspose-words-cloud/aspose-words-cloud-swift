@@ -52,6 +52,7 @@ public class UpdateTableCellFormatRequest : Codable {
         case revisionAuthor;
         case revisionDateTime;
         case format;
+        case invalidCodingKey;
     }
     
     public init(name : String, tableRowPath : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, format : TableCellFormat? = null) {
@@ -70,7 +71,6 @@ public class UpdateTableCellFormatRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.tableRowPath = try container.decode(.self, forKey: .tableRowPath);
         self.index = try container.decode(.self, forKey: .index);
@@ -113,7 +113,6 @@ public class UpdateTableCellFormatRequest : Codable {
         if (self.format != nil) {
             try container.encode(self.format, forKey: .format);
         }
-        
     }
     
     public func getName() -> String {

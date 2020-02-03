@@ -30,14 +30,15 @@ import Foundation
 public class FormFieldCollection : LinkElement {
         
     // Gets or sets collection of formfields.
-    private let list : [FormField]?;
+    private var list : [FormField]?;
         
     private enum CodingKeys: String, CodingKey {
         case list;
+        case invalidCodingKey;
     }
         
-    public init(list : [FormField]? = nil) {
-        self.list = list;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class FormFieldCollection : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setList(list : [FormField]?) {
+        self.list = list;
+    }
+    
     public func getList() -> [FormField]? {
         return self.list;
     }

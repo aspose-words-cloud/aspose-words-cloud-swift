@@ -30,22 +30,21 @@ import Foundation
 public class ClassificationResponse : WordsResponse {
         
     // Gets or sets best class name.
-    private let bestClassName : String?;
+    private var bestClassName : String?;
     // Gets or sets best class probability.
-    private let bestClassProbability : Double?;
+    private var bestClassProbability : Double?;
     // Gets or sets array of best classes results.
-    private let bestResults : [ClassificationResult]?;
+    private var bestResults : [ClassificationResult]?;
         
     private enum CodingKeys: String, CodingKey {
         case bestClassName;
         case bestClassProbability;
         case bestResults;
+        case invalidCodingKey;
     }
         
-    public init(bestClassName : String? = nil, bestClassProbability : Double? = nil, bestResults : [ClassificationResult]? = nil) {
-        self.bestClassName = bestClassName;
-        self.bestClassProbability = bestClassProbability;
-        self.bestResults = bestResults;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -70,12 +69,24 @@ public class ClassificationResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setBestClassName(bestClassName : String?) {
+        self.bestClassName = bestClassName;
+    }
+    
     public func getBestClassName() -> String? {
         return self.bestClassName;
     }
+    public func setBestClassProbability(bestClassProbability : Double?) {
+        self.bestClassProbability = bestClassProbability;
+    }
+    
     public func getBestClassProbability() -> Double? {
         return self.bestClassProbability;
     }
+    public func setBestResults(bestResults : [ClassificationResult]?) {
+        self.bestResults = bestResults;
+    }
+    
     public func getBestResults() -> [ClassificationResult]? {
         return self.bestResults;
     }

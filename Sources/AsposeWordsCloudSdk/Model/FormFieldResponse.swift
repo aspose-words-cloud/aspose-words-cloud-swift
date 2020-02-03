@@ -30,14 +30,15 @@ import Foundation
 public class FormFieldResponse : WordsResponse {
         
     // Gets or sets field information.
-    private let formField : FormField?;
+    private var formField : FormField?;
         
     private enum CodingKeys: String, CodingKey {
         case formField;
+        case invalidCodingKey;
     }
         
-    public init(formField : FormField? = nil) {
-        self.formField = formField;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class FormFieldResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setFormField(formField : FormField?) {
+        self.formField = formField;
+    }
+    
     public func getFormField() -> FormField? {
         return self.formField;
     }

@@ -30,14 +30,15 @@ import Foundation
 public class SectionPageSetupResponse : WordsResponse {
         
     // Gets or sets section.
-    private let pageSetup : PageSetup?;
+    private var pageSetup : PageSetup?;
         
     private enum CodingKeys: String, CodingKey {
         case pageSetup;
+        case invalidCodingKey;
     }
         
-    public init(pageSetup : PageSetup? = nil) {
-        self.pageSetup = pageSetup;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class SectionPageSetupResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setPageSetup(pageSetup : PageSetup?) {
+        self.pageSetup = pageSetup;
+    }
+    
     public func getPageSetup() -> PageSetup? {
         return self.pageSetup;
     }

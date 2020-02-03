@@ -1214,33 +1214,33 @@ public class TableProperties : LinkElement {
 
         
     // Gets or sets specifies how an inline table is aligned in the document.
-    private let alignment : Alignment?;
+    private var alignment : Alignment?;
     // Gets or sets allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.
-    private let allowAutoFit : Bool?;
+    private var allowAutoFit : Bool?;
     // Gets or sets whether this is a right-to-left table.
-    private let bidi : Bool?;
+    private var bidi : Bool?;
     // Gets or sets the amount of space (in points) to add below the contents of cells.
-    private let bottomPadding : Double?;
+    private var bottomPadding : Double?;
     // Gets or sets the amount of space (in points) between the cells.
-    private let cellSpacing : Double?;
+    private var cellSpacing : Double?;
     // Gets or sets the value that represents the left indent of the table.
-    private let leftIndent : Double?;
+    private var leftIndent : Double?;
     // Gets or sets the amount of space (in points) to add to the left of the contents of cells.
-    private let leftPadding : Double?;
+    private var leftPadding : Double?;
     // Gets or sets the table preferred width. Preferred width can be specified as a percentage, number of points or a special \&quot;auto\&quot; value.
-    private let preferredWidth : PreferredWidth?;
+    private var preferredWidth : PreferredWidth?;
     // Gets or sets the amount of space (in points) to add to the right of the contents of cells.
-    private let rightPadding : Double?;
+    private var rightPadding : Double?;
     // Gets or sets the locale independent style identifier of the table style applied to this table.
-    private let styleIdentifier : StyleIdentifier?;
+    private var styleIdentifier : StyleIdentifier?;
     // Gets or sets the name of the table style applied to this table.
-    private let styleName : String?;
+    private var styleName : String?;
     // Gets or sets bit flags that specify how a table style is applied to this table.
-    private let styleOptions : StyleOptions?;
+    private var styleOptions : StyleOptions?;
     // Gets or sets get or sets TextWrapping  for table.
-    private let textWrapping : TextWrapping?;
+    private var textWrapping : TextWrapping?;
     // Gets or sets the amount of space (in points) to add above the contents of cells.
-    private let topPadding : Double?;
+    private var topPadding : Double?;
         
     private enum CodingKeys: String, CodingKey {
         case alignment;
@@ -1257,23 +1257,11 @@ public class TableProperties : LinkElement {
         case styleOptions;
         case textWrapping;
         case topPadding;
+        case invalidCodingKey;
     }
         
-    public init(alignment : Alignment? = nil, allowAutoFit : Bool? = nil, bidi : Bool? = nil, bottomPadding : Double? = nil, cellSpacing : Double? = nil, leftIndent : Double? = nil, leftPadding : Double? = nil, preferredWidth : PreferredWidth? = nil, rightPadding : Double? = nil, styleIdentifier : StyleIdentifier? = nil, styleName : String? = nil, styleOptions : StyleOptions? = nil, textWrapping : TextWrapping? = nil, topPadding : Double? = nil) {
-        self.alignment = alignment;
-        self.allowAutoFit = allowAutoFit;
-        self.bidi = bidi;
-        self.bottomPadding = bottomPadding;
-        self.cellSpacing = cellSpacing;
-        self.leftIndent = leftIndent;
-        self.leftPadding = leftPadding;
-        self.preferredWidth = preferredWidth;
-        self.rightPadding = rightPadding;
-        self.styleIdentifier = styleIdentifier;
-        self.styleName = styleName;
-        self.styleOptions = styleOptions;
-        self.textWrapping = textWrapping;
-        self.topPadding = topPadding;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -1342,45 +1330,101 @@ public class TableProperties : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setAlignment(alignment : Alignment?) {
+        self.alignment = alignment;
+    }
+    
     public func getAlignment() -> Alignment? {
         return self.alignment;
     }
+    public func setAllowAutoFit(allowAutoFit : Bool?) {
+        self.allowAutoFit = allowAutoFit;
+    }
+    
     public func getAllowAutoFit() -> Bool? {
         return self.allowAutoFit;
     }
+    public func setBidi(bidi : Bool?) {
+        self.bidi = bidi;
+    }
+    
     public func getBidi() -> Bool? {
         return self.bidi;
     }
+    public func setBottomPadding(bottomPadding : Double?) {
+        self.bottomPadding = bottomPadding;
+    }
+    
     public func getBottomPadding() -> Double? {
         return self.bottomPadding;
     }
+    public func setCellSpacing(cellSpacing : Double?) {
+        self.cellSpacing = cellSpacing;
+    }
+    
     public func getCellSpacing() -> Double? {
         return self.cellSpacing;
     }
+    public func setLeftIndent(leftIndent : Double?) {
+        self.leftIndent = leftIndent;
+    }
+    
     public func getLeftIndent() -> Double? {
         return self.leftIndent;
     }
+    public func setLeftPadding(leftPadding : Double?) {
+        self.leftPadding = leftPadding;
+    }
+    
     public func getLeftPadding() -> Double? {
         return self.leftPadding;
     }
+    public func setPreferredWidth(preferredWidth : PreferredWidth?) {
+        self.preferredWidth = preferredWidth;
+    }
+    
     public func getPreferredWidth() -> PreferredWidth? {
         return self.preferredWidth;
     }
+    public func setRightPadding(rightPadding : Double?) {
+        self.rightPadding = rightPadding;
+    }
+    
     public func getRightPadding() -> Double? {
         return self.rightPadding;
     }
+    public func setStyleIdentifier(styleIdentifier : StyleIdentifier?) {
+        self.styleIdentifier = styleIdentifier;
+    }
+    
     public func getStyleIdentifier() -> StyleIdentifier? {
         return self.styleIdentifier;
     }
+    public func setStyleName(styleName : String?) {
+        self.styleName = styleName;
+    }
+    
     public func getStyleName() -> String? {
         return self.styleName;
     }
+    public func setStyleOptions(styleOptions : StyleOptions?) {
+        self.styleOptions = styleOptions;
+    }
+    
     public func getStyleOptions() -> StyleOptions? {
         return self.styleOptions;
     }
+    public func setTextWrapping(textWrapping : TextWrapping?) {
+        self.textWrapping = textWrapping;
+    }
+    
     public func getTextWrapping() -> TextWrapping? {
         return self.textWrapping;
     }
+    public func setTopPadding(topPadding : Double?) {
+        self.topPadding = topPadding;
+    }
+    
     public func getTopPadding() -> Double? {
         return self.topPadding;
     }

@@ -30,26 +30,24 @@ import Foundation
 public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         
     // Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.
-    private let bookmarksOutlineLevel : Int?;
+    private var bookmarksOutlineLevel : Int?;
     // Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.
-    private let headingsOutlineLevels : Int?;
+    private var headingsOutlineLevels : Int?;
     // Gets or sets allows to specify outline options.
-    private let outlineOptions : OutlineOptionsData?;
+    private var outlineOptions : OutlineOptionsData?;
     // Gets or sets determines whether the document should be saved using a booklet printing layout.
-    private let useBookFoldPrintingSettings : Bool?;
+    private var useBookFoldPrintingSettings : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case bookmarksOutlineLevel;
         case headingsOutlineLevels;
         case outlineOptions;
         case useBookFoldPrintingSettings;
+        case invalidCodingKey;
     }
         
-    public init(bookmarksOutlineLevel : Int? = nil, headingsOutlineLevels : Int? = nil, outlineOptions : OutlineOptionsData? = nil, useBookFoldPrintingSettings : Bool? = nil) {
-        self.bookmarksOutlineLevel = bookmarksOutlineLevel;
-        self.headingsOutlineLevels = headingsOutlineLevels;
-        self.outlineOptions = outlineOptions;
-        self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -78,15 +76,31 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setBookmarksOutlineLevel(bookmarksOutlineLevel : Int?) {
+        self.bookmarksOutlineLevel = bookmarksOutlineLevel;
+    }
+    
     public func getBookmarksOutlineLevel() -> Int? {
         return self.bookmarksOutlineLevel;
     }
+    public func setHeadingsOutlineLevels(headingsOutlineLevels : Int?) {
+        self.headingsOutlineLevels = headingsOutlineLevels;
+    }
+    
     public func getHeadingsOutlineLevels() -> Int? {
         return self.headingsOutlineLevels;
     }
+    public func setOutlineOptions(outlineOptions : OutlineOptionsData?) {
+        self.outlineOptions = outlineOptions;
+    }
+    
     public func getOutlineOptions() -> OutlineOptionsData? {
         return self.outlineOptions;
     }
+    public func setUseBookFoldPrintingSettings(useBookFoldPrintingSettings : Bool?) {
+        self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+    }
+    
     public func getUseBookFoldPrintingSettings() -> Bool? {
         return self.useBookFoldPrintingSettings;
     }

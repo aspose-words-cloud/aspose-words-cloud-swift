@@ -30,26 +30,24 @@ import Foundation
 public class FontInfo : Codable {
         
     // Gets or sets family name of the font.
-    private let fontFamilyName : String?;
+    private var fontFamilyName : String?;
     // Gets or sets full name of the font.
-    private let fullFontName : String?;
+    private var fullFontName : String?;
     // Gets or sets version string of the font.
-    private let version : String?;
+    private var version : String?;
     // Gets or sets path to the font file if any.
-    private let filePath : String?;
+    private var filePath : String?;
         
     private enum CodingKeys: String, CodingKey {
         case fontFamilyName;
         case fullFontName;
         case version;
         case filePath;
+        case invalidCodingKey;
     }
         
-    public init(fontFamilyName : String? = nil, fullFontName : String? = nil, version : String? = nil, filePath : String? = nil) {
-        self.fontFamilyName = fontFamilyName;
-        self.fullFontName = fullFontName;
-        self.version = version;
-        self.filePath = filePath;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -78,15 +76,31 @@ public class FontInfo : Codable {
         
     }
         
+    public func setFontFamilyName(fontFamilyName : String?) {
+        self.fontFamilyName = fontFamilyName;
+    }
+    
     public func getFontFamilyName() -> String? {
         return self.fontFamilyName;
     }
+    public func setFullFontName(fullFontName : String?) {
+        self.fullFontName = fullFontName;
+    }
+    
     public func getFullFontName() -> String? {
         return self.fullFontName;
     }
+    public func setVersion(version : String?) {
+        self.version = version;
+    }
+    
     public func getVersion() -> String? {
         return self.version;
     }
+    public func setFilePath(filePath : String?) {
+        self.filePath = filePath;
+    }
+    
     public func getFilePath() -> String? {
         return self.filePath;
     }

@@ -41,15 +41,15 @@ public class Footnote : FootnoteLink {
 
         
     // Gets or sets content of footnote.
-    private let content : StoryChildNodes?;
+    private var content : StoryChildNodes?;
     // Gets or sets returns a value that specifies whether this is a footnote or endnote.
-    private let footnoteType : FootnoteType?;
+    private var footnoteType : FootnoteType?;
     // Gets or sets link to comment range start node.
-    private let position : DocumentPosition?;
+    private var position : DocumentPosition?;
     // Gets or sets /sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.
-    private let referenceMark : String?;
+    private var referenceMark : String?;
     // Gets or sets this is a convenience property that allows to easily get or set text of the footnote.
-    private let text : String?;
+    private var text : String?;
         
     private enum CodingKeys: String, CodingKey {
         case content;
@@ -57,14 +57,11 @@ public class Footnote : FootnoteLink {
         case position;
         case referenceMark;
         case text;
+        case invalidCodingKey;
     }
         
-    public init(content : StoryChildNodes? = nil, footnoteType : FootnoteType? = nil, position : DocumentPosition? = nil, referenceMark : String? = nil, text : String? = nil) {
-        self.content = content;
-        self.footnoteType = footnoteType;
-        self.position = position;
-        self.referenceMark = referenceMark;
-        self.text = text;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -97,18 +94,38 @@ public class Footnote : FootnoteLink {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setContent(content : StoryChildNodes?) {
+        self.content = content;
+    }
+    
     public func getContent() -> StoryChildNodes? {
         return self.content;
     }
+    public func setFootnoteType(footnoteType : FootnoteType?) {
+        self.footnoteType = footnoteType;
+    }
+    
     public func getFootnoteType() -> FootnoteType? {
         return self.footnoteType;
     }
+    public func setPosition(position : DocumentPosition?) {
+        self.position = position;
+    }
+    
     public func getPosition() -> DocumentPosition? {
         return self.position;
     }
+    public func setReferenceMark(referenceMark : String?) {
+        self.referenceMark = referenceMark;
+    }
+    
     public func getReferenceMark() -> String? {
         return self.referenceMark;
     }
+    public func setText(text : String?) {
+        self.text = text;
+    }
+    
     public func getText() -> String? {
         return self.text;
     }

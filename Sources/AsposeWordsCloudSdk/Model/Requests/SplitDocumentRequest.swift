@@ -52,6 +52,7 @@ public class SplitDocumentRequest : Codable {
         case to;
         case zipOutput;
         case fontsLocation;
+        case invalidCodingKey;
     }
     
     public init(name : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, format : String? = null, from : Int? = null, to : Int? = null, zipOutput : Bool? = null, fontsLocation : String? = null) {
@@ -70,7 +71,6 @@ public class SplitDocumentRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
         self.storage = try container.decodeIfPresent(.self, forKey: .storage);
@@ -117,7 +117,6 @@ public class SplitDocumentRequest : Codable {
         if (self.fontsLocation != nil) {
             try container.encode(self.fontsLocation, forKey: .fontsLocation);
         }
-        
     }
     
     public func getName() -> String {

@@ -30,18 +30,18 @@ import Foundation
 public class ErrorDetails : Codable {
         
     // The request id.
-    private let requestId : String?;
+    private var requestId : String?;
     // Error datetime.
-    private let errorDateTime : Date;
+    private var errorDateTime : Date?;
         
     private enum CodingKeys: String, CodingKey {
         case requestId;
         case errorDateTime;
+        case invalidCodingKey;
     }
         
-    public init(requestId : String? = nil, errorDateTime : Date) {
-        self.requestId = requestId;
-        self.errorDateTime = errorDateTime;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -56,14 +56,25 @@ public class ErrorDetails : Codable {
         if (self.requestId != nil) {
             try container.encode(self.requestId, forKey: .requestId);
         }
+        if (self.errorDateTime == nil) {
+            throw WordsApiError.requiredArgumentError("errorDateTime");
+        }
         try container.encode(self.errorDateTime, forKey: .errorDateTime);
         
     }
         
+    public func setRequestId(requestId : String?) {
+        self.requestId = requestId;
+    }
+    
     public func getRequestId() -> String? {
         return self.requestId;
     }
+    public func setErrorDateTime(errorDateTime : Date) {
+        self.errorDateTime = errorDateTime;
+    }
+    
     public func getErrorDateTime() -> Date {
-        return self.errorDateTime;
+        return self.errorDateTime!;
     }
 }

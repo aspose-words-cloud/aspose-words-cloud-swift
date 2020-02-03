@@ -30,26 +30,24 @@ import Foundation
 public class PageStatData : Codable {
         
     // Gets or sets page number.
-    private let pageNumber : Int;
+    private var pageNumber : Int?;
     // Gets or sets total count of words in the page.
-    private let wordCount : Int;
+    private var wordCount : Int?;
     // Gets or sets total count of paragraphs in the page.
-    private let paragraphCount : Int;
+    private var paragraphCount : Int?;
     // Gets or sets detailed statistics of footnotes.
-    private let footnotesStatData : FootnotesStatData?;
+    private var footnotesStatData : FootnotesStatData?;
         
     private enum CodingKeys: String, CodingKey {
         case pageNumber;
         case wordCount;
         case paragraphCount;
         case footnotesStatData;
+        case invalidCodingKey;
     }
         
-    public init(pageNumber : Int, wordCount : Int, paragraphCount : Int, footnotesStatData : FootnotesStatData? = nil) {
-        self.pageNumber = pageNumber;
-        self.wordCount = wordCount;
-        self.paragraphCount = paragraphCount;
-        self.footnotesStatData = footnotesStatData;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -63,8 +61,17 @@ public class PageStatData : Codable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.pageNumber == nil) {
+            throw WordsApiError.requiredArgumentError("pageNumber");
+        }
         try container.encode(self.pageNumber, forKey: .pageNumber);
+        if (self.wordCount == nil) {
+            throw WordsApiError.requiredArgumentError("wordCount");
+        }
         try container.encode(self.wordCount, forKey: .wordCount);
+        if (self.paragraphCount == nil) {
+            throw WordsApiError.requiredArgumentError("paragraphCount");
+        }
         try container.encode(self.paragraphCount, forKey: .paragraphCount);
         if (self.footnotesStatData != nil) {
             try container.encode(self.footnotesStatData, forKey: .footnotesStatData);
@@ -72,15 +79,31 @@ public class PageStatData : Codable {
         
     }
         
+    public func setPageNumber(pageNumber : Int) {
+        self.pageNumber = pageNumber;
+    }
+    
     public func getPageNumber() -> Int {
-        return self.pageNumber;
+        return self.pageNumber!;
     }
+    public func setWordCount(wordCount : Int) {
+        self.wordCount = wordCount;
+    }
+    
     public func getWordCount() -> Int {
-        return self.wordCount;
+        return self.wordCount!;
     }
+    public func setParagraphCount(paragraphCount : Int) {
+        self.paragraphCount = paragraphCount;
+    }
+    
     public func getParagraphCount() -> Int {
-        return self.paragraphCount;
+        return self.paragraphCount!;
     }
+    public func setFootnotesStatData(footnotesStatData : FootnotesStatData?) {
+        self.footnotesStatData = footnotesStatData;
+    }
+    
     public func getFootnotesStatData() -> FootnotesStatData? {
         return self.footnotesStatData;
     }

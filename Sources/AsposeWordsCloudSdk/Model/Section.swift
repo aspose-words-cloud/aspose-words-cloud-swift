@@ -30,15 +30,15 @@ import Foundation
 public class Section : LinkElement {
         
     // Gets or sets child nodes.
-    private let childNodes : [NodeLink]?;
+    private var childNodes : [NodeLink]?;
     // Gets or sets link to HeaderFooters resource.
-    private let headerFooters : LinkElement?;
+    private var headerFooters : LinkElement?;
     // Gets or sets link to PageSetup resource.
-    private let pageSetup : LinkElement?;
+    private var pageSetup : LinkElement?;
     // Gets or sets link to Paragraphs resource.
-    private let paragraphs : LinkElement?;
+    private var paragraphs : LinkElement?;
     // Gets or sets link to Tables resource.
-    private let tables : LinkElement?;
+    private var tables : LinkElement?;
         
     private enum CodingKeys: String, CodingKey {
         case childNodes;
@@ -46,14 +46,11 @@ public class Section : LinkElement {
         case pageSetup;
         case paragraphs;
         case tables;
+        case invalidCodingKey;
     }
         
-    public init(childNodes : [NodeLink]? = nil, headerFooters : LinkElement? = nil, pageSetup : LinkElement? = nil, paragraphs : LinkElement? = nil, tables : LinkElement? = nil) {
-        self.childNodes = childNodes;
-        self.headerFooters = headerFooters;
-        self.pageSetup = pageSetup;
-        self.paragraphs = paragraphs;
-        self.tables = tables;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -86,18 +83,38 @@ public class Section : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setChildNodes(childNodes : [NodeLink]?) {
+        self.childNodes = childNodes;
+    }
+    
     public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }
+    public func setHeaderFooters(headerFooters : LinkElement?) {
+        self.headerFooters = headerFooters;
+    }
+    
     public func getHeaderFooters() -> LinkElement? {
         return self.headerFooters;
     }
+    public func setPageSetup(pageSetup : LinkElement?) {
+        self.pageSetup = pageSetup;
+    }
+    
     public func getPageSetup() -> LinkElement? {
         return self.pageSetup;
     }
+    public func setParagraphs(paragraphs : LinkElement?) {
+        self.paragraphs = paragraphs;
+    }
+    
     public func getParagraphs() -> LinkElement? {
         return self.paragraphs;
     }
+    public func setTables(tables : LinkElement?) {
+        self.tables = tables;
+    }
+    
     public func getTables() -> LinkElement? {
         return self.tables;
     }

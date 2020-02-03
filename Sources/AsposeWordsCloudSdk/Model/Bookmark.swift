@@ -30,18 +30,18 @@ import Foundation
 public class Bookmark : LinkElement {
         
     // Gets or sets the name of the bookmark.
-    private let name : String?;
+    private var name : String?;
     // Gets or sets the text enclosed in the bookmark.
-    private let text : String?;
+    private var text : String?;
         
     private enum CodingKeys: String, CodingKey {
         case name;
         case text;
+        case invalidCodingKey;
     }
         
-    public init(name : String? = nil, text : String? = nil) {
-        self.name = name;
-        self.text = text;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class Bookmark : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setName(name : String?) {
+        self.name = name;
+    }
+    
     public func getName() -> String? {
         return self.name;
     }
+    public func setText(text : String?) {
+        self.text = text;
+    }
+    
     public func getText() -> String? {
         return self.text;
     }

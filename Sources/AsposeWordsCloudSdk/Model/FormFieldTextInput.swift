@@ -53,26 +53,24 @@ public class FormFieldTextInput : FormField {
 
         
     // Gets or sets maximum length for the text field. Zero when the length is not limited.
-    private let maxLength : Int?;
+    private var maxLength : Int?;
     // Gets or sets the default string or a calculation expression of a text form field.
-    private let textInputDefault : String?;
+    private var textInputDefault : String?;
     // Gets or sets returns or sets the text formatting for a text form field.
-    private let textInputFormat : String?;
+    private var textInputFormat : String?;
     // Gets or sets the type of a text form field.
-    private let textInputType : TextInputType?;
+    private var textInputType : TextInputType?;
         
     private enum CodingKeys: String, CodingKey {
         case maxLength;
         case textInputDefault;
         case textInputFormat;
         case textInputType;
+        case invalidCodingKey;
     }
         
-    public init(maxLength : Int? = nil, textInputDefault : String? = nil, textInputFormat : String? = nil, textInputType : TextInputType? = nil) {
-        self.maxLength = maxLength;
-        self.textInputDefault = textInputDefault;
-        self.textInputFormat = textInputFormat;
-        self.textInputType = textInputType;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -101,15 +99,31 @@ public class FormFieldTextInput : FormField {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setMaxLength(maxLength : Int?) {
+        self.maxLength = maxLength;
+    }
+    
     public func getMaxLength() -> Int? {
         return self.maxLength;
     }
+    public func setTextInputDefault(textInputDefault : String?) {
+        self.textInputDefault = textInputDefault;
+    }
+    
     public func getTextInputDefault() -> String? {
         return self.textInputDefault;
     }
+    public func setTextInputFormat(textInputFormat : String?) {
+        self.textInputFormat = textInputFormat;
+    }
+    
     public func getTextInputFormat() -> String? {
         return self.textInputFormat;
     }
+    public func setTextInputType(textInputType : TextInputType?) {
+        self.textInputType = textInputType;
+    }
+    
     public func getTextInputType() -> TextInputType? {
         return self.textInputType;
     }

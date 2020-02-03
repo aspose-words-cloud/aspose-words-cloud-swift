@@ -30,19 +30,19 @@ import Foundation
 public class Comment : CommentLink {
         
     // Gets or sets returns or sets the author name for a comment.
-    private let author : String?;
+    private var author : String?;
     // Gets or sets content of comment.
-    private let content : StoryChildNodes?;
+    private var content : StoryChildNodes?;
     // Gets or sets the date and time that the comment was made.
-    private let dateTime : Date?;
+    private var dateTime : Date?;
     // Gets or sets returns or sets the initials of the user associated with a specific comment.
-    private let initial : String?;
+    private var initial : String?;
     // Gets or sets link to comment range end node.
-    private let rangeEnd : DocumentPosition?;
+    private var rangeEnd : DocumentPosition?;
     // Gets or sets link to comment range start node.
-    private let rangeStart : DocumentPosition?;
+    private var rangeStart : DocumentPosition?;
     // Gets or sets this is a convenience property that allows to easily get or set text of the comment.
-    private let text : String?;
+    private var text : String?;
         
     private enum CodingKeys: String, CodingKey {
         case author;
@@ -52,16 +52,11 @@ public class Comment : CommentLink {
         case rangeEnd;
         case rangeStart;
         case text;
+        case invalidCodingKey;
     }
         
-    public init(author : String? = nil, content : StoryChildNodes? = nil, dateTime : Date? = nil, initial : String? = nil, rangeEnd : DocumentPosition? = nil, rangeStart : DocumentPosition? = nil, text : String? = nil) {
-        self.author = author;
-        self.content = content;
-        self.dateTime = dateTime;
-        self.initial = initial;
-        self.rangeEnd = rangeEnd;
-        self.rangeStart = rangeStart;
-        self.text = text;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -102,24 +97,52 @@ public class Comment : CommentLink {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setAuthor(author : String?) {
+        self.author = author;
+    }
+    
     public func getAuthor() -> String? {
         return self.author;
     }
+    public func setContent(content : StoryChildNodes?) {
+        self.content = content;
+    }
+    
     public func getContent() -> StoryChildNodes? {
         return self.content;
     }
+    public func setDateTime(dateTime : Date?) {
+        self.dateTime = dateTime;
+    }
+    
     public func getDateTime() -> Date? {
         return self.dateTime;
     }
+    public func setInitial(initial : String?) {
+        self.initial = initial;
+    }
+    
     public func getInitial() -> String? {
         return self.initial;
     }
+    public func setRangeEnd(rangeEnd : DocumentPosition?) {
+        self.rangeEnd = rangeEnd;
+    }
+    
     public func getRangeEnd() -> DocumentPosition? {
         return self.rangeEnd;
     }
+    public func setRangeStart(rangeStart : DocumentPosition?) {
+        self.rangeStart = rangeStart;
+    }
+    
     public func getRangeStart() -> DocumentPosition? {
         return self.rangeStart;
     }
+    public func setText(text : String?) {
+        self.text = text;
+    }
+    
     public func getText() -> String? {
         return self.text;
     }

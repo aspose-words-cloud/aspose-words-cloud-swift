@@ -30,14 +30,15 @@ import Foundation
 public class HyperlinkResponse : WordsResponse {
         
     // Gets or sets hyperlink.
-    private let hyperlink : Hyperlink?;
+    private var hyperlink : Hyperlink?;
         
     private enum CodingKeys: String, CodingKey {
         case hyperlink;
+        case invalidCodingKey;
     }
         
-    public init(hyperlink : Hyperlink? = nil) {
-        self.hyperlink = hyperlink;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class HyperlinkResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setHyperlink(hyperlink : Hyperlink?) {
+        self.hyperlink = hyperlink;
+    }
+    
     public func getHyperlink() -> Hyperlink? {
         return self.hyperlink;
     }

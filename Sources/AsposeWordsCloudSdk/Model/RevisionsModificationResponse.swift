@@ -30,14 +30,15 @@ import Foundation
 public class RevisionsModificationResponse : WordsResponse {
         
     // Gets or sets result of the modification operations for the revisions collection.
-    private let result : ModificationOperationResult?;
+    private var result : ModificationOperationResult?;
         
     private enum CodingKeys: String, CodingKey {
         case result;
+        case invalidCodingKey;
     }
         
-    public init(result : ModificationOperationResult? = nil) {
-        self.result = result;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class RevisionsModificationResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setResult(result : ModificationOperationResult?) {
+        self.result = result;
+    }
+    
     public func getResult() -> ModificationOperationResult? {
         return self.result;
     }

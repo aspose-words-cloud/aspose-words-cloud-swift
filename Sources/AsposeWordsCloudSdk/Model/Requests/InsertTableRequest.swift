@@ -50,6 +50,7 @@ public class InsertTableRequest : Codable {
         case revisionAuthor;
         case revisionDateTime;
         case table;
+        case invalidCodingKey;
     }
     
     public init(name : String, nodePath : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, table : TableInsert? = null) {
@@ -67,7 +68,6 @@ public class InsertTableRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.nodePath = try container.decode(.self, forKey: .nodePath);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
@@ -108,7 +108,6 @@ public class InsertTableRequest : Codable {
         if (self.table != nil) {
             try container.encode(self.table, forKey: .table);
         }
-        
     }
     
     public func getName() -> String {

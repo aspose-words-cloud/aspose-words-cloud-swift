@@ -30,14 +30,15 @@ import Foundation
 public class Bookmarks : LinkElement {
         
     // Gets or sets array of bookmarks.
-    private let bookmarkList : [Bookmark]?;
+    private var bookmarkList : [Bookmark]?;
         
     private enum CodingKeys: String, CodingKey {
         case bookmarkList;
+        case invalidCodingKey;
     }
         
-    public init(bookmarkList : [Bookmark]? = nil) {
-        self.bookmarkList = bookmarkList;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class Bookmarks : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setBookmarkList(bookmarkList : [Bookmark]?) {
+        self.bookmarkList = bookmarkList;
+    }
+    
     public func getBookmarkList() -> [Bookmark]? {
         return self.bookmarkList;
     }

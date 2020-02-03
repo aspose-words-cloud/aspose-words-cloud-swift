@@ -30,26 +30,24 @@ import Foundation
 public class DocSaveOptionsData : SaveOptionsData {
         
     // Gets or sets When false, small metafiles are not compressed for performance reason. Default value is true, all metafiles are compressed regardless of its size.
-    private let alwaysCompressMetafiles : Bool?;
+    private var alwaysCompressMetafiles : Bool?;
     // Gets or sets password.
-    private let password : String?;
+    private var password : String?;
     // Gets or sets When false, PictureBullet data is not saved to output document. Default value is true.
-    private let savePictureBullet : Bool?;
+    private var savePictureBullet : Bool?;
     // Gets or sets determine whether or not save RoutingSlip data saved to output document.
-    private let saveRoutingSlip : Bool?;
+    private var saveRoutingSlip : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case alwaysCompressMetafiles;
         case password;
         case savePictureBullet;
         case saveRoutingSlip;
+        case invalidCodingKey;
     }
         
-    public init(alwaysCompressMetafiles : Bool? = nil, password : String? = nil, savePictureBullet : Bool? = nil, saveRoutingSlip : Bool? = nil) {
-        self.alwaysCompressMetafiles = alwaysCompressMetafiles;
-        self.password = password;
-        self.savePictureBullet = savePictureBullet;
-        self.saveRoutingSlip = saveRoutingSlip;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -78,15 +76,31 @@ public class DocSaveOptionsData : SaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setAlwaysCompressMetafiles(alwaysCompressMetafiles : Bool?) {
+        self.alwaysCompressMetafiles = alwaysCompressMetafiles;
+    }
+    
     public func getAlwaysCompressMetafiles() -> Bool? {
         return self.alwaysCompressMetafiles;
     }
+    public func setPassword(password : String?) {
+        self.password = password;
+    }
+    
     public func getPassword() -> String? {
         return self.password;
     }
+    public func setSavePictureBullet(savePictureBullet : Bool?) {
+        self.savePictureBullet = savePictureBullet;
+    }
+    
     public func getSavePictureBullet() -> Bool? {
         return self.savePictureBullet;
     }
+    public func setSaveRoutingSlip(saveRoutingSlip : Bool?) {
+        self.saveRoutingSlip = saveRoutingSlip;
+    }
+    
     public func getSaveRoutingSlip() -> Bool? {
         return self.saveRoutingSlip;
     }

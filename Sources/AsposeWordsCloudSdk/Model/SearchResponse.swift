@@ -30,18 +30,18 @@ import Foundation
 public class SearchResponse : WordsResponse {
         
     // Gets or sets a regular expression pattern used to find matches.
-    private let searchingPattern : String?;
+    private var searchingPattern : String?;
     // Gets or sets collection of search results.
-    private let searchResults : SearchResultsCollection?;
+    private var searchResults : SearchResultsCollection?;
         
     private enum CodingKeys: String, CodingKey {
         case searchingPattern;
         case searchResults;
+        case invalidCodingKey;
     }
         
-    public init(searchingPattern : String? = nil, searchResults : SearchResultsCollection? = nil) {
-        self.searchingPattern = searchingPattern;
-        self.searchResults = searchResults;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class SearchResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setSearchingPattern(searchingPattern : String?) {
+        self.searchingPattern = searchingPattern;
+    }
+    
     public func getSearchingPattern() -> String? {
         return self.searchingPattern;
     }
+    public func setSearchResults(searchResults : SearchResultsCollection?) {
+        self.searchResults = searchResults;
+    }
+    
     public func getSearchResults() -> SearchResultsCollection? {
         return self.searchResults;
     }

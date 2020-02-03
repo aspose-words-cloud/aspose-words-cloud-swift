@@ -30,14 +30,15 @@ import Foundation
 public class SectionLinkCollectionResponse : WordsResponse {
         
     // Gets or sets collection of sections.
-    private let sections : SectionLinkCollection?;
+    private var sections : SectionLinkCollection?;
         
     private enum CodingKeys: String, CodingKey {
         case sections;
+        case invalidCodingKey;
     }
         
-    public init(sections : SectionLinkCollection? = nil) {
-        self.sections = sections;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class SectionLinkCollectionResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setSections(sections : SectionLinkCollection?) {
+        self.sections = sections;
+    }
+    
     public func getSections() -> SectionLinkCollection? {
         return self.sections;
     }

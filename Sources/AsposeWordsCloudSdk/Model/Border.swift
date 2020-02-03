@@ -148,17 +148,17 @@ public class Border : LinkElement {
 
         
     // Gets or sets the border type.             
-    private let borderType : BorderType?;
+    private var borderType : BorderType?;
     // Gets or sets the border color.             
-    private let color : XmlColor?;
+    private var color : XmlColor?;
     // Gets or sets distance of the border from text or from the page edge in points.
-    private let distanceFromText : Double?;
+    private var distanceFromText : Double?;
     // Gets or sets the border style.
-    private let lineStyle : LineStyle?;
+    private var lineStyle : LineStyle?;
     // Gets or sets the border width in points.
-    private let lineWidth : Double?;
+    private var lineWidth : Double?;
     // Gets or sets a value indicating whether the border has a shadow.
-    private let shadow : Bool?;
+    private var shadow : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case borderType;
@@ -167,15 +167,11 @@ public class Border : LinkElement {
         case lineStyle;
         case lineWidth;
         case shadow;
+        case invalidCodingKey;
     }
         
-    public init(borderType : BorderType? = nil, color : XmlColor? = nil, distanceFromText : Double? = nil, lineStyle : LineStyle? = nil, lineWidth : Double? = nil, shadow : Bool? = nil) {
-        self.borderType = borderType;
-        self.color = color;
-        self.distanceFromText = distanceFromText;
-        self.lineStyle = lineStyle;
-        self.lineWidth = lineWidth;
-        self.shadow = shadow;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -212,21 +208,45 @@ public class Border : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setBorderType(borderType : BorderType?) {
+        self.borderType = borderType;
+    }
+    
     public func getBorderType() -> BorderType? {
         return self.borderType;
     }
+    public func setColor(color : XmlColor?) {
+        self.color = color;
+    }
+    
     public func getColor() -> XmlColor? {
         return self.color;
     }
+    public func setDistanceFromText(distanceFromText : Double?) {
+        self.distanceFromText = distanceFromText;
+    }
+    
     public func getDistanceFromText() -> Double? {
         return self.distanceFromText;
     }
+    public func setLineStyle(lineStyle : LineStyle?) {
+        self.lineStyle = lineStyle;
+    }
+    
     public func getLineStyle() -> LineStyle? {
         return self.lineStyle;
     }
+    public func setLineWidth(lineWidth : Double?) {
+        self.lineWidth = lineWidth;
+    }
+    
     public func getLineWidth() -> Double? {
         return self.lineWidth;
     }
+    public func setShadow(shadow : Bool?) {
+        self.shadow = shadow;
+    }
+    
     public func getShadow() -> Bool? {
         return self.shadow;
     }

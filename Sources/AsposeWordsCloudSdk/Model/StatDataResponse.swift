@@ -30,18 +30,18 @@ import Foundation
 public class StatDataResponse : WordsResponse {
         
     // Gets or sets link to the document.
-    private let documentLink : FileLink?;
+    private var documentLink : FileLink?;
     // Gets or sets statistical data of the document.
-    private let statData : DocumentStatData?;
+    private var statData : DocumentStatData?;
         
     private enum CodingKeys: String, CodingKey {
         case documentLink;
         case statData;
+        case invalidCodingKey;
     }
         
-    public init(documentLink : FileLink? = nil, statData : DocumentStatData? = nil) {
-        self.documentLink = documentLink;
-        self.statData = statData;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class StatDataResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setDocumentLink(documentLink : FileLink?) {
+        self.documentLink = documentLink;
+    }
+    
     public func getDocumentLink() -> FileLink? {
         return self.documentLink;
     }
+    public func setStatData(statData : DocumentStatData?) {
+        self.statData = statData;
+    }
+    
     public func getStatData() -> DocumentStatData? {
         return self.statData;
     }

@@ -127,15 +127,15 @@ public class StringFormatData : Codable {
 
         
     // Gets or sets horizontal alignment of the string.
-    private let alignment : Alignment?;
+    private var alignment : Alignment?;
     // Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
-    private let formatFlags : FormatFlags?;
+    private var formatFlags : FormatFlags?;
     // Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.
-    private let hotkeyPrefix : HotkeyPrefix?;
+    private var hotkeyPrefix : HotkeyPrefix?;
     // Gets or sets the vertical alignment of the string.
-    private let lineAlignment : LineAlignment?;
+    private var lineAlignment : LineAlignment?;
     // Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.
-    private let trimming : Trimming?;
+    private var trimming : Trimming?;
         
     private enum CodingKeys: String, CodingKey {
         case alignment;
@@ -143,14 +143,11 @@ public class StringFormatData : Codable {
         case hotkeyPrefix;
         case lineAlignment;
         case trimming;
+        case invalidCodingKey;
     }
         
-    public init(alignment : Alignment? = nil, formatFlags : FormatFlags? = nil, hotkeyPrefix : HotkeyPrefix? = nil, lineAlignment : LineAlignment? = nil, trimming : Trimming? = nil) {
-        self.alignment = alignment;
-        self.formatFlags = formatFlags;
-        self.hotkeyPrefix = hotkeyPrefix;
-        self.lineAlignment = lineAlignment;
-        self.trimming = trimming;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -183,18 +180,38 @@ public class StringFormatData : Codable {
         
     }
         
+    public func setAlignment(alignment : Alignment?) {
+        self.alignment = alignment;
+    }
+    
     public func getAlignment() -> Alignment? {
         return self.alignment;
     }
+    public func setFormatFlags(formatFlags : FormatFlags?) {
+        self.formatFlags = formatFlags;
+    }
+    
     public func getFormatFlags() -> FormatFlags? {
         return self.formatFlags;
     }
+    public func setHotkeyPrefix(hotkeyPrefix : HotkeyPrefix?) {
+        self.hotkeyPrefix = hotkeyPrefix;
+    }
+    
     public func getHotkeyPrefix() -> HotkeyPrefix? {
         return self.hotkeyPrefix;
     }
+    public func setLineAlignment(lineAlignment : LineAlignment?) {
+        self.lineAlignment = lineAlignment;
+    }
+    
     public func getLineAlignment() -> LineAlignment? {
         return self.lineAlignment;
     }
+    public func setTrimming(trimming : Trimming?) {
+        self.trimming = trimming;
+    }
+    
     public func getTrimming() -> Trimming? {
         return self.trimming;
     }

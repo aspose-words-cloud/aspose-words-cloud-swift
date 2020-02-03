@@ -30,14 +30,15 @@ import Foundation
 public class ParagraphLinkCollectionResponse : WordsResponse {
         
     // Gets or sets collection of paragraphs.
-    private let paragraphs : ParagraphLinkCollection?;
+    private var paragraphs : ParagraphLinkCollection?;
         
     private enum CodingKeys: String, CodingKey {
         case paragraphs;
+        case invalidCodingKey;
     }
         
-    public init(paragraphs : ParagraphLinkCollection? = nil) {
-        self.paragraphs = paragraphs;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setParagraphs(paragraphs : ParagraphLinkCollection?) {
+        self.paragraphs = paragraphs;
+    }
+    
     public func getParagraphs() -> ParagraphLinkCollection? {
         return self.paragraphs;
     }

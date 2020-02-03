@@ -30,15 +30,15 @@ import Foundation
 public class MetafileRenderingOptionsData : Codable {
         
     // Gets or sets determines how EMF+ Dual metafiles should be rendered.
-    private let emfPlusDualRenderingMode : String?;
+    private var emfPlusDualRenderingMode : String?;
     // Gets or sets a value determining whether or not the raster operations should be emulated.             
-    private let emulateRasterOperations : Bool?;
+    private var emulateRasterOperations : Bool?;
     // Gets or sets determines how metafile images should be rendered.
-    private let renderingMode : String?;
+    private var renderingMode : String?;
     // Gets or sets determines how WMF metafiles with embedded EMF metafiles should be rendered.
-    private let useEmfEmbeddedToWmf : Bool?;
+    private var useEmfEmbeddedToWmf : Bool?;
     // Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page. The default value is true.
-    private let scaleWmfFontsToMetafileSize : Bool?;
+    private var scaleWmfFontsToMetafileSize : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case emfPlusDualRenderingMode;
@@ -46,14 +46,11 @@ public class MetafileRenderingOptionsData : Codable {
         case renderingMode;
         case useEmfEmbeddedToWmf;
         case scaleWmfFontsToMetafileSize;
+        case invalidCodingKey;
     }
         
-    public init(emfPlusDualRenderingMode : String? = nil, emulateRasterOperations : Bool? = nil, renderingMode : String? = nil, useEmfEmbeddedToWmf : Bool? = nil, scaleWmfFontsToMetafileSize : Bool? = nil) {
-        self.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
-        self.emulateRasterOperations = emulateRasterOperations;
-        self.renderingMode = renderingMode;
-        self.useEmfEmbeddedToWmf = useEmfEmbeddedToWmf;
-        self.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -86,18 +83,38 @@ public class MetafileRenderingOptionsData : Codable {
         
     }
         
+    public func setEmfPlusDualRenderingMode(emfPlusDualRenderingMode : String?) {
+        self.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
+    }
+    
     public func getEmfPlusDualRenderingMode() -> String? {
         return self.emfPlusDualRenderingMode;
     }
+    public func setEmulateRasterOperations(emulateRasterOperations : Bool?) {
+        self.emulateRasterOperations = emulateRasterOperations;
+    }
+    
     public func getEmulateRasterOperations() -> Bool? {
         return self.emulateRasterOperations;
     }
+    public func setRenderingMode(renderingMode : String?) {
+        self.renderingMode = renderingMode;
+    }
+    
     public func getRenderingMode() -> String? {
         return self.renderingMode;
     }
+    public func setUseEmfEmbeddedToWmf(useEmfEmbeddedToWmf : Bool?) {
+        self.useEmfEmbeddedToWmf = useEmfEmbeddedToWmf;
+    }
+    
     public func getUseEmfEmbeddedToWmf() -> Bool? {
         return self.useEmfEmbeddedToWmf;
     }
+    public func setScaleWmfFontsToMetafileSize(scaleWmfFontsToMetafileSize : Bool?) {
+        self.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
+    }
+    
     public func getScaleWmfFontsToMetafileSize() -> Bool? {
         return self.scaleWmfFontsToMetafileSize;
     }

@@ -44,6 +44,7 @@ public class GetHeaderFooterRequest : Codable {
         case loadEncoding;
         case password;
         case filterByType;
+        case invalidCodingKey;
     }
     
     public init(name : String, headerFooterIndex : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, filterByType : String? = null) {
@@ -58,7 +59,6 @@ public class GetHeaderFooterRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.headerFooterIndex = try container.decode(.self, forKey: .headerFooterIndex);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
@@ -87,7 +87,6 @@ public class GetHeaderFooterRequest : Codable {
         if (self.filterByType != nil) {
             try container.encode(self.filterByType, forKey: .filterByType);
         }
-        
     }
     
     public func getName() -> String {

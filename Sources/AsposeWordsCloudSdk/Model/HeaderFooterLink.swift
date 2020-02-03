@@ -53,14 +53,15 @@ public class HeaderFooterLink : LinkElement {
 
         
     // Gets or sets paragraph&#39;s text.
-    private let type : ModelType?;
+    private var type : ModelType?;
         
     private enum CodingKeys: String, CodingKey {
         case type;
+        case invalidCodingKey;
     }
         
-    public init(type : ModelType? = nil) {
-        self.type = type;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -77,6 +78,10 @@ public class HeaderFooterLink : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setType(type : ModelType?) {
+        self.type = type;
+    }
+    
     public func getType() -> ModelType? {
         return self.type;
     }

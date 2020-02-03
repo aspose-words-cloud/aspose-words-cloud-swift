@@ -30,14 +30,15 @@ import Foundation
 public class TableLinkCollectionResponse : WordsResponse {
         
     // Gets or sets collection of tables.
-    private let tables : TableLinkCollection?;
+    private var tables : TableLinkCollection?;
         
     private enum CodingKeys: String, CodingKey {
         case tables;
+        case invalidCodingKey;
     }
         
-    public init(tables : TableLinkCollection? = nil) {
-        self.tables = tables;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class TableLinkCollectionResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setTables(tables : TableLinkCollection?) {
+        self.tables = tables;
+    }
+    
     public func getTables() -> TableLinkCollection? {
         return self.tables;
     }

@@ -30,17 +30,17 @@ import Foundation
 public class OutlineOptionsData : Codable {
         
     // Gets or sets allows to specify individual bookmarks outline level.
-    private let bookmarksOutlineLevels : [BookmarksOutlineLevelData]?;
+    private var bookmarksOutlineLevels : [BookmarksOutlineLevelData]?;
     // Gets or sets specifies the default level in the document outline at which to display Word bookmarks.
-    private let defaultBookmarksOutlineLevel : Int?;
+    private var defaultBookmarksOutlineLevel : Int?;
     // Gets or sets a value determining whether or not to create missing outline levels     when the document is exported.     Default value for this property is false.
-    private let createMissingOutlineLevels : Bool?;
+    private var createMissingOutlineLevels : Bool?;
     // Gets or sets specifies whether or not to create outlines for headings (paragraphs formatted     with the Heading styles) inside tables.
-    private let createOutlinesForHeadingsInTables : Bool?;
+    private var createOutlinesForHeadingsInTables : Bool?;
     // Gets or sets specifies how many levels in the document outline to show expanded when the file is viewed.
-    private let expandedOutlineLevels : Int?;
+    private var expandedOutlineLevels : Int?;
     // Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
-    private let headingsOutlineLevels : Int?;
+    private var headingsOutlineLevels : Int?;
         
     private enum CodingKeys: String, CodingKey {
         case bookmarksOutlineLevels;
@@ -49,15 +49,11 @@ public class OutlineOptionsData : Codable {
         case createOutlinesForHeadingsInTables;
         case expandedOutlineLevels;
         case headingsOutlineLevels;
+        case invalidCodingKey;
     }
         
-    public init(bookmarksOutlineLevels : [BookmarksOutlineLevelData]? = nil, defaultBookmarksOutlineLevel : Int? = nil, createMissingOutlineLevels : Bool? = nil, createOutlinesForHeadingsInTables : Bool? = nil, expandedOutlineLevels : Int? = nil, headingsOutlineLevels : Int? = nil) {
-        self.bookmarksOutlineLevels = bookmarksOutlineLevels;
-        self.defaultBookmarksOutlineLevel = defaultBookmarksOutlineLevel;
-        self.createMissingOutlineLevels = createMissingOutlineLevels;
-        self.createOutlinesForHeadingsInTables = createOutlinesForHeadingsInTables;
-        self.expandedOutlineLevels = expandedOutlineLevels;
-        self.headingsOutlineLevels = headingsOutlineLevels;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -94,21 +90,45 @@ public class OutlineOptionsData : Codable {
         
     }
         
+    public func setBookmarksOutlineLevels(bookmarksOutlineLevels : [BookmarksOutlineLevelData]?) {
+        self.bookmarksOutlineLevels = bookmarksOutlineLevels;
+    }
+    
     public func getBookmarksOutlineLevels() -> [BookmarksOutlineLevelData]? {
         return self.bookmarksOutlineLevels;
     }
+    public func setDefaultBookmarksOutlineLevel(defaultBookmarksOutlineLevel : Int?) {
+        self.defaultBookmarksOutlineLevel = defaultBookmarksOutlineLevel;
+    }
+    
     public func getDefaultBookmarksOutlineLevel() -> Int? {
         return self.defaultBookmarksOutlineLevel;
     }
+    public func setCreateMissingOutlineLevels(createMissingOutlineLevels : Bool?) {
+        self.createMissingOutlineLevels = createMissingOutlineLevels;
+    }
+    
     public func getCreateMissingOutlineLevels() -> Bool? {
         return self.createMissingOutlineLevels;
     }
+    public func setCreateOutlinesForHeadingsInTables(createOutlinesForHeadingsInTables : Bool?) {
+        self.createOutlinesForHeadingsInTables = createOutlinesForHeadingsInTables;
+    }
+    
     public func getCreateOutlinesForHeadingsInTables() -> Bool? {
         return self.createOutlinesForHeadingsInTables;
     }
+    public func setExpandedOutlineLevels(expandedOutlineLevels : Int?) {
+        self.expandedOutlineLevels = expandedOutlineLevels;
+    }
+    
     public func getExpandedOutlineLevels() -> Int? {
         return self.expandedOutlineLevels;
     }
+    public func setHeadingsOutlineLevels(headingsOutlineLevels : Int?) {
+        self.headingsOutlineLevels = headingsOutlineLevels;
+    }
+    
     public func getHeadingsOutlineLevels() -> Int? {
         return self.headingsOutlineLevels;
     }

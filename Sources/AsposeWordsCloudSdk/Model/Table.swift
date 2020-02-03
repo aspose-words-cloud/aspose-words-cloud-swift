@@ -30,18 +30,18 @@ import Foundation
 public class Table : NodeLink {
         
     // Gets or sets table properties.
-    private let tableProperties : TableProperties?;
+    private var tableProperties : TableProperties?;
     // Gets or sets collection of table&#39;s rows.
-    private let tableRowList : [TableRow]?;
+    private var tableRowList : [TableRow]?;
         
     private enum CodingKeys: String, CodingKey {
         case tableProperties;
         case tableRowList;
+        case invalidCodingKey;
     }
         
-    public init(tableProperties : TableProperties? = nil, tableRowList : [TableRow]? = nil) {
-        self.tableProperties = tableProperties;
-        self.tableRowList = tableRowList;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class Table : NodeLink {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setTableProperties(tableProperties : TableProperties?) {
+        self.tableProperties = tableProperties;
+    }
+    
     public func getTableProperties() -> TableProperties? {
         return self.tableProperties;
     }
+    public func setTableRowList(tableRowList : [TableRow]?) {
+        self.tableRowList = tableRowList;
+    }
+    
     public func getTableRowList() -> [TableRow]? {
         return self.tableRowList;
     }

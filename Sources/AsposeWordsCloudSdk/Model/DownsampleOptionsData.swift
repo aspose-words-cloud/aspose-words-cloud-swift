@@ -30,22 +30,21 @@ import Foundation
 public class DownsampleOptionsData : Codable {
         
     // Gets or sets specifies whether images should be downsampled.
-    private let downsampleImages : Bool?;
+    private var downsampleImages : Bool?;
     // Gets or sets specifies the resolution in pixels per inch which the images should be downsampled to.
-    private let resolution : Int?;
+    private var resolution : Int?;
     // Gets or sets specifies the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
-    private let resolutionThreshold : Int?;
+    private var resolutionThreshold : Int?;
         
     private enum CodingKeys: String, CodingKey {
         case downsampleImages;
         case resolution;
         case resolutionThreshold;
+        case invalidCodingKey;
     }
         
-    public init(downsampleImages : Bool? = nil, resolution : Int? = nil, resolutionThreshold : Int? = nil) {
-        self.downsampleImages = downsampleImages;
-        self.resolution = resolution;
-        self.resolutionThreshold = resolutionThreshold;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -70,12 +69,24 @@ public class DownsampleOptionsData : Codable {
         
     }
         
+    public func setDownsampleImages(downsampleImages : Bool?) {
+        self.downsampleImages = downsampleImages;
+    }
+    
     public func getDownsampleImages() -> Bool? {
         return self.downsampleImages;
     }
+    public func setResolution(resolution : Int?) {
+        self.resolution = resolution;
+    }
+    
     public func getResolution() -> Int? {
         return self.resolution;
     }
+    public func setResolutionThreshold(resolutionThreshold : Int?) {
+        self.resolutionThreshold = resolutionThreshold;
+    }
+    
     public func getResolutionThreshold() -> Int? {
         return self.resolutionThreshold;
     }

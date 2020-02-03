@@ -30,14 +30,15 @@ import Foundation
 public class OfficeMathObjectResponse : WordsResponse {
         
     // Gets or sets officeMathObject information.
-    private let officeMathObject : OfficeMathObject?;
+    private var officeMathObject : OfficeMathObject?;
         
     private enum CodingKeys: String, CodingKey {
         case officeMathObject;
+        case invalidCodingKey;
     }
         
-    public init(officeMathObject : OfficeMathObject? = nil) {
-        self.officeMathObject = officeMathObject;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class OfficeMathObjectResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setOfficeMathObject(officeMathObject : OfficeMathObject?) {
+        self.officeMathObject = officeMathObject;
+    }
+    
     public func getOfficeMathObject() -> OfficeMathObject? {
         return self.officeMathObject;
     }

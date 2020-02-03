@@ -34,6 +34,7 @@ public class CreateFolderRequest : Codable {
     private enum CodingKeys: String, CodingKey {
         case path;
         case storageName;
+        case invalidCodingKey;
     }
     
     public init(path : String, storageName : String? = null) {
@@ -43,7 +44,6 @@ public class CreateFolderRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.path = try container.decode(.self, forKey: .path);
         self.storageName = try container.decodeIfPresent(.self, forKey: .storageName);
     }
@@ -54,7 +54,6 @@ public class CreateFolderRequest : Codable {
         if (self.storageName != nil) {
             try container.encode(self.storageName, forKey: .storageName);
         }
-        
     }
     
     public func getPath() -> String {

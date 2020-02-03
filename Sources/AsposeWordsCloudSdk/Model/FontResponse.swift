@@ -30,14 +30,15 @@ import Foundation
 public class FontResponse : WordsResponse {
         
     // Gets or sets font.
-    private let font : Font?;
+    private var font : Font?;
         
     private enum CodingKeys: String, CodingKey {
         case font;
+        case invalidCodingKey;
     }
         
-    public init(font : Font? = nil) {
-        self.font = font;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class FontResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setFont(font : Font?) {
+        self.font = font;
+    }
+    
     public func getFont() -> Font? {
         return self.font;
     }

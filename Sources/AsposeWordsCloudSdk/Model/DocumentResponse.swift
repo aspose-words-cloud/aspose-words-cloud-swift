@@ -30,14 +30,15 @@ import Foundation
 public class DocumentResponse : WordsResponse {
         
     // Gets or sets document description.
-    private let document : Document?;
+    private var document : Document?;
         
     private enum CodingKeys: String, CodingKey {
         case document;
+        case invalidCodingKey;
     }
         
-    public init(document : Document? = nil) {
-        self.document = document;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class DocumentResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setDocument(document : Document?) {
+        self.document = document;
+    }
+    
     public func getDocument() -> Document? {
         return self.document;
     }

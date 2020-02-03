@@ -30,22 +30,21 @@ import Foundation
 public class TableInsert : Codable {
         
     // Gets or sets table will be inserted before specified position.
-    private let position : DocumentPosition?;
+    private var position : DocumentPosition?;
     // Gets or sets count of columns. Default is 2.
-    private let columnsCount : Int;
+    private var columnsCount : Int?;
     // Gets or sets count of rows. Default is 2.
-    private let rowsCount : Int;
+    private var rowsCount : Int?;
         
     private enum CodingKeys: String, CodingKey {
         case position;
         case columnsCount;
         case rowsCount;
+        case invalidCodingKey;
     }
         
-    public init(position : DocumentPosition? = nil, columnsCount : Int, rowsCount : Int) {
-        self.position = position;
-        self.columnsCount = columnsCount;
-        self.rowsCount = rowsCount;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -61,18 +60,36 @@ public class TableInsert : Codable {
         if (self.position != nil) {
             try container.encode(self.position, forKey: .position);
         }
+        if (self.columnsCount == nil) {
+            throw WordsApiError.requiredArgumentError("columnsCount");
+        }
         try container.encode(self.columnsCount, forKey: .columnsCount);
+        if (self.rowsCount == nil) {
+            throw WordsApiError.requiredArgumentError("rowsCount");
+        }
         try container.encode(self.rowsCount, forKey: .rowsCount);
         
     }
         
+    public func setPosition(position : DocumentPosition?) {
+        self.position = position;
+    }
+    
     public func getPosition() -> DocumentPosition? {
         return self.position;
     }
-    public func getColumnsCount() -> Int {
-        return self.columnsCount;
+    public func setColumnsCount(columnsCount : Int) {
+        self.columnsCount = columnsCount;
     }
+    
+    public func getColumnsCount() -> Int {
+        return self.columnsCount!;
+    }
+    public func setRowsCount(rowsCount : Int) {
+        self.rowsCount = rowsCount;
+    }
+    
     public func getRowsCount() -> Int {
-        return self.rowsCount;
+        return self.rowsCount!;
     }
 }

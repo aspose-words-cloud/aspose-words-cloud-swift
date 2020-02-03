@@ -30,21 +30,21 @@ import Foundation
 public class SaveOptionsData : Codable {
         
     // Gets or sets format of save.
-    private let saveFormat : String?;
+    private var saveFormat : String?;
     // Gets or sets name of destination file.
-    private let fileName : String?;
+    private var fileName : String?;
     // Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }.
-    private let dmlRenderingMode : String?;
+    private var dmlRenderingMode : String?;
     // Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }.
-    private let dmlEffectsRenderingMode : String?;
+    private var dmlEffectsRenderingMode : String?;
     // Gets or sets controls zip output or not. Default value is false.
-    private let zipOutput : Bool?;
+    private var zipOutput : Bool?;
     // Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
-    private let updateLastSavedTimeProperty : Bool?;
+    private var updateLastSavedTimeProperty : Bool?;
     // Gets or sets value determining whether content of  is updated before saving.
-    private let updateSdtContent : Bool?;
+    private var updateSdtContent : Bool?;
     // Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true
-    private let updateFields : Bool?;
+    private var updateFields : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case saveFormat;
@@ -55,17 +55,11 @@ public class SaveOptionsData : Codable {
         case updateLastSavedTimeProperty;
         case updateSdtContent;
         case updateFields;
+        case invalidCodingKey;
     }
         
-    public init(saveFormat : String? = nil, fileName : String? = nil, dmlRenderingMode : String? = nil, dmlEffectsRenderingMode : String? = nil, zipOutput : Bool? = nil, updateLastSavedTimeProperty : Bool? = nil, updateSdtContent : Bool? = nil, updateFields : Bool? = nil) {
-        self.saveFormat = saveFormat;
-        self.fileName = fileName;
-        self.dmlRenderingMode = dmlRenderingMode;
-        self.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
-        self.zipOutput = zipOutput;
-        self.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
-        self.updateSdtContent = updateSdtContent;
-        self.updateFields = updateFields;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -110,27 +104,59 @@ public class SaveOptionsData : Codable {
         
     }
         
+    public func setSaveFormat(saveFormat : String?) {
+        self.saveFormat = saveFormat;
+    }
+    
     public func getSaveFormat() -> String? {
         return self.saveFormat;
     }
+    public func setFileName(fileName : String?) {
+        self.fileName = fileName;
+    }
+    
     public func getFileName() -> String? {
         return self.fileName;
     }
+    public func setDmlRenderingMode(dmlRenderingMode : String?) {
+        self.dmlRenderingMode = dmlRenderingMode;
+    }
+    
     public func getDmlRenderingMode() -> String? {
         return self.dmlRenderingMode;
     }
+    public func setDmlEffectsRenderingMode(dmlEffectsRenderingMode : String?) {
+        self.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
+    }
+    
     public func getDmlEffectsRenderingMode() -> String? {
         return self.dmlEffectsRenderingMode;
     }
+    public func setZipOutput(zipOutput : Bool?) {
+        self.zipOutput = zipOutput;
+    }
+    
     public func getZipOutput() -> Bool? {
         return self.zipOutput;
     }
+    public func setUpdateLastSavedTimeProperty(updateLastSavedTimeProperty : Bool?) {
+        self.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
+    }
+    
     public func getUpdateLastSavedTimeProperty() -> Bool? {
         return self.updateLastSavedTimeProperty;
     }
+    public func setUpdateSdtContent(updateSdtContent : Bool?) {
+        self.updateSdtContent = updateSdtContent;
+    }
+    
     public func getUpdateSdtContent() -> Bool? {
         return self.updateSdtContent;
     }
+    public func setUpdateFields(updateFields : Bool?) {
+        self.updateFields = updateFields;
+    }
+    
     public func getUpdateFields() -> Bool? {
         return self.updateFields;
     }

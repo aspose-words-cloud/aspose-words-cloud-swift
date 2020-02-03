@@ -30,19 +30,19 @@ import Foundation
 public class FixedPageSaveOptionsData : SaveOptionsData {
         
     // Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.
-    private let colorMode : String?;
+    private var colorMode : String?;
     // Gets or sets determines the quality of the JPEG images inside PDF document.
-    private let jpegQuality : Int?;
+    private var jpegQuality : Int?;
     // Gets or sets allows to specify metafile rendering options.
-    private let metafileRenderingOptions : MetafileRenderingOptionsData?;
+    private var metafileRenderingOptions : MetafileRenderingOptionsData?;
     // Gets or sets indicates the symbol set that is used to represent numbers while rendering to fixed page formats.
-    private let numeralFormat : String?;
+    private var numeralFormat : String?;
     // Gets or sets flag indicates whether it is required to optimize output of XPS. If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated. Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.
-    private let optimizeOutput : Bool?;
+    private var optimizeOutput : Bool?;
     // Gets or sets determines number of pages to render.
-    private let pageCount : Int?;
+    private var pageCount : Int?;
     // Gets or sets determines 0-based index of the first page to render.
-    private let pageIndex : Int?;
+    private var pageIndex : Int?;
         
     private enum CodingKeys: String, CodingKey {
         case colorMode;
@@ -52,16 +52,11 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         case optimizeOutput;
         case pageCount;
         case pageIndex;
+        case invalidCodingKey;
     }
         
-    public init(colorMode : String? = nil, jpegQuality : Int? = nil, metafileRenderingOptions : MetafileRenderingOptionsData? = nil, numeralFormat : String? = nil, optimizeOutput : Bool? = nil, pageCount : Int? = nil, pageIndex : Int? = nil) {
-        self.colorMode = colorMode;
-        self.jpegQuality = jpegQuality;
-        self.metafileRenderingOptions = metafileRenderingOptions;
-        self.numeralFormat = numeralFormat;
-        self.optimizeOutput = optimizeOutput;
-        self.pageCount = pageCount;
-        self.pageIndex = pageIndex;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -102,24 +97,52 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setColorMode(colorMode : String?) {
+        self.colorMode = colorMode;
+    }
+    
     public func getColorMode() -> String? {
         return self.colorMode;
     }
+    public func setJpegQuality(jpegQuality : Int?) {
+        self.jpegQuality = jpegQuality;
+    }
+    
     public func getJpegQuality() -> Int? {
         return self.jpegQuality;
     }
+    public func setMetafileRenderingOptions(metafileRenderingOptions : MetafileRenderingOptionsData?) {
+        self.metafileRenderingOptions = metafileRenderingOptions;
+    }
+    
     public func getMetafileRenderingOptions() -> MetafileRenderingOptionsData? {
         return self.metafileRenderingOptions;
     }
+    public func setNumeralFormat(numeralFormat : String?) {
+        self.numeralFormat = numeralFormat;
+    }
+    
     public func getNumeralFormat() -> String? {
         return self.numeralFormat;
     }
+    public func setOptimizeOutput(optimizeOutput : Bool?) {
+        self.optimizeOutput = optimizeOutput;
+    }
+    
     public func getOptimizeOutput() -> Bool? {
         return self.optimizeOutput;
     }
+    public func setPageCount(pageCount : Int?) {
+        self.pageCount = pageCount;
+    }
+    
     public func getPageCount() -> Int? {
         return self.pageCount;
     }
+    public func setPageIndex(pageIndex : Int?) {
+        self.pageIndex = pageIndex;
+    }
+    
     public func getPageIndex() -> Int? {
         return self.pageIndex;
     }

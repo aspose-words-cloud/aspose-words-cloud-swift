@@ -30,18 +30,18 @@ import Foundation
 public class BookmarksOutlineLevelData : Codable {
         
     // Gets or sets specify the bookmark&#39;s name.
-    private let name : String?;
+    private var name : String?;
     // Gets or sets specify the bookmark&#39;s level.
-    private let bookmarksOutlineLevel : Int;
+    private var bookmarksOutlineLevel : Int?;
         
     private enum CodingKeys: String, CodingKey {
         case name;
         case bookmarksOutlineLevel;
+        case invalidCodingKey;
     }
         
-    public init(name : String? = nil, bookmarksOutlineLevel : Int) {
-        self.name = name;
-        self.bookmarksOutlineLevel = bookmarksOutlineLevel;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -56,14 +56,25 @@ public class BookmarksOutlineLevelData : Codable {
         if (self.name != nil) {
             try container.encode(self.name, forKey: .name);
         }
+        if (self.bookmarksOutlineLevel == nil) {
+            throw WordsApiError.requiredArgumentError("bookmarksOutlineLevel");
+        }
         try container.encode(self.bookmarksOutlineLevel, forKey: .bookmarksOutlineLevel);
         
     }
         
+    public func setName(name : String?) {
+        self.name = name;
+    }
+    
     public func getName() -> String? {
         return self.name;
     }
+    public func setBookmarksOutlineLevel(bookmarksOutlineLevel : Int) {
+        self.bookmarksOutlineLevel = bookmarksOutlineLevel;
+    }
+    
     public func getBookmarksOutlineLevel() -> Int {
-        return self.bookmarksOutlineLevel;
+        return self.bookmarksOutlineLevel!;
     }
 }

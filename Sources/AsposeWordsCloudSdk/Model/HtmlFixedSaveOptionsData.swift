@@ -30,31 +30,31 @@ import Foundation
 public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         
     // Gets or sets specifies prefix which is added to all class names in style.css file. Default value is \&quot;aw\&quot;.
-    private let cssClassNamesPrefix : String?;
+    private var cssClassNamesPrefix : String?;
     // Gets or sets encoding.
-    private let encoding : String?;
+    private var encoding : String?;
     // Gets or sets specifies whether the CSS (Cascading Style Sheet) should be embedded into Html document.
-    private let exportEmbeddedCss : Bool?;
+    private var exportEmbeddedCss : Bool?;
     // Gets or sets specifies whether fonts should be embedded into Html document in Base64 format.
-    private let exportEmbeddedFonts : Bool?;
+    private var exportEmbeddedFonts : Bool?;
     // Gets or sets specifies whether images should be embedded into Html document in Base64 format.
-    private let exportEmbeddedImages : Bool?;
+    private var exportEmbeddedImages : Bool?;
     // Gets or sets indication of whether form fields are exported as interactive items (as &#39;input&#39; tag) rather than converted to text or graphics.
-    private let exportFormFields : Bool?;
+    private var exportFormFields : Bool?;
     // Gets or sets specifies export format of fonts.
-    private let fontFormat : String?;
+    private var fontFormat : String?;
     // Gets or sets specifies the horizontal alignment of pages in an HTML document. Default value is HtmlFixedHorizontalPageAlignment.Center.
-    private let pageHorizontalAlignment : String?;
+    private var pageHorizontalAlignment : String?;
     // Gets or sets specifies the margins around pages in an HTML document. The margins value is measured in points and should be equal to or greater than 0. Default value is 10 points.
-    private let pageMargins : Double?;
+    private var pageMargins : Double?;
     // Gets or sets specifies the physical folder where resources are saved when exporting a document.
-    private let resourcesFolder : String?;
+    private var resourcesFolder : String?;
     // Gets or sets specifies the name of the folder used to construct resource URIs.
-    private let resourcesFolderAlias : String?;
+    private var resourcesFolderAlias : String?;
     // Gets or sets flag indicates whether \&quot;@font-face\&quot; CSS rules should be placed into a separate file \&quot;fontFaces.css\&quot; when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). Default value is false, all CSS rules are written into single file \&quot;styles.css\&quot;.
-    private let saveFontFaceCssSeparately : Bool?;
+    private var saveFontFaceCssSeparately : Bool?;
     // Gets or sets specifies whether border around pages should be shown.
-    private let showPageBorder : Bool?;
+    private var showPageBorder : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case cssClassNamesPrefix;
@@ -70,22 +70,11 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         case resourcesFolderAlias;
         case saveFontFaceCssSeparately;
         case showPageBorder;
+        case invalidCodingKey;
     }
         
-    public init(cssClassNamesPrefix : String? = nil, encoding : String? = nil, exportEmbeddedCss : Bool? = nil, exportEmbeddedFonts : Bool? = nil, exportEmbeddedImages : Bool? = nil, exportFormFields : Bool? = nil, fontFormat : String? = nil, pageHorizontalAlignment : String? = nil, pageMargins : Double? = nil, resourcesFolder : String? = nil, resourcesFolderAlias : String? = nil, saveFontFaceCssSeparately : Bool? = nil, showPageBorder : Bool? = nil) {
-        self.cssClassNamesPrefix = cssClassNamesPrefix;
-        self.encoding = encoding;
-        self.exportEmbeddedCss = exportEmbeddedCss;
-        self.exportEmbeddedFonts = exportEmbeddedFonts;
-        self.exportEmbeddedImages = exportEmbeddedImages;
-        self.exportFormFields = exportFormFields;
-        self.fontFormat = fontFormat;
-        self.pageHorizontalAlignment = pageHorizontalAlignment;
-        self.pageMargins = pageMargins;
-        self.resourcesFolder = resourcesFolder;
-        self.resourcesFolderAlias = resourcesFolderAlias;
-        self.saveFontFaceCssSeparately = saveFontFaceCssSeparately;
-        self.showPageBorder = showPageBorder;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -150,42 +139,94 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setCssClassNamesPrefix(cssClassNamesPrefix : String?) {
+        self.cssClassNamesPrefix = cssClassNamesPrefix;
+    }
+    
     public func getCssClassNamesPrefix() -> String? {
         return self.cssClassNamesPrefix;
     }
+    public func setEncoding(encoding : String?) {
+        self.encoding = encoding;
+    }
+    
     public func getEncoding() -> String? {
         return self.encoding;
     }
+    public func setExportEmbeddedCss(exportEmbeddedCss : Bool?) {
+        self.exportEmbeddedCss = exportEmbeddedCss;
+    }
+    
     public func getExportEmbeddedCss() -> Bool? {
         return self.exportEmbeddedCss;
     }
+    public func setExportEmbeddedFonts(exportEmbeddedFonts : Bool?) {
+        self.exportEmbeddedFonts = exportEmbeddedFonts;
+    }
+    
     public func getExportEmbeddedFonts() -> Bool? {
         return self.exportEmbeddedFonts;
     }
+    public func setExportEmbeddedImages(exportEmbeddedImages : Bool?) {
+        self.exportEmbeddedImages = exportEmbeddedImages;
+    }
+    
     public func getExportEmbeddedImages() -> Bool? {
         return self.exportEmbeddedImages;
     }
+    public func setExportFormFields(exportFormFields : Bool?) {
+        self.exportFormFields = exportFormFields;
+    }
+    
     public func getExportFormFields() -> Bool? {
         return self.exportFormFields;
     }
+    public func setFontFormat(fontFormat : String?) {
+        self.fontFormat = fontFormat;
+    }
+    
     public func getFontFormat() -> String? {
         return self.fontFormat;
     }
+    public func setPageHorizontalAlignment(pageHorizontalAlignment : String?) {
+        self.pageHorizontalAlignment = pageHorizontalAlignment;
+    }
+    
     public func getPageHorizontalAlignment() -> String? {
         return self.pageHorizontalAlignment;
     }
+    public func setPageMargins(pageMargins : Double?) {
+        self.pageMargins = pageMargins;
+    }
+    
     public func getPageMargins() -> Double? {
         return self.pageMargins;
     }
+    public func setResourcesFolder(resourcesFolder : String?) {
+        self.resourcesFolder = resourcesFolder;
+    }
+    
     public func getResourcesFolder() -> String? {
         return self.resourcesFolder;
     }
+    public func setResourcesFolderAlias(resourcesFolderAlias : String?) {
+        self.resourcesFolderAlias = resourcesFolderAlias;
+    }
+    
     public func getResourcesFolderAlias() -> String? {
         return self.resourcesFolderAlias;
     }
+    public func setSaveFontFaceCssSeparately(saveFontFaceCssSeparately : Bool?) {
+        self.saveFontFaceCssSeparately = saveFontFaceCssSeparately;
+    }
+    
     public func getSaveFontFaceCssSeparately() -> Bool? {
         return self.saveFontFaceCssSeparately;
     }
+    public func setShowPageBorder(showPageBorder : Bool?) {
+        self.showPageBorder = showPageBorder;
+    }
+    
     public func getShowPageBorder() -> Bool? {
         return self.showPageBorder;
     }

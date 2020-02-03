@@ -44,6 +44,7 @@ public class ClassifyDocumentRequest : Codable {
         case password;
         case bestClassesCount;
         case taxonomy;
+        case invalidCodingKey;
     }
     
     public init(documentName : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, bestClassesCount : String? = null, taxonomy : String? = null) {
@@ -58,7 +59,6 @@ public class ClassifyDocumentRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.documentName = try container.decode(.self, forKey: .documentName);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
         self.storage = try container.decodeIfPresent(.self, forKey: .storage);
@@ -89,7 +89,6 @@ public class ClassifyDocumentRequest : Codable {
         if (self.taxonomy != nil) {
             try container.encode(self.taxonomy, forKey: .taxonomy);
         }
-        
     }
     
     public func getDocumentName() -> String {

@@ -42,6 +42,7 @@ public class GetSectionRequest : Codable {
         case storage;
         case loadEncoding;
         case password;
+        case invalidCodingKey;
     }
     
     public init(name : String, sectionIndex : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
@@ -55,7 +56,6 @@ public class GetSectionRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.sectionIndex = try container.decode(.self, forKey: .sectionIndex);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
@@ -80,7 +80,6 @@ public class GetSectionRequest : Codable {
         if (self.password != nil) {
             try container.encode(self.password, forKey: .password);
         }
-        
     }
     
     public func getName() -> String {

@@ -30,14 +30,15 @@ import Foundation
 public class OfficeMathObjectsCollection : LinkElement {
         
     // Gets or sets collection of OfficeMath objects.
-    private let list : [OfficeMathObject]?;
+    private var list : [OfficeMathObject]?;
         
     private enum CodingKeys: String, CodingKey {
         case list;
+        case invalidCodingKey;
     }
         
-    public init(list : [OfficeMathObject]? = nil) {
-        self.list = list;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class OfficeMathObjectsCollection : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setList(list : [OfficeMathObject]?) {
+        self.list = list;
+    }
+    
     public func getList() -> [OfficeMathObject]? {
         return self.list;
     }

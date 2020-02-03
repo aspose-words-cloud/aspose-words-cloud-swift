@@ -44,26 +44,24 @@ public class TableRowFormat : LinkElement {
 
         
     // Gets or sets true if the text in a table row is allowed to split across a page break.
-    private let allowBreakAcrossPages : Bool?;
+    private var allowBreakAcrossPages : Bool?;
     // Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.
-    private let headingFormat : Bool?;
+    private var headingFormat : Bool?;
     // Gets or sets the height of the table row in points.
-    private let height : Double?;
+    private var height : Double?;
     // Gets or sets the rule for determining the height of the table row.
-    private let heightRule : HeightRule?;
+    private var heightRule : HeightRule?;
         
     private enum CodingKeys: String, CodingKey {
         case allowBreakAcrossPages;
         case headingFormat;
         case height;
         case heightRule;
+        case invalidCodingKey;
     }
         
-    public init(allowBreakAcrossPages : Bool? = nil, headingFormat : Bool? = nil, height : Double? = nil, heightRule : HeightRule? = nil) {
-        self.allowBreakAcrossPages = allowBreakAcrossPages;
-        self.headingFormat = headingFormat;
-        self.height = height;
-        self.heightRule = heightRule;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -92,15 +90,31 @@ public class TableRowFormat : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setAllowBreakAcrossPages(allowBreakAcrossPages : Bool?) {
+        self.allowBreakAcrossPages = allowBreakAcrossPages;
+    }
+    
     public func getAllowBreakAcrossPages() -> Bool? {
         return self.allowBreakAcrossPages;
     }
+    public func setHeadingFormat(headingFormat : Bool?) {
+        self.headingFormat = headingFormat;
+    }
+    
     public func getHeadingFormat() -> Bool? {
         return self.headingFormat;
     }
+    public func setHeight(height : Double?) {
+        self.height = height;
+    }
+    
     public func getHeight() -> Double? {
         return self.height;
     }
+    public func setHeightRule(heightRule : HeightRule?) {
+        self.heightRule = heightRule;
+    }
+    
     public func getHeightRule() -> HeightRule? {
         return self.heightRule;
     }

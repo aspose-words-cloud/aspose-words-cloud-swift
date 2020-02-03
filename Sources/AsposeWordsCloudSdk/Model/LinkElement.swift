@@ -30,14 +30,15 @@ import Foundation
 public class LinkElement : Codable {
         
     // Gets or sets link to the document.
-    private let link : WordsApiLink?;
+    private var link : WordsApiLink?;
         
     private enum CodingKeys: String, CodingKey {
         case link;
+        case invalidCodingKey;
     }
         
-    public init(link : WordsApiLink? = nil) {
-        self.link = link;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class LinkElement : Codable {
         
     }
         
+    public func setLink(link : WordsApiLink?) {
+        self.link = link;
+    }
+    
     public func getLink() -> WordsApiLink? {
         return self.link;
     }

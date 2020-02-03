@@ -50,6 +50,7 @@ public class DeleteHeadersFootersRequest : Codable {
         case revisionAuthor;
         case revisionDateTime;
         case headersFootersTypes;
+        case invalidCodingKey;
     }
     
     public init(name : String, sectionPath : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, headersFootersTypes : String? = null) {
@@ -67,7 +68,6 @@ public class DeleteHeadersFootersRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.sectionPath = try container.decode(.self, forKey: .sectionPath);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
@@ -108,7 +108,6 @@ public class DeleteHeadersFootersRequest : Codable {
         if (self.headersFootersTypes != nil) {
             try container.encode(self.headersFootersTypes, forKey: .headersFootersTypes);
         }
-        
     }
     
     public func getName() -> String {

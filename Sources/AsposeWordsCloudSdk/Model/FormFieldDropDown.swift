@@ -30,18 +30,18 @@ import Foundation
 public class FormFieldDropDown : FormField {
         
     // Gets or sets provides access to the items of a dropdown form field.
-    private let dropDownItems : [String]?;
+    private var dropDownItems : [String]?;
     // Gets or sets the index specifying the currently selected item in a dropdown form field.
-    private let dropDownSelectedIndex : Int?;
+    private var dropDownSelectedIndex : Int?;
         
     private enum CodingKeys: String, CodingKey {
         case dropDownItems;
         case dropDownSelectedIndex;
+        case invalidCodingKey;
     }
         
-    public init(dropDownItems : [String]? = nil, dropDownSelectedIndex : Int? = nil) {
-        self.dropDownItems = dropDownItems;
-        self.dropDownSelectedIndex = dropDownSelectedIndex;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class FormFieldDropDown : FormField {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setDropDownItems(dropDownItems : [String]?) {
+        self.dropDownItems = dropDownItems;
+    }
+    
     public func getDropDownItems() -> [String]? {
         return self.dropDownItems;
     }
+    public func setDropDownSelectedIndex(dropDownSelectedIndex : Int?) {
+        self.dropDownSelectedIndex = dropDownSelectedIndex;
+    }
+    
     public func getDropDownSelectedIndex() -> Int? {
         return self.dropDownSelectedIndex;
     }

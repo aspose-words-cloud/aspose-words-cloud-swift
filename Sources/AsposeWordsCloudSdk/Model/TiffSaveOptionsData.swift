@@ -30,22 +30,21 @@ import Foundation
 public class TiffSaveOptionsData : ImageSaveOptionsData {
         
     // Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering. Default value is 128.
-    private let thresholdForFloydSteinbergDithering : Int?;
+    private var thresholdForFloydSteinbergDithering : Int?;
     // Gets or sets specifies method used while converting images to 1 bpp format.
-    private let tiffBinarizationMethod : String?;
+    private var tiffBinarizationMethod : String?;
     // Gets or sets type of compression.
-    private let tiffCompression : String?;
+    private var tiffCompression : String?;
         
     private enum CodingKeys: String, CodingKey {
         case thresholdForFloydSteinbergDithering;
         case tiffBinarizationMethod;
         case tiffCompression;
+        case invalidCodingKey;
     }
         
-    public init(thresholdForFloydSteinbergDithering : Int? = nil, tiffBinarizationMethod : String? = nil, tiffCompression : String? = nil) {
-        self.thresholdForFloydSteinbergDithering = thresholdForFloydSteinbergDithering;
-        self.tiffBinarizationMethod = tiffBinarizationMethod;
-        self.tiffCompression = tiffCompression;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -70,12 +69,24 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setThresholdForFloydSteinbergDithering(thresholdForFloydSteinbergDithering : Int?) {
+        self.thresholdForFloydSteinbergDithering = thresholdForFloydSteinbergDithering;
+    }
+    
     public func getThresholdForFloydSteinbergDithering() -> Int? {
         return self.thresholdForFloydSteinbergDithering;
     }
+    public func setTiffBinarizationMethod(tiffBinarizationMethod : String?) {
+        self.tiffBinarizationMethod = tiffBinarizationMethod;
+    }
+    
     public func getTiffBinarizationMethod() -> String? {
         return self.tiffBinarizationMethod;
     }
+    public func setTiffCompression(tiffCompression : String?) {
+        self.tiffCompression = tiffCompression;
+    }
+    
     public func getTiffCompression() -> String? {
         return self.tiffCompression;
     }

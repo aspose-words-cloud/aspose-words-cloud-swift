@@ -30,18 +30,18 @@ import Foundation
 public class LoadWebDocumentData : Codable {
         
     // Gets or sets web document url.
-    private let loadingDocumentUrl : String?;
+    private var loadingDocumentUrl : String?;
     // Gets or sets save options.
-    private let saveOptions : SaveOptionsData?;
+    private var saveOptions : SaveOptionsData?;
         
     private enum CodingKeys: String, CodingKey {
         case loadingDocumentUrl;
         case saveOptions;
+        case invalidCodingKey;
     }
         
-    public init(loadingDocumentUrl : String? = nil, saveOptions : SaveOptionsData? = nil) {
-        self.loadingDocumentUrl = loadingDocumentUrl;
-        self.saveOptions = saveOptions;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class LoadWebDocumentData : Codable {
         
     }
         
+    public func setLoadingDocumentUrl(loadingDocumentUrl : String?) {
+        self.loadingDocumentUrl = loadingDocumentUrl;
+    }
+    
     public func getLoadingDocumentUrl() -> String? {
         return self.loadingDocumentUrl;
     }
+    public func setSaveOptions(saveOptions : SaveOptionsData?) {
+        self.saveOptions = saveOptions;
+    }
+    
     public func getSaveOptions() -> SaveOptionsData? {
         return self.saveOptions;
     }

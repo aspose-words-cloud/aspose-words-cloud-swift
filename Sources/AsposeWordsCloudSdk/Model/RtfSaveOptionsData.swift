@@ -30,22 +30,21 @@ import Foundation
 public class RtfSaveOptionsData : SaveOptionsData {
         
     // Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
-    private let exportCompactSize : Bool?;
+    private var exportCompactSize : Bool?;
     // Gets or sets specifies whether the keywords for \&quot;old readers\&quot; are written to RTF or not.
-    private let exportImagesForOldReaders : Bool?;
+    private var exportImagesForOldReaders : Bool?;
     // Gets or sets specifies whether or not use pretty formats output.
-    private let prettyFormat : Bool?;
+    private var prettyFormat : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case exportCompactSize;
         case exportImagesForOldReaders;
         case prettyFormat;
+        case invalidCodingKey;
     }
         
-    public init(exportCompactSize : Bool? = nil, exportImagesForOldReaders : Bool? = nil, prettyFormat : Bool? = nil) {
-        self.exportCompactSize = exportCompactSize;
-        self.exportImagesForOldReaders = exportImagesForOldReaders;
-        self.prettyFormat = prettyFormat;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -70,12 +69,24 @@ public class RtfSaveOptionsData : SaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setExportCompactSize(exportCompactSize : Bool?) {
+        self.exportCompactSize = exportCompactSize;
+    }
+    
     public func getExportCompactSize() -> Bool? {
         return self.exportCompactSize;
     }
+    public func setExportImagesForOldReaders(exportImagesForOldReaders : Bool?) {
+        self.exportImagesForOldReaders = exportImagesForOldReaders;
+    }
+    
     public func getExportImagesForOldReaders() -> Bool? {
         return self.exportImagesForOldReaders;
     }
+    public func setPrettyFormat(prettyFormat : Bool?) {
+        self.prettyFormat = prettyFormat;
+    }
+    
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }

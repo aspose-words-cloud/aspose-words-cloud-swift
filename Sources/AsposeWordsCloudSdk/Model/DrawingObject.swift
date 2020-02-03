@@ -120,25 +120,25 @@ public class DrawingObject : DrawingObjectLink {
 
         
     // Gets or sets height of the drawing object in points.
-    private let height : Double?;
+    private var height : Double?;
     // Gets or sets link to image data. Can be null if shape does not have an image.
-    private let imageDataLink : WordsApiLink?;
+    private var imageDataLink : WordsApiLink?;
     // Gets or sets distance in points from the origin to the left side of the image.             
-    private let _left : Double?;
+    private var _left : Double?;
     // Gets or sets link to ole object. Can be null if shape does not have ole data.
-    private let oleDataLink : WordsApiLink?;
+    private var oleDataLink : WordsApiLink?;
     // Gets or sets specifies where the distance to the image is measured from.             
-    private let relativeHorizontalPosition : RelativeHorizontalPosition?;
+    private var relativeHorizontalPosition : RelativeHorizontalPosition?;
     // Gets or sets specifies where the distance to the image measured from.
-    private let relativeVerticalPosition : RelativeVerticalPosition?;
+    private var relativeVerticalPosition : RelativeVerticalPosition?;
     // Gets or sets a list of links that originate from this .
-    private let renderLinks : [WordsApiLink]?;
+    private var renderLinks : [WordsApiLink]?;
     // Gets or sets distance in points from the origin to the top side of the image.
-    private let top : Double?;
+    private var top : Double?;
     // Gets or sets width of the drawing objects in points.
-    private let width : Double?;
+    private var width : Double?;
     // Gets or sets specifies how to wrap text around the image.
-    private let wrapType : WrapType?;
+    private var wrapType : WrapType?;
         
     private enum CodingKeys: String, CodingKey {
         case height;
@@ -151,19 +151,11 @@ public class DrawingObject : DrawingObjectLink {
         case top;
         case width;
         case wrapType;
+        case invalidCodingKey;
     }
         
-    public init(height : Double? = nil, imageDataLink : WordsApiLink? = nil, _left : Double? = nil, oleDataLink : WordsApiLink? = nil, relativeHorizontalPosition : RelativeHorizontalPosition? = nil, relativeVerticalPosition : RelativeVerticalPosition? = nil, renderLinks : [WordsApiLink]? = nil, top : Double? = nil, width : Double? = nil, wrapType : WrapType? = nil) {
-        self.height = height;
-        self.imageDataLink = imageDataLink;
-        self._left = _left;
-        self.oleDataLink = oleDataLink;
-        self.relativeHorizontalPosition = relativeHorizontalPosition;
-        self.relativeVerticalPosition = relativeVerticalPosition;
-        self.renderLinks = renderLinks;
-        self.top = top;
-        self.width = width;
-        self.wrapType = wrapType;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -216,33 +208,73 @@ public class DrawingObject : DrawingObjectLink {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setHeight(height : Double?) {
+        self.height = height;
+    }
+    
     public func getHeight() -> Double? {
         return self.height;
     }
+    public func setImageDataLink(imageDataLink : WordsApiLink?) {
+        self.imageDataLink = imageDataLink;
+    }
+    
     public func getImageDataLink() -> WordsApiLink? {
         return self.imageDataLink;
     }
+    public func setLeft(_left : Double?) {
+        self._left = _left;
+    }
+    
     public func getLeft() -> Double? {
         return self._left;
     }
+    public func setOleDataLink(oleDataLink : WordsApiLink?) {
+        self.oleDataLink = oleDataLink;
+    }
+    
     public func getOleDataLink() -> WordsApiLink? {
         return self.oleDataLink;
     }
+    public func setRelativeHorizontalPosition(relativeHorizontalPosition : RelativeHorizontalPosition?) {
+        self.relativeHorizontalPosition = relativeHorizontalPosition;
+    }
+    
     public func getRelativeHorizontalPosition() -> RelativeHorizontalPosition? {
         return self.relativeHorizontalPosition;
     }
+    public func setRelativeVerticalPosition(relativeVerticalPosition : RelativeVerticalPosition?) {
+        self.relativeVerticalPosition = relativeVerticalPosition;
+    }
+    
     public func getRelativeVerticalPosition() -> RelativeVerticalPosition? {
         return self.relativeVerticalPosition;
     }
+    public func setRenderLinks(renderLinks : [WordsApiLink]?) {
+        self.renderLinks = renderLinks;
+    }
+    
     public func getRenderLinks() -> [WordsApiLink]? {
         return self.renderLinks;
     }
+    public func setTop(top : Double?) {
+        self.top = top;
+    }
+    
     public func getTop() -> Double? {
         return self.top;
     }
+    public func setWidth(width : Double?) {
+        self.width = width;
+    }
+    
     public func getWidth() -> Double? {
         return self.width;
     }
+    public func setWrapType(wrapType : WrapType?) {
+        self.wrapType = wrapType;
+    }
+    
     public func getWrapType() -> WrapType? {
         return self.wrapType;
     }

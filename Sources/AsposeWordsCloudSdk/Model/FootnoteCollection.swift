@@ -30,14 +30,15 @@ import Foundation
 public class FootnoteCollection : LinkElement {
         
     // Gets or sets collection of foonotes links.
-    private let list : [Footnote]?;
+    private var list : [Footnote]?;
         
     private enum CodingKeys: String, CodingKey {
         case list;
+        case invalidCodingKey;
     }
         
-    public init(list : [Footnote]? = nil) {
-        self.list = list;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class FootnoteCollection : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setList(list : [Footnote]?) {
+        self.list = list;
+    }
+    
     public func getList() -> [Footnote]? {
         return self.list;
     }

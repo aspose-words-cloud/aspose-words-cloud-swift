@@ -31,9 +31,11 @@ public class PngSaveOptionsData : ImageSaveOptionsData {
         
         
     private enum CodingKeys: String, CodingKey {
+        case invalidCodingKey;
     }
         
     public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {

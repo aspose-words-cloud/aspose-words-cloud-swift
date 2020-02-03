@@ -30,18 +30,18 @@ import Foundation
 public class DocumentPosition : Codable {
         
     // Gets or sets link to  node.
-    private let node : NodeLink?;
+    private var node : NodeLink?;
     // Gets or sets offset into the node.
-    private let offset : Int?;
+    private var offset : Int?;
         
     private enum CodingKeys: String, CodingKey {
         case node;
         case offset;
+        case invalidCodingKey;
     }
         
-    public init(node : NodeLink? = nil, offset : Int? = nil) {
-        self.node = node;
-        self.offset = offset;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class DocumentPosition : Codable {
         
     }
         
+    public func setNode(node : NodeLink?) {
+        self.node = node;
+    }
+    
     public func getNode() -> NodeLink? {
         return self.node;
     }
+    public func setOffset(offset : Int?) {
+        self.offset = offset;
+    }
+    
     public func getOffset() -> Int? {
         return self.offset;
     }

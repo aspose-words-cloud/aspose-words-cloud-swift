@@ -30,18 +30,18 @@ import Foundation
 public class PclSaveOptionsData : FixedPageSaveOptionsData {
         
     // Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.
-    private let falllbackFontName : String?;
+    private var falllbackFontName : String?;
     // Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.
-    private let rasterizeTransformedElements : Bool?;
+    private var rasterizeTransformedElements : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case falllbackFontName;
         case rasterizeTransformedElements;
+        case invalidCodingKey;
     }
         
-    public init(falllbackFontName : String? = nil, rasterizeTransformedElements : Bool? = nil) {
-        self.falllbackFontName = falllbackFontName;
-        self.rasterizeTransformedElements = rasterizeTransformedElements;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -62,9 +62,17 @@ public class PclSaveOptionsData : FixedPageSaveOptionsData {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setFalllbackFontName(falllbackFontName : String?) {
+        self.falllbackFontName = falllbackFontName;
+    }
+    
     public func getFalllbackFontName() -> String? {
         return self.falllbackFontName;
     }
+    public func setRasterizeTransformedElements(rasterizeTransformedElements : Bool?) {
+        self.rasterizeTransformedElements = rasterizeTransformedElements;
+    }
+    
     public func getRasterizeTransformedElements() -> Bool? {
         return self.rasterizeTransformedElements;
     }

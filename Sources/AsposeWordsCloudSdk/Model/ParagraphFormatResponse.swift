@@ -30,14 +30,15 @@ import Foundation
 public class ParagraphFormatResponse : WordsResponse {
         
     // Gets or sets represents all the formatting for a paragraph.
-    private let paragraphFormat : ParagraphFormat?;
+    private var paragraphFormat : ParagraphFormat?;
         
     private enum CodingKeys: String, CodingKey {
         case paragraphFormat;
+        case invalidCodingKey;
     }
         
-    public init(paragraphFormat : ParagraphFormat? = nil) {
-        self.paragraphFormat = paragraphFormat;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class ParagraphFormatResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setParagraphFormat(paragraphFormat : ParagraphFormat?) {
+        self.paragraphFormat = paragraphFormat;
+    }
+    
     public func getParagraphFormat() -> ParagraphFormat? {
         return self.paragraphFormat;
     }

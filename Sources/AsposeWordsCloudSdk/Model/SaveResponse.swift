@@ -30,14 +30,15 @@ import Foundation
 public class SaveResponse : WordsResponse {
         
     // Gets or sets save result.
-    private let saveResult : SaveResult?;
+    private var saveResult : SaveResult?;
         
     private enum CodingKeys: String, CodingKey {
         case saveResult;
+        case invalidCodingKey;
     }
         
-    public init(saveResult : SaveResult? = nil) {
-        self.saveResult = saveResult;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class SaveResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setSaveResult(saveResult : SaveResult?) {
+        self.saveResult = saveResult;
+    }
+    
     public func getSaveResult() -> SaveResult? {
         return self.saveResult;
     }

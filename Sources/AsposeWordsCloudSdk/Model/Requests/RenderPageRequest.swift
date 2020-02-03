@@ -46,6 +46,7 @@ public class RenderPageRequest : Codable {
         case loadEncoding;
         case password;
         case fontsLocation;
+        case invalidCodingKey;
     }
     
     public init(name : String, pageIndex : Int, format : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, fontsLocation : String? = null) {
@@ -61,7 +62,6 @@ public class RenderPageRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.pageIndex = try container.decode(.self, forKey: .pageIndex);
         self.format = try container.decode(.self, forKey: .format);
@@ -92,7 +92,6 @@ public class RenderPageRequest : Codable {
         if (self.fontsLocation != nil) {
             try container.encode(self.fontsLocation, forKey: .fontsLocation);
         }
-        
     }
     
     public func getName() -> String {

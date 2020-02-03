@@ -30,22 +30,21 @@ import Foundation
 public class AvailableFontsResponse : WordsResponse {
         
     // Gets or sets the list of addititional fonts, provided by aspose team.
-    private let additionalFonts : [FontInfo]?;
+    private var additionalFonts : [FontInfo]?;
     // Gets or sets custom user fonts (from user file storage). To use them, you should specify \&quot;fontsLocation\&quot; parameter in any request.
-    private let customFonts : [FontInfo]?;
+    private var customFonts : [FontInfo]?;
     // Gets or sets the list of system fonts, availiable on the server.
-    private let systemFonts : [FontInfo]?;
+    private var systemFonts : [FontInfo]?;
         
     private enum CodingKeys: String, CodingKey {
         case additionalFonts;
         case customFonts;
         case systemFonts;
+        case invalidCodingKey;
     }
         
-    public init(additionalFonts : [FontInfo]? = nil, customFonts : [FontInfo]? = nil, systemFonts : [FontInfo]? = nil) {
-        self.additionalFonts = additionalFonts;
-        self.customFonts = customFonts;
-        self.systemFonts = systemFonts;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -70,12 +69,24 @@ public class AvailableFontsResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setAdditionalFonts(additionalFonts : [FontInfo]?) {
+        self.additionalFonts = additionalFonts;
+    }
+    
     public func getAdditionalFonts() -> [FontInfo]? {
         return self.additionalFonts;
     }
+    public func setCustomFonts(customFonts : [FontInfo]?) {
+        self.customFonts = customFonts;
+    }
+    
     public func getCustomFonts() -> [FontInfo]? {
         return self.customFonts;
     }
+    public func setSystemFonts(systemFonts : [FontInfo]?) {
+        self.systemFonts = systemFonts;
+    }
+    
     public func getSystemFonts() -> [FontInfo]? {
         return self.systemFonts;
     }

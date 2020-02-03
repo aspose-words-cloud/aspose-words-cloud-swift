@@ -30,14 +30,15 @@ import Foundation
 public class FieldNamesResponse : WordsResponse {
         
     // Gets or sets collection of mail merge fields.
-    private let fieldNames : FieldNames?;
+    private var fieldNames : FieldNames?;
         
     private enum CodingKeys: String, CodingKey {
         case fieldNames;
+        case invalidCodingKey;
     }
         
-    public init(fieldNames : FieldNames? = nil) {
-        self.fieldNames = fieldNames;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class FieldNamesResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setFieldNames(fieldNames : FieldNames?) {
+        self.fieldNames = fieldNames;
+    }
+    
     public func getFieldNames() -> FieldNames? {
         return self.fieldNames;
     }

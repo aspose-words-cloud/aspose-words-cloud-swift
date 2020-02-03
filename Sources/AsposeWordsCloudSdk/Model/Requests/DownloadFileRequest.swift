@@ -36,6 +36,7 @@ public class DownloadFileRequest : Codable {
         case path;
         case storageName;
         case versionId;
+        case invalidCodingKey;
     }
     
     public init(path : String, storageName : String? = null, versionId : String? = null) {
@@ -46,7 +47,6 @@ public class DownloadFileRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.path = try container.decode(.self, forKey: .path);
         self.storageName = try container.decodeIfPresent(.self, forKey: .storageName);
         self.versionId = try container.decodeIfPresent(.self, forKey: .versionId);
@@ -61,7 +61,6 @@ public class DownloadFileRequest : Codable {
         if (self.versionId != nil) {
             try container.encode(self.versionId, forKey: .versionId);
         }
-        
     }
     
     public func getPath() -> String {

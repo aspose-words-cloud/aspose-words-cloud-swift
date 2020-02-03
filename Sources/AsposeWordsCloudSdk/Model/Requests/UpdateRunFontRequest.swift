@@ -52,6 +52,7 @@ public class UpdateRunFontRequest : Codable {
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
+        case invalidCodingKey;
     }
     
     public init(name : String, fontDto : Font, paragraphPath : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null) {
@@ -70,7 +71,6 @@ public class UpdateRunFontRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.fontDto = try container.decode(.self, forKey: .fontDto);
         self.paragraphPath = try container.decode(.self, forKey: .paragraphPath);
@@ -111,7 +111,6 @@ public class UpdateRunFontRequest : Codable {
         if (self.revisionDateTime != nil) {
             try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
         }
-        
     }
     
     public func getName() -> String {

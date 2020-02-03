@@ -38,6 +38,7 @@ public class MoveFolderRequest : Codable {
         case srcPath;
         case srcStorageName;
         case destStorageName;
+        case invalidCodingKey;
     }
     
     public init(destPath : String, srcPath : String, srcStorageName : String? = null, destStorageName : String? = null) {
@@ -49,7 +50,6 @@ public class MoveFolderRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.destPath = try container.decode(.self, forKey: .destPath);
         self.srcPath = try container.decode(.self, forKey: .srcPath);
         self.srcStorageName = try container.decodeIfPresent(.self, forKey: .srcStorageName);
@@ -66,7 +66,6 @@ public class MoveFolderRequest : Codable {
         if (self.destStorageName != nil) {
             try container.encode(self.destStorageName, forKey: .destStorageName);
         }
-        
     }
     
     public func getDestPath() -> String {

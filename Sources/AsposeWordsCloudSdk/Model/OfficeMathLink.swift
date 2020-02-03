@@ -31,9 +31,11 @@ public class OfficeMathLink : NodeLink {
         
         
     private enum CodingKeys: String, CodingKey {
+        case invalidCodingKey;
     }
         
     public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {

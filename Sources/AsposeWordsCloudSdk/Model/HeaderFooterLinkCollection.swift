@@ -30,14 +30,15 @@ import Foundation
 public class HeaderFooterLinkCollection : LinkElement {
         
     // Gets or sets collection of section&#39;s links.
-    private let list : [HeaderFooterLink]?;
+    private var list : [HeaderFooterLink]?;
         
     private enum CodingKeys: String, CodingKey {
         case list;
+        case invalidCodingKey;
     }
         
-    public init(list : [HeaderFooterLink]? = nil) {
-        self.list = list;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class HeaderFooterLinkCollection : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setList(list : [HeaderFooterLink]?) {
+        self.list = list;
+    }
+    
     public func getList() -> [HeaderFooterLink]? {
         return self.list;
     }

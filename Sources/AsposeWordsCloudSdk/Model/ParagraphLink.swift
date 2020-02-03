@@ -30,14 +30,15 @@ import Foundation
 public class ParagraphLink : NodeLink {
         
     // Gets or sets paragraph&#39;s text.
-    private let text : String?;
+    private var text : String?;
         
     private enum CodingKeys: String, CodingKey {
         case text;
+        case invalidCodingKey;
     }
         
-    public init(text : String? = nil) {
-        self.text = text;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class ParagraphLink : NodeLink {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setText(text : String?) {
+        self.text = text;
+    }
+    
     public func getText() -> String? {
         return self.text;
     }

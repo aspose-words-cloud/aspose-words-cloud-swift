@@ -52,6 +52,7 @@ public class InsertFieldRequest : Codable {
         case revisionAuthor;
         case revisionDateTime;
         case insertBeforeNode;
+        case invalidCodingKey;
     }
     
     public init(name : String, field : Field, nodePath : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, insertBeforeNode : String? = null) {
@@ -70,7 +71,6 @@ public class InsertFieldRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.field = try container.decode(.self, forKey: .field);
         self.nodePath = try container.decode(.self, forKey: .nodePath);
@@ -113,7 +113,6 @@ public class InsertFieldRequest : Codable {
         if (self.insertBeforeNode != nil) {
             try container.encode(self.insertBeforeNode, forKey: .insertBeforeNode);
         }
-        
     }
     
     public func getName() -> String {

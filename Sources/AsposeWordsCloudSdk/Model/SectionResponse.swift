@@ -30,14 +30,15 @@ import Foundation
 public class SectionResponse : WordsResponse {
         
     // Gets or sets section.
-    private let section : Section?;
+    private var section : Section?;
         
     private enum CodingKeys: String, CodingKey {
         case section;
+        case invalidCodingKey;
     }
         
-    public init(section : Section? = nil) {
-        self.section = section;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class SectionResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setSection(section : Section?) {
+        self.section = section;
+    }
+    
     public func getSection() -> Section? {
         return self.section;
     }

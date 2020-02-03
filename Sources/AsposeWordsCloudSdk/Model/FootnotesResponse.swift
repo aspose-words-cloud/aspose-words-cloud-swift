@@ -30,14 +30,15 @@ import Foundation
 public class FootnotesResponse : WordsResponse {
         
     // Gets or sets collection of footnotes.
-    private let footnotes : FootnoteCollection?;
+    private var footnotes : FootnoteCollection?;
         
     private enum CodingKeys: String, CodingKey {
         case footnotes;
+        case invalidCodingKey;
     }
         
-    public init(footnotes : FootnoteCollection? = nil) {
-        self.footnotes = footnotes;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class FootnotesResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setFootnotes(footnotes : FootnoteCollection?) {
+        self.footnotes = footnotes;
+    }
+    
     public func getFootnotes() -> FootnoteCollection? {
         return self.footnotes;
     }

@@ -44,6 +44,7 @@ public class SaveAsRequest : Codable {
         case loadEncoding;
         case password;
         case fontsLocation;
+        case invalidCodingKey;
     }
     
     public init(name : String, saveOptionsData : SaveOptionsData, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, fontsLocation : String? = null) {
@@ -58,7 +59,6 @@ public class SaveAsRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.saveOptionsData = try container.decode(.self, forKey: .saveOptionsData);
         self.folder = try container.decodeIfPresent(.self, forKey: .folder);
@@ -87,7 +87,6 @@ public class SaveAsRequest : Codable {
         if (self.fontsLocation != nil) {
             try container.encode(self.fontsLocation, forKey: .fontsLocation);
         }
-        
     }
     
     public func getName() -> String {

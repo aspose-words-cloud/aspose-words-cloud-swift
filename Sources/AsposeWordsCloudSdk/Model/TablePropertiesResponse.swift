@@ -30,14 +30,15 @@ import Foundation
 public class TablePropertiesResponse : WordsResponse {
         
     // Gets or sets table.
-    private let properties : TableProperties?;
+    private var properties : TableProperties?;
         
     private enum CodingKeys: String, CodingKey {
         case properties;
+        case invalidCodingKey;
     }
         
-    public init(properties : TableProperties? = nil) {
-        self.properties = properties;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class TablePropertiesResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setProperties(properties : TableProperties?) {
+        self.properties = properties;
+    }
+    
     public func getProperties() -> TableProperties? {
         return self.properties;
     }

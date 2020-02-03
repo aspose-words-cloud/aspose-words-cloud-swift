@@ -44,6 +44,7 @@ public class GetBorderRequest : Codable {
         case storage;
         case loadEncoding;
         case password;
+        case invalidCodingKey;
     }
     
     public init(name : String, nodePath : String, borderType : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
@@ -58,7 +59,6 @@ public class GetBorderRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.nodePath = try container.decode(.self, forKey: .nodePath);
         self.borderType = try container.decode(BorderType.self, forKey: .borderType);
@@ -85,7 +85,6 @@ public class GetBorderRequest : Codable {
         if (self.password != nil) {
             try container.encode(self.password, forKey: .password);
         }
-        
     }
     
     public func getName() -> String {

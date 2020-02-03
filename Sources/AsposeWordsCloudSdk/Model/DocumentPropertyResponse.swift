@@ -30,14 +30,15 @@ import Foundation
 public class DocumentPropertyResponse : WordsResponse {
         
     // Gets or sets document property.
-    private let documentProperty : DocumentProperty?;
+    private var documentProperty : DocumentProperty?;
         
     private enum CodingKeys: String, CodingKey {
         case documentProperty;
+        case invalidCodingKey;
     }
         
-    public init(documentProperty : DocumentProperty? = nil) {
-        self.documentProperty = documentProperty;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class DocumentPropertyResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setDocumentProperty(documentProperty : DocumentProperty?) {
+        self.documentProperty = documentProperty;
+    }
+    
     public func getDocumentProperty() -> DocumentProperty? {
         return self.documentProperty;
     }

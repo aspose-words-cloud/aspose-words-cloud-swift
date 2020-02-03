@@ -30,14 +30,15 @@ import Foundation
 public class DocumentProperties : LinkElement {
         
     // Gets or sets collection of document properties.
-    private let list : [DocumentProperty]?;
+    private var list : [DocumentProperty]?;
         
     private enum CodingKeys: String, CodingKey {
         case list;
+        case invalidCodingKey;
     }
         
-    public init(list : [DocumentProperty]? = nil) {
-        self.list = list;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class DocumentProperties : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setList(list : [DocumentProperty]?) {
+        self.list = list;
+    }
+    
     public func getList() -> [DocumentProperty]? {
         return self.list;
     }

@@ -50,6 +50,7 @@ public class UpdateCommentRequest : Codable {
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
+        case invalidCodingKey;
     }
     
     public init(name : String, commentIndex : Int, comment : Comment, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null) {
@@ -67,7 +68,6 @@ public class UpdateCommentRequest : Codable {
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        
         self.name = try container.decode(.self, forKey: .name);
         self.commentIndex = try container.decode(.self, forKey: .commentIndex);
         self.comment = try container.decode(.self, forKey: .comment);
@@ -106,7 +106,6 @@ public class UpdateCommentRequest : Codable {
         if (self.revisionDateTime != nil) {
             try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
         }
-        
     }
     
     public func getName() -> String {

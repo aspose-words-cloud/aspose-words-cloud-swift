@@ -30,14 +30,15 @@ import Foundation
 public class Paragraph : NodeLink {
         
     // Gets or sets child nodes.
-    private let childNodes : [NodeLink]?;
+    private var childNodes : [NodeLink]?;
         
     private enum CodingKeys: String, CodingKey {
         case childNodes;
+        case invalidCodingKey;
     }
         
-    public init(childNodes : [NodeLink]? = nil) {
-        self.childNodes = childNodes;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class Paragraph : NodeLink {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setChildNodes(childNodes : [NodeLink]?) {
+        self.childNodes = childNodes;
+    }
+    
     public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }

@@ -41,18 +41,18 @@ public class ReplaceRange : Codable {
 
         
     // Gets or sets range&#39;s text.
-    private let text : String?;
+    private var text : String?;
     // Gets or sets range&#39;s text type.
-    private let textType : TextType?;
+    private var textType : TextType?;
         
     private enum CodingKeys: String, CodingKey {
         case text;
         case textType;
+        case invalidCodingKey;
     }
         
-    public init(text : String? = nil, textType : TextType? = nil) {
-        self.text = text;
-        self.textType = textType;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -73,9 +73,17 @@ public class ReplaceRange : Codable {
         
     }
         
+    public func setText(text : String?) {
+        self.text = text;
+    }
+    
     public func getText() -> String? {
         return self.text;
     }
+    public func setTextType(textType : TextType?) {
+        self.textType = textType;
+    }
+    
     public func getTextType() -> TextType? {
         return self.textType;
     }

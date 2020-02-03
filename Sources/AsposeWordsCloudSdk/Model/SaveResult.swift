@@ -30,22 +30,21 @@ import Foundation
 public class SaveResult : Codable {
         
     // Gets or sets link to source document.
-    private let sourceDocument : FileLink?;
+    private var sourceDocument : FileLink?;
     // Gets or sets link to destination document.
-    private let destDocument : FileLink?;
+    private var destDocument : FileLink?;
     // Gets or sets links to additional items (css, images etc).
-    private let additionalItems : [FileLink]?;
+    private var additionalItems : [FileLink]?;
         
     private enum CodingKeys: String, CodingKey {
         case sourceDocument;
         case destDocument;
         case additionalItems;
+        case invalidCodingKey;
     }
         
-    public init(sourceDocument : FileLink? = nil, destDocument : FileLink? = nil, additionalItems : [FileLink]? = nil) {
-        self.sourceDocument = sourceDocument;
-        self.destDocument = destDocument;
-        self.additionalItems = additionalItems;
+    public init() {
+        
     }
     
     public required init(from decoder: Decoder) throws {
@@ -70,12 +69,24 @@ public class SaveResult : Codable {
         
     }
         
+    public func setSourceDocument(sourceDocument : FileLink?) {
+        self.sourceDocument = sourceDocument;
+    }
+    
     public func getSourceDocument() -> FileLink? {
         return self.sourceDocument;
     }
+    public func setDestDocument(destDocument : FileLink?) {
+        self.destDocument = destDocument;
+    }
+    
     public func getDestDocument() -> FileLink? {
         return self.destDocument;
     }
+    public func setAdditionalItems(additionalItems : [FileLink]?) {
+        self.additionalItems = additionalItems;
+    }
+    
     public func getAdditionalItems() -> [FileLink]? {
         return self.additionalItems;
     }

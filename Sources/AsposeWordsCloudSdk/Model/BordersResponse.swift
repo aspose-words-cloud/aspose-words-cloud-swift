@@ -30,14 +30,15 @@ import Foundation
 public class BordersResponse : WordsResponse {
         
     // Gets or sets table.
-    private let borders : BordersCollection?;
+    private var borders : BordersCollection?;
         
     private enum CodingKeys: String, CodingKey {
         case borders;
+        case invalidCodingKey;
     }
         
-    public init(borders : BordersCollection? = nil) {
-        self.borders = borders;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class BordersResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setBorders(borders : BordersCollection?) {
+        self.borders = borders;
+    }
+    
     public func getBorders() -> BordersCollection? {
         return self.borders;
     }

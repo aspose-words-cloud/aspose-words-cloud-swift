@@ -30,14 +30,15 @@ import Foundation
 public class SplitDocumentResponse : WordsResponse {
         
     // Gets or sets resylt of splitting document.
-    private let splitResult : SplitDocumentResult?;
+    private var splitResult : SplitDocumentResult?;
         
     private enum CodingKeys: String, CodingKey {
         case splitResult;
+        case invalidCodingKey;
     }
         
-    public init(splitResult : SplitDocumentResult? = nil) {
-        self.splitResult = splitResult;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class SplitDocumentResponse : WordsResponse {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setSplitResult(splitResult : SplitDocumentResult?) {
+        self.splitResult = splitResult;
+    }
+    
     public func getSplitResult() -> SplitDocumentResult? {
         return self.splitResult;
     }

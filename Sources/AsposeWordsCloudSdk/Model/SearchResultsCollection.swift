@@ -30,14 +30,15 @@ import Foundation
 public class SearchResultsCollection : LinkElement {
         
     // Gets or sets collection of comments.
-    private let resultsList : [SearchResult]?;
+    private var resultsList : [SearchResult]?;
         
     private enum CodingKeys: String, CodingKey {
         case resultsList;
+        case invalidCodingKey;
     }
         
-    public init(resultsList : [SearchResult]? = nil) {
-        self.resultsList = resultsList;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class SearchResultsCollection : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setResultsList(resultsList : [SearchResult]?) {
+        self.resultsList = resultsList;
+    }
+    
     public func getResultsList() -> [SearchResult]? {
         return self.resultsList;
     }

@@ -30,14 +30,15 @@ import Foundation
 public class TableLinkCollection : LinkElement {
         
     // Gets or sets collection of table&#39;s links.
-    private let tableLinkList : [TableLink]?;
+    private var tableLinkList : [TableLink]?;
         
     private enum CodingKeys: String, CodingKey {
         case tableLinkList;
+        case invalidCodingKey;
     }
         
-    public init(tableLinkList : [TableLink]? = nil) {
-        self.tableLinkList = tableLinkList;
+    public init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
@@ -54,6 +55,10 @@ public class TableLinkCollection : LinkElement {
         try super.encode(to: container.superEncoder());
     }
         
+    public func setTableLinkList(tableLinkList : [TableLink]?) {
+        self.tableLinkList = tableLinkList;
+    }
+    
     public func getTableLinkList() -> [TableLink]? {
         return self.tableLinkList;
     }
