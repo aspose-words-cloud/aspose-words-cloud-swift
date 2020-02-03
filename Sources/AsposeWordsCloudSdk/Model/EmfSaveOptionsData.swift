@@ -40,12 +40,10 @@ public class EmfSaveOptionsData : ImageSaveOptionsData {
     
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
-        let container = try decoder.container(keyedBy: CodingKeys.self);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
-        var container = encoder.container(keyedBy: CodingKeys.self);
     }
         
 }
