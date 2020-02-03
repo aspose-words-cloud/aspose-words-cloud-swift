@@ -40,7 +40,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/revisions/acceptAll");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -56,7 +55,6 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -73,7 +71,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/appendDocument");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -95,7 +92,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -112,11 +108,9 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/classify");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getBestClassesCount() != nil) {
             queryItems.append(URLQueryItem(name: "bestClassesCount", value: request.getBestClassesCount()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -133,7 +127,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{documentName}/classify");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -152,7 +145,6 @@ public class WordsAPI {
         if (request.getTaxonomy() != nil) {
             queryItems.append(URLQueryItem(name: "taxonomy", value: request.getTaxonomy()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -169,7 +161,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/compareDocument");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -185,7 +176,6 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -202,7 +192,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/convert");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getStorage() != nil) {
             queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
@@ -216,7 +205,6 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -233,7 +221,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/file/copy/{srcPath}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "destPath", value: request.getDestPath()));
         if (request.getSrcStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "srcStorageName", value: request.getSrcStorageName()!));
@@ -244,7 +231,6 @@ public class WordsAPI {
         if (request.getVersionId() != nil) {
             queryItems.append(URLQueryItem(name: "versionId", value: request.getVersionId()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -261,7 +247,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/folder/copy/{srcPath}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "destPath", value: request.getDestPath()));
         if (request.getSrcStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "srcStorageName", value: request.getSrcStorageName()!));
@@ -269,7 +254,6 @@ public class WordsAPI {
         if (request.getDestStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "destStorageName", value: request.getDestStorageName()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -286,7 +270,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/create");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getStorage() != nil) {
             queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
@@ -296,7 +279,6 @@ public class WordsAPI {
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -313,11 +295,9 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/folder/{path}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "storageName", value: request.getStorageName()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -334,7 +314,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/documentProperties/{propertyName}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -356,7 +335,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -373,7 +351,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/borders/{borderType}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -395,7 +372,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -412,7 +388,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/borders");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -434,7 +409,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -451,7 +425,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/comments/{commentIndex}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -473,7 +446,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -490,7 +462,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/documentProperties/{propertyName}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -512,7 +483,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -529,7 +499,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -551,7 +520,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -568,7 +536,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -590,7 +557,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -607,7 +573,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -629,7 +594,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -646,7 +610,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/fields/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -668,7 +631,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -685,7 +647,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -707,7 +668,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -724,7 +684,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/fields");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -746,7 +705,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -763,14 +721,12 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/file/{path}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "storageName", value: request.getStorageName()!));
         }
         if (request.getVersionId() != nil) {
             queryItems.append(URLQueryItem(name: "versionId", value: request.getVersionId()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -787,14 +743,12 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/folder/{path}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "storageName", value: request.getStorageName()!));
         }
         if (request.getRecursive() != nil) {
             queryItems.append(URLQueryItem(name: "recursive", value: "\(request.getRecursive()!)"));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -811,7 +765,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/footnotes/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -833,7 +786,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -850,7 +802,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/footnotes/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -872,7 +823,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -889,7 +839,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/formfields/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -911,7 +860,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -928,7 +876,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/formfields/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -950,7 +897,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -967,7 +913,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{sectionPath}/headersfooters/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -989,7 +934,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -1006,7 +950,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{sectionPath}/headersfooters");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1031,7 +974,6 @@ public class WordsAPI {
         if (request.getHeadersFootersTypes() != nil) {
             queryItems.append(URLQueryItem(name: "headersFootersTypes", value: request.getHeadersFootersTypes()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -1048,7 +990,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/macros");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1070,7 +1011,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -1087,7 +1027,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/OfficeMathObjects/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1109,7 +1048,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -1126,7 +1064,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/OfficeMathObjects/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1148,7 +1085,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -1165,7 +1101,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1187,7 +1122,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -1204,7 +1138,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/paragraphs/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1226,7 +1159,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -1243,7 +1175,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1265,7 +1196,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -1282,7 +1212,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections/{sectionIndex}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1304,7 +1233,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -1321,7 +1249,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1343,7 +1270,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -1360,7 +1286,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tableRowPath}/cells/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1382,7 +1307,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -1399,7 +1323,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tablePath}/rows/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1421,7 +1344,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -1438,7 +1360,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1460,7 +1381,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -1477,7 +1397,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/watermarks/deleteLast");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1499,7 +1418,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1516,14 +1434,12 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/file/{path}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "storageName", value: request.getStorageName()!));
         }
         if (request.getVersionId() != nil) {
             queryItems.append(URLQueryItem(name: "versionId", value: request.getVersionId()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1540,7 +1456,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/MailMerge");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1568,7 +1483,6 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1585,7 +1499,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/MailMerge");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getWithRegions() != nil) {
             queryItems.append(URLQueryItem(name: "withRegions", value: "\(request.getWithRegions()!)"));
         }
@@ -1595,7 +1508,6 @@ public class WordsAPI {
         if (request.getDocumentFileName() != nil) {
             queryItems.append(URLQueryItem(name: "documentFileName", value: request.getDocumentFileName()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1612,11 +1524,9 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/fonts/available");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1633,7 +1543,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/bookmarks/{bookmarkName}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1646,7 +1555,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1663,7 +1571,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/bookmarks");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1676,7 +1583,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1693,7 +1599,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/borders/{borderType}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1706,7 +1611,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1723,7 +1627,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/borders");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1736,7 +1639,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1753,7 +1655,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/comments/{commentIndex}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1766,7 +1667,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1783,7 +1683,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/comments");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1796,7 +1695,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1813,7 +1711,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{documentName}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1826,7 +1723,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1843,7 +1739,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1856,7 +1751,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1873,7 +1767,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1886,7 +1779,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1903,7 +1795,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}/imageData");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1916,7 +1807,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1933,7 +1823,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}/imageData");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1946,7 +1835,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1963,7 +1851,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}/oleData");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -1976,7 +1863,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -1993,7 +1879,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}/oleData");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2006,7 +1891,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2023,7 +1907,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2036,7 +1919,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2053,7 +1935,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2066,7 +1947,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2083,7 +1963,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/mailMerge/FieldNames");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2099,7 +1978,6 @@ public class WordsAPI {
         if (request.getUseNonMergeFields() != nil) {
             queryItems.append(URLQueryItem(name: "useNonMergeFields", value: "\(request.getUseNonMergeFields()!)"));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2116,11 +1994,9 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/mailMerge/FieldNames");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getUseNonMergeFields() != nil) {
             queryItems.append(URLQueryItem(name: "useNonMergeFields", value: "\(request.getUseNonMergeFields()!)"));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2137,7 +2013,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/hyperlinks/{hyperlinkIndex}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2150,7 +2025,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2167,7 +2041,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/hyperlinks");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2180,7 +2053,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2197,7 +2069,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/documentProperties");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2210,7 +2081,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2227,7 +2097,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/documentProperties/{propertyName}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2240,7 +2109,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2257,7 +2125,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/protection");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2270,7 +2137,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2287,7 +2153,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/statistics");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2309,7 +2174,6 @@ public class WordsAPI {
         if (request.getIncludeTextInShapes() != nil) {
             queryItems.append(URLQueryItem(name: "includeTextInShapes", value: "\(request.getIncludeTextInShapes()!)"));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2326,7 +2190,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
@@ -2346,7 +2209,6 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2363,7 +2225,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2376,7 +2237,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2393,7 +2253,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/fields/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2406,7 +2265,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2423,7 +2281,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2436,7 +2293,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2453,7 +2309,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/fields");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2466,7 +2321,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2483,11 +2337,9 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/folder/{path}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "storageName", value: request.getStorageName()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2504,7 +2356,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/footnotes/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2517,7 +2368,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2534,7 +2384,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/footnotes/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2547,7 +2396,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2564,7 +2412,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/footnotes");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2577,7 +2424,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2594,7 +2440,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/footnotes");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2607,7 +2452,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2624,7 +2468,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/formfields/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2637,7 +2480,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2654,7 +2496,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/formfields/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2667,7 +2508,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2684,7 +2524,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/formfields");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2697,7 +2536,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2714,7 +2552,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/formfields");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2727,7 +2564,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2744,7 +2580,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/headersfooters/{headerFooterIndex}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2760,7 +2595,6 @@ public class WordsAPI {
         if (request.getFilterByType() != nil) {
             queryItems.append(URLQueryItem(name: "filterByType", value: request.getFilterByType()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2777,7 +2611,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2793,7 +2626,6 @@ public class WordsAPI {
         if (request.getFilterByType() != nil) {
             queryItems.append(URLQueryItem(name: "filterByType", value: request.getFilterByType()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2810,7 +2642,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{sectionPath}/headersfooters");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2826,7 +2657,6 @@ public class WordsAPI {
         if (request.getFilterByType() != nil) {
             queryItems.append(URLQueryItem(name: "filterByType", value: request.getFilterByType()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2843,7 +2673,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/OfficeMathObjects/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2856,7 +2685,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2873,7 +2701,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/OfficeMathObjects/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2886,7 +2713,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2903,7 +2729,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/OfficeMathObjects");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2916,7 +2741,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2933,7 +2757,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/OfficeMathObjects");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2946,7 +2769,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2963,7 +2785,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -2976,7 +2797,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -2993,7 +2813,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs/{index}/format");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3006,7 +2825,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3023,7 +2841,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/paragraphs/{index}/format");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3036,7 +2853,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3053,7 +2869,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/paragraphs/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3066,7 +2881,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3083,7 +2897,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3096,7 +2909,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3113,7 +2925,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/paragraphs");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3126,7 +2937,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3143,7 +2953,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3156,7 +2965,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3173,7 +2981,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3186,7 +2993,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3203,7 +3009,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs/{index}/font");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3216,7 +3021,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3233,7 +3037,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3246,7 +3049,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3263,7 +3065,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections/{sectionIndex}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3276,7 +3077,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3293,7 +3093,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections/{sectionIndex}/pageSetup");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3306,7 +3105,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3323,7 +3121,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3336,7 +3133,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3353,7 +3149,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3366,7 +3161,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3383,7 +3177,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tableRowPath}/cells/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3396,7 +3189,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3413,7 +3205,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tableRowPath}/cells/{index}/cellformat");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3426,7 +3217,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3443,7 +3233,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables/{index}/properties");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3456,7 +3245,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3473,7 +3261,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables/{index}/properties");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3486,7 +3273,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3503,7 +3289,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tablePath}/rows/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3516,7 +3301,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3533,7 +3317,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tablePath}/rows/{index}/rowformat");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3546,7 +3329,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3563,7 +3345,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3576,7 +3357,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3593,7 +3373,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3606,7 +3385,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3623,7 +3401,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3636,7 +3413,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3653,7 +3429,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/comments");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3675,7 +3450,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3692,7 +3466,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3714,7 +3487,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3731,7 +3503,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3753,7 +3524,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3770,7 +3540,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3795,7 +3564,6 @@ public class WordsAPI {
         if (request.getInsertBeforeNode() != nil) {
             queryItems.append(URLQueryItem(name: "insertBeforeNode", value: request.getInsertBeforeNode()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3812,7 +3580,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/fields");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3837,7 +3604,6 @@ public class WordsAPI {
         if (request.getInsertBeforeNode() != nil) {
             queryItems.append(URLQueryItem(name: "insertBeforeNode", value: request.getInsertBeforeNode()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3854,7 +3620,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/footnotes");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3876,7 +3641,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3893,7 +3657,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/footnotes");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3915,7 +3678,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3932,7 +3694,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/formfields");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3957,7 +3718,6 @@ public class WordsAPI {
         if (request.getInsertBeforeNode() != nil) {
             queryItems.append(URLQueryItem(name: "insertBeforeNode", value: request.getInsertBeforeNode()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -3974,7 +3734,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/formfields");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -3999,7 +3758,6 @@ public class WordsAPI {
         if (request.getInsertBeforeNode() != nil) {
             queryItems.append(URLQueryItem(name: "insertBeforeNode", value: request.getInsertBeforeNode()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4016,7 +3774,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{sectionPath}/headersfooters");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -4038,7 +3795,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4055,7 +3811,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/PageNumbers");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -4077,7 +3832,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4094,7 +3848,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -4119,7 +3872,6 @@ public class WordsAPI {
         if (request.getInsertBeforeNode() != nil) {
             queryItems.append(URLQueryItem(name: "insertBeforeNode", value: request.getInsertBeforeNode()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4136,7 +3888,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -4161,7 +3912,6 @@ public class WordsAPI {
         if (request.getInsertBeforeNode() != nil) {
             queryItems.append(URLQueryItem(name: "insertBeforeNode", value: request.getInsertBeforeNode()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4178,7 +3928,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -4200,7 +3949,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4217,7 +3965,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tableRowPath}/cells");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -4239,7 +3986,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4256,7 +4002,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tablePath}/rows");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -4278,7 +4023,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4295,7 +4039,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -4317,7 +4060,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4334,7 +4076,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/watermarks/images");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -4362,7 +4103,6 @@ public class WordsAPI {
         if (request.getImage() != nil) {
             queryItems.append(URLQueryItem(name: "image", value: request.getImage()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4379,7 +4119,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/watermarks/texts");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -4401,7 +4140,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4418,11 +4156,9 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/loadWebDocument");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getStorage() != nil) {
             queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4439,7 +4175,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/file/move/{srcPath}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "destPath", value: request.getDestPath()));
         if (request.getSrcStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "srcStorageName", value: request.getSrcStorageName()!));
@@ -4450,7 +4185,6 @@ public class WordsAPI {
         if (request.getVersionId() != nil) {
             queryItems.append(URLQueryItem(name: "versionId", value: request.getVersionId()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -4467,7 +4201,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/folder/move/{srcPath}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "destPath", value: request.getDestPath()));
         if (request.getSrcStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "srcStorageName", value: request.getSrcStorageName()!));
@@ -4475,7 +4208,6 @@ public class WordsAPI {
         if (request.getDestStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "destStorageName", value: request.getDestStorageName()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
@@ -4492,7 +4224,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/protection");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -4508,7 +4239,6 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4525,7 +4255,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/revisions/rejectAll");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -4541,7 +4270,6 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4558,7 +4286,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -4574,7 +4301,6 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4591,7 +4317,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}/render");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
@@ -4608,7 +4333,6 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4625,7 +4349,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}/render");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
@@ -4642,7 +4365,6 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4659,7 +4381,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/OfficeMathObjects/{index}/render");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
@@ -4676,7 +4397,6 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4693,7 +4413,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/OfficeMathObjects/{index}/render");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
@@ -4710,7 +4429,6 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4727,7 +4445,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/pages/{pageIndex}/render");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
@@ -4744,7 +4461,6 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4761,7 +4477,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs/{index}/render");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
@@ -4778,7 +4493,6 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4795,7 +4509,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/paragraphs/{index}/render");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
@@ -4812,7 +4525,6 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4829,7 +4541,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables/{index}/render");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
@@ -4846,7 +4557,6 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4863,7 +4573,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables/{index}/render");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
@@ -4880,7 +4589,6 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4897,7 +4605,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/replaceText");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -4919,7 +4626,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4936,7 +4642,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -4952,7 +4657,6 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -4968,10 +4672,6 @@ public class WordsAPI {
     public func resetCache(request : ResetCacheRequest) throws  {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/fonts/cache");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-        var queryItems : [URLQueryItem] = [];
-        
-        
-        urlBuilder.queryItems = queryItems;
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
@@ -4987,7 +4687,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/saveAs");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5003,7 +4702,6 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5020,7 +4718,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5033,7 +4730,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5050,7 +4746,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/saveAs/tiff");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5117,7 +4812,6 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5134,7 +4828,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/search");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         queryItems.append(URLQueryItem(name: "pattern", value: request.getPattern()));
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
@@ -5148,7 +4841,6 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5165,7 +4857,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/split");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5196,7 +4887,6 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5213,7 +4903,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/protection");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5229,7 +4918,6 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5246,7 +4934,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/bookmarks/{bookmarkName}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5268,7 +4955,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5285,7 +4971,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/borders/{borderType}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5307,7 +4992,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5324,7 +5008,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/comments/{commentIndex}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5346,7 +5029,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5363,7 +5045,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5385,7 +5066,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5402,7 +5082,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5424,7 +5103,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5441,7 +5119,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5463,7 +5140,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5480,7 +5156,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/updateFields");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5496,7 +5171,6 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5513,7 +5187,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/footnotes/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5535,7 +5208,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5552,7 +5224,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/footnotes/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5574,7 +5245,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5591,7 +5261,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/formfields/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5613,7 +5282,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5630,7 +5298,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/formfields/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5652,7 +5319,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5669,7 +5335,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs/{index}/format");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5691,7 +5356,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5708,7 +5372,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs/{index}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5730,7 +5393,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5747,7 +5409,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs/{index}/font");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5769,7 +5430,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5786,7 +5446,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections/{sectionIndex}/pageSetup");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5808,7 +5467,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5825,7 +5483,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tableRowPath}/cells/{index}/cellformat");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5847,7 +5504,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5864,7 +5520,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables/{index}/properties");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5886,7 +5541,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5903,7 +5557,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables/{index}/properties");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5925,7 +5578,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5942,7 +5594,6 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tablePath}/rows/{index}/rowformat");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
@@ -5964,7 +5615,6 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
@@ -5981,11 +5631,9 @@ public class WordsAPI {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/file/{path}");
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
-        
         if (request.getStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "storageName", value: request.getStorageName()!));
         }
-        
         urlBuilder.queryItems = queryItems;
         
         let response = try apiInvoker.invoke(
