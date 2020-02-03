@@ -32,8 +32,28 @@ public class WordsApiErrorResponse : WordsResponse {
     // Gets or sets error.
     private let error : ApiError?;
         
+    private enum CodingKeys: String, CodingKey { case error }
+        
     public init(error : ApiError? = nil) {
         self.error = error;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let error = try container.decodeIfPresent(ApiError.self, forKey: .error) {
+            self.error = error;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.error != nil) {
+            try container.encode(self.error, forKey: .error);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getError() -> ApiError? {

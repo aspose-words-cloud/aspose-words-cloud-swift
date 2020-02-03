@@ -34,9 +34,31 @@ public class BookmarksOutlineLevelData : Decodable {
     // Gets or sets specify the bookmark&#39;s level.
     private let bookmarksOutlineLevel : Int;
         
+    private enum CodingKeys: String, CodingKey { case name, bookmarksOutlineLevel }
+        
     public init(name : String? = nil, bookmarksOutlineLevel : Int) {
         self.name = name;
         self.bookmarksOutlineLevel = bookmarksOutlineLevel;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let name = try container.decodeIfPresent(String.self, forKey: .name) {
+            self.name = name;
+        }
+        self.bookmarksOutlineLevel = try container.decode(Int.self, forKey: .bookmarksOutlineLevel);
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.name != nil) {
+            try container.encode(self.name, forKey: .name);
+        }
+        try container.encode(self.bookmarksOutlineLevel, forKey: .bookmarksOutlineLevel);
+        
+        
     }
         
     public func getName() -> String? {

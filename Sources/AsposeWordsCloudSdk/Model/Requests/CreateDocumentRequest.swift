@@ -32,10 +32,42 @@ public class CreateDocumentRequest : Decodable {
     private let fileName : String?;
     private let folder : String?;
     
+    private enum CodingKeys: String, CodingKey { case storage, fileName, folder }
+    
     public init(storage : String? = null, fileName : String? = null, folder : String? = null) {
         self.storage = storage;
         self.fileName = fileName;
         self.folder = folder;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
+            self.storage = storage;
+        }
+        if let fileName = try container.decodeIfPresent(.self, forKey: .fileName) {
+            self.fileName = fileName;
+        }
+        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
+            self.folder = folder;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.storage != nil) {
+            try container.encode(self.storage, forKey: .storage);
+        }
+        if (self.fileName != nil) {
+            try container.encode(self.fileName, forKey: .fileName);
+        }
+        if (self.folder != nil) {
+            try container.encode(self.folder, forKey: .folder);
+        }
+        
+        
     }
     
     public func getStorage() -> String? {

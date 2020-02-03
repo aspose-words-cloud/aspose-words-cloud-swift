@@ -36,10 +36,42 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     // Gets or sets type of compression.
     private let tiffCompression : String?;
         
+    private enum CodingKeys: String, CodingKey { case thresholdForFloydSteinbergDithering, tiffBinarizationMethod, tiffCompression }
+        
     public init(thresholdForFloydSteinbergDithering : Int? = nil, tiffBinarizationMethod : String? = nil, tiffCompression : String? = nil) {
         self.thresholdForFloydSteinbergDithering = thresholdForFloydSteinbergDithering;
         self.tiffBinarizationMethod = tiffBinarizationMethod;
         self.tiffCompression = tiffCompression;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let thresholdForFloydSteinbergDithering = try container.decodeIfPresent(Int.self, forKey: .thresholdForFloydSteinbergDithering) {
+            self.thresholdForFloydSteinbergDithering = thresholdForFloydSteinbergDithering;
+        }
+        if let tiffBinarizationMethod = try container.decodeIfPresent(String.self, forKey: .tiffBinarizationMethod) {
+            self.tiffBinarizationMethod = tiffBinarizationMethod;
+        }
+        if let tiffCompression = try container.decodeIfPresent(String.self, forKey: .tiffCompression) {
+            self.tiffCompression = tiffCompression;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.thresholdForFloydSteinbergDithering != nil) {
+            try container.encode(self.thresholdForFloydSteinbergDithering, forKey: .thresholdForFloydSteinbergDithering);
+        }
+        if (self.tiffBinarizationMethod != nil) {
+            try container.encode(self.tiffBinarizationMethod, forKey: .tiffBinarizationMethod);
+        }
+        if (self.tiffCompression != nil) {
+            try container.encode(self.tiffCompression, forKey: .tiffCompression);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getThresholdForFloydSteinbergDithering() -> Int? {

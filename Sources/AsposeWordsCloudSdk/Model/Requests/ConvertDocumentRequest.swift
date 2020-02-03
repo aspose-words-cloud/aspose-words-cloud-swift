@@ -35,6 +35,8 @@ public class ConvertDocumentRequest : Decodable {
     private let fileNameFieldValue : String?;
     private let fontsLocation : String?;
     
+    private enum CodingKeys: String, CodingKey { case document, format, storage, outPath, fileNameFieldValue, fontsLocation }
+    
     public init(document : URL, format : String, storage : String? = null, outPath : String? = null, fileNameFieldValue : String? = null, fontsLocation : String? = null) {
         self.document = document;
         self.format = format;
@@ -42,6 +44,46 @@ public class ConvertDocumentRequest : Decodable {
         self.outPath = outPath;
         self.fileNameFieldValue = fileNameFieldValue;
         self.fontsLocation = fontsLocation;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.document = try container.decode(.self, forKey: .document);
+        self.format = try container.decode(.self, forKey: .format);
+        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
+            self.storage = storage;
+        }
+        if let outPath = try container.decodeIfPresent(.self, forKey: .outPath) {
+            self.outPath = outPath;
+        }
+        if let fileNameFieldValue = try container.decodeIfPresent(.self, forKey: .fileNameFieldValue) {
+            self.fileNameFieldValue = fileNameFieldValue;
+        }
+        if let fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation) {
+            self.fontsLocation = fontsLocation;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.document, forKey: .document);
+        try container.encode(self.format, forKey: .format);
+        if (self.storage != nil) {
+            try container.encode(self.storage, forKey: .storage);
+        }
+        if (self.outPath != nil) {
+            try container.encode(self.outPath, forKey: .outPath);
+        }
+        if (self.fileNameFieldValue != nil) {
+            try container.encode(self.fileNameFieldValue, forKey: .fileNameFieldValue);
+        }
+        if (self.fontsLocation != nil) {
+            try container.encode(self.fontsLocation, forKey: .fontsLocation);
+        }
+        
+        
     }
     
     public func getDocument() -> URL {

@@ -34,9 +34,35 @@ public class StatDataResponse : WordsResponse {
     // Gets or sets statistical data of the document.
     private let statData : DocumentStatData?;
         
+    private enum CodingKeys: String, CodingKey { case documentLink, statData }
+        
     public init(documentLink : FileLink? = nil, statData : DocumentStatData? = nil) {
         self.documentLink = documentLink;
         self.statData = statData;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let documentLink = try container.decodeIfPresent(FileLink.self, forKey: .documentLink) {
+            self.documentLink = documentLink;
+        }
+        if let statData = try container.decodeIfPresent(DocumentStatData.self, forKey: .statData) {
+            self.statData = statData;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.documentLink != nil) {
+            try container.encode(self.documentLink, forKey: .documentLink);
+        }
+        if (self.statData != nil) {
+            try container.encode(self.statData, forKey: .statData);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getDocumentLink() -> FileLink? {

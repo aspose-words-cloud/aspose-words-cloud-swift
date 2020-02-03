@@ -32,10 +32,38 @@ public class DeleteFolderRequest : Decodable {
     private let storageName : String?;
     private let recursive : Bool?;
     
+    private enum CodingKeys: String, CodingKey { case path, storageName, recursive }
+    
     public init(path : String, storageName : String? = null, recursive : Bool? = null) {
         self.path = path;
         self.storageName = storageName;
         self.recursive = recursive;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.path = try container.decode(.self, forKey: .path);
+        if let storageName = try container.decodeIfPresent(.self, forKey: .storageName) {
+            self.storageName = storageName;
+        }
+        if let recursive = try container.decodeIfPresent(.self, forKey: .recursive) {
+            self.recursive = recursive;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.path, forKey: .path);
+        if (self.storageName != nil) {
+            try container.encode(self.storageName, forKey: .storageName);
+        }
+        if (self.recursive != nil) {
+            try container.encode(self.recursive, forKey: .recursive);
+        }
+        
+        
     }
     
     public func getPath() -> String {

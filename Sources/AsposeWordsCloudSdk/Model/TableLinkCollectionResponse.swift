@@ -32,8 +32,28 @@ public class TableLinkCollectionResponse : WordsResponse {
     // Gets or sets collection of tables.
     private let tables : TableLinkCollection?;
         
+    private enum CodingKeys: String, CodingKey { case tables }
+        
     public init(tables : TableLinkCollection? = nil) {
         self.tables = tables;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let tables = try container.decodeIfPresent(TableLinkCollection.self, forKey: .tables) {
+            self.tables = tables;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.tables != nil) {
+            try container.encode(self.tables, forKey: .tables);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getTables() -> TableLinkCollection? {

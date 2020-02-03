@@ -32,10 +32,38 @@ public class DeleteFileRequest : Decodable {
     private let storageName : String?;
     private let versionId : String?;
     
+    private enum CodingKeys: String, CodingKey { case path, storageName, versionId }
+    
     public init(path : String, storageName : String? = null, versionId : String? = null) {
         self.path = path;
         self.storageName = storageName;
         self.versionId = versionId;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.path = try container.decode(.self, forKey: .path);
+        if let storageName = try container.decodeIfPresent(.self, forKey: .storageName) {
+            self.storageName = storageName;
+        }
+        if let versionId = try container.decodeIfPresent(.self, forKey: .versionId) {
+            self.versionId = versionId;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.path, forKey: .path);
+        if (self.storageName != nil) {
+            try container.encode(self.storageName, forKey: .storageName);
+        }
+        if (self.versionId != nil) {
+            try container.encode(self.versionId, forKey: .versionId);
+        }
+        
+        
     }
     
     public func getPath() -> String {

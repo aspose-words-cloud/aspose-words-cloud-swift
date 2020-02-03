@@ -35,6 +35,8 @@ public class GetBordersRequest : Decodable {
     private let loadEncoding : String?;
     private let password : String?;
     
+    private enum CodingKeys: String, CodingKey { case name, nodePath, folder, storage, loadEncoding, password }
+    
     public init(name : String, nodePath : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
         self.name = name;
         self.nodePath = nodePath;
@@ -42,6 +44,46 @@ public class GetBordersRequest : Decodable {
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.name = try container.decode(.self, forKey: .name);
+        self.nodePath = try container.decode(.self, forKey: .nodePath);
+        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
+            self.folder = folder;
+        }
+        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
+            self.storage = storage;
+        }
+        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
+            self.loadEncoding = loadEncoding;
+        }
+        if let password = try container.decodeIfPresent(.self, forKey: .password) {
+            self.password = password;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.name, forKey: .name);
+        try container.encode(self.nodePath, forKey: .nodePath);
+        if (self.folder != nil) {
+            try container.encode(self.folder, forKey: .folder);
+        }
+        if (self.storage != nil) {
+            try container.encode(self.storage, forKey: .storage);
+        }
+        if (self.loadEncoding != nil) {
+            try container.encode(self.loadEncoding, forKey: .loadEncoding);
+        }
+        if (self.password != nil) {
+            try container.encode(self.password, forKey: .password);
+        }
+        
+        
     }
     
     public func getName() -> String {

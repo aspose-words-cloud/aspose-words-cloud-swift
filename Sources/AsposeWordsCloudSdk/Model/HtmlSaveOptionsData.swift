@@ -147,6 +147,8 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Gets or sets controls how table, row and cell widths are exported.
     private let tableWidthOutputMode : String?;
         
+    private enum CodingKeys: String, CodingKey { case allowNegativeIndent, cssClassNamePrefix, cssStyleSheetFileName, cssStyleSheetType, documentSplitCriteria, documentSplitHeadingLevel, encoding, exportDocumentProperties, exportDropDownFormFieldAsText, exportFontResources, exportFontsAsBase64, exportHeadersFootersMode, exportImagesAsBase64, exportLanguageInformation, exportListLabels, exportOriginalUrlForLinkedImages, exportPageMargins, exportPageSetup, exportRelativeFontSize, exportRoundtripInformation, exportTextBoxAsSvg, exportTextInputFormFieldAsText, exportTocPageNumbers, exportXhtmlTransitional, fontResourcesSubsettingSizeThreshold, fontsFolder, fontsFolderAlias, htmlVersion, imageResolution, imagesFolder, imagesFolderAlias, metafileFormat, officeMathOutputMode, prettyFormat, resolveFontNames, resourceFolder, resourceFolderAlias, scaleImageToShapeSize, tableWidthOutputMode }
+        
     public init(allowNegativeIndent : Bool? = nil, cssClassNamePrefix : String? = nil, cssStyleSheetFileName : String? = nil, cssStyleSheetType : String? = nil, documentSplitCriteria : String? = nil, documentSplitHeadingLevel : Int? = nil, encoding : String? = nil, exportDocumentProperties : Bool? = nil, exportDropDownFormFieldAsText : Bool? = nil, exportFontResources : Bool? = nil, exportFontsAsBase64 : Bool? = nil, exportHeadersFootersMode : String? = nil, exportImagesAsBase64 : Bool? = nil, exportLanguageInformation : Bool? = nil, exportListLabels : String? = nil, exportOriginalUrlForLinkedImages : Bool? = nil, exportPageMargins : Bool? = nil, exportPageSetup : Bool? = nil, exportRelativeFontSize : Bool? = nil, exportRoundtripInformation : Bool? = nil, exportTextBoxAsSvg : Bool? = nil, exportTextInputFormFieldAsText : Bool? = nil, exportTocPageNumbers : Bool? = nil, exportXhtmlTransitional : Bool? = nil, fontResourcesSubsettingSizeThreshold : Int? = nil, fontsFolder : String? = nil, fontsFolderAlias : String? = nil, htmlVersion : HtmlVersion? = nil, imageResolution : Int? = nil, imagesFolder : String? = nil, imagesFolderAlias : String? = nil, metafileFormat : MetafileFormat? = nil, officeMathOutputMode : OfficeMathOutputMode? = nil, prettyFormat : Bool? = nil, resolveFontNames : Bool? = nil, resourceFolder : String? = nil, resourceFolderAlias : String? = nil, scaleImageToShapeSize : Bool? = nil, tableWidthOutputMode : String? = nil) {
         self.allowNegativeIndent = allowNegativeIndent;
         self.cssClassNamePrefix = cssClassNamePrefix;
@@ -187,6 +189,252 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         self.resourceFolderAlias = resourceFolderAlias;
         self.scaleImageToShapeSize = scaleImageToShapeSize;
         self.tableWidthOutputMode = tableWidthOutputMode;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let allowNegativeIndent = try container.decodeIfPresent(Bool.self, forKey: .allowNegativeIndent) {
+            self.allowNegativeIndent = allowNegativeIndent;
+        }
+        if let cssClassNamePrefix = try container.decodeIfPresent(String.self, forKey: .cssClassNamePrefix) {
+            self.cssClassNamePrefix = cssClassNamePrefix;
+        }
+        if let cssStyleSheetFileName = try container.decodeIfPresent(String.self, forKey: .cssStyleSheetFileName) {
+            self.cssStyleSheetFileName = cssStyleSheetFileName;
+        }
+        if let cssStyleSheetType = try container.decodeIfPresent(String.self, forKey: .cssStyleSheetType) {
+            self.cssStyleSheetType = cssStyleSheetType;
+        }
+        if let documentSplitCriteria = try container.decodeIfPresent(String.self, forKey: .documentSplitCriteria) {
+            self.documentSplitCriteria = documentSplitCriteria;
+        }
+        if let documentSplitHeadingLevel = try container.decodeIfPresent(Int.self, forKey: .documentSplitHeadingLevel) {
+            self.documentSplitHeadingLevel = documentSplitHeadingLevel;
+        }
+        if let encoding = try container.decodeIfPresent(String.self, forKey: .encoding) {
+            self.encoding = encoding;
+        }
+        if let exportDocumentProperties = try container.decodeIfPresent(Bool.self, forKey: .exportDocumentProperties) {
+            self.exportDocumentProperties = exportDocumentProperties;
+        }
+        if let exportDropDownFormFieldAsText = try container.decodeIfPresent(Bool.self, forKey: .exportDropDownFormFieldAsText) {
+            self.exportDropDownFormFieldAsText = exportDropDownFormFieldAsText;
+        }
+        if let exportFontResources = try container.decodeIfPresent(Bool.self, forKey: .exportFontResources) {
+            self.exportFontResources = exportFontResources;
+        }
+        if let exportFontsAsBase64 = try container.decodeIfPresent(Bool.self, forKey: .exportFontsAsBase64) {
+            self.exportFontsAsBase64 = exportFontsAsBase64;
+        }
+        if let exportHeadersFootersMode = try container.decodeIfPresent(String.self, forKey: .exportHeadersFootersMode) {
+            self.exportHeadersFootersMode = exportHeadersFootersMode;
+        }
+        if let exportImagesAsBase64 = try container.decodeIfPresent(Bool.self, forKey: .exportImagesAsBase64) {
+            self.exportImagesAsBase64 = exportImagesAsBase64;
+        }
+        if let exportLanguageInformation = try container.decodeIfPresent(Bool.self, forKey: .exportLanguageInformation) {
+            self.exportLanguageInformation = exportLanguageInformation;
+        }
+        if let exportListLabels = try container.decodeIfPresent(String.self, forKey: .exportListLabels) {
+            self.exportListLabels = exportListLabels;
+        }
+        if let exportOriginalUrlForLinkedImages = try container.decodeIfPresent(Bool.self, forKey: .exportOriginalUrlForLinkedImages) {
+            self.exportOriginalUrlForLinkedImages = exportOriginalUrlForLinkedImages;
+        }
+        if let exportPageMargins = try container.decodeIfPresent(Bool.self, forKey: .exportPageMargins) {
+            self.exportPageMargins = exportPageMargins;
+        }
+        if let exportPageSetup = try container.decodeIfPresent(Bool.self, forKey: .exportPageSetup) {
+            self.exportPageSetup = exportPageSetup;
+        }
+        if let exportRelativeFontSize = try container.decodeIfPresent(Bool.self, forKey: .exportRelativeFontSize) {
+            self.exportRelativeFontSize = exportRelativeFontSize;
+        }
+        if let exportRoundtripInformation = try container.decodeIfPresent(Bool.self, forKey: .exportRoundtripInformation) {
+            self.exportRoundtripInformation = exportRoundtripInformation;
+        }
+        if let exportTextBoxAsSvg = try container.decodeIfPresent(Bool.self, forKey: .exportTextBoxAsSvg) {
+            self.exportTextBoxAsSvg = exportTextBoxAsSvg;
+        }
+        if let exportTextInputFormFieldAsText = try container.decodeIfPresent(Bool.self, forKey: .exportTextInputFormFieldAsText) {
+            self.exportTextInputFormFieldAsText = exportTextInputFormFieldAsText;
+        }
+        if let exportTocPageNumbers = try container.decodeIfPresent(Bool.self, forKey: .exportTocPageNumbers) {
+            self.exportTocPageNumbers = exportTocPageNumbers;
+        }
+        if let exportXhtmlTransitional = try container.decodeIfPresent(Bool.self, forKey: .exportXhtmlTransitional) {
+            self.exportXhtmlTransitional = exportXhtmlTransitional;
+        }
+        if let fontResourcesSubsettingSizeThreshold = try container.decodeIfPresent(Int.self, forKey: .fontResourcesSubsettingSizeThreshold) {
+            self.fontResourcesSubsettingSizeThreshold = fontResourcesSubsettingSizeThreshold;
+        }
+        if let fontsFolder = try container.decodeIfPresent(String.self, forKey: .fontsFolder) {
+            self.fontsFolder = fontsFolder;
+        }
+        if let fontsFolderAlias = try container.decodeIfPresent(String.self, forKey: .fontsFolderAlias) {
+            self.fontsFolderAlias = fontsFolderAlias;
+        }
+        if let htmlVersion = try container.decodeIfPresent(HtmlVersion.self, forKey: .htmlVersion) {
+            self.htmlVersion = htmlVersion;
+        }
+        if let imageResolution = try container.decodeIfPresent(Int.self, forKey: .imageResolution) {
+            self.imageResolution = imageResolution;
+        }
+        if let imagesFolder = try container.decodeIfPresent(String.self, forKey: .imagesFolder) {
+            self.imagesFolder = imagesFolder;
+        }
+        if let imagesFolderAlias = try container.decodeIfPresent(String.self, forKey: .imagesFolderAlias) {
+            self.imagesFolderAlias = imagesFolderAlias;
+        }
+        if let metafileFormat = try container.decodeIfPresent(MetafileFormat.self, forKey: .metafileFormat) {
+            self.metafileFormat = metafileFormat;
+        }
+        if let officeMathOutputMode = try container.decodeIfPresent(OfficeMathOutputMode.self, forKey: .officeMathOutputMode) {
+            self.officeMathOutputMode = officeMathOutputMode;
+        }
+        if let prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat) {
+            self.prettyFormat = prettyFormat;
+        }
+        if let resolveFontNames = try container.decodeIfPresent(Bool.self, forKey: .resolveFontNames) {
+            self.resolveFontNames = resolveFontNames;
+        }
+        if let resourceFolder = try container.decodeIfPresent(String.self, forKey: .resourceFolder) {
+            self.resourceFolder = resourceFolder;
+        }
+        if let resourceFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourceFolderAlias) {
+            self.resourceFolderAlias = resourceFolderAlias;
+        }
+        if let scaleImageToShapeSize = try container.decodeIfPresent(Bool.self, forKey: .scaleImageToShapeSize) {
+            self.scaleImageToShapeSize = scaleImageToShapeSize;
+        }
+        if let tableWidthOutputMode = try container.decodeIfPresent(String.self, forKey: .tableWidthOutputMode) {
+            self.tableWidthOutputMode = tableWidthOutputMode;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.allowNegativeIndent != nil) {
+            try container.encode(self.allowNegativeIndent, forKey: .allowNegativeIndent);
+        }
+        if (self.cssClassNamePrefix != nil) {
+            try container.encode(self.cssClassNamePrefix, forKey: .cssClassNamePrefix);
+        }
+        if (self.cssStyleSheetFileName != nil) {
+            try container.encode(self.cssStyleSheetFileName, forKey: .cssStyleSheetFileName);
+        }
+        if (self.cssStyleSheetType != nil) {
+            try container.encode(self.cssStyleSheetType, forKey: .cssStyleSheetType);
+        }
+        if (self.documentSplitCriteria != nil) {
+            try container.encode(self.documentSplitCriteria, forKey: .documentSplitCriteria);
+        }
+        if (self.documentSplitHeadingLevel != nil) {
+            try container.encode(self.documentSplitHeadingLevel, forKey: .documentSplitHeadingLevel);
+        }
+        if (self.encoding != nil) {
+            try container.encode(self.encoding, forKey: .encoding);
+        }
+        if (self.exportDocumentProperties != nil) {
+            try container.encode(self.exportDocumentProperties, forKey: .exportDocumentProperties);
+        }
+        if (self.exportDropDownFormFieldAsText != nil) {
+            try container.encode(self.exportDropDownFormFieldAsText, forKey: .exportDropDownFormFieldAsText);
+        }
+        if (self.exportFontResources != nil) {
+            try container.encode(self.exportFontResources, forKey: .exportFontResources);
+        }
+        if (self.exportFontsAsBase64 != nil) {
+            try container.encode(self.exportFontsAsBase64, forKey: .exportFontsAsBase64);
+        }
+        if (self.exportHeadersFootersMode != nil) {
+            try container.encode(self.exportHeadersFootersMode, forKey: .exportHeadersFootersMode);
+        }
+        if (self.exportImagesAsBase64 != nil) {
+            try container.encode(self.exportImagesAsBase64, forKey: .exportImagesAsBase64);
+        }
+        if (self.exportLanguageInformation != nil) {
+            try container.encode(self.exportLanguageInformation, forKey: .exportLanguageInformation);
+        }
+        if (self.exportListLabels != nil) {
+            try container.encode(self.exportListLabels, forKey: .exportListLabels);
+        }
+        if (self.exportOriginalUrlForLinkedImages != nil) {
+            try container.encode(self.exportOriginalUrlForLinkedImages, forKey: .exportOriginalUrlForLinkedImages);
+        }
+        if (self.exportPageMargins != nil) {
+            try container.encode(self.exportPageMargins, forKey: .exportPageMargins);
+        }
+        if (self.exportPageSetup != nil) {
+            try container.encode(self.exportPageSetup, forKey: .exportPageSetup);
+        }
+        if (self.exportRelativeFontSize != nil) {
+            try container.encode(self.exportRelativeFontSize, forKey: .exportRelativeFontSize);
+        }
+        if (self.exportRoundtripInformation != nil) {
+            try container.encode(self.exportRoundtripInformation, forKey: .exportRoundtripInformation);
+        }
+        if (self.exportTextBoxAsSvg != nil) {
+            try container.encode(self.exportTextBoxAsSvg, forKey: .exportTextBoxAsSvg);
+        }
+        if (self.exportTextInputFormFieldAsText != nil) {
+            try container.encode(self.exportTextInputFormFieldAsText, forKey: .exportTextInputFormFieldAsText);
+        }
+        if (self.exportTocPageNumbers != nil) {
+            try container.encode(self.exportTocPageNumbers, forKey: .exportTocPageNumbers);
+        }
+        if (self.exportXhtmlTransitional != nil) {
+            try container.encode(self.exportXhtmlTransitional, forKey: .exportXhtmlTransitional);
+        }
+        if (self.fontResourcesSubsettingSizeThreshold != nil) {
+            try container.encode(self.fontResourcesSubsettingSizeThreshold, forKey: .fontResourcesSubsettingSizeThreshold);
+        }
+        if (self.fontsFolder != nil) {
+            try container.encode(self.fontsFolder, forKey: .fontsFolder);
+        }
+        if (self.fontsFolderAlias != nil) {
+            try container.encode(self.fontsFolderAlias, forKey: .fontsFolderAlias);
+        }
+        if (self.htmlVersion != nil) {
+            try container.encode(self.htmlVersion, forKey: .htmlVersion);
+        }
+        if (self.imageResolution != nil) {
+            try container.encode(self.imageResolution, forKey: .imageResolution);
+        }
+        if (self.imagesFolder != nil) {
+            try container.encode(self.imagesFolder, forKey: .imagesFolder);
+        }
+        if (self.imagesFolderAlias != nil) {
+            try container.encode(self.imagesFolderAlias, forKey: .imagesFolderAlias);
+        }
+        if (self.metafileFormat != nil) {
+            try container.encode(self.metafileFormat, forKey: .metafileFormat);
+        }
+        if (self.officeMathOutputMode != nil) {
+            try container.encode(self.officeMathOutputMode, forKey: .officeMathOutputMode);
+        }
+        if (self.prettyFormat != nil) {
+            try container.encode(self.prettyFormat, forKey: .prettyFormat);
+        }
+        if (self.resolveFontNames != nil) {
+            try container.encode(self.resolveFontNames, forKey: .resolveFontNames);
+        }
+        if (self.resourceFolder != nil) {
+            try container.encode(self.resourceFolder, forKey: .resourceFolder);
+        }
+        if (self.resourceFolderAlias != nil) {
+            try container.encode(self.resourceFolderAlias, forKey: .resourceFolderAlias);
+        }
+        if (self.scaleImageToShapeSize != nil) {
+            try container.encode(self.scaleImageToShapeSize, forKey: .scaleImageToShapeSize);
+        }
+        if (self.tableWidthOutputMode != nil) {
+            try container.encode(self.tableWidthOutputMode, forKey: .tableWidthOutputMode);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getAllowNegativeIndent() -> Bool? {

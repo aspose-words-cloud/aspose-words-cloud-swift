@@ -32,8 +32,28 @@ public class ParagraphFormatResponse : WordsResponse {
     // Gets or sets represents all the formatting for a paragraph.
     private let paragraphFormat : ParagraphFormat?;
         
+    private enum CodingKeys: String, CodingKey { case paragraphFormat }
+        
     public init(paragraphFormat : ParagraphFormat? = nil) {
         self.paragraphFormat = paragraphFormat;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let paragraphFormat = try container.decodeIfPresent(ParagraphFormat.self, forKey: .paragraphFormat) {
+            self.paragraphFormat = paragraphFormat;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.paragraphFormat != nil) {
+            try container.encode(self.paragraphFormat, forKey: .paragraphFormat);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getParagraphFormat() -> ParagraphFormat? {

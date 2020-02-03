@@ -32,8 +32,28 @@ public class CommentResponse : WordsResponse {
     // Gets or sets comment information.
     private let comment : Comment?;
         
+    private enum CodingKeys: String, CodingKey { case comment }
+        
     public init(comment : Comment? = nil) {
         self.comment = comment;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let comment = try container.decodeIfPresent(Comment.self, forKey: .comment) {
+            self.comment = comment;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.comment != nil) {
+            try container.encode(self.comment, forKey: .comment);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getComment() -> Comment? {

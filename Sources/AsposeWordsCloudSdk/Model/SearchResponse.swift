@@ -34,9 +34,35 @@ public class SearchResponse : WordsResponse {
     // Gets or sets collection of search results.
     private let searchResults : SearchResultsCollection?;
         
+    private enum CodingKeys: String, CodingKey { case searchingPattern, searchResults }
+        
     public init(searchingPattern : String? = nil, searchResults : SearchResultsCollection? = nil) {
         self.searchingPattern = searchingPattern;
         self.searchResults = searchResults;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let searchingPattern = try container.decodeIfPresent(String.self, forKey: .searchingPattern) {
+            self.searchingPattern = searchingPattern;
+        }
+        if let searchResults = try container.decodeIfPresent(SearchResultsCollection.self, forKey: .searchResults) {
+            self.searchResults = searchResults;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.searchingPattern != nil) {
+            try container.encode(self.searchingPattern, forKey: .searchingPattern);
+        }
+        if (self.searchResults != nil) {
+            try container.encode(self.searchResults, forKey: .searchResults);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getSearchingPattern() -> String? {

@@ -32,8 +32,28 @@ public class WordMLSaveOptionsData : SaveOptionsData {
     // Gets or sets specifies whether or not use pretty formats output.
     private let prettyFormat : Bool?;
         
+    private enum CodingKeys: String, CodingKey { case prettyFormat }
+        
     public init(prettyFormat : Bool? = nil) {
         self.prettyFormat = prettyFormat;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat) {
+            self.prettyFormat = prettyFormat;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.prettyFormat != nil) {
+            try container.encode(self.prettyFormat, forKey: .prettyFormat);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getPrettyFormat() -> Bool? {

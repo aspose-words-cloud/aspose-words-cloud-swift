@@ -36,10 +36,42 @@ public class ProtectionRequest : Decodable {
     // Gets or sets new type of protection.
     private let protectionType : String?;
         
+    private enum CodingKeys: String, CodingKey { case password, newPassword, protectionType }
+        
     public init(password : String? = nil, newPassword : String? = nil, protectionType : String? = nil) {
         self.password = password;
         self.newPassword = newPassword;
         self.protectionType = protectionType;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let password = try container.decodeIfPresent(String.self, forKey: .password) {
+            self.password = password;
+        }
+        if let newPassword = try container.decodeIfPresent(String.self, forKey: .newPassword) {
+            self.newPassword = newPassword;
+        }
+        if let protectionType = try container.decodeIfPresent(String.self, forKey: .protectionType) {
+            self.protectionType = protectionType;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.password != nil) {
+            try container.encode(self.password, forKey: .password);
+        }
+        if (self.newPassword != nil) {
+            try container.encode(self.newPassword, forKey: .newPassword);
+        }
+        if (self.protectionType != nil) {
+            try container.encode(self.protectionType, forKey: .protectionType);
+        }
+        
+        
     }
         
     public func getPassword() -> String? {

@@ -32,8 +32,28 @@ public class ParagraphResponse : WordsResponse {
     // Gets or sets paragraph.
     private let paragraph : Paragraph?;
         
+    private enum CodingKeys: String, CodingKey { case paragraph }
+        
     public init(paragraph : Paragraph? = nil) {
         self.paragraph = paragraph;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let paragraph = try container.decodeIfPresent(Paragraph.self, forKey: .paragraph) {
+            self.paragraph = paragraph;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.paragraph != nil) {
+            try container.encode(self.paragraph, forKey: .paragraph);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getParagraph() -> Paragraph? {

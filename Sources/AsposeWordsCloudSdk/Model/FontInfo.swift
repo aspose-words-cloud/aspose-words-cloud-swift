@@ -38,11 +38,49 @@ public class FontInfo : Decodable {
     // Gets or sets path to the font file if any.
     private let filePath : String?;
         
+    private enum CodingKeys: String, CodingKey { case fontFamilyName, fullFontName, version, filePath }
+        
     public init(fontFamilyName : String? = nil, fullFontName : String? = nil, version : String? = nil, filePath : String? = nil) {
         self.fontFamilyName = fontFamilyName;
         self.fullFontName = fullFontName;
         self.version = version;
         self.filePath = filePath;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let fontFamilyName = try container.decodeIfPresent(String.self, forKey: .fontFamilyName) {
+            self.fontFamilyName = fontFamilyName;
+        }
+        if let fullFontName = try container.decodeIfPresent(String.self, forKey: .fullFontName) {
+            self.fullFontName = fullFontName;
+        }
+        if let version = try container.decodeIfPresent(String.self, forKey: .version) {
+            self.version = version;
+        }
+        if let filePath = try container.decodeIfPresent(String.self, forKey: .filePath) {
+            self.filePath = filePath;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.fontFamilyName != nil) {
+            try container.encode(self.fontFamilyName, forKey: .fontFamilyName);
+        }
+        if (self.fullFontName != nil) {
+            try container.encode(self.fullFontName, forKey: .fullFontName);
+        }
+        if (self.version != nil) {
+            try container.encode(self.version, forKey: .version);
+        }
+        if (self.filePath != nil) {
+            try container.encode(self.filePath, forKey: .filePath);
+        }
+        
+        
     }
         
     public func getFontFamilyName() -> String? {

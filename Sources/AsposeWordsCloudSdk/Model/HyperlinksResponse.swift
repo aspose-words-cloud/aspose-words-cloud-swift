@@ -32,8 +32,28 @@ public class HyperlinksResponse : WordsResponse {
     // Gets or sets collection of hyperlinks.
     private let hyperlinks : Hyperlinks?;
         
+    private enum CodingKeys: String, CodingKey { case hyperlinks }
+        
     public init(hyperlinks : Hyperlinks? = nil) {
         self.hyperlinks = hyperlinks;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let hyperlinks = try container.decodeIfPresent(Hyperlinks.self, forKey: .hyperlinks) {
+            self.hyperlinks = hyperlinks;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.hyperlinks != nil) {
+            try container.encode(self.hyperlinks, forKey: .hyperlinks);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getHyperlinks() -> Hyperlinks? {

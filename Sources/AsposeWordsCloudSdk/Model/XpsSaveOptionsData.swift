@@ -38,11 +38,49 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets determines whether the document should be saved using a booklet printing layout.
     private let useBookFoldPrintingSettings : Bool?;
         
+    private enum CodingKeys: String, CodingKey { case bookmarksOutlineLevel, headingsOutlineLevels, outlineOptions, useBookFoldPrintingSettings }
+        
     public init(bookmarksOutlineLevel : Int? = nil, headingsOutlineLevels : Int? = nil, outlineOptions : OutlineOptionsData? = nil, useBookFoldPrintingSettings : Bool? = nil) {
         self.bookmarksOutlineLevel = bookmarksOutlineLevel;
         self.headingsOutlineLevels = headingsOutlineLevels;
         self.outlineOptions = outlineOptions;
         self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let bookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .bookmarksOutlineLevel) {
+            self.bookmarksOutlineLevel = bookmarksOutlineLevel;
+        }
+        if let headingsOutlineLevels = try container.decodeIfPresent(Int.self, forKey: .headingsOutlineLevels) {
+            self.headingsOutlineLevels = headingsOutlineLevels;
+        }
+        if let outlineOptions = try container.decodeIfPresent(OutlineOptionsData.self, forKey: .outlineOptions) {
+            self.outlineOptions = outlineOptions;
+        }
+        if let useBookFoldPrintingSettings = try container.decodeIfPresent(Bool.self, forKey: .useBookFoldPrintingSettings) {
+            self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.bookmarksOutlineLevel != nil) {
+            try container.encode(self.bookmarksOutlineLevel, forKey: .bookmarksOutlineLevel);
+        }
+        if (self.headingsOutlineLevels != nil) {
+            try container.encode(self.headingsOutlineLevels, forKey: .headingsOutlineLevels);
+        }
+        if (self.outlineOptions != nil) {
+            try container.encode(self.outlineOptions, forKey: .outlineOptions);
+        }
+        if (self.useBookFoldPrintingSettings != nil) {
+            try container.encode(self.useBookFoldPrintingSettings, forKey: .useBookFoldPrintingSettings);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getBookmarksOutlineLevel() -> Int? {

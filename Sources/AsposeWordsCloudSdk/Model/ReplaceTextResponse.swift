@@ -34,9 +34,35 @@ public class ReplaceTextResponse : WordsResponse {
     // Gets or sets number of occurrences of the captured text in the document.
     private let matches : Int?;
         
+    private enum CodingKeys: String, CodingKey { case documentLink, matches }
+        
     public init(documentLink : FileLink? = nil, matches : Int? = nil) {
         self.documentLink = documentLink;
         self.matches = matches;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let documentLink = try container.decodeIfPresent(FileLink.self, forKey: .documentLink) {
+            self.documentLink = documentLink;
+        }
+        if let matches = try container.decodeIfPresent(Int.self, forKey: .matches) {
+            self.matches = matches;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.documentLink != nil) {
+            try container.encode(self.documentLink, forKey: .documentLink);
+        }
+        if (self.matches != nil) {
+            try container.encode(self.matches, forKey: .matches);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getDocumentLink() -> FileLink? {

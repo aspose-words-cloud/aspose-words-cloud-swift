@@ -38,11 +38,49 @@ public class DocSaveOptionsData : SaveOptionsData {
     // Gets or sets determine whether or not save RoutingSlip data saved to output document.
     private let saveRoutingSlip : Bool?;
         
+    private enum CodingKeys: String, CodingKey { case alwaysCompressMetafiles, password, savePictureBullet, saveRoutingSlip }
+        
     public init(alwaysCompressMetafiles : Bool? = nil, password : String? = nil, savePictureBullet : Bool? = nil, saveRoutingSlip : Bool? = nil) {
         self.alwaysCompressMetafiles = alwaysCompressMetafiles;
         self.password = password;
         self.savePictureBullet = savePictureBullet;
         self.saveRoutingSlip = saveRoutingSlip;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let alwaysCompressMetafiles = try container.decodeIfPresent(Bool.self, forKey: .alwaysCompressMetafiles) {
+            self.alwaysCompressMetafiles = alwaysCompressMetafiles;
+        }
+        if let password = try container.decodeIfPresent(String.self, forKey: .password) {
+            self.password = password;
+        }
+        if let savePictureBullet = try container.decodeIfPresent(Bool.self, forKey: .savePictureBullet) {
+            self.savePictureBullet = savePictureBullet;
+        }
+        if let saveRoutingSlip = try container.decodeIfPresent(Bool.self, forKey: .saveRoutingSlip) {
+            self.saveRoutingSlip = saveRoutingSlip;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.alwaysCompressMetafiles != nil) {
+            try container.encode(self.alwaysCompressMetafiles, forKey: .alwaysCompressMetafiles);
+        }
+        if (self.password != nil) {
+            try container.encode(self.password, forKey: .password);
+        }
+        if (self.savePictureBullet != nil) {
+            try container.encode(self.savePictureBullet, forKey: .savePictureBullet);
+        }
+        if (self.saveRoutingSlip != nil) {
+            try container.encode(self.saveRoutingSlip, forKey: .saveRoutingSlip);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getAlwaysCompressMetafiles() -> Bool? {

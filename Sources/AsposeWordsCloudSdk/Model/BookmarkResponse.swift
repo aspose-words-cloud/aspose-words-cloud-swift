@@ -32,8 +32,28 @@ public class BookmarkResponse : WordsResponse {
     // Gets or sets bookmark.
     private let bookmark : Bookmark?;
         
+    private enum CodingKeys: String, CodingKey { case bookmark }
+        
     public init(bookmark : Bookmark? = nil) {
         self.bookmark = bookmark;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let bookmark = try container.decodeIfPresent(Bookmark.self, forKey: .bookmark) {
+            self.bookmark = bookmark;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.bookmark != nil) {
+            try container.encode(self.bookmark, forKey: .bookmark);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getBookmark() -> Bookmark? {

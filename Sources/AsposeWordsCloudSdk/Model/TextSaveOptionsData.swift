@@ -58,6 +58,8 @@ public class TextSaveOptionsData : SaveOptionsData {
     // Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
     private let simplifyListLabels : Bool?;
         
+    private enum CodingKeys: String, CodingKey { case addBidiMarks, encoding, exportHeadersFootersMode, forcePageBreaks, paragraphBreak, preserveTableLayout, simplifyListLabels }
+        
     public init(addBidiMarks : Bool? = nil, encoding : String? = nil, exportHeadersFootersMode : ExportHeadersFootersMode? = nil, forcePageBreaks : Bool? = nil, paragraphBreak : String? = nil, preserveTableLayout : Bool? = nil, simplifyListLabels : Bool? = nil) {
         self.addBidiMarks = addBidiMarks;
         self.encoding = encoding;
@@ -66,6 +68,60 @@ public class TextSaveOptionsData : SaveOptionsData {
         self.paragraphBreak = paragraphBreak;
         self.preserveTableLayout = preserveTableLayout;
         self.simplifyListLabels = simplifyListLabels;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let addBidiMarks = try container.decodeIfPresent(Bool.self, forKey: .addBidiMarks) {
+            self.addBidiMarks = addBidiMarks;
+        }
+        if let encoding = try container.decodeIfPresent(String.self, forKey: .encoding) {
+            self.encoding = encoding;
+        }
+        if let exportHeadersFootersMode = try container.decodeIfPresent(ExportHeadersFootersMode.self, forKey: .exportHeadersFootersMode) {
+            self.exportHeadersFootersMode = exportHeadersFootersMode;
+        }
+        if let forcePageBreaks = try container.decodeIfPresent(Bool.self, forKey: .forcePageBreaks) {
+            self.forcePageBreaks = forcePageBreaks;
+        }
+        if let paragraphBreak = try container.decodeIfPresent(String.self, forKey: .paragraphBreak) {
+            self.paragraphBreak = paragraphBreak;
+        }
+        if let preserveTableLayout = try container.decodeIfPresent(Bool.self, forKey: .preserveTableLayout) {
+            self.preserveTableLayout = preserveTableLayout;
+        }
+        if let simplifyListLabels = try container.decodeIfPresent(Bool.self, forKey: .simplifyListLabels) {
+            self.simplifyListLabels = simplifyListLabels;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.addBidiMarks != nil) {
+            try container.encode(self.addBidiMarks, forKey: .addBidiMarks);
+        }
+        if (self.encoding != nil) {
+            try container.encode(self.encoding, forKey: .encoding);
+        }
+        if (self.exportHeadersFootersMode != nil) {
+            try container.encode(self.exportHeadersFootersMode, forKey: .exportHeadersFootersMode);
+        }
+        if (self.forcePageBreaks != nil) {
+            try container.encode(self.forcePageBreaks, forKey: .forcePageBreaks);
+        }
+        if (self.paragraphBreak != nil) {
+            try container.encode(self.paragraphBreak, forKey: .paragraphBreak);
+        }
+        if (self.preserveTableLayout != nil) {
+            try container.encode(self.preserveTableLayout, forKey: .preserveTableLayout);
+        }
+        if (self.simplifyListLabels != nil) {
+            try container.encode(self.simplifyListLabels, forKey: .simplifyListLabels);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getAddBidiMarks() -> Bool? {

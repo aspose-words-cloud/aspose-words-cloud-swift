@@ -119,6 +119,8 @@ public class TableCellFormat : LinkElement {
     // Gets or sets if true, wrap text for the cell.
     private let wrapText : Bool?;
         
+    private enum CodingKeys: String, CodingKey { case bottomPadding, fitText, horizontalMerge, leftPadding, orientation, preferredWidth, rightPadding, topPadding, verticalAlignment, verticalMerge, width, wrapText }
+        
     public init(bottomPadding : Double? = nil, fitText : Bool? = nil, horizontalMerge : HorizontalMerge? = nil, leftPadding : Double? = nil, orientation : Orientation? = nil, preferredWidth : PreferredWidth? = nil, rightPadding : Double? = nil, topPadding : Double? = nil, verticalAlignment : VerticalAlignment? = nil, verticalMerge : VerticalMerge? = nil, width : Double? = nil, wrapText : Bool? = nil) {
         self.bottomPadding = bottomPadding;
         self.fitText = fitText;
@@ -132,6 +134,90 @@ public class TableCellFormat : LinkElement {
         self.verticalMerge = verticalMerge;
         self.width = width;
         self.wrapText = wrapText;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let bottomPadding = try container.decodeIfPresent(Double.self, forKey: .bottomPadding) {
+            self.bottomPadding = bottomPadding;
+        }
+        if let fitText = try container.decodeIfPresent(Bool.self, forKey: .fitText) {
+            self.fitText = fitText;
+        }
+        if let horizontalMerge = try container.decodeIfPresent(HorizontalMerge.self, forKey: .horizontalMerge) {
+            self.horizontalMerge = horizontalMerge;
+        }
+        if let leftPadding = try container.decodeIfPresent(Double.self, forKey: .leftPadding) {
+            self.leftPadding = leftPadding;
+        }
+        if let orientation = try container.decodeIfPresent(Orientation.self, forKey: .orientation) {
+            self.orientation = orientation;
+        }
+        if let preferredWidth = try container.decodeIfPresent(PreferredWidth.self, forKey: .preferredWidth) {
+            self.preferredWidth = preferredWidth;
+        }
+        if let rightPadding = try container.decodeIfPresent(Double.self, forKey: .rightPadding) {
+            self.rightPadding = rightPadding;
+        }
+        if let topPadding = try container.decodeIfPresent(Double.self, forKey: .topPadding) {
+            self.topPadding = topPadding;
+        }
+        if let verticalAlignment = try container.decodeIfPresent(VerticalAlignment.self, forKey: .verticalAlignment) {
+            self.verticalAlignment = verticalAlignment;
+        }
+        if let verticalMerge = try container.decodeIfPresent(VerticalMerge.self, forKey: .verticalMerge) {
+            self.verticalMerge = verticalMerge;
+        }
+        if let width = try container.decodeIfPresent(Double.self, forKey: .width) {
+            self.width = width;
+        }
+        if let wrapText = try container.decodeIfPresent(Bool.self, forKey: .wrapText) {
+            self.wrapText = wrapText;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.bottomPadding != nil) {
+            try container.encode(self.bottomPadding, forKey: .bottomPadding);
+        }
+        if (self.fitText != nil) {
+            try container.encode(self.fitText, forKey: .fitText);
+        }
+        if (self.horizontalMerge != nil) {
+            try container.encode(self.horizontalMerge, forKey: .horizontalMerge);
+        }
+        if (self.leftPadding != nil) {
+            try container.encode(self.leftPadding, forKey: .leftPadding);
+        }
+        if (self.orientation != nil) {
+            try container.encode(self.orientation, forKey: .orientation);
+        }
+        if (self.preferredWidth != nil) {
+            try container.encode(self.preferredWidth, forKey: .preferredWidth);
+        }
+        if (self.rightPadding != nil) {
+            try container.encode(self.rightPadding, forKey: .rightPadding);
+        }
+        if (self.topPadding != nil) {
+            try container.encode(self.topPadding, forKey: .topPadding);
+        }
+        if (self.verticalAlignment != nil) {
+            try container.encode(self.verticalAlignment, forKey: .verticalAlignment);
+        }
+        if (self.verticalMerge != nil) {
+            try container.encode(self.verticalMerge, forKey: .verticalMerge);
+        }
+        if (self.width != nil) {
+            try container.encode(self.width, forKey: .width);
+        }
+        if (self.wrapText != nil) {
+            try container.encode(self.wrapText, forKey: .wrapText);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getBottomPadding() -> Double? {

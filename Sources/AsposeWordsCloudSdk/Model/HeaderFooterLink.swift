@@ -55,8 +55,28 @@ public class HeaderFooterLink : LinkElement {
     // Gets or sets paragraph&#39;s text.
     private let type : ModelType?;
         
+    private enum CodingKeys: String, CodingKey { case type }
+        
     public init(type : ModelType? = nil) {
         self.type = type;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let type = try container.decodeIfPresent(ModelType.self, forKey: .type) {
+            self.type = type;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.type != nil) {
+            try container.encode(self.type, forKey: .type);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getType() -> ModelType? {

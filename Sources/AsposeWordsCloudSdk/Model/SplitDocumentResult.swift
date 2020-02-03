@@ -36,10 +36,42 @@ public class SplitDocumentResult : Decodable {
     // Gets or sets link to the file archive with pages.
     private let zippedPages : FileLink?;
         
+    private enum CodingKeys: String, CodingKey { case sourceDocument, pages, zippedPages }
+        
     public init(sourceDocument : FileLink? = nil, pages : [FileLink]? = nil, zippedPages : FileLink? = nil) {
         self.sourceDocument = sourceDocument;
         self.pages = pages;
         self.zippedPages = zippedPages;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let sourceDocument = try container.decodeIfPresent(FileLink.self, forKey: .sourceDocument) {
+            self.sourceDocument = sourceDocument;
+        }
+        if let pages = try container.decodeIfPresent([FileLink].self, forKey: .pages) {
+            self.pages = pages;
+        }
+        if let zippedPages = try container.decodeIfPresent(FileLink.self, forKey: .zippedPages) {
+            self.zippedPages = zippedPages;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.sourceDocument != nil) {
+            try container.encode(self.sourceDocument, forKey: .sourceDocument);
+        }
+        if (self.pages != nil) {
+            try container.encode(self.pages, forKey: .pages);
+        }
+        if (self.zippedPages != nil) {
+            try container.encode(self.zippedPages, forKey: .zippedPages);
+        }
+        
+        
     }
         
     public func getSourceDocument() -> FileLink? {

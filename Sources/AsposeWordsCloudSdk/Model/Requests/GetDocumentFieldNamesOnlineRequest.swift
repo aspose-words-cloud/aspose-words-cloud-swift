@@ -31,9 +31,31 @@ public class GetDocumentFieldNamesOnlineRequest : Decodable {
     private let template : URL;
     private let useNonMergeFields : Bool?;
     
+    private enum CodingKeys: String, CodingKey { case template, useNonMergeFields }
+    
     public init(template : URL, useNonMergeFields : Bool? = null) {
         self.template = template;
         self.useNonMergeFields = useNonMergeFields;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.template = try container.decode(.self, forKey: .template);
+        if let useNonMergeFields = try container.decodeIfPresent(.self, forKey: .useNonMergeFields) {
+            self.useNonMergeFields = useNonMergeFields;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.template, forKey: .template);
+        if (self.useNonMergeFields != nil) {
+            try container.encode(self.useNonMergeFields, forKey: .useNonMergeFields);
+        }
+        
+        
     }
     
     public func getTemplate() -> URL {

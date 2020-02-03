@@ -38,11 +38,37 @@ public class PageStatData : Decodable {
     // Gets or sets detailed statistics of footnotes.
     private let footnotesStatData : FootnotesStatData?;
         
+    private enum CodingKeys: String, CodingKey { case pageNumber, wordCount, paragraphCount, footnotesStatData }
+        
     public init(pageNumber : Int, wordCount : Int, paragraphCount : Int, footnotesStatData : FootnotesStatData? = nil) {
         self.pageNumber = pageNumber;
         self.wordCount = wordCount;
         self.paragraphCount = paragraphCount;
         self.footnotesStatData = footnotesStatData;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.pageNumber = try container.decode(Int.self, forKey: .pageNumber);
+        self.wordCount = try container.decode(Int.self, forKey: .wordCount);
+        self.paragraphCount = try container.decode(Int.self, forKey: .paragraphCount);
+        if let footnotesStatData = try container.decodeIfPresent(FootnotesStatData.self, forKey: .footnotesStatData) {
+            self.footnotesStatData = footnotesStatData;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.pageNumber, forKey: .pageNumber);
+        try container.encode(self.wordCount, forKey: .wordCount);
+        try container.encode(self.paragraphCount, forKey: .paragraphCount);
+        if (self.footnotesStatData != nil) {
+            try container.encode(self.footnotesStatData, forKey: .footnotesStatData);
+        }
+        
+        
     }
         
     public func getPageNumber() -> Int {

@@ -34,9 +34,35 @@ public class DocumentPosition : Decodable {
     // Gets or sets offset into the node.
     private let offset : Int?;
         
+    private enum CodingKeys: String, CodingKey { case node, offset }
+        
     public init(node : NodeLink? = nil, offset : Int? = nil) {
         self.node = node;
         self.offset = offset;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let node = try container.decodeIfPresent(NodeLink.self, forKey: .node) {
+            self.node = node;
+        }
+        if let offset = try container.decodeIfPresent(Int.self, forKey: .offset) {
+            self.offset = offset;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.node != nil) {
+            try container.encode(self.node, forKey: .node);
+        }
+        if (self.offset != nil) {
+            try container.encode(self.offset, forKey: .offset);
+        }
+        
+        
     }
         
     public func getNode() -> NodeLink? {

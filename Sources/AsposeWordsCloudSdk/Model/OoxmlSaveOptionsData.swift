@@ -36,10 +36,42 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     // Gets or sets specifies whether or not use pretty formats output.
     private let prettyFormat : Bool?;
         
+    private enum CodingKeys: String, CodingKey { case compliance, password, prettyFormat }
+        
     public init(compliance : String? = nil, password : String? = nil, prettyFormat : Bool? = nil) {
         self.compliance = compliance;
         self.password = password;
         self.prettyFormat = prettyFormat;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let compliance = try container.decodeIfPresent(String.self, forKey: .compliance) {
+            self.compliance = compliance;
+        }
+        if let password = try container.decodeIfPresent(String.self, forKey: .password) {
+            self.password = password;
+        }
+        if let prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat) {
+            self.prettyFormat = prettyFormat;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.compliance != nil) {
+            try container.encode(self.compliance, forKey: .compliance);
+        }
+        if (self.password != nil) {
+            try container.encode(self.password, forKey: .password);
+        }
+        if (self.prettyFormat != nil) {
+            try container.encode(self.prettyFormat, forKey: .prettyFormat);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getCompliance() -> String? {

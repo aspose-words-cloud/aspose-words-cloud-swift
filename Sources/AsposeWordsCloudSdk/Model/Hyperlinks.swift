@@ -32,8 +32,28 @@ public class Hyperlinks : LinkElement {
     // Gets or sets array of .
     private let hyperlinkList : [Hyperlink]?;
         
+    private enum CodingKeys: String, CodingKey { case hyperlinkList }
+        
     public init(hyperlinkList : [Hyperlink]? = nil) {
         self.hyperlinkList = hyperlinkList;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let hyperlinkList = try container.decodeIfPresent([Hyperlink].self, forKey: .hyperlinkList) {
+            self.hyperlinkList = hyperlinkList;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.hyperlinkList != nil) {
+            try container.encode(self.hyperlinkList, forKey: .hyperlinkList);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getHyperlinkList() -> [Hyperlink]? {

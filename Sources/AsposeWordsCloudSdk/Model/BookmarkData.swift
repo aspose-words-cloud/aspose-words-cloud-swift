@@ -34,9 +34,35 @@ public class BookmarkData : Decodable {
     // Gets or sets the text enclosed in the bookmark.
     private let text : String?;
         
+    private enum CodingKeys: String, CodingKey { case name, text }
+        
     public init(name : String? = nil, text : String? = nil) {
         self.name = name;
         self.text = text;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let name = try container.decodeIfPresent(String.self, forKey: .name) {
+            self.name = name;
+        }
+        if let text = try container.decodeIfPresent(String.self, forKey: .text) {
+            self.text = text;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.name != nil) {
+            try container.encode(self.name, forKey: .name);
+        }
+        if (self.text != nil) {
+            try container.encode(self.text, forKey: .text);
+        }
+        
+        
     }
         
     public func getName() -> String? {

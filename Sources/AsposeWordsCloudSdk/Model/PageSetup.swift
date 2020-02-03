@@ -422,6 +422,8 @@ public class PageSetup : LinkElement {
     // Gets or sets returns or sets the vertical alignment of text on each page in a document or section.             
     private let verticalAlignment : VerticalAlignment?;
         
+    private enum CodingKeys: String, CodingKey { case bidi, borderAlwaysInFront, borderAppliesTo, borderDistanceFrom, bottomMargin, differentFirstPageHeaderFooter, firstPageTray, footerDistance, gutter, headerDistance, leftMargin, lineNumberCountBy, lineNumberDistanceFromText, lineNumberRestartMode, lineStartingNumber, orientation, otherPagesTray, pageHeight, pageNumberStyle, pageStartingNumber, pageWidth, paperSize, restartPageNumbering, rightMargin, rtlGutter, sectionStart, suppressEndnotes, topMargin, verticalAlignment }
+        
     public init(bidi : Bool? = nil, borderAlwaysInFront : Bool? = nil, borderAppliesTo : BorderAppliesTo? = nil, borderDistanceFrom : BorderDistanceFrom? = nil, bottomMargin : Double? = nil, differentFirstPageHeaderFooter : Bool? = nil, firstPageTray : Int? = nil, footerDistance : Double? = nil, gutter : Double? = nil, headerDistance : Double? = nil, leftMargin : Double? = nil, lineNumberCountBy : Int? = nil, lineNumberDistanceFromText : Double? = nil, lineNumberRestartMode : LineNumberRestartMode? = nil, lineStartingNumber : Int? = nil, orientation : Orientation? = nil, otherPagesTray : Int? = nil, pageHeight : Double? = nil, pageNumberStyle : PageNumberStyle? = nil, pageStartingNumber : Int? = nil, pageWidth : Double? = nil, paperSize : PaperSize? = nil, restartPageNumbering : Bool? = nil, rightMargin : Double? = nil, rtlGutter : Bool? = nil, sectionStart : SectionStart? = nil, suppressEndnotes : Bool? = nil, topMargin : Double? = nil, verticalAlignment : VerticalAlignment? = nil) {
         self.bidi = bidi;
         self.borderAlwaysInFront = borderAlwaysInFront;
@@ -452,6 +454,192 @@ public class PageSetup : LinkElement {
         self.suppressEndnotes = suppressEndnotes;
         self.topMargin = topMargin;
         self.verticalAlignment = verticalAlignment;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi) {
+            self.bidi = bidi;
+        }
+        if let borderAlwaysInFront = try container.decodeIfPresent(Bool.self, forKey: .borderAlwaysInFront) {
+            self.borderAlwaysInFront = borderAlwaysInFront;
+        }
+        if let borderAppliesTo = try container.decodeIfPresent(BorderAppliesTo.self, forKey: .borderAppliesTo) {
+            self.borderAppliesTo = borderAppliesTo;
+        }
+        if let borderDistanceFrom = try container.decodeIfPresent(BorderDistanceFrom.self, forKey: .borderDistanceFrom) {
+            self.borderDistanceFrom = borderDistanceFrom;
+        }
+        if let bottomMargin = try container.decodeIfPresent(Double.self, forKey: .bottomMargin) {
+            self.bottomMargin = bottomMargin;
+        }
+        if let differentFirstPageHeaderFooter = try container.decodeIfPresent(Bool.self, forKey: .differentFirstPageHeaderFooter) {
+            self.differentFirstPageHeaderFooter = differentFirstPageHeaderFooter;
+        }
+        if let firstPageTray = try container.decodeIfPresent(Int.self, forKey: .firstPageTray) {
+            self.firstPageTray = firstPageTray;
+        }
+        if let footerDistance = try container.decodeIfPresent(Double.self, forKey: .footerDistance) {
+            self.footerDistance = footerDistance;
+        }
+        if let gutter = try container.decodeIfPresent(Double.self, forKey: .gutter) {
+            self.gutter = gutter;
+        }
+        if let headerDistance = try container.decodeIfPresent(Double.self, forKey: .headerDistance) {
+            self.headerDistance = headerDistance;
+        }
+        if let leftMargin = try container.decodeIfPresent(Double.self, forKey: .leftMargin) {
+            self.leftMargin = leftMargin;
+        }
+        if let lineNumberCountBy = try container.decodeIfPresent(Int.self, forKey: .lineNumberCountBy) {
+            self.lineNumberCountBy = lineNumberCountBy;
+        }
+        if let lineNumberDistanceFromText = try container.decodeIfPresent(Double.self, forKey: .lineNumberDistanceFromText) {
+            self.lineNumberDistanceFromText = lineNumberDistanceFromText;
+        }
+        if let lineNumberRestartMode = try container.decodeIfPresent(LineNumberRestartMode.self, forKey: .lineNumberRestartMode) {
+            self.lineNumberRestartMode = lineNumberRestartMode;
+        }
+        if let lineStartingNumber = try container.decodeIfPresent(Int.self, forKey: .lineStartingNumber) {
+            self.lineStartingNumber = lineStartingNumber;
+        }
+        if let orientation = try container.decodeIfPresent(Orientation.self, forKey: .orientation) {
+            self.orientation = orientation;
+        }
+        if let otherPagesTray = try container.decodeIfPresent(Int.self, forKey: .otherPagesTray) {
+            self.otherPagesTray = otherPagesTray;
+        }
+        if let pageHeight = try container.decodeIfPresent(Double.self, forKey: .pageHeight) {
+            self.pageHeight = pageHeight;
+        }
+        if let pageNumberStyle = try container.decodeIfPresent(PageNumberStyle.self, forKey: .pageNumberStyle) {
+            self.pageNumberStyle = pageNumberStyle;
+        }
+        if let pageStartingNumber = try container.decodeIfPresent(Int.self, forKey: .pageStartingNumber) {
+            self.pageStartingNumber = pageStartingNumber;
+        }
+        if let pageWidth = try container.decodeIfPresent(Double.self, forKey: .pageWidth) {
+            self.pageWidth = pageWidth;
+        }
+        if let paperSize = try container.decodeIfPresent(PaperSize.self, forKey: .paperSize) {
+            self.paperSize = paperSize;
+        }
+        if let restartPageNumbering = try container.decodeIfPresent(Bool.self, forKey: .restartPageNumbering) {
+            self.restartPageNumbering = restartPageNumbering;
+        }
+        if let rightMargin = try container.decodeIfPresent(Double.self, forKey: .rightMargin) {
+            self.rightMargin = rightMargin;
+        }
+        if let rtlGutter = try container.decodeIfPresent(Bool.self, forKey: .rtlGutter) {
+            self.rtlGutter = rtlGutter;
+        }
+        if let sectionStart = try container.decodeIfPresent(SectionStart.self, forKey: .sectionStart) {
+            self.sectionStart = sectionStart;
+        }
+        if let suppressEndnotes = try container.decodeIfPresent(Bool.self, forKey: .suppressEndnotes) {
+            self.suppressEndnotes = suppressEndnotes;
+        }
+        if let topMargin = try container.decodeIfPresent(Double.self, forKey: .topMargin) {
+            self.topMargin = topMargin;
+        }
+        if let verticalAlignment = try container.decodeIfPresent(VerticalAlignment.self, forKey: .verticalAlignment) {
+            self.verticalAlignment = verticalAlignment;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.bidi != nil) {
+            try container.encode(self.bidi, forKey: .bidi);
+        }
+        if (self.borderAlwaysInFront != nil) {
+            try container.encode(self.borderAlwaysInFront, forKey: .borderAlwaysInFront);
+        }
+        if (self.borderAppliesTo != nil) {
+            try container.encode(self.borderAppliesTo, forKey: .borderAppliesTo);
+        }
+        if (self.borderDistanceFrom != nil) {
+            try container.encode(self.borderDistanceFrom, forKey: .borderDistanceFrom);
+        }
+        if (self.bottomMargin != nil) {
+            try container.encode(self.bottomMargin, forKey: .bottomMargin);
+        }
+        if (self.differentFirstPageHeaderFooter != nil) {
+            try container.encode(self.differentFirstPageHeaderFooter, forKey: .differentFirstPageHeaderFooter);
+        }
+        if (self.firstPageTray != nil) {
+            try container.encode(self.firstPageTray, forKey: .firstPageTray);
+        }
+        if (self.footerDistance != nil) {
+            try container.encode(self.footerDistance, forKey: .footerDistance);
+        }
+        if (self.gutter != nil) {
+            try container.encode(self.gutter, forKey: .gutter);
+        }
+        if (self.headerDistance != nil) {
+            try container.encode(self.headerDistance, forKey: .headerDistance);
+        }
+        if (self.leftMargin != nil) {
+            try container.encode(self.leftMargin, forKey: .leftMargin);
+        }
+        if (self.lineNumberCountBy != nil) {
+            try container.encode(self.lineNumberCountBy, forKey: .lineNumberCountBy);
+        }
+        if (self.lineNumberDistanceFromText != nil) {
+            try container.encode(self.lineNumberDistanceFromText, forKey: .lineNumberDistanceFromText);
+        }
+        if (self.lineNumberRestartMode != nil) {
+            try container.encode(self.lineNumberRestartMode, forKey: .lineNumberRestartMode);
+        }
+        if (self.lineStartingNumber != nil) {
+            try container.encode(self.lineStartingNumber, forKey: .lineStartingNumber);
+        }
+        if (self.orientation != nil) {
+            try container.encode(self.orientation, forKey: .orientation);
+        }
+        if (self.otherPagesTray != nil) {
+            try container.encode(self.otherPagesTray, forKey: .otherPagesTray);
+        }
+        if (self.pageHeight != nil) {
+            try container.encode(self.pageHeight, forKey: .pageHeight);
+        }
+        if (self.pageNumberStyle != nil) {
+            try container.encode(self.pageNumberStyle, forKey: .pageNumberStyle);
+        }
+        if (self.pageStartingNumber != nil) {
+            try container.encode(self.pageStartingNumber, forKey: .pageStartingNumber);
+        }
+        if (self.pageWidth != nil) {
+            try container.encode(self.pageWidth, forKey: .pageWidth);
+        }
+        if (self.paperSize != nil) {
+            try container.encode(self.paperSize, forKey: .paperSize);
+        }
+        if (self.restartPageNumbering != nil) {
+            try container.encode(self.restartPageNumbering, forKey: .restartPageNumbering);
+        }
+        if (self.rightMargin != nil) {
+            try container.encode(self.rightMargin, forKey: .rightMargin);
+        }
+        if (self.rtlGutter != nil) {
+            try container.encode(self.rtlGutter, forKey: .rtlGutter);
+        }
+        if (self.sectionStart != nil) {
+            try container.encode(self.sectionStart, forKey: .sectionStart);
+        }
+        if (self.suppressEndnotes != nil) {
+            try container.encode(self.suppressEndnotes, forKey: .suppressEndnotes);
+        }
+        if (self.topMargin != nil) {
+            try container.encode(self.topMargin, forKey: .topMargin);
+        }
+        if (self.verticalAlignment != nil) {
+            try container.encode(self.verticalAlignment, forKey: .verticalAlignment);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getBidi() -> Bool? {

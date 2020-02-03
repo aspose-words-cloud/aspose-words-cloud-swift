@@ -32,8 +32,28 @@ public class TablePropertiesResponse : WordsResponse {
     // Gets or sets table.
     private let properties : TableProperties?;
         
+    private enum CodingKeys: String, CodingKey { case properties }
+        
     public init(properties : TableProperties? = nil) {
         self.properties = properties;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let properties = try container.decodeIfPresent(TableProperties.self, forKey: .properties) {
+            self.properties = properties;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.properties != nil) {
+            try container.encode(self.properties, forKey: .properties);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getProperties() -> TableProperties? {

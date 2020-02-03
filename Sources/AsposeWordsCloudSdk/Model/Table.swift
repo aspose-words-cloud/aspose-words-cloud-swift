@@ -34,9 +34,35 @@ public class Table : NodeLink {
     // Gets or sets collection of table&#39;s rows.
     private let tableRowList : [TableRow]?;
         
+    private enum CodingKeys: String, CodingKey { case tableProperties, tableRowList }
+        
     public init(tableProperties : TableProperties? = nil, tableRowList : [TableRow]? = nil) {
         self.tableProperties = tableProperties;
         self.tableRowList = tableRowList;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let tableProperties = try container.decodeIfPresent(TableProperties.self, forKey: .tableProperties) {
+            self.tableProperties = tableProperties;
+        }
+        if let tableRowList = try container.decodeIfPresent([TableRow].self, forKey: .tableRowList) {
+            self.tableRowList = tableRowList;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.tableProperties != nil) {
+            try container.encode(self.tableProperties, forKey: .tableProperties);
+        }
+        if (self.tableRowList != nil) {
+            try container.encode(self.tableRowList, forKey: .tableRowList);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getTableProperties() -> TableProperties? {

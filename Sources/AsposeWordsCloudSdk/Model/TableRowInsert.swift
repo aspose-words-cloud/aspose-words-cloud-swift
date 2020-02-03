@@ -34,9 +34,31 @@ public class TableRowInsert : Decodable {
     // Gets or sets count of columns. Default is 1.
     private let columnsCount : Int;
         
+    private enum CodingKeys: String, CodingKey { case insertAfter, columnsCount }
+        
     public init(insertAfter : Int? = nil, columnsCount : Int) {
         self.insertAfter = insertAfter;
         self.columnsCount = columnsCount;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let insertAfter = try container.decodeIfPresent(Int.self, forKey: .insertAfter) {
+            self.insertAfter = insertAfter;
+        }
+        self.columnsCount = try container.decode(Int.self, forKey: .columnsCount);
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.insertAfter != nil) {
+            try container.encode(self.insertAfter, forKey: .insertAfter);
+        }
+        try container.encode(self.columnsCount, forKey: .columnsCount);
+        
+        
     }
         
     public func getInsertAfter() -> Int? {

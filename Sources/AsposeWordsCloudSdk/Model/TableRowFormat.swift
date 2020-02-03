@@ -52,11 +52,49 @@ public class TableRowFormat : LinkElement {
     // Gets or sets the rule for determining the height of the table row.
     private let heightRule : HeightRule?;
         
+    private enum CodingKeys: String, CodingKey { case allowBreakAcrossPages, headingFormat, height, heightRule }
+        
     public init(allowBreakAcrossPages : Bool? = nil, headingFormat : Bool? = nil, height : Double? = nil, heightRule : HeightRule? = nil) {
         self.allowBreakAcrossPages = allowBreakAcrossPages;
         self.headingFormat = headingFormat;
         self.height = height;
         self.heightRule = heightRule;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let allowBreakAcrossPages = try container.decodeIfPresent(Bool.self, forKey: .allowBreakAcrossPages) {
+            self.allowBreakAcrossPages = allowBreakAcrossPages;
+        }
+        if let headingFormat = try container.decodeIfPresent(Bool.self, forKey: .headingFormat) {
+            self.headingFormat = headingFormat;
+        }
+        if let height = try container.decodeIfPresent(Double.self, forKey: .height) {
+            self.height = height;
+        }
+        if let heightRule = try container.decodeIfPresent(HeightRule.self, forKey: .heightRule) {
+            self.heightRule = heightRule;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.allowBreakAcrossPages != nil) {
+            try container.encode(self.allowBreakAcrossPages, forKey: .allowBreakAcrossPages);
+        }
+        if (self.headingFormat != nil) {
+            try container.encode(self.headingFormat, forKey: .headingFormat);
+        }
+        if (self.height != nil) {
+            try container.encode(self.height, forKey: .height);
+        }
+        if (self.heightRule != nil) {
+            try container.encode(self.heightRule, forKey: .heightRule);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getAllowBreakAcrossPages() -> Bool? {

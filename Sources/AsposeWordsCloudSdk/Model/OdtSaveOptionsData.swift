@@ -47,10 +47,42 @@ public class OdtSaveOptionsData : SaveOptionsData {
     // Gets or sets specifies whether or not use pretty formats output.
     private let prettyFormat : Bool?;
         
+    private enum CodingKeys: String, CodingKey { case isStrictSchema11, measureUnit, prettyFormat }
+        
     public init(isStrictSchema11 : Bool? = nil, measureUnit : MeasureUnit? = nil, prettyFormat : Bool? = nil) {
         self.isStrictSchema11 = isStrictSchema11;
         self.measureUnit = measureUnit;
         self.prettyFormat = prettyFormat;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let isStrictSchema11 = try container.decodeIfPresent(Bool.self, forKey: .isStrictSchema11) {
+            self.isStrictSchema11 = isStrictSchema11;
+        }
+        if let measureUnit = try container.decodeIfPresent(MeasureUnit.self, forKey: .measureUnit) {
+            self.measureUnit = measureUnit;
+        }
+        if let prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat) {
+            self.prettyFormat = prettyFormat;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.isStrictSchema11 != nil) {
+            try container.encode(self.isStrictSchema11, forKey: .isStrictSchema11);
+        }
+        if (self.measureUnit != nil) {
+            try container.encode(self.measureUnit, forKey: .measureUnit);
+        }
+        if (self.prettyFormat != nil) {
+            try container.encode(self.prettyFormat, forKey: .prettyFormat);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getIsStrictSchema11() -> Bool? {

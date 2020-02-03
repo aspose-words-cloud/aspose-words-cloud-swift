@@ -37,6 +37,8 @@ public class RenderDrawingObjectWithoutNodePathRequest : Decodable {
     private let password : String?;
     private let fontsLocation : String?;
     
+    private enum CodingKeys: String, CodingKey { case name, format, index, folder, storage, loadEncoding, password, fontsLocation }
+    
     public init(name : String, format : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, fontsLocation : String? = null) {
         self.name = name;
         self.format = format;
@@ -46,6 +48,54 @@ public class RenderDrawingObjectWithoutNodePathRequest : Decodable {
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.fontsLocation = fontsLocation;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.name = try container.decode(.self, forKey: .name);
+        self.format = try container.decode(.self, forKey: .format);
+        self.index = try container.decode(.self, forKey: .index);
+        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
+            self.folder = folder;
+        }
+        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
+            self.storage = storage;
+        }
+        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
+            self.loadEncoding = loadEncoding;
+        }
+        if let password = try container.decodeIfPresent(.self, forKey: .password) {
+            self.password = password;
+        }
+        if let fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation) {
+            self.fontsLocation = fontsLocation;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.name, forKey: .name);
+        try container.encode(self.format, forKey: .format);
+        try container.encode(self.index, forKey: .index);
+        if (self.folder != nil) {
+            try container.encode(self.folder, forKey: .folder);
+        }
+        if (self.storage != nil) {
+            try container.encode(self.storage, forKey: .storage);
+        }
+        if (self.loadEncoding != nil) {
+            try container.encode(self.loadEncoding, forKey: .loadEncoding);
+        }
+        if (self.password != nil) {
+            try container.encode(self.password, forKey: .password);
+        }
+        if (self.fontsLocation != nil) {
+            try container.encode(self.fontsLocation, forKey: .fontsLocation);
+        }
+        
+        
     }
     
     public func getName() -> String {

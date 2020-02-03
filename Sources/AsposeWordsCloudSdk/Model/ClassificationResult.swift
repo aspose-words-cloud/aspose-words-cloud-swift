@@ -34,9 +34,31 @@ public class ClassificationResult : Decodable {
     // Gets or sets the probability of class.
     private let classProbability : Double;
         
+    private enum CodingKeys: String, CodingKey { case className, classProbability }
+        
     public init(className : String? = nil, classProbability : Double) {
         self.className = className;
         self.classProbability = classProbability;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let className = try container.decodeIfPresent(String.self, forKey: .className) {
+            self.className = className;
+        }
+        self.classProbability = try container.decode(Double.self, forKey: .classProbability);
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.className != nil) {
+            try container.encode(self.className, forKey: .className);
+        }
+        try container.encode(self.classProbability, forKey: .classProbability);
+        
+        
     }
         
     public func getClassName() -> String? {

@@ -1319,6 +1319,8 @@ public class Font : LinkElement {
     // Gets or sets the color of the underline applied to the font.
     private let underlineColor : XmlColor?;
         
+    private enum CodingKeys: String, CodingKey { case allCaps, bidi, bold, boldBi, border, color, complexScript, doubleStrikeThrough, emboss, engrave, hidden, highlightColor, italic, italicBi, kerning, localeId, localeIdBi, localeIdFarEast, name, nameAscii, nameBi, nameFarEast, nameOther, noProofing, outline, position, scaling, shadow, size, sizeBi, smallCaps, spacing, strikeThrough, styleIdentifier, styleName, _subscript, superscript, textEffect, underline, underlineColor }
+        
     public init(allCaps : Bool? = nil, bidi : Bool? = nil, bold : Bool? = nil, boldBi : Bool? = nil, border : Border? = nil, color : XmlColor? = nil, complexScript : Bool? = nil, doubleStrikeThrough : Bool? = nil, emboss : Bool? = nil, engrave : Bool? = nil, hidden : Bool? = nil, highlightColor : XmlColor? = nil, italic : Bool? = nil, italicBi : Bool? = nil, kerning : Double? = nil, localeId : Int? = nil, localeIdBi : Int? = nil, localeIdFarEast : Int? = nil, name : String? = nil, nameAscii : String? = nil, nameBi : String? = nil, nameFarEast : String? = nil, nameOther : String? = nil, noProofing : Bool? = nil, outline : Bool? = nil, position : Double? = nil, scaling : Int? = nil, shadow : Bool? = nil, size : Double? = nil, sizeBi : Double? = nil, smallCaps : Bool? = nil, spacing : Double? = nil, strikeThrough : Bool? = nil, styleIdentifier : StyleIdentifier? = nil, styleName : String? = nil, _subscript : Bool? = nil, superscript : Bool? = nil, textEffect : TextEffect? = nil, underline : Underline? = nil, underlineColor : XmlColor? = nil) {
         self.allCaps = allCaps;
         self.bidi = bidi;
@@ -1360,6 +1362,258 @@ public class Font : LinkElement {
         self.textEffect = textEffect;
         self.underline = underline;
         self.underlineColor = underlineColor;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let allCaps = try container.decodeIfPresent(Bool.self, forKey: .allCaps) {
+            self.allCaps = allCaps;
+        }
+        if let bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi) {
+            self.bidi = bidi;
+        }
+        if let bold = try container.decodeIfPresent(Bool.self, forKey: .bold) {
+            self.bold = bold;
+        }
+        if let boldBi = try container.decodeIfPresent(Bool.self, forKey: .boldBi) {
+            self.boldBi = boldBi;
+        }
+        if let border = try container.decodeIfPresent(Border.self, forKey: .border) {
+            self.border = border;
+        }
+        if let color = try container.decodeIfPresent(XmlColor.self, forKey: .color) {
+            self.color = color;
+        }
+        if let complexScript = try container.decodeIfPresent(Bool.self, forKey: .complexScript) {
+            self.complexScript = complexScript;
+        }
+        if let doubleStrikeThrough = try container.decodeIfPresent(Bool.self, forKey: .doubleStrikeThrough) {
+            self.doubleStrikeThrough = doubleStrikeThrough;
+        }
+        if let emboss = try container.decodeIfPresent(Bool.self, forKey: .emboss) {
+            self.emboss = emboss;
+        }
+        if let engrave = try container.decodeIfPresent(Bool.self, forKey: .engrave) {
+            self.engrave = engrave;
+        }
+        if let hidden = try container.decodeIfPresent(Bool.self, forKey: .hidden) {
+            self.hidden = hidden;
+        }
+        if let highlightColor = try container.decodeIfPresent(XmlColor.self, forKey: .highlightColor) {
+            self.highlightColor = highlightColor;
+        }
+        if let italic = try container.decodeIfPresent(Bool.self, forKey: .italic) {
+            self.italic = italic;
+        }
+        if let italicBi = try container.decodeIfPresent(Bool.self, forKey: .italicBi) {
+            self.italicBi = italicBi;
+        }
+        if let kerning = try container.decodeIfPresent(Double.self, forKey: .kerning) {
+            self.kerning = kerning;
+        }
+        if let localeId = try container.decodeIfPresent(Int.self, forKey: .localeId) {
+            self.localeId = localeId;
+        }
+        if let localeIdBi = try container.decodeIfPresent(Int.self, forKey: .localeIdBi) {
+            self.localeIdBi = localeIdBi;
+        }
+        if let localeIdFarEast = try container.decodeIfPresent(Int.self, forKey: .localeIdFarEast) {
+            self.localeIdFarEast = localeIdFarEast;
+        }
+        if let name = try container.decodeIfPresent(String.self, forKey: .name) {
+            self.name = name;
+        }
+        if let nameAscii = try container.decodeIfPresent(String.self, forKey: .nameAscii) {
+            self.nameAscii = nameAscii;
+        }
+        if let nameBi = try container.decodeIfPresent(String.self, forKey: .nameBi) {
+            self.nameBi = nameBi;
+        }
+        if let nameFarEast = try container.decodeIfPresent(String.self, forKey: .nameFarEast) {
+            self.nameFarEast = nameFarEast;
+        }
+        if let nameOther = try container.decodeIfPresent(String.self, forKey: .nameOther) {
+            self.nameOther = nameOther;
+        }
+        if let noProofing = try container.decodeIfPresent(Bool.self, forKey: .noProofing) {
+            self.noProofing = noProofing;
+        }
+        if let outline = try container.decodeIfPresent(Bool.self, forKey: .outline) {
+            self.outline = outline;
+        }
+        if let position = try container.decodeIfPresent(Double.self, forKey: .position) {
+            self.position = position;
+        }
+        if let scaling = try container.decodeIfPresent(Int.self, forKey: .scaling) {
+            self.scaling = scaling;
+        }
+        if let shadow = try container.decodeIfPresent(Bool.self, forKey: .shadow) {
+            self.shadow = shadow;
+        }
+        if let size = try container.decodeIfPresent(Double.self, forKey: .size) {
+            self.size = size;
+        }
+        if let sizeBi = try container.decodeIfPresent(Double.self, forKey: .sizeBi) {
+            self.sizeBi = sizeBi;
+        }
+        if let smallCaps = try container.decodeIfPresent(Bool.self, forKey: .smallCaps) {
+            self.smallCaps = smallCaps;
+        }
+        if let spacing = try container.decodeIfPresent(Double.self, forKey: .spacing) {
+            self.spacing = spacing;
+        }
+        if let strikeThrough = try container.decodeIfPresent(Bool.self, forKey: .strikeThrough) {
+            self.strikeThrough = strikeThrough;
+        }
+        if let styleIdentifier = try container.decodeIfPresent(StyleIdentifier.self, forKey: .styleIdentifier) {
+            self.styleIdentifier = styleIdentifier;
+        }
+        if let styleName = try container.decodeIfPresent(String.self, forKey: .styleName) {
+            self.styleName = styleName;
+        }
+        if let _subscript = try container.decodeIfPresent(Bool.self, forKey: ._subscript) {
+            self._subscript = _subscript;
+        }
+        if let superscript = try container.decodeIfPresent(Bool.self, forKey: .superscript) {
+            self.superscript = superscript;
+        }
+        if let textEffect = try container.decodeIfPresent(TextEffect.self, forKey: .textEffect) {
+            self.textEffect = textEffect;
+        }
+        if let underline = try container.decodeIfPresent(Underline.self, forKey: .underline) {
+            self.underline = underline;
+        }
+        if let underlineColor = try container.decodeIfPresent(XmlColor.self, forKey: .underlineColor) {
+            self.underlineColor = underlineColor;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.allCaps != nil) {
+            try container.encode(self.allCaps, forKey: .allCaps);
+        }
+        if (self.bidi != nil) {
+            try container.encode(self.bidi, forKey: .bidi);
+        }
+        if (self.bold != nil) {
+            try container.encode(self.bold, forKey: .bold);
+        }
+        if (self.boldBi != nil) {
+            try container.encode(self.boldBi, forKey: .boldBi);
+        }
+        if (self.border != nil) {
+            try container.encode(self.border, forKey: .border);
+        }
+        if (self.color != nil) {
+            try container.encode(self.color, forKey: .color);
+        }
+        if (self.complexScript != nil) {
+            try container.encode(self.complexScript, forKey: .complexScript);
+        }
+        if (self.doubleStrikeThrough != nil) {
+            try container.encode(self.doubleStrikeThrough, forKey: .doubleStrikeThrough);
+        }
+        if (self.emboss != nil) {
+            try container.encode(self.emboss, forKey: .emboss);
+        }
+        if (self.engrave != nil) {
+            try container.encode(self.engrave, forKey: .engrave);
+        }
+        if (self.hidden != nil) {
+            try container.encode(self.hidden, forKey: .hidden);
+        }
+        if (self.highlightColor != nil) {
+            try container.encode(self.highlightColor, forKey: .highlightColor);
+        }
+        if (self.italic != nil) {
+            try container.encode(self.italic, forKey: .italic);
+        }
+        if (self.italicBi != nil) {
+            try container.encode(self.italicBi, forKey: .italicBi);
+        }
+        if (self.kerning != nil) {
+            try container.encode(self.kerning, forKey: .kerning);
+        }
+        if (self.localeId != nil) {
+            try container.encode(self.localeId, forKey: .localeId);
+        }
+        if (self.localeIdBi != nil) {
+            try container.encode(self.localeIdBi, forKey: .localeIdBi);
+        }
+        if (self.localeIdFarEast != nil) {
+            try container.encode(self.localeIdFarEast, forKey: .localeIdFarEast);
+        }
+        if (self.name != nil) {
+            try container.encode(self.name, forKey: .name);
+        }
+        if (self.nameAscii != nil) {
+            try container.encode(self.nameAscii, forKey: .nameAscii);
+        }
+        if (self.nameBi != nil) {
+            try container.encode(self.nameBi, forKey: .nameBi);
+        }
+        if (self.nameFarEast != nil) {
+            try container.encode(self.nameFarEast, forKey: .nameFarEast);
+        }
+        if (self.nameOther != nil) {
+            try container.encode(self.nameOther, forKey: .nameOther);
+        }
+        if (self.noProofing != nil) {
+            try container.encode(self.noProofing, forKey: .noProofing);
+        }
+        if (self.outline != nil) {
+            try container.encode(self.outline, forKey: .outline);
+        }
+        if (self.position != nil) {
+            try container.encode(self.position, forKey: .position);
+        }
+        if (self.scaling != nil) {
+            try container.encode(self.scaling, forKey: .scaling);
+        }
+        if (self.shadow != nil) {
+            try container.encode(self.shadow, forKey: .shadow);
+        }
+        if (self.size != nil) {
+            try container.encode(self.size, forKey: .size);
+        }
+        if (self.sizeBi != nil) {
+            try container.encode(self.sizeBi, forKey: .sizeBi);
+        }
+        if (self.smallCaps != nil) {
+            try container.encode(self.smallCaps, forKey: .smallCaps);
+        }
+        if (self.spacing != nil) {
+            try container.encode(self.spacing, forKey: .spacing);
+        }
+        if (self.strikeThrough != nil) {
+            try container.encode(self.strikeThrough, forKey: .strikeThrough);
+        }
+        if (self.styleIdentifier != nil) {
+            try container.encode(self.styleIdentifier, forKey: .styleIdentifier);
+        }
+        if (self.styleName != nil) {
+            try container.encode(self.styleName, forKey: .styleName);
+        }
+        if (self._subscript != nil) {
+            try container.encode(self._subscript, forKey: ._subscript);
+        }
+        if (self.superscript != nil) {
+            try container.encode(self.superscript, forKey: .superscript);
+        }
+        if (self.textEffect != nil) {
+            try container.encode(self.textEffect, forKey: .textEffect);
+        }
+        if (self.underline != nil) {
+            try container.encode(self.underline, forKey: .underline);
+        }
+        if (self.underlineColor != nil) {
+            try container.encode(self.underlineColor, forKey: .underlineColor);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getAllCaps() -> Bool? {

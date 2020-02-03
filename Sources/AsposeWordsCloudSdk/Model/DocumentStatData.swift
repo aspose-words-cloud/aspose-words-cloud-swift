@@ -40,12 +40,44 @@ public class DocumentStatData : Decodable {
     // Gets or sets detailed statistics of all pages.
     private let pageStatData : [PageStatData]?;
         
+    private enum CodingKeys: String, CodingKey { case wordCount, paragraphCount, pageCount, footnotesStatData, pageStatData }
+        
     public init(wordCount : Int, paragraphCount : Int, pageCount : Int, footnotesStatData : FootnotesStatData? = nil, pageStatData : [PageStatData]? = nil) {
         self.wordCount = wordCount;
         self.paragraphCount = paragraphCount;
         self.pageCount = pageCount;
         self.footnotesStatData = footnotesStatData;
         self.pageStatData = pageStatData;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.wordCount = try container.decode(Int.self, forKey: .wordCount);
+        self.paragraphCount = try container.decode(Int.self, forKey: .paragraphCount);
+        self.pageCount = try container.decode(Int.self, forKey: .pageCount);
+        if let footnotesStatData = try container.decodeIfPresent(FootnotesStatData.self, forKey: .footnotesStatData) {
+            self.footnotesStatData = footnotesStatData;
+        }
+        if let pageStatData = try container.decodeIfPresent([PageStatData].self, forKey: .pageStatData) {
+            self.pageStatData = pageStatData;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.wordCount, forKey: .wordCount);
+        try container.encode(self.paragraphCount, forKey: .paragraphCount);
+        try container.encode(self.pageCount, forKey: .pageCount);
+        if (self.footnotesStatData != nil) {
+            try container.encode(self.footnotesStatData, forKey: .footnotesStatData);
+        }
+        if (self.pageStatData != nil) {
+            try container.encode(self.pageStatData, forKey: .pageStatData);
+        }
+        
+        
     }
         
     public func getWordCount() -> Int {

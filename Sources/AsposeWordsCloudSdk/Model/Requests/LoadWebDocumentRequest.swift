@@ -31,9 +31,31 @@ public class LoadWebDocumentRequest : Decodable {
     private let data : LoadWebDocumentData;
     private let storage : String?;
     
+    private enum CodingKeys: String, CodingKey { case data, storage }
+    
     public init(data : LoadWebDocumentData, storage : String? = null) {
         self.data = data;
         self.storage = storage;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.data = try container.decode(.self, forKey: .data);
+        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
+            self.storage = storage;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.data, forKey: .data);
+        if (self.storage != nil) {
+            try container.encode(self.storage, forKey: .storage);
+        }
+        
+        
     }
     
     public func getData() -> LoadWebDocumentData {

@@ -34,9 +34,35 @@ public class ProtectionDataResponse : WordsResponse {
     // Gets or sets protection&#39;s data of the document.
     private let protectionData : ProtectionData?;
         
+    private enum CodingKeys: String, CodingKey { case documentLink, protectionData }
+        
     public init(documentLink : FileLink? = nil, protectionData : ProtectionData? = nil) {
         self.documentLink = documentLink;
         self.protectionData = protectionData;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let documentLink = try container.decodeIfPresent(FileLink.self, forKey: .documentLink) {
+            self.documentLink = documentLink;
+        }
+        if let protectionData = try container.decodeIfPresent(ProtectionData.self, forKey: .protectionData) {
+            self.protectionData = protectionData;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.documentLink != nil) {
+            try container.encode(self.documentLink, forKey: .documentLink);
+        }
+        if (self.protectionData != nil) {
+            try container.encode(self.protectionData, forKey: .protectionData);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getDocumentLink() -> FileLink? {

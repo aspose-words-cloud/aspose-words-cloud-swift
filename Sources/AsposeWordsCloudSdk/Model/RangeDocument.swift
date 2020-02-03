@@ -32,8 +32,28 @@ public class RangeDocument : Decodable {
     // Gets or sets name for new document.
     private let documentName : String?;
         
+    private enum CodingKeys: String, CodingKey { case documentName }
+        
     public init(documentName : String? = nil) {
         self.documentName = documentName;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let documentName = try container.decodeIfPresent(String.self, forKey: .documentName) {
+            self.documentName = documentName;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.documentName != nil) {
+            try container.encode(self.documentName, forKey: .documentName);
+        }
+        
+        
     }
         
     public func getDocumentName() -> String? {

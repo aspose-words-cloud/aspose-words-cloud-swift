@@ -36,10 +36,42 @@ public class FormFieldCheckbox : FormField {
     // Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.
     private let isCheckBoxExactSize : Bool?;
         
+    private enum CodingKeys: String, CodingKey { case checkBoxSize, checked, isCheckBoxExactSize }
+        
     public init(checkBoxSize : Double? = nil, checked : Bool? = nil, isCheckBoxExactSize : Bool? = nil) {
         self.checkBoxSize = checkBoxSize;
         self.checked = checked;
         self.isCheckBoxExactSize = isCheckBoxExactSize;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let checkBoxSize = try container.decodeIfPresent(Double.self, forKey: .checkBoxSize) {
+            self.checkBoxSize = checkBoxSize;
+        }
+        if let checked = try container.decodeIfPresent(Bool.self, forKey: .checked) {
+            self.checked = checked;
+        }
+        if let isCheckBoxExactSize = try container.decodeIfPresent(Bool.self, forKey: .isCheckBoxExactSize) {
+            self.isCheckBoxExactSize = isCheckBoxExactSize;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.checkBoxSize != nil) {
+            try container.encode(self.checkBoxSize, forKey: .checkBoxSize);
+        }
+        if (self.checked != nil) {
+            try container.encode(self.checked, forKey: .checked);
+        }
+        if (self.isCheckBoxExactSize != nil) {
+            try container.encode(self.isCheckBoxExactSize, forKey: .isCheckBoxExactSize);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getCheckBoxSize() -> Double? {

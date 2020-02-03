@@ -137,12 +137,56 @@ public class StringFormatData : Decodable {
     // Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.
     private let trimming : Trimming?;
         
+    private enum CodingKeys: String, CodingKey { case alignment, formatFlags, hotkeyPrefix, lineAlignment, trimming }
+        
     public init(alignment : Alignment? = nil, formatFlags : FormatFlags? = nil, hotkeyPrefix : HotkeyPrefix? = nil, lineAlignment : LineAlignment? = nil, trimming : Trimming? = nil) {
         self.alignment = alignment;
         self.formatFlags = formatFlags;
         self.hotkeyPrefix = hotkeyPrefix;
         self.lineAlignment = lineAlignment;
         self.trimming = trimming;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment) {
+            self.alignment = alignment;
+        }
+        if let formatFlags = try container.decodeIfPresent(FormatFlags.self, forKey: .formatFlags) {
+            self.formatFlags = formatFlags;
+        }
+        if let hotkeyPrefix = try container.decodeIfPresent(HotkeyPrefix.self, forKey: .hotkeyPrefix) {
+            self.hotkeyPrefix = hotkeyPrefix;
+        }
+        if let lineAlignment = try container.decodeIfPresent(LineAlignment.self, forKey: .lineAlignment) {
+            self.lineAlignment = lineAlignment;
+        }
+        if let trimming = try container.decodeIfPresent(Trimming.self, forKey: .trimming) {
+            self.trimming = trimming;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.alignment != nil) {
+            try container.encode(self.alignment, forKey: .alignment);
+        }
+        if (self.formatFlags != nil) {
+            try container.encode(self.formatFlags, forKey: .formatFlags);
+        }
+        if (self.hotkeyPrefix != nil) {
+            try container.encode(self.hotkeyPrefix, forKey: .hotkeyPrefix);
+        }
+        if (self.lineAlignment != nil) {
+            try container.encode(self.lineAlignment, forKey: .lineAlignment);
+        }
+        if (self.trimming != nil) {
+            try container.encode(self.trimming, forKey: .trimming);
+        }
+        
+        
     }
         
     public func getAlignment() -> Alignment? {

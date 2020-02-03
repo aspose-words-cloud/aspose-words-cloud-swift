@@ -92,6 +92,8 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets determines zoom factor (in percentages) for a document.
     private let zoomFactor : Int?;
         
+    private enum CodingKeys: String, CodingKey { case compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedFullFonts, encryptionDetails, escapeUri, exportDocumentStructure, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, zoomBehavior, zoomFactor }
+        
     public init(compliance : String? = nil, createNoteHyperlinks : Bool? = nil, customPropertiesExport : String? = nil, digitalSignatureDetails : PdfDigitalSignatureDetailsData? = nil, displayDocTitle : Bool? = nil, downsampleOptions : DownsampleOptionsData? = nil, embedFullFonts : Bool? = nil, encryptionDetails : PdfEncryptionDetailsData? = nil, escapeUri : Bool? = nil, exportDocumentStructure : Bool? = nil, fontEmbeddingMode : String? = nil, headerFooterBookmarksExportMode : HeaderFooterBookmarksExportMode? = nil, imageColorSpaceExportMode : String? = nil, imageCompression : String? = nil, openHyperlinksInNewWindow : Bool? = nil, outlineOptions : OutlineOptionsData? = nil, pageMode : String? = nil, preblendImages : Bool? = nil, preserveFormFields : Bool? = nil, textCompression : String? = nil, useBookFoldPrintingSettings : Bool? = nil, useCoreFonts : Bool? = nil, zoomBehavior : String? = nil, zoomFactor : Int? = nil) {
         self.compliance = compliance;
         self.createNoteHyperlinks = createNoteHyperlinks;
@@ -117,6 +119,162 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         self.useCoreFonts = useCoreFonts;
         self.zoomBehavior = zoomBehavior;
         self.zoomFactor = zoomFactor;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let compliance = try container.decodeIfPresent(String.self, forKey: .compliance) {
+            self.compliance = compliance;
+        }
+        if let createNoteHyperlinks = try container.decodeIfPresent(Bool.self, forKey: .createNoteHyperlinks) {
+            self.createNoteHyperlinks = createNoteHyperlinks;
+        }
+        if let customPropertiesExport = try container.decodeIfPresent(String.self, forKey: .customPropertiesExport) {
+            self.customPropertiesExport = customPropertiesExport;
+        }
+        if let digitalSignatureDetails = try container.decodeIfPresent(PdfDigitalSignatureDetailsData.self, forKey: .digitalSignatureDetails) {
+            self.digitalSignatureDetails = digitalSignatureDetails;
+        }
+        if let displayDocTitle = try container.decodeIfPresent(Bool.self, forKey: .displayDocTitle) {
+            self.displayDocTitle = displayDocTitle;
+        }
+        if let downsampleOptions = try container.decodeIfPresent(DownsampleOptionsData.self, forKey: .downsampleOptions) {
+            self.downsampleOptions = downsampleOptions;
+        }
+        if let embedFullFonts = try container.decodeIfPresent(Bool.self, forKey: .embedFullFonts) {
+            self.embedFullFonts = embedFullFonts;
+        }
+        if let encryptionDetails = try container.decodeIfPresent(PdfEncryptionDetailsData.self, forKey: .encryptionDetails) {
+            self.encryptionDetails = encryptionDetails;
+        }
+        if let escapeUri = try container.decodeIfPresent(Bool.self, forKey: .escapeUri) {
+            self.escapeUri = escapeUri;
+        }
+        if let exportDocumentStructure = try container.decodeIfPresent(Bool.self, forKey: .exportDocumentStructure) {
+            self.exportDocumentStructure = exportDocumentStructure;
+        }
+        if let fontEmbeddingMode = try container.decodeIfPresent(String.self, forKey: .fontEmbeddingMode) {
+            self.fontEmbeddingMode = fontEmbeddingMode;
+        }
+        if let headerFooterBookmarksExportMode = try container.decodeIfPresent(HeaderFooterBookmarksExportMode.self, forKey: .headerFooterBookmarksExportMode) {
+            self.headerFooterBookmarksExportMode = headerFooterBookmarksExportMode;
+        }
+        if let imageColorSpaceExportMode = try container.decodeIfPresent(String.self, forKey: .imageColorSpaceExportMode) {
+            self.imageColorSpaceExportMode = imageColorSpaceExportMode;
+        }
+        if let imageCompression = try container.decodeIfPresent(String.self, forKey: .imageCompression) {
+            self.imageCompression = imageCompression;
+        }
+        if let openHyperlinksInNewWindow = try container.decodeIfPresent(Bool.self, forKey: .openHyperlinksInNewWindow) {
+            self.openHyperlinksInNewWindow = openHyperlinksInNewWindow;
+        }
+        if let outlineOptions = try container.decodeIfPresent(OutlineOptionsData.self, forKey: .outlineOptions) {
+            self.outlineOptions = outlineOptions;
+        }
+        if let pageMode = try container.decodeIfPresent(String.self, forKey: .pageMode) {
+            self.pageMode = pageMode;
+        }
+        if let preblendImages = try container.decodeIfPresent(Bool.self, forKey: .preblendImages) {
+            self.preblendImages = preblendImages;
+        }
+        if let preserveFormFields = try container.decodeIfPresent(Bool.self, forKey: .preserveFormFields) {
+            self.preserveFormFields = preserveFormFields;
+        }
+        if let textCompression = try container.decodeIfPresent(String.self, forKey: .textCompression) {
+            self.textCompression = textCompression;
+        }
+        if let useBookFoldPrintingSettings = try container.decodeIfPresent(Bool.self, forKey: .useBookFoldPrintingSettings) {
+            self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+        }
+        if let useCoreFonts = try container.decodeIfPresent(Bool.self, forKey: .useCoreFonts) {
+            self.useCoreFonts = useCoreFonts;
+        }
+        if let zoomBehavior = try container.decodeIfPresent(String.self, forKey: .zoomBehavior) {
+            self.zoomBehavior = zoomBehavior;
+        }
+        if let zoomFactor = try container.decodeIfPresent(Int.self, forKey: .zoomFactor) {
+            self.zoomFactor = zoomFactor;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.compliance != nil) {
+            try container.encode(self.compliance, forKey: .compliance);
+        }
+        if (self.createNoteHyperlinks != nil) {
+            try container.encode(self.createNoteHyperlinks, forKey: .createNoteHyperlinks);
+        }
+        if (self.customPropertiesExport != nil) {
+            try container.encode(self.customPropertiesExport, forKey: .customPropertiesExport);
+        }
+        if (self.digitalSignatureDetails != nil) {
+            try container.encode(self.digitalSignatureDetails, forKey: .digitalSignatureDetails);
+        }
+        if (self.displayDocTitle != nil) {
+            try container.encode(self.displayDocTitle, forKey: .displayDocTitle);
+        }
+        if (self.downsampleOptions != nil) {
+            try container.encode(self.downsampleOptions, forKey: .downsampleOptions);
+        }
+        if (self.embedFullFonts != nil) {
+            try container.encode(self.embedFullFonts, forKey: .embedFullFonts);
+        }
+        if (self.encryptionDetails != nil) {
+            try container.encode(self.encryptionDetails, forKey: .encryptionDetails);
+        }
+        if (self.escapeUri != nil) {
+            try container.encode(self.escapeUri, forKey: .escapeUri);
+        }
+        if (self.exportDocumentStructure != nil) {
+            try container.encode(self.exportDocumentStructure, forKey: .exportDocumentStructure);
+        }
+        if (self.fontEmbeddingMode != nil) {
+            try container.encode(self.fontEmbeddingMode, forKey: .fontEmbeddingMode);
+        }
+        if (self.headerFooterBookmarksExportMode != nil) {
+            try container.encode(self.headerFooterBookmarksExportMode, forKey: .headerFooterBookmarksExportMode);
+        }
+        if (self.imageColorSpaceExportMode != nil) {
+            try container.encode(self.imageColorSpaceExportMode, forKey: .imageColorSpaceExportMode);
+        }
+        if (self.imageCompression != nil) {
+            try container.encode(self.imageCompression, forKey: .imageCompression);
+        }
+        if (self.openHyperlinksInNewWindow != nil) {
+            try container.encode(self.openHyperlinksInNewWindow, forKey: .openHyperlinksInNewWindow);
+        }
+        if (self.outlineOptions != nil) {
+            try container.encode(self.outlineOptions, forKey: .outlineOptions);
+        }
+        if (self.pageMode != nil) {
+            try container.encode(self.pageMode, forKey: .pageMode);
+        }
+        if (self.preblendImages != nil) {
+            try container.encode(self.preblendImages, forKey: .preblendImages);
+        }
+        if (self.preserveFormFields != nil) {
+            try container.encode(self.preserveFormFields, forKey: .preserveFormFields);
+        }
+        if (self.textCompression != nil) {
+            try container.encode(self.textCompression, forKey: .textCompression);
+        }
+        if (self.useBookFoldPrintingSettings != nil) {
+            try container.encode(self.useBookFoldPrintingSettings, forKey: .useBookFoldPrintingSettings);
+        }
+        if (self.useCoreFonts != nil) {
+            try container.encode(self.useCoreFonts, forKey: .useCoreFonts);
+        }
+        if (self.zoomBehavior != nil) {
+            try container.encode(self.zoomBehavior, forKey: .zoomBehavior);
+        }
+        if (self.zoomFactor != nil) {
+            try container.encode(self.zoomFactor, forKey: .zoomFactor);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getCompliance() -> String? {

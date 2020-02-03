@@ -34,9 +34,31 @@ public class WatermarkText : Decodable {
     // Gets or sets the watermark rotation angle.
     private let rotationAngle : Double;
         
+    private enum CodingKeys: String, CodingKey { case text, rotationAngle }
+        
     public init(text : String? = nil, rotationAngle : Double) {
         self.text = text;
         self.rotationAngle = rotationAngle;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let text = try container.decodeIfPresent(String.self, forKey: .text) {
+            self.text = text;
+        }
+        self.rotationAngle = try container.decode(Double.self, forKey: .rotationAngle);
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.text != nil) {
+            try container.encode(self.text, forKey: .text);
+        }
+        try container.encode(self.rotationAngle, forKey: .rotationAngle);
+        
+        
     }
         
     public func getText() -> String? {

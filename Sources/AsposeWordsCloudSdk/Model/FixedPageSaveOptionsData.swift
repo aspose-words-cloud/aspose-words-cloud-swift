@@ -44,6 +44,8 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     // Gets or sets determines 0-based index of the first page to render.
     private let pageIndex : Int?;
         
+    private enum CodingKeys: String, CodingKey { case colorMode, jpegQuality, metafileRenderingOptions, numeralFormat, optimizeOutput, pageCount, pageIndex }
+        
     public init(colorMode : String? = nil, jpegQuality : Int? = nil, metafileRenderingOptions : MetafileRenderingOptionsData? = nil, numeralFormat : String? = nil, optimizeOutput : Bool? = nil, pageCount : Int? = nil, pageIndex : Int? = nil) {
         self.colorMode = colorMode;
         self.jpegQuality = jpegQuality;
@@ -52,6 +54,60 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         self.optimizeOutput = optimizeOutput;
         self.pageCount = pageCount;
         self.pageIndex = pageIndex;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let colorMode = try container.decodeIfPresent(String.self, forKey: .colorMode) {
+            self.colorMode = colorMode;
+        }
+        if let jpegQuality = try container.decodeIfPresent(Int.self, forKey: .jpegQuality) {
+            self.jpegQuality = jpegQuality;
+        }
+        if let metafileRenderingOptions = try container.decodeIfPresent(MetafileRenderingOptionsData.self, forKey: .metafileRenderingOptions) {
+            self.metafileRenderingOptions = metafileRenderingOptions;
+        }
+        if let numeralFormat = try container.decodeIfPresent(String.self, forKey: .numeralFormat) {
+            self.numeralFormat = numeralFormat;
+        }
+        if let optimizeOutput = try container.decodeIfPresent(Bool.self, forKey: .optimizeOutput) {
+            self.optimizeOutput = optimizeOutput;
+        }
+        if let pageCount = try container.decodeIfPresent(Int.self, forKey: .pageCount) {
+            self.pageCount = pageCount;
+        }
+        if let pageIndex = try container.decodeIfPresent(Int.self, forKey: .pageIndex) {
+            self.pageIndex = pageIndex;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.colorMode != nil) {
+            try container.encode(self.colorMode, forKey: .colorMode);
+        }
+        if (self.jpegQuality != nil) {
+            try container.encode(self.jpegQuality, forKey: .jpegQuality);
+        }
+        if (self.metafileRenderingOptions != nil) {
+            try container.encode(self.metafileRenderingOptions, forKey: .metafileRenderingOptions);
+        }
+        if (self.numeralFormat != nil) {
+            try container.encode(self.numeralFormat, forKey: .numeralFormat);
+        }
+        if (self.optimizeOutput != nil) {
+            try container.encode(self.optimizeOutput, forKey: .optimizeOutput);
+        }
+        if (self.pageCount != nil) {
+            try container.encode(self.pageCount, forKey: .pageCount);
+        }
+        if (self.pageIndex != nil) {
+            try container.encode(self.pageIndex, forKey: .pageIndex);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getColorMode() -> String? {

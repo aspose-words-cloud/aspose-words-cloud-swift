@@ -36,10 +36,42 @@ public class ClassificationResponse : WordsResponse {
     // Gets or sets array of best classes results.
     private let bestResults : [ClassificationResult]?;
         
+    private enum CodingKeys: String, CodingKey { case bestClassName, bestClassProbability, bestResults }
+        
     public init(bestClassName : String? = nil, bestClassProbability : Double? = nil, bestResults : [ClassificationResult]? = nil) {
         self.bestClassName = bestClassName;
         self.bestClassProbability = bestClassProbability;
         self.bestResults = bestResults;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let bestClassName = try container.decodeIfPresent(String.self, forKey: .bestClassName) {
+            self.bestClassName = bestClassName;
+        }
+        if let bestClassProbability = try container.decodeIfPresent(Double.self, forKey: .bestClassProbability) {
+            self.bestClassProbability = bestClassProbability;
+        }
+        if let bestResults = try container.decodeIfPresent([ClassificationResult].self, forKey: .bestResults) {
+            self.bestResults = bestResults;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.bestClassName != nil) {
+            try container.encode(self.bestClassName, forKey: .bestClassName);
+        }
+        if (self.bestClassProbability != nil) {
+            try container.encode(self.bestClassProbability, forKey: .bestClassProbability);
+        }
+        if (self.bestResults != nil) {
+            try container.encode(self.bestResults, forKey: .bestResults);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getBestClassName() -> String? {

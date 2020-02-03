@@ -40,12 +40,56 @@ public class Section : LinkElement {
     // Gets or sets link to Tables resource.
     private let tables : LinkElement?;
         
+    private enum CodingKeys: String, CodingKey { case childNodes, headerFooters, pageSetup, paragraphs, tables }
+        
     public init(childNodes : [NodeLink]? = nil, headerFooters : LinkElement? = nil, pageSetup : LinkElement? = nil, paragraphs : LinkElement? = nil, tables : LinkElement? = nil) {
         self.childNodes = childNodes;
         self.headerFooters = headerFooters;
         self.pageSetup = pageSetup;
         self.paragraphs = paragraphs;
         self.tables = tables;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let childNodes = try container.decodeIfPresent([NodeLink].self, forKey: .childNodes) {
+            self.childNodes = childNodes;
+        }
+        if let headerFooters = try container.decodeIfPresent(LinkElement.self, forKey: .headerFooters) {
+            self.headerFooters = headerFooters;
+        }
+        if let pageSetup = try container.decodeIfPresent(LinkElement.self, forKey: .pageSetup) {
+            self.pageSetup = pageSetup;
+        }
+        if let paragraphs = try container.decodeIfPresent(LinkElement.self, forKey: .paragraphs) {
+            self.paragraphs = paragraphs;
+        }
+        if let tables = try container.decodeIfPresent(LinkElement.self, forKey: .tables) {
+            self.tables = tables;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.childNodes != nil) {
+            try container.encode(self.childNodes, forKey: .childNodes);
+        }
+        if (self.headerFooters != nil) {
+            try container.encode(self.headerFooters, forKey: .headerFooters);
+        }
+        if (self.pageSetup != nil) {
+            try container.encode(self.pageSetup, forKey: .pageSetup);
+        }
+        if (self.paragraphs != nil) {
+            try container.encode(self.paragraphs, forKey: .paragraphs);
+        }
+        if (self.tables != nil) {
+            try container.encode(self.tables, forKey: .tables);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getChildNodes() -> [NodeLink]? {

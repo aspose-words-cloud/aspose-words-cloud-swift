@@ -32,8 +32,28 @@ public class FieldNames : LinkElement {
     // Gets or sets collection of fields names.
     private let names : [String]?;
         
+    private enum CodingKeys: String, CodingKey { case names }
+        
     public init(names : [String]? = nil) {
         self.names = names;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let names = try container.decodeIfPresent([String].self, forKey: .names) {
+            self.names = names;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.names != nil) {
+            try container.encode(self.names, forKey: .names);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getNames() -> [String]? {

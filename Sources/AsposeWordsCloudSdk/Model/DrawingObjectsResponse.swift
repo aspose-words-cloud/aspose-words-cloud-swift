@@ -32,8 +32,28 @@ public class DrawingObjectsResponse : WordsResponse {
     // Gets or sets collection of drawing objects.
     private let drawingObjects : DrawingObjectCollection?;
         
+    private enum CodingKeys: String, CodingKey { case drawingObjects }
+        
     public init(drawingObjects : DrawingObjectCollection? = nil) {
         self.drawingObjects = drawingObjects;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let drawingObjects = try container.decodeIfPresent(DrawingObjectCollection.self, forKey: .drawingObjects) {
+            self.drawingObjects = drawingObjects;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.drawingObjects != nil) {
+            try container.encode(self.drawingObjects, forKey: .drawingObjects);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getDrawingObjects() -> DrawingObjectCollection? {

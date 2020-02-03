@@ -32,8 +32,28 @@ public class TableCellResponse : WordsResponse {
     // Gets or sets table cell.
     private let cell : TableCell?;
         
+    private enum CodingKeys: String, CodingKey { case cell }
+        
     public init(cell : TableCell? = nil) {
         self.cell = cell;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let cell = try container.decodeIfPresent(TableCell.self, forKey: .cell) {
+            self.cell = cell;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.cell != nil) {
+            try container.encode(self.cell, forKey: .cell);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getCell() -> TableCell? {

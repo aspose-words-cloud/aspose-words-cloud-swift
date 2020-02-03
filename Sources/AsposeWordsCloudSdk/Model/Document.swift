@@ -110,6 +110,8 @@ public class Document : Decodable {
     // Gets or sets returns document properties.
     private let documentProperties : DocumentProperties?;
         
+    private enum CodingKeys: String, CodingKey { case links, fileName, sourceFormat, isEncrypted, isSigned, documentProperties }
+        
     public init(links : [Link]? = nil, fileName : String? = nil, sourceFormat : SourceFormat, isEncrypted : Bool, isSigned : Bool, documentProperties : DocumentProperties? = nil) {
         self.links = links;
         self.fileName = fileName;
@@ -117,6 +119,42 @@ public class Document : Decodable {
         self.isEncrypted = isEncrypted;
         self.isSigned = isSigned;
         self.documentProperties = documentProperties;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let links = try container.decodeIfPresent([Link].self, forKey: .links) {
+            self.links = links;
+        }
+        if let fileName = try container.decodeIfPresent(String.self, forKey: .fileName) {
+            self.fileName = fileName;
+        }
+        self.sourceFormat = try container.decode(SourceFormat.self, forKey: .sourceFormat);
+        self.isEncrypted = try container.decode(Bool.self, forKey: .isEncrypted);
+        self.isSigned = try container.decode(Bool.self, forKey: .isSigned);
+        if let documentProperties = try container.decodeIfPresent(DocumentProperties.self, forKey: .documentProperties) {
+            self.documentProperties = documentProperties;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.links != nil) {
+            try container.encode(self.links, forKey: .links);
+        }
+        if (self.fileName != nil) {
+            try container.encode(self.fileName, forKey: .fileName);
+        }
+        try container.encode(self.sourceFormat, forKey: .sourceFormat);
+        try container.encode(self.isEncrypted, forKey: .isEncrypted);
+        try container.encode(self.isSigned, forKey: .isSigned);
+        if (self.documentProperties != nil) {
+            try container.encode(self.documentProperties, forKey: .documentProperties);
+        }
+        
+        
     }
         
     public func getLinks() -> [Link]? {

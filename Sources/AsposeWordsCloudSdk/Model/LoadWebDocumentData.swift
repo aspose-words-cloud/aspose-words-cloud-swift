@@ -34,9 +34,35 @@ public class LoadWebDocumentData : Decodable {
     // Gets or sets save options.
     private let saveOptions : SaveOptionsData?;
         
+    private enum CodingKeys: String, CodingKey { case loadingDocumentUrl, saveOptions }
+        
     public init(loadingDocumentUrl : String? = nil, saveOptions : SaveOptionsData? = nil) {
         self.loadingDocumentUrl = loadingDocumentUrl;
         self.saveOptions = saveOptions;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let loadingDocumentUrl = try container.decodeIfPresent(String.self, forKey: .loadingDocumentUrl) {
+            self.loadingDocumentUrl = loadingDocumentUrl;
+        }
+        if let saveOptions = try container.decodeIfPresent(SaveOptionsData.self, forKey: .saveOptions) {
+            self.saveOptions = saveOptions;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.loadingDocumentUrl != nil) {
+            try container.encode(self.loadingDocumentUrl, forKey: .loadingDocumentUrl);
+        }
+        if (self.saveOptions != nil) {
+            try container.encode(self.saveOptions, forKey: .saveOptions);
+        }
+        
+        
     }
         
     public func getLoadingDocumentUrl() -> String? {

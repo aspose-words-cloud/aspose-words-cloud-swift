@@ -34,12 +34,48 @@ public class ExecuteMailMergeOnlineRequest : Decodable {
     private let cleanup : String?;
     private let documentFileName : String?;
     
+    private enum CodingKeys: String, CodingKey { case template, data, withRegions, cleanup, documentFileName }
+    
     public init(template : URL, data : URL, withRegions : Bool? = null, cleanup : String? = null, documentFileName : String? = null) {
         self.template = template;
         self.data = data;
         self.withRegions = withRegions;
         self.cleanup = cleanup;
         self.documentFileName = documentFileName;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.template = try container.decode(.self, forKey: .template);
+        self.data = try container.decode(.self, forKey: .data);
+        if let withRegions = try container.decodeIfPresent(.self, forKey: .withRegions) {
+            self.withRegions = withRegions;
+        }
+        if let cleanup = try container.decodeIfPresent(.self, forKey: .cleanup) {
+            self.cleanup = cleanup;
+        }
+        if let documentFileName = try container.decodeIfPresent(.self, forKey: .documentFileName) {
+            self.documentFileName = documentFileName;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.template, forKey: .template);
+        try container.encode(self.data, forKey: .data);
+        if (self.withRegions != nil) {
+            try container.encode(self.withRegions, forKey: .withRegions);
+        }
+        if (self.cleanup != nil) {
+            try container.encode(self.cleanup, forKey: .cleanup);
+        }
+        if (self.documentFileName != nil) {
+            try container.encode(self.documentFileName, forKey: .documentFileName);
+        }
+        
+        
     }
     
     public func getTemplate() -> URL {

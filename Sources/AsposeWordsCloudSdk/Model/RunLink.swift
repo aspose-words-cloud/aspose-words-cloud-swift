@@ -32,8 +32,28 @@ public class RunLink : NodeLink {
     // Gets or sets run&#39;s text.
     private let text : String?;
         
+    private enum CodingKeys: String, CodingKey { case text }
+        
     public init(text : String? = nil) {
         self.text = text;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let text = try container.decodeIfPresent(String.self, forKey: .text) {
+            self.text = text;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.text != nil) {
+            try container.encode(self.text, forKey: .text);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getText() -> String? {

@@ -34,9 +34,35 @@ public class PclSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.
     private let rasterizeTransformedElements : Bool?;
         
+    private enum CodingKeys: String, CodingKey { case falllbackFontName, rasterizeTransformedElements }
+        
     public init(falllbackFontName : String? = nil, rasterizeTransformedElements : Bool? = nil) {
         self.falllbackFontName = falllbackFontName;
         self.rasterizeTransformedElements = rasterizeTransformedElements;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let falllbackFontName = try container.decodeIfPresent(String.self, forKey: .falllbackFontName) {
+            self.falllbackFontName = falllbackFontName;
+        }
+        if let rasterizeTransformedElements = try container.decodeIfPresent(Bool.self, forKey: .rasterizeTransformedElements) {
+            self.rasterizeTransformedElements = rasterizeTransformedElements;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.falllbackFontName != nil) {
+            try container.encode(self.falllbackFontName, forKey: .falllbackFontName);
+        }
+        if (self.rasterizeTransformedElements != nil) {
+            try container.encode(self.rasterizeTransformedElements, forKey: .rasterizeTransformedElements);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getFalllbackFontName() -> String? {

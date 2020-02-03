@@ -32,8 +32,28 @@ public class OfficeMathObjectResponse : WordsResponse {
     // Gets or sets officeMathObject information.
     private let officeMathObject : OfficeMathObject?;
         
+    private enum CodingKeys: String, CodingKey { case officeMathObject }
+        
     public init(officeMathObject : OfficeMathObject? = nil) {
         self.officeMathObject = officeMathObject;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let officeMathObject = try container.decodeIfPresent(OfficeMathObject.self, forKey: .officeMathObject) {
+            self.officeMathObject = officeMathObject;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.officeMathObject != nil) {
+            try container.encode(self.officeMathObject, forKey: .officeMathObject);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getOfficeMathObject() -> OfficeMathObject? {

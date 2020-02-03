@@ -36,10 +36,42 @@ public class RtfSaveOptionsData : SaveOptionsData {
     // Gets or sets specifies whether or not use pretty formats output.
     private let prettyFormat : Bool?;
         
+    private enum CodingKeys: String, CodingKey { case exportCompactSize, exportImagesForOldReaders, prettyFormat }
+        
     public init(exportCompactSize : Bool? = nil, exportImagesForOldReaders : Bool? = nil, prettyFormat : Bool? = nil) {
         self.exportCompactSize = exportCompactSize;
         self.exportImagesForOldReaders = exportImagesForOldReaders;
         self.prettyFormat = prettyFormat;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let exportCompactSize = try container.decodeIfPresent(Bool.self, forKey: .exportCompactSize) {
+            self.exportCompactSize = exportCompactSize;
+        }
+        if let exportImagesForOldReaders = try container.decodeIfPresent(Bool.self, forKey: .exportImagesForOldReaders) {
+            self.exportImagesForOldReaders = exportImagesForOldReaders;
+        }
+        if let prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat) {
+            self.prettyFormat = prettyFormat;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.exportCompactSize != nil) {
+            try container.encode(self.exportCompactSize, forKey: .exportCompactSize);
+        }
+        if (self.exportImagesForOldReaders != nil) {
+            try container.encode(self.exportImagesForOldReaders, forKey: .exportImagesForOldReaders);
+        }
+        if (self.prettyFormat != nil) {
+            try container.encode(self.prettyFormat, forKey: .prettyFormat);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getExportCompactSize() -> Bool? {

@@ -1242,6 +1242,8 @@ public class TableProperties : LinkElement {
     // Gets or sets the amount of space (in points) to add above the contents of cells.
     private let topPadding : Double?;
         
+    private enum CodingKeys: String, CodingKey { case alignment, allowAutoFit, bidi, bottomPadding, cellSpacing, leftIndent, leftPadding, preferredWidth, rightPadding, styleIdentifier, styleName, styleOptions, textWrapping, topPadding }
+        
     public init(alignment : Alignment? = nil, allowAutoFit : Bool? = nil, bidi : Bool? = nil, bottomPadding : Double? = nil, cellSpacing : Double? = nil, leftIndent : Double? = nil, leftPadding : Double? = nil, preferredWidth : PreferredWidth? = nil, rightPadding : Double? = nil, styleIdentifier : StyleIdentifier? = nil, styleName : String? = nil, styleOptions : StyleOptions? = nil, textWrapping : TextWrapping? = nil, topPadding : Double? = nil) {
         self.alignment = alignment;
         self.allowAutoFit = allowAutoFit;
@@ -1257,6 +1259,102 @@ public class TableProperties : LinkElement {
         self.styleOptions = styleOptions;
         self.textWrapping = textWrapping;
         self.topPadding = topPadding;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment) {
+            self.alignment = alignment;
+        }
+        if let allowAutoFit = try container.decodeIfPresent(Bool.self, forKey: .allowAutoFit) {
+            self.allowAutoFit = allowAutoFit;
+        }
+        if let bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi) {
+            self.bidi = bidi;
+        }
+        if let bottomPadding = try container.decodeIfPresent(Double.self, forKey: .bottomPadding) {
+            self.bottomPadding = bottomPadding;
+        }
+        if let cellSpacing = try container.decodeIfPresent(Double.self, forKey: .cellSpacing) {
+            self.cellSpacing = cellSpacing;
+        }
+        if let leftIndent = try container.decodeIfPresent(Double.self, forKey: .leftIndent) {
+            self.leftIndent = leftIndent;
+        }
+        if let leftPadding = try container.decodeIfPresent(Double.self, forKey: .leftPadding) {
+            self.leftPadding = leftPadding;
+        }
+        if let preferredWidth = try container.decodeIfPresent(PreferredWidth.self, forKey: .preferredWidth) {
+            self.preferredWidth = preferredWidth;
+        }
+        if let rightPadding = try container.decodeIfPresent(Double.self, forKey: .rightPadding) {
+            self.rightPadding = rightPadding;
+        }
+        if let styleIdentifier = try container.decodeIfPresent(StyleIdentifier.self, forKey: .styleIdentifier) {
+            self.styleIdentifier = styleIdentifier;
+        }
+        if let styleName = try container.decodeIfPresent(String.self, forKey: .styleName) {
+            self.styleName = styleName;
+        }
+        if let styleOptions = try container.decodeIfPresent(StyleOptions.self, forKey: .styleOptions) {
+            self.styleOptions = styleOptions;
+        }
+        if let textWrapping = try container.decodeIfPresent(TextWrapping.self, forKey: .textWrapping) {
+            self.textWrapping = textWrapping;
+        }
+        if let topPadding = try container.decodeIfPresent(Double.self, forKey: .topPadding) {
+            self.topPadding = topPadding;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.alignment != nil) {
+            try container.encode(self.alignment, forKey: .alignment);
+        }
+        if (self.allowAutoFit != nil) {
+            try container.encode(self.allowAutoFit, forKey: .allowAutoFit);
+        }
+        if (self.bidi != nil) {
+            try container.encode(self.bidi, forKey: .bidi);
+        }
+        if (self.bottomPadding != nil) {
+            try container.encode(self.bottomPadding, forKey: .bottomPadding);
+        }
+        if (self.cellSpacing != nil) {
+            try container.encode(self.cellSpacing, forKey: .cellSpacing);
+        }
+        if (self.leftIndent != nil) {
+            try container.encode(self.leftIndent, forKey: .leftIndent);
+        }
+        if (self.leftPadding != nil) {
+            try container.encode(self.leftPadding, forKey: .leftPadding);
+        }
+        if (self.preferredWidth != nil) {
+            try container.encode(self.preferredWidth, forKey: .preferredWidth);
+        }
+        if (self.rightPadding != nil) {
+            try container.encode(self.rightPadding, forKey: .rightPadding);
+        }
+        if (self.styleIdentifier != nil) {
+            try container.encode(self.styleIdentifier, forKey: .styleIdentifier);
+        }
+        if (self.styleName != nil) {
+            try container.encode(self.styleName, forKey: .styleName);
+        }
+        if (self.styleOptions != nil) {
+            try container.encode(self.styleOptions, forKey: .styleOptions);
+        }
+        if (self.textWrapping != nil) {
+            try container.encode(self.textWrapping, forKey: .textWrapping);
+        }
+        if (self.topPadding != nil) {
+            try container.encode(self.topPadding, forKey: .topPadding);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getAlignment() -> Alignment? {

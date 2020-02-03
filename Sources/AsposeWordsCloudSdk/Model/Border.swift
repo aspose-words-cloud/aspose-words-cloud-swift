@@ -160,6 +160,8 @@ public class Border : LinkElement {
     // Gets or sets a value indicating whether the border has a shadow.
     private let shadow : Bool?;
         
+    private enum CodingKeys: String, CodingKey { case borderType, color, distanceFromText, lineStyle, lineWidth, shadow }
+        
     public init(borderType : BorderType? = nil, color : XmlColor? = nil, distanceFromText : Double? = nil, lineStyle : LineStyle? = nil, lineWidth : Double? = nil, shadow : Bool? = nil) {
         self.borderType = borderType;
         self.color = color;
@@ -167,6 +169,54 @@ public class Border : LinkElement {
         self.lineStyle = lineStyle;
         self.lineWidth = lineWidth;
         self.shadow = shadow;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let borderType = try container.decodeIfPresent(BorderType.self, forKey: .borderType) {
+            self.borderType = borderType;
+        }
+        if let color = try container.decodeIfPresent(XmlColor.self, forKey: .color) {
+            self.color = color;
+        }
+        if let distanceFromText = try container.decodeIfPresent(Double.self, forKey: .distanceFromText) {
+            self.distanceFromText = distanceFromText;
+        }
+        if let lineStyle = try container.decodeIfPresent(LineStyle.self, forKey: .lineStyle) {
+            self.lineStyle = lineStyle;
+        }
+        if let lineWidth = try container.decodeIfPresent(Double.self, forKey: .lineWidth) {
+            self.lineWidth = lineWidth;
+        }
+        if let shadow = try container.decodeIfPresent(Bool.self, forKey: .shadow) {
+            self.shadow = shadow;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.borderType != nil) {
+            try container.encode(self.borderType, forKey: .borderType);
+        }
+        if (self.color != nil) {
+            try container.encode(self.color, forKey: .color);
+        }
+        if (self.distanceFromText != nil) {
+            try container.encode(self.distanceFromText, forKey: .distanceFromText);
+        }
+        if (self.lineStyle != nil) {
+            try container.encode(self.lineStyle, forKey: .lineStyle);
+        }
+        if (self.lineWidth != nil) {
+            try container.encode(self.lineWidth, forKey: .lineWidth);
+        }
+        if (self.shadow != nil) {
+            try container.encode(self.shadow, forKey: .shadow);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getBorderType() -> BorderType? {

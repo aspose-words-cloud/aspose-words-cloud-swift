@@ -36,10 +36,42 @@ public class DownsampleOptionsData : Decodable {
     // Gets or sets specifies the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
     private let resolutionThreshold : Int?;
         
+    private enum CodingKeys: String, CodingKey { case downsampleImages, resolution, resolutionThreshold }
+        
     public init(downsampleImages : Bool? = nil, resolution : Int? = nil, resolutionThreshold : Int? = nil) {
         self.downsampleImages = downsampleImages;
         self.resolution = resolution;
         self.resolutionThreshold = resolutionThreshold;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let downsampleImages = try container.decodeIfPresent(Bool.self, forKey: .downsampleImages) {
+            self.downsampleImages = downsampleImages;
+        }
+        if let resolution = try container.decodeIfPresent(Int.self, forKey: .resolution) {
+            self.resolution = resolution;
+        }
+        if let resolutionThreshold = try container.decodeIfPresent(Int.self, forKey: .resolutionThreshold) {
+            self.resolutionThreshold = resolutionThreshold;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.downsampleImages != nil) {
+            try container.encode(self.downsampleImages, forKey: .downsampleImages);
+        }
+        if (self.resolution != nil) {
+            try container.encode(self.resolution, forKey: .resolution);
+        }
+        if (self.resolutionThreshold != nil) {
+            try container.encode(self.resolutionThreshold, forKey: .resolutionThreshold);
+        }
+        
+        
     }
         
     public func getDownsampleImages() -> Bool? {

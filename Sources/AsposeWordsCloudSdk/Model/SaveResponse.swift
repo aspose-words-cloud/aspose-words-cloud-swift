@@ -32,8 +32,28 @@ public class SaveResponse : WordsResponse {
     // Gets or sets save result.
     private let saveResult : SaveResult?;
         
+    private enum CodingKeys: String, CodingKey { case saveResult }
+        
     public init(saveResult : SaveResult? = nil) {
         self.saveResult = saveResult;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let saveResult = try container.decodeIfPresent(SaveResult.self, forKey: .saveResult) {
+            self.saveResult = saveResult;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.saveResult != nil) {
+            try container.encode(self.saveResult, forKey: .saveResult);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getSaveResult() -> SaveResult? {

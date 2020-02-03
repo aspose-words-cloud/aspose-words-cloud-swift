@@ -32,8 +32,28 @@ public class SectionLinkCollectionResponse : WordsResponse {
     // Gets or sets collection of sections.
     private let sections : SectionLinkCollection?;
         
+    private enum CodingKeys: String, CodingKey { case sections }
+        
     public init(sections : SectionLinkCollection? = nil) {
         self.sections = sections;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let sections = try container.decodeIfPresent(SectionLinkCollection.self, forKey: .sections) {
+            self.sections = sections;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.sections != nil) {
+            try container.encode(self.sections, forKey: .sections);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getSections() -> SectionLinkCollection? {

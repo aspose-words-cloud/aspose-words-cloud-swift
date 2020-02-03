@@ -38,11 +38,49 @@ public class PdfEncryptionDetailsData : Decodable {
     // Gets or sets specifies the user password required for opening the encrypted PDF document.
     private let userPassword : String?;
         
+    private enum CodingKeys: String, CodingKey { case encryptionAlgorithm, ownerPassword, permissions, userPassword }
+        
     public init(encryptionAlgorithm : String? = nil, ownerPassword : String? = nil, permissions : String? = nil, userPassword : String? = nil) {
         self.encryptionAlgorithm = encryptionAlgorithm;
         self.ownerPassword = ownerPassword;
         self.permissions = permissions;
         self.userPassword = userPassword;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let encryptionAlgorithm = try container.decodeIfPresent(String.self, forKey: .encryptionAlgorithm) {
+            self.encryptionAlgorithm = encryptionAlgorithm;
+        }
+        if let ownerPassword = try container.decodeIfPresent(String.self, forKey: .ownerPassword) {
+            self.ownerPassword = ownerPassword;
+        }
+        if let permissions = try container.decodeIfPresent(String.self, forKey: .permissions) {
+            self.permissions = permissions;
+        }
+        if let userPassword = try container.decodeIfPresent(String.self, forKey: .userPassword) {
+            self.userPassword = userPassword;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.encryptionAlgorithm != nil) {
+            try container.encode(self.encryptionAlgorithm, forKey: .encryptionAlgorithm);
+        }
+        if (self.ownerPassword != nil) {
+            try container.encode(self.ownerPassword, forKey: .ownerPassword);
+        }
+        if (self.permissions != nil) {
+            try container.encode(self.permissions, forKey: .permissions);
+        }
+        if (self.userPassword != nil) {
+            try container.encode(self.userPassword, forKey: .userPassword);
+        }
+        
+        
     }
         
     public func getEncryptionAlgorithm() -> String? {

@@ -56,6 +56,8 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets specifies whether border around pages should be shown.
     private let showPageBorder : Bool?;
         
+    private enum CodingKeys: String, CodingKey { case cssClassNamesPrefix, encoding, exportEmbeddedCss, exportEmbeddedFonts, exportEmbeddedImages, exportFormFields, fontFormat, pageHorizontalAlignment, pageMargins, resourcesFolder, resourcesFolderAlias, saveFontFaceCssSeparately, showPageBorder }
+        
     public init(cssClassNamesPrefix : String? = nil, encoding : String? = nil, exportEmbeddedCss : Bool? = nil, exportEmbeddedFonts : Bool? = nil, exportEmbeddedImages : Bool? = nil, exportFormFields : Bool? = nil, fontFormat : String? = nil, pageHorizontalAlignment : String? = nil, pageMargins : Double? = nil, resourcesFolder : String? = nil, resourcesFolderAlias : String? = nil, saveFontFaceCssSeparately : Bool? = nil, showPageBorder : Bool? = nil) {
         self.cssClassNamesPrefix = cssClassNamesPrefix;
         self.encoding = encoding;
@@ -70,6 +72,96 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         self.resourcesFolderAlias = resourcesFolderAlias;
         self.saveFontFaceCssSeparately = saveFontFaceCssSeparately;
         self.showPageBorder = showPageBorder;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let cssClassNamesPrefix = try container.decodeIfPresent(String.self, forKey: .cssClassNamesPrefix) {
+            self.cssClassNamesPrefix = cssClassNamesPrefix;
+        }
+        if let encoding = try container.decodeIfPresent(String.self, forKey: .encoding) {
+            self.encoding = encoding;
+        }
+        if let exportEmbeddedCss = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedCss) {
+            self.exportEmbeddedCss = exportEmbeddedCss;
+        }
+        if let exportEmbeddedFonts = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedFonts) {
+            self.exportEmbeddedFonts = exportEmbeddedFonts;
+        }
+        if let exportEmbeddedImages = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedImages) {
+            self.exportEmbeddedImages = exportEmbeddedImages;
+        }
+        if let exportFormFields = try container.decodeIfPresent(Bool.self, forKey: .exportFormFields) {
+            self.exportFormFields = exportFormFields;
+        }
+        if let fontFormat = try container.decodeIfPresent(String.self, forKey: .fontFormat) {
+            self.fontFormat = fontFormat;
+        }
+        if let pageHorizontalAlignment = try container.decodeIfPresent(String.self, forKey: .pageHorizontalAlignment) {
+            self.pageHorizontalAlignment = pageHorizontalAlignment;
+        }
+        if let pageMargins = try container.decodeIfPresent(Double.self, forKey: .pageMargins) {
+            self.pageMargins = pageMargins;
+        }
+        if let resourcesFolder = try container.decodeIfPresent(String.self, forKey: .resourcesFolder) {
+            self.resourcesFolder = resourcesFolder;
+        }
+        if let resourcesFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourcesFolderAlias) {
+            self.resourcesFolderAlias = resourcesFolderAlias;
+        }
+        if let saveFontFaceCssSeparately = try container.decodeIfPresent(Bool.self, forKey: .saveFontFaceCssSeparately) {
+            self.saveFontFaceCssSeparately = saveFontFaceCssSeparately;
+        }
+        if let showPageBorder = try container.decodeIfPresent(Bool.self, forKey: .showPageBorder) {
+            self.showPageBorder = showPageBorder;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.cssClassNamesPrefix != nil) {
+            try container.encode(self.cssClassNamesPrefix, forKey: .cssClassNamesPrefix);
+        }
+        if (self.encoding != nil) {
+            try container.encode(self.encoding, forKey: .encoding);
+        }
+        if (self.exportEmbeddedCss != nil) {
+            try container.encode(self.exportEmbeddedCss, forKey: .exportEmbeddedCss);
+        }
+        if (self.exportEmbeddedFonts != nil) {
+            try container.encode(self.exportEmbeddedFonts, forKey: .exportEmbeddedFonts);
+        }
+        if (self.exportEmbeddedImages != nil) {
+            try container.encode(self.exportEmbeddedImages, forKey: .exportEmbeddedImages);
+        }
+        if (self.exportFormFields != nil) {
+            try container.encode(self.exportFormFields, forKey: .exportFormFields);
+        }
+        if (self.fontFormat != nil) {
+            try container.encode(self.fontFormat, forKey: .fontFormat);
+        }
+        if (self.pageHorizontalAlignment != nil) {
+            try container.encode(self.pageHorizontalAlignment, forKey: .pageHorizontalAlignment);
+        }
+        if (self.pageMargins != nil) {
+            try container.encode(self.pageMargins, forKey: .pageMargins);
+        }
+        if (self.resourcesFolder != nil) {
+            try container.encode(self.resourcesFolder, forKey: .resourcesFolder);
+        }
+        if (self.resourcesFolderAlias != nil) {
+            try container.encode(self.resourcesFolderAlias, forKey: .resourcesFolderAlias);
+        }
+        if (self.saveFontFaceCssSeparately != nil) {
+            try container.encode(self.saveFontFaceCssSeparately, forKey: .saveFontFaceCssSeparately);
+        }
+        if (self.showPageBorder != nil) {
+            try container.encode(self.showPageBorder, forKey: .showPageBorder);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getCssClassNamesPrefix() -> String? {

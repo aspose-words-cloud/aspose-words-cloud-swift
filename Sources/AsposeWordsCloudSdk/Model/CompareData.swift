@@ -36,10 +36,42 @@ public class CompareData : Decodable {
     // Gets or sets the date and time to use for revisions.             
     private let dateTime : Date?;
         
+    private enum CodingKeys: String, CodingKey { case comparingWithDocument, author, dateTime }
+        
     public init(comparingWithDocument : String? = nil, author : String? = nil, dateTime : Date? = nil) {
         self.comparingWithDocument = comparingWithDocument;
         self.author = author;
         self.dateTime = dateTime;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let comparingWithDocument = try container.decodeIfPresent(String.self, forKey: .comparingWithDocument) {
+            self.comparingWithDocument = comparingWithDocument;
+        }
+        if let author = try container.decodeIfPresent(String.self, forKey: .author) {
+            self.author = author;
+        }
+        if let dateTime = try container.decodeIfPresent(Date.self, forKey: .dateTime) {
+            self.dateTime = dateTime;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.comparingWithDocument != nil) {
+            try container.encode(self.comparingWithDocument, forKey: .comparingWithDocument);
+        }
+        if (self.author != nil) {
+            try container.encode(self.author, forKey: .author);
+        }
+        if (self.dateTime != nil) {
+            try container.encode(self.dateTime, forKey: .dateTime);
+        }
+        
+        
     }
         
     public func getComparingWithDocument() -> String? {

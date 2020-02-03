@@ -32,8 +32,28 @@ public class SplitDocumentResponse : WordsResponse {
     // Gets or sets resylt of splitting document.
     private let splitResult : SplitDocumentResult?;
         
+    private enum CodingKeys: String, CodingKey { case splitResult }
+        
     public init(splitResult : SplitDocumentResult? = nil) {
         self.splitResult = splitResult;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let splitResult = try container.decodeIfPresent(SplitDocumentResult.self, forKey: .splitResult) {
+            self.splitResult = splitResult;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.splitResult != nil) {
+            try container.encode(self.splitResult, forKey: .splitResult);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getSplitResult() -> SplitDocumentResult? {

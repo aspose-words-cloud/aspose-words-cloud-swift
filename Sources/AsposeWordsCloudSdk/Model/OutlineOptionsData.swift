@@ -42,6 +42,8 @@ public class OutlineOptionsData : Decodable {
     // Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
     private let headingsOutlineLevels : Int?;
         
+    private enum CodingKeys: String, CodingKey { case bookmarksOutlineLevels, defaultBookmarksOutlineLevel, createMissingOutlineLevels, createOutlinesForHeadingsInTables, expandedOutlineLevels, headingsOutlineLevels }
+        
     public init(bookmarksOutlineLevels : [BookmarksOutlineLevelData]? = nil, defaultBookmarksOutlineLevel : Int? = nil, createMissingOutlineLevels : Bool? = nil, createOutlinesForHeadingsInTables : Bool? = nil, expandedOutlineLevels : Int? = nil, headingsOutlineLevels : Int? = nil) {
         self.bookmarksOutlineLevels = bookmarksOutlineLevels;
         self.defaultBookmarksOutlineLevel = defaultBookmarksOutlineLevel;
@@ -49,6 +51,54 @@ public class OutlineOptionsData : Decodable {
         self.createOutlinesForHeadingsInTables = createOutlinesForHeadingsInTables;
         self.expandedOutlineLevels = expandedOutlineLevels;
         self.headingsOutlineLevels = headingsOutlineLevels;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let bookmarksOutlineLevels = try container.decodeIfPresent([BookmarksOutlineLevelData].self, forKey: .bookmarksOutlineLevels) {
+            self.bookmarksOutlineLevels = bookmarksOutlineLevels;
+        }
+        if let defaultBookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .defaultBookmarksOutlineLevel) {
+            self.defaultBookmarksOutlineLevel = defaultBookmarksOutlineLevel;
+        }
+        if let createMissingOutlineLevels = try container.decodeIfPresent(Bool.self, forKey: .createMissingOutlineLevels) {
+            self.createMissingOutlineLevels = createMissingOutlineLevels;
+        }
+        if let createOutlinesForHeadingsInTables = try container.decodeIfPresent(Bool.self, forKey: .createOutlinesForHeadingsInTables) {
+            self.createOutlinesForHeadingsInTables = createOutlinesForHeadingsInTables;
+        }
+        if let expandedOutlineLevels = try container.decodeIfPresent(Int.self, forKey: .expandedOutlineLevels) {
+            self.expandedOutlineLevels = expandedOutlineLevels;
+        }
+        if let headingsOutlineLevels = try container.decodeIfPresent(Int.self, forKey: .headingsOutlineLevels) {
+            self.headingsOutlineLevels = headingsOutlineLevels;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.bookmarksOutlineLevels != nil) {
+            try container.encode(self.bookmarksOutlineLevels, forKey: .bookmarksOutlineLevels);
+        }
+        if (self.defaultBookmarksOutlineLevel != nil) {
+            try container.encode(self.defaultBookmarksOutlineLevel, forKey: .defaultBookmarksOutlineLevel);
+        }
+        if (self.createMissingOutlineLevels != nil) {
+            try container.encode(self.createMissingOutlineLevels, forKey: .createMissingOutlineLevels);
+        }
+        if (self.createOutlinesForHeadingsInTables != nil) {
+            try container.encode(self.createOutlinesForHeadingsInTables, forKey: .createOutlinesForHeadingsInTables);
+        }
+        if (self.expandedOutlineLevels != nil) {
+            try container.encode(self.expandedOutlineLevels, forKey: .expandedOutlineLevels);
+        }
+        if (self.headingsOutlineLevels != nil) {
+            try container.encode(self.headingsOutlineLevels, forKey: .headingsOutlineLevels);
+        }
+        
+        
     }
         
     public func getBookmarksOutlineLevels() -> [BookmarksOutlineLevelData]? {

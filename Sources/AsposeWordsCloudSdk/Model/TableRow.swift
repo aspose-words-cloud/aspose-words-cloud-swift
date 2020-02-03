@@ -34,9 +34,35 @@ public class TableRow : NodeLink {
     // Gets or sets collection of table&#39;s rows.
     private let tableCellList : [TableCell]?;
         
+    private enum CodingKeys: String, CodingKey { case rowFormat, tableCellList }
+        
     public init(rowFormat : TableRowFormat? = nil, tableCellList : [TableCell]? = nil) {
         self.rowFormat = rowFormat;
         self.tableCellList = tableCellList;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let rowFormat = try container.decodeIfPresent(TableRowFormat.self, forKey: .rowFormat) {
+            self.rowFormat = rowFormat;
+        }
+        if let tableCellList = try container.decodeIfPresent([TableCell].self, forKey: .tableCellList) {
+            self.tableCellList = tableCellList;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.rowFormat != nil) {
+            try container.encode(self.rowFormat, forKey: .rowFormat);
+        }
+        if (self.tableCellList != nil) {
+            try container.encode(self.tableCellList, forKey: .tableCellList);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getRowFormat() -> TableRowFormat? {

@@ -38,11 +38,41 @@ public class PageNumber : Decodable {
     // Gets or sets a value indicating whether if true the page number is added on first page too.
     private let setPageNumberOnFirstPage : Bool;
         
+    private enum CodingKeys: String, CodingKey { case format, alignment, isTop, setPageNumberOnFirstPage }
+        
     public init(format : String? = nil, alignment : String? = nil, isTop : Bool, setPageNumberOnFirstPage : Bool) {
         self.format = format;
         self.alignment = alignment;
         self.isTop = isTop;
         self.setPageNumberOnFirstPage = setPageNumberOnFirstPage;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let format = try container.decodeIfPresent(String.self, forKey: .format) {
+            self.format = format;
+        }
+        if let alignment = try container.decodeIfPresent(String.self, forKey: .alignment) {
+            self.alignment = alignment;
+        }
+        self.isTop = try container.decode(Bool.self, forKey: .isTop);
+        self.setPageNumberOnFirstPage = try container.decode(Bool.self, forKey: .setPageNumberOnFirstPage);
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.format != nil) {
+            try container.encode(self.format, forKey: .format);
+        }
+        if (self.alignment != nil) {
+            try container.encode(self.alignment, forKey: .alignment);
+        }
+        try container.encode(self.isTop, forKey: .isTop);
+        try container.encode(self.setPageNumberOnFirstPage, forKey: .setPageNumberOnFirstPage);
+        
+        
     }
         
     public func getFormat() -> String? {

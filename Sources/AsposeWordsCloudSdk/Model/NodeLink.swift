@@ -32,8 +32,28 @@ public class NodeLink : LinkElement {
     // Gets or sets node id.
     private let nodeId : String?;
         
+    private enum CodingKeys: String, CodingKey { case nodeId }
+        
     public init(nodeId : String? = nil) {
         self.nodeId = nodeId;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let nodeId = try container.decodeIfPresent(String.self, forKey: .nodeId) {
+            self.nodeId = nodeId;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.nodeId != nil) {
+            try container.encode(self.nodeId, forKey: .nodeId);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getNodeId() -> String? {

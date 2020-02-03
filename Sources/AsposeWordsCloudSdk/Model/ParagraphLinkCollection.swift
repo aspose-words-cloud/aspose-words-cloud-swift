@@ -32,8 +32,28 @@ public class ParagraphLinkCollection : LinkElement {
     // Gets or sets collection of paragraph&#39;s links.
     private let paragraphLinkList : [ParagraphLink]?;
         
+    private enum CodingKeys: String, CodingKey { case paragraphLinkList }
+        
     public init(paragraphLinkList : [ParagraphLink]? = nil) {
         self.paragraphLinkList = paragraphLinkList;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let paragraphLinkList = try container.decodeIfPresent([ParagraphLink].self, forKey: .paragraphLinkList) {
+            self.paragraphLinkList = paragraphLinkList;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.paragraphLinkList != nil) {
+            try container.encode(self.paragraphLinkList, forKey: .paragraphLinkList);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getParagraphLinkList() -> [ParagraphLink]? {

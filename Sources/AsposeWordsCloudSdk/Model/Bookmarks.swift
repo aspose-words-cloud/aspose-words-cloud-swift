@@ -32,8 +32,28 @@ public class Bookmarks : LinkElement {
     // Gets or sets array of bookmarks.
     private let bookmarkList : [Bookmark]?;
         
+    private enum CodingKeys: String, CodingKey { case bookmarkList }
+        
     public init(bookmarkList : [Bookmark]? = nil) {
         self.bookmarkList = bookmarkList;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let bookmarkList = try container.decodeIfPresent([Bookmark].self, forKey: .bookmarkList) {
+            self.bookmarkList = bookmarkList;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.bookmarkList != nil) {
+            try container.encode(self.bookmarkList, forKey: .bookmarkList);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getBookmarkList() -> [Bookmark]? {

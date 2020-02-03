@@ -32,8 +32,28 @@ public class FieldsResponse : WordsResponse {
     // Gets or sets collection of fields.
     private let fields : FieldCollection?;
         
+    private enum CodingKeys: String, CodingKey { case fields }
+        
     public init(fields : FieldCollection? = nil) {
         self.fields = fields;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let fields = try container.decodeIfPresent(FieldCollection.self, forKey: .fields) {
+            self.fields = fields;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.fields != nil) {
+            try container.encode(self.fields, forKey: .fields);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getFields() -> FieldCollection? {

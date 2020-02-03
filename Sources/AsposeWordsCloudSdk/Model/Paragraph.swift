@@ -32,8 +32,28 @@ public class Paragraph : NodeLink {
     // Gets or sets child nodes.
     private let childNodes : [NodeLink]?;
         
+    private enum CodingKeys: String, CodingKey { case childNodes }
+        
     public init(childNodes : [NodeLink]? = nil) {
         self.childNodes = childNodes;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let childNodes = try container.decodeIfPresent([NodeLink].self, forKey: .childNodes) {
+            self.childNodes = childNodes;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.childNodes != nil) {
+            try container.encode(self.childNodes, forKey: .childNodes);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getChildNodes() -> [NodeLink]? {

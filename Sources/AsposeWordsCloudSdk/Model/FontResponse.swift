@@ -32,8 +32,28 @@ public class FontResponse : WordsResponse {
     // Gets or sets font.
     private let font : Font?;
         
+    private enum CodingKeys: String, CodingKey { case font }
+        
     public init(font : Font? = nil) {
         self.font = font;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let font = try container.decodeIfPresent(Font.self, forKey: .font) {
+            self.font = font;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.font != nil) {
+            try container.encode(self.font, forKey: .font);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getFont() -> Font? {

@@ -40,6 +40,8 @@ public class UpdateBorderRequest : Decodable {
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
     
+    private enum CodingKeys: String, CodingKey { case name, borderProperties, nodePath, borderType, folder, storage, loadEncoding, password, destFileName, revisionAuthor, revisionDateTime }
+    
     public init(name : String, borderProperties : Border, nodePath : String, borderType : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null) {
         self.name = name;
         self.borderProperties = borderProperties;
@@ -52,6 +54,68 @@ public class UpdateBorderRequest : Decodable {
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.name = try container.decode(.self, forKey: .name);
+        self.borderProperties = try container.decode(.self, forKey: .borderProperties);
+        self.nodePath = try container.decode(.self, forKey: .nodePath);
+        self.borderType = try container.decode(BorderType.self, forKey: .borderType);
+        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
+            self.folder = folder;
+        }
+        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
+            self.storage = storage;
+        }
+        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
+            self.loadEncoding = loadEncoding;
+        }
+        if let password = try container.decodeIfPresent(.self, forKey: .password) {
+            self.password = password;
+        }
+        if let destFileName = try container.decodeIfPresent(.self, forKey: .destFileName) {
+            self.destFileName = destFileName;
+        }
+        if let revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor) {
+            self.revisionAuthor = revisionAuthor;
+        }
+        if let revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime) {
+            self.revisionDateTime = revisionDateTime;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.name, forKey: .name);
+        try container.encode(self.borderProperties, forKey: .borderProperties);
+        try container.encode(self.nodePath, forKey: .nodePath);
+        try container.encode(self.borderType, forKey: .borderType);
+        if (self.folder != nil) {
+            try container.encode(self.folder, forKey: .folder);
+        }
+        if (self.storage != nil) {
+            try container.encode(self.storage, forKey: .storage);
+        }
+        if (self.loadEncoding != nil) {
+            try container.encode(self.loadEncoding, forKey: .loadEncoding);
+        }
+        if (self.password != nil) {
+            try container.encode(self.password, forKey: .password);
+        }
+        if (self.destFileName != nil) {
+            try container.encode(self.destFileName, forKey: .destFileName);
+        }
+        if (self.revisionAuthor != nil) {
+            try container.encode(self.revisionAuthor, forKey: .revisionAuthor);
+        }
+        if (self.revisionDateTime != nil) {
+            try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
+        }
+        
+        
     }
     
     public func getName() -> String {

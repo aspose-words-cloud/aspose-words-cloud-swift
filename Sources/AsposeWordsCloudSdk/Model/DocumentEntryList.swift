@@ -32,8 +32,28 @@ public class DocumentEntryList : Decodable {
     // Gets or sets list of documents.
     private let documentEntries : [DocumentEntry]?;
         
+    private enum CodingKeys: String, CodingKey { case documentEntries }
+        
     public init(documentEntries : [DocumentEntry]? = nil) {
         self.documentEntries = documentEntries;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let documentEntries = try container.decodeIfPresent([DocumentEntry].self, forKey: .documentEntries) {
+            self.documentEntries = documentEntries;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.documentEntries != nil) {
+            try container.encode(self.documentEntries, forKey: .documentEntries);
+        }
+        
+        
     }
         
     public func getDocumentEntries() -> [DocumentEntry]? {

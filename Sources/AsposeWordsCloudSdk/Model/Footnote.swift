@@ -51,12 +51,56 @@ public class Footnote : FootnoteLink {
     // Gets or sets this is a convenience property that allows to easily get or set text of the footnote.
     private let text : String?;
         
+    private enum CodingKeys: String, CodingKey { case content, footnoteType, position, referenceMark, text }
+        
     public init(content : StoryChildNodes? = nil, footnoteType : FootnoteType? = nil, position : DocumentPosition? = nil, referenceMark : String? = nil, text : String? = nil) {
         self.content = content;
         self.footnoteType = footnoteType;
         self.position = position;
         self.referenceMark = referenceMark;
         self.text = text;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let content = try container.decodeIfPresent(StoryChildNodes.self, forKey: .content) {
+            self.content = content;
+        }
+        if let footnoteType = try container.decodeIfPresent(FootnoteType.self, forKey: .footnoteType) {
+            self.footnoteType = footnoteType;
+        }
+        if let position = try container.decodeIfPresent(DocumentPosition.self, forKey: .position) {
+            self.position = position;
+        }
+        if let referenceMark = try container.decodeIfPresent(String.self, forKey: .referenceMark) {
+            self.referenceMark = referenceMark;
+        }
+        if let text = try container.decodeIfPresent(String.self, forKey: .text) {
+            self.text = text;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.content != nil) {
+            try container.encode(self.content, forKey: .content);
+        }
+        if (self.footnoteType != nil) {
+            try container.encode(self.footnoteType, forKey: .footnoteType);
+        }
+        if (self.position != nil) {
+            try container.encode(self.position, forKey: .position);
+        }
+        if (self.referenceMark != nil) {
+            try container.encode(self.referenceMark, forKey: .referenceMark);
+        }
+        if (self.text != nil) {
+            try container.encode(self.text, forKey: .text);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getContent() -> StoryChildNodes? {

@@ -34,9 +34,35 @@ public class FilesUploadResult : Decodable {
     // List of errors.
     private let errors : [ModelError]?;
         
+    private enum CodingKeys: String, CodingKey { case uploaded, errors }
+        
     public init(uploaded : [String]? = nil, errors : [ModelError]? = nil) {
         self.uploaded = uploaded;
         self.errors = errors;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let uploaded = try container.decodeIfPresent([String].self, forKey: .uploaded) {
+            self.uploaded = uploaded;
+        }
+        if let errors = try container.decodeIfPresent([ModelError].self, forKey: .errors) {
+            self.errors = errors;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.uploaded != nil) {
+            try container.encode(self.uploaded, forKey: .uploaded);
+        }
+        if (self.errors != nil) {
+            try container.encode(self.errors, forKey: .errors);
+        }
+        
+        
     }
         
     public func getUploaded() -> [String]? {

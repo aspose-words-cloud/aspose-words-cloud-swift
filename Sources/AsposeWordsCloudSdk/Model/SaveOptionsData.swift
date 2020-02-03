@@ -46,6 +46,8 @@ public class SaveOptionsData : Decodable {
     // Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true
     private let updateFields : Bool?;
         
+    private enum CodingKeys: String, CodingKey { case saveFormat, fileName, dmlRenderingMode, dmlEffectsRenderingMode, zipOutput, updateLastSavedTimeProperty, updateSdtContent, updateFields }
+        
     public init(saveFormat : String? = nil, fileName : String? = nil, dmlRenderingMode : String? = nil, dmlEffectsRenderingMode : String? = nil, zipOutput : Bool? = nil, updateLastSavedTimeProperty : Bool? = nil, updateSdtContent : Bool? = nil, updateFields : Bool? = nil) {
         self.saveFormat = saveFormat;
         self.fileName = fileName;
@@ -55,6 +57,66 @@ public class SaveOptionsData : Decodable {
         self.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
         self.updateSdtContent = updateSdtContent;
         self.updateFields = updateFields;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let saveFormat = try container.decodeIfPresent(String.self, forKey: .saveFormat) {
+            self.saveFormat = saveFormat;
+        }
+        if let fileName = try container.decodeIfPresent(String.self, forKey: .fileName) {
+            self.fileName = fileName;
+        }
+        if let dmlRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlRenderingMode) {
+            self.dmlRenderingMode = dmlRenderingMode;
+        }
+        if let dmlEffectsRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlEffectsRenderingMode) {
+            self.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
+        }
+        if let zipOutput = try container.decodeIfPresent(Bool.self, forKey: .zipOutput) {
+            self.zipOutput = zipOutput;
+        }
+        if let updateLastSavedTimeProperty = try container.decodeIfPresent(Bool.self, forKey: .updateLastSavedTimeProperty) {
+            self.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
+        }
+        if let updateSdtContent = try container.decodeIfPresent(Bool.self, forKey: .updateSdtContent) {
+            self.updateSdtContent = updateSdtContent;
+        }
+        if let updateFields = try container.decodeIfPresent(Bool.self, forKey: .updateFields) {
+            self.updateFields = updateFields;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.saveFormat != nil) {
+            try container.encode(self.saveFormat, forKey: .saveFormat);
+        }
+        if (self.fileName != nil) {
+            try container.encode(self.fileName, forKey: .fileName);
+        }
+        if (self.dmlRenderingMode != nil) {
+            try container.encode(self.dmlRenderingMode, forKey: .dmlRenderingMode);
+        }
+        if (self.dmlEffectsRenderingMode != nil) {
+            try container.encode(self.dmlEffectsRenderingMode, forKey: .dmlEffectsRenderingMode);
+        }
+        if (self.zipOutput != nil) {
+            try container.encode(self.zipOutput, forKey: .zipOutput);
+        }
+        if (self.updateLastSavedTimeProperty != nil) {
+            try container.encode(self.updateLastSavedTimeProperty, forKey: .updateLastSavedTimeProperty);
+        }
+        if (self.updateSdtContent != nil) {
+            try container.encode(self.updateSdtContent, forKey: .updateSdtContent);
+        }
+        if (self.updateFields != nil) {
+            try container.encode(self.updateFields, forKey: .updateFields);
+        }
+        
+        
     }
         
     public func getSaveFormat() -> String? {

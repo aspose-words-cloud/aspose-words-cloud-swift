@@ -32,8 +32,28 @@ public class SectionResponse : WordsResponse {
     // Gets or sets section.
     private let section : Section?;
         
+    private enum CodingKeys: String, CodingKey { case section }
+        
     public init(section : Section? = nil) {
         self.section = section;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let section = try container.decodeIfPresent(Section.self, forKey: .section) {
+            self.section = section;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.section != nil) {
+            try container.encode(self.section, forKey: .section);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getSection() -> Section? {

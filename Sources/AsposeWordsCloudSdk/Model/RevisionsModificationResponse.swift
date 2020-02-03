@@ -32,8 +32,28 @@ public class RevisionsModificationResponse : WordsResponse {
     // Gets or sets result of the modification operations for the revisions collection.
     private let result : ModificationOperationResult?;
         
+    private enum CodingKeys: String, CodingKey { case result }
+        
     public init(result : ModificationOperationResult? = nil) {
         self.result = result;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let result = try container.decodeIfPresent(ModificationOperationResult.self, forKey: .result) {
+            self.result = result;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.result != nil) {
+            try container.encode(self.result, forKey: .result);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getResult() -> ModificationOperationResult? {

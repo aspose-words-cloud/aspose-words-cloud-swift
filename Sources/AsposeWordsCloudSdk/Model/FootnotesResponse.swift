@@ -32,8 +32,28 @@ public class FootnotesResponse : WordsResponse {
     // Gets or sets collection of footnotes.
     private let footnotes : FootnoteCollection?;
         
+    private enum CodingKeys: String, CodingKey { case footnotes }
+        
     public init(footnotes : FootnoteCollection? = nil) {
         self.footnotes = footnotes;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let footnotes = try container.decodeIfPresent(FootnoteCollection.self, forKey: .footnotes) {
+            self.footnotes = footnotes;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.footnotes != nil) {
+            try container.encode(self.footnotes, forKey: .footnotes);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getFootnotes() -> FootnoteCollection? {

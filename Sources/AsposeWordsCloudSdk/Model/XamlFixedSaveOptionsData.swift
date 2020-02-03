@@ -34,9 +34,35 @@ public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets specifies the name of the folder used to construct image URIs written into an fixed page Xaml document. Default is null.
     private let resourcesFolderAlias : String?;
         
+    private enum CodingKeys: String, CodingKey { case resourcesFolder, resourcesFolderAlias }
+        
     public init(resourcesFolder : String? = nil, resourcesFolderAlias : String? = nil) {
         self.resourcesFolder = resourcesFolder;
         self.resourcesFolderAlias = resourcesFolderAlias;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let resourcesFolder = try container.decodeIfPresent(String.self, forKey: .resourcesFolder) {
+            self.resourcesFolder = resourcesFolder;
+        }
+        if let resourcesFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourcesFolderAlias) {
+            self.resourcesFolderAlias = resourcesFolderAlias;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.resourcesFolder != nil) {
+            try container.encode(self.resourcesFolder, forKey: .resourcesFolder);
+        }
+        if (self.resourcesFolderAlias != nil) {
+            try container.encode(self.resourcesFolderAlias, forKey: .resourcesFolderAlias);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getResourcesFolder() -> String? {

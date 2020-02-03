@@ -32,8 +32,28 @@ public class SectionPageSetupResponse : WordsResponse {
     // Gets or sets section.
     private let pageSetup : PageSetup?;
         
+    private enum CodingKeys: String, CodingKey { case pageSetup }
+        
     public init(pageSetup : PageSetup? = nil) {
         self.pageSetup = pageSetup;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let pageSetup = try container.decodeIfPresent(PageSetup.self, forKey: .pageSetup) {
+            self.pageSetup = pageSetup;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.pageSetup != nil) {
+            try container.encode(self.pageSetup, forKey: .pageSetup);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getPageSetup() -> PageSetup? {

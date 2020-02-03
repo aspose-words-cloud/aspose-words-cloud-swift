@@ -32,8 +32,28 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
     // Gets or sets collection of paragraphs.
     private let paragraphs : ParagraphLinkCollection?;
         
+    private enum CodingKeys: String, CodingKey { case paragraphs }
+        
     public init(paragraphs : ParagraphLinkCollection? = nil) {
         self.paragraphs = paragraphs;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let paragraphs = try container.decodeIfPresent(ParagraphLinkCollection.self, forKey: .paragraphs) {
+            self.paragraphs = paragraphs;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.paragraphs != nil) {
+            try container.encode(self.paragraphs, forKey: .paragraphs);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getParagraphs() -> ParagraphLinkCollection? {

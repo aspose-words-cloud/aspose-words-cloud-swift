@@ -40,12 +40,44 @@ public class ReplaceTextParameters : Decodable {
     // Gets or sets a value indicating whether flag, means that  contains regex expression.
     private let isOldValueRegex : Bool;
         
+    private enum CodingKeys: String, CodingKey { case oldValue, newValue, isMatchCase, isMatchWholeWord, isOldValueRegex }
+        
     public init(oldValue : String? = nil, newValue : String? = nil, isMatchCase : Bool, isMatchWholeWord : Bool, isOldValueRegex : Bool) {
         self.oldValue = oldValue;
         self.newValue = newValue;
         self.isMatchCase = isMatchCase;
         self.isMatchWholeWord = isMatchWholeWord;
         self.isOldValueRegex = isOldValueRegex;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let oldValue = try container.decodeIfPresent(String.self, forKey: .oldValue) {
+            self.oldValue = oldValue;
+        }
+        if let newValue = try container.decodeIfPresent(String.self, forKey: .newValue) {
+            self.newValue = newValue;
+        }
+        self.isMatchCase = try container.decode(Bool.self, forKey: .isMatchCase);
+        self.isMatchWholeWord = try container.decode(Bool.self, forKey: .isMatchWholeWord);
+        self.isOldValueRegex = try container.decode(Bool.self, forKey: .isOldValueRegex);
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.oldValue != nil) {
+            try container.encode(self.oldValue, forKey: .oldValue);
+        }
+        if (self.newValue != nil) {
+            try container.encode(self.newValue, forKey: .newValue);
+        }
+        try container.encode(self.isMatchCase, forKey: .isMatchCase);
+        try container.encode(self.isMatchWholeWord, forKey: .isMatchWholeWord);
+        try container.encode(self.isOldValueRegex, forKey: .isOldValueRegex);
+        
+        
     }
         
     public func getOldValue() -> String? {

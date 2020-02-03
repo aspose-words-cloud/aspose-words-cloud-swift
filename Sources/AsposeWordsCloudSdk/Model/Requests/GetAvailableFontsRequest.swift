@@ -30,8 +30,28 @@ import Foundation
 public class GetAvailableFontsRequest : Decodable {
     private let fontsLocation : String?;
     
+    private enum CodingKeys: String, CodingKey { case fontsLocation }
+    
     public init(fontsLocation : String? = null) {
         self.fontsLocation = fontsLocation;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation) {
+            self.fontsLocation = fontsLocation;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.fontsLocation != nil) {
+            try container.encode(self.fontsLocation, forKey: .fontsLocation);
+        }
+        
+        
     }
     
     public func getFontsLocation() -> String? {

@@ -32,8 +32,28 @@ public class RunResponse : WordsResponse {
     // Gets or sets run.
     private let run : Run?;
         
+    private enum CodingKeys: String, CodingKey { case run }
+        
     public init(run : Run? = nil) {
         self.run = run;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let run = try container.decodeIfPresent(Run.self, forKey: .run) {
+            self.run = run;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.run != nil) {
+            try container.encode(self.run, forKey: .run);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getRun() -> Run? {

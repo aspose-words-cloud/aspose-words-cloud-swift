@@ -40,12 +40,48 @@ public class StorageFile : Decodable {
     // File or folder path.
     private let path : String?;
         
+    private enum CodingKeys: String, CodingKey { case name, isFolder, modifiedDate, size, path }
+        
     public init(name : String? = nil, isFolder : Bool, modifiedDate : Date? = nil, size : Int64, path : String? = nil) {
         self.name = name;
         self.isFolder = isFolder;
         self.modifiedDate = modifiedDate;
         self.size = size;
         self.path = path;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let name = try container.decodeIfPresent(String.self, forKey: .name) {
+            self.name = name;
+        }
+        self.isFolder = try container.decode(Bool.self, forKey: .isFolder);
+        if let modifiedDate = try container.decodeIfPresent(Date.self, forKey: .modifiedDate) {
+            self.modifiedDate = modifiedDate;
+        }
+        self.size = try container.decode(Int64.self, forKey: .size);
+        if let path = try container.decodeIfPresent(String.self, forKey: .path) {
+            self.path = path;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.name != nil) {
+            try container.encode(self.name, forKey: .name);
+        }
+        try container.encode(self.isFolder, forKey: .isFolder);
+        if (self.modifiedDate != nil) {
+            try container.encode(self.modifiedDate, forKey: .modifiedDate);
+        }
+        try container.encode(self.size, forKey: .size);
+        if (self.path != nil) {
+            try container.encode(self.path, forKey: .path);
+        }
+        
+        
     }
         
     public func getName() -> String? {

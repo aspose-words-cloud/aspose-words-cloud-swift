@@ -154,6 +154,8 @@ public class GraphicsQualityOptionsData : Decodable {
     // Gets or sets the rendering mode for text associated with this Graphics.
     private let textRenderingHint : TextRenderingHint?;
         
+    private enum CodingKeys: String, CodingKey { case compositingMode, compositingQuality, interpolationMode, smoothingMode, stringFormat, textRenderingHint }
+        
     public init(compositingMode : CompositingMode? = nil, compositingQuality : CompositingQuality? = nil, interpolationMode : InterpolationMode? = nil, smoothingMode : SmoothingMode? = nil, stringFormat : StringFormatData? = nil, textRenderingHint : TextRenderingHint? = nil) {
         self.compositingMode = compositingMode;
         self.compositingQuality = compositingQuality;
@@ -161,6 +163,54 @@ public class GraphicsQualityOptionsData : Decodable {
         self.smoothingMode = smoothingMode;
         self.stringFormat = stringFormat;
         self.textRenderingHint = textRenderingHint;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let compositingMode = try container.decodeIfPresent(CompositingMode.self, forKey: .compositingMode) {
+            self.compositingMode = compositingMode;
+        }
+        if let compositingQuality = try container.decodeIfPresent(CompositingQuality.self, forKey: .compositingQuality) {
+            self.compositingQuality = compositingQuality;
+        }
+        if let interpolationMode = try container.decodeIfPresent(InterpolationMode.self, forKey: .interpolationMode) {
+            self.interpolationMode = interpolationMode;
+        }
+        if let smoothingMode = try container.decodeIfPresent(SmoothingMode.self, forKey: .smoothingMode) {
+            self.smoothingMode = smoothingMode;
+        }
+        if let stringFormat = try container.decodeIfPresent(StringFormatData.self, forKey: .stringFormat) {
+            self.stringFormat = stringFormat;
+        }
+        if let textRenderingHint = try container.decodeIfPresent(TextRenderingHint.self, forKey: .textRenderingHint) {
+            self.textRenderingHint = textRenderingHint;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.compositingMode != nil) {
+            try container.encode(self.compositingMode, forKey: .compositingMode);
+        }
+        if (self.compositingQuality != nil) {
+            try container.encode(self.compositingQuality, forKey: .compositingQuality);
+        }
+        if (self.interpolationMode != nil) {
+            try container.encode(self.interpolationMode, forKey: .interpolationMode);
+        }
+        if (self.smoothingMode != nil) {
+            try container.encode(self.smoothingMode, forKey: .smoothingMode);
+        }
+        if (self.stringFormat != nil) {
+            try container.encode(self.stringFormat, forKey: .stringFormat);
+        }
+        if (self.textRenderingHint != nil) {
+            try container.encode(self.textRenderingHint, forKey: .textRenderingHint);
+        }
+        
+        
     }
         
     public func getCompositingMode() -> CompositingMode? {

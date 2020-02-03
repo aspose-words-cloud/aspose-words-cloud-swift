@@ -140,6 +140,8 @@ public class DrawingObject : DrawingObjectLink {
     // Gets or sets specifies how to wrap text around the image.
     private let wrapType : WrapType?;
         
+    private enum CodingKeys: String, CodingKey { case height, imageDataLink, _left, oleDataLink, relativeHorizontalPosition, relativeVerticalPosition, renderLinks, top, width, wrapType }
+        
     public init(height : Double? = nil, imageDataLink : WordsApiLink? = nil, _left : Double? = nil, oleDataLink : WordsApiLink? = nil, relativeHorizontalPosition : RelativeHorizontalPosition? = nil, relativeVerticalPosition : RelativeVerticalPosition? = nil, renderLinks : [WordsApiLink]? = nil, top : Double? = nil, width : Double? = nil, wrapType : WrapType? = nil) {
         self.height = height;
         self.imageDataLink = imageDataLink;
@@ -151,6 +153,78 @@ public class DrawingObject : DrawingObjectLink {
         self.top = top;
         self.width = width;
         self.wrapType = wrapType;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let height = try container.decodeIfPresent(Double.self, forKey: .height) {
+            self.height = height;
+        }
+        if let imageDataLink = try container.decodeIfPresent(WordsApiLink.self, forKey: .imageDataLink) {
+            self.imageDataLink = imageDataLink;
+        }
+        if let _left = try container.decodeIfPresent(Double.self, forKey: ._left) {
+            self._left = _left;
+        }
+        if let oleDataLink = try container.decodeIfPresent(WordsApiLink.self, forKey: .oleDataLink) {
+            self.oleDataLink = oleDataLink;
+        }
+        if let relativeHorizontalPosition = try container.decodeIfPresent(RelativeHorizontalPosition.self, forKey: .relativeHorizontalPosition) {
+            self.relativeHorizontalPosition = relativeHorizontalPosition;
+        }
+        if let relativeVerticalPosition = try container.decodeIfPresent(RelativeVerticalPosition.self, forKey: .relativeVerticalPosition) {
+            self.relativeVerticalPosition = relativeVerticalPosition;
+        }
+        if let renderLinks = try container.decodeIfPresent([WordsApiLink].self, forKey: .renderLinks) {
+            self.renderLinks = renderLinks;
+        }
+        if let top = try container.decodeIfPresent(Double.self, forKey: .top) {
+            self.top = top;
+        }
+        if let width = try container.decodeIfPresent(Double.self, forKey: .width) {
+            self.width = width;
+        }
+        if let wrapType = try container.decodeIfPresent(WrapType.self, forKey: .wrapType) {
+            self.wrapType = wrapType;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.height != nil) {
+            try container.encode(self.height, forKey: .height);
+        }
+        if (self.imageDataLink != nil) {
+            try container.encode(self.imageDataLink, forKey: .imageDataLink);
+        }
+        if (self._left != nil) {
+            try container.encode(self._left, forKey: ._left);
+        }
+        if (self.oleDataLink != nil) {
+            try container.encode(self.oleDataLink, forKey: .oleDataLink);
+        }
+        if (self.relativeHorizontalPosition != nil) {
+            try container.encode(self.relativeHorizontalPosition, forKey: .relativeHorizontalPosition);
+        }
+        if (self.relativeVerticalPosition != nil) {
+            try container.encode(self.relativeVerticalPosition, forKey: .relativeVerticalPosition);
+        }
+        if (self.renderLinks != nil) {
+            try container.encode(self.renderLinks, forKey: .renderLinks);
+        }
+        if (self.top != nil) {
+            try container.encode(self.top, forKey: .top);
+        }
+        if (self.width != nil) {
+            try container.encode(self.width, forKey: .width);
+        }
+        if (self.wrapType != nil) {
+            try container.encode(self.wrapType, forKey: .wrapType);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getHeight() -> Double? {

@@ -40,6 +40,8 @@ public class InsertWatermarkImageRequest : Decodable {
     private let rotationAngle : Double?;
     private let image : String?;
     
+    private enum CodingKeys: String, CodingKey { case name, imageFile, folder, storage, loadEncoding, password, destFileName, revisionAuthor, revisionDateTime, rotationAngle, image }
+    
     public init(name : String, imageFile : URL? = null, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, rotationAngle : Double? = null, image : String? = null) {
         self.name = name;
         self.imageFile = imageFile;
@@ -52,6 +54,80 @@ public class InsertWatermarkImageRequest : Decodable {
         self.revisionDateTime = revisionDateTime;
         self.rotationAngle = rotationAngle;
         self.image = image;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.name = try container.decode(.self, forKey: .name);
+        if let imageFile = try container.decodeIfPresent(.self, forKey: .imageFile) {
+            self.imageFile = imageFile;
+        }
+        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
+            self.folder = folder;
+        }
+        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
+            self.storage = storage;
+        }
+        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
+            self.loadEncoding = loadEncoding;
+        }
+        if let password = try container.decodeIfPresent(.self, forKey: .password) {
+            self.password = password;
+        }
+        if let destFileName = try container.decodeIfPresent(.self, forKey: .destFileName) {
+            self.destFileName = destFileName;
+        }
+        if let revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor) {
+            self.revisionAuthor = revisionAuthor;
+        }
+        if let revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime) {
+            self.revisionDateTime = revisionDateTime;
+        }
+        if let rotationAngle = try container.decodeIfPresent(.self, forKey: .rotationAngle) {
+            self.rotationAngle = rotationAngle;
+        }
+        if let image = try container.decodeIfPresent(.self, forKey: .image) {
+            self.image = image;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.name, forKey: .name);
+        if (self.imageFile != nil) {
+            try container.encode(self.imageFile, forKey: .imageFile);
+        }
+        if (self.folder != nil) {
+            try container.encode(self.folder, forKey: .folder);
+        }
+        if (self.storage != nil) {
+            try container.encode(self.storage, forKey: .storage);
+        }
+        if (self.loadEncoding != nil) {
+            try container.encode(self.loadEncoding, forKey: .loadEncoding);
+        }
+        if (self.password != nil) {
+            try container.encode(self.password, forKey: .password);
+        }
+        if (self.destFileName != nil) {
+            try container.encode(self.destFileName, forKey: .destFileName);
+        }
+        if (self.revisionAuthor != nil) {
+            try container.encode(self.revisionAuthor, forKey: .revisionAuthor);
+        }
+        if (self.revisionDateTime != nil) {
+            try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
+        }
+        if (self.rotationAngle != nil) {
+            try container.encode(self.rotationAngle, forKey: .rotationAngle);
+        }
+        if (self.image != nil) {
+            try container.encode(self.image, forKey: .image);
+        }
+        
+        
     }
     
     public func getName() -> String {

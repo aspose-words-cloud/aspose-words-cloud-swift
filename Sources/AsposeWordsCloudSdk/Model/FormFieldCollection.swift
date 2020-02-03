@@ -32,8 +32,28 @@ public class FormFieldCollection : LinkElement {
     // Gets or sets collection of formfields.
     private let list : [FormField]?;
         
+    private enum CodingKeys: String, CodingKey { case list }
+        
     public init(list : [FormField]? = nil) {
         self.list = list;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let list = try container.decodeIfPresent([FormField].self, forKey: .list) {
+            self.list = list;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.list != nil) {
+            try container.encode(self.list, forKey: .list);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getList() -> [FormField]? {

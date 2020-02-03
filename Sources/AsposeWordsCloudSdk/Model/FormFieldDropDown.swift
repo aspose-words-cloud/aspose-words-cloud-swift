@@ -34,9 +34,35 @@ public class FormFieldDropDown : FormField {
     // Gets or sets the index specifying the currently selected item in a dropdown form field.
     private let dropDownSelectedIndex : Int?;
         
+    private enum CodingKeys: String, CodingKey { case dropDownItems, dropDownSelectedIndex }
+        
     public init(dropDownItems : [String]? = nil, dropDownSelectedIndex : Int? = nil) {
         self.dropDownItems = dropDownItems;
         self.dropDownSelectedIndex = dropDownSelectedIndex;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let dropDownItems = try container.decodeIfPresent([String].self, forKey: .dropDownItems) {
+            self.dropDownItems = dropDownItems;
+        }
+        if let dropDownSelectedIndex = try container.decodeIfPresent(Int.self, forKey: .dropDownSelectedIndex) {
+            self.dropDownSelectedIndex = dropDownSelectedIndex;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.dropDownItems != nil) {
+            try container.encode(self.dropDownItems, forKey: .dropDownItems);
+        }
+        if (self.dropDownSelectedIndex != nil) {
+            try container.encode(self.dropDownSelectedIndex, forKey: .dropDownSelectedIndex);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getDropDownItems() -> [String]? {

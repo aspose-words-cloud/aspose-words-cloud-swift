@@ -32,8 +32,28 @@ public class Runs : LinkElement {
     // Gets or sets collection of fields.
     private let list : [Run]?;
         
+    private enum CodingKeys: String, CodingKey { case list }
+        
     public init(list : [Run]? = nil) {
         self.list = list;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let list = try container.decodeIfPresent([Run].self, forKey: .list) {
+            self.list = list;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.list != nil) {
+            try container.encode(self.list, forKey: .list);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getList() -> [Run]? {

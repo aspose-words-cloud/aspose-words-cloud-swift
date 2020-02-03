@@ -34,9 +34,35 @@ public class DocumentEntry : Decodable {
     // Gets or sets defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.
     private let importFormatMode : String?;
         
+    private enum CodingKeys: String, CodingKey { case href, importFormatMode }
+        
     public init(href : String? = nil, importFormatMode : String? = nil) {
         self.href = href;
         self.importFormatMode = importFormatMode;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let href = try container.decodeIfPresent(String.self, forKey: .href) {
+            self.href = href;
+        }
+        if let importFormatMode = try container.decodeIfPresent(String.self, forKey: .importFormatMode) {
+            self.importFormatMode = importFormatMode;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.href != nil) {
+            try container.encode(self.href, forKey: .href);
+        }
+        if (self.importFormatMode != nil) {
+            try container.encode(self.importFormatMode, forKey: .importFormatMode);
+        }
+        
+        
     }
         
     public func getHref() -> String? {

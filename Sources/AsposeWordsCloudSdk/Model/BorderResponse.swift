@@ -32,8 +32,28 @@ public class BorderResponse : WordsResponse {
     // Gets or sets table.
     private let border : Border?;
         
+    private enum CodingKeys: String, CodingKey { case border }
+        
     public init(border : Border? = nil) {
         self.border = border;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let border = try container.decodeIfPresent(Border.self, forKey: .border) {
+            self.border = border;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.border != nil) {
+            try container.encode(self.border, forKey: .border);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getBorder() -> Border? {

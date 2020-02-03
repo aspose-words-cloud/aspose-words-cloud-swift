@@ -36,10 +36,42 @@ public class AvailableFontsResponse : WordsResponse {
     // Gets or sets the list of system fonts, availiable on the server.
     private let systemFonts : [FontInfo]?;
         
+    private enum CodingKeys: String, CodingKey { case additionalFonts, customFonts, systemFonts }
+        
     public init(additionalFonts : [FontInfo]? = nil, customFonts : [FontInfo]? = nil, systemFonts : [FontInfo]? = nil) {
         self.additionalFonts = additionalFonts;
         self.customFonts = customFonts;
         self.systemFonts = systemFonts;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let additionalFonts = try container.decodeIfPresent([FontInfo].self, forKey: .additionalFonts) {
+            self.additionalFonts = additionalFonts;
+        }
+        if let customFonts = try container.decodeIfPresent([FontInfo].self, forKey: .customFonts) {
+            self.customFonts = customFonts;
+        }
+        if let systemFonts = try container.decodeIfPresent([FontInfo].self, forKey: .systemFonts) {
+            self.systemFonts = systemFonts;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.additionalFonts != nil) {
+            try container.encode(self.additionalFonts, forKey: .additionalFonts);
+        }
+        if (self.customFonts != nil) {
+            try container.encode(self.customFonts, forKey: .customFonts);
+        }
+        if (self.systemFonts != nil) {
+            try container.encode(self.systemFonts, forKey: .systemFonts);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getAdditionalFonts() -> [FontInfo]? {

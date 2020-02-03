@@ -32,8 +32,28 @@ public class FormFieldResponse : WordsResponse {
     // Gets or sets field information.
     private let formField : FormField?;
         
+    private enum CodingKeys: String, CodingKey { case formField }
+        
     public init(formField : FormField? = nil) {
         self.formField = formField;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let formField = try container.decodeIfPresent(FormField.self, forKey: .formField) {
+            self.formField = formField;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.formField != nil) {
+            try container.encode(self.formField, forKey: .formField);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getFormField() -> FormField? {

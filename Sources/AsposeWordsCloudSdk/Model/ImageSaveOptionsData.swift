@@ -56,6 +56,8 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets the vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.
     private let verticalResolution : Double?;
         
+    private enum CodingKeys: String, CodingKey { case graphicsQualityOptions, horizontalResolution, imageBrightness, imageColorMode, imageContrast, paperColor, pixelFormat, resolution, scale, useAntiAliasing, useGdiEmfRenderer, useHighQualityRendering, verticalResolution }
+        
     public init(graphicsQualityOptions : GraphicsQualityOptionsData? = nil, horizontalResolution : Double? = nil, imageBrightness : Double? = nil, imageColorMode : String? = nil, imageContrast : Double? = nil, paperColor : String? = nil, pixelFormat : String? = nil, resolution : Double? = nil, scale : Double? = nil, useAntiAliasing : Bool? = nil, useGdiEmfRenderer : Bool? = nil, useHighQualityRendering : Bool? = nil, verticalResolution : Double? = nil) {
         self.graphicsQualityOptions = graphicsQualityOptions;
         self.horizontalResolution = horizontalResolution;
@@ -70,6 +72,96 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         self.useGdiEmfRenderer = useGdiEmfRenderer;
         self.useHighQualityRendering = useHighQualityRendering;
         self.verticalResolution = verticalResolution;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let graphicsQualityOptions = try container.decodeIfPresent(GraphicsQualityOptionsData.self, forKey: .graphicsQualityOptions) {
+            self.graphicsQualityOptions = graphicsQualityOptions;
+        }
+        if let horizontalResolution = try container.decodeIfPresent(Double.self, forKey: .horizontalResolution) {
+            self.horizontalResolution = horizontalResolution;
+        }
+        if let imageBrightness = try container.decodeIfPresent(Double.self, forKey: .imageBrightness) {
+            self.imageBrightness = imageBrightness;
+        }
+        if let imageColorMode = try container.decodeIfPresent(String.self, forKey: .imageColorMode) {
+            self.imageColorMode = imageColorMode;
+        }
+        if let imageContrast = try container.decodeIfPresent(Double.self, forKey: .imageContrast) {
+            self.imageContrast = imageContrast;
+        }
+        if let paperColor = try container.decodeIfPresent(String.self, forKey: .paperColor) {
+            self.paperColor = paperColor;
+        }
+        if let pixelFormat = try container.decodeIfPresent(String.self, forKey: .pixelFormat) {
+            self.pixelFormat = pixelFormat;
+        }
+        if let resolution = try container.decodeIfPresent(Double.self, forKey: .resolution) {
+            self.resolution = resolution;
+        }
+        if let scale = try container.decodeIfPresent(Double.self, forKey: .scale) {
+            self.scale = scale;
+        }
+        if let useAntiAliasing = try container.decodeIfPresent(Bool.self, forKey: .useAntiAliasing) {
+            self.useAntiAliasing = useAntiAliasing;
+        }
+        if let useGdiEmfRenderer = try container.decodeIfPresent(Bool.self, forKey: .useGdiEmfRenderer) {
+            self.useGdiEmfRenderer = useGdiEmfRenderer;
+        }
+        if let useHighQualityRendering = try container.decodeIfPresent(Bool.self, forKey: .useHighQualityRendering) {
+            self.useHighQualityRendering = useHighQualityRendering;
+        }
+        if let verticalResolution = try container.decodeIfPresent(Double.self, forKey: .verticalResolution) {
+            self.verticalResolution = verticalResolution;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.graphicsQualityOptions != nil) {
+            try container.encode(self.graphicsQualityOptions, forKey: .graphicsQualityOptions);
+        }
+        if (self.horizontalResolution != nil) {
+            try container.encode(self.horizontalResolution, forKey: .horizontalResolution);
+        }
+        if (self.imageBrightness != nil) {
+            try container.encode(self.imageBrightness, forKey: .imageBrightness);
+        }
+        if (self.imageColorMode != nil) {
+            try container.encode(self.imageColorMode, forKey: .imageColorMode);
+        }
+        if (self.imageContrast != nil) {
+            try container.encode(self.imageContrast, forKey: .imageContrast);
+        }
+        if (self.paperColor != nil) {
+            try container.encode(self.paperColor, forKey: .paperColor);
+        }
+        if (self.pixelFormat != nil) {
+            try container.encode(self.pixelFormat, forKey: .pixelFormat);
+        }
+        if (self.resolution != nil) {
+            try container.encode(self.resolution, forKey: .resolution);
+        }
+        if (self.scale != nil) {
+            try container.encode(self.scale, forKey: .scale);
+        }
+        if (self.useAntiAliasing != nil) {
+            try container.encode(self.useAntiAliasing, forKey: .useAntiAliasing);
+        }
+        if (self.useGdiEmfRenderer != nil) {
+            try container.encode(self.useGdiEmfRenderer, forKey: .useGdiEmfRenderer);
+        }
+        if (self.useHighQualityRendering != nil) {
+            try container.encode(self.useHighQualityRendering, forKey: .useHighQualityRendering);
+        }
+        if (self.verticalResolution != nil) {
+            try container.encode(self.verticalResolution, forKey: .verticalResolution);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getGraphicsQualityOptions() -> GraphicsQualityOptionsData? {

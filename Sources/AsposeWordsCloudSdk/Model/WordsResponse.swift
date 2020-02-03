@@ -32,8 +32,28 @@ public class WordsResponse : Decodable {
     // Gets or sets request Id.
     private let requestId : String?;
         
+    private enum CodingKeys: String, CodingKey { case requestId }
+        
     public init(requestId : String? = nil) {
         self.requestId = requestId;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let requestId = try container.decodeIfPresent(String.self, forKey: .requestId) {
+            self.requestId = requestId;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.requestId != nil) {
+            try container.encode(self.requestId, forKey: .requestId);
+        }
+        
+        
     }
         
     public func getRequestId() -> String? {

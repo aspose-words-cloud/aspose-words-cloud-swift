@@ -32,8 +32,28 @@ public class HeaderFootersResponse : WordsResponse {
     // Gets or sets collection of headers/footers.
     private let headerFooters : HeaderFooterLinkCollection?;
         
+    private enum CodingKeys: String, CodingKey { case headerFooters }
+        
     public init(headerFooters : HeaderFooterLinkCollection? = nil) {
         self.headerFooters = headerFooters;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let headerFooters = try container.decodeIfPresent(HeaderFooterLinkCollection.self, forKey: .headerFooters) {
+            self.headerFooters = headerFooters;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.headerFooters != nil) {
+            try container.encode(self.headerFooters, forKey: .headerFooters);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getHeaderFooters() -> HeaderFooterLinkCollection? {

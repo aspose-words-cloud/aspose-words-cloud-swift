@@ -1301,6 +1301,8 @@ public class ParagraphFormat : LinkElement {
     // Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.             
     private let widowControl : Bool?;
         
+    private enum CodingKeys: String, CodingKey { case addSpaceBetweenFarEastAndAlpha, addSpaceBetweenFarEastAndDigit, alignment, bidi, dropCapPosition, firstLineIndent, isListItem, keepTogether, keepWithNext, leftIndent, lineSpacing, lineSpacingRule, linesToDrop, noSpaceBetweenParagraphsOfSameStyle, outlineLevel, pageBreakBefore, rightIndent, spaceAfter, spaceAfterAuto, spaceBefore, spaceBeforeAuto, styleIdentifier, styleName, suppressAutoHyphens, suppressLineNumbers, widowControl }
+        
     public init(addSpaceBetweenFarEastAndAlpha : Bool? = nil, addSpaceBetweenFarEastAndDigit : Bool? = nil, alignment : Alignment? = nil, bidi : Bool? = nil, dropCapPosition : DropCapPosition? = nil, firstLineIndent : Double? = nil, isListItem : Bool? = nil, keepTogether : Bool? = nil, keepWithNext : Bool? = nil, leftIndent : Double? = nil, lineSpacing : Double? = nil, lineSpacingRule : LineSpacingRule? = nil, linesToDrop : Int? = nil, noSpaceBetweenParagraphsOfSameStyle : Bool? = nil, outlineLevel : OutlineLevel? = nil, pageBreakBefore : Bool? = nil, rightIndent : Double? = nil, spaceAfter : Double? = nil, spaceAfterAuto : Bool? = nil, spaceBefore : Double? = nil, spaceBeforeAuto : Bool? = nil, styleIdentifier : StyleIdentifier? = nil, styleName : String? = nil, suppressAutoHyphens : Bool? = nil, suppressLineNumbers : Bool? = nil, widowControl : Bool? = nil) {
         self.addSpaceBetweenFarEastAndAlpha = addSpaceBetweenFarEastAndAlpha;
         self.addSpaceBetweenFarEastAndDigit = addSpaceBetweenFarEastAndDigit;
@@ -1328,6 +1330,174 @@ public class ParagraphFormat : LinkElement {
         self.suppressAutoHyphens = suppressAutoHyphens;
         self.suppressLineNumbers = suppressLineNumbers;
         self.widowControl = widowControl;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let addSpaceBetweenFarEastAndAlpha = try container.decodeIfPresent(Bool.self, forKey: .addSpaceBetweenFarEastAndAlpha) {
+            self.addSpaceBetweenFarEastAndAlpha = addSpaceBetweenFarEastAndAlpha;
+        }
+        if let addSpaceBetweenFarEastAndDigit = try container.decodeIfPresent(Bool.self, forKey: .addSpaceBetweenFarEastAndDigit) {
+            self.addSpaceBetweenFarEastAndDigit = addSpaceBetweenFarEastAndDigit;
+        }
+        if let alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment) {
+            self.alignment = alignment;
+        }
+        if let bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi) {
+            self.bidi = bidi;
+        }
+        if let dropCapPosition = try container.decodeIfPresent(DropCapPosition.self, forKey: .dropCapPosition) {
+            self.dropCapPosition = dropCapPosition;
+        }
+        if let firstLineIndent = try container.decodeIfPresent(Double.self, forKey: .firstLineIndent) {
+            self.firstLineIndent = firstLineIndent;
+        }
+        if let isListItem = try container.decodeIfPresent(Bool.self, forKey: .isListItem) {
+            self.isListItem = isListItem;
+        }
+        if let keepTogether = try container.decodeIfPresent(Bool.self, forKey: .keepTogether) {
+            self.keepTogether = keepTogether;
+        }
+        if let keepWithNext = try container.decodeIfPresent(Bool.self, forKey: .keepWithNext) {
+            self.keepWithNext = keepWithNext;
+        }
+        if let leftIndent = try container.decodeIfPresent(Double.self, forKey: .leftIndent) {
+            self.leftIndent = leftIndent;
+        }
+        if let lineSpacing = try container.decodeIfPresent(Double.self, forKey: .lineSpacing) {
+            self.lineSpacing = lineSpacing;
+        }
+        if let lineSpacingRule = try container.decodeIfPresent(LineSpacingRule.self, forKey: .lineSpacingRule) {
+            self.lineSpacingRule = lineSpacingRule;
+        }
+        if let linesToDrop = try container.decodeIfPresent(Int.self, forKey: .linesToDrop) {
+            self.linesToDrop = linesToDrop;
+        }
+        if let noSpaceBetweenParagraphsOfSameStyle = try container.decodeIfPresent(Bool.self, forKey: .noSpaceBetweenParagraphsOfSameStyle) {
+            self.noSpaceBetweenParagraphsOfSameStyle = noSpaceBetweenParagraphsOfSameStyle;
+        }
+        if let outlineLevel = try container.decodeIfPresent(OutlineLevel.self, forKey: .outlineLevel) {
+            self.outlineLevel = outlineLevel;
+        }
+        if let pageBreakBefore = try container.decodeIfPresent(Bool.self, forKey: .pageBreakBefore) {
+            self.pageBreakBefore = pageBreakBefore;
+        }
+        if let rightIndent = try container.decodeIfPresent(Double.self, forKey: .rightIndent) {
+            self.rightIndent = rightIndent;
+        }
+        if let spaceAfter = try container.decodeIfPresent(Double.self, forKey: .spaceAfter) {
+            self.spaceAfter = spaceAfter;
+        }
+        if let spaceAfterAuto = try container.decodeIfPresent(Bool.self, forKey: .spaceAfterAuto) {
+            self.spaceAfterAuto = spaceAfterAuto;
+        }
+        if let spaceBefore = try container.decodeIfPresent(Double.self, forKey: .spaceBefore) {
+            self.spaceBefore = spaceBefore;
+        }
+        if let spaceBeforeAuto = try container.decodeIfPresent(Bool.self, forKey: .spaceBeforeAuto) {
+            self.spaceBeforeAuto = spaceBeforeAuto;
+        }
+        if let styleIdentifier = try container.decodeIfPresent(StyleIdentifier.self, forKey: .styleIdentifier) {
+            self.styleIdentifier = styleIdentifier;
+        }
+        if let styleName = try container.decodeIfPresent(String.self, forKey: .styleName) {
+            self.styleName = styleName;
+        }
+        if let suppressAutoHyphens = try container.decodeIfPresent(Bool.self, forKey: .suppressAutoHyphens) {
+            self.suppressAutoHyphens = suppressAutoHyphens;
+        }
+        if let suppressLineNumbers = try container.decodeIfPresent(Bool.self, forKey: .suppressLineNumbers) {
+            self.suppressLineNumbers = suppressLineNumbers;
+        }
+        if let widowControl = try container.decodeIfPresent(Bool.self, forKey: .widowControl) {
+            self.widowControl = widowControl;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.addSpaceBetweenFarEastAndAlpha != nil) {
+            try container.encode(self.addSpaceBetweenFarEastAndAlpha, forKey: .addSpaceBetweenFarEastAndAlpha);
+        }
+        if (self.addSpaceBetweenFarEastAndDigit != nil) {
+            try container.encode(self.addSpaceBetweenFarEastAndDigit, forKey: .addSpaceBetweenFarEastAndDigit);
+        }
+        if (self.alignment != nil) {
+            try container.encode(self.alignment, forKey: .alignment);
+        }
+        if (self.bidi != nil) {
+            try container.encode(self.bidi, forKey: .bidi);
+        }
+        if (self.dropCapPosition != nil) {
+            try container.encode(self.dropCapPosition, forKey: .dropCapPosition);
+        }
+        if (self.firstLineIndent != nil) {
+            try container.encode(self.firstLineIndent, forKey: .firstLineIndent);
+        }
+        if (self.isListItem != nil) {
+            try container.encode(self.isListItem, forKey: .isListItem);
+        }
+        if (self.keepTogether != nil) {
+            try container.encode(self.keepTogether, forKey: .keepTogether);
+        }
+        if (self.keepWithNext != nil) {
+            try container.encode(self.keepWithNext, forKey: .keepWithNext);
+        }
+        if (self.leftIndent != nil) {
+            try container.encode(self.leftIndent, forKey: .leftIndent);
+        }
+        if (self.lineSpacing != nil) {
+            try container.encode(self.lineSpacing, forKey: .lineSpacing);
+        }
+        if (self.lineSpacingRule != nil) {
+            try container.encode(self.lineSpacingRule, forKey: .lineSpacingRule);
+        }
+        if (self.linesToDrop != nil) {
+            try container.encode(self.linesToDrop, forKey: .linesToDrop);
+        }
+        if (self.noSpaceBetweenParagraphsOfSameStyle != nil) {
+            try container.encode(self.noSpaceBetweenParagraphsOfSameStyle, forKey: .noSpaceBetweenParagraphsOfSameStyle);
+        }
+        if (self.outlineLevel != nil) {
+            try container.encode(self.outlineLevel, forKey: .outlineLevel);
+        }
+        if (self.pageBreakBefore != nil) {
+            try container.encode(self.pageBreakBefore, forKey: .pageBreakBefore);
+        }
+        if (self.rightIndent != nil) {
+            try container.encode(self.rightIndent, forKey: .rightIndent);
+        }
+        if (self.spaceAfter != nil) {
+            try container.encode(self.spaceAfter, forKey: .spaceAfter);
+        }
+        if (self.spaceAfterAuto != nil) {
+            try container.encode(self.spaceAfterAuto, forKey: .spaceAfterAuto);
+        }
+        if (self.spaceBefore != nil) {
+            try container.encode(self.spaceBefore, forKey: .spaceBefore);
+        }
+        if (self.spaceBeforeAuto != nil) {
+            try container.encode(self.spaceBeforeAuto, forKey: .spaceBeforeAuto);
+        }
+        if (self.styleIdentifier != nil) {
+            try container.encode(self.styleIdentifier, forKey: .styleIdentifier);
+        }
+        if (self.styleName != nil) {
+            try container.encode(self.styleName, forKey: .styleName);
+        }
+        if (self.suppressAutoHyphens != nil) {
+            try container.encode(self.suppressAutoHyphens, forKey: .suppressAutoHyphens);
+        }
+        if (self.suppressLineNumbers != nil) {
+            try container.encode(self.suppressLineNumbers, forKey: .suppressLineNumbers);
+        }
+        if (self.widowControl != nil) {
+            try container.encode(self.widowControl, forKey: .widowControl);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getAddSpaceBetweenFarEastAndAlpha() -> Bool? {

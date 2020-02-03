@@ -34,9 +34,35 @@ public class Hyperlink : LinkElement {
     // Gets or sets value.
     private let value : String?;
         
+    private enum CodingKeys: String, CodingKey { case displayText, value }
+        
     public init(displayText : String? = nil, value : String? = nil) {
         self.displayText = displayText;
         self.value = value;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let displayText = try container.decodeIfPresent(String.self, forKey: .displayText) {
+            self.displayText = displayText;
+        }
+        if let value = try container.decodeIfPresent(String.self, forKey: .value) {
+            self.value = value;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.displayText != nil) {
+            try container.encode(self.displayText, forKey: .displayText);
+        }
+        if (self.value != nil) {
+            try container.encode(self.value, forKey: .value);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getDisplayText() -> String? {

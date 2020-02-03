@@ -32,8 +32,28 @@ public class BookmarksResponse : WordsResponse {
     // Gets or sets bookmarks which are contained in document.
     private let bookmarks : Bookmarks?;
         
+    private enum CodingKeys: String, CodingKey { case bookmarks }
+        
     public init(bookmarks : Bookmarks? = nil) {
         self.bookmarks = bookmarks;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let bookmarks = try container.decodeIfPresent(Bookmarks.self, forKey: .bookmarks) {
+            self.bookmarks = bookmarks;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.bookmarks != nil) {
+            try container.encode(self.bookmarks, forKey: .bookmarks);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getBookmarks() -> Bookmarks? {

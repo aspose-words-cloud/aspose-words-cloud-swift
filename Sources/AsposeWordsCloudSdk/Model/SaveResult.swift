@@ -36,10 +36,42 @@ public class SaveResult : Decodable {
     // Gets or sets links to additional items (css, images etc).
     private let additionalItems : [FileLink]?;
         
+    private enum CodingKeys: String, CodingKey { case sourceDocument, destDocument, additionalItems }
+        
     public init(sourceDocument : FileLink? = nil, destDocument : FileLink? = nil, additionalItems : [FileLink]? = nil) {
         self.sourceDocument = sourceDocument;
         self.destDocument = destDocument;
         self.additionalItems = additionalItems;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let sourceDocument = try container.decodeIfPresent(FileLink.self, forKey: .sourceDocument) {
+            self.sourceDocument = sourceDocument;
+        }
+        if let destDocument = try container.decodeIfPresent(FileLink.self, forKey: .destDocument) {
+            self.destDocument = destDocument;
+        }
+        if let additionalItems = try container.decodeIfPresent([FileLink].self, forKey: .additionalItems) {
+            self.additionalItems = additionalItems;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.sourceDocument != nil) {
+            try container.encode(self.sourceDocument, forKey: .sourceDocument);
+        }
+        if (self.destDocument != nil) {
+            try container.encode(self.destDocument, forKey: .destDocument);
+        }
+        if (self.additionalItems != nil) {
+            try container.encode(self.additionalItems, forKey: .additionalItems);
+        }
+        
+        
     }
         
     public func getSourceDocument() -> FileLink? {

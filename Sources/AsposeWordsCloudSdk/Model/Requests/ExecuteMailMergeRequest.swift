@@ -40,6 +40,8 @@ public class ExecuteMailMergeRequest : Decodable {
     private let useWholeParagraphAsRegion : Bool?;
     private let destFileName : String?;
     
+    private enum CodingKeys: String, CodingKey { case name, data, folder, storage, loadEncoding, password, withRegions, mailMergeDataFile, cleanup, useWholeParagraphAsRegion, destFileName }
+    
     public init(name : String, data : String? = null, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, withRegions : Bool? = null, mailMergeDataFile : String? = null, cleanup : String? = null, useWholeParagraphAsRegion : Bool? = null, destFileName : String? = null) {
         self.name = name;
         self.data = data;
@@ -52,6 +54,80 @@ public class ExecuteMailMergeRequest : Decodable {
         self.cleanup = cleanup;
         self.useWholeParagraphAsRegion = useWholeParagraphAsRegion;
         self.destFileName = destFileName;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.name = try container.decode(.self, forKey: .name);
+        if let data = try container.decodeIfPresent(.self, forKey: .data) {
+            self.data = data;
+        }
+        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
+            self.folder = folder;
+        }
+        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
+            self.storage = storage;
+        }
+        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
+            self.loadEncoding = loadEncoding;
+        }
+        if let password = try container.decodeIfPresent(.self, forKey: .password) {
+            self.password = password;
+        }
+        if let withRegions = try container.decodeIfPresent(.self, forKey: .withRegions) {
+            self.withRegions = withRegions;
+        }
+        if let mailMergeDataFile = try container.decodeIfPresent(.self, forKey: .mailMergeDataFile) {
+            self.mailMergeDataFile = mailMergeDataFile;
+        }
+        if let cleanup = try container.decodeIfPresent(.self, forKey: .cleanup) {
+            self.cleanup = cleanup;
+        }
+        if let useWholeParagraphAsRegion = try container.decodeIfPresent(.self, forKey: .useWholeParagraphAsRegion) {
+            self.useWholeParagraphAsRegion = useWholeParagraphAsRegion;
+        }
+        if let destFileName = try container.decodeIfPresent(.self, forKey: .destFileName) {
+            self.destFileName = destFileName;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.name, forKey: .name);
+        if (self.data != nil) {
+            try container.encode(self.data, forKey: .data);
+        }
+        if (self.folder != nil) {
+            try container.encode(self.folder, forKey: .folder);
+        }
+        if (self.storage != nil) {
+            try container.encode(self.storage, forKey: .storage);
+        }
+        if (self.loadEncoding != nil) {
+            try container.encode(self.loadEncoding, forKey: .loadEncoding);
+        }
+        if (self.password != nil) {
+            try container.encode(self.password, forKey: .password);
+        }
+        if (self.withRegions != nil) {
+            try container.encode(self.withRegions, forKey: .withRegions);
+        }
+        if (self.mailMergeDataFile != nil) {
+            try container.encode(self.mailMergeDataFile, forKey: .mailMergeDataFile);
+        }
+        if (self.cleanup != nil) {
+            try container.encode(self.cleanup, forKey: .cleanup);
+        }
+        if (self.useWholeParagraphAsRegion != nil) {
+            try container.encode(self.useWholeParagraphAsRegion, forKey: .useWholeParagraphAsRegion);
+        }
+        if (self.destFileName != nil) {
+            try container.encode(self.destFileName, forKey: .destFileName);
+        }
+        
+        
     }
     
     public func getName() -> String {

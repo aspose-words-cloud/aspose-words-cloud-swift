@@ -34,9 +34,35 @@ public class ModificationOperationResult : Decodable {
     // Gets or sets link to the dest document (result of the modification operation).
     private let dest : FileLink?;
         
+    private enum CodingKeys: String, CodingKey { case source, dest }
+        
     public init(source : FileLink? = nil, dest : FileLink? = nil) {
         self.source = source;
         self.dest = dest;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let source = try container.decodeIfPresent(FileLink.self, forKey: .source) {
+            self.source = source;
+        }
+        if let dest = try container.decodeIfPresent(FileLink.self, forKey: .dest) {
+            self.dest = dest;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.source != nil) {
+            try container.encode(self.source, forKey: .source);
+        }
+        if (self.dest != nil) {
+            try container.encode(self.dest, forKey: .dest);
+        }
+        
+        
     }
         
     public func getSource() -> FileLink? {

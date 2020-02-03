@@ -34,9 +34,35 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
     // Gets or sets specifies the name of the folder used to construct image URIs.
     private let imagesFolderAlias : String?;
         
+    private enum CodingKeys: String, CodingKey { case imagesFolder, imagesFolderAlias }
+        
     public init(imagesFolder : String? = nil, imagesFolderAlias : String? = nil) {
         self.imagesFolder = imagesFolder;
         self.imagesFolderAlias = imagesFolderAlias;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let imagesFolder = try container.decodeIfPresent(String.self, forKey: .imagesFolder) {
+            self.imagesFolder = imagesFolder;
+        }
+        if let imagesFolderAlias = try container.decodeIfPresent(String.self, forKey: .imagesFolderAlias) {
+            self.imagesFolderAlias = imagesFolderAlias;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.imagesFolder != nil) {
+            try container.encode(self.imagesFolder, forKey: .imagesFolder);
+        }
+        if (self.imagesFolderAlias != nil) {
+            try container.encode(self.imagesFolderAlias, forKey: .imagesFolderAlias);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getImagesFolder() -> String? {

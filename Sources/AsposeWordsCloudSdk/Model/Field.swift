@@ -34,9 +34,35 @@ public class Field : FieldLink {
     // Gets or sets field result.
     private let result : String?;
         
+    private enum CodingKeys: String, CodingKey { case localeId, result }
+        
     public init(localeId : String? = nil, result : String? = nil) {
         self.localeId = localeId;
         self.result = result;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let localeId = try container.decodeIfPresent(String.self, forKey: .localeId) {
+            self.localeId = localeId;
+        }
+        if let result = try container.decodeIfPresent(String.self, forKey: .result) {
+            self.result = result;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.localeId != nil) {
+            try container.encode(self.localeId, forKey: .localeId);
+        }
+        if (self.result != nil) {
+            try container.encode(self.result, forKey: .result);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getLocaleId() -> String? {

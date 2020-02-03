@@ -32,8 +32,28 @@ public class CommentsCollection : LinkElement {
     // Gets or sets collection of comments.
     private let commentList : [Comment]?;
         
+    private enum CodingKeys: String, CodingKey { case commentList }
+        
     public init(commentList : [Comment]? = nil) {
         self.commentList = commentList;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let commentList = try container.decodeIfPresent([Comment].self, forKey: .commentList) {
+            self.commentList = commentList;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.commentList != nil) {
+            try container.encode(self.commentList, forKey: .commentList);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getCommentList() -> [Comment]? {

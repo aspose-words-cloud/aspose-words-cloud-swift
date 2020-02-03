@@ -40,6 +40,8 @@ public class UpdateTableCellFormatRequest : Decodable {
     private let revisionDateTime : String?;
     private let format : TableCellFormat?;
     
+    private enum CodingKeys: String, CodingKey { case name, tableRowPath, index, folder, storage, loadEncoding, password, destFileName, revisionAuthor, revisionDateTime, format }
+    
     public init(name : String, tableRowPath : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, format : TableCellFormat? = null) {
         self.name = name;
         self.tableRowPath = tableRowPath;
@@ -52,6 +54,72 @@ public class UpdateTableCellFormatRequest : Decodable {
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
         self.format = format;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.name = try container.decode(.self, forKey: .name);
+        self.tableRowPath = try container.decode(.self, forKey: .tableRowPath);
+        self.index = try container.decode(.self, forKey: .index);
+        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
+            self.folder = folder;
+        }
+        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
+            self.storage = storage;
+        }
+        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
+            self.loadEncoding = loadEncoding;
+        }
+        if let password = try container.decodeIfPresent(.self, forKey: .password) {
+            self.password = password;
+        }
+        if let destFileName = try container.decodeIfPresent(.self, forKey: .destFileName) {
+            self.destFileName = destFileName;
+        }
+        if let revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor) {
+            self.revisionAuthor = revisionAuthor;
+        }
+        if let revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime) {
+            self.revisionDateTime = revisionDateTime;
+        }
+        if let format = try container.decodeIfPresent(.self, forKey: .format) {
+            self.format = format;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.name, forKey: .name);
+        try container.encode(self.tableRowPath, forKey: .tableRowPath);
+        try container.encode(self.index, forKey: .index);
+        if (self.folder != nil) {
+            try container.encode(self.folder, forKey: .folder);
+        }
+        if (self.storage != nil) {
+            try container.encode(self.storage, forKey: .storage);
+        }
+        if (self.loadEncoding != nil) {
+            try container.encode(self.loadEncoding, forKey: .loadEncoding);
+        }
+        if (self.password != nil) {
+            try container.encode(self.password, forKey: .password);
+        }
+        if (self.destFileName != nil) {
+            try container.encode(self.destFileName, forKey: .destFileName);
+        }
+        if (self.revisionAuthor != nil) {
+            try container.encode(self.revisionAuthor, forKey: .revisionAuthor);
+        }
+        if (self.revisionDateTime != nil) {
+            try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
+        }
+        if (self.format != nil) {
+            try container.encode(self.format, forKey: .format);
+        }
+        
+        
     }
     
     public func getName() -> String {

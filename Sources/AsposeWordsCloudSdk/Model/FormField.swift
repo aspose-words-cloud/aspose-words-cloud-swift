@@ -48,6 +48,8 @@ public class FormField : NodeLink {
     // Gets or sets returns or sets the text that&#39;s displayed in the status bar when a form field has the focus.
     private let statusText : String?;
         
+    private enum CodingKeys: String, CodingKey { case calculateOnExit, enabled, entryMacro, exitMacro, helpText, name, ownHelp, ownStatus, statusText }
+        
     public init(calculateOnExit : Bool? = nil, enabled : Bool? = nil, entryMacro : String? = nil, exitMacro : String? = nil, helpText : String? = nil, name : String? = nil, ownHelp : Bool? = nil, ownStatus : Bool? = nil, statusText : String? = nil) {
         self.calculateOnExit = calculateOnExit;
         self.enabled = enabled;
@@ -58,6 +60,72 @@ public class FormField : NodeLink {
         self.ownHelp = ownHelp;
         self.ownStatus = ownStatus;
         self.statusText = statusText;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let calculateOnExit = try container.decodeIfPresent(Bool.self, forKey: .calculateOnExit) {
+            self.calculateOnExit = calculateOnExit;
+        }
+        if let enabled = try container.decodeIfPresent(Bool.self, forKey: .enabled) {
+            self.enabled = enabled;
+        }
+        if let entryMacro = try container.decodeIfPresent(String.self, forKey: .entryMacro) {
+            self.entryMacro = entryMacro;
+        }
+        if let exitMacro = try container.decodeIfPresent(String.self, forKey: .exitMacro) {
+            self.exitMacro = exitMacro;
+        }
+        if let helpText = try container.decodeIfPresent(String.self, forKey: .helpText) {
+            self.helpText = helpText;
+        }
+        if let name = try container.decodeIfPresent(String.self, forKey: .name) {
+            self.name = name;
+        }
+        if let ownHelp = try container.decodeIfPresent(Bool.self, forKey: .ownHelp) {
+            self.ownHelp = ownHelp;
+        }
+        if let ownStatus = try container.decodeIfPresent(Bool.self, forKey: .ownStatus) {
+            self.ownStatus = ownStatus;
+        }
+        if let statusText = try container.decodeIfPresent(String.self, forKey: .statusText) {
+            self.statusText = statusText;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.calculateOnExit != nil) {
+            try container.encode(self.calculateOnExit, forKey: .calculateOnExit);
+        }
+        if (self.enabled != nil) {
+            try container.encode(self.enabled, forKey: .enabled);
+        }
+        if (self.entryMacro != nil) {
+            try container.encode(self.entryMacro, forKey: .entryMacro);
+        }
+        if (self.exitMacro != nil) {
+            try container.encode(self.exitMacro, forKey: .exitMacro);
+        }
+        if (self.helpText != nil) {
+            try container.encode(self.helpText, forKey: .helpText);
+        }
+        if (self.name != nil) {
+            try container.encode(self.name, forKey: .name);
+        }
+        if (self.ownHelp != nil) {
+            try container.encode(self.ownHelp, forKey: .ownHelp);
+        }
+        if (self.ownStatus != nil) {
+            try container.encode(self.ownStatus, forKey: .ownStatus);
+        }
+        if (self.statusText != nil) {
+            try container.encode(self.statusText, forKey: .statusText);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getCalculateOnExit() -> Bool? {

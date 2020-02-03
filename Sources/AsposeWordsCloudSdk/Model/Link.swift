@@ -38,11 +38,49 @@ public class Link : Decodable {
     // Gets or sets the \&quot;title\&quot; attribute conveys human-readable information about the link.  The content of the \&quot;title\&quot; attribute is Language-Sensitive.
     private let title : String?;
         
+    private enum CodingKeys: String, CodingKey { case href, rel, type, title }
+        
     public init(href : String? = nil, rel : String? = nil, type : String? = nil, title : String? = nil) {
         self.href = href;
         self.rel = rel;
         self.type = type;
         self.title = title;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let href = try container.decodeIfPresent(String.self, forKey: .href) {
+            self.href = href;
+        }
+        if let rel = try container.decodeIfPresent(String.self, forKey: .rel) {
+            self.rel = rel;
+        }
+        if let type = try container.decodeIfPresent(String.self, forKey: .type) {
+            self.type = type;
+        }
+        if let title = try container.decodeIfPresent(String.self, forKey: .title) {
+            self.title = title;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.href != nil) {
+            try container.encode(self.href, forKey: .href);
+        }
+        if (self.rel != nil) {
+            try container.encode(self.rel, forKey: .rel);
+        }
+        if (self.type != nil) {
+            try container.encode(self.type, forKey: .type);
+        }
+        if (self.title != nil) {
+            try container.encode(self.title, forKey: .title);
+        }
+        
+        
     }
         
     public func getHref() -> String? {

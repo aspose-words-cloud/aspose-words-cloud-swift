@@ -36,10 +36,42 @@ public class HeaderFooter : HeaderFooterLink {
     // Gets or sets link to Paragraphs resource.
     private let paragraphs : LinkElement?;
         
+    private enum CodingKeys: String, CodingKey { case childNodes, drawingObjects, paragraphs }
+        
     public init(childNodes : [NodeLink]? = nil, drawingObjects : LinkElement? = nil, paragraphs : LinkElement? = nil) {
         self.childNodes = childNodes;
         self.drawingObjects = drawingObjects;
         self.paragraphs = paragraphs;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let childNodes = try container.decodeIfPresent([NodeLink].self, forKey: .childNodes) {
+            self.childNodes = childNodes;
+        }
+        if let drawingObjects = try container.decodeIfPresent(LinkElement.self, forKey: .drawingObjects) {
+            self.drawingObjects = drawingObjects;
+        }
+        if let paragraphs = try container.decodeIfPresent(LinkElement.self, forKey: .paragraphs) {
+            self.paragraphs = paragraphs;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.childNodes != nil) {
+            try container.encode(self.childNodes, forKey: .childNodes);
+        }
+        if (self.drawingObjects != nil) {
+            try container.encode(self.drawingObjects, forKey: .drawingObjects);
+        }
+        if (self.paragraphs != nil) {
+            try container.encode(self.paragraphs, forKey: .paragraphs);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getChildNodes() -> [NodeLink]? {

@@ -34,9 +34,35 @@ public class SearchResult : Decodable {
     // Gets or sets link to result range end node.
     private let rangeEnd : DocumentPosition?;
         
+    private enum CodingKeys: String, CodingKey { case rangeStart, rangeEnd }
+        
     public init(rangeStart : DocumentPosition? = nil, rangeEnd : DocumentPosition? = nil) {
         self.rangeStart = rangeStart;
         self.rangeEnd = rangeEnd;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let rangeStart = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeStart) {
+            self.rangeStart = rangeStart;
+        }
+        if let rangeEnd = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeEnd) {
+            self.rangeEnd = rangeEnd;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.rangeStart != nil) {
+            try container.encode(self.rangeStart, forKey: .rangeStart);
+        }
+        if (self.rangeEnd != nil) {
+            try container.encode(self.rangeEnd, forKey: .rangeEnd);
+        }
+        
+        
     }
         
     public func getRangeStart() -> DocumentPosition? {

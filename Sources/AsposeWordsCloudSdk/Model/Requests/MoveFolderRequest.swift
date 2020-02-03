@@ -33,11 +33,41 @@ public class MoveFolderRequest : Decodable {
     private let srcStorageName : String?;
     private let destStorageName : String?;
     
+    private enum CodingKeys: String, CodingKey { case destPath, srcPath, srcStorageName, destStorageName }
+    
     public init(destPath : String, srcPath : String, srcStorageName : String? = null, destStorageName : String? = null) {
         self.destPath = destPath;
         self.srcPath = srcPath;
         self.srcStorageName = srcStorageName;
         self.destStorageName = destStorageName;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.destPath = try container.decode(.self, forKey: .destPath);
+        self.srcPath = try container.decode(.self, forKey: .srcPath);
+        if let srcStorageName = try container.decodeIfPresent(.self, forKey: .srcStorageName) {
+            self.srcStorageName = srcStorageName;
+        }
+        if let destStorageName = try container.decodeIfPresent(.self, forKey: .destStorageName) {
+            self.destStorageName = destStorageName;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.destPath, forKey: .destPath);
+        try container.encode(self.srcPath, forKey: .srcPath);
+        if (self.srcStorageName != nil) {
+            try container.encode(self.srcStorageName, forKey: .srcStorageName);
+        }
+        if (self.destStorageName != nil) {
+            try container.encode(self.destStorageName, forKey: .destStorageName);
+        }
+        
+        
     }
     
     public func getDestPath() -> String {

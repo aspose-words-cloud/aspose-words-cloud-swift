@@ -32,8 +32,28 @@ public class SectionLinkCollection : LinkElement {
     // Gets or sets collection of section&#39;s links.
     private let sectionLinkList : [SectionLink]?;
         
+    private enum CodingKeys: String, CodingKey { case sectionLinkList }
+        
     public init(sectionLinkList : [SectionLink]? = nil) {
         self.sectionLinkList = sectionLinkList;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let sectionLinkList = try container.decodeIfPresent([SectionLink].self, forKey: .sectionLinkList) {
+            self.sectionLinkList = sectionLinkList;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.sectionLinkList != nil) {
+            try container.encode(self.sectionLinkList, forKey: .sectionLinkList);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getSectionLinkList() -> [SectionLink]? {

@@ -32,8 +32,28 @@ public class FieldLink : NodeLink {
     // Gets or sets field code.
     private let fieldCode : String?;
         
+    private enum CodingKeys: String, CodingKey { case fieldCode }
+        
     public init(fieldCode : String? = nil) {
         self.fieldCode = fieldCode;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let fieldCode = try container.decodeIfPresent(String.self, forKey: .fieldCode) {
+            self.fieldCode = fieldCode;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.fieldCode != nil) {
+            try container.encode(self.fieldCode, forKey: .fieldCode);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getFieldCode() -> String? {

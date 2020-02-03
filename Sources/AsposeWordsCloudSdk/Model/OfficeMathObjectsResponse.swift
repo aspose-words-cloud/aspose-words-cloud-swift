@@ -32,8 +32,28 @@ public class OfficeMathObjectsResponse : WordsResponse {
     // Gets or sets collection of OfficeMath objects.
     private let officeMathObjects : OfficeMathObjectsCollection?;
         
+    private enum CodingKeys: String, CodingKey { case officeMathObjects }
+        
     public init(officeMathObjects : OfficeMathObjectsCollection? = nil) {
         self.officeMathObjects = officeMathObjects;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let officeMathObjects = try container.decodeIfPresent(OfficeMathObjectsCollection.self, forKey: .officeMathObjects) {
+            self.officeMathObjects = officeMathObjects;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.officeMathObjects != nil) {
+            try container.encode(self.officeMathObjects, forKey: .officeMathObjects);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getOfficeMathObjects() -> OfficeMathObjectsCollection? {

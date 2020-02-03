@@ -32,8 +32,28 @@ public class TableLinkCollection : LinkElement {
     // Gets or sets collection of table&#39;s links.
     private let tableLinkList : [TableLink]?;
         
+    private enum CodingKeys: String, CodingKey { case tableLinkList }
+        
     public init(tableLinkList : [TableLink]? = nil) {
         self.tableLinkList = tableLinkList;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let tableLinkList = try container.decodeIfPresent([TableLink].self, forKey: .tableLinkList) {
+            self.tableLinkList = tableLinkList;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.tableLinkList != nil) {
+            try container.encode(self.tableLinkList, forKey: .tableLinkList);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getTableLinkList() -> [TableLink]? {

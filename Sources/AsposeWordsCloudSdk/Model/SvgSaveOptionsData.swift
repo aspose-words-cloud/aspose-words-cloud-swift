@@ -42,6 +42,8 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets determines how text should be rendered.
     private let textOutputMode : String?;
         
+    private enum CodingKeys: String, CodingKey { case exportEmbeddedImages, fitToViewPort, resourcesFolder, resourcesFolderAlias, showPageBorder, textOutputMode }
+        
     public init(exportEmbeddedImages : Bool? = nil, fitToViewPort : Bool? = nil, resourcesFolder : String? = nil, resourcesFolderAlias : String? = nil, showPageBorder : Bool? = nil, textOutputMode : String? = nil) {
         self.exportEmbeddedImages = exportEmbeddedImages;
         self.fitToViewPort = fitToViewPort;
@@ -49,6 +51,54 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         self.resourcesFolderAlias = resourcesFolderAlias;
         self.showPageBorder = showPageBorder;
         self.textOutputMode = textOutputMode;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let exportEmbeddedImages = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedImages) {
+            self.exportEmbeddedImages = exportEmbeddedImages;
+        }
+        if let fitToViewPort = try container.decodeIfPresent(Bool.self, forKey: .fitToViewPort) {
+            self.fitToViewPort = fitToViewPort;
+        }
+        if let resourcesFolder = try container.decodeIfPresent(String.self, forKey: .resourcesFolder) {
+            self.resourcesFolder = resourcesFolder;
+        }
+        if let resourcesFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourcesFolderAlias) {
+            self.resourcesFolderAlias = resourcesFolderAlias;
+        }
+        if let showPageBorder = try container.decodeIfPresent(Bool.self, forKey: .showPageBorder) {
+            self.showPageBorder = showPageBorder;
+        }
+        if let textOutputMode = try container.decodeIfPresent(String.self, forKey: .textOutputMode) {
+            self.textOutputMode = textOutputMode;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.exportEmbeddedImages != nil) {
+            try container.encode(self.exportEmbeddedImages, forKey: .exportEmbeddedImages);
+        }
+        if (self.fitToViewPort != nil) {
+            try container.encode(self.fitToViewPort, forKey: .fitToViewPort);
+        }
+        if (self.resourcesFolder != nil) {
+            try container.encode(self.resourcesFolder, forKey: .resourcesFolder);
+        }
+        if (self.resourcesFolderAlias != nil) {
+            try container.encode(self.resourcesFolderAlias, forKey: .resourcesFolderAlias);
+        }
+        if (self.showPageBorder != nil) {
+            try container.encode(self.showPageBorder, forKey: .showPageBorder);
+        }
+        if (self.textOutputMode != nil) {
+            try container.encode(self.textOutputMode, forKey: .textOutputMode);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getExportEmbeddedImages() -> Bool? {

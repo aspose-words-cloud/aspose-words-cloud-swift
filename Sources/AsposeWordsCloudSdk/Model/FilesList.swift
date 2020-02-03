@@ -32,8 +32,28 @@ public class FilesList : Decodable {
     // Files and folders contained by folder .
     private let value : [StorageFile]?;
         
+    private enum CodingKeys: String, CodingKey { case value }
+        
     public init(value : [StorageFile]? = nil) {
         self.value = value;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let value = try container.decodeIfPresent([StorageFile].self, forKey: .value) {
+            self.value = value;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.value != nil) {
+            try container.encode(self.value, forKey: .value);
+        }
+        
+        
     }
         
     public func getValue() -> [StorageFile]? {

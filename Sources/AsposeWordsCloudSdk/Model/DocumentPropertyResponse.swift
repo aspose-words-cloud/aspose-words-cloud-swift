@@ -32,8 +32,28 @@ public class DocumentPropertyResponse : WordsResponse {
     // Gets or sets document property.
     private let documentProperty : DocumentProperty?;
         
+    private enum CodingKeys: String, CodingKey { case documentProperty }
+        
     public init(documentProperty : DocumentProperty? = nil) {
         self.documentProperty = documentProperty;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let documentProperty = try container.decodeIfPresent(DocumentProperty.self, forKey: .documentProperty) {
+            self.documentProperty = documentProperty;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.documentProperty != nil) {
+            try container.encode(self.documentProperty, forKey: .documentProperty);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getDocumentProperty() -> DocumentProperty? {

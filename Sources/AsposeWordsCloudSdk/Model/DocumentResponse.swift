@@ -32,8 +32,28 @@ public class DocumentResponse : WordsResponse {
     // Gets or sets document description.
     private let document : Document?;
         
+    private enum CodingKeys: String, CodingKey { case document }
+        
     public init(document : Document? = nil) {
         self.document = document;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let document = try container.decodeIfPresent(Document.self, forKey: .document) {
+            self.document = document;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.document != nil) {
+            try container.encode(self.document, forKey: .document);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getDocument() -> Document? {

@@ -32,8 +32,28 @@ public class SearchResultsCollection : LinkElement {
     // Gets or sets collection of comments.
     private let resultsList : [SearchResult]?;
         
+    private enum CodingKeys: String, CodingKey { case resultsList }
+        
     public init(resultsList : [SearchResult]? = nil) {
         self.resultsList = resultsList;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let resultsList = try container.decodeIfPresent([SearchResult].self, forKey: .resultsList) {
+            self.resultsList = resultsList;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.resultsList != nil) {
+            try container.encode(self.resultsList, forKey: .resultsList);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getResultsList() -> [SearchResult]? {

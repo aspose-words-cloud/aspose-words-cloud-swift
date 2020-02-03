@@ -32,8 +32,28 @@ public class FormFieldsResponse : WordsResponse {
     // Gets or sets collection of form fields.
     private let formFields : FormFieldCollection?;
         
+    private enum CodingKeys: String, CodingKey { case formFields }
+        
     public init(formFields : FormFieldCollection? = nil) {
         self.formFields = formFields;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let formFields = try container.decodeIfPresent(FormFieldCollection.self, forKey: .formFields) {
+            self.formFields = formFields;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.formFields != nil) {
+            try container.encode(self.formFields, forKey: .formFields);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getFormFields() -> FormFieldCollection? {

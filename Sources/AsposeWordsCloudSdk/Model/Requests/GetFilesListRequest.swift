@@ -31,9 +31,31 @@ public class GetFilesListRequest : Decodable {
     private let path : String;
     private let storageName : String?;
     
+    private enum CodingKeys: String, CodingKey { case path, storageName }
+    
     public init(path : String, storageName : String? = null) {
         self.path = path;
         self.storageName = storageName;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.path = try container.decode(.self, forKey: .path);
+        if let storageName = try container.decodeIfPresent(.self, forKey: .storageName) {
+            self.storageName = storageName;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.path, forKey: .path);
+        if (self.storageName != nil) {
+            try container.encode(self.storageName, forKey: .storageName);
+        }
+        
+        
     }
     
     public func getPath() -> String {

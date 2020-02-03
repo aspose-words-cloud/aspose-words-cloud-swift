@@ -61,11 +61,49 @@ public class FormFieldTextInput : FormField {
     // Gets or sets the type of a text form field.
     private let textInputType : TextInputType?;
         
+    private enum CodingKeys: String, CodingKey { case maxLength, textInputDefault, textInputFormat, textInputType }
+        
     public init(maxLength : Int? = nil, textInputDefault : String? = nil, textInputFormat : String? = nil, textInputType : TextInputType? = nil) {
         self.maxLength = maxLength;
         self.textInputDefault = textInputDefault;
         self.textInputFormat = textInputFormat;
         self.textInputType = textInputType;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let maxLength = try container.decodeIfPresent(Int.self, forKey: .maxLength) {
+            self.maxLength = maxLength;
+        }
+        if let textInputDefault = try container.decodeIfPresent(String.self, forKey: .textInputDefault) {
+            self.textInputDefault = textInputDefault;
+        }
+        if let textInputFormat = try container.decodeIfPresent(String.self, forKey: .textInputFormat) {
+            self.textInputFormat = textInputFormat;
+        }
+        if let textInputType = try container.decodeIfPresent(TextInputType.self, forKey: .textInputType) {
+            self.textInputType = textInputType;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.maxLength != nil) {
+            try container.encode(self.maxLength, forKey: .maxLength);
+        }
+        if (self.textInputDefault != nil) {
+            try container.encode(self.textInputDefault, forKey: .textInputDefault);
+        }
+        if (self.textInputFormat != nil) {
+            try container.encode(self.textInputFormat, forKey: .textInputFormat);
+        }
+        if (self.textInputType != nil) {
+            try container.encode(self.textInputType, forKey: .textInputType);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getMaxLength() -> Int? {

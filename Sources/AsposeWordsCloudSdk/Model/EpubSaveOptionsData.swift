@@ -32,8 +32,28 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
     // Gets or sets specifies the maximum level of headings populated to the navigation map when exporting.
     private let epubNavigationMapLevel : Int?;
         
+    private enum CodingKeys: String, CodingKey { case epubNavigationMapLevel }
+        
     public init(epubNavigationMapLevel : Int? = nil) {
         self.epubNavigationMapLevel = epubNavigationMapLevel;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let epubNavigationMapLevel = try container.decodeIfPresent(Int.self, forKey: .epubNavigationMapLevel) {
+            self.epubNavigationMapLevel = epubNavigationMapLevel;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.epubNavigationMapLevel != nil) {
+            try container.encode(self.epubNavigationMapLevel, forKey: .epubNavigationMapLevel);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getEpubNavigationMapLevel() -> Int? {

@@ -53,6 +53,8 @@ public class SaveAsTiffRequest : Decodable {
     private let zipOutput : Bool?;
     private let fontsLocation : String?;
     
+    private enum CodingKeys: String, CodingKey { case name, saveOptions, folder, storage, loadEncoding, password, useAntiAliasing, useHighQualityRendering, imageBrightness, imageColorMode, imageContrast, numeralFormat, pageCount, pageIndex, paperColor, pixelFormat, resolution, scale, tiffCompression, dmlRenderingMode, dmlEffectsRenderingMode, tiffBinarizationMethod, zipOutput, fontsLocation }
+    
     public init(name : String, saveOptions : TiffSaveOptionsData, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, useAntiAliasing : Bool? = null, useHighQualityRendering : Bool? = null, imageBrightness : Double? = null, imageColorMode : String? = null, imageContrast : Double? = null, numeralFormat : String? = null, pageCount : Int? = null, pageIndex : Int? = null, paperColor : String? = null, pixelFormat : String? = null, resolution : Double? = null, scale : Double? = null, tiffCompression : String? = null, dmlRenderingMode : String? = null, dmlEffectsRenderingMode : String? = null, tiffBinarizationMethod : String? = null, zipOutput : Bool? = null, fontsLocation : String? = null) {
         self.name = name;
         self.saveOptions = saveOptions;
@@ -78,6 +80,154 @@ public class SaveAsTiffRequest : Decodable {
         self.tiffBinarizationMethod = tiffBinarizationMethod;
         self.zipOutput = zipOutput;
         self.fontsLocation = fontsLocation;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.name = try container.decode(.self, forKey: .name);
+        self.saveOptions = try container.decode(.self, forKey: .saveOptions);
+        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
+            self.folder = folder;
+        }
+        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
+            self.storage = storage;
+        }
+        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
+            self.loadEncoding = loadEncoding;
+        }
+        if let password = try container.decodeIfPresent(.self, forKey: .password) {
+            self.password = password;
+        }
+        if let useAntiAliasing = try container.decodeIfPresent(.self, forKey: .useAntiAliasing) {
+            self.useAntiAliasing = useAntiAliasing;
+        }
+        if let useHighQualityRendering = try container.decodeIfPresent(.self, forKey: .useHighQualityRendering) {
+            self.useHighQualityRendering = useHighQualityRendering;
+        }
+        if let imageBrightness = try container.decodeIfPresent(.self, forKey: .imageBrightness) {
+            self.imageBrightness = imageBrightness;
+        }
+        if let imageColorMode = try container.decodeIfPresent(.self, forKey: .imageColorMode) {
+            self.imageColorMode = imageColorMode;
+        }
+        if let imageContrast = try container.decodeIfPresent(.self, forKey: .imageContrast) {
+            self.imageContrast = imageContrast;
+        }
+        if let numeralFormat = try container.decodeIfPresent(.self, forKey: .numeralFormat) {
+            self.numeralFormat = numeralFormat;
+        }
+        if let pageCount = try container.decodeIfPresent(.self, forKey: .pageCount) {
+            self.pageCount = pageCount;
+        }
+        if let pageIndex = try container.decodeIfPresent(.self, forKey: .pageIndex) {
+            self.pageIndex = pageIndex;
+        }
+        if let paperColor = try container.decodeIfPresent(.self, forKey: .paperColor) {
+            self.paperColor = paperColor;
+        }
+        if let pixelFormat = try container.decodeIfPresent(.self, forKey: .pixelFormat) {
+            self.pixelFormat = pixelFormat;
+        }
+        if let resolution = try container.decodeIfPresent(.self, forKey: .resolution) {
+            self.resolution = resolution;
+        }
+        if let scale = try container.decodeIfPresent(.self, forKey: .scale) {
+            self.scale = scale;
+        }
+        if let tiffCompression = try container.decodeIfPresent(.self, forKey: .tiffCompression) {
+            self.tiffCompression = tiffCompression;
+        }
+        if let dmlRenderingMode = try container.decodeIfPresent(.self, forKey: .dmlRenderingMode) {
+            self.dmlRenderingMode = dmlRenderingMode;
+        }
+        if let dmlEffectsRenderingMode = try container.decodeIfPresent(.self, forKey: .dmlEffectsRenderingMode) {
+            self.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
+        }
+        if let tiffBinarizationMethod = try container.decodeIfPresent(.self, forKey: .tiffBinarizationMethod) {
+            self.tiffBinarizationMethod = tiffBinarizationMethod;
+        }
+        if let zipOutput = try container.decodeIfPresent(.self, forKey: .zipOutput) {
+            self.zipOutput = zipOutput;
+        }
+        if let fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation) {
+            self.fontsLocation = fontsLocation;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.name, forKey: .name);
+        try container.encode(self.saveOptions, forKey: .saveOptions);
+        if (self.folder != nil) {
+            try container.encode(self.folder, forKey: .folder);
+        }
+        if (self.storage != nil) {
+            try container.encode(self.storage, forKey: .storage);
+        }
+        if (self.loadEncoding != nil) {
+            try container.encode(self.loadEncoding, forKey: .loadEncoding);
+        }
+        if (self.password != nil) {
+            try container.encode(self.password, forKey: .password);
+        }
+        if (self.useAntiAliasing != nil) {
+            try container.encode(self.useAntiAliasing, forKey: .useAntiAliasing);
+        }
+        if (self.useHighQualityRendering != nil) {
+            try container.encode(self.useHighQualityRendering, forKey: .useHighQualityRendering);
+        }
+        if (self.imageBrightness != nil) {
+            try container.encode(self.imageBrightness, forKey: .imageBrightness);
+        }
+        if (self.imageColorMode != nil) {
+            try container.encode(self.imageColorMode, forKey: .imageColorMode);
+        }
+        if (self.imageContrast != nil) {
+            try container.encode(self.imageContrast, forKey: .imageContrast);
+        }
+        if (self.numeralFormat != nil) {
+            try container.encode(self.numeralFormat, forKey: .numeralFormat);
+        }
+        if (self.pageCount != nil) {
+            try container.encode(self.pageCount, forKey: .pageCount);
+        }
+        if (self.pageIndex != nil) {
+            try container.encode(self.pageIndex, forKey: .pageIndex);
+        }
+        if (self.paperColor != nil) {
+            try container.encode(self.paperColor, forKey: .paperColor);
+        }
+        if (self.pixelFormat != nil) {
+            try container.encode(self.pixelFormat, forKey: .pixelFormat);
+        }
+        if (self.resolution != nil) {
+            try container.encode(self.resolution, forKey: .resolution);
+        }
+        if (self.scale != nil) {
+            try container.encode(self.scale, forKey: .scale);
+        }
+        if (self.tiffCompression != nil) {
+            try container.encode(self.tiffCompression, forKey: .tiffCompression);
+        }
+        if (self.dmlRenderingMode != nil) {
+            try container.encode(self.dmlRenderingMode, forKey: .dmlRenderingMode);
+        }
+        if (self.dmlEffectsRenderingMode != nil) {
+            try container.encode(self.dmlEffectsRenderingMode, forKey: .dmlEffectsRenderingMode);
+        }
+        if (self.tiffBinarizationMethod != nil) {
+            try container.encode(self.tiffBinarizationMethod, forKey: .tiffBinarizationMethod);
+        }
+        if (self.zipOutput != nil) {
+            try container.encode(self.zipOutput, forKey: .zipOutput);
+        }
+        if (self.fontsLocation != nil) {
+            try container.encode(self.fontsLocation, forKey: .fontsLocation);
+        }
+        
+        
     }
     
     public func getName() -> String {

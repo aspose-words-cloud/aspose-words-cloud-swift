@@ -36,10 +36,42 @@ public class DocumentProperty : LinkElement {
     // Gets or sets string value of the document property.
     private let value : String?;
         
+    private enum CodingKeys: String, CodingKey { case builtIn, name, value }
+        
     public init(builtIn : Bool? = nil, name : String? = nil, value : String? = nil) {
         self.builtIn = builtIn;
         self.name = name;
         self.value = value;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let builtIn = try container.decodeIfPresent(Bool.self, forKey: .builtIn) {
+            self.builtIn = builtIn;
+        }
+        if let name = try container.decodeIfPresent(String.self, forKey: .name) {
+            self.name = name;
+        }
+        if let value = try container.decodeIfPresent(String.self, forKey: .value) {
+            self.value = value;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.builtIn != nil) {
+            try container.encode(self.builtIn, forKey: .builtIn);
+        }
+        if (self.name != nil) {
+            try container.encode(self.name, forKey: .name);
+        }
+        if (self.value != nil) {
+            try container.encode(self.value, forKey: .value);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getBuiltIn() -> Bool? {

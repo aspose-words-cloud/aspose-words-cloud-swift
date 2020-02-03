@@ -32,8 +32,28 @@ public class ProtectionData : Decodable {
     // Gets or sets type of the protection.
     private let protectionType : String?;
         
+    private enum CodingKeys: String, CodingKey { case protectionType }
+        
     public init(protectionType : String? = nil) {
         self.protectionType = protectionType;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let protectionType = try container.decodeIfPresent(String.self, forKey: .protectionType) {
+            self.protectionType = protectionType;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.protectionType != nil) {
+            try container.encode(self.protectionType, forKey: .protectionType);
+        }
+        
+        
     }
         
     public func getProtectionType() -> String? {

@@ -167,11 +167,49 @@ public class OfficeMathObject : OfficeMathLink {
     // Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
     private let mathObjectType : MathObjectType?;
         
+    private enum CodingKeys: String, CodingKey { case content, displayType, justification, mathObjectType }
+        
     public init(content : StoryChildNodes? = nil, displayType : DisplayType? = nil, justification : Justification? = nil, mathObjectType : MathObjectType? = nil) {
         self.content = content;
         self.displayType = displayType;
         self.justification = justification;
         self.mathObjectType = mathObjectType;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let content = try container.decodeIfPresent(StoryChildNodes.self, forKey: .content) {
+            self.content = content;
+        }
+        if let displayType = try container.decodeIfPresent(DisplayType.self, forKey: .displayType) {
+            self.displayType = displayType;
+        }
+        if let justification = try container.decodeIfPresent(Justification.self, forKey: .justification) {
+            self.justification = justification;
+        }
+        if let mathObjectType = try container.decodeIfPresent(MathObjectType.self, forKey: .mathObjectType) {
+            self.mathObjectType = mathObjectType;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.content != nil) {
+            try container.encode(self.content, forKey: .content);
+        }
+        if (self.displayType != nil) {
+            try container.encode(self.displayType, forKey: .displayType);
+        }
+        if (self.justification != nil) {
+            try container.encode(self.justification, forKey: .justification);
+        }
+        if (self.mathObjectType != nil) {
+            try container.encode(self.mathObjectType, forKey: .mathObjectType);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getContent() -> StoryChildNodes? {

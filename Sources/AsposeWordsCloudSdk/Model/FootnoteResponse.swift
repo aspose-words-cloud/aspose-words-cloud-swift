@@ -32,8 +32,28 @@ public class FootnoteResponse : WordsResponse {
     // Gets or sets footnote information.
     private let footnote : Footnote?;
         
+    private enum CodingKeys: String, CodingKey { case footnote }
+        
     public init(footnote : Footnote? = nil) {
         self.footnote = footnote;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let footnote = try container.decodeIfPresent(Footnote.self, forKey: .footnote) {
+            self.footnote = footnote;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.footnote != nil) {
+            try container.encode(self.footnote, forKey: .footnote);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getFootnote() -> Footnote? {

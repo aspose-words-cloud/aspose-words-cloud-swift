@@ -34,9 +34,31 @@ public class XmlColor : Decodable {
     // Gets or sets alpha component of color structure.
     private let alpha : Int;
         
+    private enum CodingKeys: String, CodingKey { case web, alpha }
+        
     public init(web : String? = nil, alpha : Int) {
         self.web = web;
         self.alpha = alpha;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let web = try container.decodeIfPresent(String.self, forKey: .web) {
+            self.web = web;
+        }
+        self.alpha = try container.decode(Int.self, forKey: .alpha);
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.web != nil) {
+            try container.encode(self.web, forKey: .web);
+        }
+        try container.encode(self.alpha, forKey: .alpha);
+        
+        
     }
         
     public func getWeb() -> String? {

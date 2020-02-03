@@ -32,8 +32,28 @@ public class TableRowFormatResponse : WordsResponse {
     // Gets or sets table.
     private let rowFormat : TableRowFormat?;
         
+    private enum CodingKeys: String, CodingKey { case rowFormat }
+        
     public init(rowFormat : TableRowFormat? = nil) {
         self.rowFormat = rowFormat;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        try super.init(from: try container.superDecoder());
+        if let rowFormat = try container.decodeIfPresent(TableRowFormat.self, forKey: .rowFormat) {
+            self.rowFormat = rowFormat;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.rowFormat != nil) {
+            try container.encode(self.rowFormat, forKey: .rowFormat);
+        }
+        
+        try super.encode(to: container.superEncoder());
     }
         
     public func getRowFormat() -> TableRowFormat? {

@@ -32,8 +32,28 @@ public class LinkElement : Decodable {
     // Gets or sets link to the document.
     private let link : WordsApiLink?;
         
+    private enum CodingKeys: String, CodingKey { case link }
+        
     public init(link : WordsApiLink? = nil) {
         self.link = link;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let link = try container.decodeIfPresent(WordsApiLink.self, forKey: .link) {
+            self.link = link;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.link != nil) {
+            try container.encode(self.link, forKey: .link);
+        }
+        
+        
     }
         
     public func getLink() -> WordsApiLink? {

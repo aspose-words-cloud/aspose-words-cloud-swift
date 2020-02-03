@@ -32,8 +32,28 @@ public class TableCellInsert : Decodable {
     // Gets or sets table cell will be inserted after cell with specified 0-based index.
     private let insertAfter : Int?;
         
+    private enum CodingKeys: String, CodingKey { case insertAfter }
+        
     public init(insertAfter : Int? = nil) {
         self.insertAfter = insertAfter;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let insertAfter = try container.decodeIfPresent(Int.self, forKey: .insertAfter) {
+            self.insertAfter = insertAfter;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.insertAfter != nil) {
+            try container.encode(self.insertAfter, forKey: .insertAfter);
+        }
+        
+        
     }
         
     public func getInsertAfter() -> Int? {

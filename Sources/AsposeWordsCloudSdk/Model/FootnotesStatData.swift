@@ -34,9 +34,27 @@ public class FootnotesStatData : Decodable {
     // Gets or sets total count of paragraphs in footnotes.
     private let paragraphCount : Int;
         
+    private enum CodingKeys: String, CodingKey { case wordCount, paragraphCount }
+        
     public init(wordCount : Int, paragraphCount : Int) {
         self.wordCount = wordCount;
         self.paragraphCount = paragraphCount;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.wordCount = try container.decode(Int.self, forKey: .wordCount);
+        self.paragraphCount = try container.decode(Int.self, forKey: .paragraphCount);
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.wordCount, forKey: .wordCount);
+        try container.encode(self.paragraphCount, forKey: .paragraphCount);
+        
+        
     }
         
     public func getWordCount() -> Int {

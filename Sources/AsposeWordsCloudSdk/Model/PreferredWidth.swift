@@ -48,9 +48,31 @@ public class PreferredWidth : Decodable {
     // Gets or sets the preferred width value. The unit of measure is specified in the  property.
     private let value : Double?;
         
+    private enum CodingKeys: String, CodingKey { case type, value }
+        
     public init(type : ModelType, value : Double? = nil) {
         self.type = type;
         self.value = value;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        self.type = try container.decode(ModelType.self, forKey: .type);
+        if let value = try container.decodeIfPresent(Double.self, forKey: .value) {
+            self.value = value;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.type, forKey: .type);
+        if (self.value != nil) {
+            try container.encode(self.value, forKey: .value);
+        }
+        
+        
     }
         
     public func getType() -> ModelType {

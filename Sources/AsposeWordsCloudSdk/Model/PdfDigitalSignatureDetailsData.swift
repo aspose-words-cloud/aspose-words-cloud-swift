@@ -40,12 +40,56 @@ public class PdfDigitalSignatureDetailsData : Decodable {
     // Gets or sets date of the signing.
     private let signatureDate : Date?;
         
+    private enum CodingKeys: String, CodingKey { case certificateFilename, hashAlgorithm, location, reason, signatureDate }
+        
     public init(certificateFilename : String? = nil, hashAlgorithm : String? = nil, location : String? = nil, reason : String? = nil, signatureDate : Date? = nil) {
         self.certificateFilename = certificateFilename;
         self.hashAlgorithm = hashAlgorithm;
         self.location = location;
         self.reason = reason;
         self.signatureDate = signatureDate;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        
+        if let certificateFilename = try container.decodeIfPresent(String.self, forKey: .certificateFilename) {
+            self.certificateFilename = certificateFilename;
+        }
+        if let hashAlgorithm = try container.decodeIfPresent(String.self, forKey: .hashAlgorithm) {
+            self.hashAlgorithm = hashAlgorithm;
+        }
+        if let location = try container.decodeIfPresent(String.self, forKey: .location) {
+            self.location = location;
+        }
+        if let reason = try container.decodeIfPresent(String.self, forKey: .reason) {
+            self.reason = reason;
+        }
+        if let signatureDate = try container.decodeIfPresent(Date.self, forKey: .signatureDate) {
+            self.signatureDate = signatureDate;
+        }
+
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.certificateFilename != nil) {
+            try container.encode(self.certificateFilename, forKey: .certificateFilename);
+        }
+        if (self.hashAlgorithm != nil) {
+            try container.encode(self.hashAlgorithm, forKey: .hashAlgorithm);
+        }
+        if (self.location != nil) {
+            try container.encode(self.location, forKey: .location);
+        }
+        if (self.reason != nil) {
+            try container.encode(self.reason, forKey: .reason);
+        }
+        if (self.signatureDate != nil) {
+            try container.encode(self.signatureDate, forKey: .signatureDate);
+        }
+        
+        
     }
         
     public func getCertificateFilename() -> String? {
