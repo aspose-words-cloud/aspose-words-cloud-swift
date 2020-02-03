@@ -29,25 +29,25 @@ import Foundation
 
 public class FormFieldTextInput : FormField {
     // Gets or sets the type of a text form field.
-    public enum TextInputType : Int, Codable
+    public enum TextInputType : String, Codable
     { 
         // Enum value "regular"
-        case regular
+        case regular = "Regular"
         
         // Enum value "number"
-        case number
+        case number = "Number"
         
         // Enum value "date"
-        case date
+        case date = "Date"
         
         // Enum value "currentDate"
-        case currentDate
+        case currentDate = "CurrentDate"
         
         // Enum value "currentTime"
-        case currentTime
+        case currentTime = "CurrentTime"
         
         // Enum value "calculated"
-        case calculated
+        case calculated = "Calculated"
         
     }
 

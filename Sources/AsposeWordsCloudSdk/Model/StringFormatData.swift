@@ -29,99 +29,99 @@ import Foundation
 
 public class StringFormatData : Codable {
     // Gets or sets horizontal alignment of the string.
-    public enum Alignment : Int, Codable
+    public enum Alignment : String, Codable
     { 
         // Enum value "near"
-        case near
+        case near = "Near"
         
         // Enum value "center"
-        case center
+        case center = "Center"
         
         // Enum value "far"
-        case far
+        case far = "Far"
         
     }
 
     // Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
-    public enum FormatFlags : Int, Codable
+    public enum FormatFlags : String, Codable
     { 
         // Enum value "directionRightToLeft"
-        case directionRightToLeft
+        case directionRightToLeft = "DirectionRightToLeft"
         
         // Enum value "directionVertical"
-        case directionVertical
+        case directionVertical = "DirectionVertical"
         
         // Enum value "fitBlackBox"
-        case fitBlackBox
+        case fitBlackBox = "FitBlackBox"
         
         // Enum value "displayFormatControl"
-        case displayFormatControl
+        case displayFormatControl = "DisplayFormatControl"
         
         // Enum value "noFontFallback"
-        case noFontFallback
+        case noFontFallback = "NoFontFallback"
         
         // Enum value "measureTrailingSpaces"
-        case measureTrailingSpaces
+        case measureTrailingSpaces = "MeasureTrailingSpaces"
         
         // Enum value "noWrap"
-        case noWrap
+        case noWrap = "NoWrap"
         
         // Enum value "lineLimit"
-        case lineLimit
+        case lineLimit = "LineLimit"
         
         // Enum value "noClip"
-        case noClip
+        case noClip = "NoClip"
         
     }
 
     // Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.
-    public enum HotkeyPrefix : Int, Codable
+    public enum HotkeyPrefix : String, Codable
     { 
         // Enum value "_none"
-        case _none
+        case _none = "None"
         
         // Enum value "show"
-        case show
+        case show = "Show"
         
         // Enum value "hide"
-        case hide
+        case hide = "Hide"
         
     }
 
     // Gets or sets the vertical alignment of the string.
-    public enum LineAlignment : Int, Codable
+    public enum LineAlignment : String, Codable
     { 
         // Enum value "near"
-        case near
+        case near = "Near"
         
         // Enum value "center"
-        case center
+        case center = "Center"
         
         // Enum value "far"
-        case far
+        case far = "Far"
         
     }
 
     // Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.
-    public enum Trimming : Int, Codable
+    public enum Trimming : String, Codable
     { 
         // Enum value "_none"
-        case _none
+        case _none = "None"
         
         // Enum value "character"
-        case character
+        case character = "Character"
         
         // Enum value "word"
-        case word
+        case word = "Word"
         
         // Enum value "ellipsisCharacter"
-        case ellipsisCharacter
+        case ellipsisCharacter = "EllipsisCharacter"
         
         // Enum value "ellipsisWord"
-        case ellipsisWord
+        case ellipsisWord = "EllipsisWord"
         
         // Enum value "ellipsisPath"
-        case ellipsisPath
+        case ellipsisPath = "EllipsisPath"
         
     }
 

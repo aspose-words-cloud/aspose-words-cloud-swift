@@ -29,120 +29,120 @@ import Foundation
 
 public class Border : LinkElement {
     // Gets or sets the border type.             
-    public enum BorderType : Int, Codable
+    public enum BorderType : String, Codable
     { 
         // Enum value "bottom"
-        case bottom
+        case bottom = "Bottom"
         
         // Enum value "_left"
-        case _left
+        case _left = "Left"
         
         // Enum value "_right"
-        case _right
+        case _right = "Right"
         
         // Enum value "top"
-        case top
+        case top = "Top"
         
         // Enum value "horizontal"
-        case horizontal
+        case horizontal = "Horizontal"
         
         // Enum value "vertical"
-        case vertical
+        case vertical = "Vertical"
         
         // Enum value "diagonalDown"
-        case diagonalDown
+        case diagonalDown = "DiagonalDown"
         
         // Enum value "diagonalUp"
-        case diagonalUp
+        case diagonalUp = "DiagonalUp"
         
         // Enum value "_none"
-        case _none
+        case _none = "None"
         
     }
 
     // Gets or sets the border style.
-    public enum LineStyle : Int, Codable
+    public enum LineStyle : String, Codable
     { 
         // Enum value "_none"
-        case _none
+        case _none = "None"
         
         // Enum value "single"
-        case single
+        case single = "Single"
         
         // Enum value "thick"
-        case thick
+        case thick = "Thick"
         
         // Enum value "double"
-        case double
+        case double = "Double"
         
         // Enum value "hairline"
-        case hairline
+        case hairline = "Hairline"
         
         // Enum value "dot"
-        case dot
+        case dot = "Dot"
         
         // Enum value "dashLargeGap"
-        case dashLargeGap
+        case dashLargeGap = "DashLargeGap"
         
         // Enum value "dotDash"
-        case dotDash
+        case dotDash = "DotDash"
         
         // Enum value "dotDotDash"
-        case dotDotDash
+        case dotDotDash = "DotDotDash"
         
         // Enum value "triple"
-        case triple
+        case triple = "Triple"
         
         // Enum value "thinThickSmallGap"
-        case thinThickSmallGap
+        case thinThickSmallGap = "ThinThickSmallGap"
         
         // Enum value "thickThinSmallGap"
-        case thickThinSmallGap
+        case thickThinSmallGap = "ThickThinSmallGap"
         
         // Enum value "thinThickThinSmallGap"
-        case thinThickThinSmallGap
+        case thinThickThinSmallGap = "ThinThickThinSmallGap"
         
         // Enum value "thinThickMediumGap"
-        case thinThickMediumGap
+        case thinThickMediumGap = "ThinThickMediumGap"
         
         // Enum value "thickThinMediumGap"
-        case thickThinMediumGap
+        case thickThinMediumGap = "ThickThinMediumGap"
         
         // Enum value "thinThickThinMediumGap"
-        case thinThickThinMediumGap
+        case thinThickThinMediumGap = "ThinThickThinMediumGap"
         
         // Enum value "thinThickLargeGap"
-        case thinThickLargeGap
+        case thinThickLargeGap = "ThinThickLargeGap"
         
         // Enum value "thickThinLargeGap"
-        case thickThinLargeGap
+        case thickThinLargeGap = "ThickThinLargeGap"
         
         // Enum value "thinThickThinLargeGap"
-        case thinThickThinLargeGap
+        case thinThickThinLargeGap = "ThinThickThinLargeGap"
         
         // Enum value "wave"
-        case wave
+        case wave = "Wave"
         
         // Enum value "doubleWave"
-        case doubleWave
+        case doubleWave = "DoubleWave"
         
         // Enum value "dashSmallGap"
-        case dashSmallGap
+        case dashSmallGap = "DashSmallGap"
         
         // Enum value "dashDotStroker"
-        case dashDotStroker
+        case dashDotStroker = "DashDotStroker"
         
         // Enum value "emboss3D"
-        case emboss3D
+        case emboss3D = "Emboss3D"
         
         // Enum value "engrave3D"
-        case engrave3D
+        case engrave3D = "Engrave3D"
         
         // Enum value "outset"
-        case outset
+        case outset = "Outset"
         
         // Enum value "inset"
-        case inset
+        case inset = "Inset"
         
     }
 

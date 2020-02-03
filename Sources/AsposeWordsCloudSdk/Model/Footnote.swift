@@ -29,13 +29,13 @@ import Foundation
 
 public class Footnote : FootnoteLink {
     // Gets or sets returns a value that specifies whether this is a footnote or endnote.
-    public enum FootnoteType : Int, Codable
+    public enum FootnoteType : String, Codable
     { 
         // Enum value "footnote"
-        case footnote
+        case footnote = "Footnote"
         
         // Enum value "endnote"
-        case endnote
+        case endnote = "Endnote"
         
     }
 

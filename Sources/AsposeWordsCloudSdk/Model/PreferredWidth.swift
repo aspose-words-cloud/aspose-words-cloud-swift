@@ -29,16 +29,16 @@ import Foundation
 
 public class PreferredWidth : Codable {
     // Gets or sets the unit of measure used for this preferred width value.
-    public enum ModelType : Int, Codable
+    public enum ModelType : String, Codable
     { 
         // Enum value "auto"
-        case auto
+        case auto = "Auto"
         
         // Enum value "percent"
-        case percent
+        case percent = "Percent"
         
         // Enum value "points"
-        case points
+        case points = "Points"
         
     }
 

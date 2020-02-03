@@ -29,67 +29,67 @@ import Foundation
 
 public class TableCellFormat : LinkElement {
     // Gets or sets specifies how the cell is merged horizontally with other cells in the row.
-    public enum HorizontalMerge : Int, Codable
+    public enum HorizontalMerge : String, Codable
     { 
         // Enum value "_none"
-        case _none
+        case _none = "None"
         
         // Enum value "first"
-        case first
+        case first = "First"
         
         // Enum value "previous"
-        case previous
+        case previous = "Previous"
         
     }
 
     // Gets or sets returns or sets the orientation of text in a table cell.
-    public enum Orientation : Int, Codable
+    public enum Orientation : String, Codable
     { 
         // Enum value "horizontal"
-        case horizontal
+        case horizontal = "Horizontal"
         
         // Enum value "downward"
-        case downward
+        case downward = "Downward"
         
         // Enum value "upward"
-        case upward
+        case upward = "Upward"
         
         // Enum value "horizontalRotatedFarEast"
-        case horizontalRotatedFarEast
+        case horizontalRotatedFarEast = "HorizontalRotatedFarEast"
         
         // Enum value "verticalFarEast"
-        case verticalFarEast
+        case verticalFarEast = "VerticalFarEast"
         
         // Enum value "verticalRotatedFarEast"
-        case verticalRotatedFarEast
+        case verticalRotatedFarEast = "VerticalRotatedFarEast"
         
     }
 
     // Gets or sets returns or sets the vertical alignment of text in the cell.
-    public enum VerticalAlignment : Int, Codable
+    public enum VerticalAlignment : String, Codable
     { 
         // Enum value "top"
-        case top
+        case top = "Top"
         
         // Enum value "center"
-        case center
+        case center = "Center"
         
         // Enum value "bottom"
-        case bottom
+        case bottom = "Bottom"
         
     }
 
     // Gets or sets specifies how the cell is merged with other cells vertically.
-    public enum VerticalMerge : Int, Codable
+    public enum VerticalMerge : String, Codable
     { 
         // Enum value "_none"
-        case _none
+        case _none = "None"
         
         // Enum value "first"
-        case first
+        case first = "First"
         
         // Enum value "previous"
-        case previous
+        case previous = "Previous"
         
     }
 

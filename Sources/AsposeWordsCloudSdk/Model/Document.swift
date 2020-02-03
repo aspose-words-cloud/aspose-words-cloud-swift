@@ -29,70 +29,70 @@ import Foundation
 
 public class Document : Codable {
     // Gets or sets the original format of the document.
-    public enum SourceFormat : Int, Codable
+    public enum SourceFormat : String, Codable
     { 
         // Enum value "unknown"
-        case unknown
+        case unknown = "Unknown"
         
         // Enum value "doc"
-        case doc
+        case doc = "Doc"
         
         // Enum value "dot"
-        case dot
+        case dot = "Dot"
         
         // Enum value "docPreWord60"
-        case docPreWord60
+        case docPreWord60 = "DocPreWord60"
         
         // Enum value "docx"
-        case docx
+        case docx = "Docx"
         
         // Enum value "docm"
-        case docm
+        case docm = "Docm"
         
         // Enum value "dotx"
-        case dotx
+        case dotx = "Dotx"
         
         // Enum value "dotm"
-        case dotm
+        case dotm = "Dotm"
         
         // Enum value "flatOpc"
-        case flatOpc
+        case flatOpc = "FlatOpc"
         
         // Enum value "rtf"
-        case rtf
+        case rtf = "Rtf"
         
         // Enum value "wordML"
-        case wordML
+        case wordML = "WordML"
         
         // Enum value "html"
-        case html
+        case html = "Html"
         
         // Enum value "mhtml"
-        case mhtml
+        case mhtml = "Mhtml"
         
         // Enum value "epub"
-        case epub
+        case epub = "Epub"
         
         // Enum value "text"
-        case text
+        case text = "Text"
         
         // Enum value "odt"
-        case odt
+        case odt = "Odt"
         
         // Enum value "ott"
-        case ott
+        case ott = "Ott"
         
         // Enum value "pdf"
-        case pdf
+        case pdf = "Pdf"
         
         // Enum value "xps"
-        case xps
+        case xps = "Xps"
         
         // Enum value "tiff"
-        case tiff
+        case tiff = "Tiff"
         
         // Enum value "svg"
-        case svg
+        case svg = "Svg"
         
     }
 

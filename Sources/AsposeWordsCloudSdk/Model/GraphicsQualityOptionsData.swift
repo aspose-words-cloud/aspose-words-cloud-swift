@@ -29,114 +29,114 @@ import Foundation
 
 public class GraphicsQualityOptionsData : Codable {
     // Gets or sets a value that specifies how composited images are drawn to this Graphics.
-    public enum CompositingMode : Int, Codable
+    public enum CompositingMode : String, Codable
     { 
         // Enum value "sourceOver"
-        case sourceOver
+        case sourceOver = "SourceOver"
         
         // Enum value "sourceCopy"
-        case sourceCopy
+        case sourceCopy = "SourceCopy"
         
     }
 
     // Gets or sets the rendering quality of composited images drawn to this Graphics.
-    public enum CompositingQuality : Int, Codable
+    public enum CompositingQuality : String, Codable
     { 
         // Enum value "_default"
-        case _default
+        case _default = "Default"
         
         // Enum value "highSpeed"
-        case highSpeed
+        case highSpeed = "HighSpeed"
         
         // Enum value "highQuality"
-        case highQuality
+        case highQuality = "HighQuality"
         
         // Enum value "gammaCorrected"
-        case gammaCorrected
+        case gammaCorrected = "GammaCorrected"
         
         // Enum value "assumeLinear"
-        case assumeLinear
+        case assumeLinear = "AssumeLinear"
         
         // Enum value "invalid"
-        case invalid
+        case invalid = "Invalid"
         
     }
 
     // Gets or sets the interpolation mode associated with this Graphics.
-    public enum InterpolationMode : Int, Codable
+    public enum InterpolationMode : String, Codable
     { 
         // Enum value "_default"
-        case _default
+        case _default = "Default"
         
         // Enum value "low"
-        case low
+        case low = "Low"
         
         // Enum value "high"
-        case high
+        case high = "High"
         
         // Enum value "bilinear"
-        case bilinear
+        case bilinear = "Bilinear"
         
         // Enum value "bicubic"
-        case bicubic
+        case bicubic = "Bicubic"
         
         // Enum value "nearestNeighbor"
-        case nearestNeighbor
+        case nearestNeighbor = "NearestNeighbor"
         
         // Enum value "highQualityBilinear"
-        case highQualityBilinear
+        case highQualityBilinear = "HighQualityBilinear"
         
         // Enum value "highQualityBicubic"
-        case highQualityBicubic
+        case highQualityBicubic = "HighQualityBicubic"
         
         // Enum value "invalid"
-        case invalid
+        case invalid = "Invalid"
         
     }
 
     // Gets or sets the rendering quality for this Graphics.
-    public enum SmoothingMode : Int, Codable
+    public enum SmoothingMode : String, Codable
     { 
         // Enum value "_default"
-        case _default
+        case _default = "Default"
         
         // Enum value "highSpeed"
-        case highSpeed
+        case highSpeed = "HighSpeed"
         
         // Enum value "highQuality"
-        case highQuality
+        case highQuality = "HighQuality"
         
         // Enum value "_none"
-        case _none
+        case _none = "None"
         
         // Enum value "antiAlias"
-        case antiAlias
+        case antiAlias = "AntiAlias"
         
         // Enum value "invalid"
-        case invalid
+        case invalid = "Invalid"
         
     }
 
     // Gets or sets the rendering mode for text associated with this Graphics.
-    public enum TextRenderingHint : Int, Codable
+    public enum TextRenderingHint : String, Codable
     { 
         // Enum value "systemDefault"
-        case systemDefault
+        case systemDefault = "SystemDefault"
         
         // Enum value "singleBitPerPixelGridFit"
-        case singleBitPerPixelGridFit
+        case singleBitPerPixelGridFit = "SingleBitPerPixelGridFit"
         
         // Enum value "singleBitPerPixel"
-        case singleBitPerPixel
+        case singleBitPerPixel = "SingleBitPerPixel"
         
         // Enum value "antiAliasGridFit"
-        case antiAliasGridFit
+        case antiAliasGridFit = "AntiAliasGridFit"
         
         // Enum value "antiAlias"
-        case antiAlias
+        case antiAlias = "AntiAlias"
         
         // Enum value "clearTypeGridFit"
-        case clearTypeGridFit
+        case clearTypeGridFit = "ClearTypeGridFit"
         
     }
 

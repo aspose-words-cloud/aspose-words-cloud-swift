@@ -29,131 +29,131 @@ import Foundation
 
 public class OfficeMathObject : OfficeMathLink {
     // Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.
-    public enum DisplayType : Int, Codable
+    public enum DisplayType : String, Codable
     { 
         // Enum value "display"
-        case display
+        case display = "Display"
         
         // Enum value "inline"
-        case inline
+        case inline = "Inline"
         
     }
 
     // Gets or sets /sets Office Math justification.
-    public enum Justification : Int, Codable
+    public enum Justification : String, Codable
     { 
         // Enum value "centerGroup"
-        case centerGroup
+        case centerGroup = "CenterGroup"
         
         // Enum value "_default"
-        case _default
+        case _default = "Default"
         
         // Enum value "center"
-        case center
+        case center = "Center"
         
         // Enum value "_left"
-        case _left
+        case _left = "Left"
         
         // Enum value "_right"
-        case _right
+        case _right = "Right"
         
         // Enum value "inline"
-        case inline
+        case inline = "Inline"
         
     }
 
     // Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
-    public enum MathObjectType : Int, Codable
+    public enum MathObjectType : String, Codable
     { 
         // Enum value "omath"
-        case omath
+        case omath = "OMath"
         
         // Enum value "omathpara"
-        case omathpara
+        case omathpara = "OMathPara"
         
         // Enum value "accent"
-        case accent
+        case accent = "Accent"
         
         // Enum value "bar"
-        case bar
+        case bar = "Bar"
         
         // Enum value "borderBox"
-        case borderBox
+        case borderBox = "BorderBox"
         
         // Enum value "box"
-        case box
+        case box = "Box"
         
         // Enum value "delimiter"
-        case delimiter
+        case delimiter = "Delimiter"
         
         // Enum value "degree"
-        case degree
+        case degree = "Degree"
         
         // Enum value "argument"
-        case argument
+        case argument = "Argument"
         
         // Enum value "array"
-        case array
+        case array = "Array"
         
         // Enum value "fraction"
-        case fraction
+        case fraction = "Fraction"
         
         // Enum value "denominator"
-        case denominator
+        case denominator = "Denominator"
         
         // Enum value "numerator"
-        case numerator
+        case numerator = "Numerator"
         
         // Enum value "function"
-        case function
+        case function = "Function"
         
         // Enum value "functionName"
-        case functionName
+        case functionName = "FunctionName"
         
         // Enum value "groupCharacter"
-        case groupCharacter
+        case groupCharacter = "GroupCharacter"
         
         // Enum value "limit"
-        case limit
+        case limit = "Limit"
         
         // Enum value "lowerLimit"
-        case lowerLimit
+        case lowerLimit = "LowerLimit"
         
         // Enum value "upperLimit"
-        case upperLimit
+        case upperLimit = "UpperLimit"
         
         // Enum value "matrix"
-        case matrix
+        case matrix = "Matrix"
         
         // Enum value "matrixRow"
-        case matrixRow
+        case matrixRow = "MatrixRow"
         
         // Enum value "nary"
-        case nary
+        case nary = "NAry"
         
         // Enum value "phantom"
-        case phantom
+        case phantom = "Phantom"
         
         // Enum value "radical"
-        case radical
+        case radical = "Radical"
         
         // Enum value "subscriptPart"
-        case subscriptPart
+        case subscriptPart = "SubscriptPart"
         
         // Enum value "superscriptPart"
-        case superscriptPart
+        case superscriptPart = "SuperscriptPart"
         
         // Enum value "preSubSuperscript"
-        case preSubSuperscript
+        case preSubSuperscript = "PreSubSuperscript"
         
         // Enum value "_subscript"
-        case _subscript
+        case _subscript = "Subscript"
         
         // Enum value "subSuperscript"
-        case subSuperscript
+        case subSuperscript = "SubSuperscript"
         
         // Enum value "supercript"
-        case supercript
+        case supercript = "Supercript"
         
     }
 

@@ -29,13 +29,13 @@ import Foundation
 
 public class ReplaceRange : Codable {
     // Gets or sets range&#39;s text type.
-    public enum TextType : Int, Codable
+    public enum TextType : String, Codable
     { 
         // Enum value "text"
-        case text
+        case text = "Text"
         
         // Enum value "html"
-        case html
+        case html = "Html"
         
     }
 

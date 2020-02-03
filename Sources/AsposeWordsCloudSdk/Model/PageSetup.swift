@@ -29,336 +29,336 @@ import Foundation
 
 public class PageSetup : LinkElement {
     // Gets or sets specifies which pages the page border is printed on.             
-    public enum BorderAppliesTo : Int, Codable
+    public enum BorderAppliesTo : String, Codable
     { 
         // Enum value "allPages"
-        case allPages
+        case allPages = "AllPages"
         
         // Enum value "firstPage"
-        case firstPage
+        case firstPage = "FirstPage"
         
         // Enum value "otherPages"
-        case otherPages
+        case otherPages = "OtherPages"
         
     }
 
     // Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.             
-    public enum BorderDistanceFrom : Int, Codable
+    public enum BorderDistanceFrom : String, Codable
     { 
         // Enum value "text"
-        case text
+        case text = "Text"
         
         // Enum value "pageEdge"
-        case pageEdge
+        case pageEdge = "PageEdge"
         
     }
 
     // Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.             
-    public enum LineNumberRestartMode : Int, Codable
+    public enum LineNumberRestartMode : String, Codable
     { 
         // Enum value "restartPage"
-        case restartPage
+        case restartPage = "RestartPage"
         
         // Enum value "restartSection"
-        case restartSection
+        case restartSection = "RestartSection"
         
         // Enum value "continuous"
-        case continuous
+        case continuous = "Continuous"
         
     }
 
     // Gets or sets returns or sets the orientation of the page.             
-    public enum Orientation : Int, Codable
+    public enum Orientation : String, Codable
     { 
         // Enum value "portrait"
-        case portrait
+        case portrait = "Portrait"
         
         // Enum value "landscape"
-        case landscape
+        case landscape = "Landscape"
         
     }
 
     // Gets or sets the page number format.             
-    public enum PageNumberStyle : Int, Codable
+    public enum PageNumberStyle : String, Codable
     { 
         // Enum value "arabic"
-        case arabic
+        case arabic = "Arabic"
         
         // Enum value "uppercaseRoman"
-        case uppercaseRoman
+        case uppercaseRoman = "UppercaseRoman"
         
         // Enum value "lowercaseRoman"
-        case lowercaseRoman
+        case lowercaseRoman = "LowercaseRoman"
         
         // Enum value "uppercaseLetter"
-        case uppercaseLetter
+        case uppercaseLetter = "UppercaseLetter"
         
         // Enum value "lowercaseLetter"
-        case lowercaseLetter
+        case lowercaseLetter = "LowercaseLetter"
         
         // Enum value "ordinal"
-        case ordinal
+        case ordinal = "Ordinal"
         
         // Enum value "number"
-        case number
+        case number = "Number"
         
         // Enum value "ordinalText"
-        case ordinalText
+        case ordinalText = "OrdinalText"
         
         // Enum value "hex"
-        case hex
+        case hex = "Hex"
         
         // Enum value "chicagoManual"
-        case chicagoManual
+        case chicagoManual = "ChicagoManual"
         
         // Enum value "kanji"
-        case kanji
+        case kanji = "Kanji"
         
         // Enum value "kanjiDigit"
-        case kanjiDigit
+        case kanjiDigit = "KanjiDigit"
         
         // Enum value "aiueoHalfWidth"
-        case aiueoHalfWidth
+        case aiueoHalfWidth = "AiueoHalfWidth"
         
         // Enum value "irohaHalfWidth"
-        case irohaHalfWidth
+        case irohaHalfWidth = "IrohaHalfWidth"
         
         // Enum value "arabicFullWidth"
-        case arabicFullWidth
+        case arabicFullWidth = "ArabicFullWidth"
         
         // Enum value "arabicHalfWidth"
-        case arabicHalfWidth
+        case arabicHalfWidth = "ArabicHalfWidth"
         
         // Enum value "kanjiTraditional"
-        case kanjiTraditional
+        case kanjiTraditional = "KanjiTraditional"
         
         // Enum value "kanjiTraditional2"
-        case kanjiTraditional2
+        case kanjiTraditional2 = "KanjiTraditional2"
         
         // Enum value "numberInCircle"
-        case numberInCircle
+        case numberInCircle = "NumberInCircle"
         
         // Enum value "decimalFullWidth"
-        case decimalFullWidth
+        case decimalFullWidth = "DecimalFullWidth"
         
         // Enum value "aiueo"
-        case aiueo
+        case aiueo = "Aiueo"
         
         // Enum value "iroha"
-        case iroha
+        case iroha = "Iroha"
         
         // Enum value "leadingZero"
-        case leadingZero
+        case leadingZero = "LeadingZero"
         
         // Enum value "bullet"
-        case bullet
+        case bullet = "Bullet"
         
         // Enum value "ganada"
-        case ganada
+        case ganada = "Ganada"
         
         // Enum value "chosung"
-        case chosung
+        case chosung = "Chosung"
         
         // Enum value "gb1"
-        case gb1
+        case gb1 = "GB1"
         
         // Enum value "gb2"
-        case gb2
+        case gb2 = "GB2"
         
         // Enum value "gb3"
-        case gb3
+        case gb3 = "GB3"
         
         // Enum value "gb4"
-        case gb4
+        case gb4 = "GB4"
         
         // Enum value "zodiac1"
-        case zodiac1
+        case zodiac1 = "Zodiac1"
         
         // Enum value "zodiac2"
-        case zodiac2
+        case zodiac2 = "Zodiac2"
         
         // Enum value "zodiac3"
-        case zodiac3
+        case zodiac3 = "Zodiac3"
         
         // Enum value "tradChinNum1"
-        case tradChinNum1
+        case tradChinNum1 = "TradChinNum1"
         
         // Enum value "tradChinNum2"
-        case tradChinNum2
+        case tradChinNum2 = "TradChinNum2"
         
         // Enum value "tradChinNum3"
-        case tradChinNum3
+        case tradChinNum3 = "TradChinNum3"
         
         // Enum value "tradChinNum4"
-        case tradChinNum4
+        case tradChinNum4 = "TradChinNum4"
         
         // Enum value "simpChinNum1"
-        case simpChinNum1
+        case simpChinNum1 = "SimpChinNum1"
         
         // Enum value "simpChinNum2"
-        case simpChinNum2
+        case simpChinNum2 = "SimpChinNum2"
         
         // Enum value "simpChinNum3"
-        case simpChinNum3
+        case simpChinNum3 = "SimpChinNum3"
         
         // Enum value "simpChinNum4"
-        case simpChinNum4
+        case simpChinNum4 = "SimpChinNum4"
         
         // Enum value "hanjaRead"
-        case hanjaRead
+        case hanjaRead = "HanjaRead"
         
         // Enum value "hanjaReadDigit"
-        case hanjaReadDigit
+        case hanjaReadDigit = "HanjaReadDigit"
         
         // Enum value "hangul"
-        case hangul
+        case hangul = "Hangul"
         
         // Enum value "hanja"
-        case hanja
+        case hanja = "Hanja"
         
         // Enum value "hebrew1"
-        case hebrew1
+        case hebrew1 = "Hebrew1"
         
         // Enum value "arabic1"
-        case arabic1
+        case arabic1 = "Arabic1"
         
         // Enum value "hebrew2"
-        case hebrew2
+        case hebrew2 = "Hebrew2"
         
         // Enum value "arabic2"
-        case arabic2
+        case arabic2 = "Arabic2"
         
         // Enum value "hindiLetter1"
-        case hindiLetter1
+        case hindiLetter1 = "HindiLetter1"
         
         // Enum value "hindiLetter2"
-        case hindiLetter2
+        case hindiLetter2 = "HindiLetter2"
         
         // Enum value "hindiArabic"
-        case hindiArabic
+        case hindiArabic = "HindiArabic"
         
         // Enum value "hindiCardinalText"
-        case hindiCardinalText
+        case hindiCardinalText = "HindiCardinalText"
         
         // Enum value "thaiLetter"
-        case thaiLetter
+        case thaiLetter = "ThaiLetter"
         
         // Enum value "thaiArabic"
-        case thaiArabic
+        case thaiArabic = "ThaiArabic"
         
         // Enum value "thaiCardinalText"
-        case thaiCardinalText
+        case thaiCardinalText = "ThaiCardinalText"
         
         // Enum value "vietCardinalText"
-        case vietCardinalText
+        case vietCardinalText = "VietCardinalText"
         
         // Enum value "numberInDash"
-        case numberInDash
+        case numberInDash = "NumberInDash"
         
         // Enum value "lowercaseRussian"
-        case lowercaseRussian
+        case lowercaseRussian = "LowercaseRussian"
         
         // Enum value "uppercaseRussian"
-        case uppercaseRussian
+        case uppercaseRussian = "UppercaseRussian"
         
         // Enum value "_none"
-        case _none
+        case _none = "None"
         
         // Enum value "custom"
-        case custom
+        case custom = "Custom"
         
     }
 
     // Gets or sets returns or sets the paper size.             
-    public enum PaperSize : Int, Codable
+    public enum PaperSize : String, Codable
     { 
         // Enum value "a3"
-        case a3
+        case a3 = "A3"
         
         // Enum value "a4"
-        case a4
+        case a4 = "A4"
         
         // Enum value "a5"
-        case a5
+        case a5 = "A5"
         
         // Enum value "b4"
-        case b4
+        case b4 = "B4"
         
         // Enum value "b5"
-        case b5
+        case b5 = "B5"
         
         // Enum value "executive"
-        case executive
+        case executive = "Executive"
         
         // Enum value "folio"
-        case folio
+        case folio = "Folio"
         
         // Enum value "ledger"
-        case ledger
+        case ledger = "Ledger"
         
         // Enum value "legal"
-        case legal
+        case legal = "Legal"
         
         // Enum value "letter"
-        case letter
+        case letter = "Letter"
         
         // Enum value "envelopeDL"
-        case envelopeDL
+        case envelopeDL = "EnvelopeDL"
         
         // Enum value "quarto"
-        case quarto
+        case quarto = "Quarto"
         
         // Enum value "statement"
-        case statement
+        case statement = "Statement"
         
         // Enum value "tabloid"
-        case tabloid
+        case tabloid = "Tabloid"
         
         // Enum value "paper10x14"
-        case paper10x14
+        case paper10x14 = "Paper10x14"
         
         // Enum value "paper11x17"
-        case paper11x17
+        case paper11x17 = "Paper11x17"
         
         // Enum value "custom"
-        case custom
+        case custom = "Custom"
         
     }
 
     // Gets or sets returns or sets the type of section break for the specified object.             
-    public enum SectionStart : Int, Codable
+    public enum SectionStart : String, Codable
     { 
         // Enum value "continuous"
-        case continuous
+        case continuous = "Continuous"
         
         // Enum value "newColumn"
-        case newColumn
+        case newColumn = "NewColumn"
         
         // Enum value "newPage"
-        case newPage
+        case newPage = "NewPage"
         
         // Enum value "evenPage"
-        case evenPage
+        case evenPage = "EvenPage"
         
         // Enum value "oddPage"
-        case oddPage
+        case oddPage = "OddPage"
         
     }
 
     // Gets or sets returns or sets the vertical alignment of text on each page in a document or section.             
-    public enum VerticalAlignment : Int, Codable
+    public enum VerticalAlignment : String, Codable
     { 
         // Enum value "top"
-        case top
+        case top = "Top"
         
         // Enum value "center"
-        case center
+        case center = "Center"
         
         // Enum value "justify"
-        case justify
+        case justify = "Justify"
         
         // Enum value "bottom"
-        case bottom
+        case bottom = "Bottom"
         
     }
 

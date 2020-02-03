@@ -29,16 +29,16 @@ import Foundation
 
 public class TableRowFormat : LinkElement {
     // Gets or sets the rule for determining the height of the table row.
-    public enum HeightRule : Int, Codable
+    public enum HeightRule : String, Codable
     { 
         // Enum value "atLeast"
-        case atLeast
+        case atLeast = "AtLeast"
         
         // Enum value "exactly"
-        case exactly
+        case exactly = "Exactly"
         
         // Enum value "auto"
-        case auto
+        case auto = "Auto"
         
     }
 

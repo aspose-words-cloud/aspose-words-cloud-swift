@@ -29,92 +29,92 @@ import Foundation
 
 public class DrawingObject : DrawingObjectLink {
     // Gets or sets specifies where the distance to the image is measured from.             
-    public enum RelativeHorizontalPosition : Int, Codable
+    public enum RelativeHorizontalPosition : String, Codable
     { 
         // Enum value "margin"
-        case margin
+        case margin = "Margin"
         
         // Enum value "page"
-        case page
+        case page = "Page"
         
         // Enum value "column"
-        case column
+        case column = "Column"
         
         // Enum value "_default"
-        case _default
+        case _default = "Default"
         
         // Enum value "character"
-        case character
+        case character = "Character"
         
         // Enum value "leftMargin"
-        case leftMargin
+        case leftMargin = "LeftMargin"
         
         // Enum value "rightMargin"
-        case rightMargin
+        case rightMargin = "RightMargin"
         
         // Enum value "insideMargin"
-        case insideMargin
+        case insideMargin = "InsideMargin"
         
         // Enum value "outsideMargin"
-        case outsideMargin
+        case outsideMargin = "OutsideMargin"
         
     }
 
     // Gets or sets specifies where the distance to the image measured from.
-    public enum RelativeVerticalPosition : Int, Codable
+    public enum RelativeVerticalPosition : String, Codable
     { 
         // Enum value "margin"
-        case margin
+        case margin = "Margin"
         
         // Enum value "tableDefault"
-        case tableDefault
+        case tableDefault = "TableDefault"
         
         // Enum value "page"
-        case page
+        case page = "Page"
         
         // Enum value "paragraph"
-        case paragraph
+        case paragraph = "Paragraph"
         
         // Enum value "textFrameDefault"
-        case textFrameDefault
+        case textFrameDefault = "TextFrameDefault"
         
         // Enum value "line"
-        case line
+        case line = "Line"
         
         // Enum value "topMargin"
-        case topMargin
+        case topMargin = "TopMargin"
         
         // Enum value "bottomMargin"
-        case bottomMargin
+        case bottomMargin = "BottomMargin"
         
         // Enum value "insideMargin"
-        case insideMargin
+        case insideMargin = "InsideMargin"
         
         // Enum value "outsideMargin"
-        case outsideMargin
+        case outsideMargin = "OutsideMargin"
         
     }
 
     // Gets or sets specifies how to wrap text around the image.
-    public enum WrapType : Int, Codable
+    public enum WrapType : String, Codable
     { 
         // Enum value "inline"
-        case inline
+        case inline = "Inline"
         
         // Enum value "topBottom"
-        case topBottom
+        case topBottom = "TopBottom"
         
         // Enum value "square"
-        case square
+        case square = "Square"
         
         // Enum value "_none"
-        case _none
+        case _none = "None"
         
         // Enum value "tight"
-        case tight
+        case tight = "Tight"
         
         // Enum value "through"
-        case through
+        case through = "Through"
         
     }
 

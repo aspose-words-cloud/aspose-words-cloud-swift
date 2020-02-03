@@ -29,25 +29,25 @@ import Foundation
 
 public class HeaderFooterLink : LinkElement {
     // Gets or sets paragraph&#39;s text.
-    public enum ModelType : Int, Codable
+    public enum ModelType : String, Codable
     { 
         // Enum value "headerEven"
-        case headerEven
+        case headerEven = "HeaderEven"
         
         // Enum value "headerPrimary"
-        case headerPrimary
+        case headerPrimary = "HeaderPrimary"
         
         // Enum value "footerEven"
-        case footerEven
+        case footerEven = "FooterEven"
         
         // Enum value "footerPrimary"
-        case footerPrimary
+        case footerPrimary = "FooterPrimary"
         
         // Enum value "headerFirst"
-        case headerFirst
+        case headerFirst = "HeaderFirst"
         
         // Enum value "footerFirst"
-        case footerFirst
+        case footerFirst = "FooterFirst"
         
     }
 
