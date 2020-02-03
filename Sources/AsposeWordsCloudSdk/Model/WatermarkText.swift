@@ -57,7 +57,7 @@ public class WatermarkText : Codable {
             try container.encode(self.text, forKey: .text);
         }
         if (self.rotationAngle == nil) {
-            throw WordsApiError.requiredArgumentError("rotationAngle");
+            throw WordsApiError.requiredArgumentError(argumentName: "rotationAngle");
         }
         try container.encode(self.rotationAngle, forKey: .rotationAngle);
         

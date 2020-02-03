@@ -68,7 +68,7 @@ public class PreferredWidth : Codable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.type == nil) {
-            throw WordsApiError.requiredArgumentError("type");
+            throw WordsApiError.requiredArgumentError(argumentName: "type");
         }
         try container.encode(self.type, forKey: .type);
         if (self.value != nil) {

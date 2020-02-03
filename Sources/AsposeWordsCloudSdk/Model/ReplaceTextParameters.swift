@@ -72,15 +72,15 @@ public class ReplaceTextParameters : Codable {
             try container.encode(self.newValue, forKey: .newValue);
         }
         if (self.isMatchCase == nil) {
-            throw WordsApiError.requiredArgumentError("isMatchCase");
+            throw WordsApiError.requiredArgumentError(argumentName: "isMatchCase");
         }
         try container.encode(self.isMatchCase, forKey: .isMatchCase);
         if (self.isMatchWholeWord == nil) {
-            throw WordsApiError.requiredArgumentError("isMatchWholeWord");
+            throw WordsApiError.requiredArgumentError(argumentName: "isMatchWholeWord");
         }
         try container.encode(self.isMatchWholeWord, forKey: .isMatchWholeWord);
         if (self.isOldValueRegex == nil) {
-            throw WordsApiError.requiredArgumentError("isOldValueRegex");
+            throw WordsApiError.requiredArgumentError(argumentName: "isOldValueRegex");
         }
         try container.encode(self.isOldValueRegex, forKey: .isOldValueRegex);
         

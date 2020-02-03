@@ -57,7 +57,7 @@ public class ClassificationResult : Codable {
             try container.encode(self.className, forKey: .className);
         }
         if (self.classProbability == nil) {
-            throw WordsApiError.requiredArgumentError("classProbability");
+            throw WordsApiError.requiredArgumentError(argumentName: "classProbability");
         }
         try container.encode(self.classProbability, forKey: .classProbability);
         

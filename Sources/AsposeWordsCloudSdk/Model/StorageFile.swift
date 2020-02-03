@@ -69,14 +69,14 @@ public class StorageFile : Codable {
             try container.encode(self.name, forKey: .name);
         }
         if (self.isFolder == nil) {
-            throw WordsApiError.requiredArgumentError("isFolder");
+            throw WordsApiError.requiredArgumentError(argumentName: "isFolder");
         }
         try container.encode(self.isFolder, forKey: .isFolder);
         if (self.modifiedDate != nil) {
             try container.encode(self.modifiedDate, forKey: .modifiedDate);
         }
         if (self.size == nil) {
-            throw WordsApiError.requiredArgumentError("size");
+            throw WordsApiError.requiredArgumentError(argumentName: "size");
         }
         try container.encode(self.size, forKey: .size);
         if (self.path != nil) {

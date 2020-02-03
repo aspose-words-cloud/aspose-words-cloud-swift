@@ -61,11 +61,11 @@ public class TableInsert : Codable {
             try container.encode(self.position, forKey: .position);
         }
         if (self.columnsCount == nil) {
-            throw WordsApiError.requiredArgumentError("columnsCount");
+            throw WordsApiError.requiredArgumentError(argumentName: "columnsCount");
         }
         try container.encode(self.columnsCount, forKey: .columnsCount);
         if (self.rowsCount == nil) {
-            throw WordsApiError.requiredArgumentError("rowsCount");
+            throw WordsApiError.requiredArgumentError(argumentName: "rowsCount");
         }
         try container.encode(self.rowsCount, forKey: .rowsCount);
         

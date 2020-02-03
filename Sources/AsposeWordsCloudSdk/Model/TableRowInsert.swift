@@ -57,7 +57,7 @@ public class TableRowInsert : Codable {
             try container.encode(self.insertAfter, forKey: .insertAfter);
         }
         if (self.columnsCount == nil) {
-            throw WordsApiError.requiredArgumentError("columnsCount");
+            throw WordsApiError.requiredArgumentError(argumentName: "columnsCount");
         }
         try container.encode(self.columnsCount, forKey: .columnsCount);
         

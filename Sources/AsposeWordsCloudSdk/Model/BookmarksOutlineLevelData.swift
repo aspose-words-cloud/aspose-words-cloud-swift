@@ -57,7 +57,7 @@ public class BookmarksOutlineLevelData : Codable {
             try container.encode(self.name, forKey: .name);
         }
         if (self.bookmarksOutlineLevel == nil) {
-            throw WordsApiError.requiredArgumentError("bookmarksOutlineLevel");
+            throw WordsApiError.requiredArgumentError(argumentName: "bookmarksOutlineLevel");
         }
         try container.encode(self.bookmarksOutlineLevel, forKey: .bookmarksOutlineLevel);
         

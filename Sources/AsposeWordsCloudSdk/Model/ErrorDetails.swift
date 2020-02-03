@@ -57,7 +57,7 @@ public class ErrorDetails : Codable {
             try container.encode(self.requestId, forKey: .requestId);
         }
         if (self.errorDateTime == nil) {
-            throw WordsApiError.requiredArgumentError("errorDateTime");
+            throw WordsApiError.requiredArgumentError(argumentName: "errorDateTime");
         }
         try container.encode(self.errorDateTime, forKey: .errorDateTime);
         

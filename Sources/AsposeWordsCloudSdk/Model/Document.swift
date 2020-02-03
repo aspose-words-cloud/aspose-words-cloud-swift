@@ -144,15 +144,15 @@ public class Document : Codable {
             try container.encode(self.fileName, forKey: .fileName);
         }
         if (self.sourceFormat == nil) {
-            throw WordsApiError.requiredArgumentError("sourceFormat");
+            throw WordsApiError.requiredArgumentError(argumentName: "sourceFormat");
         }
         try container.encode(self.sourceFormat, forKey: .sourceFormat);
         if (self.isEncrypted == nil) {
-            throw WordsApiError.requiredArgumentError("isEncrypted");
+            throw WordsApiError.requiredArgumentError(argumentName: "isEncrypted");
         }
         try container.encode(self.isEncrypted, forKey: .isEncrypted);
         if (self.isSigned == nil) {
-            throw WordsApiError.requiredArgumentError("isSigned");
+            throw WordsApiError.requiredArgumentError(argumentName: "isSigned");
         }
         try container.encode(self.isSigned, forKey: .isSigned);
         if (self.documentProperties != nil) {

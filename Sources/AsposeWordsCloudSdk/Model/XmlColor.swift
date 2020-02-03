@@ -57,7 +57,7 @@ public class XmlColor : Codable {
             try container.encode(self.web, forKey: .web);
         }
         if (self.alpha == nil) {
-            throw WordsApiError.requiredArgumentError("alpha");
+            throw WordsApiError.requiredArgumentError(argumentName: "alpha");
         }
         try container.encode(self.alpha, forKey: .alpha);
         

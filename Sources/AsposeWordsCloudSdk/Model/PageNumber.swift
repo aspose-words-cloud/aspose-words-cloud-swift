@@ -68,11 +68,11 @@ public class PageNumber : Codable {
             try container.encode(self.alignment, forKey: .alignment);
         }
         if (self.isTop == nil) {
-            throw WordsApiError.requiredArgumentError("isTop");
+            throw WordsApiError.requiredArgumentError(argumentName: "isTop");
         }
         try container.encode(self.isTop, forKey: .isTop);
         if (self.setPageNumberOnFirstPage == nil) {
-            throw WordsApiError.requiredArgumentError("setPageNumberOnFirstPage");
+            throw WordsApiError.requiredArgumentError(argumentName: "setPageNumberOnFirstPage");
         }
         try container.encode(self.setPageNumberOnFirstPage, forKey: .setPageNumberOnFirstPage);
         

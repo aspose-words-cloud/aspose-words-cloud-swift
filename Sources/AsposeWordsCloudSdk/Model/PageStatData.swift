@@ -62,15 +62,15 @@ public class PageStatData : Codable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.pageNumber == nil) {
-            throw WordsApiError.requiredArgumentError("pageNumber");
+            throw WordsApiError.requiredArgumentError(argumentName: "pageNumber");
         }
         try container.encode(self.pageNumber, forKey: .pageNumber);
         if (self.wordCount == nil) {
-            throw WordsApiError.requiredArgumentError("wordCount");
+            throw WordsApiError.requiredArgumentError(argumentName: "wordCount");
         }
         try container.encode(self.wordCount, forKey: .wordCount);
         if (self.paragraphCount == nil) {
-            throw WordsApiError.requiredArgumentError("paragraphCount");
+            throw WordsApiError.requiredArgumentError(argumentName: "paragraphCount");
         }
         try container.encode(self.paragraphCount, forKey: .paragraphCount);
         if (self.footnotesStatData != nil) {

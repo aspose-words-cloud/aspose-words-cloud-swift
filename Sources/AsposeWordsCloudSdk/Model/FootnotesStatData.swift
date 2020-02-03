@@ -54,11 +54,11 @@ public class FootnotesStatData : Codable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.wordCount == nil) {
-            throw WordsApiError.requiredArgumentError("wordCount");
+            throw WordsApiError.requiredArgumentError(argumentName: "wordCount");
         }
         try container.encode(self.wordCount, forKey: .wordCount);
         if (self.paragraphCount == nil) {
-            throw WordsApiError.requiredArgumentError("paragraphCount");
+            throw WordsApiError.requiredArgumentError(argumentName: "paragraphCount");
         }
         try container.encode(self.paragraphCount, forKey: .paragraphCount);
         
