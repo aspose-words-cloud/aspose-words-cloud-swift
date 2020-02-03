@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertCommentRequest : Codable {
+public class InsertCommentRequest : Encodable {
     private let name : String;
     private let comment : Comment;
     private let folder : String?;
@@ -61,19 +61,6 @@ public class InsertCommentRequest : Codable {
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.comment = try container.decode(.self, forKey: .comment);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
-        self.revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor);
-        self.revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime);
     }
 
     public func encode(to encoder: Encoder) throws {

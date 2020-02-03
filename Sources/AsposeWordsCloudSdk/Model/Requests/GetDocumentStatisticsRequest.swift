@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetDocumentStatisticsRequest : Codable {
+public class GetDocumentStatisticsRequest : Encodable {
     private let name : String;
     private let folder : String?;
     private let storage : String?;
@@ -58,18 +58,6 @@ public class GetDocumentStatisticsRequest : Codable {
         self.includeComments = includeComments;
         self.includeFootnotes = includeFootnotes;
         self.includeTextInShapes = includeTextInShapes;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.includeComments = try container.decodeIfPresent(.self, forKey: .includeComments);
-        self.includeFootnotes = try container.decodeIfPresent(.self, forKey: .includeFootnotes);
-        self.includeTextInShapes = try container.decodeIfPresent(.self, forKey: .includeTextInShapes);
     }
 
     public func encode(to encoder: Encoder) throws {

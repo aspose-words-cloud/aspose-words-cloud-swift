@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetAvailableFontsRequest : Codable {
+public class GetAvailableFontsRequest : Encodable {
     private let fontsLocation : String?;
     
     private enum CodingKeys: String, CodingKey {
@@ -37,11 +37,6 @@ public class GetAvailableFontsRequest : Codable {
     
     public init(fontsLocation : String? = nil) {
         self.fontsLocation = fontsLocation;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation);
     }
 
     public func encode(to encoder: Encoder) throws {

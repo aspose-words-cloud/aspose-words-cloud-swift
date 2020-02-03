@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateTableCellFormatRequest : Codable {
+public class UpdateTableCellFormatRequest : Encodable {
     private let name : String;
     private let tableRowPath : String;
     private let index : Int;
@@ -67,21 +67,6 @@ public class UpdateTableCellFormatRequest : Codable {
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
         self.format = format;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.tableRowPath = try container.decode(.self, forKey: .tableRowPath);
-        self.index = try container.decode(.self, forKey: .index);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
-        self.revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor);
-        self.revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime);
-        self.format = try container.decodeIfPresent(.self, forKey: .format);
     }
 
     public func encode(to encoder: Encoder) throws {

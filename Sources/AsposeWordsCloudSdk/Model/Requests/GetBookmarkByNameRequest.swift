@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetBookmarkByNameRequest : Codable {
+public class GetBookmarkByNameRequest : Encodable {
     private let name : String;
     private let bookmarkName : String;
     private let folder : String?;
@@ -52,16 +52,6 @@ public class GetBookmarkByNameRequest : Codable {
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.bookmarkName = try container.decode(.self, forKey: .bookmarkName);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
     }
 
     public func encode(to encoder: Encoder) throws {

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ExecuteMailMergeOnlineRequest : Codable {
+public class ExecuteMailMergeOnlineRequest : Encodable {
     private let template : URL;
     private let data : URL;
     private let withRegions : Bool?;
@@ -49,15 +49,6 @@ public class ExecuteMailMergeOnlineRequest : Codable {
         self.withRegions = withRegions;
         self.cleanup = cleanup;
         self.documentFileName = documentFileName;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.template = try container.decode(.self, forKey: .template);
-        self.data = try container.decode(.self, forKey: .data);
-        self.withRegions = try container.decodeIfPresent(.self, forKey: .withRegions);
-        self.cleanup = try container.decodeIfPresent(.self, forKey: .cleanup);
-        self.documentFileName = try container.decodeIfPresent(.self, forKey: .documentFileName);
     }
 
     public func encode(to encoder: Encoder) throws {

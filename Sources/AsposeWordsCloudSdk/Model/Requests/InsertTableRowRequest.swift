@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertTableRowRequest : Codable {
+public class InsertTableRowRequest : Encodable {
     private let name : String;
     private let tablePath : String;
     private let folder : String?;
@@ -64,20 +64,6 @@ public class InsertTableRowRequest : Codable {
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
         self.row = row;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.tablePath = try container.decode(.self, forKey: .tablePath);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
-        self.revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor);
-        self.revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime);
-        self.row = try container.decodeIfPresent(.self, forKey: .row);
     }
 
     public func encode(to encoder: Encoder) throws {

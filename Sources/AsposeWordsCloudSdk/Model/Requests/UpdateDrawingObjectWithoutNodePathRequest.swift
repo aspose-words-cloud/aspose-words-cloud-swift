@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateDrawingObjectWithoutNodePathRequest : Codable {
+public class UpdateDrawingObjectWithoutNodePathRequest : Encodable {
     private let name : String;
     private let drawingObject : String;
     private let imageFile : URL;
@@ -67,21 +67,6 @@ public class UpdateDrawingObjectWithoutNodePathRequest : Codable {
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.drawingObject = try container.decode(.self, forKey: .drawingObject);
-        self.imageFile = try container.decode(.self, forKey: .imageFile);
-        self.index = try container.decode(.self, forKey: .index);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
-        self.revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor);
-        self.revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime);
     }
 
     public func encode(to encoder: Encoder) throws {

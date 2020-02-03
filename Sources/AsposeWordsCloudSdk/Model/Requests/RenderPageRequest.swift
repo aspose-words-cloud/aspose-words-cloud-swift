@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RenderPageRequest : Codable {
+public class RenderPageRequest : Encodable {
     private let name : String;
     private let pageIndex : Int;
     private let format : String;
@@ -58,18 +58,6 @@ public class RenderPageRequest : Codable {
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.fontsLocation = fontsLocation;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.pageIndex = try container.decode(.self, forKey: .pageIndex);
-        self.format = try container.decode(.self, forKey: .format);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation);
     }
 
     public func encode(to encoder: Encoder) throws {

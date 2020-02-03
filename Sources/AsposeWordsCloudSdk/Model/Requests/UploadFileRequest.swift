@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UploadFileRequest : Codable {
+public class UploadFileRequest : Encodable {
     private let fileContent : URL;
     private let path : String;
     private let storageName : String?;
@@ -43,13 +43,6 @@ public class UploadFileRequest : Codable {
         self.fileContent = fileContent;
         self.path = path;
         self.storageName = storageName;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.fileContent = try container.decode(.self, forKey: .fileContent);
-        self.path = try container.decode(.self, forKey: .path);
-        self.storageName = try container.decodeIfPresent(.self, forKey: .storageName);
     }
 
     public func encode(to encoder: Encoder) throws {

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class MoveFileRequest : Codable {
+public class MoveFileRequest : Encodable {
     private let destPath : String;
     private let srcPath : String;
     private let srcStorageName : String?;
@@ -49,15 +49,6 @@ public class MoveFileRequest : Codable {
         self.srcStorageName = srcStorageName;
         self.destStorageName = destStorageName;
         self.versionId = versionId;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.destPath = try container.decode(.self, forKey: .destPath);
-        self.srcPath = try container.decode(.self, forKey: .srcPath);
-        self.srcStorageName = try container.decodeIfPresent(.self, forKey: .srcStorageName);
-        self.destStorageName = try container.decodeIfPresent(.self, forKey: .destStorageName);
-        self.versionId = try container.decodeIfPresent(.self, forKey: .versionId);
     }
 
     public func encode(to encoder: Encoder) throws {

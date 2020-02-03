@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SplitDocumentRequest : Codable {
+public class SplitDocumentRequest : Encodable {
     private let name : String;
     private let folder : String?;
     private let storage : String?;
@@ -67,21 +67,6 @@ public class SplitDocumentRequest : Codable {
         self.to = to;
         self.zipOutput = zipOutput;
         self.fontsLocation = fontsLocation;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
-        self.format = try container.decodeIfPresent(.self, forKey: .format);
-        self.from = try container.decodeIfPresent(.self, forKey: .from);
-        self.to = try container.decodeIfPresent(.self, forKey: .to);
-        self.zipOutput = try container.decodeIfPresent(.self, forKey: .zipOutput);
-        self.fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation);
     }
 
     public func encode(to encoder: Encoder) throws {

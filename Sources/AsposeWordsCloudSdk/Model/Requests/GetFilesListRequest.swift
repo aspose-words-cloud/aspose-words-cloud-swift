@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetFilesListRequest : Codable {
+public class GetFilesListRequest : Encodable {
     private let path : String;
     private let storageName : String?;
     
@@ -40,12 +40,6 @@ public class GetFilesListRequest : Codable {
     public init(path : String, storageName : String? = nil) {
         self.path = path;
         self.storageName = storageName;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.path = try container.decode(.self, forKey: .path);
-        self.storageName = try container.decodeIfPresent(.self, forKey: .storageName);
     }
 
     public func encode(to encoder: Encoder) throws {

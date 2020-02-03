@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteFolderRequest : Codable {
+public class DeleteFolderRequest : Encodable {
     private let path : String;
     private let storageName : String?;
     private let recursive : Bool?;
@@ -43,13 +43,6 @@ public class DeleteFolderRequest : Codable {
         self.path = path;
         self.storageName = storageName;
         self.recursive = recursive;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.path = try container.decode(.self, forKey: .path);
-        self.storageName = try container.decodeIfPresent(.self, forKey: .storageName);
-        self.recursive = try container.decodeIfPresent(.self, forKey: .recursive);
     }
 
     public func encode(to encoder: Encoder) throws {

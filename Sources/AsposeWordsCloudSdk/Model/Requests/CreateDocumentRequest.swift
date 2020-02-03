@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class CreateDocumentRequest : Codable {
+public class CreateDocumentRequest : Encodable {
     private let storage : String?;
     private let fileName : String?;
     private let folder : String?;
@@ -43,13 +43,6 @@ public class CreateDocumentRequest : Codable {
         self.storage = storage;
         self.fileName = fileName;
         self.folder = folder;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.fileName = try container.decodeIfPresent(.self, forKey: .fileName);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
     }
 
     public func encode(to encoder: Encoder) throws {

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ExecuteMailMergeRequest : Codable {
+public class ExecuteMailMergeRequest : Encodable {
     private let name : String;
     private let data : String?;
     private let folder : String?;
@@ -67,21 +67,6 @@ public class ExecuteMailMergeRequest : Codable {
         self.cleanup = cleanup;
         self.useWholeParagraphAsRegion = useWholeParagraphAsRegion;
         self.destFileName = destFileName;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.data = try container.decodeIfPresent(.self, forKey: .data);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.withRegions = try container.decodeIfPresent(.self, forKey: .withRegions);
-        self.mailMergeDataFile = try container.decodeIfPresent(.self, forKey: .mailMergeDataFile);
-        self.cleanup = try container.decodeIfPresent(.self, forKey: .cleanup);
-        self.useWholeParagraphAsRegion = try container.decodeIfPresent(.self, forKey: .useWholeParagraphAsRegion);
-        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
     }
 
     public func encode(to encoder: Encoder) throws {

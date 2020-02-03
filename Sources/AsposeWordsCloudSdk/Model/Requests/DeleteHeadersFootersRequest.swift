@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteHeadersFootersRequest : Codable {
+public class DeleteHeadersFootersRequest : Encodable {
     private let name : String;
     private let sectionPath : String;
     private let folder : String?;
@@ -64,20 +64,6 @@ public class DeleteHeadersFootersRequest : Codable {
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
         self.headersFootersTypes = headersFootersTypes;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.sectionPath = try container.decode(.self, forKey: .sectionPath);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
-        self.revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor);
-        self.revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime);
-        self.headersFootersTypes = try container.decodeIfPresent(.self, forKey: .headersFootersTypes);
     }
 
     public func encode(to encoder: Encoder) throws {

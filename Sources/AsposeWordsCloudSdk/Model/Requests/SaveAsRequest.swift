@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SaveAsRequest : Codable {
+public class SaveAsRequest : Encodable {
     private let name : String;
     private let saveOptionsData : SaveOptionsData;
     private let folder : String?;
@@ -55,17 +55,6 @@ public class SaveAsRequest : Codable {
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.fontsLocation = fontsLocation;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.saveOptionsData = try container.decode(.self, forKey: .saveOptionsData);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation);
     }
 
     public func encode(to encoder: Encoder) throws {

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertWatermarkImageRequest : Codable {
+public class InsertWatermarkImageRequest : Encodable {
     private let name : String;
     private let imageFile : URL?;
     private let folder : String?;
@@ -67,21 +67,6 @@ public class InsertWatermarkImageRequest : Codable {
         self.revisionDateTime = revisionDateTime;
         self.rotationAngle = rotationAngle;
         self.image = image;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.imageFile = try container.decodeIfPresent(.self, forKey: .imageFile);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
-        self.revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor);
-        self.revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime);
-        self.rotationAngle = try container.decodeIfPresent(.self, forKey: .rotationAngle);
-        self.image = try container.decodeIfPresent(.self, forKey: .image);
     }
 
     public func encode(to encoder: Encoder) throws {

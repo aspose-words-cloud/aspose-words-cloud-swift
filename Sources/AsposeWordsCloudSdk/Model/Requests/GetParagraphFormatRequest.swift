@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetParagraphFormatRequest : Codable {
+public class GetParagraphFormatRequest : Encodable {
     private let name : String;
     private let nodePath : String;
     private let index : Int;
@@ -55,17 +55,6 @@ public class GetParagraphFormatRequest : Codable {
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.nodePath = try container.decode(.self, forKey: .nodePath);
-        self.index = try container.decode(.self, forKey: .index);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
     }
 
     public func encode(to encoder: Encoder) throws {

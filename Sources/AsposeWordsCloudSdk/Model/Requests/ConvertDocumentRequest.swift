@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ConvertDocumentRequest : Codable {
+public class ConvertDocumentRequest : Encodable {
     private let document : URL;
     private let format : String;
     private let storage : String?;
@@ -52,16 +52,6 @@ public class ConvertDocumentRequest : Codable {
         self.outPath = outPath;
         self.fileNameFieldValue = fileNameFieldValue;
         self.fontsLocation = fontsLocation;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.document = try container.decode(.self, forKey: .document);
-        self.format = try container.decode(.self, forKey: .format);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.outPath = try container.decodeIfPresent(.self, forKey: .outPath);
-        self.fileNameFieldValue = try container.decodeIfPresent(.self, forKey: .fileNameFieldValue);
-        self.fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation);
     }
 
     public func encode(to encoder: Encoder) throws {

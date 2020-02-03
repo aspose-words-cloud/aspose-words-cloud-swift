@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetRangeTextRequest : Codable {
+public class GetRangeTextRequest : Encodable {
     private let name : String;
     private let rangeStartIdentifier : String;
     private let rangeEndIdentifier : String;
@@ -55,17 +55,6 @@ public class GetRangeTextRequest : Codable {
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.rangeStartIdentifier = try container.decode(.self, forKey: .rangeStartIdentifier);
-        self.rangeEndIdentifier = try container.decode(.self, forKey: .rangeEndIdentifier);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
     }
 
     public func encode(to encoder: Encoder) throws {

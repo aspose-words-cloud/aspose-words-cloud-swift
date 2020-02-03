@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteTableRowRequest : Codable {
+public class DeleteTableRowRequest : Encodable {
     private let name : String;
     private let tablePath : String;
     private let index : Int;
@@ -64,20 +64,6 @@ public class DeleteTableRowRequest : Codable {
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.tablePath = try container.decode(.self, forKey: .tablePath);
-        self.index = try container.decode(.self, forKey: .index);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
-        self.revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor);
-        self.revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime);
     }
 
     public func encode(to encoder: Encoder) throws {

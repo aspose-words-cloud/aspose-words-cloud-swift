@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetDocumentFieldNamesOnlineRequest : Codable {
+public class GetDocumentFieldNamesOnlineRequest : Encodable {
     private let template : URL;
     private let useNonMergeFields : Bool?;
     
@@ -40,12 +40,6 @@ public class GetDocumentFieldNamesOnlineRequest : Codable {
     public init(template : URL, useNonMergeFields : Bool? = nil) {
         self.template = template;
         self.useNonMergeFields = useNonMergeFields;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.template = try container.decode(.self, forKey: .template);
-        self.useNonMergeFields = try container.decodeIfPresent(.self, forKey: .useNonMergeFields);
     }
 
     public func encode(to encoder: Encoder) throws {

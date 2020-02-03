@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class CopyFolderRequest : Codable {
+public class CopyFolderRequest : Encodable {
     private let destPath : String;
     private let srcPath : String;
     private let srcStorageName : String?;
@@ -46,14 +46,6 @@ public class CopyFolderRequest : Codable {
         self.srcPath = srcPath;
         self.srcStorageName = srcStorageName;
         self.destStorageName = destStorageName;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.destPath = try container.decode(.self, forKey: .destPath);
-        self.srcPath = try container.decode(.self, forKey: .srcPath);
-        self.srcStorageName = try container.decodeIfPresent(.self, forKey: .srcStorageName);
-        self.destStorageName = try container.decodeIfPresent(.self, forKey: .destStorageName);
     }
 
     public func encode(to encoder: Encoder) throws {

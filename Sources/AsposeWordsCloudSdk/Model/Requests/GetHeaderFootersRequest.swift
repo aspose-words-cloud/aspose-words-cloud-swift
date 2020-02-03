@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetHeaderFootersRequest : Codable {
+public class GetHeaderFootersRequest : Encodable {
     private let name : String;
     private let sectionPath : String;
     private let folder : String?;
@@ -55,17 +55,6 @@ public class GetHeaderFootersRequest : Codable {
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.filterByType = filterByType;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.sectionPath = try container.decode(.self, forKey: .sectionPath);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.filterByType = try container.decodeIfPresent(.self, forKey: .filterByType);
     }
 
     public func encode(to encoder: Encoder) throws {

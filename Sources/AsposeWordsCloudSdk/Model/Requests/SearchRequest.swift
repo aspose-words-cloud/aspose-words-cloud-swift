@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SearchRequest : Codable {
+public class SearchRequest : Encodable {
     private let name : String;
     private let pattern : String;
     private let folder : String?;
@@ -52,16 +52,6 @@ public class SearchRequest : Codable {
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.pattern = try container.decode(.self, forKey: .pattern);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
     }
 
     public func encode(to encoder: Encoder) throws {

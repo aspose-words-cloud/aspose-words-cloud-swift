@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ClassifyRequest : Codable {
+public class ClassifyRequest : Encodable {
     private let text : String;
     private let bestClassesCount : String?;
     
@@ -40,12 +40,6 @@ public class ClassifyRequest : Codable {
     public init(text : String, bestClassesCount : String? = nil) {
         self.text = text;
         self.bestClassesCount = bestClassesCount;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.text = try container.decode(.self, forKey: .text);
-        self.bestClassesCount = try container.decodeIfPresent(.self, forKey: .bestClassesCount);
     }
 
     public func encode(to encoder: Encoder) throws {

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetDocumentFieldNamesRequest : Codable {
+public class GetDocumentFieldNamesRequest : Encodable {
     private let name : String;
     private let folder : String?;
     private let storage : String?;
@@ -52,16 +52,6 @@ public class GetDocumentFieldNamesRequest : Codable {
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.useNonMergeFields = useNonMergeFields;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.useNonMergeFields = try container.decodeIfPresent(.self, forKey: .useNonMergeFields);
     }
 
     public func encode(to encoder: Encoder) throws {

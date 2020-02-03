@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class LoadWebDocumentRequest : Codable {
+public class LoadWebDocumentRequest : Encodable {
     private let data : LoadWebDocumentData;
     private let storage : String?;
     
@@ -40,12 +40,6 @@ public class LoadWebDocumentRequest : Codable {
     public init(data : LoadWebDocumentData, storage : String? = nil) {
         self.data = data;
         self.storage = storage;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.data = try container.decode(.self, forKey: .data);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
     }
 
     public func encode(to encoder: Encoder) throws {

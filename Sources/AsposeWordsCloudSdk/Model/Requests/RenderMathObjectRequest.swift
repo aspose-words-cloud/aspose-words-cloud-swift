@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RenderMathObjectRequest : Codable {
+public class RenderMathObjectRequest : Encodable {
     private let name : String;
     private let format : String;
     private let nodePath : String;
@@ -61,19 +61,6 @@ public class RenderMathObjectRequest : Codable {
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.fontsLocation = fontsLocation;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.format = try container.decode(.self, forKey: .format);
-        self.nodePath = try container.decode(.self, forKey: .nodePath);
-        self.index = try container.decode(.self, forKey: .index);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation);
     }
 
     public func encode(to encoder: Encoder) throws {

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertParagraphRequest : Codable {
+public class InsertParagraphRequest : Encodable {
     private let name : String;
     private let paragraph : ParagraphInsert;
     private let nodePath : String;
@@ -67,21 +67,6 @@ public class InsertParagraphRequest : Codable {
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
         self.insertBeforeNode = insertBeforeNode;
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decode(.self, forKey: .name);
-        self.paragraph = try container.decode(.self, forKey: .paragraph);
-        self.nodePath = try container.decode(.self, forKey: .nodePath);
-        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
-        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
-        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
-        self.password = try container.decodeIfPresent(.self, forKey: .password);
-        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
-        self.revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor);
-        self.revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime);
-        self.insertBeforeNode = try container.decodeIfPresent(.self, forKey: .insertBeforeNode);
     }
 
     public func encode(to encoder: Encoder) throws {
