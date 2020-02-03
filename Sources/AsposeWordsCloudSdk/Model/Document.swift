@@ -125,8 +125,8 @@ public class Document : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.links = try container.decodeIfPresent([Link].self, forKey: .links);
         self.fileName = try container.decodeIfPresent(String.self, forKey: .fileName);
         self.sourceFormat = try container.decode(SourceFormat.self, forKey: .sourceFormat);
@@ -136,6 +136,7 @@ public class Document : Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.links != nil) {
             try container.encode(self.links, forKey: .links);
@@ -158,7 +159,6 @@ public class Document : Codable {
         if (self.documentProperties != nil) {
             try container.encode(self.documentProperties, forKey: .documentProperties);
         }
-        
     }
         
     public func setLinks(links : [Link]?) {

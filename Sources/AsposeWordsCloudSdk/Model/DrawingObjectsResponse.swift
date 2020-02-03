@@ -42,17 +42,17 @@ public class DrawingObjectsResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.drawingObjects = try container.decodeIfPresent(DrawingObjectCollection.self, forKey: .drawingObjects);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.drawingObjects != nil) {
             try container.encode(self.drawingObjects, forKey: .drawingObjects);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setDrawingObjects(drawingObjects : DrawingObjectCollection?) {

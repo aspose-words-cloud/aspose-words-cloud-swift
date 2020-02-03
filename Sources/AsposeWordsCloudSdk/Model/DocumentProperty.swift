@@ -48,14 +48,15 @@ public class DocumentProperty : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.builtIn = try container.decodeIfPresent(Bool.self, forKey: .builtIn);
         self.name = try container.decodeIfPresent(String.self, forKey: .name);
         self.value = try container.decodeIfPresent(String.self, forKey: .value);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.builtIn != nil) {
             try container.encode(self.builtIn, forKey: .builtIn);
@@ -66,7 +67,6 @@ public class DocumentProperty : LinkElement {
         if (self.value != nil) {
             try container.encode(self.value, forKey: .value);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setBuiltIn(builtIn : Bool?) {

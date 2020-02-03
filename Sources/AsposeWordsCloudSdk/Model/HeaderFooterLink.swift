@@ -65,17 +65,17 @@ public class HeaderFooterLink : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.type = try container.decodeIfPresent(ModelType.self, forKey: .type);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.type != nil) {
             try container.encode(self.type, forKey: .type);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setType(type : ModelType?) {

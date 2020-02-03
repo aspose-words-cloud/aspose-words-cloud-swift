@@ -42,17 +42,17 @@ public class SearchResultsCollection : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.resultsList = try container.decodeIfPresent([SearchResult].self, forKey: .resultsList);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.resultsList != nil) {
             try container.encode(self.resultsList, forKey: .resultsList);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setResultsList(resultsList : [SearchResult]?) {

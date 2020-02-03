@@ -48,14 +48,15 @@ public class DownsampleOptionsData : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.downsampleImages = try container.decodeIfPresent(Bool.self, forKey: .downsampleImages);
         self.resolution = try container.decodeIfPresent(Int.self, forKey: .resolution);
         self.resolutionThreshold = try container.decodeIfPresent(Int.self, forKey: .resolutionThreshold);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.downsampleImages != nil) {
             try container.encode(self.downsampleImages, forKey: .downsampleImages);
@@ -66,7 +67,6 @@ public class DownsampleOptionsData : Codable {
         if (self.resolutionThreshold != nil) {
             try container.encode(self.resolutionThreshold, forKey: .resolutionThreshold);
         }
-        
     }
         
     public func setDownsampleImages(downsampleImages : Bool?) {

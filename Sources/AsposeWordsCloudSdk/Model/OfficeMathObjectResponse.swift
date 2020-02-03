@@ -42,17 +42,17 @@ public class OfficeMathObjectResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.officeMathObject = try container.decodeIfPresent(OfficeMathObject.self, forKey: .officeMathObject);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.officeMathObject != nil) {
             try container.encode(self.officeMathObject, forKey: .officeMathObject);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setOfficeMathObject(officeMathObject : OfficeMathObject?) {

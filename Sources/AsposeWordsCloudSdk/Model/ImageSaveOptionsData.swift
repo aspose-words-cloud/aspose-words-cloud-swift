@@ -78,8 +78,8 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.graphicsQualityOptions = try container.decodeIfPresent(GraphicsQualityOptionsData.self, forKey: .graphicsQualityOptions);
         self.horizontalResolution = try container.decodeIfPresent(Double.self, forKey: .horizontalResolution);
         self.imageBrightness = try container.decodeIfPresent(Double.self, forKey: .imageBrightness);
@@ -96,6 +96,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.graphicsQualityOptions != nil) {
             try container.encode(self.graphicsQualityOptions, forKey: .graphicsQualityOptions);
@@ -136,7 +137,6 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         if (self.verticalResolution != nil) {
             try container.encode(self.verticalResolution, forKey: .verticalResolution);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setGraphicsQualityOptions(graphicsQualityOptions : GraphicsQualityOptionsData?) {

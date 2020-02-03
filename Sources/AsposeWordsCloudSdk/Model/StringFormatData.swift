@@ -151,8 +151,8 @@ public class StringFormatData : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment);
         self.formatFlags = try container.decodeIfPresent(FormatFlags.self, forKey: .formatFlags);
         self.hotkeyPrefix = try container.decodeIfPresent(HotkeyPrefix.self, forKey: .hotkeyPrefix);
@@ -161,6 +161,7 @@ public class StringFormatData : Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.alignment != nil) {
             try container.encode(self.alignment, forKey: .alignment);
@@ -177,7 +178,6 @@ public class StringFormatData : Codable {
         if (self.trimming != nil) {
             try container.encode(self.trimming, forKey: .trimming);
         }
-        
     }
         
     public func setAlignment(alignment : Alignment?) {

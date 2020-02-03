@@ -45,13 +45,14 @@ public class WatermarkText : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
         self.rotationAngle = try container.decode(Double.self, forKey: .rotationAngle);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
@@ -60,7 +61,6 @@ public class WatermarkText : Codable {
             throw WordsApiError.requiredArgumentError(argumentName: "rotationAngle");
         }
         try container.encode(self.rotationAngle, forKey: .rotationAngle);
-        
     }
         
     public func setText(text : String?) {

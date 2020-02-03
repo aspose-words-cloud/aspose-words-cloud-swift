@@ -48,14 +48,15 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.compliance = try container.decodeIfPresent(String.self, forKey: .compliance);
         self.password = try container.decodeIfPresent(String.self, forKey: .password);
         self.prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.compliance != nil) {
             try container.encode(self.compliance, forKey: .compliance);
@@ -66,7 +67,6 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
         if (self.prettyFormat != nil) {
             try container.encode(self.prettyFormat, forKey: .prettyFormat);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setCompliance(compliance : String?) {

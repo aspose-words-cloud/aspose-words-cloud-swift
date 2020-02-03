@@ -42,17 +42,17 @@ public class FontResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.font = try container.decodeIfPresent(Font.self, forKey: .font);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.font != nil) {
             try container.encode(self.font, forKey: .font);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setFont(font : Font?) {

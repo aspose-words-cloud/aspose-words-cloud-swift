@@ -78,8 +78,8 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.cssClassNamesPrefix = try container.decodeIfPresent(String.self, forKey: .cssClassNamesPrefix);
         self.encoding = try container.decodeIfPresent(String.self, forKey: .encoding);
         self.exportEmbeddedCss = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedCss);
@@ -96,6 +96,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.cssClassNamesPrefix != nil) {
             try container.encode(self.cssClassNamesPrefix, forKey: .cssClassNamesPrefix);
@@ -136,7 +137,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         if (self.showPageBorder != nil) {
             try container.encode(self.showPageBorder, forKey: .showPageBorder);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setCssClassNamesPrefix(cssClassNamesPrefix : String?) {

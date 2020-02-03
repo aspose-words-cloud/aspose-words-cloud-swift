@@ -60,8 +60,8 @@ public class Comment : CommentLink {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.author = try container.decodeIfPresent(String.self, forKey: .author);
         self.content = try container.decodeIfPresent(StoryChildNodes.self, forKey: .content);
         self.dateTime = try container.decodeIfPresent(Date.self, forKey: .dateTime);
@@ -72,6 +72,7 @@ public class Comment : CommentLink {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.author != nil) {
             try container.encode(self.author, forKey: .author);
@@ -94,7 +95,6 @@ public class Comment : CommentLink {
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setAuthor(author : String?) {

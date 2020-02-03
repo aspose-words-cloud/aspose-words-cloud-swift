@@ -57,8 +57,8 @@ public class OutlineOptionsData : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.bookmarksOutlineLevels = try container.decodeIfPresent([BookmarksOutlineLevelData].self, forKey: .bookmarksOutlineLevels);
         self.defaultBookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .defaultBookmarksOutlineLevel);
         self.createMissingOutlineLevels = try container.decodeIfPresent(Bool.self, forKey: .createMissingOutlineLevels);
@@ -68,6 +68,7 @@ public class OutlineOptionsData : Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.bookmarksOutlineLevels != nil) {
             try container.encode(self.bookmarksOutlineLevels, forKey: .bookmarksOutlineLevels);
@@ -87,7 +88,6 @@ public class OutlineOptionsData : Codable {
         if (self.headingsOutlineLevels != nil) {
             try container.encode(self.headingsOutlineLevels, forKey: .headingsOutlineLevels);
         }
-        
     }
         
     public func setBookmarksOutlineLevels(bookmarksOutlineLevels : [BookmarksOutlineLevelData]?) {

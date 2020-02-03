@@ -48,14 +48,15 @@ public class HeaderFooter : HeaderFooterLink {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.childNodes = try container.decodeIfPresent([NodeLink].self, forKey: .childNodes);
         self.drawingObjects = try container.decodeIfPresent(LinkElement.self, forKey: .drawingObjects);
         self.paragraphs = try container.decodeIfPresent(LinkElement.self, forKey: .paragraphs);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.childNodes != nil) {
             try container.encode(self.childNodes, forKey: .childNodes);
@@ -66,7 +67,6 @@ public class HeaderFooter : HeaderFooterLink {
         if (self.paragraphs != nil) {
             try container.encode(self.paragraphs, forKey: .paragraphs);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setChildNodes(childNodes : [NodeLink]?) {

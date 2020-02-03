@@ -42,17 +42,17 @@ public class ParagraphLinkCollection : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.paragraphLinkList = try container.decodeIfPresent([ParagraphLink].self, forKey: .paragraphLinkList);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.paragraphLinkList != nil) {
             try container.encode(self.paragraphLinkList, forKey: .paragraphLinkList);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setParagraphLinkList(paragraphLinkList : [ParagraphLink]?) {

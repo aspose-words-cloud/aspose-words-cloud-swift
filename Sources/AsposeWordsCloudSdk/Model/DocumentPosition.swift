@@ -45,13 +45,14 @@ public class DocumentPosition : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.node = try container.decodeIfPresent(NodeLink.self, forKey: .node);
         self.offset = try container.decodeIfPresent(Int.self, forKey: .offset);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.node != nil) {
             try container.encode(self.node, forKey: .node);
@@ -59,7 +60,6 @@ public class DocumentPosition : Codable {
         if (self.offset != nil) {
             try container.encode(self.offset, forKey: .offset);
         }
-        
     }
         
     public func setNode(node : NodeLink?) {

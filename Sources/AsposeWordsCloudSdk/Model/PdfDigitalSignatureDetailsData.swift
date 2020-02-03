@@ -54,8 +54,8 @@ public class PdfDigitalSignatureDetailsData : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.certificateFilename = try container.decodeIfPresent(String.self, forKey: .certificateFilename);
         self.hashAlgorithm = try container.decodeIfPresent(String.self, forKey: .hashAlgorithm);
         self.location = try container.decodeIfPresent(String.self, forKey: .location);
@@ -64,6 +64,7 @@ public class PdfDigitalSignatureDetailsData : Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.certificateFilename != nil) {
             try container.encode(self.certificateFilename, forKey: .certificateFilename);
@@ -80,7 +81,6 @@ public class PdfDigitalSignatureDetailsData : Codable {
         if (self.signatureDate != nil) {
             try container.encode(self.signatureDate, forKey: .signatureDate);
         }
-        
     }
         
     public func setCertificateFilename(certificateFilename : String?) {

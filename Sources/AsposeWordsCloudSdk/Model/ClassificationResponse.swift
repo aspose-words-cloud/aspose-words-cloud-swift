@@ -48,14 +48,15 @@ public class ClassificationResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.bestClassName = try container.decodeIfPresent(String.self, forKey: .bestClassName);
         self.bestClassProbability = try container.decodeIfPresent(Double.self, forKey: .bestClassProbability);
         self.bestResults = try container.decodeIfPresent([ClassificationResult].self, forKey: .bestResults);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.bestClassName != nil) {
             try container.encode(self.bestClassName, forKey: .bestClassName);
@@ -66,7 +67,6 @@ public class ClassificationResponse : WordsResponse {
         if (self.bestResults != nil) {
             try container.encode(self.bestResults, forKey: .bestResults);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setBestClassName(bestClassName : String?) {

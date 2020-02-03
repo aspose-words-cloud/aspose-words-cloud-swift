@@ -1368,8 +1368,8 @@ public class Font : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.allCaps = try container.decodeIfPresent(Bool.self, forKey: .allCaps);
         self.bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi);
         self.bold = try container.decodeIfPresent(Bool.self, forKey: .bold);
@@ -1413,6 +1413,7 @@ public class Font : LinkElement {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.allCaps != nil) {
             try container.encode(self.allCaps, forKey: .allCaps);
@@ -1534,7 +1535,6 @@ public class Font : LinkElement {
         if (self.underlineColor != nil) {
             try container.encode(self.underlineColor, forKey: .underlineColor);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setAllCaps(allCaps : Bool?) {

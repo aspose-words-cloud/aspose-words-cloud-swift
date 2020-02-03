@@ -74,8 +74,8 @@ public class TextSaveOptionsData : SaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.addBidiMarks = try container.decodeIfPresent(Bool.self, forKey: .addBidiMarks);
         self.encoding = try container.decodeIfPresent(String.self, forKey: .encoding);
         self.exportHeadersFootersMode = try container.decodeIfPresent(ExportHeadersFootersMode.self, forKey: .exportHeadersFootersMode);
@@ -86,6 +86,7 @@ public class TextSaveOptionsData : SaveOptionsData {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.addBidiMarks != nil) {
             try container.encode(self.addBidiMarks, forKey: .addBidiMarks);
@@ -108,7 +109,6 @@ public class TextSaveOptionsData : SaveOptionsData {
         if (self.simplifyListLabels != nil) {
             try container.encode(self.simplifyListLabels, forKey: .simplifyListLabels);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setAddBidiMarks(addBidiMarks : Bool?) {

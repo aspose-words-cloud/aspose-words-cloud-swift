@@ -195,8 +195,8 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.allowNegativeIndent = try container.decodeIfPresent(Bool.self, forKey: .allowNegativeIndent);
         self.cssClassNamePrefix = try container.decodeIfPresent(String.self, forKey: .cssClassNamePrefix);
         self.cssStyleSheetFileName = try container.decodeIfPresent(String.self, forKey: .cssStyleSheetFileName);
@@ -239,6 +239,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.allowNegativeIndent != nil) {
             try container.encode(self.allowNegativeIndent, forKey: .allowNegativeIndent);
@@ -357,7 +358,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         if (self.tableWidthOutputMode != nil) {
             try container.encode(self.tableWidthOutputMode, forKey: .tableWidthOutputMode);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setAllowNegativeIndent(allowNegativeIndent : Bool?) {

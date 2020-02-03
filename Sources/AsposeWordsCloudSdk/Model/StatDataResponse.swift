@@ -45,13 +45,14 @@ public class StatDataResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.documentLink = try container.decodeIfPresent(FileLink.self, forKey: .documentLink);
         self.statData = try container.decodeIfPresent(DocumentStatData.self, forKey: .statData);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.documentLink != nil) {
             try container.encode(self.documentLink, forKey: .documentLink);
@@ -59,7 +60,6 @@ public class StatDataResponse : WordsResponse {
         if (self.statData != nil) {
             try container.encode(self.statData, forKey: .statData);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setDocumentLink(documentLink : FileLink?) {

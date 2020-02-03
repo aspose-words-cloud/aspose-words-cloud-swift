@@ -54,8 +54,8 @@ public class DocumentStatData : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.wordCount = try container.decode(Int.self, forKey: .wordCount);
         self.paragraphCount = try container.decode(Int.self, forKey: .paragraphCount);
         self.pageCount = try container.decode(Int.self, forKey: .pageCount);
@@ -64,6 +64,7 @@ public class DocumentStatData : Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.wordCount == nil) {
             throw WordsApiError.requiredArgumentError(argumentName: "wordCount");
@@ -83,7 +84,6 @@ public class DocumentStatData : Codable {
         if (self.pageStatData != nil) {
             try container.encode(self.pageStatData, forKey: .pageStatData);
         }
-        
     }
         
     public func setWordCount(wordCount : Int) {

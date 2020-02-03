@@ -42,17 +42,17 @@ public class ProtectionData : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.protectionType = try container.decodeIfPresent(String.self, forKey: .protectionType);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.protectionType != nil) {
             try container.encode(self.protectionType, forKey: .protectionType);
         }
-        
     }
         
     public func setProtectionType(protectionType : String?) {

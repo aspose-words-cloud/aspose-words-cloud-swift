@@ -45,13 +45,14 @@ public class FootnotesStatData : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.wordCount = try container.decode(Int.self, forKey: .wordCount);
         self.paragraphCount = try container.decode(Int.self, forKey: .paragraphCount);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.wordCount == nil) {
             throw WordsApiError.requiredArgumentError(argumentName: "wordCount");
@@ -61,7 +62,6 @@ public class FootnotesStatData : Codable {
             throw WordsApiError.requiredArgumentError(argumentName: "paragraphCount");
         }
         try container.encode(self.paragraphCount, forKey: .paragraphCount);
-        
     }
         
     public func setWordCount(wordCount : Int) {

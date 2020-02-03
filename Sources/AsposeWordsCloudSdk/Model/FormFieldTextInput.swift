@@ -74,8 +74,8 @@ public class FormFieldTextInput : FormField {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.maxLength = try container.decodeIfPresent(Int.self, forKey: .maxLength);
         self.textInputDefault = try container.decodeIfPresent(String.self, forKey: .textInputDefault);
         self.textInputFormat = try container.decodeIfPresent(String.self, forKey: .textInputFormat);
@@ -83,6 +83,7 @@ public class FormFieldTextInput : FormField {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.maxLength != nil) {
             try container.encode(self.maxLength, forKey: .maxLength);
@@ -96,7 +97,6 @@ public class FormFieldTextInput : FormField {
         if (self.textInputType != nil) {
             try container.encode(self.textInputType, forKey: .textInputType);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setMaxLength(maxLength : Int?) {

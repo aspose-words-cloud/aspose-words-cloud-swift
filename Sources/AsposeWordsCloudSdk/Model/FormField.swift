@@ -66,8 +66,8 @@ public class FormField : NodeLink {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.calculateOnExit = try container.decodeIfPresent(Bool.self, forKey: .calculateOnExit);
         self.enabled = try container.decodeIfPresent(Bool.self, forKey: .enabled);
         self.entryMacro = try container.decodeIfPresent(String.self, forKey: .entryMacro);
@@ -80,6 +80,7 @@ public class FormField : NodeLink {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.calculateOnExit != nil) {
             try container.encode(self.calculateOnExit, forKey: .calculateOnExit);
@@ -108,7 +109,6 @@ public class FormField : NodeLink {
         if (self.statusText != nil) {
             try container.encode(self.statusText, forKey: .statusText);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setCalculateOnExit(calculateOnExit : Bool?) {

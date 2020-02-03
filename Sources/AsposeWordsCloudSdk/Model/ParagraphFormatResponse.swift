@@ -42,17 +42,17 @@ public class ParagraphFormatResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.paragraphFormat = try container.decodeIfPresent(ParagraphFormat.self, forKey: .paragraphFormat);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.paragraphFormat != nil) {
             try container.encode(self.paragraphFormat, forKey: .paragraphFormat);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setParagraphFormat(paragraphFormat : ParagraphFormat?) {

@@ -45,13 +45,14 @@ public class SearchResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.searchingPattern = try container.decodeIfPresent(String.self, forKey: .searchingPattern);
         self.searchResults = try container.decodeIfPresent(SearchResultsCollection.self, forKey: .searchResults);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.searchingPattern != nil) {
             try container.encode(self.searchingPattern, forKey: .searchingPattern);
@@ -59,7 +60,6 @@ public class SearchResponse : WordsResponse {
         if (self.searchResults != nil) {
             try container.encode(self.searchResults, forKey: .searchResults);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setSearchingPattern(searchingPattern : String?) {

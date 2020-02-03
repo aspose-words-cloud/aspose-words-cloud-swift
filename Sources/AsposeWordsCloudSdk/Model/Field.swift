@@ -45,13 +45,14 @@ public class Field : FieldLink {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.localeId = try container.decodeIfPresent(String.self, forKey: .localeId);
         self.result = try container.decodeIfPresent(String.self, forKey: .result);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.localeId != nil) {
             try container.encode(self.localeId, forKey: .localeId);
@@ -59,7 +60,6 @@ public class Field : FieldLink {
         if (self.result != nil) {
             try container.encode(self.result, forKey: .result);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setLocaleId(localeId : String?) {

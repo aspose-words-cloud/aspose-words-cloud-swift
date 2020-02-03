@@ -1265,8 +1265,8 @@ public class TableProperties : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment);
         self.allowAutoFit = try container.decodeIfPresent(Bool.self, forKey: .allowAutoFit);
         self.bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi);
@@ -1284,6 +1284,7 @@ public class TableProperties : LinkElement {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.alignment != nil) {
             try container.encode(self.alignment, forKey: .alignment);
@@ -1327,7 +1328,6 @@ public class TableProperties : LinkElement {
         if (self.topPadding != nil) {
             try container.encode(self.topPadding, forKey: .topPadding);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setAlignment(alignment : Alignment?) {

@@ -460,8 +460,8 @@ public class PageSetup : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi);
         self.borderAlwaysInFront = try container.decodeIfPresent(Bool.self, forKey: .borderAlwaysInFront);
         self.borderAppliesTo = try container.decodeIfPresent(BorderAppliesTo.self, forKey: .borderAppliesTo);
@@ -494,6 +494,7 @@ public class PageSetup : LinkElement {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.bidi != nil) {
             try container.encode(self.bidi, forKey: .bidi);
@@ -582,7 +583,6 @@ public class PageSetup : LinkElement {
         if (self.verticalAlignment != nil) {
             try container.encode(self.verticalAlignment, forKey: .verticalAlignment);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setBidi(bidi : Bool?) {

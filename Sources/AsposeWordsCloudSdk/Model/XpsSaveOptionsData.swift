@@ -51,8 +51,8 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.bookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .bookmarksOutlineLevel);
         self.headingsOutlineLevels = try container.decodeIfPresent(Int.self, forKey: .headingsOutlineLevels);
         self.outlineOptions = try container.decodeIfPresent(OutlineOptionsData.self, forKey: .outlineOptions);
@@ -60,6 +60,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.bookmarksOutlineLevel != nil) {
             try container.encode(self.bookmarksOutlineLevel, forKey: .bookmarksOutlineLevel);
@@ -73,7 +74,6 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         if (self.useBookFoldPrintingSettings != nil) {
             try container.encode(self.useBookFoldPrintingSettings, forKey: .useBookFoldPrintingSettings);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setBookmarksOutlineLevel(bookmarksOutlineLevel : Int?) {

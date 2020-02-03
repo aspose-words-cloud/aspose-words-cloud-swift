@@ -42,17 +42,17 @@ public class LinkElement : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.link = try container.decodeIfPresent(WordsApiLink.self, forKey: .link);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.link != nil) {
             try container.encode(self.link, forKey: .link);
         }
-        
     }
         
     public func setLink(link : WordsApiLink?) {

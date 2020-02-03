@@ -42,17 +42,17 @@ public class CommentResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.comment = try container.decodeIfPresent(Comment.self, forKey: .comment);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.comment != nil) {
             try container.encode(self.comment, forKey: .comment);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setComment(comment : Comment?) {

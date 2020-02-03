@@ -57,8 +57,8 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.exportEmbeddedImages = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedImages);
         self.fitToViewPort = try container.decodeIfPresent(Bool.self, forKey: .fitToViewPort);
         self.resourcesFolder = try container.decodeIfPresent(String.self, forKey: .resourcesFolder);
@@ -68,6 +68,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.exportEmbeddedImages != nil) {
             try container.encode(self.exportEmbeddedImages, forKey: .exportEmbeddedImages);
@@ -87,7 +88,6 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         if (self.textOutputMode != nil) {
             try container.encode(self.textOutputMode, forKey: .textOutputMode);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setExportEmbeddedImages(exportEmbeddedImages : Bool?) {

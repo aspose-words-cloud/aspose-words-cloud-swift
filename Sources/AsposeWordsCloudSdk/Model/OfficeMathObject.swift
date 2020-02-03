@@ -180,8 +180,8 @@ public class OfficeMathObject : OfficeMathLink {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.content = try container.decodeIfPresent(StoryChildNodes.self, forKey: .content);
         self.displayType = try container.decodeIfPresent(DisplayType.self, forKey: .displayType);
         self.justification = try container.decodeIfPresent(Justification.self, forKey: .justification);
@@ -189,6 +189,7 @@ public class OfficeMathObject : OfficeMathLink {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.content != nil) {
             try container.encode(self.content, forKey: .content);
@@ -202,7 +203,6 @@ public class OfficeMathObject : OfficeMathLink {
         if (self.mathObjectType != nil) {
             try container.encode(self.mathObjectType, forKey: .mathObjectType);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setContent(content : StoryChildNodes?) {

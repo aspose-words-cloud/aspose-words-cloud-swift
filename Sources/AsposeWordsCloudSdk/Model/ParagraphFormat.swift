@@ -1336,8 +1336,8 @@ public class ParagraphFormat : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.addSpaceBetweenFarEastAndAlpha = try container.decodeIfPresent(Bool.self, forKey: .addSpaceBetweenFarEastAndAlpha);
         self.addSpaceBetweenFarEastAndDigit = try container.decodeIfPresent(Bool.self, forKey: .addSpaceBetweenFarEastAndDigit);
         self.alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment);
@@ -1367,6 +1367,7 @@ public class ParagraphFormat : LinkElement {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.addSpaceBetweenFarEastAndAlpha != nil) {
             try container.encode(self.addSpaceBetweenFarEastAndAlpha, forKey: .addSpaceBetweenFarEastAndAlpha);
@@ -1446,7 +1447,6 @@ public class ParagraphFormat : LinkElement {
         if (self.widowControl != nil) {
             try container.encode(self.widowControl, forKey: .widowControl);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setAddSpaceBetweenFarEastAndAlpha(addSpaceBetweenFarEastAndAlpha : Bool?) {

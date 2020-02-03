@@ -51,8 +51,8 @@ public class DocSaveOptionsData : SaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.alwaysCompressMetafiles = try container.decodeIfPresent(Bool.self, forKey: .alwaysCompressMetafiles);
         self.password = try container.decodeIfPresent(String.self, forKey: .password);
         self.savePictureBullet = try container.decodeIfPresent(Bool.self, forKey: .savePictureBullet);
@@ -60,6 +60,7 @@ public class DocSaveOptionsData : SaveOptionsData {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.alwaysCompressMetafiles != nil) {
             try container.encode(self.alwaysCompressMetafiles, forKey: .alwaysCompressMetafiles);
@@ -73,7 +74,6 @@ public class DocSaveOptionsData : SaveOptionsData {
         if (self.saveRoutingSlip != nil) {
             try container.encode(self.saveRoutingSlip, forKey: .saveRoutingSlip);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setAlwaysCompressMetafiles(alwaysCompressMetafiles : Bool?) {

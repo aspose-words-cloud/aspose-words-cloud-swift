@@ -42,17 +42,17 @@ public class SectionLinkCollectionResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.sections = try container.decodeIfPresent(SectionLinkCollection.self, forKey: .sections);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.sections != nil) {
             try container.encode(self.sections, forKey: .sections);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setSections(sections : SectionLinkCollection?) {

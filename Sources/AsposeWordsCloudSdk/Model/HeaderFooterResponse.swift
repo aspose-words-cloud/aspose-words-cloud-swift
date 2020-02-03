@@ -42,17 +42,17 @@ public class HeaderFooterResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.headerFooter = try container.decodeIfPresent(HeaderFooter.self, forKey: .headerFooter);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.headerFooter != nil) {
             try container.encode(self.headerFooter, forKey: .headerFooter);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setHeaderFooter(headerFooter : HeaderFooter?) {

@@ -42,17 +42,17 @@ public class WordMLSaveOptionsData : SaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.prettyFormat != nil) {
             try container.encode(self.prettyFormat, forKey: .prettyFormat);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setPrettyFormat(prettyFormat : Bool?) {

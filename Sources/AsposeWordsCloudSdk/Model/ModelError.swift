@@ -51,8 +51,8 @@ public class ModelError : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.code = try container.decodeIfPresent(String.self, forKey: .code);
         self.message = try container.decodeIfPresent(String.self, forKey: .message);
         self._description = try container.decodeIfPresent(String.self, forKey: ._description);
@@ -60,6 +60,7 @@ public class ModelError : Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.code != nil) {
             try container.encode(self.code, forKey: .code);
@@ -73,7 +74,6 @@ public class ModelError : Codable {
         if (self.innerError != nil) {
             try container.encode(self.innerError, forKey: .innerError);
         }
-        
     }
         
     public func setCode(code : String?) {

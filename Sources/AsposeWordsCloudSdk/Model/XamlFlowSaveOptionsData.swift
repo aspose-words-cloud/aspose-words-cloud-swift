@@ -45,13 +45,14 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.imagesFolder = try container.decodeIfPresent(String.self, forKey: .imagesFolder);
         self.imagesFolderAlias = try container.decodeIfPresent(String.self, forKey: .imagesFolderAlias);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.imagesFolder != nil) {
             try container.encode(self.imagesFolder, forKey: .imagesFolder);
@@ -59,7 +60,6 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
         if (self.imagesFolderAlias != nil) {
             try container.encode(self.imagesFolderAlias, forKey: .imagesFolderAlias);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setImagesFolder(imagesFolder : String?) {

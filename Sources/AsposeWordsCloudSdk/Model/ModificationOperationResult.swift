@@ -45,13 +45,14 @@ public class ModificationOperationResult : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.source = try container.decodeIfPresent(FileLink.self, forKey: .source);
         self.dest = try container.decodeIfPresent(FileLink.self, forKey: .dest);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.source != nil) {
             try container.encode(self.source, forKey: .source);
@@ -59,7 +60,6 @@ public class ModificationOperationResult : Codable {
         if (self.dest != nil) {
             try container.encode(self.dest, forKey: .dest);
         }
-        
     }
         
     public func setSource(source : FileLink?) {

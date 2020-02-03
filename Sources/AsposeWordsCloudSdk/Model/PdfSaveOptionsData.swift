@@ -125,8 +125,8 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.compliance = try container.decodeIfPresent(String.self, forKey: .compliance);
         self.createNoteHyperlinks = try container.decodeIfPresent(Bool.self, forKey: .createNoteHyperlinks);
         self.customPropertiesExport = try container.decodeIfPresent(String.self, forKey: .customPropertiesExport);
@@ -154,6 +154,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.compliance != nil) {
             try container.encode(self.compliance, forKey: .compliance);
@@ -227,7 +228,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         if (self.zoomFactor != nil) {
             try container.encode(self.zoomFactor, forKey: .zoomFactor);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setCompliance(compliance : String?) {

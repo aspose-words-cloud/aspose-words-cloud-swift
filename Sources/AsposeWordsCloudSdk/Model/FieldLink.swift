@@ -42,17 +42,17 @@ public class FieldLink : NodeLink {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.fieldCode = try container.decodeIfPresent(String.self, forKey: .fieldCode);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.fieldCode != nil) {
             try container.encode(self.fieldCode, forKey: .fieldCode);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setFieldCode(fieldCode : String?) {

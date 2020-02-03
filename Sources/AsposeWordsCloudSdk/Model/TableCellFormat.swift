@@ -140,8 +140,8 @@ public class TableCellFormat : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.bottomPadding = try container.decodeIfPresent(Double.self, forKey: .bottomPadding);
         self.fitText = try container.decodeIfPresent(Bool.self, forKey: .fitText);
         self.horizontalMerge = try container.decodeIfPresent(HorizontalMerge.self, forKey: .horizontalMerge);
@@ -157,6 +157,7 @@ public class TableCellFormat : LinkElement {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.bottomPadding != nil) {
             try container.encode(self.bottomPadding, forKey: .bottomPadding);
@@ -194,7 +195,6 @@ public class TableCellFormat : LinkElement {
         if (self.wrapText != nil) {
             try container.encode(self.wrapText, forKey: .wrapText);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setBottomPadding(bottomPadding : Double?) {

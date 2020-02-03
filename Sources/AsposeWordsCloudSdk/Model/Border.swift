@@ -175,8 +175,8 @@ public class Border : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.borderType = try container.decodeIfPresent(BorderType.self, forKey: .borderType);
         self.color = try container.decodeIfPresent(XmlColor.self, forKey: .color);
         self.distanceFromText = try container.decodeIfPresent(Double.self, forKey: .distanceFromText);
@@ -186,6 +186,7 @@ public class Border : LinkElement {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.borderType != nil) {
             try container.encode(self.borderType, forKey: .borderType);
@@ -205,7 +206,6 @@ public class Border : LinkElement {
         if (self.shadow != nil) {
             try container.encode(self.shadow, forKey: .shadow);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setBorderType(borderType : BorderType?) {

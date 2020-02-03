@@ -42,17 +42,17 @@ public class FormFieldResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.formField = try container.decodeIfPresent(FormField.self, forKey: .formField);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.formField != nil) {
             try container.encode(self.formField, forKey: .formField);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setFormField(formField : FormField?) {

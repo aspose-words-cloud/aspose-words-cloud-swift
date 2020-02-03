@@ -42,17 +42,17 @@ public class ParagraphInsert : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
         }
-        
     }
         
     public func setText(text : String?) {

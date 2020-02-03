@@ -42,17 +42,17 @@ public class RunResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.run = try container.decodeIfPresent(Run.self, forKey: .run);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.run != nil) {
             try container.encode(self.run, forKey: .run);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setRun(run : Run?) {

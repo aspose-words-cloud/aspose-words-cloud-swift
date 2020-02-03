@@ -54,8 +54,8 @@ public class ReplaceTextParameters : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.oldValue = try container.decodeIfPresent(String.self, forKey: .oldValue);
         self.newValue = try container.decodeIfPresent(String.self, forKey: .newValue);
         self.isMatchCase = try container.decode(Bool.self, forKey: .isMatchCase);
@@ -64,6 +64,7 @@ public class ReplaceTextParameters : Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.oldValue != nil) {
             try container.encode(self.oldValue, forKey: .oldValue);
@@ -83,7 +84,6 @@ public class ReplaceTextParameters : Codable {
             throw WordsApiError.requiredArgumentError(argumentName: "isOldValueRegex");
         }
         try container.encode(self.isOldValueRegex, forKey: .isOldValueRegex);
-        
     }
         
     public func setOldValue(oldValue : String?) {

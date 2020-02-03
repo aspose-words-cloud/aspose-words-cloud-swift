@@ -42,17 +42,17 @@ public class FilesList : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.value = try container.decodeIfPresent([StorageFile].self, forKey: .value);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.value != nil) {
             try container.encode(self.value, forKey: .value);
         }
-        
     }
         
     public func setValue(value : [StorageFile]?) {

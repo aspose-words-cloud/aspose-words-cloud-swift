@@ -45,13 +45,14 @@ public class BookmarksOutlineLevelData : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.name = try container.decodeIfPresent(String.self, forKey: .name);
         self.bookmarksOutlineLevel = try container.decode(Int.self, forKey: .bookmarksOutlineLevel);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.name != nil) {
             try container.encode(self.name, forKey: .name);
@@ -60,7 +61,6 @@ public class BookmarksOutlineLevelData : Codable {
             throw WordsApiError.requiredArgumentError(argumentName: "bookmarksOutlineLevel");
         }
         try container.encode(self.bookmarksOutlineLevel, forKey: .bookmarksOutlineLevel);
-        
     }
         
     public func setName(name : String?) {

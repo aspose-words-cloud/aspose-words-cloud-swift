@@ -59,13 +59,14 @@ public class PreferredWidth : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.type = try container.decode(ModelType.self, forKey: .type);
         self.value = try container.decodeIfPresent(Double.self, forKey: .value);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.type == nil) {
             throw WordsApiError.requiredArgumentError(argumentName: "type");
@@ -74,7 +75,6 @@ public class PreferredWidth : Codable {
         if (self.value != nil) {
             try container.encode(self.value, forKey: .value);
         }
-        
     }
         
     public func setType(type : ModelType) {

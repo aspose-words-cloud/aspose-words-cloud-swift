@@ -60,8 +60,8 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.colorMode = try container.decodeIfPresent(String.self, forKey: .colorMode);
         self.jpegQuality = try container.decodeIfPresent(Int.self, forKey: .jpegQuality);
         self.metafileRenderingOptions = try container.decodeIfPresent(MetafileRenderingOptionsData.self, forKey: .metafileRenderingOptions);
@@ -72,6 +72,7 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.colorMode != nil) {
             try container.encode(self.colorMode, forKey: .colorMode);
@@ -94,7 +95,6 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         if (self.pageIndex != nil) {
             try container.encode(self.pageIndex, forKey: .pageIndex);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setColorMode(colorMode : String?) {

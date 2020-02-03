@@ -42,17 +42,17 @@ public class Hyperlinks : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.hyperlinkList = try container.decodeIfPresent([Hyperlink].self, forKey: .hyperlinkList);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.hyperlinkList != nil) {
             try container.encode(self.hyperlinkList, forKey: .hyperlinkList);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setHyperlinkList(hyperlinkList : [Hyperlink]?) {

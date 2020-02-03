@@ -63,8 +63,8 @@ public class SaveOptionsData : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.saveFormat = try container.decodeIfPresent(String.self, forKey: .saveFormat);
         self.fileName = try container.decodeIfPresent(String.self, forKey: .fileName);
         self.dmlRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlRenderingMode);
@@ -76,6 +76,7 @@ public class SaveOptionsData : Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.saveFormat != nil) {
             try container.encode(self.saveFormat, forKey: .saveFormat);
@@ -101,7 +102,6 @@ public class SaveOptionsData : Codable {
         if (self.updateFields != nil) {
             try container.encode(self.updateFields, forKey: .updateFields);
         }
-        
     }
         
     public func setSaveFormat(saveFormat : String?) {

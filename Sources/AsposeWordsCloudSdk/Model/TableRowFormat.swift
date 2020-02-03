@@ -65,8 +65,8 @@ public class TableRowFormat : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.allowBreakAcrossPages = try container.decodeIfPresent(Bool.self, forKey: .allowBreakAcrossPages);
         self.headingFormat = try container.decodeIfPresent(Bool.self, forKey: .headingFormat);
         self.height = try container.decodeIfPresent(Double.self, forKey: .height);
@@ -74,6 +74,7 @@ public class TableRowFormat : LinkElement {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.allowBreakAcrossPages != nil) {
             try container.encode(self.allowBreakAcrossPages, forKey: .allowBreakAcrossPages);
@@ -87,7 +88,6 @@ public class TableRowFormat : LinkElement {
         if (self.heightRule != nil) {
             try container.encode(self.heightRule, forKey: .heightRule);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setAllowBreakAcrossPages(allowBreakAcrossPages : Bool?) {

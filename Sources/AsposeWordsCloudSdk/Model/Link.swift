@@ -51,8 +51,8 @@ public class Link : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.href = try container.decodeIfPresent(String.self, forKey: .href);
         self.rel = try container.decodeIfPresent(String.self, forKey: .rel);
         self.type = try container.decodeIfPresent(String.self, forKey: .type);
@@ -60,6 +60,7 @@ public class Link : Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.href != nil) {
             try container.encode(self.href, forKey: .href);
@@ -73,7 +74,6 @@ public class Link : Codable {
         if (self.title != nil) {
             try container.encode(self.title, forKey: .title);
         }
-        
     }
         
     public func setHref(href : String?) {

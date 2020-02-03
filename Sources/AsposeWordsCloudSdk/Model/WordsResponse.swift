@@ -42,17 +42,17 @@ public class WordsResponse : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.requestId = try container.decodeIfPresent(String.self, forKey: .requestId);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.requestId != nil) {
             try container.encode(self.requestId, forKey: .requestId);
         }
-        
     }
         
     public func setRequestId(requestId : String?) {

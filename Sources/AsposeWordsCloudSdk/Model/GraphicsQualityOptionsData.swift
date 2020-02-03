@@ -169,8 +169,8 @@ public class GraphicsQualityOptionsData : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.compositingMode = try container.decodeIfPresent(CompositingMode.self, forKey: .compositingMode);
         self.compositingQuality = try container.decodeIfPresent(CompositingQuality.self, forKey: .compositingQuality);
         self.interpolationMode = try container.decodeIfPresent(InterpolationMode.self, forKey: .interpolationMode);
@@ -180,6 +180,7 @@ public class GraphicsQualityOptionsData : Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.compositingMode != nil) {
             try container.encode(self.compositingMode, forKey: .compositingMode);
@@ -199,7 +200,6 @@ public class GraphicsQualityOptionsData : Codable {
         if (self.textRenderingHint != nil) {
             try container.encode(self.textRenderingHint, forKey: .textRenderingHint);
         }
-        
     }
         
     public func setCompositingMode(compositingMode : CompositingMode?) {

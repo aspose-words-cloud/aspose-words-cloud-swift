@@ -42,17 +42,17 @@ public class NodeLink : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.nodeId = try container.decodeIfPresent(String.self, forKey: .nodeId);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.nodeId != nil) {
             try container.encode(self.nodeId, forKey: .nodeId);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setNodeId(nodeId : String?) {

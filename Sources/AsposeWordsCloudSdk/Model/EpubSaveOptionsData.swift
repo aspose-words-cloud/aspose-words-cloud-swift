@@ -42,17 +42,17 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.epubNavigationMapLevel = try container.decodeIfPresent(Int.self, forKey: .epubNavigationMapLevel);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.epubNavigationMapLevel != nil) {
             try container.encode(self.epubNavigationMapLevel, forKey: .epubNavigationMapLevel);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setEpubNavigationMapLevel(epubNavigationMapLevel : Int?) {

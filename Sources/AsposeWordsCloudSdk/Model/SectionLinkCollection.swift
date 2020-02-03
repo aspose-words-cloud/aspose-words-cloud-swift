@@ -42,17 +42,17 @@ public class SectionLinkCollection : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.sectionLinkList = try container.decodeIfPresent([SectionLink].self, forKey: .sectionLinkList);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.sectionLinkList != nil) {
             try container.encode(self.sectionLinkList, forKey: .sectionLinkList);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setSectionLinkList(sectionLinkList : [SectionLink]?) {

@@ -45,13 +45,14 @@ public class ReplaceTextResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.documentLink = try container.decodeIfPresent(FileLink.self, forKey: .documentLink);
         self.matches = try container.decodeIfPresent(Int.self, forKey: .matches);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.documentLink != nil) {
             try container.encode(self.documentLink, forKey: .documentLink);
@@ -59,7 +60,6 @@ public class ReplaceTextResponse : WordsResponse {
         if (self.matches != nil) {
             try container.encode(self.matches, forKey: .matches);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setDocumentLink(documentLink : FileLink?) {

@@ -42,17 +42,17 @@ public class DocumentEntryList : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.documentEntries = try container.decodeIfPresent([DocumentEntry].self, forKey: .documentEntries);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.documentEntries != nil) {
             try container.encode(self.documentEntries, forKey: .documentEntries);
         }
-        
     }
         
     public func setDocumentEntries(documentEntries : [DocumentEntry]?) {

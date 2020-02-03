@@ -42,17 +42,17 @@ public class DocumentResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.document = try container.decodeIfPresent(Document.self, forKey: .document);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.document != nil) {
             try container.encode(self.document, forKey: .document);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setDocument(document : Document?) {

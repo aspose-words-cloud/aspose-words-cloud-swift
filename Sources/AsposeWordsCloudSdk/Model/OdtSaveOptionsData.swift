@@ -59,14 +59,15 @@ public class OdtSaveOptionsData : SaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.isStrictSchema11 = try container.decodeIfPresent(Bool.self, forKey: .isStrictSchema11);
         self.measureUnit = try container.decodeIfPresent(MeasureUnit.self, forKey: .measureUnit);
         self.prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.isStrictSchema11 != nil) {
             try container.encode(self.isStrictSchema11, forKey: .isStrictSchema11);
@@ -77,7 +78,6 @@ public class OdtSaveOptionsData : SaveOptionsData {
         if (self.prettyFormat != nil) {
             try container.encode(self.prettyFormat, forKey: .prettyFormat);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setIsStrictSchema11(isStrictSchema11 : Bool?) {

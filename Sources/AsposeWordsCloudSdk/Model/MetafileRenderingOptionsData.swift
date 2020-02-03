@@ -54,8 +54,8 @@ public class MetafileRenderingOptionsData : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.emfPlusDualRenderingMode = try container.decodeIfPresent(String.self, forKey: .emfPlusDualRenderingMode);
         self.emulateRasterOperations = try container.decodeIfPresent(Bool.self, forKey: .emulateRasterOperations);
         self.renderingMode = try container.decodeIfPresent(String.self, forKey: .renderingMode);
@@ -64,6 +64,7 @@ public class MetafileRenderingOptionsData : Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.emfPlusDualRenderingMode != nil) {
             try container.encode(self.emfPlusDualRenderingMode, forKey: .emfPlusDualRenderingMode);
@@ -80,7 +81,6 @@ public class MetafileRenderingOptionsData : Codable {
         if (self.scaleWmfFontsToMetafileSize != nil) {
             try container.encode(self.scaleWmfFontsToMetafileSize, forKey: .scaleWmfFontsToMetafileSize);
         }
-        
     }
         
     public func setEmfPlusDualRenderingMode(emfPlusDualRenderingMode : String?) {

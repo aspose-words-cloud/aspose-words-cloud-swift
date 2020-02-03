@@ -42,17 +42,17 @@ public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.exportCidUrlsForMhtmlResources = try container.decodeIfPresent(Bool.self, forKey: .exportCidUrlsForMhtmlResources);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.exportCidUrlsForMhtmlResources != nil) {
             try container.encode(self.exportCidUrlsForMhtmlResources, forKey: .exportCidUrlsForMhtmlResources);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setExportCidUrlsForMhtmlResources(exportCidUrlsForMhtmlResources : Bool?) {

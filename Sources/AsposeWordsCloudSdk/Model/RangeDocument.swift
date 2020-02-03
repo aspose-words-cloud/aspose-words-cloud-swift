@@ -42,17 +42,17 @@ public class RangeDocument : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.documentName = try container.decodeIfPresent(String.self, forKey: .documentName);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.documentName != nil) {
             try container.encode(self.documentName, forKey: .documentName);
         }
-        
     }
         
     public func setDocumentName(documentName : String?) {

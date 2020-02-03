@@ -42,17 +42,17 @@ public class BookmarkResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.bookmark = try container.decodeIfPresent(Bookmark.self, forKey: .bookmark);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.bookmark != nil) {
             try container.encode(self.bookmark, forKey: .bookmark);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setBookmark(bookmark : Bookmark?) {

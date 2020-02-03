@@ -42,17 +42,17 @@ public class SectionResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.section = try container.decodeIfPresent(Section.self, forKey: .section);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.section != nil) {
             try container.encode(self.section, forKey: .section);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setSection(section : Section?) {

@@ -54,8 +54,8 @@ public class StorageFile : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.name = try container.decodeIfPresent(String.self, forKey: .name);
         self.isFolder = try container.decode(Bool.self, forKey: .isFolder);
         self.modifiedDate = try container.decodeIfPresent(Date.self, forKey: .modifiedDate);
@@ -64,6 +64,7 @@ public class StorageFile : Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.name != nil) {
             try container.encode(self.name, forKey: .name);
@@ -82,7 +83,6 @@ public class StorageFile : Codable {
         if (self.path != nil) {
             try container.encode(self.path, forKey: .path);
         }
-        
     }
         
     public func setName(name : String?) {

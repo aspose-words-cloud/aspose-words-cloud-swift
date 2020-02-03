@@ -42,17 +42,17 @@ public class PsSaveOptionsData : FixedPageSaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.useBookFoldPrintingSettings = try container.decodeIfPresent(Bool.self, forKey: .useBookFoldPrintingSettings);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.useBookFoldPrintingSettings != nil) {
             try container.encode(self.useBookFoldPrintingSettings, forKey: .useBookFoldPrintingSettings);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setUseBookFoldPrintingSettings(useBookFoldPrintingSettings : Bool?) {

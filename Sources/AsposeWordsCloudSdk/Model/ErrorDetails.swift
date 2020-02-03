@@ -45,13 +45,14 @@ public class ErrorDetails : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.requestId = try container.decodeIfPresent(String.self, forKey: .requestId);
         self.errorDateTime = try container.decode(Date.self, forKey: .errorDateTime);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.requestId != nil) {
             try container.encode(self.requestId, forKey: .requestId);
@@ -60,7 +61,6 @@ public class ErrorDetails : Codable {
             throw WordsApiError.requiredArgumentError(argumentName: "errorDateTime");
         }
         try container.encode(self.errorDateTime, forKey: .errorDateTime);
-        
     }
         
     public func setRequestId(requestId : String?) {

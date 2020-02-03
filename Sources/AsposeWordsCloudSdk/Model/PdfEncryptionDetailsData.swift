@@ -51,8 +51,8 @@ public class PdfEncryptionDetailsData : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.encryptionAlgorithm = try container.decodeIfPresent(String.self, forKey: .encryptionAlgorithm);
         self.ownerPassword = try container.decodeIfPresent(String.self, forKey: .ownerPassword);
         self.permissions = try container.decodeIfPresent(String.self, forKey: .permissions);
@@ -60,6 +60,7 @@ public class PdfEncryptionDetailsData : Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.encryptionAlgorithm != nil) {
             try container.encode(self.encryptionAlgorithm, forKey: .encryptionAlgorithm);
@@ -73,7 +74,6 @@ public class PdfEncryptionDetailsData : Codable {
         if (self.userPassword != nil) {
             try container.encode(self.userPassword, forKey: .userPassword);
         }
-        
     }
         
     public func setEncryptionAlgorithm(encryptionAlgorithm : String?) {

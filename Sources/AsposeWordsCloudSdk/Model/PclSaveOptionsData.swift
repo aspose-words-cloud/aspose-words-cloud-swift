@@ -45,13 +45,14 @@ public class PclSaveOptionsData : FixedPageSaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.falllbackFontName = try container.decodeIfPresent(String.self, forKey: .falllbackFontName);
         self.rasterizeTransformedElements = try container.decodeIfPresent(Bool.self, forKey: .rasterizeTransformedElements);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.falllbackFontName != nil) {
             try container.encode(self.falllbackFontName, forKey: .falllbackFontName);
@@ -59,7 +60,6 @@ public class PclSaveOptionsData : FixedPageSaveOptionsData {
         if (self.rasterizeTransformedElements != nil) {
             try container.encode(self.rasterizeTransformedElements, forKey: .rasterizeTransformedElements);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setFalllbackFontName(falllbackFontName : String?) {

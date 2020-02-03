@@ -45,13 +45,14 @@ public class SearchResult : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.rangeStart = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeStart);
         self.rangeEnd = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeEnd);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.rangeStart != nil) {
             try container.encode(self.rangeStart, forKey: .rangeStart);
@@ -59,7 +60,6 @@ public class SearchResult : Codable {
         if (self.rangeEnd != nil) {
             try container.encode(self.rangeEnd, forKey: .rangeEnd);
         }
-        
     }
         
     public func setRangeStart(rangeStart : DocumentPosition?) {

@@ -54,8 +54,8 @@ public class Section : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.childNodes = try container.decodeIfPresent([NodeLink].self, forKey: .childNodes);
         self.headerFooters = try container.decodeIfPresent(LinkElement.self, forKey: .headerFooters);
         self.pageSetup = try container.decodeIfPresent(LinkElement.self, forKey: .pageSetup);
@@ -64,6 +64,7 @@ public class Section : LinkElement {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.childNodes != nil) {
             try container.encode(self.childNodes, forKey: .childNodes);
@@ -80,7 +81,6 @@ public class Section : LinkElement {
         if (self.tables != nil) {
             try container.encode(self.tables, forKey: .tables);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setChildNodes(childNodes : [NodeLink]?) {

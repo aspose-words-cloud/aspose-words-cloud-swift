@@ -48,14 +48,15 @@ public class ProtectionRequest : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.password = try container.decodeIfPresent(String.self, forKey: .password);
         self.newPassword = try container.decodeIfPresent(String.self, forKey: .newPassword);
         self.protectionType = try container.decodeIfPresent(String.self, forKey: .protectionType);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.password != nil) {
             try container.encode(self.password, forKey: .password);
@@ -66,7 +67,6 @@ public class ProtectionRequest : Codable {
         if (self.protectionType != nil) {
             try container.encode(self.protectionType, forKey: .protectionType);
         }
-        
     }
         
     public func setPassword(password : String?) {

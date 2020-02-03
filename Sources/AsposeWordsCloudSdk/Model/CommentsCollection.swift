@@ -42,17 +42,17 @@ public class CommentsCollection : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.commentList = try container.decodeIfPresent([Comment].self, forKey: .commentList);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.commentList != nil) {
             try container.encode(self.commentList, forKey: .commentList);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setCommentList(commentList : [Comment]?) {

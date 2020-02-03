@@ -65,8 +65,8 @@ public class Footnote : FootnoteLink {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.content = try container.decodeIfPresent(StoryChildNodes.self, forKey: .content);
         self.footnoteType = try container.decodeIfPresent(FootnoteType.self, forKey: .footnoteType);
         self.position = try container.decodeIfPresent(DocumentPosition.self, forKey: .position);
@@ -75,6 +75,7 @@ public class Footnote : FootnoteLink {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.content != nil) {
             try container.encode(self.content, forKey: .content);
@@ -91,7 +92,6 @@ public class Footnote : FootnoteLink {
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setContent(content : StoryChildNodes?) {

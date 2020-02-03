@@ -42,17 +42,17 @@ public class TableLinkCollection : LinkElement {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.tableLinkList = try container.decodeIfPresent([TableLink].self, forKey: .tableLinkList);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.tableLinkList != nil) {
             try container.encode(self.tableLinkList, forKey: .tableLinkList);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setTableLinkList(tableLinkList : [TableLink]?) {

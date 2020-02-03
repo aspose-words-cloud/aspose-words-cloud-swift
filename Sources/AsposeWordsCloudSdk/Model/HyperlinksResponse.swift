@@ -42,17 +42,17 @@ public class HyperlinksResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.hyperlinks = try container.decodeIfPresent(Hyperlinks.self, forKey: .hyperlinks);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.hyperlinks != nil) {
             try container.encode(self.hyperlinks, forKey: .hyperlinks);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setHyperlinks(hyperlinks : Hyperlinks?) {

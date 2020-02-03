@@ -42,17 +42,17 @@ public class TableCellResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.cell = try container.decodeIfPresent(TableCell.self, forKey: .cell);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.cell != nil) {
             try container.encode(self.cell, forKey: .cell);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setCell(cell : TableCell?) {

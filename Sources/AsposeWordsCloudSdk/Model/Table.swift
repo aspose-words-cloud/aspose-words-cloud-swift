@@ -45,13 +45,14 @@ public class Table : NodeLink {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.tableProperties = try container.decodeIfPresent(TableProperties.self, forKey: .tableProperties);
         self.tableRowList = try container.decodeIfPresent([TableRow].self, forKey: .tableRowList);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.tableProperties != nil) {
             try container.encode(self.tableProperties, forKey: .tableProperties);
@@ -59,7 +60,6 @@ public class Table : NodeLink {
         if (self.tableRowList != nil) {
             try container.encode(self.tableRowList, forKey: .tableRowList);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setTableProperties(tableProperties : TableProperties?) {

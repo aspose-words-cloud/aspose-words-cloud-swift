@@ -42,17 +42,17 @@ public class WordsApiErrorResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.error = try container.decodeIfPresent(ApiError.self, forKey: .error);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.error != nil) {
             try container.encode(self.error, forKey: .error);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setError(error : ApiError?) {

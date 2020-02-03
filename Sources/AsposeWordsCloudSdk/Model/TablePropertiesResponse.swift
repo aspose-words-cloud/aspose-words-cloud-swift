@@ -42,17 +42,17 @@ public class TablePropertiesResponse : WordsResponse {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.properties = try container.decodeIfPresent(TableProperties.self, forKey: .properties);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.properties != nil) {
             try container.encode(self.properties, forKey: .properties);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setProperties(properties : TableProperties?) {

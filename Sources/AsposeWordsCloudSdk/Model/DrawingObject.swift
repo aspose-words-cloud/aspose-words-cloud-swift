@@ -159,8 +159,8 @@ public class DrawingObject : DrawingObjectLink {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.height = try container.decodeIfPresent(Double.self, forKey: .height);
         self.imageDataLink = try container.decodeIfPresent(WordsApiLink.self, forKey: .imageDataLink);
         self._left = try container.decodeIfPresent(Double.self, forKey: ._left);
@@ -174,6 +174,7 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.height != nil) {
             try container.encode(self.height, forKey: .height);
@@ -205,7 +206,6 @@ public class DrawingObject : DrawingObjectLink {
         if (self.wrapType != nil) {
             try container.encode(self.wrapType, forKey: .wrapType);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setHeight(height : Double?) {

@@ -51,8 +51,8 @@ public class PageStatData : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.pageNumber = try container.decode(Int.self, forKey: .pageNumber);
         self.wordCount = try container.decode(Int.self, forKey: .wordCount);
         self.paragraphCount = try container.decode(Int.self, forKey: .paragraphCount);
@@ -60,6 +60,7 @@ public class PageStatData : Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.pageNumber == nil) {
             throw WordsApiError.requiredArgumentError(argumentName: "pageNumber");
@@ -76,7 +77,6 @@ public class PageStatData : Codable {
         if (self.footnotesStatData != nil) {
             try container.encode(self.footnotesStatData, forKey: .footnotesStatData);
         }
-        
     }
         
     public func setPageNumber(pageNumber : Int) {

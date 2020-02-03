@@ -48,14 +48,15 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     }
     
     public required init(from decoder: Decoder) throws {
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        try super.init(from: try container.superDecoder());
         self.thresholdForFloydSteinbergDithering = try container.decodeIfPresent(Int.self, forKey: .thresholdForFloydSteinbergDithering);
         self.tiffBinarizationMethod = try container.decodeIfPresent(String.self, forKey: .tiffBinarizationMethod);
         self.tiffCompression = try container.decodeIfPresent(String.self, forKey: .tiffCompression);
     }
 
     public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.thresholdForFloydSteinbergDithering != nil) {
             try container.encode(self.thresholdForFloydSteinbergDithering, forKey: .thresholdForFloydSteinbergDithering);
@@ -66,7 +67,6 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
         if (self.tiffCompression != nil) {
             try container.encode(self.tiffCompression, forKey: .tiffCompression);
         }
-        try super.encode(to: container.superEncoder());
     }
         
     public func setThresholdForFloydSteinbergDithering(thresholdForFloydSteinbergDithering : Int?) {

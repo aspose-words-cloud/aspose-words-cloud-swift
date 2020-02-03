@@ -51,8 +51,8 @@ public class PageNumber : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.format = try container.decodeIfPresent(String.self, forKey: .format);
         self.alignment = try container.decodeIfPresent(String.self, forKey: .alignment);
         self.isTop = try container.decode(Bool.self, forKey: .isTop);
@@ -60,6 +60,7 @@ public class PageNumber : Codable {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.format != nil) {
             try container.encode(self.format, forKey: .format);
@@ -75,7 +76,6 @@ public class PageNumber : Codable {
             throw WordsApiError.requiredArgumentError(argumentName: "setPageNumberOnFirstPage");
         }
         try container.encode(self.setPageNumberOnFirstPage, forKey: .setPageNumberOnFirstPage);
-        
     }
         
     public func setFormat(format : String?) {

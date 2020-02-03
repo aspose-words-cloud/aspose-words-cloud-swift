@@ -45,13 +45,14 @@ public class ClassificationResult : Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self);
         
+        let container = try decoder.container(keyedBy: CodingKeys.self);
         self.className = try container.decodeIfPresent(String.self, forKey: .className);
         self.classProbability = try container.decode(Double.self, forKey: .classProbability);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.className != nil) {
             try container.encode(self.className, forKey: .className);
@@ -60,7 +61,6 @@ public class ClassificationResult : Codable {
             throw WordsApiError.requiredArgumentError(argumentName: "classProbability");
         }
         try container.encode(self.classProbability, forKey: .classProbability);
-        
     }
         
     public func setClassName(className : String?) {
