@@ -2,9 +2,9 @@ import XCTest
 @testable import AsposeWordsCloudSdk
 
 class BaseTestContext: XCTestCase {
-    private var api : WordsApi?;
+    private var api : WordsAPI?;
     
-    public func getApi() -> WordsApi {
+    public func getApi() -> WordsAPI {
         return api!;
     }
     
@@ -20,10 +20,10 @@ class BaseTestContext: XCTestCase {
             do {
                 let credsData = try Data(contentsOf: credsUrl);
                 let config = try ObjectSerializer.deserialize(type: Configuration.self, from: credsData);
-                api = WordsApi(configuration: config);
+                api = WordsAPI(configuration: config);
             }
             catch {
-                XCTFail("File servercreds.json not found in root of project");
+                XCTFail("File servercreds.json not found in Settings folder of project root.");
             }
         }
     }
