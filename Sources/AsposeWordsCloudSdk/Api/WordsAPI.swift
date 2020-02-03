@@ -42,19 +42,19 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -75,25 +75,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -114,7 +114,7 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getBestClassesCount() != nil) {
-            queryItems.append(URLQueryItem(name: "bestClassesCount", value: "\(request.getBestClassesCount()!)"));
+            queryItems.append(URLQueryItem(name: "bestClassesCount", value: request.getBestClassesCount()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -135,22 +135,22 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getBestClassesCount() != nil) {
-            queryItems.append(URLQueryItem(name: "bestClassesCount", value: "\(request.getBestClassesCount()!)"));
+            queryItems.append(URLQueryItem(name: "bestClassesCount", value: request.getBestClassesCount()!));
         }
         if (request.getTaxonomy() != nil) {
-            queryItems.append(URLQueryItem(name: "taxonomy", value: "\(request.getTaxonomy()!)"));
+            queryItems.append(URLQueryItem(name: "taxonomy", value: request.getTaxonomy()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -171,19 +171,19 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -203,20 +203,18 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getFormat() != nil) {
-            queryItems.append(URLQueryItem(name: "format", value: "\(request.getFormat()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getOutPath() != nil) {
-            queryItems.append(URLQueryItem(name: "outPath", value: "\(request.getOutPath()!)"));
+            queryItems.append(URLQueryItem(name: "outPath", value: request.getOutPath()!));
         }
         if (request.getFileNameFieldValue() != nil) {
-            queryItems.append(URLQueryItem(name: "fileNameFieldValue", value: "\(request.getFileNameFieldValue()!)"));
+            queryItems.append(URLQueryItem(name: "fileNameFieldValue", value: request.getFileNameFieldValue()!));
         }
         if (request.getFontsLocation() != nil) {
-            queryItems.append(URLQueryItem(name: "fontsLocation", value: "\(request.getFontsLocation()!)"));
+            queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -236,17 +234,15 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getDestPath() != nil) {
-            queryItems.append(URLQueryItem(name: "destPath", value: "\(request.getDestPath()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "destPath", value: request.getDestPath()));
         if (request.getSrcStorageName() != nil) {
-            queryItems.append(URLQueryItem(name: "srcStorageName", value: "\(request.getSrcStorageName()!)"));
+            queryItems.append(URLQueryItem(name: "srcStorageName", value: request.getSrcStorageName()!));
         }
         if (request.getDestStorageName() != nil) {
-            queryItems.append(URLQueryItem(name: "destStorageName", value: "\(request.getDestStorageName()!)"));
+            queryItems.append(URLQueryItem(name: "destStorageName", value: request.getDestStorageName()!));
         }
         if (request.getVersionId() != nil) {
-            queryItems.append(URLQueryItem(name: "versionId", value: "\(request.getVersionId()!)"));
+            queryItems.append(URLQueryItem(name: "versionId", value: request.getVersionId()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -266,14 +262,12 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getDestPath() != nil) {
-            queryItems.append(URLQueryItem(name: "destPath", value: "\(request.getDestPath()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "destPath", value: request.getDestPath()));
         if (request.getSrcStorageName() != nil) {
-            queryItems.append(URLQueryItem(name: "srcStorageName", value: "\(request.getSrcStorageName()!)"));
+            queryItems.append(URLQueryItem(name: "srcStorageName", value: request.getSrcStorageName()!));
         }
         if (request.getDestStorageName() != nil) {
-            queryItems.append(URLQueryItem(name: "destStorageName", value: "\(request.getDestStorageName()!)"));
+            queryItems.append(URLQueryItem(name: "destStorageName", value: request.getDestStorageName()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -294,13 +288,13 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "fileName", value: "\(request.getFileName()!)"));
+            queryItems.append(URLQueryItem(name: "fileName", value: request.getFileName()!));
         }
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -321,7 +315,7 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getStorageName() != nil) {
-            queryItems.append(URLQueryItem(name: "storageName", value: "\(request.getStorageName()!)"));
+            queryItems.append(URLQueryItem(name: "storageName", value: request.getStorageName()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -342,25 +336,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -381,25 +375,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -420,25 +414,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -459,25 +453,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -498,25 +492,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -537,25 +531,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -576,25 +570,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -615,25 +609,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -654,25 +648,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -693,25 +687,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -732,25 +726,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -771,10 +765,10 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getStorageName() != nil) {
-            queryItems.append(URLQueryItem(name: "storageName", value: "\(request.getStorageName()!)"));
+            queryItems.append(URLQueryItem(name: "storageName", value: request.getStorageName()!));
         }
         if (request.getVersionId() != nil) {
-            queryItems.append(URLQueryItem(name: "versionId", value: "\(request.getVersionId()!)"));
+            queryItems.append(URLQueryItem(name: "versionId", value: request.getVersionId()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -795,7 +789,7 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getStorageName() != nil) {
-            queryItems.append(URLQueryItem(name: "storageName", value: "\(request.getStorageName()!)"));
+            queryItems.append(URLQueryItem(name: "storageName", value: request.getStorageName()!));
         }
         if (request.getRecursive() != nil) {
             queryItems.append(URLQueryItem(name: "recursive", value: "\(request.getRecursive()!)"));
@@ -819,25 +813,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -858,25 +852,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -897,25 +891,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -936,25 +930,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -975,25 +969,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1014,28 +1008,28 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         if (request.getHeadersFootersTypes() != nil) {
-            queryItems.append(URLQueryItem(name: "headersFootersTypes", value: "\(request.getHeadersFootersTypes()!)"));
+            queryItems.append(URLQueryItem(name: "headersFootersTypes", value: request.getHeadersFootersTypes()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1056,25 +1050,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1095,25 +1089,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1134,25 +1128,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1173,25 +1167,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1212,25 +1206,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1251,25 +1245,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1290,25 +1284,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1329,25 +1323,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1368,25 +1362,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1407,25 +1401,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1446,25 +1440,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1485,25 +1479,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1524,10 +1518,10 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getStorageName() != nil) {
-            queryItems.append(URLQueryItem(name: "storageName", value: "\(request.getStorageName()!)"));
+            queryItems.append(URLQueryItem(name: "storageName", value: request.getStorageName()!));
         }
         if (request.getVersionId() != nil) {
-            queryItems.append(URLQueryItem(name: "versionId", value: "\(request.getVersionId()!)"));
+            queryItems.append(URLQueryItem(name: "versionId", value: request.getVersionId()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1548,31 +1542,31 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getWithRegions() != nil) {
             queryItems.append(URLQueryItem(name: "withRegions", value: "\(request.getWithRegions()!)"));
         }
         if (request.getMailMergeDataFile() != nil) {
-            queryItems.append(URLQueryItem(name: "mailMergeDataFile", value: "\(request.getMailMergeDataFile()!)"));
+            queryItems.append(URLQueryItem(name: "mailMergeDataFile", value: request.getMailMergeDataFile()!));
         }
         if (request.getCleanup() != nil) {
-            queryItems.append(URLQueryItem(name: "cleanup", value: "\(request.getCleanup()!)"));
+            queryItems.append(URLQueryItem(name: "cleanup", value: request.getCleanup()!));
         }
         if (request.getUseWholeParagraphAsRegion() != nil) {
             queryItems.append(URLQueryItem(name: "useWholeParagraphAsRegion", value: "\(request.getUseWholeParagraphAsRegion()!)"));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1596,10 +1590,10 @@ public class WordsAPI {
             queryItems.append(URLQueryItem(name: "withRegions", value: "\(request.getWithRegions()!)"));
         }
         if (request.getCleanup() != nil) {
-            queryItems.append(URLQueryItem(name: "cleanup", value: "\(request.getCleanup()!)"));
+            queryItems.append(URLQueryItem(name: "cleanup", value: request.getCleanup()!));
         }
         if (request.getDocumentFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "documentFileName", value: "\(request.getDocumentFileName()!)"));
+            queryItems.append(URLQueryItem(name: "documentFileName", value: request.getDocumentFileName()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1620,7 +1614,7 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFontsLocation() != nil) {
-            queryItems.append(URLQueryItem(name: "fontsLocation", value: "\(request.getFontsLocation()!)"));
+            queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1641,16 +1635,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1671,16 +1665,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1701,16 +1695,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1731,16 +1725,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1761,16 +1755,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1791,16 +1785,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1821,16 +1815,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1851,16 +1845,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1881,16 +1875,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1911,16 +1905,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1941,16 +1935,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -1971,16 +1965,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2001,16 +1995,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2031,16 +2025,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2061,16 +2055,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2091,16 +2085,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getUseNonMergeFields() != nil) {
             queryItems.append(URLQueryItem(name: "useNonMergeFields", value: "\(request.getUseNonMergeFields()!)"));
@@ -2145,16 +2139,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2175,16 +2169,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2205,16 +2199,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2235,16 +2229,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2265,16 +2259,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2295,16 +2289,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getIncludeComments() != nil) {
             queryItems.append(URLQueryItem(name: "includeComments", value: "\(request.getIncludeComments()!)"));
@@ -2333,26 +2327,24 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getFormat() != nil) {
-            queryItems.append(URLQueryItem(name: "format", value: "\(request.getFormat()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getOutPath() != nil) {
-            queryItems.append(URLQueryItem(name: "outPath", value: "\(request.getOutPath()!)"));
+            queryItems.append(URLQueryItem(name: "outPath", value: request.getOutPath()!));
         }
         if (request.getFontsLocation() != nil) {
-            queryItems.append(URLQueryItem(name: "fontsLocation", value: "\(request.getFontsLocation()!)"));
+            queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2373,16 +2365,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2403,16 +2395,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2433,16 +2425,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2463,16 +2455,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2493,7 +2485,7 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getStorageName() != nil) {
-            queryItems.append(URLQueryItem(name: "storageName", value: "\(request.getStorageName()!)"));
+            queryItems.append(URLQueryItem(name: "storageName", value: request.getStorageName()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2514,16 +2506,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2544,16 +2536,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2574,16 +2566,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2604,16 +2596,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2634,16 +2626,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2664,16 +2656,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2694,16 +2686,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2724,16 +2716,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2754,19 +2746,19 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getFilterByType() != nil) {
-            queryItems.append(URLQueryItem(name: "filterByType", value: "\(request.getFilterByType()!)"));
+            queryItems.append(URLQueryItem(name: "filterByType", value: request.getFilterByType()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2787,19 +2779,19 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getFilterByType() != nil) {
-            queryItems.append(URLQueryItem(name: "filterByType", value: "\(request.getFilterByType()!)"));
+            queryItems.append(URLQueryItem(name: "filterByType", value: request.getFilterByType()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2820,19 +2812,19 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getFilterByType() != nil) {
-            queryItems.append(URLQueryItem(name: "filterByType", value: "\(request.getFilterByType()!)"));
+            queryItems.append(URLQueryItem(name: "filterByType", value: request.getFilterByType()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2853,16 +2845,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2883,16 +2875,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2913,16 +2905,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2943,16 +2935,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -2973,16 +2965,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3003,16 +2995,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3033,16 +3025,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3063,16 +3055,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3093,16 +3085,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3123,16 +3115,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3153,16 +3145,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3183,16 +3175,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3213,16 +3205,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3243,16 +3235,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3273,16 +3265,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3303,16 +3295,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3333,16 +3325,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3363,16 +3355,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3393,16 +3385,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3423,16 +3415,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3453,16 +3445,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3483,16 +3475,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3513,16 +3505,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3543,16 +3535,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3573,16 +3565,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3603,16 +3595,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3633,16 +3625,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3663,25 +3655,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3702,25 +3694,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3741,25 +3733,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3780,28 +3772,28 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         if (request.getInsertBeforeNode() != nil) {
-            queryItems.append(URLQueryItem(name: "insertBeforeNode", value: "\(request.getInsertBeforeNode()!)"));
+            queryItems.append(URLQueryItem(name: "insertBeforeNode", value: request.getInsertBeforeNode()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3822,28 +3814,28 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         if (request.getInsertBeforeNode() != nil) {
-            queryItems.append(URLQueryItem(name: "insertBeforeNode", value: "\(request.getInsertBeforeNode()!)"));
+            queryItems.append(URLQueryItem(name: "insertBeforeNode", value: request.getInsertBeforeNode()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3864,25 +3856,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3903,25 +3895,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3942,28 +3934,28 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         if (request.getInsertBeforeNode() != nil) {
-            queryItems.append(URLQueryItem(name: "insertBeforeNode", value: "\(request.getInsertBeforeNode()!)"));
+            queryItems.append(URLQueryItem(name: "insertBeforeNode", value: request.getInsertBeforeNode()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -3984,28 +3976,28 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         if (request.getInsertBeforeNode() != nil) {
-            queryItems.append(URLQueryItem(name: "insertBeforeNode", value: "\(request.getInsertBeforeNode()!)"));
+            queryItems.append(URLQueryItem(name: "insertBeforeNode", value: request.getInsertBeforeNode()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4026,25 +4018,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4065,25 +4057,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4104,28 +4096,28 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         if (request.getInsertBeforeNode() != nil) {
-            queryItems.append(URLQueryItem(name: "insertBeforeNode", value: "\(request.getInsertBeforeNode()!)"));
+            queryItems.append(URLQueryItem(name: "insertBeforeNode", value: request.getInsertBeforeNode()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4146,28 +4138,28 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         if (request.getInsertBeforeNode() != nil) {
-            queryItems.append(URLQueryItem(name: "insertBeforeNode", value: "\(request.getInsertBeforeNode()!)"));
+            queryItems.append(URLQueryItem(name: "insertBeforeNode", value: request.getInsertBeforeNode()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4188,25 +4180,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4227,25 +4219,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4266,25 +4258,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4305,25 +4297,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4344,31 +4336,31 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         if (request.getRotationAngle() != nil) {
             queryItems.append(URLQueryItem(name: "rotationAngle", value: "\(request.getRotationAngle()!)"));
         }
         if (request.getImage() != nil) {
-            queryItems.append(URLQueryItem(name: "image", value: "\(request.getImage()!)"));
+            queryItems.append(URLQueryItem(name: "image", value: request.getImage()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4389,25 +4381,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4428,7 +4420,7 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4448,17 +4440,15 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getDestPath() != nil) {
-            queryItems.append(URLQueryItem(name: "destPath", value: "\(request.getDestPath()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "destPath", value: request.getDestPath()));
         if (request.getSrcStorageName() != nil) {
-            queryItems.append(URLQueryItem(name: "srcStorageName", value: "\(request.getSrcStorageName()!)"));
+            queryItems.append(URLQueryItem(name: "srcStorageName", value: request.getSrcStorageName()!));
         }
         if (request.getDestStorageName() != nil) {
-            queryItems.append(URLQueryItem(name: "destStorageName", value: "\(request.getDestStorageName()!)"));
+            queryItems.append(URLQueryItem(name: "destStorageName", value: request.getDestStorageName()!));
         }
         if (request.getVersionId() != nil) {
-            queryItems.append(URLQueryItem(name: "versionId", value: "\(request.getVersionId()!)"));
+            queryItems.append(URLQueryItem(name: "versionId", value: request.getVersionId()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4478,14 +4468,12 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getDestPath() != nil) {
-            queryItems.append(URLQueryItem(name: "destPath", value: "\(request.getDestPath()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "destPath", value: request.getDestPath()));
         if (request.getSrcStorageName() != nil) {
-            queryItems.append(URLQueryItem(name: "srcStorageName", value: "\(request.getSrcStorageName()!)"));
+            queryItems.append(URLQueryItem(name: "srcStorageName", value: request.getSrcStorageName()!));
         }
         if (request.getDestStorageName() != nil) {
-            queryItems.append(URLQueryItem(name: "destStorageName", value: "\(request.getDestStorageName()!)"));
+            queryItems.append(URLQueryItem(name: "destStorageName", value: request.getDestStorageName()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4506,19 +4494,19 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4539,19 +4527,19 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4572,19 +4560,19 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4604,23 +4592,21 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getFormat() != nil) {
-            queryItems.append(URLQueryItem(name: "format", value: "\(request.getFormat()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getFontsLocation() != nil) {
-            queryItems.append(URLQueryItem(name: "fontsLocation", value: "\(request.getFontsLocation()!)"));
+            queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4640,23 +4626,21 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getFormat() != nil) {
-            queryItems.append(URLQueryItem(name: "format", value: "\(request.getFormat()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getFontsLocation() != nil) {
-            queryItems.append(URLQueryItem(name: "fontsLocation", value: "\(request.getFontsLocation()!)"));
+            queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4676,23 +4660,21 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getFormat() != nil) {
-            queryItems.append(URLQueryItem(name: "format", value: "\(request.getFormat()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getFontsLocation() != nil) {
-            queryItems.append(URLQueryItem(name: "fontsLocation", value: "\(request.getFontsLocation()!)"));
+            queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4712,23 +4694,21 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getFormat() != nil) {
-            queryItems.append(URLQueryItem(name: "format", value: "\(request.getFormat()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getFontsLocation() != nil) {
-            queryItems.append(URLQueryItem(name: "fontsLocation", value: "\(request.getFontsLocation()!)"));
+            queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4748,23 +4728,21 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getFormat() != nil) {
-            queryItems.append(URLQueryItem(name: "format", value: "\(request.getFormat()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getFontsLocation() != nil) {
-            queryItems.append(URLQueryItem(name: "fontsLocation", value: "\(request.getFontsLocation()!)"));
+            queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4784,23 +4762,21 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getFormat() != nil) {
-            queryItems.append(URLQueryItem(name: "format", value: "\(request.getFormat()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getFontsLocation() != nil) {
-            queryItems.append(URLQueryItem(name: "fontsLocation", value: "\(request.getFontsLocation()!)"));
+            queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4820,23 +4796,21 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getFormat() != nil) {
-            queryItems.append(URLQueryItem(name: "format", value: "\(request.getFormat()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getFontsLocation() != nil) {
-            queryItems.append(URLQueryItem(name: "fontsLocation", value: "\(request.getFontsLocation()!)"));
+            queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4856,23 +4830,21 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getFormat() != nil) {
-            queryItems.append(URLQueryItem(name: "format", value: "\(request.getFormat()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getFontsLocation() != nil) {
-            queryItems.append(URLQueryItem(name: "fontsLocation", value: "\(request.getFontsLocation()!)"));
+            queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4892,23 +4864,21 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getFormat() != nil) {
-            queryItems.append(URLQueryItem(name: "format", value: "\(request.getFormat()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getFontsLocation() != nil) {
-            queryItems.append(URLQueryItem(name: "fontsLocation", value: "\(request.getFontsLocation()!)"));
+            queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4929,25 +4899,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -4968,19 +4938,19 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5019,19 +4989,19 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getFontsLocation() != nil) {
-            queryItems.append(URLQueryItem(name: "fontsLocation", value: "\(request.getFontsLocation()!)"));
+            queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5052,16 +5022,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5082,16 +5052,16 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getUseAntiAliasing() != nil) {
             queryItems.append(URLQueryItem(name: "useAntiAliasing", value: "\(request.getUseAntiAliasing()!)"));
@@ -5103,13 +5073,13 @@ public class WordsAPI {
             queryItems.append(URLQueryItem(name: "imageBrightness", value: "\(request.getImageBrightness()!)"));
         }
         if (request.getImageColorMode() != nil) {
-            queryItems.append(URLQueryItem(name: "imageColorMode", value: "\(request.getImageColorMode()!)"));
+            queryItems.append(URLQueryItem(name: "imageColorMode", value: request.getImageColorMode()!));
         }
         if (request.getImageContrast() != nil) {
             queryItems.append(URLQueryItem(name: "imageContrast", value: "\(request.getImageContrast()!)"));
         }
         if (request.getNumeralFormat() != nil) {
-            queryItems.append(URLQueryItem(name: "numeralFormat", value: "\(request.getNumeralFormat()!)"));
+            queryItems.append(URLQueryItem(name: "numeralFormat", value: request.getNumeralFormat()!));
         }
         if (request.getPageCount() != nil) {
             queryItems.append(URLQueryItem(name: "pageCount", value: "\(request.getPageCount()!)"));
@@ -5118,10 +5088,10 @@ public class WordsAPI {
             queryItems.append(URLQueryItem(name: "pageIndex", value: "\(request.getPageIndex()!)"));
         }
         if (request.getPaperColor() != nil) {
-            queryItems.append(URLQueryItem(name: "paperColor", value: "\(request.getPaperColor()!)"));
+            queryItems.append(URLQueryItem(name: "paperColor", value: request.getPaperColor()!));
         }
         if (request.getPixelFormat() != nil) {
-            queryItems.append(URLQueryItem(name: "pixelFormat", value: "\(request.getPixelFormat()!)"));
+            queryItems.append(URLQueryItem(name: "pixelFormat", value: request.getPixelFormat()!));
         }
         if (request.getResolution() != nil) {
             queryItems.append(URLQueryItem(name: "resolution", value: "\(request.getResolution()!)"));
@@ -5130,22 +5100,22 @@ public class WordsAPI {
             queryItems.append(URLQueryItem(name: "scale", value: "\(request.getScale()!)"));
         }
         if (request.getTiffCompression() != nil) {
-            queryItems.append(URLQueryItem(name: "tiffCompression", value: "\(request.getTiffCompression()!)"));
+            queryItems.append(URLQueryItem(name: "tiffCompression", value: request.getTiffCompression()!));
         }
         if (request.getDmlRenderingMode() != nil) {
-            queryItems.append(URLQueryItem(name: "dmlRenderingMode", value: "\(request.getDmlRenderingMode()!)"));
+            queryItems.append(URLQueryItem(name: "dmlRenderingMode", value: request.getDmlRenderingMode()!));
         }
         if (request.getDmlEffectsRenderingMode() != nil) {
-            queryItems.append(URLQueryItem(name: "dmlEffectsRenderingMode", value: "\(request.getDmlEffectsRenderingMode()!)"));
+            queryItems.append(URLQueryItem(name: "dmlEffectsRenderingMode", value: request.getDmlEffectsRenderingMode()!));
         }
         if (request.getTiffBinarizationMethod() != nil) {
-            queryItems.append(URLQueryItem(name: "tiffBinarizationMethod", value: "\(request.getTiffBinarizationMethod()!)"));
+            queryItems.append(URLQueryItem(name: "tiffBinarizationMethod", value: request.getTiffBinarizationMethod()!));
         }
         if (request.getZipOutput() != nil) {
             queryItems.append(URLQueryItem(name: "zipOutput", value: "\(request.getZipOutput()!)"));
         }
         if (request.getFontsLocation() != nil) {
-            queryItems.append(URLQueryItem(name: "fontsLocation", value: "\(request.getFontsLocation()!)"));
+            queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5165,20 +5135,18 @@ public class WordsAPI {
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         
-        if (request.getPattern() != nil) {
-            queryItems.append(URLQueryItem(name: "pattern", value: "\(request.getPattern()!)"));
-        }
+        queryItems.append(URLQueryItem(name: "pattern", value: request.getPattern()));
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5199,22 +5167,22 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getFormat() != nil) {
-            queryItems.append(URLQueryItem(name: "format", value: "\(request.getFormat()!)"));
+            queryItems.append(URLQueryItem(name: "format", value: request.getFormat()!));
         }
         if (request.getFrom() != nil) {
             queryItems.append(URLQueryItem(name: "from", value: "\(request.getFrom()!)"));
@@ -5226,7 +5194,7 @@ public class WordsAPI {
             queryItems.append(URLQueryItem(name: "zipOutput", value: "\(request.getZipOutput()!)"));
         }
         if (request.getFontsLocation() != nil) {
-            queryItems.append(URLQueryItem(name: "fontsLocation", value: "\(request.getFontsLocation()!)"));
+            queryItems.append(URLQueryItem(name: "fontsLocation", value: request.getFontsLocation()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5247,19 +5215,19 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5280,25 +5248,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5319,25 +5287,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5358,25 +5326,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5397,25 +5365,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5436,25 +5404,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5475,25 +5443,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5514,19 +5482,19 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5547,25 +5515,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5586,25 +5554,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5625,25 +5593,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5664,25 +5632,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5703,25 +5671,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5742,25 +5710,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5781,25 +5749,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5820,25 +5788,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5859,25 +5827,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5898,25 +5866,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5937,25 +5905,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -5976,25 +5944,25 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getFolder() != nil) {
-            queryItems.append(URLQueryItem(name: "folder", value: "\(request.getFolder()!)"));
+            queryItems.append(URLQueryItem(name: "folder", value: request.getFolder()!));
         }
         if (request.getStorage() != nil) {
-            queryItems.append(URLQueryItem(name: "storage", value: "\(request.getStorage()!)"));
+            queryItems.append(URLQueryItem(name: "storage", value: request.getStorage()!));
         }
         if (request.getLoadEncoding() != nil) {
-            queryItems.append(URLQueryItem(name: "loadEncoding", value: "\(request.getLoadEncoding()!)"));
+            queryItems.append(URLQueryItem(name: "loadEncoding", value: request.getLoadEncoding()!));
         }
         if (request.getPassword() != nil) {
-            queryItems.append(URLQueryItem(name: "password", value: "\(request.getPassword()!)"));
+            queryItems.append(URLQueryItem(name: "password", value: request.getPassword()!));
         }
         if (request.getDestFileName() != nil) {
-            queryItems.append(URLQueryItem(name: "destFileName", value: "\(request.getDestFileName()!)"));
+            queryItems.append(URLQueryItem(name: "destFileName", value: request.getDestFileName()!));
         }
         if (request.getRevisionAuthor() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionAuthor", value: "\(request.getRevisionAuthor()!)"));
+            queryItems.append(URLQueryItem(name: "revisionAuthor", value: request.getRevisionAuthor()!));
         }
         if (request.getRevisionDateTime() != nil) {
-            queryItems.append(URLQueryItem(name: "revisionDateTime", value: "\(request.getRevisionDateTime()!)"));
+            queryItems.append(URLQueryItem(name: "revisionDateTime", value: request.getRevisionDateTime()!));
         }
         
         urlBuilder.queryItems = queryItems;
@@ -6015,7 +5983,7 @@ public class WordsAPI {
         var queryItems : [URLQueryItem] = [];
         
         if (request.getStorageName() != nil) {
-            queryItems.append(URLQueryItem(name: "storageName", value: "\(request.getStorageName()!)"));
+            queryItems.append(URLQueryItem(name: "storageName", value: request.getStorageName()!));
         }
         
         urlBuilder.queryItems = queryItems;
