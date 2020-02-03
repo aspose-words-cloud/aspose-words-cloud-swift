@@ -49,7 +49,7 @@ public class GetDocumentWithFormatRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, format : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, outPath : String? = null, fontsLocation : String? = null) {
+    public init(name : String, format : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, outPath : String? = nil, fontsLocation : String? = nil) {
         self.name = name;
         self.format = format;
         self.folder = folder;

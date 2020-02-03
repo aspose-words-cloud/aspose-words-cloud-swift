@@ -55,7 +55,7 @@ public class InsertWatermarkImageRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, imageFile : URL? = null, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, rotationAngle : Double? = null, image : String? = null) {
+    public init(name : String, imageFile : URL? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, rotationAngle : Double? = nil, image : String? = nil) {
         self.name = name;
         self.imageFile = imageFile;
         self.folder = folder;

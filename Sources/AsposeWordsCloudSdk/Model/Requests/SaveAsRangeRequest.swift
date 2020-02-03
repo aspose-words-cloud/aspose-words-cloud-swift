@@ -49,7 +49,7 @@ public class SaveAsRangeRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, rangeStartIdentifier : String, documentParameters : RangeDocument, rangeEndIdentifier : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
+    public init(name : String, rangeStartIdentifier : String, documentParameters : RangeDocument, rangeEndIdentifier : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.rangeStartIdentifier = rangeStartIdentifier;
         self.documentParameters = documentParameters;

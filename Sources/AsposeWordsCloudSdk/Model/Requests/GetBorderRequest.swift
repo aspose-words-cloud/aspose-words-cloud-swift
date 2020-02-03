@@ -47,7 +47,7 @@ public class GetBorderRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, nodePath : String, borderType : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
+    public init(name : String, nodePath : String, borderType : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.nodePath = nodePath;
         self.borderType = borderType;

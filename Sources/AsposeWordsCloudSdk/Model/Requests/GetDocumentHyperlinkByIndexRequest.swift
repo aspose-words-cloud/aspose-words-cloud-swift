@@ -45,7 +45,7 @@ public class GetDocumentHyperlinkByIndexRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, hyperlinkIndex : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
+    public init(name : String, hyperlinkIndex : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.hyperlinkIndex = hyperlinkIndex;
         self.folder = folder;

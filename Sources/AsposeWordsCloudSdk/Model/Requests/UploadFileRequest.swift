@@ -39,7 +39,7 @@ public class UploadFileRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(fileContent : URL, path : String, storageName : String? = null) {
+    public init(fileContent : URL, path : String, storageName : String? = nil) {
         self.fileContent = fileContent;
         self.path = path;
         self.storageName = storageName;

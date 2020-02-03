@@ -47,7 +47,7 @@ public class UnprotectDocumentRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, protectionRequest : ProtectionRequest, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null) {
+    public init(name : String, protectionRequest : ProtectionRequest, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
         self.protectionRequest = protectionRequest;
         self.folder = folder;

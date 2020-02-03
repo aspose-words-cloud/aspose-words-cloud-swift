@@ -39,7 +39,7 @@ public class DeleteFolderRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(path : String, storageName : String? = null, recursive : Bool? = null) {
+    public init(path : String, storageName : String? = nil, recursive : Bool? = nil) {
         self.path = path;
         self.storageName = storageName;
         self.recursive = recursive;

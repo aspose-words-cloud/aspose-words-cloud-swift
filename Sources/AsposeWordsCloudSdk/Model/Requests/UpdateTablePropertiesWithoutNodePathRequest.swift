@@ -53,7 +53,7 @@ public class UpdateTablePropertiesWithoutNodePathRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, properties : TableProperties? = null) {
+    public init(name : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, properties : TableProperties? = nil) {
         self.name = name;
         self.index = index;
         self.folder = folder;

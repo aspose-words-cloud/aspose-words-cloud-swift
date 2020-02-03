@@ -37,7 +37,7 @@ public class LoadWebDocumentRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(data : LoadWebDocumentData, storage : String? = null) {
+    public init(data : LoadWebDocumentData, storage : String? = nil) {
         self.data = data;
         self.storage = storage;
     }

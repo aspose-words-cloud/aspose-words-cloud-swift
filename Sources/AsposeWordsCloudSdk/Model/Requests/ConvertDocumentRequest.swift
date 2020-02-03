@@ -45,7 +45,7 @@ public class ConvertDocumentRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(document : URL, format : String, storage : String? = null, outPath : String? = null, fileNameFieldValue : String? = null, fontsLocation : String? = null) {
+    public init(document : URL, format : String, storage : String? = nil, outPath : String? = nil, fileNameFieldValue : String? = nil, fontsLocation : String? = nil) {
         self.document = document;
         self.format = format;
         self.storage = storage;

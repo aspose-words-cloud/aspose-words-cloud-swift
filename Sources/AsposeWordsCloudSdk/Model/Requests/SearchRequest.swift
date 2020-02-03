@@ -45,7 +45,7 @@ public class SearchRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, pattern : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
+    public init(name : String, pattern : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.pattern = pattern;
         self.folder = folder;

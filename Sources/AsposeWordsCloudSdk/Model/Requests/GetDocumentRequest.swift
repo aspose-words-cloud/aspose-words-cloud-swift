@@ -43,7 +43,7 @@ public class GetDocumentRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(documentName : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
+    public init(documentName : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.documentName = documentName;
         self.folder = folder;
         self.storage = storage;

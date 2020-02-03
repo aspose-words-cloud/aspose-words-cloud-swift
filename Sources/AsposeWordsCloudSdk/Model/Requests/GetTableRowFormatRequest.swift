@@ -47,7 +47,7 @@ public class GetTableRowFormatRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, tablePath : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
+    public init(name : String, tablePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.tablePath = tablePath;
         self.index = index;

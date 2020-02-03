@@ -47,7 +47,7 @@ public class SaveAsRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, saveOptionsData : SaveOptionsData, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, fontsLocation : String? = null) {
+    public init(name : String, saveOptionsData : SaveOptionsData, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
         self.name = name;
         self.saveOptionsData = saveOptionsData;
         self.folder = folder;

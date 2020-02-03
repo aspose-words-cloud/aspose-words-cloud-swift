@@ -43,7 +43,7 @@ public class GetFieldsWithoutNodePathRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
+    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.folder = folder;
         self.storage = storage;

@@ -47,7 +47,7 @@ public class GetHeaderFootersRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, sectionPath : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, filterByType : String? = null) {
+    public init(name : String, sectionPath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, filterByType : String? = nil) {
         self.name = name;
         self.sectionPath = sectionPath;
         self.folder = folder;

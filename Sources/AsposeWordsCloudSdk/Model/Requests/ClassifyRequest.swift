@@ -37,7 +37,7 @@ public class ClassifyRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(text : String, bestClassesCount : String? = null) {
+    public init(text : String, bestClassesCount : String? = nil) {
         self.text = text;
         self.bestClassesCount = bestClassesCount;
     }

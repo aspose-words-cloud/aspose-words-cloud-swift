@@ -55,7 +55,7 @@ public class InsertParagraphRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, paragraph : ParagraphInsert, nodePath : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, insertBeforeNode : String? = null) {
+    public init(name : String, paragraph : ParagraphInsert, nodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
         self.name = name;
         self.paragraph = paragraph;
         self.nodePath = nodePath;

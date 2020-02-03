@@ -49,7 +49,7 @@ public class GetHeaderFooterOfSectionRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, headerFooterIndex : Int, sectionIndex : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, filterByType : String? = null) {
+    public init(name : String, headerFooterIndex : Int, sectionIndex : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, filterByType : String? = nil) {
         self.name = name;
         self.headerFooterIndex = headerFooterIndex;
         self.sectionIndex = sectionIndex;

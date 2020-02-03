@@ -55,7 +55,7 @@ public class UpdateParagraphFormatRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, dto : ParagraphFormat, nodePath : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null) {
+    public init(name : String, dto : ParagraphFormat, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.dto = dto;
         self.nodePath = nodePath;

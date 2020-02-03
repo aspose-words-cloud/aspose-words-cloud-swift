@@ -43,7 +43,7 @@ public class MoveFileRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(destPath : String, srcPath : String, srcStorageName : String? = null, destStorageName : String? = null, versionId : String? = null) {
+    public init(destPath : String, srcPath : String, srcStorageName : String? = nil, destStorageName : String? = nil, versionId : String? = nil) {
         self.destPath = destPath;
         self.srcPath = srcPath;
         self.srcStorageName = srcStorageName;

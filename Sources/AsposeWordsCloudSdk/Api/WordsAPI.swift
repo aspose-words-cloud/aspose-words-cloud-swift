@@ -251,7 +251,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -278,7 +278,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -326,7 +326,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -482,7 +482,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -521,7 +521,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -560,7 +560,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -599,7 +599,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -638,7 +638,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -677,7 +677,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -716,7 +716,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -755,7 +755,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -779,7 +779,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -803,7 +803,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -842,7 +842,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -881,7 +881,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -920,7 +920,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -959,7 +959,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -998,7 +998,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -1040,7 +1040,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -1079,7 +1079,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -1118,7 +1118,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -1157,7 +1157,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -1196,7 +1196,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -1235,7 +1235,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -1274,7 +1274,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -1313,7 +1313,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -1352,7 +1352,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -1391,7 +1391,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -1430,7 +1430,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -1469,7 +1469,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -4463,7 +4463,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -4490,7 +4490,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,
@@ -5003,7 +5003,7 @@ public class WordsAPI {
         
         urlBuilder.queryItems = queryItems;
         
-        try apiInvoker.invoke(
+        _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
             body: nil,

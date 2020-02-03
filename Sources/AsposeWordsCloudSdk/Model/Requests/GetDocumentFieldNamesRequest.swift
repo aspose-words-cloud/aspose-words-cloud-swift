@@ -45,7 +45,7 @@ public class GetDocumentFieldNamesRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, useNonMergeFields : Bool? = null) {
+    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, useNonMergeFields : Bool? = nil) {
         self.name = name;
         self.folder = folder;
         self.storage = storage;

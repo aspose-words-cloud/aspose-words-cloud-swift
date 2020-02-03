@@ -43,7 +43,7 @@ public class ExecuteMailMergeOnlineRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(template : URL, data : URL, withRegions : Bool? = null, cleanup : String? = null, documentFileName : String? = null) {
+    public init(template : URL, data : URL, withRegions : Bool? = nil, cleanup : String? = nil, documentFileName : String? = nil) {
         self.template = template;
         self.data = data;
         self.withRegions = withRegions;

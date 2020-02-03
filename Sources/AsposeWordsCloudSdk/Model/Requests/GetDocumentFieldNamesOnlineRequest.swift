@@ -37,7 +37,7 @@ public class GetDocumentFieldNamesOnlineRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(template : URL, useNonMergeFields : Bool? = null) {
+    public init(template : URL, useNonMergeFields : Bool? = nil) {
         self.template = template;
         self.useNonMergeFields = useNonMergeFields;
     }

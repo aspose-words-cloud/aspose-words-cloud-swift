@@ -53,7 +53,7 @@ public class InsertFormFieldWithoutNodePathRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, formField : FormField, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, insertBeforeNode : String? = null) {
+    public init(name : String, formField : FormField, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
         self.name = name;
         self.formField = formField;
         self.folder = folder;

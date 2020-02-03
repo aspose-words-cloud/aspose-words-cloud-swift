@@ -39,7 +39,7 @@ public class CreateDocumentRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(storage : String? = null, fileName : String? = null, folder : String? = null) {
+    public init(storage : String? = nil, fileName : String? = nil, folder : String? = nil) {
         self.storage = storage;
         self.fileName = fileName;
         self.folder = folder;

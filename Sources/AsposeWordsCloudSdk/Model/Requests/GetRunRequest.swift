@@ -47,7 +47,7 @@ public class GetRunRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, paragraphPath : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
+    public init(name : String, paragraphPath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.paragraphPath = paragraphPath;
         self.index = index;

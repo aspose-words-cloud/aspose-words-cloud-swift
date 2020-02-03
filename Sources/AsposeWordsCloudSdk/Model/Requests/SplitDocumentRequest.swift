@@ -55,7 +55,7 @@ public class SplitDocumentRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, format : String? = null, from : Int? = null, to : Int? = null, zipOutput : Bool? = null, fontsLocation : String? = null) {
+    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, format : String? = nil, from : Int? = nil, to : Int? = nil, zipOutput : Bool? = nil, fontsLocation : String? = nil) {
         self.name = name;
         self.folder = folder;
         self.storage = storage;

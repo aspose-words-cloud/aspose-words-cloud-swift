@@ -35,7 +35,7 @@ public class GetAvailableFontsRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(fontsLocation : String? = null) {
+    public init(fontsLocation : String? = nil) {
         self.fontsLocation = fontsLocation;
     }
     

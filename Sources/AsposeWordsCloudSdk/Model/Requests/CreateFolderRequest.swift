@@ -37,7 +37,7 @@ public class CreateFolderRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(path : String, storageName : String? = null) {
+    public init(path : String, storageName : String? = nil) {
         self.path = path;
         self.storageName = storageName;
     }

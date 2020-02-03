@@ -49,7 +49,7 @@ public class GetDocumentStatisticsRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, includeComments : Bool? = null, includeFootnotes : Bool? = null, includeTextInShapes : Bool? = null) {
+    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, includeComments : Bool? = nil, includeFootnotes : Bool? = nil, includeTextInShapes : Bool? = nil) {
         self.name = name;
         self.folder = folder;
         self.storage = storage;

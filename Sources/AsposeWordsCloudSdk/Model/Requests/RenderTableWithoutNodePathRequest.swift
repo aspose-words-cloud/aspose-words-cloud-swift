@@ -49,7 +49,7 @@ public class RenderTableWithoutNodePathRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, format : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, fontsLocation : String? = null) {
+    public init(name : String, format : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
         self.name = name;
         self.format = format;
         self.index = index;

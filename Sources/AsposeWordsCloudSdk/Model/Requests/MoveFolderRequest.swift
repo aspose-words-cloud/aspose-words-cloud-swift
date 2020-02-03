@@ -41,7 +41,7 @@ public class MoveFolderRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(destPath : String, srcPath : String, srcStorageName : String? = null, destStorageName : String? = null) {
+    public init(destPath : String, srcPath : String, srcStorageName : String? = nil, destStorageName : String? = nil) {
         self.destPath = destPath;
         self.srcPath = srcPath;
         self.srcStorageName = srcStorageName;

@@ -39,7 +39,7 @@ public class DeleteFileRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(path : String, storageName : String? = null, versionId : String? = null) {
+    public init(path : String, storageName : String? = nil, versionId : String? = nil) {
         self.path = path;
         self.storageName = storageName;
         self.versionId = versionId;

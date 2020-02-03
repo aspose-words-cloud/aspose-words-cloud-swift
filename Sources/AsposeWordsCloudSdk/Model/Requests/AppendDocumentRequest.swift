@@ -51,7 +51,7 @@ public class AppendDocumentRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, documentList : DocumentEntryList, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null) {
+    public init(name : String, documentList : DocumentEntryList, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.documentList = documentList;
         self.folder = folder;

@@ -47,7 +47,7 @@ public class GetRangeTextRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, rangeStartIdentifier : String, rangeEndIdentifier : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
+    public init(name : String, rangeStartIdentifier : String, rangeEndIdentifier : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.rangeStartIdentifier = rangeStartIdentifier;
         self.rangeEndIdentifier = rangeEndIdentifier;

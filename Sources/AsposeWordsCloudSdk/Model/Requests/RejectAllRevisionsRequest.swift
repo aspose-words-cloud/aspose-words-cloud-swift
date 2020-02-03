@@ -45,7 +45,7 @@ public class RejectAllRevisionsRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null) {
+    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
         self.folder = folder;
         self.storage = storage;

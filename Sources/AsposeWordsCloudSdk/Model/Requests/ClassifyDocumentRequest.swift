@@ -47,7 +47,7 @@ public class ClassifyDocumentRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(documentName : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, bestClassesCount : String? = null, taxonomy : String? = null) {
+    public init(documentName : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, bestClassesCount : String? = nil, taxonomy : String? = nil) {
         self.documentName = documentName;
         self.folder = folder;
         self.storage = storage;

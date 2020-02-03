@@ -51,7 +51,7 @@ public class ReplaceWithTextRequest : Codable {
         case invalidCodingKey;
     }
     
-    public init(name : String, rangeStartIdentifier : String, rangeText : ReplaceRange, rangeEndIdentifier : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null) {
+    public init(name : String, rangeStartIdentifier : String, rangeText : ReplaceRange, rangeEndIdentifier : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
         self.rangeStartIdentifier = rangeStartIdentifier;
         self.rangeText = rangeText;
