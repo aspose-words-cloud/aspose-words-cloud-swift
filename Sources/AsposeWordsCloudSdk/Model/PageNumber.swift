@@ -38,7 +38,12 @@ public class PageNumber : Codable {
     // Gets or sets a value indicating whether if true the page number is added on first page too.
     private let setPageNumberOnFirstPage : Bool;
         
-    private enum CodingKeys: String, CodingKey { case format, alignment, isTop, setPageNumberOnFirstPage }
+    private enum CodingKeys: String, CodingKey {
+        case format;
+        case alignment;
+        case isTop;
+        case setPageNumberOnFirstPage;
+    }
         
     public init(format : String? = nil, alignment : String? = nil, isTop : Bool, setPageNumberOnFirstPage : Bool) {
         self.format = format;

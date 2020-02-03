@@ -1319,7 +1319,48 @@ public class Font : LinkElement {
     // Gets or sets the color of the underline applied to the font.
     private let underlineColor : XmlColor?;
         
-    private enum CodingKeys: String, CodingKey { case allCaps, bidi, bold, boldBi, border, color, complexScript, doubleStrikeThrough, emboss, engrave, hidden, highlightColor, italic, italicBi, kerning, localeId, localeIdBi, localeIdFarEast, name, nameAscii, nameBi, nameFarEast, nameOther, noProofing, outline, position, scaling, shadow, size, sizeBi, smallCaps, spacing, strikeThrough, styleIdentifier, styleName, _subscript, superscript, textEffect, underline, underlineColor }
+    private enum CodingKeys: String, CodingKey {
+        case allCaps;
+        case bidi;
+        case bold;
+        case boldBi;
+        case border;
+        case color;
+        case complexScript;
+        case doubleStrikeThrough;
+        case emboss;
+        case engrave;
+        case hidden;
+        case highlightColor;
+        case italic;
+        case italicBi;
+        case kerning;
+        case localeId;
+        case localeIdBi;
+        case localeIdFarEast;
+        case name;
+        case nameAscii;
+        case nameBi;
+        case nameFarEast;
+        case nameOther;
+        case noProofing;
+        case outline;
+        case position;
+        case scaling;
+        case shadow;
+        case size;
+        case sizeBi;
+        case smallCaps;
+        case spacing;
+        case strikeThrough;
+        case styleIdentifier;
+        case styleName;
+        case _subscript;
+        case superscript;
+        case textEffect;
+        case underline;
+        case underlineColor;
+    }
         
     public init(allCaps : Bool? = nil, bidi : Bool? = nil, bold : Bool? = nil, boldBi : Bool? = nil, border : Border? = nil, color : XmlColor? = nil, complexScript : Bool? = nil, doubleStrikeThrough : Bool? = nil, emboss : Bool? = nil, engrave : Bool? = nil, hidden : Bool? = nil, highlightColor : XmlColor? = nil, italic : Bool? = nil, italicBi : Bool? = nil, kerning : Double? = nil, localeId : Int? = nil, localeIdBi : Int? = nil, localeIdFarEast : Int? = nil, name : String? = nil, nameAscii : String? = nil, nameBi : String? = nil, nameFarEast : String? = nil, nameOther : String? = nil, noProofing : Bool? = nil, outline : Bool? = nil, position : Double? = nil, scaling : Int? = nil, shadow : Bool? = nil, size : Double? = nil, sizeBi : Double? = nil, smallCaps : Bool? = nil, spacing : Double? = nil, strikeThrough : Bool? = nil, styleIdentifier : StyleIdentifier? = nil, styleName : String? = nil, _subscript : Bool? = nil, superscript : Bool? = nil, textEffect : TextEffect? = nil, underline : Underline? = nil, underlineColor : XmlColor? = nil) {
         self.allCaps = allCaps;

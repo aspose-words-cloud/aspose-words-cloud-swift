@@ -34,7 +34,10 @@ public class TableRowInsert : Codable {
     // Gets or sets count of columns. Default is 1.
     private let columnsCount : Int;
         
-    private enum CodingKeys: String, CodingKey { case insertAfter, columnsCount }
+    private enum CodingKeys: String, CodingKey {
+        case insertAfter;
+        case columnsCount;
+    }
         
     public init(insertAfter : Int? = nil, columnsCount : Int) {
         self.insertAfter = insertAfter;

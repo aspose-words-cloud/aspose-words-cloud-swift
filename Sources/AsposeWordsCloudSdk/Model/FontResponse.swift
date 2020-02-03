@@ -32,7 +32,9 @@ public class FontResponse : WordsResponse {
     // Gets or sets font.
     private let font : Font?;
         
-    private enum CodingKeys: String, CodingKey { case font }
+    private enum CodingKeys: String, CodingKey {
+        case font;
+    }
         
     public init(font : Font? = nil) {
         self.font = font;

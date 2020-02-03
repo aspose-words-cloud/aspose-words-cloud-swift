@@ -32,7 +32,9 @@ public class BookmarksResponse : WordsResponse {
     // Gets or sets bookmarks which are contained in document.
     private let bookmarks : Bookmarks?;
         
-    private enum CodingKeys: String, CodingKey { case bookmarks }
+    private enum CodingKeys: String, CodingKey {
+        case bookmarks;
+    }
         
     public init(bookmarks : Bookmarks? = nil) {
         self.bookmarks = bookmarks;

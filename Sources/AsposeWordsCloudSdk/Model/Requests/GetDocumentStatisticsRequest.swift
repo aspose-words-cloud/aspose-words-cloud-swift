@@ -37,7 +37,16 @@ public class GetDocumentStatisticsRequest : Codable {
     private let includeFootnotes : Bool?;
     private let includeTextInShapes : Bool?;
     
-    private enum CodingKeys: String, CodingKey { case name, folder, storage, loadEncoding, password, includeComments, includeFootnotes, includeTextInShapes }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case includeComments;
+        case includeFootnotes;
+        case includeTextInShapes;
+    }
     
     public init(name : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, includeComments : Bool? = null, includeFootnotes : Bool? = null, includeTextInShapes : Bool? = null) {
         self.name = name;

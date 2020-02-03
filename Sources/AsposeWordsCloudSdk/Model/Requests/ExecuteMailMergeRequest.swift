@@ -40,7 +40,19 @@ public class ExecuteMailMergeRequest : Codable {
     private let useWholeParagraphAsRegion : Bool?;
     private let destFileName : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, data, folder, storage, loadEncoding, password, withRegions, mailMergeDataFile, cleanup, useWholeParagraphAsRegion, destFileName }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case data;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case withRegions;
+        case mailMergeDataFile;
+        case cleanup;
+        case useWholeParagraphAsRegion;
+        case destFileName;
+    }
     
     public init(name : String, data : String? = null, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, withRegions : Bool? = null, mailMergeDataFile : String? = null, cleanup : String? = null, useWholeParagraphAsRegion : Bool? = null, destFileName : String? = null) {
         self.name = name;

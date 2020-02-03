@@ -422,7 +422,37 @@ public class PageSetup : LinkElement {
     // Gets or sets returns or sets the vertical alignment of text on each page in a document or section.             
     private let verticalAlignment : VerticalAlignment?;
         
-    private enum CodingKeys: String, CodingKey { case bidi, borderAlwaysInFront, borderAppliesTo, borderDistanceFrom, bottomMargin, differentFirstPageHeaderFooter, firstPageTray, footerDistance, gutter, headerDistance, leftMargin, lineNumberCountBy, lineNumberDistanceFromText, lineNumberRestartMode, lineStartingNumber, orientation, otherPagesTray, pageHeight, pageNumberStyle, pageStartingNumber, pageWidth, paperSize, restartPageNumbering, rightMargin, rtlGutter, sectionStart, suppressEndnotes, topMargin, verticalAlignment }
+    private enum CodingKeys: String, CodingKey {
+        case bidi;
+        case borderAlwaysInFront;
+        case borderAppliesTo;
+        case borderDistanceFrom;
+        case bottomMargin;
+        case differentFirstPageHeaderFooter;
+        case firstPageTray;
+        case footerDistance;
+        case gutter;
+        case headerDistance;
+        case leftMargin;
+        case lineNumberCountBy;
+        case lineNumberDistanceFromText;
+        case lineNumberRestartMode;
+        case lineStartingNumber;
+        case orientation;
+        case otherPagesTray;
+        case pageHeight;
+        case pageNumberStyle;
+        case pageStartingNumber;
+        case pageWidth;
+        case paperSize;
+        case restartPageNumbering;
+        case rightMargin;
+        case rtlGutter;
+        case sectionStart;
+        case suppressEndnotes;
+        case topMargin;
+        case verticalAlignment;
+    }
         
     public init(bidi : Bool? = nil, borderAlwaysInFront : Bool? = nil, borderAppliesTo : BorderAppliesTo? = nil, borderDistanceFrom : BorderDistanceFrom? = nil, bottomMargin : Double? = nil, differentFirstPageHeaderFooter : Bool? = nil, firstPageTray : Int? = nil, footerDistance : Double? = nil, gutter : Double? = nil, headerDistance : Double? = nil, leftMargin : Double? = nil, lineNumberCountBy : Int? = nil, lineNumberDistanceFromText : Double? = nil, lineNumberRestartMode : LineNumberRestartMode? = nil, lineStartingNumber : Int? = nil, orientation : Orientation? = nil, otherPagesTray : Int? = nil, pageHeight : Double? = nil, pageNumberStyle : PageNumberStyle? = nil, pageStartingNumber : Int? = nil, pageWidth : Double? = nil, paperSize : PaperSize? = nil, restartPageNumbering : Bool? = nil, rightMargin : Double? = nil, rtlGutter : Bool? = nil, sectionStart : SectionStart? = nil, suppressEndnotes : Bool? = nil, topMargin : Double? = nil, verticalAlignment : VerticalAlignment? = nil) {
         self.bidi = bidi;

@@ -30,7 +30,8 @@ import Foundation
 public class TableLink : NodeLink {
         
         
-    private enum CodingKeys: String, CodingKey { case  }
+    private enum CodingKeys: String, CodingKey {
+    }
         
     public init() {
     }

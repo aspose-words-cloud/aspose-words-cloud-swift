@@ -110,7 +110,14 @@ public class Document : Codable {
     // Gets or sets returns document properties.
     private let documentProperties : DocumentProperties?;
         
-    private enum CodingKeys: String, CodingKey { case links, fileName, sourceFormat, isEncrypted, isSigned, documentProperties }
+    private enum CodingKeys: String, CodingKey {
+        case links;
+        case fileName;
+        case sourceFormat;
+        case isEncrypted;
+        case isSigned;
+        case documentProperties;
+    }
         
     public init(links : [Link]? = nil, fileName : String? = nil, sourceFormat : SourceFormat, isEncrypted : Bool, isSigned : Bool, documentProperties : DocumentProperties? = nil) {
         self.links = links;

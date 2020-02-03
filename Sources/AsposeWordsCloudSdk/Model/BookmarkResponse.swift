@@ -32,7 +32,9 @@ public class BookmarkResponse : WordsResponse {
     // Gets or sets bookmark.
     private let bookmark : Bookmark?;
         
-    private enum CodingKeys: String, CodingKey { case bookmark }
+    private enum CodingKeys: String, CodingKey {
+        case bookmark;
+    }
         
     public init(bookmark : Bookmark? = nil) {
         self.bookmark = bookmark;

@@ -39,7 +39,18 @@ public class InsertTableCellRequest : Codable {
     private let revisionDateTime : String?;
     private let cell : TableCellInsert?;
     
-    private enum CodingKeys: String, CodingKey { case name, tableRowPath, folder, storage, loadEncoding, password, destFileName, revisionAuthor, revisionDateTime, cell }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case tableRowPath;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
+        case cell;
+    }
     
     public init(name : String, tableRowPath : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, cell : TableCellInsert? = null) {
         self.name = name;

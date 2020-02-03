@@ -31,7 +31,10 @@ public class ClassifyRequest : Codable {
     private let text : String;
     private let bestClassesCount : String?;
     
-    private enum CodingKeys: String, CodingKey { case text, bestClassesCount }
+    private enum CodingKeys: String, CodingKey {
+        case text;
+        case bestClassesCount;
+    }
     
     public init(text : String, bestClassesCount : String? = null) {
         self.text = text;

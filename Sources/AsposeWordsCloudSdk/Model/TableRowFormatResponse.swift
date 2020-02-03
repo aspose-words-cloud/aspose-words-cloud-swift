@@ -32,7 +32,9 @@ public class TableRowFormatResponse : WordsResponse {
     // Gets or sets table.
     private let rowFormat : TableRowFormat?;
         
-    private enum CodingKeys: String, CodingKey { case rowFormat }
+    private enum CodingKeys: String, CodingKey {
+        case rowFormat;
+    }
         
     public init(rowFormat : TableRowFormat? = nil) {
         self.rowFormat = rowFormat;

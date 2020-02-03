@@ -38,7 +38,12 @@ public class PageStatData : Codable {
     // Gets or sets detailed statistics of footnotes.
     private let footnotesStatData : FootnotesStatData?;
         
-    private enum CodingKeys: String, CodingKey { case pageNumber, wordCount, paragraphCount, footnotesStatData }
+    private enum CodingKeys: String, CodingKey {
+        case pageNumber;
+        case wordCount;
+        case paragraphCount;
+        case footnotesStatData;
+    }
         
     public init(pageNumber : Int, wordCount : Int, paragraphCount : Int, footnotesStatData : FootnotesStatData? = nil) {
         self.pageNumber = pageNumber;

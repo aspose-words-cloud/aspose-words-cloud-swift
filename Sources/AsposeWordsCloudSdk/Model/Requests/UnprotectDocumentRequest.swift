@@ -36,7 +36,15 @@ public class UnprotectDocumentRequest : Codable {
     private let password : String?;
     private let destFileName : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, protectionRequest, folder, storage, loadEncoding, password, destFileName }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case protectionRequest;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+    }
     
     public init(name : String, protectionRequest : ProtectionRequest, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null) {
         self.name = name;

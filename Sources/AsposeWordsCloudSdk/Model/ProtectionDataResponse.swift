@@ -34,7 +34,10 @@ public class ProtectionDataResponse : WordsResponse {
     // Gets or sets protection&#39;s data of the document.
     private let protectionData : ProtectionData?;
         
-    private enum CodingKeys: String, CodingKey { case documentLink, protectionData }
+    private enum CodingKeys: String, CodingKey {
+        case documentLink;
+        case protectionData;
+    }
         
     public init(documentLink : FileLink? = nil, protectionData : ProtectionData? = nil) {
         self.documentLink = documentLink;

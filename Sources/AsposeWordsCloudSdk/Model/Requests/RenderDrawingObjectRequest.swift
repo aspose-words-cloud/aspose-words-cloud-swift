@@ -38,7 +38,17 @@ public class RenderDrawingObjectRequest : Codable {
     private let password : String?;
     private let fontsLocation : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, format, nodePath, index, folder, storage, loadEncoding, password, fontsLocation }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case format;
+        case nodePath;
+        case index;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case fontsLocation;
+    }
     
     public init(name : String, format : String, nodePath : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, fontsLocation : String? = null) {
         self.name = name;

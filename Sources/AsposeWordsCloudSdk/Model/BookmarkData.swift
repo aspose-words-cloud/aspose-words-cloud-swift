@@ -34,7 +34,10 @@ public class BookmarkData : Codable {
     // Gets or sets the text enclosed in the bookmark.
     private let text : String?;
         
-    private enum CodingKeys: String, CodingKey { case name, text }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case text;
+    }
         
     public init(name : String? = nil, text : String? = nil) {
         self.name = name;

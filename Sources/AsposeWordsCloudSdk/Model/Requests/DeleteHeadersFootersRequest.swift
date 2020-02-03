@@ -39,7 +39,18 @@ public class DeleteHeadersFootersRequest : Codable {
     private let revisionDateTime : String?;
     private let headersFootersTypes : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, sectionPath, folder, storage, loadEncoding, password, destFileName, revisionAuthor, revisionDateTime, headersFootersTypes }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case sectionPath;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
+        case headersFootersTypes;
+    }
     
     public init(name : String, sectionPath : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, headersFootersTypes : String? = null) {
         self.name = name;

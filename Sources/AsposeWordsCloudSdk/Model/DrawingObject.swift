@@ -140,7 +140,18 @@ public class DrawingObject : DrawingObjectLink {
     // Gets or sets specifies how to wrap text around the image.
     private let wrapType : WrapType?;
         
-    private enum CodingKeys: String, CodingKey { case height, imageDataLink, _left, oleDataLink, relativeHorizontalPosition, relativeVerticalPosition, renderLinks, top, width, wrapType }
+    private enum CodingKeys: String, CodingKey {
+        case height;
+        case imageDataLink;
+        case _left;
+        case oleDataLink;
+        case relativeHorizontalPosition;
+        case relativeVerticalPosition;
+        case renderLinks;
+        case top;
+        case width;
+        case wrapType;
+    }
         
     public init(height : Double? = nil, imageDataLink : WordsApiLink? = nil, _left : Double? = nil, oleDataLink : WordsApiLink? = nil, relativeHorizontalPosition : RelativeHorizontalPosition? = nil, relativeVerticalPosition : RelativeVerticalPosition? = nil, renderLinks : [WordsApiLink]? = nil, top : Double? = nil, width : Double? = nil, wrapType : WrapType? = nil) {
         self.height = height;

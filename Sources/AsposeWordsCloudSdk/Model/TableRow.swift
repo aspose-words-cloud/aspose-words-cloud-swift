@@ -34,7 +34,10 @@ public class TableRow : NodeLink {
     // Gets or sets collection of table&#39;s rows.
     private let tableCellList : [TableCell]?;
         
-    private enum CodingKeys: String, CodingKey { case rowFormat, tableCellList }
+    private enum CodingKeys: String, CodingKey {
+        case rowFormat;
+        case tableCellList;
+    }
         
     public init(rowFormat : TableRowFormat? = nil, tableCellList : [TableCell]? = nil) {
         self.rowFormat = rowFormat;

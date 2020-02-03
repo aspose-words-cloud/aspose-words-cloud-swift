@@ -40,7 +40,13 @@ public class Section : LinkElement {
     // Gets or sets link to Tables resource.
     private let tables : LinkElement?;
         
-    private enum CodingKeys: String, CodingKey { case childNodes, headerFooters, pageSetup, paragraphs, tables }
+    private enum CodingKeys: String, CodingKey {
+        case childNodes;
+        case headerFooters;
+        case pageSetup;
+        case paragraphs;
+        case tables;
+    }
         
     public init(childNodes : [NodeLink]? = nil, headerFooters : LinkElement? = nil, pageSetup : LinkElement? = nil, paragraphs : LinkElement? = nil, tables : LinkElement? = nil) {
         self.childNodes = childNodes;

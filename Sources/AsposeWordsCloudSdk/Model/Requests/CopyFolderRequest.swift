@@ -33,7 +33,12 @@ public class CopyFolderRequest : Codable {
     private let srcStorageName : String?;
     private let destStorageName : String?;
     
-    private enum CodingKeys: String, CodingKey { case destPath, srcPath, srcStorageName, destStorageName }
+    private enum CodingKeys: String, CodingKey {
+        case destPath;
+        case srcPath;
+        case srcStorageName;
+        case destStorageName;
+    }
     
     public init(destPath : String, srcPath : String, srcStorageName : String? = null, destStorageName : String? = null) {
         self.destPath = destPath;

@@ -32,7 +32,9 @@ public class Runs : LinkElement {
     // Gets or sets collection of fields.
     private let list : [Run]?;
         
-    private enum CodingKeys: String, CodingKey { case list }
+    private enum CodingKeys: String, CodingKey {
+        case list;
+    }
         
     public init(list : [Run]? = nil) {
         self.list = list;

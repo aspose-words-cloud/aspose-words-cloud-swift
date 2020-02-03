@@ -32,7 +32,9 @@ public class FieldNamesResponse : WordsResponse {
     // Gets or sets collection of mail merge fields.
     private let fieldNames : FieldNames?;
         
-    private enum CodingKeys: String, CodingKey { case fieldNames }
+    private enum CodingKeys: String, CodingKey {
+        case fieldNames;
+    }
         
     public init(fieldNames : FieldNames? = nil) {
         self.fieldNames = fieldNames;

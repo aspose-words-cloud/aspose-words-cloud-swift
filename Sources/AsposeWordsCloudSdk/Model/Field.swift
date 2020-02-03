@@ -34,7 +34,10 @@ public class Field : FieldLink {
     // Gets or sets field result.
     private let result : String?;
         
-    private enum CodingKeys: String, CodingKey { case localeId, result }
+    private enum CodingKeys: String, CodingKey {
+        case localeId;
+        case result;
+    }
         
     public init(localeId : String? = nil, result : String? = nil) {
         self.localeId = localeId;

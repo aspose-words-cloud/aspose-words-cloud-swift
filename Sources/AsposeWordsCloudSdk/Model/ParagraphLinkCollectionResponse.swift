@@ -32,7 +32,9 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
     // Gets or sets collection of paragraphs.
     private let paragraphs : ParagraphLinkCollection?;
         
-    private enum CodingKeys: String, CodingKey { case paragraphs }
+    private enum CodingKeys: String, CodingKey {
+        case paragraphs;
+    }
         
     public init(paragraphs : ParagraphLinkCollection? = nil) {
         self.paragraphs = paragraphs;

@@ -41,7 +41,20 @@ public class UpdateDrawingObjectRequest : Codable {
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, drawingObject, imageFile, nodePath, index, folder, storage, loadEncoding, password, destFileName, revisionAuthor, revisionDateTime }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case drawingObject;
+        case imageFile;
+        case nodePath;
+        case index;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
+    }
     
     public init(name : String, drawingObject : String, imageFile : URL, nodePath : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null) {
         self.name = name;

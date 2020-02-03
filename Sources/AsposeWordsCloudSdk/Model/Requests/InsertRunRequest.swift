@@ -40,7 +40,19 @@ public class InsertRunRequest : Codable {
     private let revisionDateTime : String?;
     private let insertBeforeNode : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, paragraphPath, run, folder, storage, loadEncoding, password, destFileName, revisionAuthor, revisionDateTime, insertBeforeNode }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case paragraphPath;
+        case run;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
+        case insertBeforeNode;
+    }
     
     public init(name : String, paragraphPath : String, run : Run, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, insertBeforeNode : String? = null) {
         self.name = name;

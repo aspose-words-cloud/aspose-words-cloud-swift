@@ -32,7 +32,9 @@ public class OfficeMathObjectsResponse : WordsResponse {
     // Gets or sets collection of OfficeMath objects.
     private let officeMathObjects : OfficeMathObjectsCollection?;
         
-    private enum CodingKeys: String, CodingKey { case officeMathObjects }
+    private enum CodingKeys: String, CodingKey {
+        case officeMathObjects;
+    }
         
     public init(officeMathObjects : OfficeMathObjectsCollection? = nil) {
         self.officeMathObjects = officeMathObjects;

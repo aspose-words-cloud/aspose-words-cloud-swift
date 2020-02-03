@@ -30,7 +30,8 @@ import Foundation
 public class Run : RunLink {
         
         
-    private enum CodingKeys: String, CodingKey { case  }
+    private enum CodingKeys: String, CodingKey {
+    }
         
     public init() {
     }

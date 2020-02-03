@@ -32,7 +32,9 @@ public class FormFieldResponse : WordsResponse {
     // Gets or sets field information.
     private let formField : FormField?;
         
-    private enum CodingKeys: String, CodingKey { case formField }
+    private enum CodingKeys: String, CodingKey {
+        case formField;
+    }
         
     public init(formField : FormField? = nil) {
         self.formField = formField;

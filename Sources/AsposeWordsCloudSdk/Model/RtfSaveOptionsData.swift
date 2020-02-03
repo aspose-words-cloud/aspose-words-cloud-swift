@@ -36,7 +36,11 @@ public class RtfSaveOptionsData : SaveOptionsData {
     // Gets or sets specifies whether or not use pretty formats output.
     private let prettyFormat : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case exportCompactSize, exportImagesForOldReaders, prettyFormat }
+    private enum CodingKeys: String, CodingKey {
+        case exportCompactSize;
+        case exportImagesForOldReaders;
+        case prettyFormat;
+    }
         
     public init(exportCompactSize : Bool? = nil, exportImagesForOldReaders : Bool? = nil, prettyFormat : Bool? = nil) {
         self.exportCompactSize = exportCompactSize;

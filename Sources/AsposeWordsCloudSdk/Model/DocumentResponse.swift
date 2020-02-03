@@ -32,7 +32,9 @@ public class DocumentResponse : WordsResponse {
     // Gets or sets document description.
     private let document : Document?;
         
-    private enum CodingKeys: String, CodingKey { case document }
+    private enum CodingKeys: String, CodingKey {
+        case document;
+    }
         
     public init(document : Document? = nil) {
         self.document = document;

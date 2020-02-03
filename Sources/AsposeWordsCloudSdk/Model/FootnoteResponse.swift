@@ -32,7 +32,9 @@ public class FootnoteResponse : WordsResponse {
     // Gets or sets footnote information.
     private let footnote : Footnote?;
         
-    private enum CodingKeys: String, CodingKey { case footnote }
+    private enum CodingKeys: String, CodingKey {
+        case footnote;
+    }
         
     public init(footnote : Footnote? = nil) {
         self.footnote = footnote;

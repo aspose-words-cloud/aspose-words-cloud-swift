@@ -56,7 +56,21 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets the vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.
     private let verticalResolution : Double?;
         
-    private enum CodingKeys: String, CodingKey { case graphicsQualityOptions, horizontalResolution, imageBrightness, imageColorMode, imageContrast, paperColor, pixelFormat, resolution, scale, useAntiAliasing, useGdiEmfRenderer, useHighQualityRendering, verticalResolution }
+    private enum CodingKeys: String, CodingKey {
+        case graphicsQualityOptions;
+        case horizontalResolution;
+        case imageBrightness;
+        case imageColorMode;
+        case imageContrast;
+        case paperColor;
+        case pixelFormat;
+        case resolution;
+        case scale;
+        case useAntiAliasing;
+        case useGdiEmfRenderer;
+        case useHighQualityRendering;
+        case verticalResolution;
+    }
         
     public init(graphicsQualityOptions : GraphicsQualityOptionsData? = nil, horizontalResolution : Double? = nil, imageBrightness : Double? = nil, imageColorMode : String? = nil, imageContrast : Double? = nil, paperColor : String? = nil, pixelFormat : String? = nil, resolution : Double? = nil, scale : Double? = nil, useAntiAliasing : Bool? = nil, useGdiEmfRenderer : Bool? = nil, useHighQualityRendering : Bool? = nil, verticalResolution : Double? = nil) {
         self.graphicsQualityOptions = graphicsQualityOptions;

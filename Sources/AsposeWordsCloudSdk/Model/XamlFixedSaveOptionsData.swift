@@ -34,7 +34,10 @@ public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets specifies the name of the folder used to construct image URIs written into an fixed page Xaml document. Default is null.
     private let resourcesFolderAlias : String?;
         
-    private enum CodingKeys: String, CodingKey { case resourcesFolder, resourcesFolderAlias }
+    private enum CodingKeys: String, CodingKey {
+        case resourcesFolder;
+        case resourcesFolderAlias;
+    }
         
     public init(resourcesFolder : String? = nil, resourcesFolderAlias : String? = nil) {
         self.resourcesFolder = resourcesFolder;

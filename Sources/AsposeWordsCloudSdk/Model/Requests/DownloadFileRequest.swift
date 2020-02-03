@@ -32,7 +32,11 @@ public class DownloadFileRequest : Codable {
     private let storageName : String?;
     private let versionId : String?;
     
-    private enum CodingKeys: String, CodingKey { case path, storageName, versionId }
+    private enum CodingKeys: String, CodingKey {
+        case path;
+        case storageName;
+        case versionId;
+    }
     
     public init(path : String, storageName : String? = null, versionId : String? = null) {
         self.path = path;

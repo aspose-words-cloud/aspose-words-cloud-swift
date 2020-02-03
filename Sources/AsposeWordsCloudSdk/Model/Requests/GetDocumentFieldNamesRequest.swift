@@ -35,7 +35,14 @@ public class GetDocumentFieldNamesRequest : Codable {
     private let password : String?;
     private let useNonMergeFields : Bool?;
     
-    private enum CodingKeys: String, CodingKey { case name, folder, storage, loadEncoding, password, useNonMergeFields }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case useNonMergeFields;
+    }
     
     public init(name : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, useNonMergeFields : Bool? = null) {
         self.name = name;

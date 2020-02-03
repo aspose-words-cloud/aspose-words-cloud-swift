@@ -38,7 +38,17 @@ public class InsertTableWithoutNodePathRequest : Codable {
     private let revisionDateTime : String?;
     private let table : TableInsert?;
     
-    private enum CodingKeys: String, CodingKey { case name, folder, storage, loadEncoding, password, destFileName, revisionAuthor, revisionDateTime, table }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
+        case table;
+    }
     
     public init(name : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, table : TableInsert? = null) {
         self.name = name;

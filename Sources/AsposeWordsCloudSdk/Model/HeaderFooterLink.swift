@@ -55,7 +55,9 @@ public class HeaderFooterLink : LinkElement {
     // Gets or sets paragraph&#39;s text.
     private let type : ModelType?;
         
-    private enum CodingKeys: String, CodingKey { case type }
+    private enum CodingKeys: String, CodingKey {
+        case type;
+    }
         
     public init(type : ModelType? = nil) {
         self.type = type;

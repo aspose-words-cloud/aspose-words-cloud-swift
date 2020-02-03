@@ -36,7 +36,11 @@ public class CompareData : Codable {
     // Gets or sets the date and time to use for revisions.             
     private let dateTime : Date?;
         
-    private enum CodingKeys: String, CodingKey { case comparingWithDocument, author, dateTime }
+    private enum CodingKeys: String, CodingKey {
+        case comparingWithDocument;
+        case author;
+        case dateTime;
+    }
         
     public init(comparingWithDocument : String? = nil, author : String? = nil, dateTime : Date? = nil) {
         self.comparingWithDocument = comparingWithDocument;

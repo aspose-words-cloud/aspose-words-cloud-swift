@@ -36,7 +36,11 @@ public class ProtectionRequest : Codable {
     // Gets or sets new type of protection.
     private let protectionType : String?;
         
-    private enum CodingKeys: String, CodingKey { case password, newPassword, protectionType }
+    private enum CodingKeys: String, CodingKey {
+        case password;
+        case newPassword;
+        case protectionType;
+    }
         
     public init(password : String? = nil, newPassword : String? = nil, protectionType : String? = nil) {
         self.password = password;

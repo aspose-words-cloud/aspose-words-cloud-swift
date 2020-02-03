@@ -46,7 +46,16 @@ public class SaveOptionsData : Codable {
     // Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true
     private let updateFields : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case saveFormat, fileName, dmlRenderingMode, dmlEffectsRenderingMode, zipOutput, updateLastSavedTimeProperty, updateSdtContent, updateFields }
+    private enum CodingKeys: String, CodingKey {
+        case saveFormat;
+        case fileName;
+        case dmlRenderingMode;
+        case dmlEffectsRenderingMode;
+        case zipOutput;
+        case updateLastSavedTimeProperty;
+        case updateSdtContent;
+        case updateFields;
+    }
         
     public init(saveFormat : String? = nil, fileName : String? = nil, dmlRenderingMode : String? = nil, dmlEffectsRenderingMode : String? = nil, zipOutput : Bool? = nil, updateLastSavedTimeProperty : Bool? = nil, updateSdtContent : Bool? = nil, updateFields : Bool? = nil) {
         self.saveFormat = saveFormat;

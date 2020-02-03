@@ -32,7 +32,11 @@ public class CreateDocumentRequest : Codable {
     private let fileName : String?;
     private let folder : String?;
     
-    private enum CodingKeys: String, CodingKey { case storage, fileName, folder }
+    private enum CodingKeys: String, CodingKey {
+        case storage;
+        case fileName;
+        case folder;
+    }
     
     public init(storage : String? = null, fileName : String? = null, folder : String? = null) {
         self.storage = storage;

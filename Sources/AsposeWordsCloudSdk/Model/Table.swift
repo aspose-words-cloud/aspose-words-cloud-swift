@@ -34,7 +34,10 @@ public class Table : NodeLink {
     // Gets or sets collection of table&#39;s rows.
     private let tableRowList : [TableRow]?;
         
-    private enum CodingKeys: String, CodingKey { case tableProperties, tableRowList }
+    private enum CodingKeys: String, CodingKey {
+        case tableProperties;
+        case tableRowList;
+    }
         
     public init(tableProperties : TableProperties? = nil, tableRowList : [TableRow]? = nil) {
         self.tableProperties = tableProperties;

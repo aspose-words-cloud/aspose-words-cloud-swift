@@ -36,7 +36,15 @@ public class GetHeaderFooterRequest : Codable {
     private let password : String?;
     private let filterByType : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, headerFooterIndex, folder, storage, loadEncoding, password, filterByType }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case headerFooterIndex;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case filterByType;
+    }
     
     public init(name : String, headerFooterIndex : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, filterByType : String? = null) {
         self.name = name;

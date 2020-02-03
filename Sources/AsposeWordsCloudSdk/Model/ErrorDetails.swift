@@ -34,7 +34,10 @@ public class ErrorDetails : Codable {
     // Error datetime.
     private let errorDateTime : Date;
         
-    private enum CodingKeys: String, CodingKey { case requestId, errorDateTime }
+    private enum CodingKeys: String, CodingKey {
+        case requestId;
+        case errorDateTime;
+    }
         
     public init(requestId : String? = nil, errorDateTime : Date) {
         self.requestId = requestId;

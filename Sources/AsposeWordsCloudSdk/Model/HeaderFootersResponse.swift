@@ -32,7 +32,9 @@ public class HeaderFootersResponse : WordsResponse {
     // Gets or sets collection of headers/footers.
     private let headerFooters : HeaderFooterLinkCollection?;
         
-    private enum CodingKeys: String, CodingKey { case headerFooters }
+    private enum CodingKeys: String, CodingKey {
+        case headerFooters;
+    }
         
     public init(headerFooters : HeaderFooterLinkCollection? = nil) {
         self.headerFooters = headerFooters;

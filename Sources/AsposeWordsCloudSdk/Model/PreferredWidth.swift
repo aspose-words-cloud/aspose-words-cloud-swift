@@ -48,7 +48,10 @@ public class PreferredWidth : Codable {
     // Gets or sets the preferred width value. The unit of measure is specified in the  property.
     private let value : Double?;
         
-    private enum CodingKeys: String, CodingKey { case type, value }
+    private enum CodingKeys: String, CodingKey {
+        case type;
+        case value;
+    }
         
     public init(type : ModelType, value : Double? = nil) {
         self.type = type;

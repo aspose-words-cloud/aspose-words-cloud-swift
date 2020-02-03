@@ -40,7 +40,13 @@ public class ApiError : Codable {
     // Gets or sets inner error.
     private let innerError : ApiError?;
         
-    private enum CodingKeys: String, CodingKey { case code, message, _description, dateTime, innerError }
+    private enum CodingKeys: String, CodingKey {
+        case code;
+        case message;
+        case _description;
+        case dateTime;
+        case innerError;
+    }
         
     public init(code : String? = nil, message : String? = nil, _description : String? = nil, dateTime : Date? = nil, innerError : ApiError? = nil) {
         self.code = code;

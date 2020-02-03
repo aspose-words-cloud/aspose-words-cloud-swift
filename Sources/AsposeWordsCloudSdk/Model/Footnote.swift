@@ -51,7 +51,13 @@ public class Footnote : FootnoteLink {
     // Gets or sets this is a convenience property that allows to easily get or set text of the footnote.
     private let text : String?;
         
-    private enum CodingKeys: String, CodingKey { case content, footnoteType, position, referenceMark, text }
+    private enum CodingKeys: String, CodingKey {
+        case content;
+        case footnoteType;
+        case position;
+        case referenceMark;
+        case text;
+    }
         
     public init(content : StoryChildNodes? = nil, footnoteType : FootnoteType? = nil, position : DocumentPosition? = nil, referenceMark : String? = nil, text : String? = nil) {
         self.content = content;

@@ -36,7 +36,15 @@ public class SaveAsRequest : Codable {
     private let password : String?;
     private let fontsLocation : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, saveOptionsData, folder, storage, loadEncoding, password, fontsLocation }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case saveOptionsData;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case fontsLocation;
+    }
     
     public init(name : String, saveOptionsData : SaveOptionsData, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, fontsLocation : String? = null) {
         self.name = name;

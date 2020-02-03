@@ -40,7 +40,13 @@ public class PdfDigitalSignatureDetailsData : Codable {
     // Gets or sets date of the signing.
     private let signatureDate : Date?;
         
-    private enum CodingKeys: String, CodingKey { case certificateFilename, hashAlgorithm, location, reason, signatureDate }
+    private enum CodingKeys: String, CodingKey {
+        case certificateFilename;
+        case hashAlgorithm;
+        case location;
+        case reason;
+        case signatureDate;
+    }
         
     public init(certificateFilename : String? = nil, hashAlgorithm : String? = nil, location : String? = nil, reason : String? = nil, signatureDate : Date? = nil) {
         self.certificateFilename = certificateFilename;

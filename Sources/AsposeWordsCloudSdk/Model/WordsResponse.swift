@@ -32,7 +32,9 @@ public class WordsResponse : Codable {
     // Gets or sets request Id.
     private let requestId : String?;
         
-    private enum CodingKeys: String, CodingKey { case requestId }
+    private enum CodingKeys: String, CodingKey {
+        case requestId;
+    }
         
     public init(requestId : String? = nil) {
         self.requestId = requestId;

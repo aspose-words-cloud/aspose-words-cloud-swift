@@ -39,7 +39,18 @@ public class UpdateBookmarkRequest : Codable {
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, bookmarkData, bookmarkName, folder, storage, loadEncoding, password, destFileName, revisionAuthor, revisionDateTime }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case bookmarkData;
+        case bookmarkName;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
+    }
     
     public init(name : String, bookmarkData : BookmarkData, bookmarkName : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null) {
         self.name = name;

@@ -40,7 +40,13 @@ public class MetafileRenderingOptionsData : Codable {
     // Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page. The default value is true.
     private let scaleWmfFontsToMetafileSize : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case emfPlusDualRenderingMode, emulateRasterOperations, renderingMode, useEmfEmbeddedToWmf, scaleWmfFontsToMetafileSize }
+    private enum CodingKeys: String, CodingKey {
+        case emfPlusDualRenderingMode;
+        case emulateRasterOperations;
+        case renderingMode;
+        case useEmfEmbeddedToWmf;
+        case scaleWmfFontsToMetafileSize;
+    }
         
     public init(emfPlusDualRenderingMode : String? = nil, emulateRasterOperations : Bool? = nil, renderingMode : String? = nil, useEmfEmbeddedToWmf : Bool? = nil, scaleWmfFontsToMetafileSize : Bool? = nil) {
         self.emfPlusDualRenderingMode = emfPlusDualRenderingMode;

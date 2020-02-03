@@ -40,7 +40,13 @@ public class StorageFile : Codable {
     // File or folder path.
     private let path : String?;
         
-    private enum CodingKeys: String, CodingKey { case name, isFolder, modifiedDate, size, path }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case isFolder;
+        case modifiedDate;
+        case size;
+        case path;
+    }
         
     public init(name : String? = nil, isFolder : Bool, modifiedDate : Date? = nil, size : Int64, path : String? = nil) {
         self.name = name;

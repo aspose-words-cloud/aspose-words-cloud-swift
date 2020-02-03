@@ -32,7 +32,9 @@ public class FieldLink : NodeLink {
     // Gets or sets field code.
     private let fieldCode : String?;
         
-    private enum CodingKeys: String, CodingKey { case fieldCode }
+    private enum CodingKeys: String, CodingKey {
+        case fieldCode;
+    }
         
     public init(fieldCode : String? = nil) {
         self.fieldCode = fieldCode;

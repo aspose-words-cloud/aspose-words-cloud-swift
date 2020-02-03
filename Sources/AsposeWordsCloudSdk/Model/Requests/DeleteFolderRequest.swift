@@ -32,7 +32,11 @@ public class DeleteFolderRequest : Codable {
     private let storageName : String?;
     private let recursive : Bool?;
     
-    private enum CodingKeys: String, CodingKey { case path, storageName, recursive }
+    private enum CodingKeys: String, CodingKey {
+        case path;
+        case storageName;
+        case recursive;
+    }
     
     public init(path : String, storageName : String? = null, recursive : Bool? = null) {
         self.path = path;

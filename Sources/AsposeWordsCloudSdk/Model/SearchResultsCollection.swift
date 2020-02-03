@@ -32,7 +32,9 @@ public class SearchResultsCollection : LinkElement {
     // Gets or sets collection of comments.
     private let resultsList : [SearchResult]?;
         
-    private enum CodingKeys: String, CodingKey { case resultsList }
+    private enum CodingKeys: String, CodingKey {
+        case resultsList;
+    }
         
     public init(resultsList : [SearchResult]? = nil) {
         self.resultsList = resultsList;

@@ -1242,7 +1242,22 @@ public class TableProperties : LinkElement {
     // Gets or sets the amount of space (in points) to add above the contents of cells.
     private let topPadding : Double?;
         
-    private enum CodingKeys: String, CodingKey { case alignment, allowAutoFit, bidi, bottomPadding, cellSpacing, leftIndent, leftPadding, preferredWidth, rightPadding, styleIdentifier, styleName, styleOptions, textWrapping, topPadding }
+    private enum CodingKeys: String, CodingKey {
+        case alignment;
+        case allowAutoFit;
+        case bidi;
+        case bottomPadding;
+        case cellSpacing;
+        case leftIndent;
+        case leftPadding;
+        case preferredWidth;
+        case rightPadding;
+        case styleIdentifier;
+        case styleName;
+        case styleOptions;
+        case textWrapping;
+        case topPadding;
+    }
         
     public init(alignment : Alignment? = nil, allowAutoFit : Bool? = nil, bidi : Bool? = nil, bottomPadding : Double? = nil, cellSpacing : Double? = nil, leftIndent : Double? = nil, leftPadding : Double? = nil, preferredWidth : PreferredWidth? = nil, rightPadding : Double? = nil, styleIdentifier : StyleIdentifier? = nil, styleName : String? = nil, styleOptions : StyleOptions? = nil, textWrapping : TextWrapping? = nil, topPadding : Double? = nil) {
         self.alignment = alignment;

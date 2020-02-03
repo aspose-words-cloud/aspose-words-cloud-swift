@@ -38,7 +38,12 @@ public class Link : Codable {
     // Gets or sets the \&quot;title\&quot; attribute conveys human-readable information about the link.  The content of the \&quot;title\&quot; attribute is Language-Sensitive.
     private let title : String?;
         
-    private enum CodingKeys: String, CodingKey { case href, rel, type, title }
+    private enum CodingKeys: String, CodingKey {
+        case href;
+        case rel;
+        case type;
+        case title;
+    }
         
     public init(href : String? = nil, rel : String? = nil, type : String? = nil, title : String? = nil) {
         self.href = href;

@@ -34,7 +34,10 @@ public class FilesUploadResult : Codable {
     // List of errors.
     private let errors : [ModelError]?;
         
-    private enum CodingKeys: String, CodingKey { case uploaded, errors }
+    private enum CodingKeys: String, CodingKey {
+        case uploaded;
+        case errors;
+    }
         
     public init(uploaded : [String]? = nil, errors : [ModelError]? = nil) {
         self.uploaded = uploaded;

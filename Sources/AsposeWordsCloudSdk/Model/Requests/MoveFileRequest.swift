@@ -34,7 +34,13 @@ public class MoveFileRequest : Codable {
     private let destStorageName : String?;
     private let versionId : String?;
     
-    private enum CodingKeys: String, CodingKey { case destPath, srcPath, srcStorageName, destStorageName, versionId }
+    private enum CodingKeys: String, CodingKey {
+        case destPath;
+        case srcPath;
+        case srcStorageName;
+        case destStorageName;
+        case versionId;
+    }
     
     public init(destPath : String, srcPath : String, srcStorageName : String? = null, destStorageName : String? = null, versionId : String? = null) {
         self.destPath = destPath;

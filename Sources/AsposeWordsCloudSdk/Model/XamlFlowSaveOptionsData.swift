@@ -34,7 +34,10 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
     // Gets or sets specifies the name of the folder used to construct image URIs.
     private let imagesFolderAlias : String?;
         
-    private enum CodingKeys: String, CodingKey { case imagesFolder, imagesFolderAlias }
+    private enum CodingKeys: String, CodingKey {
+        case imagesFolder;
+        case imagesFolderAlias;
+    }
         
     public init(imagesFolder : String? = nil, imagesFolderAlias : String? = nil) {
         self.imagesFolder = imagesFolder;

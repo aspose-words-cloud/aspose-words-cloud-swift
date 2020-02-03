@@ -37,7 +37,16 @@ public class RenderPageRequest : Codable {
     private let password : String?;
     private let fontsLocation : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, pageIndex, format, folder, storage, loadEncoding, password, fontsLocation }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case pageIndex;
+        case format;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case fontsLocation;
+    }
     
     public init(name : String, pageIndex : Int, format : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, fontsLocation : String? = null) {
         self.name = name;

@@ -137,7 +137,13 @@ public class StringFormatData : Codable {
     // Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.
     private let trimming : Trimming?;
         
-    private enum CodingKeys: String, CodingKey { case alignment, formatFlags, hotkeyPrefix, lineAlignment, trimming }
+    private enum CodingKeys: String, CodingKey {
+        case alignment;
+        case formatFlags;
+        case hotkeyPrefix;
+        case lineAlignment;
+        case trimming;
+    }
         
     public init(alignment : Alignment? = nil, formatFlags : FormatFlags? = nil, hotkeyPrefix : HotkeyPrefix? = nil, lineAlignment : LineAlignment? = nil, trimming : Trimming? = nil) {
         self.alignment = alignment;

@@ -32,7 +32,9 @@ public class CommentResponse : WordsResponse {
     // Gets or sets comment information.
     private let comment : Comment?;
         
-    private enum CodingKeys: String, CodingKey { case comment }
+    private enum CodingKeys: String, CodingKey {
+        case comment;
+    }
         
     public init(comment : Comment? = nil) {
         self.comment = comment;

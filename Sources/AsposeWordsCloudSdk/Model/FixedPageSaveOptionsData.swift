@@ -44,7 +44,15 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     // Gets or sets determines 0-based index of the first page to render.
     private let pageIndex : Int?;
         
-    private enum CodingKeys: String, CodingKey { case colorMode, jpegQuality, metafileRenderingOptions, numeralFormat, optimizeOutput, pageCount, pageIndex }
+    private enum CodingKeys: String, CodingKey {
+        case colorMode;
+        case jpegQuality;
+        case metafileRenderingOptions;
+        case numeralFormat;
+        case optimizeOutput;
+        case pageCount;
+        case pageIndex;
+    }
         
     public init(colorMode : String? = nil, jpegQuality : Int? = nil, metafileRenderingOptions : MetafileRenderingOptionsData? = nil, numeralFormat : String? = nil, optimizeOutput : Bool? = nil, pageCount : Int? = nil, pageIndex : Int? = nil) {
         self.colorMode = colorMode;

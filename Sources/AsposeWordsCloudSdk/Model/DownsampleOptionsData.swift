@@ -36,7 +36,11 @@ public class DownsampleOptionsData : Codable {
     // Gets or sets specifies the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
     private let resolutionThreshold : Int?;
         
-    private enum CodingKeys: String, CodingKey { case downsampleImages, resolution, resolutionThreshold }
+    private enum CodingKeys: String, CodingKey {
+        case downsampleImages;
+        case resolution;
+        case resolutionThreshold;
+    }
         
     public init(downsampleImages : Bool? = nil, resolution : Int? = nil, resolutionThreshold : Int? = nil) {
         self.downsampleImages = downsampleImages;

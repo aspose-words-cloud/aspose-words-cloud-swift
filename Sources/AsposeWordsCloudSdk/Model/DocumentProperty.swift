@@ -36,7 +36,11 @@ public class DocumentProperty : LinkElement {
     // Gets or sets string value of the document property.
     private let value : String?;
         
-    private enum CodingKeys: String, CodingKey { case builtIn, name, value }
+    private enum CodingKeys: String, CodingKey {
+        case builtIn;
+        case name;
+        case value;
+    }
         
     public init(builtIn : Bool? = nil, name : String? = nil, value : String? = nil) {
         self.builtIn = builtIn;

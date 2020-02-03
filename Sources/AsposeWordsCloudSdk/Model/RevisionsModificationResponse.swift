@@ -32,7 +32,9 @@ public class RevisionsModificationResponse : WordsResponse {
     // Gets or sets result of the modification operations for the revisions collection.
     private let result : ModificationOperationResult?;
         
-    private enum CodingKeys: String, CodingKey { case result }
+    private enum CodingKeys: String, CodingKey {
+        case result;
+    }
         
     public init(result : ModificationOperationResult? = nil) {
         self.result = result;

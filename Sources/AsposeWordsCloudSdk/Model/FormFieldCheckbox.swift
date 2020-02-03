@@ -36,7 +36,11 @@ public class FormFieldCheckbox : FormField {
     // Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.
     private let isCheckBoxExactSize : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case checkBoxSize, checked, isCheckBoxExactSize }
+    private enum CodingKeys: String, CodingKey {
+        case checkBoxSize;
+        case checked;
+        case isCheckBoxExactSize;
+    }
         
     public init(checkBoxSize : Double? = nil, checked : Bool? = nil, isCheckBoxExactSize : Bool? = nil) {
         self.checkBoxSize = checkBoxSize;

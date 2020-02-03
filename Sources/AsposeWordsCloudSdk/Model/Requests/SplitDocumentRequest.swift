@@ -40,7 +40,19 @@ public class SplitDocumentRequest : Codable {
     private let zipOutput : Bool?;
     private let fontsLocation : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, folder, storage, loadEncoding, password, destFileName, format, from, to, zipOutput, fontsLocation }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+        case format;
+        case from;
+        case to;
+        case zipOutput;
+        case fontsLocation;
+    }
     
     public init(name : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, format : String? = null, from : Int? = null, to : Int? = null, zipOutput : Bool? = null, fontsLocation : String? = null) {
         self.name = name;

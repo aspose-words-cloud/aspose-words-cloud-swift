@@ -38,7 +38,17 @@ public class AppendDocumentRequest : Codable {
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, documentList, folder, storage, loadEncoding, password, destFileName, revisionAuthor, revisionDateTime }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case documentList;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
+    }
     
     public init(name : String, documentList : DocumentEntryList, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null) {
         self.name = name;

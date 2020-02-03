@@ -32,7 +32,9 @@ public class DocumentPropertyResponse : WordsResponse {
     // Gets or sets document property.
     private let documentProperty : DocumentProperty?;
         
-    private enum CodingKeys: String, CodingKey { case documentProperty }
+    private enum CodingKeys: String, CodingKey {
+        case documentProperty;
+    }
         
     public init(documentProperty : DocumentProperty? = nil) {
         self.documentProperty = documentProperty;

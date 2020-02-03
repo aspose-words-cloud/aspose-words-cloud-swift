@@ -40,7 +40,19 @@ public class UpdateTableRowFormatRequest : Codable {
     private let revisionDateTime : String?;
     private let format : TableRowFormat?;
     
-    private enum CodingKeys: String, CodingKey { case name, tablePath, index, folder, storage, loadEncoding, password, destFileName, revisionAuthor, revisionDateTime, format }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case tablePath;
+        case index;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
+        case format;
+    }
     
     public init(name : String, tablePath : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, format : TableRowFormat? = null) {
         self.name = name;

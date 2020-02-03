@@ -32,7 +32,9 @@ public class FilesList : Codable {
     // Files and folders contained by folder .
     private let value : [StorageFile]?;
         
-    private enum CodingKeys: String, CodingKey { case value }
+    private enum CodingKeys: String, CodingKey {
+        case value;
+    }
         
     public init(value : [StorageFile]? = nil) {
         self.value = value;

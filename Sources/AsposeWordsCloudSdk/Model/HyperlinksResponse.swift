@@ -32,7 +32,9 @@ public class HyperlinksResponse : WordsResponse {
     // Gets or sets collection of hyperlinks.
     private let hyperlinks : Hyperlinks?;
         
-    private enum CodingKeys: String, CodingKey { case hyperlinks }
+    private enum CodingKeys: String, CodingKey {
+        case hyperlinks;
+    }
         
     public init(hyperlinks : Hyperlinks? = nil) {
         self.hyperlinks = hyperlinks;

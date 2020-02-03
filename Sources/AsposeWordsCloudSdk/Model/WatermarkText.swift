@@ -34,7 +34,10 @@ public class WatermarkText : Codable {
     // Gets or sets the watermark rotation angle.
     private let rotationAngle : Double;
         
-    private enum CodingKeys: String, CodingKey { case text, rotationAngle }
+    private enum CodingKeys: String, CodingKey {
+        case text;
+        case rotationAngle;
+    }
         
     public init(text : String? = nil, rotationAngle : Double) {
         self.text = text;

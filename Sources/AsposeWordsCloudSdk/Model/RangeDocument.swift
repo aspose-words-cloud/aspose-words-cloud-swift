@@ -32,7 +32,9 @@ public class RangeDocument : Codable {
     // Gets or sets name for new document.
     private let documentName : String?;
         
-    private enum CodingKeys: String, CodingKey { case documentName }
+    private enum CodingKeys: String, CodingKey {
+        case documentName;
+    }
         
     public init(documentName : String? = nil) {
         self.documentName = documentName;

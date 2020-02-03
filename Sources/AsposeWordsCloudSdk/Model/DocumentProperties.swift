@@ -32,7 +32,9 @@ public class DocumentProperties : LinkElement {
     // Gets or sets collection of document properties.
     private let list : [DocumentProperty]?;
         
-    private enum CodingKeys: String, CodingKey { case list }
+    private enum CodingKeys: String, CodingKey {
+        case list;
+    }
         
     public init(list : [DocumentProperty]? = nil) {
         self.list = list;

@@ -32,7 +32,9 @@ public class DocumentPropertiesResponse : WordsResponse {
     // Gets or sets collection of document properties.
     private let documentProperties : DocumentProperties?;
         
-    private enum CodingKeys: String, CodingKey { case documentProperties }
+    private enum CodingKeys: String, CodingKey {
+        case documentProperties;
+    }
         
     public init(documentProperties : DocumentProperties? = nil) {
         self.documentProperties = documentProperties;

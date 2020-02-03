@@ -31,7 +31,10 @@ public class GetDocumentFieldNamesOnlineRequest : Codable {
     private let template : URL;
     private let useNonMergeFields : Bool?;
     
-    private enum CodingKeys: String, CodingKey { case template, useNonMergeFields }
+    private enum CodingKeys: String, CodingKey {
+        case template;
+        case useNonMergeFields;
+    }
     
     public init(template : URL, useNonMergeFields : Bool? = null) {
         self.template = template;

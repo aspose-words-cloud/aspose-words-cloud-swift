@@ -32,7 +32,9 @@ public class TablePropertiesResponse : WordsResponse {
     // Gets or sets table.
     private let properties : TableProperties?;
         
-    private enum CodingKeys: String, CodingKey { case properties }
+    private enum CodingKeys: String, CodingKey {
+        case properties;
+    }
         
     public init(properties : TableProperties? = nil) {
         self.properties = properties;

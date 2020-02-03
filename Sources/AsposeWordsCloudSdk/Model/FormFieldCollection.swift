@@ -32,7 +32,9 @@ public class FormFieldCollection : LinkElement {
     // Gets or sets collection of formfields.
     private let list : [FormField]?;
         
-    private enum CodingKeys: String, CodingKey { case list }
+    private enum CodingKeys: String, CodingKey {
+        case list;
+    }
         
     public init(list : [FormField]? = nil) {
         self.list = list;

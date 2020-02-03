@@ -32,7 +32,9 @@ public class TableLinkCollectionResponse : WordsResponse {
     // Gets or sets collection of tables.
     private let tables : TableLinkCollection?;
         
-    private enum CodingKeys: String, CodingKey { case tables }
+    private enum CodingKeys: String, CodingKey {
+        case tables;
+    }
         
     public init(tables : TableLinkCollection? = nil) {
         self.tables = tables;

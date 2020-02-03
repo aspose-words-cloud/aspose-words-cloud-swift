@@ -36,7 +36,11 @@ public class ClassificationResponse : WordsResponse {
     // Gets or sets array of best classes results.
     private let bestResults : [ClassificationResult]?;
         
-    private enum CodingKeys: String, CodingKey { case bestClassName, bestClassProbability, bestResults }
+    private enum CodingKeys: String, CodingKey {
+        case bestClassName;
+        case bestClassProbability;
+        case bestResults;
+    }
         
     public init(bestClassName : String? = nil, bestClassProbability : Double? = nil, bestResults : [ClassificationResult]? = nil) {
         self.bestClassName = bestClassName;

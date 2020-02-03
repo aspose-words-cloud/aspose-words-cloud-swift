@@ -32,7 +32,9 @@ public class SplitDocumentResponse : WordsResponse {
     // Gets or sets resylt of splitting document.
     private let splitResult : SplitDocumentResult?;
         
-    private enum CodingKeys: String, CodingKey { case splitResult }
+    private enum CodingKeys: String, CodingKey {
+        case splitResult;
+    }
         
     public init(splitResult : SplitDocumentResult? = nil) {
         self.splitResult = splitResult;

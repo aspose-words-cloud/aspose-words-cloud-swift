@@ -32,7 +32,9 @@ public class PsSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets determines whether the document should be saved using a booklet printing layout.
     private let useBookFoldPrintingSettings : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case useBookFoldPrintingSettings }
+    private enum CodingKeys: String, CodingKey {
+        case useBookFoldPrintingSettings;
+    }
         
     public init(useBookFoldPrintingSettings : Bool? = nil) {
         self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;

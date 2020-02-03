@@ -32,7 +32,9 @@ public class CommentsCollection : LinkElement {
     // Gets or sets collection of comments.
     private let commentList : [Comment]?;
         
-    private enum CodingKeys: String, CodingKey { case commentList }
+    private enum CodingKeys: String, CodingKey {
+        case commentList;
+    }
         
     public init(commentList : [Comment]? = nil) {
         self.commentList = commentList;

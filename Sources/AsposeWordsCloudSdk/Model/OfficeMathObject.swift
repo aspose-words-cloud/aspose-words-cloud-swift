@@ -167,7 +167,12 @@ public class OfficeMathObject : OfficeMathLink {
     // Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
     private let mathObjectType : MathObjectType?;
         
-    private enum CodingKeys: String, CodingKey { case content, displayType, justification, mathObjectType }
+    private enum CodingKeys: String, CodingKey {
+        case content;
+        case displayType;
+        case justification;
+        case mathObjectType;
+    }
         
     public init(content : StoryChildNodes? = nil, displayType : DisplayType? = nil, justification : Justification? = nil, mathObjectType : MathObjectType? = nil) {
         self.content = content;

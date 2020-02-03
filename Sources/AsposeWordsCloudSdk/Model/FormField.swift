@@ -48,7 +48,17 @@ public class FormField : NodeLink {
     // Gets or sets returns or sets the text that&#39;s displayed in the status bar when a form field has the focus.
     private let statusText : String?;
         
-    private enum CodingKeys: String, CodingKey { case calculateOnExit, enabled, entryMacro, exitMacro, helpText, name, ownHelp, ownStatus, statusText }
+    private enum CodingKeys: String, CodingKey {
+        case calculateOnExit;
+        case enabled;
+        case entryMacro;
+        case exitMacro;
+        case helpText;
+        case name;
+        case ownHelp;
+        case ownStatus;
+        case statusText;
+    }
         
     public init(calculateOnExit : Bool? = nil, enabled : Bool? = nil, entryMacro : String? = nil, exitMacro : String? = nil, helpText : String? = nil, name : String? = nil, ownHelp : Bool? = nil, ownStatus : Bool? = nil, statusText : String? = nil) {
         self.calculateOnExit = calculateOnExit;

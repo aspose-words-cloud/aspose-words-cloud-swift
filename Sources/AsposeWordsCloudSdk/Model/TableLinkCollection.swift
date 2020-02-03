@@ -32,7 +32,9 @@ public class TableLinkCollection : LinkElement {
     // Gets or sets collection of table&#39;s links.
     private let tableLinkList : [TableLink]?;
         
-    private enum CodingKeys: String, CodingKey { case tableLinkList }
+    private enum CodingKeys: String, CodingKey {
+        case tableLinkList;
+    }
         
     public init(tableLinkList : [TableLink]? = nil) {
         self.tableLinkList = tableLinkList;

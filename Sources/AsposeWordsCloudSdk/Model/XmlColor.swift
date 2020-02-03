@@ -34,7 +34,10 @@ public class XmlColor : Codable {
     // Gets or sets alpha component of color structure.
     private let alpha : Int;
         
-    private enum CodingKeys: String, CodingKey { case web, alpha }
+    private enum CodingKeys: String, CodingKey {
+        case web;
+        case alpha;
+    }
         
     public init(web : String? = nil, alpha : Int) {
         self.web = web;

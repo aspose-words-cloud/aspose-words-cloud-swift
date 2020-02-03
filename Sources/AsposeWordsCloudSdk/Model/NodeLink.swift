@@ -32,7 +32,9 @@ public class NodeLink : LinkElement {
     // Gets or sets node id.
     private let nodeId : String?;
         
-    private enum CodingKeys: String, CodingKey { case nodeId }
+    private enum CodingKeys: String, CodingKey {
+        case nodeId;
+    }
         
     public init(nodeId : String? = nil) {
         self.nodeId = nodeId;

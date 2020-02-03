@@ -40,7 +40,13 @@ public class DocumentStatData : Codable {
     // Gets or sets detailed statistics of all pages.
     private let pageStatData : [PageStatData]?;
         
-    private enum CodingKeys: String, CodingKey { case wordCount, paragraphCount, pageCount, footnotesStatData, pageStatData }
+    private enum CodingKeys: String, CodingKey {
+        case wordCount;
+        case paragraphCount;
+        case pageCount;
+        case footnotesStatData;
+        case pageStatData;
+    }
         
     public init(wordCount : Int, paragraphCount : Int, pageCount : Int, footnotesStatData : FootnotesStatData? = nil, pageStatData : [PageStatData]? = nil) {
         self.wordCount = wordCount;

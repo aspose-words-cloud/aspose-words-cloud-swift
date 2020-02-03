@@ -1301,7 +1301,34 @@ public class ParagraphFormat : LinkElement {
     // Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.             
     private let widowControl : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case addSpaceBetweenFarEastAndAlpha, addSpaceBetweenFarEastAndDigit, alignment, bidi, dropCapPosition, firstLineIndent, isListItem, keepTogether, keepWithNext, leftIndent, lineSpacing, lineSpacingRule, linesToDrop, noSpaceBetweenParagraphsOfSameStyle, outlineLevel, pageBreakBefore, rightIndent, spaceAfter, spaceAfterAuto, spaceBefore, spaceBeforeAuto, styleIdentifier, styleName, suppressAutoHyphens, suppressLineNumbers, widowControl }
+    private enum CodingKeys: String, CodingKey {
+        case addSpaceBetweenFarEastAndAlpha;
+        case addSpaceBetweenFarEastAndDigit;
+        case alignment;
+        case bidi;
+        case dropCapPosition;
+        case firstLineIndent;
+        case isListItem;
+        case keepTogether;
+        case keepWithNext;
+        case leftIndent;
+        case lineSpacing;
+        case lineSpacingRule;
+        case linesToDrop;
+        case noSpaceBetweenParagraphsOfSameStyle;
+        case outlineLevel;
+        case pageBreakBefore;
+        case rightIndent;
+        case spaceAfter;
+        case spaceAfterAuto;
+        case spaceBefore;
+        case spaceBeforeAuto;
+        case styleIdentifier;
+        case styleName;
+        case suppressAutoHyphens;
+        case suppressLineNumbers;
+        case widowControl;
+    }
         
     public init(addSpaceBetweenFarEastAndAlpha : Bool? = nil, addSpaceBetweenFarEastAndDigit : Bool? = nil, alignment : Alignment? = nil, bidi : Bool? = nil, dropCapPosition : DropCapPosition? = nil, firstLineIndent : Double? = nil, isListItem : Bool? = nil, keepTogether : Bool? = nil, keepWithNext : Bool? = nil, leftIndent : Double? = nil, lineSpacing : Double? = nil, lineSpacingRule : LineSpacingRule? = nil, linesToDrop : Int? = nil, noSpaceBetweenParagraphsOfSameStyle : Bool? = nil, outlineLevel : OutlineLevel? = nil, pageBreakBefore : Bool? = nil, rightIndent : Double? = nil, spaceAfter : Double? = nil, spaceAfterAuto : Bool? = nil, spaceBefore : Double? = nil, spaceBeforeAuto : Bool? = nil, styleIdentifier : StyleIdentifier? = nil, styleName : String? = nil, suppressAutoHyphens : Bool? = nil, suppressLineNumbers : Bool? = nil, widowControl : Bool? = nil) {
         self.addSpaceBetweenFarEastAndAlpha = addSpaceBetweenFarEastAndAlpha;

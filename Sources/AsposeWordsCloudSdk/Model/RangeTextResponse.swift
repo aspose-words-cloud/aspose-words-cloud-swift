@@ -32,7 +32,9 @@ public class RangeTextResponse : WordsResponse {
     // Gets or sets text from range.
     private let text : String?;
         
-    private enum CodingKeys: String, CodingKey { case text }
+    private enum CodingKeys: String, CodingKey {
+        case text;
+    }
         
     public init(text : String? = nil) {
         self.text = text;

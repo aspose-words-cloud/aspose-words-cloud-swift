@@ -34,7 +34,10 @@ public class SearchResult : Codable {
     // Gets or sets link to result range end node.
     private let rangeEnd : DocumentPosition?;
         
-    private enum CodingKeys: String, CodingKey { case rangeStart, rangeEnd }
+    private enum CodingKeys: String, CodingKey {
+        case rangeStart;
+        case rangeEnd;
+    }
         
     public init(rangeStart : DocumentPosition? = nil, rangeEnd : DocumentPosition? = nil) {
         self.rangeStart = rangeStart;

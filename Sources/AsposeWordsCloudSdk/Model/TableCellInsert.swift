@@ -32,7 +32,9 @@ public class TableCellInsert : Codable {
     // Gets or sets table cell will be inserted after cell with specified 0-based index.
     private let insertAfter : Int?;
         
-    private enum CodingKeys: String, CodingKey { case insertAfter }
+    private enum CodingKeys: String, CodingKey {
+        case insertAfter;
+    }
         
     public init(insertAfter : Int? = nil) {
         self.insertAfter = insertAfter;

@@ -36,7 +36,11 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     // Gets or sets specifies whether or not use pretty formats output.
     private let prettyFormat : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case compliance, password, prettyFormat }
+    private enum CodingKeys: String, CodingKey {
+        case compliance;
+        case password;
+        case prettyFormat;
+    }
         
     public init(compliance : String? = nil, password : String? = nil, prettyFormat : Bool? = nil) {
         self.compliance = compliance;

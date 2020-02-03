@@ -32,7 +32,9 @@ public class SectionLinkCollection : LinkElement {
     // Gets or sets collection of section&#39;s links.
     private let sectionLinkList : [SectionLink]?;
         
-    private enum CodingKeys: String, CodingKey { case sectionLinkList }
+    private enum CodingKeys: String, CodingKey {
+        case sectionLinkList;
+    }
         
     public init(sectionLinkList : [SectionLink]? = nil) {
         self.sectionLinkList = sectionLinkList;

@@ -160,7 +160,14 @@ public class Border : LinkElement {
     // Gets or sets a value indicating whether the border has a shadow.
     private let shadow : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case borderType, color, distanceFromText, lineStyle, lineWidth, shadow }
+    private enum CodingKeys: String, CodingKey {
+        case borderType;
+        case color;
+        case distanceFromText;
+        case lineStyle;
+        case lineWidth;
+        case shadow;
+    }
         
     public init(borderType : BorderType? = nil, color : XmlColor? = nil, distanceFromText : Double? = nil, lineStyle : LineStyle? = nil, lineWidth : Double? = nil, shadow : Bool? = nil) {
         self.borderType = borderType;

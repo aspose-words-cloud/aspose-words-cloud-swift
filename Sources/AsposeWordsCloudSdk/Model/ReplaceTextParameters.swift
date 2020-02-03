@@ -40,7 +40,13 @@ public class ReplaceTextParameters : Codable {
     // Gets or sets a value indicating whether flag, means that  contains regex expression.
     private let isOldValueRegex : Bool;
         
-    private enum CodingKeys: String, CodingKey { case oldValue, newValue, isMatchCase, isMatchWholeWord, isOldValueRegex }
+    private enum CodingKeys: String, CodingKey {
+        case oldValue;
+        case newValue;
+        case isMatchCase;
+        case isMatchWholeWord;
+        case isOldValueRegex;
+    }
         
     public init(oldValue : String? = nil, newValue : String? = nil, isMatchCase : Bool, isMatchWholeWord : Bool, isOldValueRegex : Bool) {
         self.oldValue = oldValue;

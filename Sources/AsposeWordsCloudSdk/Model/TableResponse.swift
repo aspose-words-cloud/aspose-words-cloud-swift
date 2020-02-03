@@ -32,7 +32,9 @@ public class TableResponse : WordsResponse {
     // Gets or sets table.
     private let table : Table?;
         
-    private enum CodingKeys: String, CodingKey { case table }
+    private enum CodingKeys: String, CodingKey {
+        case table;
+    }
         
     public init(table : Table? = nil) {
         self.table = table;

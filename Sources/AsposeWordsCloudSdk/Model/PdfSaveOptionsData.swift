@@ -92,7 +92,32 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets determines zoom factor (in percentages) for a document.
     private let zoomFactor : Int?;
         
-    private enum CodingKeys: String, CodingKey { case compliance, createNoteHyperlinks, customPropertiesExport, digitalSignatureDetails, displayDocTitle, downsampleOptions, embedFullFonts, encryptionDetails, escapeUri, exportDocumentStructure, fontEmbeddingMode, headerFooterBookmarksExportMode, imageColorSpaceExportMode, imageCompression, openHyperlinksInNewWindow, outlineOptions, pageMode, preblendImages, preserveFormFields, textCompression, useBookFoldPrintingSettings, useCoreFonts, zoomBehavior, zoomFactor }
+    private enum CodingKeys: String, CodingKey {
+        case compliance;
+        case createNoteHyperlinks;
+        case customPropertiesExport;
+        case digitalSignatureDetails;
+        case displayDocTitle;
+        case downsampleOptions;
+        case embedFullFonts;
+        case encryptionDetails;
+        case escapeUri;
+        case exportDocumentStructure;
+        case fontEmbeddingMode;
+        case headerFooterBookmarksExportMode;
+        case imageColorSpaceExportMode;
+        case imageCompression;
+        case openHyperlinksInNewWindow;
+        case outlineOptions;
+        case pageMode;
+        case preblendImages;
+        case preserveFormFields;
+        case textCompression;
+        case useBookFoldPrintingSettings;
+        case useCoreFonts;
+        case zoomBehavior;
+        case zoomFactor;
+    }
         
     public init(compliance : String? = nil, createNoteHyperlinks : Bool? = nil, customPropertiesExport : String? = nil, digitalSignatureDetails : PdfDigitalSignatureDetailsData? = nil, displayDocTitle : Bool? = nil, downsampleOptions : DownsampleOptionsData? = nil, embedFullFonts : Bool? = nil, encryptionDetails : PdfEncryptionDetailsData? = nil, escapeUri : Bool? = nil, exportDocumentStructure : Bool? = nil, fontEmbeddingMode : String? = nil, headerFooterBookmarksExportMode : HeaderFooterBookmarksExportMode? = nil, imageColorSpaceExportMode : String? = nil, imageCompression : String? = nil, openHyperlinksInNewWindow : Bool? = nil, outlineOptions : OutlineOptionsData? = nil, pageMode : String? = nil, preblendImages : Bool? = nil, preserveFormFields : Bool? = nil, textCompression : String? = nil, useBookFoldPrintingSettings : Bool? = nil, useCoreFonts : Bool? = nil, zoomBehavior : String? = nil, zoomFactor : Int? = nil) {
         self.compliance = compliance;

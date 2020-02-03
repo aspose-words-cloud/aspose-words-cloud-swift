@@ -34,7 +34,10 @@ public class ReplaceTextResponse : WordsResponse {
     // Gets or sets number of occurrences of the captured text in the document.
     private let matches : Int?;
         
-    private enum CodingKeys: String, CodingKey { case documentLink, matches }
+    private enum CodingKeys: String, CodingKey {
+        case documentLink;
+        case matches;
+    }
         
     public init(documentLink : FileLink? = nil, matches : Int? = nil) {
         self.documentLink = documentLink;

@@ -42,7 +42,14 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets determines how text should be rendered.
     private let textOutputMode : String?;
         
-    private enum CodingKeys: String, CodingKey { case exportEmbeddedImages, fitToViewPort, resourcesFolder, resourcesFolderAlias, showPageBorder, textOutputMode }
+    private enum CodingKeys: String, CodingKey {
+        case exportEmbeddedImages;
+        case fitToViewPort;
+        case resourcesFolder;
+        case resourcesFolderAlias;
+        case showPageBorder;
+        case textOutputMode;
+    }
         
     public init(exportEmbeddedImages : Bool? = nil, fitToViewPort : Bool? = nil, resourcesFolder : String? = nil, resourcesFolderAlias : String? = nil, showPageBorder : Bool? = nil, textOutputMode : String? = nil) {
         self.exportEmbeddedImages = exportEmbeddedImages;

@@ -36,7 +36,11 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     // Gets or sets type of compression.
     private let tiffCompression : String?;
         
-    private enum CodingKeys: String, CodingKey { case thresholdForFloydSteinbergDithering, tiffBinarizationMethod, tiffCompression }
+    private enum CodingKeys: String, CodingKey {
+        case thresholdForFloydSteinbergDithering;
+        case tiffBinarizationMethod;
+        case tiffCompression;
+    }
         
     public init(thresholdForFloydSteinbergDithering : Int? = nil, tiffBinarizationMethod : String? = nil, tiffCompression : String? = nil) {
         self.thresholdForFloydSteinbergDithering = thresholdForFloydSteinbergDithering;

@@ -30,7 +30,8 @@ import Foundation
 public class BmpSaveOptionsData : ImageSaveOptionsData {
         
         
-    private enum CodingKeys: String, CodingKey { case  }
+    private enum CodingKeys: String, CodingKey {
+    }
         
     public init() {
     }

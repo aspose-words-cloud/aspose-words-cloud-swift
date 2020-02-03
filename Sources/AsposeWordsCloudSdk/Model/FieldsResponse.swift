@@ -32,7 +32,9 @@ public class FieldsResponse : WordsResponse {
     // Gets or sets collection of fields.
     private let fields : FieldCollection?;
         
-    private enum CodingKeys: String, CodingKey { case fields }
+    private enum CodingKeys: String, CodingKey {
+        case fields;
+    }
         
     public init(fields : FieldCollection? = nil) {
         self.fields = fields;

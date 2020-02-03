@@ -154,7 +154,14 @@ public class GraphicsQualityOptionsData : Codable {
     // Gets or sets the rendering mode for text associated with this Graphics.
     private let textRenderingHint : TextRenderingHint?;
         
-    private enum CodingKeys: String, CodingKey { case compositingMode, compositingQuality, interpolationMode, smoothingMode, stringFormat, textRenderingHint }
+    private enum CodingKeys: String, CodingKey {
+        case compositingMode;
+        case compositingQuality;
+        case interpolationMode;
+        case smoothingMode;
+        case stringFormat;
+        case textRenderingHint;
+    }
         
     public init(compositingMode : CompositingMode? = nil, compositingQuality : CompositingQuality? = nil, interpolationMode : InterpolationMode? = nil, smoothingMode : SmoothingMode? = nil, stringFormat : StringFormatData? = nil, textRenderingHint : TextRenderingHint? = nil) {
         self.compositingMode = compositingMode;

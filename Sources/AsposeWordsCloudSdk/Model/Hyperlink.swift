@@ -34,7 +34,10 @@ public class Hyperlink : LinkElement {
     // Gets or sets value.
     private let value : String?;
         
-    private enum CodingKeys: String, CodingKey { case displayText, value }
+    private enum CodingKeys: String, CodingKey {
+        case displayText;
+        case value;
+    }
         
     public init(displayText : String? = nil, value : String? = nil) {
         self.displayText = displayText;

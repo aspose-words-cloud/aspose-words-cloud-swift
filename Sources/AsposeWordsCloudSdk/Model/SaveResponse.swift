@@ -32,7 +32,9 @@ public class SaveResponse : WordsResponse {
     // Gets or sets save result.
     private let saveResult : SaveResult?;
         
-    private enum CodingKeys: String, CodingKey { case saveResult }
+    private enum CodingKeys: String, CodingKey {
+        case saveResult;
+    }
         
     public init(saveResult : SaveResult? = nil) {
         self.saveResult = saveResult;

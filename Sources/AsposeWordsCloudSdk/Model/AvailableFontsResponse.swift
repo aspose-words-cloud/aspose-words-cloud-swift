@@ -36,7 +36,11 @@ public class AvailableFontsResponse : WordsResponse {
     // Gets or sets the list of system fonts, availiable on the server.
     private let systemFonts : [FontInfo]?;
         
-    private enum CodingKeys: String, CodingKey { case additionalFonts, customFonts, systemFonts }
+    private enum CodingKeys: String, CodingKey {
+        case additionalFonts;
+        case customFonts;
+        case systemFonts;
+    }
         
     public init(additionalFonts : [FontInfo]? = nil, customFonts : [FontInfo]? = nil, systemFonts : [FontInfo]? = nil) {
         self.additionalFonts = additionalFonts;

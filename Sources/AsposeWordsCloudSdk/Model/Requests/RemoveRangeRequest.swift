@@ -37,7 +37,16 @@ public class RemoveRangeRequest : Codable {
     private let password : String?;
     private let destFileName : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, rangeStartIdentifier, rangeEndIdentifier, folder, storage, loadEncoding, password, destFileName }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case rangeStartIdentifier;
+        case rangeEndIdentifier;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+    }
     
     public init(name : String, rangeStartIdentifier : String, rangeEndIdentifier : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null) {
         self.name = name;

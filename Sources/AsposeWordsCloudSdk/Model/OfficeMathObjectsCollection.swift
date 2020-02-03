@@ -32,7 +32,9 @@ public class OfficeMathObjectsCollection : LinkElement {
     // Gets or sets collection of OfficeMath objects.
     private let list : [OfficeMathObject]?;
         
-    private enum CodingKeys: String, CodingKey { case list }
+    private enum CodingKeys: String, CodingKey {
+        case list;
+    }
         
     public init(list : [OfficeMathObject]? = nil) {
         self.list = list;

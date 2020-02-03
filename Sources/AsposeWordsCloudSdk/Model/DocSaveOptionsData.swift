@@ -38,7 +38,12 @@ public class DocSaveOptionsData : SaveOptionsData {
     // Gets or sets determine whether or not save RoutingSlip data saved to output document.
     private let saveRoutingSlip : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case alwaysCompressMetafiles, password, savePictureBullet, saveRoutingSlip }
+    private enum CodingKeys: String, CodingKey {
+        case alwaysCompressMetafiles;
+        case password;
+        case savePictureBullet;
+        case saveRoutingSlip;
+    }
         
     public init(alwaysCompressMetafiles : Bool? = nil, password : String? = nil, savePictureBullet : Bool? = nil, saveRoutingSlip : Bool? = nil) {
         self.alwaysCompressMetafiles = alwaysCompressMetafiles;

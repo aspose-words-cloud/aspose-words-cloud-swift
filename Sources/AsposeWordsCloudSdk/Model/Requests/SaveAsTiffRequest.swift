@@ -53,7 +53,32 @@ public class SaveAsTiffRequest : Codable {
     private let zipOutput : Bool?;
     private let fontsLocation : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, saveOptions, folder, storage, loadEncoding, password, useAntiAliasing, useHighQualityRendering, imageBrightness, imageColorMode, imageContrast, numeralFormat, pageCount, pageIndex, paperColor, pixelFormat, resolution, scale, tiffCompression, dmlRenderingMode, dmlEffectsRenderingMode, tiffBinarizationMethod, zipOutput, fontsLocation }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case saveOptions;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case useAntiAliasing;
+        case useHighQualityRendering;
+        case imageBrightness;
+        case imageColorMode;
+        case imageContrast;
+        case numeralFormat;
+        case pageCount;
+        case pageIndex;
+        case paperColor;
+        case pixelFormat;
+        case resolution;
+        case scale;
+        case tiffCompression;
+        case dmlRenderingMode;
+        case dmlEffectsRenderingMode;
+        case tiffBinarizationMethod;
+        case zipOutput;
+        case fontsLocation;
+    }
     
     public init(name : String, saveOptions : TiffSaveOptionsData, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, useAntiAliasing : Bool? = null, useHighQualityRendering : Bool? = null, imageBrightness : Double? = null, imageColorMode : String? = null, imageContrast : Double? = null, numeralFormat : String? = null, pageCount : Int? = null, pageIndex : Int? = null, paperColor : String? = null, pixelFormat : String? = null, resolution : Double? = null, scale : Double? = null, tiffCompression : String? = null, dmlRenderingMode : String? = null, dmlEffectsRenderingMode : String? = null, tiffBinarizationMethod : String? = null, zipOutput : Bool? = null, fontsLocation : String? = null) {
         self.name = name;

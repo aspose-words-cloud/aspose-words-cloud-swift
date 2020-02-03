@@ -34,7 +34,10 @@ public class FormFieldDropDown : FormField {
     // Gets or sets the index specifying the currently selected item in a dropdown form field.
     private let dropDownSelectedIndex : Int?;
         
-    private enum CodingKeys: String, CodingKey { case dropDownItems, dropDownSelectedIndex }
+    private enum CodingKeys: String, CodingKey {
+        case dropDownItems;
+        case dropDownSelectedIndex;
+    }
         
     public init(dropDownItems : [String]? = nil, dropDownSelectedIndex : Int? = nil) {
         self.dropDownItems = dropDownItems;

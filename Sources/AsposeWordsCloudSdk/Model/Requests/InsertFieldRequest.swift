@@ -40,7 +40,19 @@ public class InsertFieldRequest : Codable {
     private let revisionDateTime : String?;
     private let insertBeforeNode : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, field, nodePath, folder, storage, loadEncoding, password, destFileName, revisionAuthor, revisionDateTime, insertBeforeNode }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case field;
+        case nodePath;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
+        case insertBeforeNode;
+    }
     
     public init(name : String, field : Field, nodePath : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, insertBeforeNode : String? = null) {
         self.name = name;

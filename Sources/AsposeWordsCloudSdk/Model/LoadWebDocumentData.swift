@@ -34,7 +34,10 @@ public class LoadWebDocumentData : Codable {
     // Gets or sets save options.
     private let saveOptions : SaveOptionsData?;
         
-    private enum CodingKeys: String, CodingKey { case loadingDocumentUrl, saveOptions }
+    private enum CodingKeys: String, CodingKey {
+        case loadingDocumentUrl;
+        case saveOptions;
+    }
         
     public init(loadingDocumentUrl : String? = nil, saveOptions : SaveOptionsData? = nil) {
         self.loadingDocumentUrl = loadingDocumentUrl;

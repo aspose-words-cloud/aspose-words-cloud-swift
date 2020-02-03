@@ -32,7 +32,9 @@ public class WordsApiErrorResponse : WordsResponse {
     // Gets or sets error.
     private let error : ApiError?;
         
-    private enum CodingKeys: String, CodingKey { case error }
+    private enum CodingKeys: String, CodingKey {
+        case error;
+    }
         
     public init(error : ApiError? = nil) {
         self.error = error;

@@ -36,7 +36,15 @@ public class ClassifyDocumentRequest : Codable {
     private let bestClassesCount : String?;
     private let taxonomy : String?;
     
-    private enum CodingKeys: String, CodingKey { case documentName, folder, storage, loadEncoding, password, bestClassesCount, taxonomy }
+    private enum CodingKeys: String, CodingKey {
+        case documentName;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case bestClassesCount;
+        case taxonomy;
+    }
     
     public init(documentName : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, bestClassesCount : String? = null, taxonomy : String? = null) {
         self.documentName = documentName;

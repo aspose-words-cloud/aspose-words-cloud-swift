@@ -34,7 +34,10 @@ public class ClassificationResult : Codable {
     // Gets or sets the probability of class.
     private let classProbability : Double;
         
-    private enum CodingKeys: String, CodingKey { case className, classProbability }
+    private enum CodingKeys: String, CodingKey {
+        case className;
+        case classProbability;
+    }
         
     public init(className : String? = nil, classProbability : Double) {
         self.className = className;

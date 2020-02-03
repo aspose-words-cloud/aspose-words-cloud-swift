@@ -47,7 +47,11 @@ public class OdtSaveOptionsData : SaveOptionsData {
     // Gets or sets specifies whether or not use pretty formats output.
     private let prettyFormat : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case isStrictSchema11, measureUnit, prettyFormat }
+    private enum CodingKeys: String, CodingKey {
+        case isStrictSchema11;
+        case measureUnit;
+        case prettyFormat;
+    }
         
     public init(isStrictSchema11 : Bool? = nil, measureUnit : MeasureUnit? = nil, prettyFormat : Bool? = nil) {
         self.isStrictSchema11 = isStrictSchema11;

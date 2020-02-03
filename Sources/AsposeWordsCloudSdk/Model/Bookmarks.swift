@@ -32,7 +32,9 @@ public class Bookmarks : LinkElement {
     // Gets or sets array of bookmarks.
     private let bookmarkList : [Bookmark]?;
         
-    private enum CodingKeys: String, CodingKey { case bookmarkList }
+    private enum CodingKeys: String, CodingKey {
+        case bookmarkList;
+    }
         
     public init(bookmarkList : [Bookmark]? = nil) {
         self.bookmarkList = bookmarkList;

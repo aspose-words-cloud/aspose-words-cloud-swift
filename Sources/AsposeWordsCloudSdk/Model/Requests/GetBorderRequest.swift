@@ -36,7 +36,15 @@ public class GetBorderRequest : Codable {
     private let loadEncoding : String?;
     private let password : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, nodePath, borderType, folder, storage, loadEncoding, password }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case nodePath;
+        case borderType;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+    }
     
     public init(name : String, nodePath : String, borderType : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
         self.name = name;

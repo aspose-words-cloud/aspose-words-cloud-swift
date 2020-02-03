@@ -32,7 +32,9 @@ public class ParagraphFormatResponse : WordsResponse {
     // Gets or sets represents all the formatting for a paragraph.
     private let paragraphFormat : ParagraphFormat?;
         
-    private enum CodingKeys: String, CodingKey { case paragraphFormat }
+    private enum CodingKeys: String, CodingKey {
+        case paragraphFormat;
+    }
         
     public init(paragraphFormat : ParagraphFormat? = nil) {
         self.paragraphFormat = paragraphFormat;

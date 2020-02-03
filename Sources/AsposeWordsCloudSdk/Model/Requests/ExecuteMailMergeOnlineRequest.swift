@@ -34,7 +34,13 @@ public class ExecuteMailMergeOnlineRequest : Codable {
     private let cleanup : String?;
     private let documentFileName : String?;
     
-    private enum CodingKeys: String, CodingKey { case template, data, withRegions, cleanup, documentFileName }
+    private enum CodingKeys: String, CodingKey {
+        case template;
+        case data;
+        case withRegions;
+        case cleanup;
+        case documentFileName;
+    }
     
     public init(template : URL, data : URL, withRegions : Bool? = null, cleanup : String? = null, documentFileName : String? = null) {
         self.template = template;

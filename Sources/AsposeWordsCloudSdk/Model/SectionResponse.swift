@@ -32,7 +32,9 @@ public class SectionResponse : WordsResponse {
     // Gets or sets section.
     private let section : Section?;
         
-    private enum CodingKeys: String, CodingKey { case section }
+    private enum CodingKeys: String, CodingKey {
+        case section;
+    }
         
     public init(section : Section? = nil) {
         self.section = section;

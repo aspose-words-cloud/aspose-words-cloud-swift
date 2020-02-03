@@ -35,7 +35,14 @@ public class ConvertDocumentRequest : Codable {
     private let fileNameFieldValue : String?;
     private let fontsLocation : String?;
     
-    private enum CodingKeys: String, CodingKey { case document, format, storage, outPath, fileNameFieldValue, fontsLocation }
+    private enum CodingKeys: String, CodingKey {
+        case document;
+        case format;
+        case storage;
+        case outPath;
+        case fileNameFieldValue;
+        case fontsLocation;
+    }
     
     public init(document : URL, format : String, storage : String? = null, outPath : String? = null, fileNameFieldValue : String? = null, fontsLocation : String? = null) {
         self.document = document;

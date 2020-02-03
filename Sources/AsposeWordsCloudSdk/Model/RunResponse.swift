@@ -32,7 +32,9 @@ public class RunResponse : WordsResponse {
     // Gets or sets run.
     private let run : Run?;
         
-    private enum CodingKeys: String, CodingKey { case run }
+    private enum CodingKeys: String, CodingKey {
+        case run;
+    }
         
     public init(run : Run? = nil) {
         self.run = run;

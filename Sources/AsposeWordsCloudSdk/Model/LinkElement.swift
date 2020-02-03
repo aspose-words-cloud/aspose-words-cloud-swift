@@ -32,7 +32,9 @@ public class LinkElement : Codable {
     // Gets or sets link to the document.
     private let link : WordsApiLink?;
         
-    private enum CodingKeys: String, CodingKey { case link }
+    private enum CodingKeys: String, CodingKey {
+        case link;
+    }
         
     public init(link : WordsApiLink? = nil) {
         self.link = link;

@@ -32,7 +32,9 @@ public class DocumentEntryList : Codable {
     // Gets or sets list of documents.
     private let documentEntries : [DocumentEntry]?;
         
-    private enum CodingKeys: String, CodingKey { case documentEntries }
+    private enum CodingKeys: String, CodingKey {
+        case documentEntries;
+    }
         
     public init(documentEntries : [DocumentEntry]? = nil) {
         self.documentEntries = documentEntries;

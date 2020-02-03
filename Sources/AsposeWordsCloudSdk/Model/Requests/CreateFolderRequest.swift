@@ -31,7 +31,10 @@ public class CreateFolderRequest : Codable {
     private let path : String;
     private let storageName : String?;
     
-    private enum CodingKeys: String, CodingKey { case path, storageName }
+    private enum CodingKeys: String, CodingKey {
+        case path;
+        case storageName;
+    }
     
     public init(path : String, storageName : String? = null) {
         self.path = path;

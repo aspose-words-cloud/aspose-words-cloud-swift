@@ -32,7 +32,9 @@ public class FieldCollection : LinkElement {
     // Gets or sets collection of fields.
     private let list : [Field]?;
         
-    private enum CodingKeys: String, CodingKey { case list }
+    private enum CodingKeys: String, CodingKey {
+        case list;
+    }
         
     public init(list : [Field]? = nil) {
         self.list = list;

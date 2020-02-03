@@ -147,7 +147,47 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Gets or sets controls how table, row and cell widths are exported.
     private let tableWidthOutputMode : String?;
         
-    private enum CodingKeys: String, CodingKey { case allowNegativeIndent, cssClassNamePrefix, cssStyleSheetFileName, cssStyleSheetType, documentSplitCriteria, documentSplitHeadingLevel, encoding, exportDocumentProperties, exportDropDownFormFieldAsText, exportFontResources, exportFontsAsBase64, exportHeadersFootersMode, exportImagesAsBase64, exportLanguageInformation, exportListLabels, exportOriginalUrlForLinkedImages, exportPageMargins, exportPageSetup, exportRelativeFontSize, exportRoundtripInformation, exportTextBoxAsSvg, exportTextInputFormFieldAsText, exportTocPageNumbers, exportXhtmlTransitional, fontResourcesSubsettingSizeThreshold, fontsFolder, fontsFolderAlias, htmlVersion, imageResolution, imagesFolder, imagesFolderAlias, metafileFormat, officeMathOutputMode, prettyFormat, resolveFontNames, resourceFolder, resourceFolderAlias, scaleImageToShapeSize, tableWidthOutputMode }
+    private enum CodingKeys: String, CodingKey {
+        case allowNegativeIndent;
+        case cssClassNamePrefix;
+        case cssStyleSheetFileName;
+        case cssStyleSheetType;
+        case documentSplitCriteria;
+        case documentSplitHeadingLevel;
+        case encoding;
+        case exportDocumentProperties;
+        case exportDropDownFormFieldAsText;
+        case exportFontResources;
+        case exportFontsAsBase64;
+        case exportHeadersFootersMode;
+        case exportImagesAsBase64;
+        case exportLanguageInformation;
+        case exportListLabels;
+        case exportOriginalUrlForLinkedImages;
+        case exportPageMargins;
+        case exportPageSetup;
+        case exportRelativeFontSize;
+        case exportRoundtripInformation;
+        case exportTextBoxAsSvg;
+        case exportTextInputFormFieldAsText;
+        case exportTocPageNumbers;
+        case exportXhtmlTransitional;
+        case fontResourcesSubsettingSizeThreshold;
+        case fontsFolder;
+        case fontsFolderAlias;
+        case htmlVersion;
+        case imageResolution;
+        case imagesFolder;
+        case imagesFolderAlias;
+        case metafileFormat;
+        case officeMathOutputMode;
+        case prettyFormat;
+        case resolveFontNames;
+        case resourceFolder;
+        case resourceFolderAlias;
+        case scaleImageToShapeSize;
+        case tableWidthOutputMode;
+    }
         
     public init(allowNegativeIndent : Bool? = nil, cssClassNamePrefix : String? = nil, cssStyleSheetFileName : String? = nil, cssStyleSheetType : String? = nil, documentSplitCriteria : String? = nil, documentSplitHeadingLevel : Int? = nil, encoding : String? = nil, exportDocumentProperties : Bool? = nil, exportDropDownFormFieldAsText : Bool? = nil, exportFontResources : Bool? = nil, exportFontsAsBase64 : Bool? = nil, exportHeadersFootersMode : String? = nil, exportImagesAsBase64 : Bool? = nil, exportLanguageInformation : Bool? = nil, exportListLabels : String? = nil, exportOriginalUrlForLinkedImages : Bool? = nil, exportPageMargins : Bool? = nil, exportPageSetup : Bool? = nil, exportRelativeFontSize : Bool? = nil, exportRoundtripInformation : Bool? = nil, exportTextBoxAsSvg : Bool? = nil, exportTextInputFormFieldAsText : Bool? = nil, exportTocPageNumbers : Bool? = nil, exportXhtmlTransitional : Bool? = nil, fontResourcesSubsettingSizeThreshold : Int? = nil, fontsFolder : String? = nil, fontsFolderAlias : String? = nil, htmlVersion : HtmlVersion? = nil, imageResolution : Int? = nil, imagesFolder : String? = nil, imagesFolderAlias : String? = nil, metafileFormat : MetafileFormat? = nil, officeMathOutputMode : OfficeMathOutputMode? = nil, prettyFormat : Bool? = nil, resolveFontNames : Bool? = nil, resourceFolder : String? = nil, resourceFolderAlias : String? = nil, scaleImageToShapeSize : Bool? = nil, tableWidthOutputMode : String? = nil) {
         self.allowNegativeIndent = allowNegativeIndent;

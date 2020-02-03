@@ -32,7 +32,9 @@ public class HeaderFooterLinkCollection : LinkElement {
     // Gets or sets collection of section&#39;s links.
     private let list : [HeaderFooterLink]?;
         
-    private enum CodingKeys: String, CodingKey { case list }
+    private enum CodingKeys: String, CodingKey {
+        case list;
+    }
         
     public init(list : [HeaderFooterLink]? = nil) {
         self.list = list;

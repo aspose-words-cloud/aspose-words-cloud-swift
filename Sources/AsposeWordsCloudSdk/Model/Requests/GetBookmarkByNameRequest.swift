@@ -35,7 +35,14 @@ public class GetBookmarkByNameRequest : Codable {
     private let loadEncoding : String?;
     private let password : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, bookmarkName, folder, storage, loadEncoding, password }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case bookmarkName;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+    }
     
     public init(name : String, bookmarkName : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
         self.name = name;

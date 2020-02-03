@@ -32,7 +32,9 @@ public class DrawingObjectsResponse : WordsResponse {
     // Gets or sets collection of drawing objects.
     private let drawingObjects : DrawingObjectCollection?;
         
-    private enum CodingKeys: String, CodingKey { case drawingObjects }
+    private enum CodingKeys: String, CodingKey {
+        case drawingObjects;
+    }
         
     public init(drawingObjects : DrawingObjectCollection? = nil) {
         self.drawingObjects = drawingObjects;

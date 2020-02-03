@@ -32,7 +32,9 @@ public class ParagraphResponse : WordsResponse {
     // Gets or sets paragraph.
     private let paragraph : Paragraph?;
         
-    private enum CodingKeys: String, CodingKey { case paragraph }
+    private enum CodingKeys: String, CodingKey {
+        case paragraph;
+    }
         
     public init(paragraph : Paragraph? = nil) {
         self.paragraph = paragraph;

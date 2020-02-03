@@ -32,7 +32,9 @@ public class WordMLSaveOptionsData : SaveOptionsData {
     // Gets or sets specifies whether or not use pretty formats output.
     private let prettyFormat : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case prettyFormat }
+    private enum CodingKeys: String, CodingKey {
+        case prettyFormat;
+    }
         
     public init(prettyFormat : Bool? = nil) {
         self.prettyFormat = prettyFormat;

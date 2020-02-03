@@ -34,7 +34,10 @@ public class PclSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.
     private let rasterizeTransformedElements : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case falllbackFontName, rasterizeTransformedElements }
+    private enum CodingKeys: String, CodingKey {
+        case falllbackFontName;
+        case rasterizeTransformedElements;
+    }
         
     public init(falllbackFontName : String? = nil, rasterizeTransformedElements : Bool? = nil) {
         self.falllbackFontName = falllbackFontName;

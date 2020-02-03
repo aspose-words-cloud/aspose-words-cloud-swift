@@ -39,7 +39,18 @@ public class InsertHeaderFooterRequest : Codable {
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, headerFooterType, sectionPath, folder, storage, loadEncoding, password, destFileName, revisionAuthor, revisionDateTime }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case headerFooterType;
+        case sectionPath;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
+    }
     
     public init(name : String, headerFooterType : String, sectionPath : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null) {
         self.name = name;

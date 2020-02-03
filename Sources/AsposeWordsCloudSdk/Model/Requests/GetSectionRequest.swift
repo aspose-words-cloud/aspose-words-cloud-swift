@@ -35,7 +35,14 @@ public class GetSectionRequest : Codable {
     private let loadEncoding : String?;
     private let password : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, sectionIndex, folder, storage, loadEncoding, password }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case sectionIndex;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+    }
     
     public init(name : String, sectionIndex : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
         self.name = name;

@@ -34,7 +34,10 @@ public class DocumentPosition : Codable {
     // Gets or sets offset into the node.
     private let offset : Int?;
         
-    private enum CodingKeys: String, CodingKey { case node, offset }
+    private enum CodingKeys: String, CodingKey {
+        case node;
+        case offset;
+    }
         
     public init(node : NodeLink? = nil, offset : Int? = nil) {
         self.node = node;

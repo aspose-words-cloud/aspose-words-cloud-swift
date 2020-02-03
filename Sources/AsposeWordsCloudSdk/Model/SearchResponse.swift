@@ -34,7 +34,10 @@ public class SearchResponse : WordsResponse {
     // Gets or sets collection of search results.
     private let searchResults : SearchResultsCollection?;
         
-    private enum CodingKeys: String, CodingKey { case searchingPattern, searchResults }
+    private enum CodingKeys: String, CodingKey {
+        case searchingPattern;
+        case searchResults;
+    }
         
     public init(searchingPattern : String? = nil, searchResults : SearchResultsCollection? = nil) {
         self.searchingPattern = searchingPattern;

@@ -34,7 +34,10 @@ public class BookmarksOutlineLevelData : Codable {
     // Gets or sets specify the bookmark&#39;s level.
     private let bookmarksOutlineLevel : Int;
         
-    private enum CodingKeys: String, CodingKey { case name, bookmarksOutlineLevel }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case bookmarksOutlineLevel;
+    }
         
     public init(name : String? = nil, bookmarksOutlineLevel : Int) {
         self.name = name;

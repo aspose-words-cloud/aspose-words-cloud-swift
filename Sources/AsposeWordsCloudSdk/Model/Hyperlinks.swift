@@ -32,7 +32,9 @@ public class Hyperlinks : LinkElement {
     // Gets or sets array of .
     private let hyperlinkList : [Hyperlink]?;
         
-    private enum CodingKeys: String, CodingKey { case hyperlinkList }
+    private enum CodingKeys: String, CodingKey {
+        case hyperlinkList;
+    }
         
     public init(hyperlinkList : [Hyperlink]? = nil) {
         self.hyperlinkList = hyperlinkList;

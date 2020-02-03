@@ -52,7 +52,12 @@ public class TableRowFormat : LinkElement {
     // Gets or sets the rule for determining the height of the table row.
     private let heightRule : HeightRule?;
         
-    private enum CodingKeys: String, CodingKey { case allowBreakAcrossPages, headingFormat, height, heightRule }
+    private enum CodingKeys: String, CodingKey {
+        case allowBreakAcrossPages;
+        case headingFormat;
+        case height;
+        case heightRule;
+    }
         
     public init(allowBreakAcrossPages : Bool? = nil, headingFormat : Bool? = nil, height : Double? = nil, heightRule : HeightRule? = nil) {
         self.allowBreakAcrossPages = allowBreakAcrossPages;

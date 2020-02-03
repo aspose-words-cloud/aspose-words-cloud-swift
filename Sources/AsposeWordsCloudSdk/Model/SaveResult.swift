@@ -36,7 +36,11 @@ public class SaveResult : Codable {
     // Gets or sets links to additional items (css, images etc).
     private let additionalItems : [FileLink]?;
         
-    private enum CodingKeys: String, CodingKey { case sourceDocument, destDocument, additionalItems }
+    private enum CodingKeys: String, CodingKey {
+        case sourceDocument;
+        case destDocument;
+        case additionalItems;
+    }
         
     public init(sourceDocument : FileLink? = nil, destDocument : FileLink? = nil, additionalItems : [FileLink]? = nil) {
         self.sourceDocument = sourceDocument;

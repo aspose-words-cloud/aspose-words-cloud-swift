@@ -37,7 +37,16 @@ public class GetDocumentWithFormatRequest : Codable {
     private let outPath : String?;
     private let fontsLocation : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, format, folder, storage, loadEncoding, password, outPath, fontsLocation }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case format;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case outPath;
+        case fontsLocation;
+    }
     
     public init(name : String, format : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, outPath : String? = null, fontsLocation : String? = null) {
         self.name = name;

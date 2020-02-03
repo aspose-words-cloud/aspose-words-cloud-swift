@@ -36,7 +36,15 @@ public class GetTableCellRequest : Codable {
     private let loadEncoding : String?;
     private let password : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, tableRowPath, index, folder, storage, loadEncoding, password }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case tableRowPath;
+        case index;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+    }
     
     public init(name : String, tableRowPath : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
         self.name = name;

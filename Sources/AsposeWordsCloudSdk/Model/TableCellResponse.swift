@@ -32,7 +32,9 @@ public class TableCellResponse : WordsResponse {
     // Gets or sets table cell.
     private let cell : TableCell?;
         
-    private enum CodingKeys: String, CodingKey { case cell }
+    private enum CodingKeys: String, CodingKey {
+        case cell;
+    }
         
     public init(cell : TableCell? = nil) {
         self.cell = cell;

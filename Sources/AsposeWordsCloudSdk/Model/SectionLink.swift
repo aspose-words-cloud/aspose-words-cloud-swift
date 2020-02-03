@@ -30,7 +30,8 @@ import Foundation
 public class SectionLink : NodeLink {
         
         
-    private enum CodingKeys: String, CodingKey { case  }
+    private enum CodingKeys: String, CodingKey {
+    }
         
     public init() {
     }

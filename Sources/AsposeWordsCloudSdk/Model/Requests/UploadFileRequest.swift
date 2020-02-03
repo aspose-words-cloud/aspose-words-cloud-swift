@@ -32,7 +32,11 @@ public class UploadFileRequest : Codable {
     private let path : String;
     private let storageName : String?;
     
-    private enum CodingKeys: String, CodingKey { case fileContent, path, storageName }
+    private enum CodingKeys: String, CodingKey {
+        case fileContent;
+        case path;
+        case storageName;
+    }
     
     public init(fileContent : URL, path : String, storageName : String? = null) {
         self.fileContent = fileContent;

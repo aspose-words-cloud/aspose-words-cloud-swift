@@ -44,7 +44,15 @@ public class Comment : CommentLink {
     // Gets or sets this is a convenience property that allows to easily get or set text of the comment.
     private let text : String?;
         
-    private enum CodingKeys: String, CodingKey { case author, content, dateTime, initial, rangeEnd, rangeStart, text }
+    private enum CodingKeys: String, CodingKey {
+        case author;
+        case content;
+        case dateTime;
+        case initial;
+        case rangeEnd;
+        case rangeStart;
+        case text;
+    }
         
     public init(author : String? = nil, content : StoryChildNodes? = nil, dateTime : Date? = nil, initial : String? = nil, rangeEnd : DocumentPosition? = nil, rangeStart : DocumentPosition? = nil, text : String? = nil) {
         self.author = author;

@@ -37,7 +37,16 @@ public class SaveAsRangeRequest : Codable {
     private let loadEncoding : String?;
     private let password : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, rangeStartIdentifier, documentParameters, rangeEndIdentifier, folder, storage, loadEncoding, password }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case rangeStartIdentifier;
+        case documentParameters;
+        case rangeEndIdentifier;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+    }
     
     public init(name : String, rangeStartIdentifier : String, documentParameters : RangeDocument, rangeEndIdentifier : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
         self.name = name;

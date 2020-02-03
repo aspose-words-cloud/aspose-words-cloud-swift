@@ -32,7 +32,9 @@ public class FootnoteCollection : LinkElement {
     // Gets or sets collection of foonotes links.
     private let list : [Footnote]?;
         
-    private enum CodingKeys: String, CodingKey { case list }
+    private enum CodingKeys: String, CodingKey {
+        case list;
+    }
         
     public init(list : [Footnote]? = nil) {
         self.list = list;

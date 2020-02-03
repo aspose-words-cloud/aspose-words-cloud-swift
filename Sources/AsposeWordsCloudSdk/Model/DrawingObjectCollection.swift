@@ -32,7 +32,9 @@ public class DrawingObjectCollection : LinkElement {
     // Gets or sets collection of DrawingObjects links.
     private let list : [LinkElement]?;
         
-    private enum CodingKeys: String, CodingKey { case list }
+    private enum CodingKeys: String, CodingKey {
+        case list;
+    }
         
     public init(list : [LinkElement]? = nil) {
         self.list = list;

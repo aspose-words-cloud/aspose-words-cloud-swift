@@ -119,7 +119,20 @@ public class TableCellFormat : LinkElement {
     // Gets or sets if true, wrap text for the cell.
     private let wrapText : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case bottomPadding, fitText, horizontalMerge, leftPadding, orientation, preferredWidth, rightPadding, topPadding, verticalAlignment, verticalMerge, width, wrapText }
+    private enum CodingKeys: String, CodingKey {
+        case bottomPadding;
+        case fitText;
+        case horizontalMerge;
+        case leftPadding;
+        case orientation;
+        case preferredWidth;
+        case rightPadding;
+        case topPadding;
+        case verticalAlignment;
+        case verticalMerge;
+        case width;
+        case wrapText;
+    }
         
     public init(bottomPadding : Double? = nil, fitText : Bool? = nil, horizontalMerge : HorizontalMerge? = nil, leftPadding : Double? = nil, orientation : Orientation? = nil, preferredWidth : PreferredWidth? = nil, rightPadding : Double? = nil, topPadding : Double? = nil, verticalAlignment : VerticalAlignment? = nil, verticalMerge : VerticalMerge? = nil, width : Double? = nil, wrapText : Bool? = nil) {
         self.bottomPadding = bottomPadding;

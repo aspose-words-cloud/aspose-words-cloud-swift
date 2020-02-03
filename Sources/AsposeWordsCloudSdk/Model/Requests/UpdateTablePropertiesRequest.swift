@@ -40,7 +40,19 @@ public class UpdateTablePropertiesRequest : Codable {
     private let revisionDateTime : String?;
     private let properties : TableProperties?;
     
-    private enum CodingKeys: String, CodingKey { case name, nodePath, index, folder, storage, loadEncoding, password, destFileName, revisionAuthor, revisionDateTime, properties }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case nodePath;
+        case index;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
+        case properties;
+    }
     
     public init(name : String, nodePath : String, index : Int, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, properties : TableProperties? = null) {
         self.name = name;

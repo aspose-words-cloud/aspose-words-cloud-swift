@@ -32,7 +32,9 @@ public class HeaderFooterResponse : WordsResponse {
     // Gets or sets headerFooter.
     private let headerFooter : HeaderFooter?;
         
-    private enum CodingKeys: String, CodingKey { case headerFooter }
+    private enum CodingKeys: String, CodingKey {
+        case headerFooter;
+    }
         
     public init(headerFooter : HeaderFooter? = nil) {
         self.headerFooter = headerFooter;

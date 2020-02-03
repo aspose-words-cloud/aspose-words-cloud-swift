@@ -30,7 +30,8 @@ import Foundation
 public class DrawingObjectLink : NodeLink {
         
         
-    private enum CodingKeys: String, CodingKey { case  }
+    private enum CodingKeys: String, CodingKey {
+    }
         
     public init() {
     }

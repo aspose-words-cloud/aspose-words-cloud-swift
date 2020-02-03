@@ -34,7 +34,10 @@ public class FootnotesStatData : Codable {
     // Gets or sets total count of paragraphs in footnotes.
     private let paragraphCount : Int;
         
-    private enum CodingKeys: String, CodingKey { case wordCount, paragraphCount }
+    private enum CodingKeys: String, CodingKey {
+        case wordCount;
+        case paragraphCount;
+    }
         
     public init(wordCount : Int, paragraphCount : Int) {
         self.wordCount = wordCount;

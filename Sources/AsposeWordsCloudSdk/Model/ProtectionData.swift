@@ -32,7 +32,9 @@ public class ProtectionData : Codable {
     // Gets or sets type of the protection.
     private let protectionType : String?;
         
-    private enum CodingKeys: String, CodingKey { case protectionType }
+    private enum CodingKeys: String, CodingKey {
+        case protectionType;
+    }
         
     public init(protectionType : String? = nil) {
         self.protectionType = protectionType;

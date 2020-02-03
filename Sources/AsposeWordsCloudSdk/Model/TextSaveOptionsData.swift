@@ -58,7 +58,15 @@ public class TextSaveOptionsData : SaveOptionsData {
     // Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
     private let simplifyListLabels : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case addBidiMarks, encoding, exportHeadersFootersMode, forcePageBreaks, paragraphBreak, preserveTableLayout, simplifyListLabels }
+    private enum CodingKeys: String, CodingKey {
+        case addBidiMarks;
+        case encoding;
+        case exportHeadersFootersMode;
+        case forcePageBreaks;
+        case paragraphBreak;
+        case preserveTableLayout;
+        case simplifyListLabels;
+    }
         
     public init(addBidiMarks : Bool? = nil, encoding : String? = nil, exportHeadersFootersMode : ExportHeadersFootersMode? = nil, forcePageBreaks : Bool? = nil, paragraphBreak : String? = nil, preserveTableLayout : Bool? = nil, simplifyListLabels : Bool? = nil) {
         self.addBidiMarks = addBidiMarks;

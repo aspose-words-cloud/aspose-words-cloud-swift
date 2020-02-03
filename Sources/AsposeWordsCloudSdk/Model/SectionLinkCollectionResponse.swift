@@ -32,7 +32,9 @@ public class SectionLinkCollectionResponse : WordsResponse {
     // Gets or sets collection of sections.
     private let sections : SectionLinkCollection?;
         
-    private enum CodingKeys: String, CodingKey { case sections }
+    private enum CodingKeys: String, CodingKey {
+        case sections;
+    }
         
     public init(sections : SectionLinkCollection? = nil) {
         self.sections = sections;

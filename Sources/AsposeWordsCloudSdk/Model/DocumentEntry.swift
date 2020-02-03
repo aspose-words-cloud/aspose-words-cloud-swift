@@ -34,7 +34,10 @@ public class DocumentEntry : Codable {
     // Gets or sets defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.
     private let importFormatMode : String?;
         
-    private enum CodingKeys: String, CodingKey { case href, importFormatMode }
+    private enum CodingKeys: String, CodingKey {
+        case href;
+        case importFormatMode;
+    }
         
     public init(href : String? = nil, importFormatMode : String? = nil) {
         self.href = href;

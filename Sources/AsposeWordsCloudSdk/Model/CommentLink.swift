@@ -30,7 +30,8 @@ import Foundation
 public class CommentLink : LinkElement {
         
         
-    private enum CodingKeys: String, CodingKey { case  }
+    private enum CodingKeys: String, CodingKey {
+    }
         
     public init() {
     }

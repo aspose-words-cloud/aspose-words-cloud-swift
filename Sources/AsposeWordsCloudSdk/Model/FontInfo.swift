@@ -38,7 +38,12 @@ public class FontInfo : Codable {
     // Gets or sets path to the font file if any.
     private let filePath : String?;
         
-    private enum CodingKeys: String, CodingKey { case fontFamilyName, fullFontName, version, filePath }
+    private enum CodingKeys: String, CodingKey {
+        case fontFamilyName;
+        case fullFontName;
+        case version;
+        case filePath;
+    }
         
     public init(fontFamilyName : String? = nil, fullFontName : String? = nil, version : String? = nil, filePath : String? = nil) {
         self.fontFamilyName = fontFamilyName;

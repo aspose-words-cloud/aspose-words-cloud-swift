@@ -34,7 +34,10 @@ public class StatDataResponse : WordsResponse {
     // Gets or sets statistical data of the document.
     private let statData : DocumentStatData?;
         
-    private enum CodingKeys: String, CodingKey { case documentLink, statData }
+    private enum CodingKeys: String, CodingKey {
+        case documentLink;
+        case statData;
+    }
         
     public init(documentLink : FileLink? = nil, statData : DocumentStatData? = nil) {
         self.documentLink = documentLink;

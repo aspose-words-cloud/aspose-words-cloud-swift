@@ -36,7 +36,11 @@ public class SplitDocumentResult : Codable {
     // Gets or sets link to the file archive with pages.
     private let zippedPages : FileLink?;
         
-    private enum CodingKeys: String, CodingKey { case sourceDocument, pages, zippedPages }
+    private enum CodingKeys: String, CodingKey {
+        case sourceDocument;
+        case pages;
+        case zippedPages;
+    }
         
     public init(sourceDocument : FileLink? = nil, pages : [FileLink]? = nil, zippedPages : FileLink? = nil) {
         self.sourceDocument = sourceDocument;

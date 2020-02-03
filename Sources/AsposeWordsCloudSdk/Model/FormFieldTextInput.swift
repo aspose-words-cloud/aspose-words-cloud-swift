@@ -61,7 +61,12 @@ public class FormFieldTextInput : FormField {
     // Gets or sets the type of a text form field.
     private let textInputType : TextInputType?;
         
-    private enum CodingKeys: String, CodingKey { case maxLength, textInputDefault, textInputFormat, textInputType }
+    private enum CodingKeys: String, CodingKey {
+        case maxLength;
+        case textInputDefault;
+        case textInputFormat;
+        case textInputType;
+    }
         
     public init(maxLength : Int? = nil, textInputDefault : String? = nil, textInputFormat : String? = nil, textInputType : TextInputType? = nil) {
         self.maxLength = maxLength;

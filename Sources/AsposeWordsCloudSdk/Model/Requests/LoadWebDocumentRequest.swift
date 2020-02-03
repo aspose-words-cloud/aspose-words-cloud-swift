@@ -31,7 +31,10 @@ public class LoadWebDocumentRequest : Codable {
     private let data : LoadWebDocumentData;
     private let storage : String?;
     
-    private enum CodingKeys: String, CodingKey { case data, storage }
+    private enum CodingKeys: String, CodingKey {
+        case data;
+        case storage;
+    }
     
     public init(data : LoadWebDocumentData, storage : String? = null) {
         self.data = data;

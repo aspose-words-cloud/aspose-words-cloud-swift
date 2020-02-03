@@ -36,7 +36,11 @@ public class HeaderFooter : HeaderFooterLink {
     // Gets or sets link to Paragraphs resource.
     private let paragraphs : LinkElement?;
         
-    private enum CodingKeys: String, CodingKey { case childNodes, drawingObjects, paragraphs }
+    private enum CodingKeys: String, CodingKey {
+        case childNodes;
+        case drawingObjects;
+        case paragraphs;
+    }
         
     public init(childNodes : [NodeLink]? = nil, drawingObjects : LinkElement? = nil, paragraphs : LinkElement? = nil) {
         self.childNodes = childNodes;

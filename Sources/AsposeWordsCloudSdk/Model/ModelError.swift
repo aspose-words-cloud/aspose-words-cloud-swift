@@ -38,7 +38,12 @@ public class ModelError : Codable {
     // Inner Error             
     private let innerError : ErrorDetails?;
         
-    private enum CodingKeys: String, CodingKey { case code, message, _description, innerError }
+    private enum CodingKeys: String, CodingKey {
+        case code;
+        case message;
+        case _description;
+        case innerError;
+    }
         
     public init(code : String? = nil, message : String? = nil, _description : String? = nil, innerError : ErrorDetails? = nil) {
         self.code = code;

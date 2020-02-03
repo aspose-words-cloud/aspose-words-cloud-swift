@@ -45,7 +45,10 @@ public class ReplaceRange : Codable {
     // Gets or sets range&#39;s text type.
     private let textType : TextType?;
         
-    private enum CodingKeys: String, CodingKey { case text, textType }
+    private enum CodingKeys: String, CodingKey {
+        case text;
+        case textType;
+    }
         
     public init(text : String? = nil, textType : TextType? = nil) {
         self.text = text;

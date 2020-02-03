@@ -32,7 +32,9 @@ public class TableRowResponse : WordsResponse {
     // Gets or sets table row.
     private let row : TableRow?;
         
-    private enum CodingKeys: String, CodingKey { case row }
+    private enum CodingKeys: String, CodingKey {
+        case row;
+    }
         
     public init(row : TableRow? = nil) {
         self.row = row;

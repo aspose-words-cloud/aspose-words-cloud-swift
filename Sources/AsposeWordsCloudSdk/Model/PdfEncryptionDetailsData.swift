@@ -38,7 +38,12 @@ public class PdfEncryptionDetailsData : Codable {
     // Gets or sets specifies the user password required for opening the encrypted PDF document.
     private let userPassword : String?;
         
-    private enum CodingKeys: String, CodingKey { case encryptionAlgorithm, ownerPassword, permissions, userPassword }
+    private enum CodingKeys: String, CodingKey {
+        case encryptionAlgorithm;
+        case ownerPassword;
+        case permissions;
+        case userPassword;
+    }
         
     public init(encryptionAlgorithm : String? = nil, ownerPassword : String? = nil, permissions : String? = nil, userPassword : String? = nil) {
         self.encryptionAlgorithm = encryptionAlgorithm;

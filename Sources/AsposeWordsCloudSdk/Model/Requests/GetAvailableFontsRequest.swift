@@ -30,7 +30,9 @@ import Foundation
 public class GetAvailableFontsRequest : Codable {
     private let fontsLocation : String?;
     
-    private enum CodingKeys: String, CodingKey { case fontsLocation }
+    private enum CodingKeys: String, CodingKey {
+        case fontsLocation;
+    }
     
     public init(fontsLocation : String? = null) {
         self.fontsLocation = fontsLocation;

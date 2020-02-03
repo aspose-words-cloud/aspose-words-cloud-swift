@@ -32,7 +32,9 @@ public class BordersCollection : LinkElement {
     // Gets or sets collection of comments.
     private let list : [Border]?;
         
-    private enum CodingKeys: String, CodingKey { case list }
+    private enum CodingKeys: String, CodingKey {
+        case list;
+    }
         
     public init(list : [Border]? = nil) {
         self.list = list;

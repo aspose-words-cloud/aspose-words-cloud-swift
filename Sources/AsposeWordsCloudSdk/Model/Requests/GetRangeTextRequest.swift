@@ -36,7 +36,15 @@ public class GetRangeTextRequest : Codable {
     private let loadEncoding : String?;
     private let password : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, rangeStartIdentifier, rangeEndIdentifier, folder, storage, loadEncoding, password }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case rangeStartIdentifier;
+        case rangeEndIdentifier;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+    }
     
     public init(name : String, rangeStartIdentifier : String, rangeEndIdentifier : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
         self.name = name;

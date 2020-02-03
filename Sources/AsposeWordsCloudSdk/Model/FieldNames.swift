@@ -32,7 +32,9 @@ public class FieldNames : LinkElement {
     // Gets or sets collection of fields names.
     private let names : [String]?;
         
-    private enum CodingKeys: String, CodingKey { case names }
+    private enum CodingKeys: String, CodingKey {
+        case names;
+    }
         
     public init(names : [String]? = nil) {
         self.names = names;

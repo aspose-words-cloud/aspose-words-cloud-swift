@@ -42,7 +42,14 @@ public class OutlineOptionsData : Codable {
     // Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
     private let headingsOutlineLevels : Int?;
         
-    private enum CodingKeys: String, CodingKey { case bookmarksOutlineLevels, defaultBookmarksOutlineLevel, createMissingOutlineLevels, createOutlinesForHeadingsInTables, expandedOutlineLevels, headingsOutlineLevels }
+    private enum CodingKeys: String, CodingKey {
+        case bookmarksOutlineLevels;
+        case defaultBookmarksOutlineLevel;
+        case createMissingOutlineLevels;
+        case createOutlinesForHeadingsInTables;
+        case expandedOutlineLevels;
+        case headingsOutlineLevels;
+    }
         
     public init(bookmarksOutlineLevels : [BookmarksOutlineLevelData]? = nil, defaultBookmarksOutlineLevel : Int? = nil, createMissingOutlineLevels : Bool? = nil, createOutlinesForHeadingsInTables : Bool? = nil, expandedOutlineLevels : Int? = nil, headingsOutlineLevels : Int? = nil) {
         self.bookmarksOutlineLevels = bookmarksOutlineLevels;

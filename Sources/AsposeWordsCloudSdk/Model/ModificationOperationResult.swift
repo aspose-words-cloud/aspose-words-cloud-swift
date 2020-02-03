@@ -34,7 +34,10 @@ public class ModificationOperationResult : Codable {
     // Gets or sets link to the dest document (result of the modification operation).
     private let dest : FileLink?;
         
-    private enum CodingKeys: String, CodingKey { case source, dest }
+    private enum CodingKeys: String, CodingKey {
+        case source;
+        case dest;
+    }
         
     public init(source : FileLink? = nil, dest : FileLink? = nil) {
         self.source = source;

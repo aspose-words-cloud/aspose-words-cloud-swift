@@ -34,7 +34,13 @@ public class GetDocumentRequest : Codable {
     private let loadEncoding : String?;
     private let password : String?;
     
-    private enum CodingKeys: String, CodingKey { case documentName, folder, storage, loadEncoding, password }
+    private enum CodingKeys: String, CodingKey {
+        case documentName;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+    }
     
     public init(documentName : String, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null) {
         self.documentName = documentName;

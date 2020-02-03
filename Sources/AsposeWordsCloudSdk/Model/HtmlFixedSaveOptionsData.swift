@@ -56,7 +56,21 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets specifies whether border around pages should be shown.
     private let showPageBorder : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case cssClassNamesPrefix, encoding, exportEmbeddedCss, exportEmbeddedFonts, exportEmbeddedImages, exportFormFields, fontFormat, pageHorizontalAlignment, pageMargins, resourcesFolder, resourcesFolderAlias, saveFontFaceCssSeparately, showPageBorder }
+    private enum CodingKeys: String, CodingKey {
+        case cssClassNamesPrefix;
+        case encoding;
+        case exportEmbeddedCss;
+        case exportEmbeddedFonts;
+        case exportEmbeddedImages;
+        case exportFormFields;
+        case fontFormat;
+        case pageHorizontalAlignment;
+        case pageMargins;
+        case resourcesFolder;
+        case resourcesFolderAlias;
+        case saveFontFaceCssSeparately;
+        case showPageBorder;
+    }
         
     public init(cssClassNamesPrefix : String? = nil, encoding : String? = nil, exportEmbeddedCss : Bool? = nil, exportEmbeddedFonts : Bool? = nil, exportEmbeddedImages : Bool? = nil, exportFormFields : Bool? = nil, fontFormat : String? = nil, pageHorizontalAlignment : String? = nil, pageMargins : Double? = nil, resourcesFolder : String? = nil, resourcesFolderAlias : String? = nil, saveFontFaceCssSeparately : Bool? = nil, showPageBorder : Bool? = nil) {
         self.cssClassNamesPrefix = cssClassNamesPrefix;

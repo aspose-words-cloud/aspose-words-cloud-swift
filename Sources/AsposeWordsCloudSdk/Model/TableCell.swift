@@ -32,7 +32,9 @@ public class TableCell : NodeLink {
     // Gets or sets child nodes.
     private let childNodes : [NodeLink]?;
         
-    private enum CodingKeys: String, CodingKey { case childNodes }
+    private enum CodingKeys: String, CodingKey {
+        case childNodes;
+    }
         
     public init(childNodes : [NodeLink]? = nil) {
         self.childNodes = childNodes;

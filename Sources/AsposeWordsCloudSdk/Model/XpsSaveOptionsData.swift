@@ -38,7 +38,12 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets determines whether the document should be saved using a booklet printing layout.
     private let useBookFoldPrintingSettings : Bool?;
         
-    private enum CodingKeys: String, CodingKey { case bookmarksOutlineLevel, headingsOutlineLevels, outlineOptions, useBookFoldPrintingSettings }
+    private enum CodingKeys: String, CodingKey {
+        case bookmarksOutlineLevel;
+        case headingsOutlineLevels;
+        case outlineOptions;
+        case useBookFoldPrintingSettings;
+    }
         
     public init(bookmarksOutlineLevel : Int? = nil, headingsOutlineLevels : Int? = nil, outlineOptions : OutlineOptionsData? = nil, useBookFoldPrintingSettings : Bool? = nil) {
         self.bookmarksOutlineLevel = bookmarksOutlineLevel;

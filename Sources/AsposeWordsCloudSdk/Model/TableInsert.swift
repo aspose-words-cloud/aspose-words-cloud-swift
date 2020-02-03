@@ -36,7 +36,11 @@ public class TableInsert : Codable {
     // Gets or sets count of rows. Default is 2.
     private let rowsCount : Int;
         
-    private enum CodingKeys: String, CodingKey { case position, columnsCount, rowsCount }
+    private enum CodingKeys: String, CodingKey {
+        case position;
+        case columnsCount;
+        case rowsCount;
+    }
         
     public init(position : DocumentPosition? = nil, columnsCount : Int, rowsCount : Int) {
         self.position = position;

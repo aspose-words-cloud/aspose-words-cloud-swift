@@ -32,7 +32,9 @@ public class BordersResponse : WordsResponse {
     // Gets or sets table.
     private let borders : BordersCollection?;
         
-    private enum CodingKeys: String, CodingKey { case borders }
+    private enum CodingKeys: String, CodingKey {
+        case borders;
+    }
         
     public init(borders : BordersCollection? = nil) {
         self.borders = borders;

@@ -40,7 +40,19 @@ public class InsertWatermarkImageRequest : Codable {
     private let rotationAngle : Double?;
     private let image : String?;
     
-    private enum CodingKeys: String, CodingKey { case name, imageFile, folder, storage, loadEncoding, password, destFileName, revisionAuthor, revisionDateTime, rotationAngle, image }
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case imageFile;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
+        case rotationAngle;
+        case image;
+    }
     
     public init(name : String, imageFile : URL? = null, folder : String? = null, storage : String? = null, loadEncoding : String? = null, password : String? = null, destFileName : String? = null, revisionAuthor : String? = null, revisionDateTime : String? = null, rotationAngle : Double? = null, image : String? = null) {
         self.name = name;

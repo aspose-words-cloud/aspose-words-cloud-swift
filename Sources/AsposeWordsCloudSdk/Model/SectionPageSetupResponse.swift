@@ -32,7 +32,9 @@ public class SectionPageSetupResponse : WordsResponse {
     // Gets or sets section.
     private let pageSetup : PageSetup?;
         
-    private enum CodingKeys: String, CodingKey { case pageSetup }
+    private enum CodingKeys: String, CodingKey {
+        case pageSetup;
+    }
         
     public init(pageSetup : PageSetup? = nil) {
         self.pageSetup = pageSetup;
