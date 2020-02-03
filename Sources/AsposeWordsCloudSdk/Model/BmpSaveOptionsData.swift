@@ -34,7 +34,7 @@ public class BmpSaveOptionsData : ImageSaveOptionsData {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

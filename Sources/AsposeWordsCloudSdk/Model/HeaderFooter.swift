@@ -43,7 +43,7 @@ public class HeaderFooter : HeaderFooterLink {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

@@ -54,7 +54,7 @@ public class OdtSaveOptionsData : SaveOptionsData {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

@@ -37,7 +37,7 @@ public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

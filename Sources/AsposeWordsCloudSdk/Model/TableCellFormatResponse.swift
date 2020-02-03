@@ -37,7 +37,7 @@ public class TableCellFormatResponse : WordsResponse {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

@@ -43,7 +43,7 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

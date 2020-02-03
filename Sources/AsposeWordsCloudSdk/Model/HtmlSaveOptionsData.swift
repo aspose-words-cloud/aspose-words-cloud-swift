@@ -190,7 +190,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

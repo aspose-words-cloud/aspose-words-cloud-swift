@@ -55,7 +55,7 @@ public class Comment : CommentLink {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

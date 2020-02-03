@@ -40,7 +40,7 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

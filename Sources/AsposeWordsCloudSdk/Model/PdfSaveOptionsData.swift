@@ -120,7 +120,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

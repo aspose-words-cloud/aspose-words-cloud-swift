@@ -40,7 +40,7 @@ public class ReplaceTextResponse : WordsResponse {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

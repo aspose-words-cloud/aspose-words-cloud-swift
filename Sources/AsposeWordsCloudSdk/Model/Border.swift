@@ -170,7 +170,7 @@ public class Border : LinkElement {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

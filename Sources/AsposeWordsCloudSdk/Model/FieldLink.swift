@@ -37,7 +37,7 @@ public class FieldLink : NodeLink {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

@@ -61,7 +61,7 @@ public class FormField : NodeLink {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

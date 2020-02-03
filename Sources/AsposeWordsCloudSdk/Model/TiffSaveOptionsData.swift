@@ -43,7 +43,7 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

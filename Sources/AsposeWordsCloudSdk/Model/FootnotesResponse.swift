@@ -37,7 +37,7 @@ public class FootnotesResponse : WordsResponse {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

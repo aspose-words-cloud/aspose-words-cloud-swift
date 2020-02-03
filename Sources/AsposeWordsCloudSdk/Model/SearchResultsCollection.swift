@@ -37,7 +37,7 @@ public class SearchResultsCollection : LinkElement {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

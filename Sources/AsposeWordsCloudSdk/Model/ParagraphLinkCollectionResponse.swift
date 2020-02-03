@@ -37,7 +37,7 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

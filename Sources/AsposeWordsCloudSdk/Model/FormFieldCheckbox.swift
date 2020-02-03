@@ -43,7 +43,7 @@ public class FormFieldCheckbox : FormField {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

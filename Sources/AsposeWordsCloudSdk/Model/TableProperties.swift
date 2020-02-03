@@ -1260,7 +1260,7 @@ public class TableProperties : LinkElement {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

@@ -1363,7 +1363,7 @@ public class Font : LinkElement {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

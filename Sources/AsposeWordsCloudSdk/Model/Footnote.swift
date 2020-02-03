@@ -60,7 +60,7 @@ public class Footnote : FootnoteLink {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

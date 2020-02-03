@@ -37,7 +37,7 @@ public class Paragraph : NodeLink {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

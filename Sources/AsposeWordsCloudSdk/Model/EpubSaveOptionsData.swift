@@ -37,7 +37,7 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

@@ -46,7 +46,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

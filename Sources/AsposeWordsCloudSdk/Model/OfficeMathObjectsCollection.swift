@@ -37,7 +37,7 @@ public class OfficeMathObjectsCollection : LinkElement {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

@@ -40,7 +40,7 @@ public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

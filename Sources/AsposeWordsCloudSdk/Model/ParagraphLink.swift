@@ -37,7 +37,7 @@ public class ParagraphLink : NodeLink {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

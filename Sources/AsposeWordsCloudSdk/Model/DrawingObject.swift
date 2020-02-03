@@ -154,7 +154,7 @@ public class DrawingObject : DrawingObjectLink {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

@@ -34,7 +34,7 @@ public class FileLink : Link {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

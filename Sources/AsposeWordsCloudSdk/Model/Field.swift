@@ -40,7 +40,7 @@ public class Field : FieldLink {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

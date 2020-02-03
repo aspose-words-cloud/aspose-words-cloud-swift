@@ -34,7 +34,7 @@ public class EmfSaveOptionsData : ImageSaveOptionsData {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     

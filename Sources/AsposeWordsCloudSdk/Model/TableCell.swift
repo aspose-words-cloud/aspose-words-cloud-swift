@@ -37,7 +37,7 @@ public class TableCell : NodeLink {
         case invalidCodingKey;
     }
         
-    public init() {
+    public override init() {
         super.init();
     }
     
