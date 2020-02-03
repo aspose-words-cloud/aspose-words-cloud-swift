@@ -50,16 +50,11 @@ public class ApiInvoker {
         if (accessToken == nil) {
             try invokeAuthTokenSync();
         }
-
+        
         var resp = invokeRequestSync(urlRequest: &request, internalCall: false);
         if (resp.errorCode == 400) {
             try invokeAuthTokenSync();
             resp = invokeRequestSync(urlRequest: &request, internalCall: false);
-        }
-        
-        if (configuration.isDebugMode()) {
-            let responseDebugMessage = resp.data != nil ? String(decoding: resp.data!, as: UTF8.self) : resp.errorMessage ?? "";
-            print("RESPONSE FROM '\(url.absoluteString)' returns (\(resp.errorCode): \(responseDebugMessage)");
         }
         
         if (resp.errorCode == 200) {
@@ -75,6 +70,19 @@ public class ApiInvoker {
             urlRequest.setValue(accessToken!, forHTTPHeaderField: "Authorization");
         }
         
+        if (configuration.isDebugMode()) {
+            print("REQUEST BEGIN");
+            if (urlRequest.url?.absoluteString != nil) {
+                print("\tURL: \(String(describing: urlRequest.url!.absoluteString))");
+            }
+            if (urlRequest.allHTTPHeaderFields != nil) {
+                print("\tHEADERS: \(String(describing: urlRequest.allHTTPHeaderFields!))");
+            }
+            if (urlRequest.httpBody != nil) {
+                print("\tBODY: \(String(data: urlRequest.httpBody!, encoding: .utf8)!)");
+            }
+            print("REQUEST END");
+        }
         let semaphore = DispatchSemaphore(value: 0);
         let invokeResponse = InvokeResponse(errorCode: 408);
         let result = URLSession.shared.dataTask(with: urlRequest, completionHandler: { d, r, e in
@@ -91,6 +99,18 @@ public class ApiInvoker {
         });
         result.resume();
         _ = semaphore.wait();
+        
+        if (configuration.isDebugMode()) {
+            print("RESPONSE BEGIN");
+            print("\tSTATUS CODE: \(invokeResponse.errorCode)");
+            if (invokeResponse.errorMessage != nil) {
+                print("\tMESSAGE: \(invokeResponse.errorMessage!)");
+            }
+            if (invokeResponse.data != nil) {
+                print("\tBODY: \(String(data: invokeResponse.data!, encoding: .utf8)!)");
+            }
+            print("RESPONSE END");
+        }
         return invokeResponse;
     }
     
