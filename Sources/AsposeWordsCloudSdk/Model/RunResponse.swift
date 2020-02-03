@@ -47,7 +47,7 @@ public class RunResponse : WordsResponse {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.run != nil) {
             try container.encode(self.run, forKey: .run);

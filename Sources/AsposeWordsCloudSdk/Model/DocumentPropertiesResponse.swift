@@ -47,7 +47,7 @@ public class DocumentPropertiesResponse : WordsResponse {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.documentProperties != nil) {
             try container.encode(self.documentProperties, forKey: .documentProperties);

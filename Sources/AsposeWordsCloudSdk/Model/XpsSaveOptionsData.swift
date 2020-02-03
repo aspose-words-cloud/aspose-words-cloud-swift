@@ -65,7 +65,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.bookmarksOutlineLevel != nil) {
             try container.encode(self.bookmarksOutlineLevel, forKey: .bookmarksOutlineLevel);

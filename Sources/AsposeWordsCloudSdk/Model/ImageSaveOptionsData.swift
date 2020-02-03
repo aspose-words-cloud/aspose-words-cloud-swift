@@ -119,7 +119,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.graphicsQualityOptions != nil) {
             try container.encode(self.graphicsQualityOptions, forKey: .graphicsQualityOptions);

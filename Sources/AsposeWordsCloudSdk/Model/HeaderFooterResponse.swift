@@ -47,7 +47,7 @@ public class HeaderFooterResponse : WordsResponse {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.headerFooter != nil) {
             try container.encode(self.headerFooter, forKey: .headerFooter);

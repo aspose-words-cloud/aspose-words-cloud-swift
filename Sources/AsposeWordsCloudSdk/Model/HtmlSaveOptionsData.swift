@@ -314,7 +314,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.allowNegativeIndent != nil) {
             try container.encode(self.allowNegativeIndent, forKey: .allowNegativeIndent);

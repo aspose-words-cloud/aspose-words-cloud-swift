@@ -82,7 +82,7 @@ public class Footnote : FootnoteLink {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.content != nil) {
             try container.encode(self.content, forKey: .content);

@@ -59,7 +59,7 @@ public class ClassificationResponse : WordsResponse {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.bestClassName != nil) {
             try container.encode(self.bestClassName, forKey: .bestClassName);

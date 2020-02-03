@@ -59,7 +59,7 @@ public class RtfSaveOptionsData : SaveOptionsData {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.exportCompactSize != nil) {
             try container.encode(self.exportCompactSize, forKey: .exportCompactSize);

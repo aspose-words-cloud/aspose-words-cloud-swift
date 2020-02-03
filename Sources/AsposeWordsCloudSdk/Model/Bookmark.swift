@@ -53,7 +53,7 @@ public class Bookmark : LinkElement {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.name != nil) {
             try container.encode(self.name, forKey: .name);

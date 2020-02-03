@@ -549,7 +549,7 @@ public class PageSetup : LinkElement {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.bidi != nil) {
             try container.encode(self.bidi, forKey: .bidi);

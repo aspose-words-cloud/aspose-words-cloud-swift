@@ -47,7 +47,7 @@ public class Hyperlinks : LinkElement {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.hyperlinkList != nil) {
             try container.encode(self.hyperlinkList, forKey: .hyperlinkList);

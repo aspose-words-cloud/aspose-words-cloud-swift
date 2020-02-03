@@ -77,7 +77,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.exportEmbeddedImages != nil) {
             try container.encode(self.exportEmbeddedImages, forKey: .exportEmbeddedImages);

@@ -53,7 +53,7 @@ public class Table : NodeLink {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.tableProperties != nil) {
             try container.encode(self.tableProperties, forKey: .tableProperties);

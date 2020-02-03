@@ -88,7 +88,7 @@ public class FormFieldTextInput : FormField {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.maxLength != nil) {
             try container.encode(self.maxLength, forKey: .maxLength);

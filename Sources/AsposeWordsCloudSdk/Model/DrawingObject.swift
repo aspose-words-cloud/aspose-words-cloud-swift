@@ -191,7 +191,7 @@ public class DrawingObject : DrawingObjectLink {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.height != nil) {
             try container.encode(self.height, forKey: .height);

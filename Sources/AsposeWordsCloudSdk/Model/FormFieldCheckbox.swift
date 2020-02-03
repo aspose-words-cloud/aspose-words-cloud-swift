@@ -59,7 +59,7 @@ public class FormFieldCheckbox : FormField {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.checkBoxSize != nil) {
             try container.encode(self.checkBoxSize, forKey: .checkBoxSize);

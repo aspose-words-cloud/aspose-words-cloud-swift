@@ -47,7 +47,7 @@ public class ParagraphResponse : WordsResponse {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.paragraph != nil) {
             try container.encode(self.paragraph, forKey: .paragraph);

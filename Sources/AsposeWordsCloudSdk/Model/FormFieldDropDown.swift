@@ -53,7 +53,7 @@ public class FormFieldDropDown : FormField {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.dropDownItems != nil) {
             try container.encode(self.dropDownItems, forKey: .dropDownItems);

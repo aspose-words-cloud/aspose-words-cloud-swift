@@ -47,7 +47,7 @@ public class TableRowResponse : WordsResponse {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.row != nil) {
             try container.encode(self.row, forKey: .row);

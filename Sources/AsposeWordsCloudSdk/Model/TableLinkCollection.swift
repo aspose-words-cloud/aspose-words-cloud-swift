@@ -47,7 +47,7 @@ public class TableLinkCollection : LinkElement {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.tableLinkList != nil) {
             try container.encode(self.tableLinkList, forKey: .tableLinkList);

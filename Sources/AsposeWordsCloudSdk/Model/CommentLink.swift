@@ -41,7 +41,7 @@ public class CommentLink : LinkElement {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         
         try super.encode(to: container.superEncoder());

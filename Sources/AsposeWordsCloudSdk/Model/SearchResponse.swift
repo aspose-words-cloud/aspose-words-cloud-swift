@@ -53,7 +53,7 @@ public class SearchResponse : WordsResponse {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.searchingPattern != nil) {
             try container.encode(self.searchingPattern, forKey: .searchingPattern);

@@ -47,7 +47,7 @@ public class FieldLink : NodeLink {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.fieldCode != nil) {
             try container.encode(self.fieldCode, forKey: .fieldCode);

@@ -47,7 +47,7 @@ public class ParagraphLinkCollection : LinkElement {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.paragraphLinkList != nil) {
             try container.encode(self.paragraphLinkList, forKey: .paragraphLinkList);

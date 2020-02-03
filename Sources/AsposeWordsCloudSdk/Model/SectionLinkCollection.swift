@@ -47,7 +47,7 @@ public class SectionLinkCollection : LinkElement {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.sectionLinkList != nil) {
             try container.encode(self.sectionLinkList, forKey: .sectionLinkList);

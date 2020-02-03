@@ -47,7 +47,7 @@ public class FieldNamesResponse : WordsResponse {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.fieldNames != nil) {
             try container.encode(self.fieldNames, forKey: .fieldNames);

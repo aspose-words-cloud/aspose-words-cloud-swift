@@ -119,7 +119,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
 
     }
 
-    public func encode(to encoder: Encoder) throws {
+    public override func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.cssClassNamesPrefix != nil) {
             try container.encode(self.cssClassNamesPrefix, forKey: .cssClassNamesPrefix);
