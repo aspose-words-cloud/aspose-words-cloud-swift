@@ -44,11 +44,8 @@ public class ClassificationResult : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let className = try container.decodeIfPresent(String.self, forKey: .className) {
-            self.className = className;
-        }
+        self.className = try container.decodeIfPresent(String.self, forKey: .className);
         self.classProbability = try container.decode(Double.self, forKey: .classProbability);
-
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -57,7 +54,6 @@ public class ClassificationResult : Codable {
             try container.encode(self.className, forKey: .className);
         }
         try container.encode(self.classProbability, forKey: .classProbability);
-        
         
     }
         

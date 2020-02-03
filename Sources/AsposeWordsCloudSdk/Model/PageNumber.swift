@@ -50,15 +50,10 @@ public class PageNumber : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let format = try container.decodeIfPresent(String.self, forKey: .format) {
-            self.format = format;
-        }
-        if let alignment = try container.decodeIfPresent(String.self, forKey: .alignment) {
-            self.alignment = alignment;
-        }
+        self.format = try container.decodeIfPresent(String.self, forKey: .format);
+        self.alignment = try container.decodeIfPresent(String.self, forKey: .alignment);
         self.isTop = try container.decode(Bool.self, forKey: .isTop);
         self.setPageNumberOnFirstPage = try container.decode(Bool.self, forKey: .setPageNumberOnFirstPage);
-
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -71,7 +66,6 @@ public class PageNumber : Codable {
         }
         try container.encode(self.isTop, forKey: .isTop);
         try container.encode(self.setPageNumberOnFirstPage, forKey: .setPageNumberOnFirstPage);
-        
         
     }
         

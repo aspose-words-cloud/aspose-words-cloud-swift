@@ -150,22 +150,11 @@ public class StringFormatData : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment) {
-            self.alignment = alignment;
-        }
-        if let formatFlags = try container.decodeIfPresent(FormatFlags.self, forKey: .formatFlags) {
-            self.formatFlags = formatFlags;
-        }
-        if let hotkeyPrefix = try container.decodeIfPresent(HotkeyPrefix.self, forKey: .hotkeyPrefix) {
-            self.hotkeyPrefix = hotkeyPrefix;
-        }
-        if let lineAlignment = try container.decodeIfPresent(LineAlignment.self, forKey: .lineAlignment) {
-            self.lineAlignment = lineAlignment;
-        }
-        if let trimming = try container.decodeIfPresent(Trimming.self, forKey: .trimming) {
-            self.trimming = trimming;
-        }
-
+        self.alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment);
+        self.formatFlags = try container.decodeIfPresent(FormatFlags.self, forKey: .formatFlags);
+        self.hotkeyPrefix = try container.decodeIfPresent(HotkeyPrefix.self, forKey: .hotkeyPrefix);
+        self.lineAlignment = try container.decodeIfPresent(LineAlignment.self, forKey: .lineAlignment);
+        self.trimming = try container.decodeIfPresent(Trimming.self, forKey: .trimming);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -185,7 +174,6 @@ public class StringFormatData : Codable {
         if (self.trimming != nil) {
             try container.encode(self.trimming, forKey: .trimming);
         }
-        
         
     }
         

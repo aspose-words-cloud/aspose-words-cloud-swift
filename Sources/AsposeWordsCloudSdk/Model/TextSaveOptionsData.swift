@@ -73,28 +73,13 @@ public class TextSaveOptionsData : SaveOptionsData {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let addBidiMarks = try container.decodeIfPresent(Bool.self, forKey: .addBidiMarks) {
-            self.addBidiMarks = addBidiMarks;
-        }
-        if let encoding = try container.decodeIfPresent(String.self, forKey: .encoding) {
-            self.encoding = encoding;
-        }
-        if let exportHeadersFootersMode = try container.decodeIfPresent(ExportHeadersFootersMode.self, forKey: .exportHeadersFootersMode) {
-            self.exportHeadersFootersMode = exportHeadersFootersMode;
-        }
-        if let forcePageBreaks = try container.decodeIfPresent(Bool.self, forKey: .forcePageBreaks) {
-            self.forcePageBreaks = forcePageBreaks;
-        }
-        if let paragraphBreak = try container.decodeIfPresent(String.self, forKey: .paragraphBreak) {
-            self.paragraphBreak = paragraphBreak;
-        }
-        if let preserveTableLayout = try container.decodeIfPresent(Bool.self, forKey: .preserveTableLayout) {
-            self.preserveTableLayout = preserveTableLayout;
-        }
-        if let simplifyListLabels = try container.decodeIfPresent(Bool.self, forKey: .simplifyListLabels) {
-            self.simplifyListLabels = simplifyListLabels;
-        }
-
+        self.addBidiMarks = try container.decodeIfPresent(Bool.self, forKey: .addBidiMarks);
+        self.encoding = try container.decodeIfPresent(String.self, forKey: .encoding);
+        self.exportHeadersFootersMode = try container.decodeIfPresent(ExportHeadersFootersMode.self, forKey: .exportHeadersFootersMode);
+        self.forcePageBreaks = try container.decodeIfPresent(Bool.self, forKey: .forcePageBreaks);
+        self.paragraphBreak = try container.decodeIfPresent(String.self, forKey: .paragraphBreak);
+        self.preserveTableLayout = try container.decodeIfPresent(Bool.self, forKey: .preserveTableLayout);
+        self.simplifyListLabels = try container.decodeIfPresent(Bool.self, forKey: .simplifyListLabels);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -120,7 +105,6 @@ public class TextSaveOptionsData : SaveOptionsData {
         if (self.simplifyListLabels != nil) {
             try container.encode(self.simplifyListLabels, forKey: .simplifyListLabels);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

@@ -53,22 +53,11 @@ public class PdfDigitalSignatureDetailsData : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let certificateFilename = try container.decodeIfPresent(String.self, forKey: .certificateFilename) {
-            self.certificateFilename = certificateFilename;
-        }
-        if let hashAlgorithm = try container.decodeIfPresent(String.self, forKey: .hashAlgorithm) {
-            self.hashAlgorithm = hashAlgorithm;
-        }
-        if let location = try container.decodeIfPresent(String.self, forKey: .location) {
-            self.location = location;
-        }
-        if let reason = try container.decodeIfPresent(String.self, forKey: .reason) {
-            self.reason = reason;
-        }
-        if let signatureDate = try container.decodeIfPresent(Date.self, forKey: .signatureDate) {
-            self.signatureDate = signatureDate;
-        }
-
+        self.certificateFilename = try container.decodeIfPresent(String.self, forKey: .certificateFilename);
+        self.hashAlgorithm = try container.decodeIfPresent(String.self, forKey: .hashAlgorithm);
+        self.location = try container.decodeIfPresent(String.self, forKey: .location);
+        self.reason = try container.decodeIfPresent(String.self, forKey: .reason);
+        self.signatureDate = try container.decodeIfPresent(Date.self, forKey: .signatureDate);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -88,7 +77,6 @@ public class PdfDigitalSignatureDetailsData : Codable {
         if (self.signatureDate != nil) {
             try container.encode(self.signatureDate, forKey: .signatureDate);
         }
-        
         
     }
         

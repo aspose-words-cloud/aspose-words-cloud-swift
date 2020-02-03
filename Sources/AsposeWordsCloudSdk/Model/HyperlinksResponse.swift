@@ -41,10 +41,7 @@ public class HyperlinksResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let hyperlinks = try container.decodeIfPresent(Hyperlinks.self, forKey: .hyperlinks) {
-            self.hyperlinks = hyperlinks;
-        }
-
+        self.hyperlinks = try container.decodeIfPresent(Hyperlinks.self, forKey: .hyperlinks);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class HyperlinksResponse : WordsResponse {
         if (self.hyperlinks != nil) {
             try container.encode(self.hyperlinks, forKey: .hyperlinks);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

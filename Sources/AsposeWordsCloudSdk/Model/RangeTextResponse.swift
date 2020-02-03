@@ -41,10 +41,7 @@ public class RangeTextResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let text = try container.decodeIfPresent(String.self, forKey: .text) {
-            self.text = text;
-        }
-
+        self.text = try container.decodeIfPresent(String.self, forKey: .text);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class RangeTextResponse : WordsResponse {
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

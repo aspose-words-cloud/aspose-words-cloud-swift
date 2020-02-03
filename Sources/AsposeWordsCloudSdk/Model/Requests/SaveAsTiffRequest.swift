@@ -87,73 +87,28 @@ public class SaveAsTiffRequest : Codable {
         
         self.name = try container.decode(.self, forKey: .name);
         self.saveOptions = try container.decode(.self, forKey: .saveOptions);
-        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
-            self.folder = folder;
-        }
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
-            self.loadEncoding = loadEncoding;
-        }
-        if let password = try container.decodeIfPresent(.self, forKey: .password) {
-            self.password = password;
-        }
-        if let useAntiAliasing = try container.decodeIfPresent(.self, forKey: .useAntiAliasing) {
-            self.useAntiAliasing = useAntiAliasing;
-        }
-        if let useHighQualityRendering = try container.decodeIfPresent(.self, forKey: .useHighQualityRendering) {
-            self.useHighQualityRendering = useHighQualityRendering;
-        }
-        if let imageBrightness = try container.decodeIfPresent(.self, forKey: .imageBrightness) {
-            self.imageBrightness = imageBrightness;
-        }
-        if let imageColorMode = try container.decodeIfPresent(.self, forKey: .imageColorMode) {
-            self.imageColorMode = imageColorMode;
-        }
-        if let imageContrast = try container.decodeIfPresent(.self, forKey: .imageContrast) {
-            self.imageContrast = imageContrast;
-        }
-        if let numeralFormat = try container.decodeIfPresent(.self, forKey: .numeralFormat) {
-            self.numeralFormat = numeralFormat;
-        }
-        if let pageCount = try container.decodeIfPresent(.self, forKey: .pageCount) {
-            self.pageCount = pageCount;
-        }
-        if let pageIndex = try container.decodeIfPresent(.self, forKey: .pageIndex) {
-            self.pageIndex = pageIndex;
-        }
-        if let paperColor = try container.decodeIfPresent(.self, forKey: .paperColor) {
-            self.paperColor = paperColor;
-        }
-        if let pixelFormat = try container.decodeIfPresent(.self, forKey: .pixelFormat) {
-            self.pixelFormat = pixelFormat;
-        }
-        if let resolution = try container.decodeIfPresent(.self, forKey: .resolution) {
-            self.resolution = resolution;
-        }
-        if let scale = try container.decodeIfPresent(.self, forKey: .scale) {
-            self.scale = scale;
-        }
-        if let tiffCompression = try container.decodeIfPresent(.self, forKey: .tiffCompression) {
-            self.tiffCompression = tiffCompression;
-        }
-        if let dmlRenderingMode = try container.decodeIfPresent(.self, forKey: .dmlRenderingMode) {
-            self.dmlRenderingMode = dmlRenderingMode;
-        }
-        if let dmlEffectsRenderingMode = try container.decodeIfPresent(.self, forKey: .dmlEffectsRenderingMode) {
-            self.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
-        }
-        if let tiffBinarizationMethod = try container.decodeIfPresent(.self, forKey: .tiffBinarizationMethod) {
-            self.tiffBinarizationMethod = tiffBinarizationMethod;
-        }
-        if let zipOutput = try container.decodeIfPresent(.self, forKey: .zipOutput) {
-            self.zipOutput = zipOutput;
-        }
-        if let fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation) {
-            self.fontsLocation = fontsLocation;
-        }
-
+        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
+        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
+        self.password = try container.decodeIfPresent(.self, forKey: .password);
+        self.useAntiAliasing = try container.decodeIfPresent(.self, forKey: .useAntiAliasing);
+        self.useHighQualityRendering = try container.decodeIfPresent(.self, forKey: .useHighQualityRendering);
+        self.imageBrightness = try container.decodeIfPresent(.self, forKey: .imageBrightness);
+        self.imageColorMode = try container.decodeIfPresent(.self, forKey: .imageColorMode);
+        self.imageContrast = try container.decodeIfPresent(.self, forKey: .imageContrast);
+        self.numeralFormat = try container.decodeIfPresent(.self, forKey: .numeralFormat);
+        self.pageCount = try container.decodeIfPresent(.self, forKey: .pageCount);
+        self.pageIndex = try container.decodeIfPresent(.self, forKey: .pageIndex);
+        self.paperColor = try container.decodeIfPresent(.self, forKey: .paperColor);
+        self.pixelFormat = try container.decodeIfPresent(.self, forKey: .pixelFormat);
+        self.resolution = try container.decodeIfPresent(.self, forKey: .resolution);
+        self.scale = try container.decodeIfPresent(.self, forKey: .scale);
+        self.tiffCompression = try container.decodeIfPresent(.self, forKey: .tiffCompression);
+        self.dmlRenderingMode = try container.decodeIfPresent(.self, forKey: .dmlRenderingMode);
+        self.dmlEffectsRenderingMode = try container.decodeIfPresent(.self, forKey: .dmlEffectsRenderingMode);
+        self.tiffBinarizationMethod = try container.decodeIfPresent(.self, forKey: .tiffBinarizationMethod);
+        self.zipOutput = try container.decodeIfPresent(.self, forKey: .zipOutput);
+        self.fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -226,7 +181,6 @@ public class SaveAsTiffRequest : Codable {
         if (self.fontsLocation != nil) {
             try container.encode(self.fontsLocation, forKey: .fontsLocation);
         }
-        
         
     }
     

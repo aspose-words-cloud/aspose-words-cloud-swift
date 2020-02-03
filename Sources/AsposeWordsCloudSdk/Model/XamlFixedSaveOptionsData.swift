@@ -44,13 +44,8 @@ public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let resourcesFolder = try container.decodeIfPresent(String.self, forKey: .resourcesFolder) {
-            self.resourcesFolder = resourcesFolder;
-        }
-        if let resourcesFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourcesFolderAlias) {
-            self.resourcesFolderAlias = resourcesFolderAlias;
-        }
-
+        self.resourcesFolder = try container.decodeIfPresent(String.self, forKey: .resourcesFolder);
+        self.resourcesFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourcesFolderAlias);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -61,7 +56,6 @@ public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
         if (self.resourcesFolderAlias != nil) {
             try container.encode(self.resourcesFolderAlias, forKey: .resourcesFolderAlias);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

@@ -59,31 +59,14 @@ public class DeleteHeadersFootersRequest : Codable {
         
         self.name = try container.decode(.self, forKey: .name);
         self.sectionPath = try container.decode(.self, forKey: .sectionPath);
-        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
-            self.folder = folder;
-        }
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
-            self.loadEncoding = loadEncoding;
-        }
-        if let password = try container.decodeIfPresent(.self, forKey: .password) {
-            self.password = password;
-        }
-        if let destFileName = try container.decodeIfPresent(.self, forKey: .destFileName) {
-            self.destFileName = destFileName;
-        }
-        if let revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor) {
-            self.revisionAuthor = revisionAuthor;
-        }
-        if let revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime) {
-            self.revisionDateTime = revisionDateTime;
-        }
-        if let headersFootersTypes = try container.decodeIfPresent(.self, forKey: .headersFootersTypes) {
-            self.headersFootersTypes = headersFootersTypes;
-        }
-
+        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
+        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
+        self.password = try container.decodeIfPresent(.self, forKey: .password);
+        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
+        self.revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor);
+        self.revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime);
+        self.headersFootersTypes = try container.decodeIfPresent(.self, forKey: .headersFootersTypes);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -114,7 +97,6 @@ public class DeleteHeadersFootersRequest : Codable {
         if (self.headersFootersTypes != nil) {
             try container.encode(self.headersFootersTypes, forKey: .headersFootersTypes);
         }
-        
         
     }
     

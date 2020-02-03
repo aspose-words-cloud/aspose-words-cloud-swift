@@ -41,10 +41,7 @@ public class FormFieldCollection : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let list = try container.decodeIfPresent([FormField].self, forKey: .list) {
-            self.list = list;
-        }
-
+        self.list = try container.decodeIfPresent([FormField].self, forKey: .list);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class FormFieldCollection : LinkElement {
         if (self.list != nil) {
             try container.encode(self.list, forKey: .list);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

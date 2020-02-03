@@ -174,25 +174,12 @@ public class Border : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let borderType = try container.decodeIfPresent(BorderType.self, forKey: .borderType) {
-            self.borderType = borderType;
-        }
-        if let color = try container.decodeIfPresent(XmlColor.self, forKey: .color) {
-            self.color = color;
-        }
-        if let distanceFromText = try container.decodeIfPresent(Double.self, forKey: .distanceFromText) {
-            self.distanceFromText = distanceFromText;
-        }
-        if let lineStyle = try container.decodeIfPresent(LineStyle.self, forKey: .lineStyle) {
-            self.lineStyle = lineStyle;
-        }
-        if let lineWidth = try container.decodeIfPresent(Double.self, forKey: .lineWidth) {
-            self.lineWidth = lineWidth;
-        }
-        if let shadow = try container.decodeIfPresent(Bool.self, forKey: .shadow) {
-            self.shadow = shadow;
-        }
-
+        self.borderType = try container.decodeIfPresent(BorderType.self, forKey: .borderType);
+        self.color = try container.decodeIfPresent(XmlColor.self, forKey: .color);
+        self.distanceFromText = try container.decodeIfPresent(Double.self, forKey: .distanceFromText);
+        self.lineStyle = try container.decodeIfPresent(LineStyle.self, forKey: .lineStyle);
+        self.lineWidth = try container.decodeIfPresent(Double.self, forKey: .lineWidth);
+        self.shadow = try container.decodeIfPresent(Bool.self, forKey: .shadow);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -215,7 +202,6 @@ public class Border : LinkElement {
         if (self.shadow != nil) {
             try container.encode(self.shadow, forKey: .shadow);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

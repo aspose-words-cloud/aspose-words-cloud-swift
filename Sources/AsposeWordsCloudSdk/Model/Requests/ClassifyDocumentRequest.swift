@@ -52,25 +52,12 @@ public class ClassifyDocumentRequest : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
         self.documentName = try container.decode(.self, forKey: .documentName);
-        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
-            self.folder = folder;
-        }
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
-            self.loadEncoding = loadEncoding;
-        }
-        if let password = try container.decodeIfPresent(.self, forKey: .password) {
-            self.password = password;
-        }
-        if let bestClassesCount = try container.decodeIfPresent(.self, forKey: .bestClassesCount) {
-            self.bestClassesCount = bestClassesCount;
-        }
-        if let taxonomy = try container.decodeIfPresent(.self, forKey: .taxonomy) {
-            self.taxonomy = taxonomy;
-        }
-
+        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
+        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
+        self.password = try container.decodeIfPresent(.self, forKey: .password);
+        self.bestClassesCount = try container.decodeIfPresent(.self, forKey: .bestClassesCount);
+        self.taxonomy = try container.decodeIfPresent(.self, forKey: .taxonomy);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -94,7 +81,6 @@ public class ClassifyDocumentRequest : Codable {
         if (self.taxonomy != nil) {
             try container.encode(self.taxonomy, forKey: .taxonomy);
         }
-        
         
     }
     

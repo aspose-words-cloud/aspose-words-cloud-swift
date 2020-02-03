@@ -50,19 +50,10 @@ public class PdfEncryptionDetailsData : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let encryptionAlgorithm = try container.decodeIfPresent(String.self, forKey: .encryptionAlgorithm) {
-            self.encryptionAlgorithm = encryptionAlgorithm;
-        }
-        if let ownerPassword = try container.decodeIfPresent(String.self, forKey: .ownerPassword) {
-            self.ownerPassword = ownerPassword;
-        }
-        if let permissions = try container.decodeIfPresent(String.self, forKey: .permissions) {
-            self.permissions = permissions;
-        }
-        if let userPassword = try container.decodeIfPresent(String.self, forKey: .userPassword) {
-            self.userPassword = userPassword;
-        }
-
+        self.encryptionAlgorithm = try container.decodeIfPresent(String.self, forKey: .encryptionAlgorithm);
+        self.ownerPassword = try container.decodeIfPresent(String.self, forKey: .ownerPassword);
+        self.permissions = try container.decodeIfPresent(String.self, forKey: .permissions);
+        self.userPassword = try container.decodeIfPresent(String.self, forKey: .userPassword);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -79,7 +70,6 @@ public class PdfEncryptionDetailsData : Codable {
         if (self.userPassword != nil) {
             try container.encode(self.userPassword, forKey: .userPassword);
         }
-        
         
     }
         

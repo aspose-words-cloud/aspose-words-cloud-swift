@@ -60,37 +60,16 @@ public class InsertWatermarkImageRequest : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
         self.name = try container.decode(.self, forKey: .name);
-        if let imageFile = try container.decodeIfPresent(.self, forKey: .imageFile) {
-            self.imageFile = imageFile;
-        }
-        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
-            self.folder = folder;
-        }
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
-            self.loadEncoding = loadEncoding;
-        }
-        if let password = try container.decodeIfPresent(.self, forKey: .password) {
-            self.password = password;
-        }
-        if let destFileName = try container.decodeIfPresent(.self, forKey: .destFileName) {
-            self.destFileName = destFileName;
-        }
-        if let revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor) {
-            self.revisionAuthor = revisionAuthor;
-        }
-        if let revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime) {
-            self.revisionDateTime = revisionDateTime;
-        }
-        if let rotationAngle = try container.decodeIfPresent(.self, forKey: .rotationAngle) {
-            self.rotationAngle = rotationAngle;
-        }
-        if let image = try container.decodeIfPresent(.self, forKey: .image) {
-            self.image = image;
-        }
-
+        self.imageFile = try container.decodeIfPresent(.self, forKey: .imageFile);
+        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
+        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
+        self.password = try container.decodeIfPresent(.self, forKey: .password);
+        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
+        self.revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor);
+        self.revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime);
+        self.rotationAngle = try container.decodeIfPresent(.self, forKey: .rotationAngle);
+        self.image = try container.decodeIfPresent(.self, forKey: .image);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -126,7 +105,6 @@ public class InsertWatermarkImageRequest : Codable {
         if (self.image != nil) {
             try container.encode(self.image, forKey: .image);
         }
-        
         
     }
     

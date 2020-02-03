@@ -41,10 +41,7 @@ public class WordsApiErrorResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let error = try container.decodeIfPresent(ApiError.self, forKey: .error) {
-            self.error = error;
-        }
-
+        self.error = try container.decodeIfPresent(ApiError.self, forKey: .error);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class WordsApiErrorResponse : WordsResponse {
         if (self.error != nil) {
             try container.encode(self.error, forKey: .error);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

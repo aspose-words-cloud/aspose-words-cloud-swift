@@ -1335,85 +1335,32 @@ public class ParagraphFormat : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let addSpaceBetweenFarEastAndAlpha = try container.decodeIfPresent(Bool.self, forKey: .addSpaceBetweenFarEastAndAlpha) {
-            self.addSpaceBetweenFarEastAndAlpha = addSpaceBetweenFarEastAndAlpha;
-        }
-        if let addSpaceBetweenFarEastAndDigit = try container.decodeIfPresent(Bool.self, forKey: .addSpaceBetweenFarEastAndDigit) {
-            self.addSpaceBetweenFarEastAndDigit = addSpaceBetweenFarEastAndDigit;
-        }
-        if let alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment) {
-            self.alignment = alignment;
-        }
-        if let bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi) {
-            self.bidi = bidi;
-        }
-        if let dropCapPosition = try container.decodeIfPresent(DropCapPosition.self, forKey: .dropCapPosition) {
-            self.dropCapPosition = dropCapPosition;
-        }
-        if let firstLineIndent = try container.decodeIfPresent(Double.self, forKey: .firstLineIndent) {
-            self.firstLineIndent = firstLineIndent;
-        }
-        if let isListItem = try container.decodeIfPresent(Bool.self, forKey: .isListItem) {
-            self.isListItem = isListItem;
-        }
-        if let keepTogether = try container.decodeIfPresent(Bool.self, forKey: .keepTogether) {
-            self.keepTogether = keepTogether;
-        }
-        if let keepWithNext = try container.decodeIfPresent(Bool.self, forKey: .keepWithNext) {
-            self.keepWithNext = keepWithNext;
-        }
-        if let leftIndent = try container.decodeIfPresent(Double.self, forKey: .leftIndent) {
-            self.leftIndent = leftIndent;
-        }
-        if let lineSpacing = try container.decodeIfPresent(Double.self, forKey: .lineSpacing) {
-            self.lineSpacing = lineSpacing;
-        }
-        if let lineSpacingRule = try container.decodeIfPresent(LineSpacingRule.self, forKey: .lineSpacingRule) {
-            self.lineSpacingRule = lineSpacingRule;
-        }
-        if let linesToDrop = try container.decodeIfPresent(Int.self, forKey: .linesToDrop) {
-            self.linesToDrop = linesToDrop;
-        }
-        if let noSpaceBetweenParagraphsOfSameStyle = try container.decodeIfPresent(Bool.self, forKey: .noSpaceBetweenParagraphsOfSameStyle) {
-            self.noSpaceBetweenParagraphsOfSameStyle = noSpaceBetweenParagraphsOfSameStyle;
-        }
-        if let outlineLevel = try container.decodeIfPresent(OutlineLevel.self, forKey: .outlineLevel) {
-            self.outlineLevel = outlineLevel;
-        }
-        if let pageBreakBefore = try container.decodeIfPresent(Bool.self, forKey: .pageBreakBefore) {
-            self.pageBreakBefore = pageBreakBefore;
-        }
-        if let rightIndent = try container.decodeIfPresent(Double.self, forKey: .rightIndent) {
-            self.rightIndent = rightIndent;
-        }
-        if let spaceAfter = try container.decodeIfPresent(Double.self, forKey: .spaceAfter) {
-            self.spaceAfter = spaceAfter;
-        }
-        if let spaceAfterAuto = try container.decodeIfPresent(Bool.self, forKey: .spaceAfterAuto) {
-            self.spaceAfterAuto = spaceAfterAuto;
-        }
-        if let spaceBefore = try container.decodeIfPresent(Double.self, forKey: .spaceBefore) {
-            self.spaceBefore = spaceBefore;
-        }
-        if let spaceBeforeAuto = try container.decodeIfPresent(Bool.self, forKey: .spaceBeforeAuto) {
-            self.spaceBeforeAuto = spaceBeforeAuto;
-        }
-        if let styleIdentifier = try container.decodeIfPresent(StyleIdentifier.self, forKey: .styleIdentifier) {
-            self.styleIdentifier = styleIdentifier;
-        }
-        if let styleName = try container.decodeIfPresent(String.self, forKey: .styleName) {
-            self.styleName = styleName;
-        }
-        if let suppressAutoHyphens = try container.decodeIfPresent(Bool.self, forKey: .suppressAutoHyphens) {
-            self.suppressAutoHyphens = suppressAutoHyphens;
-        }
-        if let suppressLineNumbers = try container.decodeIfPresent(Bool.self, forKey: .suppressLineNumbers) {
-            self.suppressLineNumbers = suppressLineNumbers;
-        }
-        if let widowControl = try container.decodeIfPresent(Bool.self, forKey: .widowControl) {
-            self.widowControl = widowControl;
-        }
-
+        self.addSpaceBetweenFarEastAndAlpha = try container.decodeIfPresent(Bool.self, forKey: .addSpaceBetweenFarEastAndAlpha);
+        self.addSpaceBetweenFarEastAndDigit = try container.decodeIfPresent(Bool.self, forKey: .addSpaceBetweenFarEastAndDigit);
+        self.alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment);
+        self.bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi);
+        self.dropCapPosition = try container.decodeIfPresent(DropCapPosition.self, forKey: .dropCapPosition);
+        self.firstLineIndent = try container.decodeIfPresent(Double.self, forKey: .firstLineIndent);
+        self.isListItem = try container.decodeIfPresent(Bool.self, forKey: .isListItem);
+        self.keepTogether = try container.decodeIfPresent(Bool.self, forKey: .keepTogether);
+        self.keepWithNext = try container.decodeIfPresent(Bool.self, forKey: .keepWithNext);
+        self.leftIndent = try container.decodeIfPresent(Double.self, forKey: .leftIndent);
+        self.lineSpacing = try container.decodeIfPresent(Double.self, forKey: .lineSpacing);
+        self.lineSpacingRule = try container.decodeIfPresent(LineSpacingRule.self, forKey: .lineSpacingRule);
+        self.linesToDrop = try container.decodeIfPresent(Int.self, forKey: .linesToDrop);
+        self.noSpaceBetweenParagraphsOfSameStyle = try container.decodeIfPresent(Bool.self, forKey: .noSpaceBetweenParagraphsOfSameStyle);
+        self.outlineLevel = try container.decodeIfPresent(OutlineLevel.self, forKey: .outlineLevel);
+        self.pageBreakBefore = try container.decodeIfPresent(Bool.self, forKey: .pageBreakBefore);
+        self.rightIndent = try container.decodeIfPresent(Double.self, forKey: .rightIndent);
+        self.spaceAfter = try container.decodeIfPresent(Double.self, forKey: .spaceAfter);
+        self.spaceAfterAuto = try container.decodeIfPresent(Bool.self, forKey: .spaceAfterAuto);
+        self.spaceBefore = try container.decodeIfPresent(Double.self, forKey: .spaceBefore);
+        self.spaceBeforeAuto = try container.decodeIfPresent(Bool.self, forKey: .spaceBeforeAuto);
+        self.styleIdentifier = try container.decodeIfPresent(StyleIdentifier.self, forKey: .styleIdentifier);
+        self.styleName = try container.decodeIfPresent(String.self, forKey: .styleName);
+        self.suppressAutoHyphens = try container.decodeIfPresent(Bool.self, forKey: .suppressAutoHyphens);
+        self.suppressLineNumbers = try container.decodeIfPresent(Bool.self, forKey: .suppressLineNumbers);
+        self.widowControl = try container.decodeIfPresent(Bool.self, forKey: .widowControl);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -1496,7 +1443,6 @@ public class ParagraphFormat : LinkElement {
         if (self.widowControl != nil) {
             try container.encode(self.widowControl, forKey: .widowControl);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

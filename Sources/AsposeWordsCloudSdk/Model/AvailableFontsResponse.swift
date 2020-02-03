@@ -47,16 +47,9 @@ public class AvailableFontsResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let additionalFonts = try container.decodeIfPresent([FontInfo].self, forKey: .additionalFonts) {
-            self.additionalFonts = additionalFonts;
-        }
-        if let customFonts = try container.decodeIfPresent([FontInfo].self, forKey: .customFonts) {
-            self.customFonts = customFonts;
-        }
-        if let systemFonts = try container.decodeIfPresent([FontInfo].self, forKey: .systemFonts) {
-            self.systemFonts = systemFonts;
-        }
-
+        self.additionalFonts = try container.decodeIfPresent([FontInfo].self, forKey: .additionalFonts);
+        self.customFonts = try container.decodeIfPresent([FontInfo].self, forKey: .customFonts);
+        self.systemFonts = try container.decodeIfPresent([FontInfo].self, forKey: .systemFonts);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -70,7 +63,6 @@ public class AvailableFontsResponse : WordsResponse {
         if (self.systemFonts != nil) {
             try container.encode(self.systemFonts, forKey: .systemFonts);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

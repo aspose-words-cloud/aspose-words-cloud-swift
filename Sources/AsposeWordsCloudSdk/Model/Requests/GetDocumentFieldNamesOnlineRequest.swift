@@ -42,10 +42,7 @@ public class GetDocumentFieldNamesOnlineRequest : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
         self.template = try container.decode(.self, forKey: .template);
-        if let useNonMergeFields = try container.decodeIfPresent(.self, forKey: .useNonMergeFields) {
-            self.useNonMergeFields = useNonMergeFields;
-        }
-
+        self.useNonMergeFields = try container.decodeIfPresent(.self, forKey: .useNonMergeFields);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -54,7 +51,6 @@ public class GetDocumentFieldNamesOnlineRequest : Codable {
         if (self.useNonMergeFields != nil) {
             try container.encode(self.useNonMergeFields, forKey: .useNonMergeFields);
         }
-        
         
     }
     

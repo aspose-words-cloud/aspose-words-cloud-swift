@@ -194,124 +194,45 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let allowNegativeIndent = try container.decodeIfPresent(Bool.self, forKey: .allowNegativeIndent) {
-            self.allowNegativeIndent = allowNegativeIndent;
-        }
-        if let cssClassNamePrefix = try container.decodeIfPresent(String.self, forKey: .cssClassNamePrefix) {
-            self.cssClassNamePrefix = cssClassNamePrefix;
-        }
-        if let cssStyleSheetFileName = try container.decodeIfPresent(String.self, forKey: .cssStyleSheetFileName) {
-            self.cssStyleSheetFileName = cssStyleSheetFileName;
-        }
-        if let cssStyleSheetType = try container.decodeIfPresent(String.self, forKey: .cssStyleSheetType) {
-            self.cssStyleSheetType = cssStyleSheetType;
-        }
-        if let documentSplitCriteria = try container.decodeIfPresent(String.self, forKey: .documentSplitCriteria) {
-            self.documentSplitCriteria = documentSplitCriteria;
-        }
-        if let documentSplitHeadingLevel = try container.decodeIfPresent(Int.self, forKey: .documentSplitHeadingLevel) {
-            self.documentSplitHeadingLevel = documentSplitHeadingLevel;
-        }
-        if let encoding = try container.decodeIfPresent(String.self, forKey: .encoding) {
-            self.encoding = encoding;
-        }
-        if let exportDocumentProperties = try container.decodeIfPresent(Bool.self, forKey: .exportDocumentProperties) {
-            self.exportDocumentProperties = exportDocumentProperties;
-        }
-        if let exportDropDownFormFieldAsText = try container.decodeIfPresent(Bool.self, forKey: .exportDropDownFormFieldAsText) {
-            self.exportDropDownFormFieldAsText = exportDropDownFormFieldAsText;
-        }
-        if let exportFontResources = try container.decodeIfPresent(Bool.self, forKey: .exportFontResources) {
-            self.exportFontResources = exportFontResources;
-        }
-        if let exportFontsAsBase64 = try container.decodeIfPresent(Bool.self, forKey: .exportFontsAsBase64) {
-            self.exportFontsAsBase64 = exportFontsAsBase64;
-        }
-        if let exportHeadersFootersMode = try container.decodeIfPresent(String.self, forKey: .exportHeadersFootersMode) {
-            self.exportHeadersFootersMode = exportHeadersFootersMode;
-        }
-        if let exportImagesAsBase64 = try container.decodeIfPresent(Bool.self, forKey: .exportImagesAsBase64) {
-            self.exportImagesAsBase64 = exportImagesAsBase64;
-        }
-        if let exportLanguageInformation = try container.decodeIfPresent(Bool.self, forKey: .exportLanguageInformation) {
-            self.exportLanguageInformation = exportLanguageInformation;
-        }
-        if let exportListLabels = try container.decodeIfPresent(String.self, forKey: .exportListLabels) {
-            self.exportListLabels = exportListLabels;
-        }
-        if let exportOriginalUrlForLinkedImages = try container.decodeIfPresent(Bool.self, forKey: .exportOriginalUrlForLinkedImages) {
-            self.exportOriginalUrlForLinkedImages = exportOriginalUrlForLinkedImages;
-        }
-        if let exportPageMargins = try container.decodeIfPresent(Bool.self, forKey: .exportPageMargins) {
-            self.exportPageMargins = exportPageMargins;
-        }
-        if let exportPageSetup = try container.decodeIfPresent(Bool.self, forKey: .exportPageSetup) {
-            self.exportPageSetup = exportPageSetup;
-        }
-        if let exportRelativeFontSize = try container.decodeIfPresent(Bool.self, forKey: .exportRelativeFontSize) {
-            self.exportRelativeFontSize = exportRelativeFontSize;
-        }
-        if let exportRoundtripInformation = try container.decodeIfPresent(Bool.self, forKey: .exportRoundtripInformation) {
-            self.exportRoundtripInformation = exportRoundtripInformation;
-        }
-        if let exportTextBoxAsSvg = try container.decodeIfPresent(Bool.self, forKey: .exportTextBoxAsSvg) {
-            self.exportTextBoxAsSvg = exportTextBoxAsSvg;
-        }
-        if let exportTextInputFormFieldAsText = try container.decodeIfPresent(Bool.self, forKey: .exportTextInputFormFieldAsText) {
-            self.exportTextInputFormFieldAsText = exportTextInputFormFieldAsText;
-        }
-        if let exportTocPageNumbers = try container.decodeIfPresent(Bool.self, forKey: .exportTocPageNumbers) {
-            self.exportTocPageNumbers = exportTocPageNumbers;
-        }
-        if let exportXhtmlTransitional = try container.decodeIfPresent(Bool.self, forKey: .exportXhtmlTransitional) {
-            self.exportXhtmlTransitional = exportXhtmlTransitional;
-        }
-        if let fontResourcesSubsettingSizeThreshold = try container.decodeIfPresent(Int.self, forKey: .fontResourcesSubsettingSizeThreshold) {
-            self.fontResourcesSubsettingSizeThreshold = fontResourcesSubsettingSizeThreshold;
-        }
-        if let fontsFolder = try container.decodeIfPresent(String.self, forKey: .fontsFolder) {
-            self.fontsFolder = fontsFolder;
-        }
-        if let fontsFolderAlias = try container.decodeIfPresent(String.self, forKey: .fontsFolderAlias) {
-            self.fontsFolderAlias = fontsFolderAlias;
-        }
-        if let htmlVersion = try container.decodeIfPresent(HtmlVersion.self, forKey: .htmlVersion) {
-            self.htmlVersion = htmlVersion;
-        }
-        if let imageResolution = try container.decodeIfPresent(Int.self, forKey: .imageResolution) {
-            self.imageResolution = imageResolution;
-        }
-        if let imagesFolder = try container.decodeIfPresent(String.self, forKey: .imagesFolder) {
-            self.imagesFolder = imagesFolder;
-        }
-        if let imagesFolderAlias = try container.decodeIfPresent(String.self, forKey: .imagesFolderAlias) {
-            self.imagesFolderAlias = imagesFolderAlias;
-        }
-        if let metafileFormat = try container.decodeIfPresent(MetafileFormat.self, forKey: .metafileFormat) {
-            self.metafileFormat = metafileFormat;
-        }
-        if let officeMathOutputMode = try container.decodeIfPresent(OfficeMathOutputMode.self, forKey: .officeMathOutputMode) {
-            self.officeMathOutputMode = officeMathOutputMode;
-        }
-        if let prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat) {
-            self.prettyFormat = prettyFormat;
-        }
-        if let resolveFontNames = try container.decodeIfPresent(Bool.self, forKey: .resolveFontNames) {
-            self.resolveFontNames = resolveFontNames;
-        }
-        if let resourceFolder = try container.decodeIfPresent(String.self, forKey: .resourceFolder) {
-            self.resourceFolder = resourceFolder;
-        }
-        if let resourceFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourceFolderAlias) {
-            self.resourceFolderAlias = resourceFolderAlias;
-        }
-        if let scaleImageToShapeSize = try container.decodeIfPresent(Bool.self, forKey: .scaleImageToShapeSize) {
-            self.scaleImageToShapeSize = scaleImageToShapeSize;
-        }
-        if let tableWidthOutputMode = try container.decodeIfPresent(String.self, forKey: .tableWidthOutputMode) {
-            self.tableWidthOutputMode = tableWidthOutputMode;
-        }
-
+        self.allowNegativeIndent = try container.decodeIfPresent(Bool.self, forKey: .allowNegativeIndent);
+        self.cssClassNamePrefix = try container.decodeIfPresent(String.self, forKey: .cssClassNamePrefix);
+        self.cssStyleSheetFileName = try container.decodeIfPresent(String.self, forKey: .cssStyleSheetFileName);
+        self.cssStyleSheetType = try container.decodeIfPresent(String.self, forKey: .cssStyleSheetType);
+        self.documentSplitCriteria = try container.decodeIfPresent(String.self, forKey: .documentSplitCriteria);
+        self.documentSplitHeadingLevel = try container.decodeIfPresent(Int.self, forKey: .documentSplitHeadingLevel);
+        self.encoding = try container.decodeIfPresent(String.self, forKey: .encoding);
+        self.exportDocumentProperties = try container.decodeIfPresent(Bool.self, forKey: .exportDocumentProperties);
+        self.exportDropDownFormFieldAsText = try container.decodeIfPresent(Bool.self, forKey: .exportDropDownFormFieldAsText);
+        self.exportFontResources = try container.decodeIfPresent(Bool.self, forKey: .exportFontResources);
+        self.exportFontsAsBase64 = try container.decodeIfPresent(Bool.self, forKey: .exportFontsAsBase64);
+        self.exportHeadersFootersMode = try container.decodeIfPresent(String.self, forKey: .exportHeadersFootersMode);
+        self.exportImagesAsBase64 = try container.decodeIfPresent(Bool.self, forKey: .exportImagesAsBase64);
+        self.exportLanguageInformation = try container.decodeIfPresent(Bool.self, forKey: .exportLanguageInformation);
+        self.exportListLabels = try container.decodeIfPresent(String.self, forKey: .exportListLabels);
+        self.exportOriginalUrlForLinkedImages = try container.decodeIfPresent(Bool.self, forKey: .exportOriginalUrlForLinkedImages);
+        self.exportPageMargins = try container.decodeIfPresent(Bool.self, forKey: .exportPageMargins);
+        self.exportPageSetup = try container.decodeIfPresent(Bool.self, forKey: .exportPageSetup);
+        self.exportRelativeFontSize = try container.decodeIfPresent(Bool.self, forKey: .exportRelativeFontSize);
+        self.exportRoundtripInformation = try container.decodeIfPresent(Bool.self, forKey: .exportRoundtripInformation);
+        self.exportTextBoxAsSvg = try container.decodeIfPresent(Bool.self, forKey: .exportTextBoxAsSvg);
+        self.exportTextInputFormFieldAsText = try container.decodeIfPresent(Bool.self, forKey: .exportTextInputFormFieldAsText);
+        self.exportTocPageNumbers = try container.decodeIfPresent(Bool.self, forKey: .exportTocPageNumbers);
+        self.exportXhtmlTransitional = try container.decodeIfPresent(Bool.self, forKey: .exportXhtmlTransitional);
+        self.fontResourcesSubsettingSizeThreshold = try container.decodeIfPresent(Int.self, forKey: .fontResourcesSubsettingSizeThreshold);
+        self.fontsFolder = try container.decodeIfPresent(String.self, forKey: .fontsFolder);
+        self.fontsFolderAlias = try container.decodeIfPresent(String.self, forKey: .fontsFolderAlias);
+        self.htmlVersion = try container.decodeIfPresent(HtmlVersion.self, forKey: .htmlVersion);
+        self.imageResolution = try container.decodeIfPresent(Int.self, forKey: .imageResolution);
+        self.imagesFolder = try container.decodeIfPresent(String.self, forKey: .imagesFolder);
+        self.imagesFolderAlias = try container.decodeIfPresent(String.self, forKey: .imagesFolderAlias);
+        self.metafileFormat = try container.decodeIfPresent(MetafileFormat.self, forKey: .metafileFormat);
+        self.officeMathOutputMode = try container.decodeIfPresent(OfficeMathOutputMode.self, forKey: .officeMathOutputMode);
+        self.prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat);
+        self.resolveFontNames = try container.decodeIfPresent(Bool.self, forKey: .resolveFontNames);
+        self.resourceFolder = try container.decodeIfPresent(String.self, forKey: .resourceFolder);
+        self.resourceFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourceFolderAlias);
+        self.scaleImageToShapeSize = try container.decodeIfPresent(Bool.self, forKey: .scaleImageToShapeSize);
+        self.tableWidthOutputMode = try container.decodeIfPresent(String.self, forKey: .tableWidthOutputMode);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -433,7 +354,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         if (self.tableWidthOutputMode != nil) {
             try container.encode(self.tableWidthOutputMode, forKey: .tableWidthOutputMode);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

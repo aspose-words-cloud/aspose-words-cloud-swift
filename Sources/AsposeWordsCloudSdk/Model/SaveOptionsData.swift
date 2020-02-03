@@ -62,31 +62,14 @@ public class SaveOptionsData : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let saveFormat = try container.decodeIfPresent(String.self, forKey: .saveFormat) {
-            self.saveFormat = saveFormat;
-        }
-        if let fileName = try container.decodeIfPresent(String.self, forKey: .fileName) {
-            self.fileName = fileName;
-        }
-        if let dmlRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlRenderingMode) {
-            self.dmlRenderingMode = dmlRenderingMode;
-        }
-        if let dmlEffectsRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlEffectsRenderingMode) {
-            self.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
-        }
-        if let zipOutput = try container.decodeIfPresent(Bool.self, forKey: .zipOutput) {
-            self.zipOutput = zipOutput;
-        }
-        if let updateLastSavedTimeProperty = try container.decodeIfPresent(Bool.self, forKey: .updateLastSavedTimeProperty) {
-            self.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
-        }
-        if let updateSdtContent = try container.decodeIfPresent(Bool.self, forKey: .updateSdtContent) {
-            self.updateSdtContent = updateSdtContent;
-        }
-        if let updateFields = try container.decodeIfPresent(Bool.self, forKey: .updateFields) {
-            self.updateFields = updateFields;
-        }
-
+        self.saveFormat = try container.decodeIfPresent(String.self, forKey: .saveFormat);
+        self.fileName = try container.decodeIfPresent(String.self, forKey: .fileName);
+        self.dmlRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlRenderingMode);
+        self.dmlEffectsRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlEffectsRenderingMode);
+        self.zipOutput = try container.decodeIfPresent(Bool.self, forKey: .zipOutput);
+        self.updateLastSavedTimeProperty = try container.decodeIfPresent(Bool.self, forKey: .updateLastSavedTimeProperty);
+        self.updateSdtContent = try container.decodeIfPresent(Bool.self, forKey: .updateSdtContent);
+        self.updateFields = try container.decodeIfPresent(Bool.self, forKey: .updateFields);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -115,7 +98,6 @@ public class SaveOptionsData : Codable {
         if (self.updateFields != nil) {
             try container.encode(self.updateFields, forKey: .updateFields);
         }
-        
         
     }
         

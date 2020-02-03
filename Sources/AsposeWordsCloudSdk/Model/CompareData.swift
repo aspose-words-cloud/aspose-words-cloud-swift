@@ -47,16 +47,9 @@ public class CompareData : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let comparingWithDocument = try container.decodeIfPresent(String.self, forKey: .comparingWithDocument) {
-            self.comparingWithDocument = comparingWithDocument;
-        }
-        if let author = try container.decodeIfPresent(String.self, forKey: .author) {
-            self.author = author;
-        }
-        if let dateTime = try container.decodeIfPresent(Date.self, forKey: .dateTime) {
-            self.dateTime = dateTime;
-        }
-
+        self.comparingWithDocument = try container.decodeIfPresent(String.self, forKey: .comparingWithDocument);
+        self.author = try container.decodeIfPresent(String.self, forKey: .author);
+        self.dateTime = try container.decodeIfPresent(Date.self, forKey: .dateTime);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -70,7 +63,6 @@ public class CompareData : Codable {
         if (self.dateTime != nil) {
             try container.encode(self.dateTime, forKey: .dateTime);
         }
-        
         
     }
         

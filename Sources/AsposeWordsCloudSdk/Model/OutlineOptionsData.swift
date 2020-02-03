@@ -56,25 +56,12 @@ public class OutlineOptionsData : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let bookmarksOutlineLevels = try container.decodeIfPresent([BookmarksOutlineLevelData].self, forKey: .bookmarksOutlineLevels) {
-            self.bookmarksOutlineLevels = bookmarksOutlineLevels;
-        }
-        if let defaultBookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .defaultBookmarksOutlineLevel) {
-            self.defaultBookmarksOutlineLevel = defaultBookmarksOutlineLevel;
-        }
-        if let createMissingOutlineLevels = try container.decodeIfPresent(Bool.self, forKey: .createMissingOutlineLevels) {
-            self.createMissingOutlineLevels = createMissingOutlineLevels;
-        }
-        if let createOutlinesForHeadingsInTables = try container.decodeIfPresent(Bool.self, forKey: .createOutlinesForHeadingsInTables) {
-            self.createOutlinesForHeadingsInTables = createOutlinesForHeadingsInTables;
-        }
-        if let expandedOutlineLevels = try container.decodeIfPresent(Int.self, forKey: .expandedOutlineLevels) {
-            self.expandedOutlineLevels = expandedOutlineLevels;
-        }
-        if let headingsOutlineLevels = try container.decodeIfPresent(Int.self, forKey: .headingsOutlineLevels) {
-            self.headingsOutlineLevels = headingsOutlineLevels;
-        }
-
+        self.bookmarksOutlineLevels = try container.decodeIfPresent([BookmarksOutlineLevelData].self, forKey: .bookmarksOutlineLevels);
+        self.defaultBookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .defaultBookmarksOutlineLevel);
+        self.createMissingOutlineLevels = try container.decodeIfPresent(Bool.self, forKey: .createMissingOutlineLevels);
+        self.createOutlinesForHeadingsInTables = try container.decodeIfPresent(Bool.self, forKey: .createOutlinesForHeadingsInTables);
+        self.expandedOutlineLevels = try container.decodeIfPresent(Int.self, forKey: .expandedOutlineLevels);
+        self.headingsOutlineLevels = try container.decodeIfPresent(Int.self, forKey: .headingsOutlineLevels);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -97,7 +84,6 @@ public class OutlineOptionsData : Codable {
         if (self.headingsOutlineLevels != nil) {
             try container.encode(self.headingsOutlineLevels, forKey: .headingsOutlineLevels);
         }
-        
         
     }
         

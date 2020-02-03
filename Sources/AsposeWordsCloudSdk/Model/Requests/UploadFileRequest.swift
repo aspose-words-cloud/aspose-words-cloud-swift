@@ -45,10 +45,7 @@ public class UploadFileRequest : Codable {
         
         self.fileContent = try container.decode(.self, forKey: .fileContent);
         self.path = try container.decode(.self, forKey: .path);
-        if let storageName = try container.decodeIfPresent(.self, forKey: .storageName) {
-            self.storageName = storageName;
-        }
-
+        self.storageName = try container.decodeIfPresent(.self, forKey: .storageName);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -58,7 +55,6 @@ public class UploadFileRequest : Codable {
         if (self.storageName != nil) {
             try container.encode(self.storageName, forKey: .storageName);
         }
-        
         
     }
     

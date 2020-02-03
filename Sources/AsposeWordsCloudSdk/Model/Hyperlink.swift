@@ -44,13 +44,8 @@ public class Hyperlink : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let displayText = try container.decodeIfPresent(String.self, forKey: .displayText) {
-            self.displayText = displayText;
-        }
-        if let value = try container.decodeIfPresent(String.self, forKey: .value) {
-            self.value = value;
-        }
-
+        self.displayText = try container.decodeIfPresent(String.self, forKey: .displayText);
+        self.value = try container.decodeIfPresent(String.self, forKey: .value);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -61,7 +56,6 @@ public class Hyperlink : LinkElement {
         if (self.value != nil) {
             try container.encode(self.value, forKey: .value);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

@@ -49,16 +49,9 @@ public class ExecuteMailMergeOnlineRequest : Codable {
         
         self.template = try container.decode(.self, forKey: .template);
         self.data = try container.decode(.self, forKey: .data);
-        if let withRegions = try container.decodeIfPresent(.self, forKey: .withRegions) {
-            self.withRegions = withRegions;
-        }
-        if let cleanup = try container.decodeIfPresent(.self, forKey: .cleanup) {
-            self.cleanup = cleanup;
-        }
-        if let documentFileName = try container.decodeIfPresent(.self, forKey: .documentFileName) {
-            self.documentFileName = documentFileName;
-        }
-
+        self.withRegions = try container.decodeIfPresent(.self, forKey: .withRegions);
+        self.cleanup = try container.decodeIfPresent(.self, forKey: .cleanup);
+        self.documentFileName = try container.decodeIfPresent(.self, forKey: .documentFileName);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -74,7 +67,6 @@ public class ExecuteMailMergeOnlineRequest : Codable {
         if (self.documentFileName != nil) {
             try container.encode(self.documentFileName, forKey: .documentFileName);
         }
-        
         
     }
     

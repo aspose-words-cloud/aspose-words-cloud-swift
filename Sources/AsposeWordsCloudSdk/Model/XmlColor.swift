@@ -44,11 +44,8 @@ public class XmlColor : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let web = try container.decodeIfPresent(String.self, forKey: .web) {
-            self.web = web;
-        }
+        self.web = try container.decodeIfPresent(String.self, forKey: .web);
         self.alpha = try container.decode(Int.self, forKey: .alpha);
-
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -57,7 +54,6 @@ public class XmlColor : Codable {
             try container.encode(self.web, forKey: .web);
         }
         try container.encode(self.alpha, forKey: .alpha);
-        
         
     }
         

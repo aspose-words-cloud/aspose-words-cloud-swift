@@ -44,13 +44,8 @@ public class FormFieldDropDown : FormField {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let dropDownItems = try container.decodeIfPresent([String].self, forKey: .dropDownItems) {
-            self.dropDownItems = dropDownItems;
-        }
-        if let dropDownSelectedIndex = try container.decodeIfPresent(Int.self, forKey: .dropDownSelectedIndex) {
-            self.dropDownSelectedIndex = dropDownSelectedIndex;
-        }
-
+        self.dropDownItems = try container.decodeIfPresent([String].self, forKey: .dropDownItems);
+        self.dropDownSelectedIndex = try container.decodeIfPresent(Int.self, forKey: .dropDownSelectedIndex);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -61,7 +56,6 @@ public class FormFieldDropDown : FormField {
         if (self.dropDownSelectedIndex != nil) {
             try container.encode(self.dropDownSelectedIndex, forKey: .dropDownSelectedIndex);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

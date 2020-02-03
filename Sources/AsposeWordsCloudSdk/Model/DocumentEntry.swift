@@ -44,13 +44,8 @@ public class DocumentEntry : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let href = try container.decodeIfPresent(String.self, forKey: .href) {
-            self.href = href;
-        }
-        if let importFormatMode = try container.decodeIfPresent(String.self, forKey: .importFormatMode) {
-            self.importFormatMode = importFormatMode;
-        }
-
+        self.href = try container.decodeIfPresent(String.self, forKey: .href);
+        self.importFormatMode = try container.decodeIfPresent(String.self, forKey: .importFormatMode);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -61,7 +56,6 @@ public class DocumentEntry : Codable {
         if (self.importFormatMode != nil) {
             try container.encode(self.importFormatMode, forKey: .importFormatMode);
         }
-        
         
     }
         

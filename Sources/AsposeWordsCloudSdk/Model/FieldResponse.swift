@@ -41,10 +41,7 @@ public class FieldResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let field = try container.decodeIfPresent(Field.self, forKey: .field) {
-            self.field = field;
-        }
-
+        self.field = try container.decodeIfPresent(Field.self, forKey: .field);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class FieldResponse : WordsResponse {
         if (self.field != nil) {
             try container.encode(self.field, forKey: .field);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

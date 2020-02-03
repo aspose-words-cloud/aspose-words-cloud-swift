@@ -41,10 +41,7 @@ public class TableLinkCollection : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let tableLinkList = try container.decodeIfPresent([TableLink].self, forKey: .tableLinkList) {
-            self.tableLinkList = tableLinkList;
-        }
-
+        self.tableLinkList = try container.decodeIfPresent([TableLink].self, forKey: .tableLinkList);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class TableLinkCollection : LinkElement {
         if (self.tableLinkList != nil) {
             try container.encode(self.tableLinkList, forKey: .tableLinkList);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

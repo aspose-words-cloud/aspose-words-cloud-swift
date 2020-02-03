@@ -46,14 +46,12 @@ public class FootnotesStatData : Codable {
         
         self.wordCount = try container.decode(Int.self, forKey: .wordCount);
         self.paragraphCount = try container.decode(Int.self, forKey: .paragraphCount);
-
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
         try container.encode(self.wordCount, forKey: .wordCount);
         try container.encode(self.paragraphCount, forKey: .paragraphCount);
-        
         
     }
         

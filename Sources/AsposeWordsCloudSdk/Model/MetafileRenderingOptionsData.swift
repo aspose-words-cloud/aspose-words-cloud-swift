@@ -53,22 +53,11 @@ public class MetafileRenderingOptionsData : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let emfPlusDualRenderingMode = try container.decodeIfPresent(String.self, forKey: .emfPlusDualRenderingMode) {
-            self.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
-        }
-        if let emulateRasterOperations = try container.decodeIfPresent(Bool.self, forKey: .emulateRasterOperations) {
-            self.emulateRasterOperations = emulateRasterOperations;
-        }
-        if let renderingMode = try container.decodeIfPresent(String.self, forKey: .renderingMode) {
-            self.renderingMode = renderingMode;
-        }
-        if let useEmfEmbeddedToWmf = try container.decodeIfPresent(Bool.self, forKey: .useEmfEmbeddedToWmf) {
-            self.useEmfEmbeddedToWmf = useEmfEmbeddedToWmf;
-        }
-        if let scaleWmfFontsToMetafileSize = try container.decodeIfPresent(Bool.self, forKey: .scaleWmfFontsToMetafileSize) {
-            self.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
-        }
-
+        self.emfPlusDualRenderingMode = try container.decodeIfPresent(String.self, forKey: .emfPlusDualRenderingMode);
+        self.emulateRasterOperations = try container.decodeIfPresent(Bool.self, forKey: .emulateRasterOperations);
+        self.renderingMode = try container.decodeIfPresent(String.self, forKey: .renderingMode);
+        self.useEmfEmbeddedToWmf = try container.decodeIfPresent(Bool.self, forKey: .useEmfEmbeddedToWmf);
+        self.scaleWmfFontsToMetafileSize = try container.decodeIfPresent(Bool.self, forKey: .scaleWmfFontsToMetafileSize);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -88,7 +77,6 @@ public class MetafileRenderingOptionsData : Codable {
         if (self.scaleWmfFontsToMetafileSize != nil) {
             try container.encode(self.scaleWmfFontsToMetafileSize, forKey: .scaleWmfFontsToMetafileSize);
         }
-        
         
     }
         

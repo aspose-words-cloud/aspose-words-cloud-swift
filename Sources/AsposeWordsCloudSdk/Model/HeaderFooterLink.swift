@@ -64,10 +64,7 @@ public class HeaderFooterLink : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let type = try container.decodeIfPresent(ModelType.self, forKey: .type) {
-            self.type = type;
-        }
-
+        self.type = try container.decodeIfPresent(ModelType.self, forKey: .type);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -75,7 +72,6 @@ public class HeaderFooterLink : LinkElement {
         if (self.type != nil) {
             try container.encode(self.type, forKey: .type);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

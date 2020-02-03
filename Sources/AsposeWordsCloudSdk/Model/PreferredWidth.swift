@@ -59,10 +59,7 @@ public class PreferredWidth : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
         self.type = try container.decode(ModelType.self, forKey: .type);
-        if let value = try container.decodeIfPresent(Double.self, forKey: .value) {
-            self.value = value;
-        }
-
+        self.value = try container.decodeIfPresent(Double.self, forKey: .value);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -71,7 +68,6 @@ public class PreferredWidth : Codable {
         if (self.value != nil) {
             try container.encode(self.value, forKey: .value);
         }
-        
         
     }
         

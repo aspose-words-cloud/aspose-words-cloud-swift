@@ -41,10 +41,7 @@ public class ProtectionData : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let protectionType = try container.decodeIfPresent(String.self, forKey: .protectionType) {
-            self.protectionType = protectionType;
-        }
-
+        self.protectionType = try container.decodeIfPresent(String.self, forKey: .protectionType);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class ProtectionData : Codable {
         if (self.protectionType != nil) {
             try container.encode(self.protectionType, forKey: .protectionType);
         }
-        
         
     }
         

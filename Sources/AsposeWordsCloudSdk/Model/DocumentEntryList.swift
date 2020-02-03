@@ -41,10 +41,7 @@ public class DocumentEntryList : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let documentEntries = try container.decodeIfPresent([DocumentEntry].self, forKey: .documentEntries) {
-            self.documentEntries = documentEntries;
-        }
-
+        self.documentEntries = try container.decodeIfPresent([DocumentEntry].self, forKey: .documentEntries);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class DocumentEntryList : Codable {
         if (self.documentEntries != nil) {
             try container.encode(self.documentEntries, forKey: .documentEntries);
         }
-        
         
     }
         

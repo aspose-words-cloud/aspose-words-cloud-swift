@@ -41,10 +41,7 @@ public class SplitDocumentResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let splitResult = try container.decodeIfPresent(SplitDocumentResult.self, forKey: .splitResult) {
-            self.splitResult = splitResult;
-        }
-
+        self.splitResult = try container.decodeIfPresent(SplitDocumentResult.self, forKey: .splitResult);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class SplitDocumentResponse : WordsResponse {
         if (self.splitResult != nil) {
             try container.encode(self.splitResult, forKey: .splitResult);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

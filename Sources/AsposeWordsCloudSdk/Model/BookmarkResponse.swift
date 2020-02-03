@@ -41,10 +41,7 @@ public class BookmarkResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let bookmark = try container.decodeIfPresent(Bookmark.self, forKey: .bookmark) {
-            self.bookmark = bookmark;
-        }
-
+        self.bookmark = try container.decodeIfPresent(Bookmark.self, forKey: .bookmark);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class BookmarkResponse : WordsResponse {
         if (self.bookmark != nil) {
             try container.encode(self.bookmark, forKey: .bookmark);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

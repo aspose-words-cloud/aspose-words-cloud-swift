@@ -1264,49 +1264,20 @@ public class TableProperties : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment) {
-            self.alignment = alignment;
-        }
-        if let allowAutoFit = try container.decodeIfPresent(Bool.self, forKey: .allowAutoFit) {
-            self.allowAutoFit = allowAutoFit;
-        }
-        if let bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi) {
-            self.bidi = bidi;
-        }
-        if let bottomPadding = try container.decodeIfPresent(Double.self, forKey: .bottomPadding) {
-            self.bottomPadding = bottomPadding;
-        }
-        if let cellSpacing = try container.decodeIfPresent(Double.self, forKey: .cellSpacing) {
-            self.cellSpacing = cellSpacing;
-        }
-        if let leftIndent = try container.decodeIfPresent(Double.self, forKey: .leftIndent) {
-            self.leftIndent = leftIndent;
-        }
-        if let leftPadding = try container.decodeIfPresent(Double.self, forKey: .leftPadding) {
-            self.leftPadding = leftPadding;
-        }
-        if let preferredWidth = try container.decodeIfPresent(PreferredWidth.self, forKey: .preferredWidth) {
-            self.preferredWidth = preferredWidth;
-        }
-        if let rightPadding = try container.decodeIfPresent(Double.self, forKey: .rightPadding) {
-            self.rightPadding = rightPadding;
-        }
-        if let styleIdentifier = try container.decodeIfPresent(StyleIdentifier.self, forKey: .styleIdentifier) {
-            self.styleIdentifier = styleIdentifier;
-        }
-        if let styleName = try container.decodeIfPresent(String.self, forKey: .styleName) {
-            self.styleName = styleName;
-        }
-        if let styleOptions = try container.decodeIfPresent(StyleOptions.self, forKey: .styleOptions) {
-            self.styleOptions = styleOptions;
-        }
-        if let textWrapping = try container.decodeIfPresent(TextWrapping.self, forKey: .textWrapping) {
-            self.textWrapping = textWrapping;
-        }
-        if let topPadding = try container.decodeIfPresent(Double.self, forKey: .topPadding) {
-            self.topPadding = topPadding;
-        }
-
+        self.alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment);
+        self.allowAutoFit = try container.decodeIfPresent(Bool.self, forKey: .allowAutoFit);
+        self.bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi);
+        self.bottomPadding = try container.decodeIfPresent(Double.self, forKey: .bottomPadding);
+        self.cellSpacing = try container.decodeIfPresent(Double.self, forKey: .cellSpacing);
+        self.leftIndent = try container.decodeIfPresent(Double.self, forKey: .leftIndent);
+        self.leftPadding = try container.decodeIfPresent(Double.self, forKey: .leftPadding);
+        self.preferredWidth = try container.decodeIfPresent(PreferredWidth.self, forKey: .preferredWidth);
+        self.rightPadding = try container.decodeIfPresent(Double.self, forKey: .rightPadding);
+        self.styleIdentifier = try container.decodeIfPresent(StyleIdentifier.self, forKey: .styleIdentifier);
+        self.styleName = try container.decodeIfPresent(String.self, forKey: .styleName);
+        self.styleOptions = try container.decodeIfPresent(StyleOptions.self, forKey: .styleOptions);
+        self.textWrapping = try container.decodeIfPresent(TextWrapping.self, forKey: .textWrapping);
+        self.topPadding = try container.decodeIfPresent(Double.self, forKey: .topPadding);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -1353,7 +1324,6 @@ public class TableProperties : LinkElement {
         if (self.topPadding != nil) {
             try container.encode(self.topPadding, forKey: .topPadding);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

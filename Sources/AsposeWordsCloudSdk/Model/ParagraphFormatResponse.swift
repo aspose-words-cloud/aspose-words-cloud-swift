@@ -41,10 +41,7 @@ public class ParagraphFormatResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let paragraphFormat = try container.decodeIfPresent(ParagraphFormat.self, forKey: .paragraphFormat) {
-            self.paragraphFormat = paragraphFormat;
-        }
-
+        self.paragraphFormat = try container.decodeIfPresent(ParagraphFormat.self, forKey: .paragraphFormat);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class ParagraphFormatResponse : WordsResponse {
         if (self.paragraphFormat != nil) {
             try container.encode(self.paragraphFormat, forKey: .paragraphFormat);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

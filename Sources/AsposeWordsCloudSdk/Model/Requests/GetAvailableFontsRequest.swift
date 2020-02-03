@@ -39,10 +39,7 @@ public class GetAvailableFontsRequest : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation) {
-            self.fontsLocation = fontsLocation;
-        }
-
+        self.fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -50,7 +47,6 @@ public class GetAvailableFontsRequest : Codable {
         if (self.fontsLocation != nil) {
             try container.encode(self.fontsLocation, forKey: .fontsLocation);
         }
-        
         
     }
     

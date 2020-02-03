@@ -41,10 +41,7 @@ public class SectionLinkCollection : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let sectionLinkList = try container.decodeIfPresent([SectionLink].self, forKey: .sectionLinkList) {
-            self.sectionLinkList = sectionLinkList;
-        }
-
+        self.sectionLinkList = try container.decodeIfPresent([SectionLink].self, forKey: .sectionLinkList);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class SectionLinkCollection : LinkElement {
         if (self.sectionLinkList != nil) {
             try container.encode(self.sectionLinkList, forKey: .sectionLinkList);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

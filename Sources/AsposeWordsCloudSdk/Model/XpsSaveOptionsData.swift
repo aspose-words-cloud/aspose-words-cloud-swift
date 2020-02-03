@@ -50,19 +50,10 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let bookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .bookmarksOutlineLevel) {
-            self.bookmarksOutlineLevel = bookmarksOutlineLevel;
-        }
-        if let headingsOutlineLevels = try container.decodeIfPresent(Int.self, forKey: .headingsOutlineLevels) {
-            self.headingsOutlineLevels = headingsOutlineLevels;
-        }
-        if let outlineOptions = try container.decodeIfPresent(OutlineOptionsData.self, forKey: .outlineOptions) {
-            self.outlineOptions = outlineOptions;
-        }
-        if let useBookFoldPrintingSettings = try container.decodeIfPresent(Bool.self, forKey: .useBookFoldPrintingSettings) {
-            self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
-        }
-
+        self.bookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .bookmarksOutlineLevel);
+        self.headingsOutlineLevels = try container.decodeIfPresent(Int.self, forKey: .headingsOutlineLevels);
+        self.outlineOptions = try container.decodeIfPresent(OutlineOptionsData.self, forKey: .outlineOptions);
+        self.useBookFoldPrintingSettings = try container.decodeIfPresent(Bool.self, forKey: .useBookFoldPrintingSettings);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -79,7 +70,6 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         if (self.useBookFoldPrintingSettings != nil) {
             try container.encode(self.useBookFoldPrintingSettings, forKey: .useBookFoldPrintingSettings);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

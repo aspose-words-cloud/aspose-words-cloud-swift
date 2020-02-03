@@ -1367,127 +1367,46 @@ public class Font : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let allCaps = try container.decodeIfPresent(Bool.self, forKey: .allCaps) {
-            self.allCaps = allCaps;
-        }
-        if let bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi) {
-            self.bidi = bidi;
-        }
-        if let bold = try container.decodeIfPresent(Bool.self, forKey: .bold) {
-            self.bold = bold;
-        }
-        if let boldBi = try container.decodeIfPresent(Bool.self, forKey: .boldBi) {
-            self.boldBi = boldBi;
-        }
-        if let border = try container.decodeIfPresent(Border.self, forKey: .border) {
-            self.border = border;
-        }
-        if let color = try container.decodeIfPresent(XmlColor.self, forKey: .color) {
-            self.color = color;
-        }
-        if let complexScript = try container.decodeIfPresent(Bool.self, forKey: .complexScript) {
-            self.complexScript = complexScript;
-        }
-        if let doubleStrikeThrough = try container.decodeIfPresent(Bool.self, forKey: .doubleStrikeThrough) {
-            self.doubleStrikeThrough = doubleStrikeThrough;
-        }
-        if let emboss = try container.decodeIfPresent(Bool.self, forKey: .emboss) {
-            self.emboss = emboss;
-        }
-        if let engrave = try container.decodeIfPresent(Bool.self, forKey: .engrave) {
-            self.engrave = engrave;
-        }
-        if let hidden = try container.decodeIfPresent(Bool.self, forKey: .hidden) {
-            self.hidden = hidden;
-        }
-        if let highlightColor = try container.decodeIfPresent(XmlColor.self, forKey: .highlightColor) {
-            self.highlightColor = highlightColor;
-        }
-        if let italic = try container.decodeIfPresent(Bool.self, forKey: .italic) {
-            self.italic = italic;
-        }
-        if let italicBi = try container.decodeIfPresent(Bool.self, forKey: .italicBi) {
-            self.italicBi = italicBi;
-        }
-        if let kerning = try container.decodeIfPresent(Double.self, forKey: .kerning) {
-            self.kerning = kerning;
-        }
-        if let localeId = try container.decodeIfPresent(Int.self, forKey: .localeId) {
-            self.localeId = localeId;
-        }
-        if let localeIdBi = try container.decodeIfPresent(Int.self, forKey: .localeIdBi) {
-            self.localeIdBi = localeIdBi;
-        }
-        if let localeIdFarEast = try container.decodeIfPresent(Int.self, forKey: .localeIdFarEast) {
-            self.localeIdFarEast = localeIdFarEast;
-        }
-        if let name = try container.decodeIfPresent(String.self, forKey: .name) {
-            self.name = name;
-        }
-        if let nameAscii = try container.decodeIfPresent(String.self, forKey: .nameAscii) {
-            self.nameAscii = nameAscii;
-        }
-        if let nameBi = try container.decodeIfPresent(String.self, forKey: .nameBi) {
-            self.nameBi = nameBi;
-        }
-        if let nameFarEast = try container.decodeIfPresent(String.self, forKey: .nameFarEast) {
-            self.nameFarEast = nameFarEast;
-        }
-        if let nameOther = try container.decodeIfPresent(String.self, forKey: .nameOther) {
-            self.nameOther = nameOther;
-        }
-        if let noProofing = try container.decodeIfPresent(Bool.self, forKey: .noProofing) {
-            self.noProofing = noProofing;
-        }
-        if let outline = try container.decodeIfPresent(Bool.self, forKey: .outline) {
-            self.outline = outline;
-        }
-        if let position = try container.decodeIfPresent(Double.self, forKey: .position) {
-            self.position = position;
-        }
-        if let scaling = try container.decodeIfPresent(Int.self, forKey: .scaling) {
-            self.scaling = scaling;
-        }
-        if let shadow = try container.decodeIfPresent(Bool.self, forKey: .shadow) {
-            self.shadow = shadow;
-        }
-        if let size = try container.decodeIfPresent(Double.self, forKey: .size) {
-            self.size = size;
-        }
-        if let sizeBi = try container.decodeIfPresent(Double.self, forKey: .sizeBi) {
-            self.sizeBi = sizeBi;
-        }
-        if let smallCaps = try container.decodeIfPresent(Bool.self, forKey: .smallCaps) {
-            self.smallCaps = smallCaps;
-        }
-        if let spacing = try container.decodeIfPresent(Double.self, forKey: .spacing) {
-            self.spacing = spacing;
-        }
-        if let strikeThrough = try container.decodeIfPresent(Bool.self, forKey: .strikeThrough) {
-            self.strikeThrough = strikeThrough;
-        }
-        if let styleIdentifier = try container.decodeIfPresent(StyleIdentifier.self, forKey: .styleIdentifier) {
-            self.styleIdentifier = styleIdentifier;
-        }
-        if let styleName = try container.decodeIfPresent(String.self, forKey: .styleName) {
-            self.styleName = styleName;
-        }
-        if let _subscript = try container.decodeIfPresent(Bool.self, forKey: ._subscript) {
-            self._subscript = _subscript;
-        }
-        if let superscript = try container.decodeIfPresent(Bool.self, forKey: .superscript) {
-            self.superscript = superscript;
-        }
-        if let textEffect = try container.decodeIfPresent(TextEffect.self, forKey: .textEffect) {
-            self.textEffect = textEffect;
-        }
-        if let underline = try container.decodeIfPresent(Underline.self, forKey: .underline) {
-            self.underline = underline;
-        }
-        if let underlineColor = try container.decodeIfPresent(XmlColor.self, forKey: .underlineColor) {
-            self.underlineColor = underlineColor;
-        }
-
+        self.allCaps = try container.decodeIfPresent(Bool.self, forKey: .allCaps);
+        self.bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi);
+        self.bold = try container.decodeIfPresent(Bool.self, forKey: .bold);
+        self.boldBi = try container.decodeIfPresent(Bool.self, forKey: .boldBi);
+        self.border = try container.decodeIfPresent(Border.self, forKey: .border);
+        self.color = try container.decodeIfPresent(XmlColor.self, forKey: .color);
+        self.complexScript = try container.decodeIfPresent(Bool.self, forKey: .complexScript);
+        self.doubleStrikeThrough = try container.decodeIfPresent(Bool.self, forKey: .doubleStrikeThrough);
+        self.emboss = try container.decodeIfPresent(Bool.self, forKey: .emboss);
+        self.engrave = try container.decodeIfPresent(Bool.self, forKey: .engrave);
+        self.hidden = try container.decodeIfPresent(Bool.self, forKey: .hidden);
+        self.highlightColor = try container.decodeIfPresent(XmlColor.self, forKey: .highlightColor);
+        self.italic = try container.decodeIfPresent(Bool.self, forKey: .italic);
+        self.italicBi = try container.decodeIfPresent(Bool.self, forKey: .italicBi);
+        self.kerning = try container.decodeIfPresent(Double.self, forKey: .kerning);
+        self.localeId = try container.decodeIfPresent(Int.self, forKey: .localeId);
+        self.localeIdBi = try container.decodeIfPresent(Int.self, forKey: .localeIdBi);
+        self.localeIdFarEast = try container.decodeIfPresent(Int.self, forKey: .localeIdFarEast);
+        self.name = try container.decodeIfPresent(String.self, forKey: .name);
+        self.nameAscii = try container.decodeIfPresent(String.self, forKey: .nameAscii);
+        self.nameBi = try container.decodeIfPresent(String.self, forKey: .nameBi);
+        self.nameFarEast = try container.decodeIfPresent(String.self, forKey: .nameFarEast);
+        self.nameOther = try container.decodeIfPresent(String.self, forKey: .nameOther);
+        self.noProofing = try container.decodeIfPresent(Bool.self, forKey: .noProofing);
+        self.outline = try container.decodeIfPresent(Bool.self, forKey: .outline);
+        self.position = try container.decodeIfPresent(Double.self, forKey: .position);
+        self.scaling = try container.decodeIfPresent(Int.self, forKey: .scaling);
+        self.shadow = try container.decodeIfPresent(Bool.self, forKey: .shadow);
+        self.size = try container.decodeIfPresent(Double.self, forKey: .size);
+        self.sizeBi = try container.decodeIfPresent(Double.self, forKey: .sizeBi);
+        self.smallCaps = try container.decodeIfPresent(Bool.self, forKey: .smallCaps);
+        self.spacing = try container.decodeIfPresent(Double.self, forKey: .spacing);
+        self.strikeThrough = try container.decodeIfPresent(Bool.self, forKey: .strikeThrough);
+        self.styleIdentifier = try container.decodeIfPresent(StyleIdentifier.self, forKey: .styleIdentifier);
+        self.styleName = try container.decodeIfPresent(String.self, forKey: .styleName);
+        self._subscript = try container.decodeIfPresent(Bool.self, forKey: ._subscript);
+        self.superscript = try container.decodeIfPresent(Bool.self, forKey: .superscript);
+        self.textEffect = try container.decodeIfPresent(TextEffect.self, forKey: .textEffect);
+        self.underline = try container.decodeIfPresent(Underline.self, forKey: .underline);
+        self.underlineColor = try container.decodeIfPresent(XmlColor.self, forKey: .underlineColor);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -1612,7 +1531,6 @@ public class Font : LinkElement {
         if (self.underlineColor != nil) {
             try container.encode(self.underlineColor, forKey: .underlineColor);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

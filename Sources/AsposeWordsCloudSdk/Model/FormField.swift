@@ -65,34 +65,15 @@ public class FormField : NodeLink {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let calculateOnExit = try container.decodeIfPresent(Bool.self, forKey: .calculateOnExit) {
-            self.calculateOnExit = calculateOnExit;
-        }
-        if let enabled = try container.decodeIfPresent(Bool.self, forKey: .enabled) {
-            self.enabled = enabled;
-        }
-        if let entryMacro = try container.decodeIfPresent(String.self, forKey: .entryMacro) {
-            self.entryMacro = entryMacro;
-        }
-        if let exitMacro = try container.decodeIfPresent(String.self, forKey: .exitMacro) {
-            self.exitMacro = exitMacro;
-        }
-        if let helpText = try container.decodeIfPresent(String.self, forKey: .helpText) {
-            self.helpText = helpText;
-        }
-        if let name = try container.decodeIfPresent(String.self, forKey: .name) {
-            self.name = name;
-        }
-        if let ownHelp = try container.decodeIfPresent(Bool.self, forKey: .ownHelp) {
-            self.ownHelp = ownHelp;
-        }
-        if let ownStatus = try container.decodeIfPresent(Bool.self, forKey: .ownStatus) {
-            self.ownStatus = ownStatus;
-        }
-        if let statusText = try container.decodeIfPresent(String.self, forKey: .statusText) {
-            self.statusText = statusText;
-        }
-
+        self.calculateOnExit = try container.decodeIfPresent(Bool.self, forKey: .calculateOnExit);
+        self.enabled = try container.decodeIfPresent(Bool.self, forKey: .enabled);
+        self.entryMacro = try container.decodeIfPresent(String.self, forKey: .entryMacro);
+        self.exitMacro = try container.decodeIfPresent(String.self, forKey: .exitMacro);
+        self.helpText = try container.decodeIfPresent(String.self, forKey: .helpText);
+        self.name = try container.decodeIfPresent(String.self, forKey: .name);
+        self.ownHelp = try container.decodeIfPresent(Bool.self, forKey: .ownHelp);
+        self.ownStatus = try container.decodeIfPresent(Bool.self, forKey: .ownStatus);
+        self.statusText = try container.decodeIfPresent(String.self, forKey: .statusText);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -124,7 +105,6 @@ public class FormField : NodeLink {
         if (self.statusText != nil) {
             try container.encode(self.statusText, forKey: .statusText);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

@@ -42,10 +42,7 @@ public class GetFilesListRequest : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
         self.path = try container.decode(.self, forKey: .path);
-        if let storageName = try container.decodeIfPresent(.self, forKey: .storageName) {
-            self.storageName = storageName;
-        }
-
+        self.storageName = try container.decodeIfPresent(.self, forKey: .storageName);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -54,7 +51,6 @@ public class GetFilesListRequest : Codable {
         if (self.storageName != nil) {
             try container.encode(self.storageName, forKey: .storageName);
         }
-        
         
     }
     

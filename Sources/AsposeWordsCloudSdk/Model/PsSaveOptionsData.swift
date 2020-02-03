@@ -41,10 +41,7 @@ public class PsSaveOptionsData : FixedPageSaveOptionsData {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let useBookFoldPrintingSettings = try container.decodeIfPresent(Bool.self, forKey: .useBookFoldPrintingSettings) {
-            self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
-        }
-
+        self.useBookFoldPrintingSettings = try container.decodeIfPresent(Bool.self, forKey: .useBookFoldPrintingSettings);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class PsSaveOptionsData : FixedPageSaveOptionsData {
         if (self.useBookFoldPrintingSettings != nil) {
             try container.encode(self.useBookFoldPrintingSettings, forKey: .useBookFoldPrintingSettings);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

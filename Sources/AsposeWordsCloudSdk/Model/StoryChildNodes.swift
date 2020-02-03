@@ -41,10 +41,7 @@ public class StoryChildNodes : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let childNodes = try container.decodeIfPresent([NodeLink].self, forKey: .childNodes) {
-            self.childNodes = childNodes;
-        }
-
+        self.childNodes = try container.decodeIfPresent([NodeLink].self, forKey: .childNodes);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class StoryChildNodes : Codable {
         if (self.childNodes != nil) {
             try container.encode(self.childNodes, forKey: .childNodes);
         }
-        
         
     }
         

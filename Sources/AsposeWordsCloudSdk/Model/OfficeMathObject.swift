@@ -179,19 +179,10 @@ public class OfficeMathObject : OfficeMathLink {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let content = try container.decodeIfPresent(StoryChildNodes.self, forKey: .content) {
-            self.content = content;
-        }
-        if let displayType = try container.decodeIfPresent(DisplayType.self, forKey: .displayType) {
-            self.displayType = displayType;
-        }
-        if let justification = try container.decodeIfPresent(Justification.self, forKey: .justification) {
-            self.justification = justification;
-        }
-        if let mathObjectType = try container.decodeIfPresent(MathObjectType.self, forKey: .mathObjectType) {
-            self.mathObjectType = mathObjectType;
-        }
-
+        self.content = try container.decodeIfPresent(StoryChildNodes.self, forKey: .content);
+        self.displayType = try container.decodeIfPresent(DisplayType.self, forKey: .displayType);
+        self.justification = try container.decodeIfPresent(Justification.self, forKey: .justification);
+        self.mathObjectType = try container.decodeIfPresent(MathObjectType.self, forKey: .mathObjectType);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -208,7 +199,6 @@ public class OfficeMathObject : OfficeMathLink {
         if (self.mathObjectType != nil) {
             try container.encode(self.mathObjectType, forKey: .mathObjectType);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

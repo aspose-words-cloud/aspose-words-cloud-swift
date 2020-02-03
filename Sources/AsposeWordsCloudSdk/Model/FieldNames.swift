@@ -41,10 +41,7 @@ public class FieldNames : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let names = try container.decodeIfPresent([String].self, forKey: .names) {
-            self.names = names;
-        }
-
+        self.names = try container.decodeIfPresent([String].self, forKey: .names);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class FieldNames : LinkElement {
         if (self.names != nil) {
             try container.encode(self.names, forKey: .names);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

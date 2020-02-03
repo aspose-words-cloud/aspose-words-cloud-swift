@@ -41,10 +41,7 @@ public class DocumentResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let document = try container.decodeIfPresent(Document.self, forKey: .document) {
-            self.document = document;
-        }
-
+        self.document = try container.decodeIfPresent(Document.self, forKey: .document);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class DocumentResponse : WordsResponse {
         if (self.document != nil) {
             try container.encode(self.document, forKey: .document);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

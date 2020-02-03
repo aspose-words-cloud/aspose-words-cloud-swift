@@ -41,10 +41,7 @@ public class OfficeMathObjectResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let officeMathObject = try container.decodeIfPresent(OfficeMathObject.self, forKey: .officeMathObject) {
-            self.officeMathObject = officeMathObject;
-        }
-
+        self.officeMathObject = try container.decodeIfPresent(OfficeMathObject.self, forKey: .officeMathObject);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class OfficeMathObjectResponse : WordsResponse {
         if (self.officeMathObject != nil) {
             try container.encode(self.officeMathObject, forKey: .officeMathObject);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

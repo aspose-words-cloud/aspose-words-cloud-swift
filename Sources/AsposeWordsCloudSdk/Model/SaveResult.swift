@@ -47,16 +47,9 @@ public class SaveResult : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let sourceDocument = try container.decodeIfPresent(FileLink.self, forKey: .sourceDocument) {
-            self.sourceDocument = sourceDocument;
-        }
-        if let destDocument = try container.decodeIfPresent(FileLink.self, forKey: .destDocument) {
-            self.destDocument = destDocument;
-        }
-        if let additionalItems = try container.decodeIfPresent([FileLink].self, forKey: .additionalItems) {
-            self.additionalItems = additionalItems;
-        }
-
+        self.sourceDocument = try container.decodeIfPresent(FileLink.self, forKey: .sourceDocument);
+        self.destDocument = try container.decodeIfPresent(FileLink.self, forKey: .destDocument);
+        self.additionalItems = try container.decodeIfPresent([FileLink].self, forKey: .additionalItems);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -70,7 +63,6 @@ public class SaveResult : Codable {
         if (self.additionalItems != nil) {
             try container.encode(self.additionalItems, forKey: .additionalItems);
         }
-        
         
     }
         

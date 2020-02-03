@@ -51,19 +51,10 @@ public class ConvertDocumentRequest : Codable {
         
         self.document = try container.decode(.self, forKey: .document);
         self.format = try container.decode(.self, forKey: .format);
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-        if let outPath = try container.decodeIfPresent(.self, forKey: .outPath) {
-            self.outPath = outPath;
-        }
-        if let fileNameFieldValue = try container.decodeIfPresent(.self, forKey: .fileNameFieldValue) {
-            self.fileNameFieldValue = fileNameFieldValue;
-        }
-        if let fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation) {
-            self.fontsLocation = fontsLocation;
-        }
-
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
+        self.outPath = try container.decodeIfPresent(.self, forKey: .outPath);
+        self.fileNameFieldValue = try container.decodeIfPresent(.self, forKey: .fileNameFieldValue);
+        self.fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -82,7 +73,6 @@ public class ConvertDocumentRequest : Codable {
         if (self.fontsLocation != nil) {
             try container.encode(self.fontsLocation, forKey: .fontsLocation);
         }
-        
         
     }
     

@@ -59,28 +59,13 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let colorMode = try container.decodeIfPresent(String.self, forKey: .colorMode) {
-            self.colorMode = colorMode;
-        }
-        if let jpegQuality = try container.decodeIfPresent(Int.self, forKey: .jpegQuality) {
-            self.jpegQuality = jpegQuality;
-        }
-        if let metafileRenderingOptions = try container.decodeIfPresent(MetafileRenderingOptionsData.self, forKey: .metafileRenderingOptions) {
-            self.metafileRenderingOptions = metafileRenderingOptions;
-        }
-        if let numeralFormat = try container.decodeIfPresent(String.self, forKey: .numeralFormat) {
-            self.numeralFormat = numeralFormat;
-        }
-        if let optimizeOutput = try container.decodeIfPresent(Bool.self, forKey: .optimizeOutput) {
-            self.optimizeOutput = optimizeOutput;
-        }
-        if let pageCount = try container.decodeIfPresent(Int.self, forKey: .pageCount) {
-            self.pageCount = pageCount;
-        }
-        if let pageIndex = try container.decodeIfPresent(Int.self, forKey: .pageIndex) {
-            self.pageIndex = pageIndex;
-        }
-
+        self.colorMode = try container.decodeIfPresent(String.self, forKey: .colorMode);
+        self.jpegQuality = try container.decodeIfPresent(Int.self, forKey: .jpegQuality);
+        self.metafileRenderingOptions = try container.decodeIfPresent(MetafileRenderingOptionsData.self, forKey: .metafileRenderingOptions);
+        self.numeralFormat = try container.decodeIfPresent(String.self, forKey: .numeralFormat);
+        self.optimizeOutput = try container.decodeIfPresent(Bool.self, forKey: .optimizeOutput);
+        self.pageCount = try container.decodeIfPresent(Int.self, forKey: .pageCount);
+        self.pageIndex = try container.decodeIfPresent(Int.self, forKey: .pageIndex);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -106,7 +91,6 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         if (self.pageIndex != nil) {
             try container.encode(self.pageIndex, forKey: .pageIndex);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

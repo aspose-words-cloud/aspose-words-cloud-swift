@@ -41,10 +41,7 @@ public class HeaderFootersResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let headerFooters = try container.decodeIfPresent(HeaderFooterLinkCollection.self, forKey: .headerFooters) {
-            self.headerFooters = headerFooters;
-        }
-
+        self.headerFooters = try container.decodeIfPresent(HeaderFooterLinkCollection.self, forKey: .headerFooters);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class HeaderFootersResponse : WordsResponse {
         if (self.headerFooters != nil) {
             try container.encode(self.headerFooters, forKey: .headerFooters);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

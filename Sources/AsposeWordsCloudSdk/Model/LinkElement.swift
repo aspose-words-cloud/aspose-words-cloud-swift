@@ -41,10 +41,7 @@ public class LinkElement : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let link = try container.decodeIfPresent(WordsApiLink.self, forKey: .link) {
-            self.link = link;
-        }
-
+        self.link = try container.decodeIfPresent(WordsApiLink.self, forKey: .link);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class LinkElement : Codable {
         if (self.link != nil) {
             try container.encode(self.link, forKey: .link);
         }
-        
         
     }
         

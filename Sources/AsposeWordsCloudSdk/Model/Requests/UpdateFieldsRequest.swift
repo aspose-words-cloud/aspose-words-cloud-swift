@@ -50,22 +50,11 @@ public class UpdateFieldsRequest : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
         self.name = try container.decode(.self, forKey: .name);
-        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
-            self.folder = folder;
-        }
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
-            self.loadEncoding = loadEncoding;
-        }
-        if let password = try container.decodeIfPresent(.self, forKey: .password) {
-            self.password = password;
-        }
-        if let destFileName = try container.decodeIfPresent(.self, forKey: .destFileName) {
-            self.destFileName = destFileName;
-        }
-
+        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
+        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
+        self.password = try container.decodeIfPresent(.self, forKey: .password);
+        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -86,7 +75,6 @@ public class UpdateFieldsRequest : Codable {
         if (self.destFileName != nil) {
             try container.encode(self.destFileName, forKey: .destFileName);
         }
-        
         
     }
     

@@ -124,79 +124,30 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let compliance = try container.decodeIfPresent(String.self, forKey: .compliance) {
-            self.compliance = compliance;
-        }
-        if let createNoteHyperlinks = try container.decodeIfPresent(Bool.self, forKey: .createNoteHyperlinks) {
-            self.createNoteHyperlinks = createNoteHyperlinks;
-        }
-        if let customPropertiesExport = try container.decodeIfPresent(String.self, forKey: .customPropertiesExport) {
-            self.customPropertiesExport = customPropertiesExport;
-        }
-        if let digitalSignatureDetails = try container.decodeIfPresent(PdfDigitalSignatureDetailsData.self, forKey: .digitalSignatureDetails) {
-            self.digitalSignatureDetails = digitalSignatureDetails;
-        }
-        if let displayDocTitle = try container.decodeIfPresent(Bool.self, forKey: .displayDocTitle) {
-            self.displayDocTitle = displayDocTitle;
-        }
-        if let downsampleOptions = try container.decodeIfPresent(DownsampleOptionsData.self, forKey: .downsampleOptions) {
-            self.downsampleOptions = downsampleOptions;
-        }
-        if let embedFullFonts = try container.decodeIfPresent(Bool.self, forKey: .embedFullFonts) {
-            self.embedFullFonts = embedFullFonts;
-        }
-        if let encryptionDetails = try container.decodeIfPresent(PdfEncryptionDetailsData.self, forKey: .encryptionDetails) {
-            self.encryptionDetails = encryptionDetails;
-        }
-        if let escapeUri = try container.decodeIfPresent(Bool.self, forKey: .escapeUri) {
-            self.escapeUri = escapeUri;
-        }
-        if let exportDocumentStructure = try container.decodeIfPresent(Bool.self, forKey: .exportDocumentStructure) {
-            self.exportDocumentStructure = exportDocumentStructure;
-        }
-        if let fontEmbeddingMode = try container.decodeIfPresent(String.self, forKey: .fontEmbeddingMode) {
-            self.fontEmbeddingMode = fontEmbeddingMode;
-        }
-        if let headerFooterBookmarksExportMode = try container.decodeIfPresent(HeaderFooterBookmarksExportMode.self, forKey: .headerFooterBookmarksExportMode) {
-            self.headerFooterBookmarksExportMode = headerFooterBookmarksExportMode;
-        }
-        if let imageColorSpaceExportMode = try container.decodeIfPresent(String.self, forKey: .imageColorSpaceExportMode) {
-            self.imageColorSpaceExportMode = imageColorSpaceExportMode;
-        }
-        if let imageCompression = try container.decodeIfPresent(String.self, forKey: .imageCompression) {
-            self.imageCompression = imageCompression;
-        }
-        if let openHyperlinksInNewWindow = try container.decodeIfPresent(Bool.self, forKey: .openHyperlinksInNewWindow) {
-            self.openHyperlinksInNewWindow = openHyperlinksInNewWindow;
-        }
-        if let outlineOptions = try container.decodeIfPresent(OutlineOptionsData.self, forKey: .outlineOptions) {
-            self.outlineOptions = outlineOptions;
-        }
-        if let pageMode = try container.decodeIfPresent(String.self, forKey: .pageMode) {
-            self.pageMode = pageMode;
-        }
-        if let preblendImages = try container.decodeIfPresent(Bool.self, forKey: .preblendImages) {
-            self.preblendImages = preblendImages;
-        }
-        if let preserveFormFields = try container.decodeIfPresent(Bool.self, forKey: .preserveFormFields) {
-            self.preserveFormFields = preserveFormFields;
-        }
-        if let textCompression = try container.decodeIfPresent(String.self, forKey: .textCompression) {
-            self.textCompression = textCompression;
-        }
-        if let useBookFoldPrintingSettings = try container.decodeIfPresent(Bool.self, forKey: .useBookFoldPrintingSettings) {
-            self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
-        }
-        if let useCoreFonts = try container.decodeIfPresent(Bool.self, forKey: .useCoreFonts) {
-            self.useCoreFonts = useCoreFonts;
-        }
-        if let zoomBehavior = try container.decodeIfPresent(String.self, forKey: .zoomBehavior) {
-            self.zoomBehavior = zoomBehavior;
-        }
-        if let zoomFactor = try container.decodeIfPresent(Int.self, forKey: .zoomFactor) {
-            self.zoomFactor = zoomFactor;
-        }
-
+        self.compliance = try container.decodeIfPresent(String.self, forKey: .compliance);
+        self.createNoteHyperlinks = try container.decodeIfPresent(Bool.self, forKey: .createNoteHyperlinks);
+        self.customPropertiesExport = try container.decodeIfPresent(String.self, forKey: .customPropertiesExport);
+        self.digitalSignatureDetails = try container.decodeIfPresent(PdfDigitalSignatureDetailsData.self, forKey: .digitalSignatureDetails);
+        self.displayDocTitle = try container.decodeIfPresent(Bool.self, forKey: .displayDocTitle);
+        self.downsampleOptions = try container.decodeIfPresent(DownsampleOptionsData.self, forKey: .downsampleOptions);
+        self.embedFullFonts = try container.decodeIfPresent(Bool.self, forKey: .embedFullFonts);
+        self.encryptionDetails = try container.decodeIfPresent(PdfEncryptionDetailsData.self, forKey: .encryptionDetails);
+        self.escapeUri = try container.decodeIfPresent(Bool.self, forKey: .escapeUri);
+        self.exportDocumentStructure = try container.decodeIfPresent(Bool.self, forKey: .exportDocumentStructure);
+        self.fontEmbeddingMode = try container.decodeIfPresent(String.self, forKey: .fontEmbeddingMode);
+        self.headerFooterBookmarksExportMode = try container.decodeIfPresent(HeaderFooterBookmarksExportMode.self, forKey: .headerFooterBookmarksExportMode);
+        self.imageColorSpaceExportMode = try container.decodeIfPresent(String.self, forKey: .imageColorSpaceExportMode);
+        self.imageCompression = try container.decodeIfPresent(String.self, forKey: .imageCompression);
+        self.openHyperlinksInNewWindow = try container.decodeIfPresent(Bool.self, forKey: .openHyperlinksInNewWindow);
+        self.outlineOptions = try container.decodeIfPresent(OutlineOptionsData.self, forKey: .outlineOptions);
+        self.pageMode = try container.decodeIfPresent(String.self, forKey: .pageMode);
+        self.preblendImages = try container.decodeIfPresent(Bool.self, forKey: .preblendImages);
+        self.preserveFormFields = try container.decodeIfPresent(Bool.self, forKey: .preserveFormFields);
+        self.textCompression = try container.decodeIfPresent(String.self, forKey: .textCompression);
+        self.useBookFoldPrintingSettings = try container.decodeIfPresent(Bool.self, forKey: .useBookFoldPrintingSettings);
+        self.useCoreFonts = try container.decodeIfPresent(Bool.self, forKey: .useCoreFonts);
+        self.zoomBehavior = try container.decodeIfPresent(String.self, forKey: .zoomBehavior);
+        self.zoomFactor = try container.decodeIfPresent(Int.self, forKey: .zoomFactor);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -273,7 +224,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         if (self.zoomFactor != nil) {
             try container.encode(self.zoomFactor, forKey: .zoomFactor);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

@@ -53,22 +53,11 @@ public class Section : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let childNodes = try container.decodeIfPresent([NodeLink].self, forKey: .childNodes) {
-            self.childNodes = childNodes;
-        }
-        if let headerFooters = try container.decodeIfPresent(LinkElement.self, forKey: .headerFooters) {
-            self.headerFooters = headerFooters;
-        }
-        if let pageSetup = try container.decodeIfPresent(LinkElement.self, forKey: .pageSetup) {
-            self.pageSetup = pageSetup;
-        }
-        if let paragraphs = try container.decodeIfPresent(LinkElement.self, forKey: .paragraphs) {
-            self.paragraphs = paragraphs;
-        }
-        if let tables = try container.decodeIfPresent(LinkElement.self, forKey: .tables) {
-            self.tables = tables;
-        }
-
+        self.childNodes = try container.decodeIfPresent([NodeLink].self, forKey: .childNodes);
+        self.headerFooters = try container.decodeIfPresent(LinkElement.self, forKey: .headerFooters);
+        self.pageSetup = try container.decodeIfPresent(LinkElement.self, forKey: .pageSetup);
+        self.paragraphs = try container.decodeIfPresent(LinkElement.self, forKey: .paragraphs);
+        self.tables = try container.decodeIfPresent(LinkElement.self, forKey: .tables);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -88,7 +77,6 @@ public class Section : LinkElement {
         if (self.tables != nil) {
             try container.encode(self.tables, forKey: .tables);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

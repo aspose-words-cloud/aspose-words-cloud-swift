@@ -50,19 +50,10 @@ public class FontInfo : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let fontFamilyName = try container.decodeIfPresent(String.self, forKey: .fontFamilyName) {
-            self.fontFamilyName = fontFamilyName;
-        }
-        if let fullFontName = try container.decodeIfPresent(String.self, forKey: .fullFontName) {
-            self.fullFontName = fullFontName;
-        }
-        if let version = try container.decodeIfPresent(String.self, forKey: .version) {
-            self.version = version;
-        }
-        if let filePath = try container.decodeIfPresent(String.self, forKey: .filePath) {
-            self.filePath = filePath;
-        }
-
+        self.fontFamilyName = try container.decodeIfPresent(String.self, forKey: .fontFamilyName);
+        self.fullFontName = try container.decodeIfPresent(String.self, forKey: .fullFontName);
+        self.version = try container.decodeIfPresent(String.self, forKey: .version);
+        self.filePath = try container.decodeIfPresent(String.self, forKey: .filePath);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -79,7 +70,6 @@ public class FontInfo : Codable {
         if (self.filePath != nil) {
             try container.encode(self.filePath, forKey: .filePath);
         }
-        
         
     }
         

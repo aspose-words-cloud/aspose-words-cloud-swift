@@ -64,22 +64,11 @@ public class Footnote : FootnoteLink {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let content = try container.decodeIfPresent(StoryChildNodes.self, forKey: .content) {
-            self.content = content;
-        }
-        if let footnoteType = try container.decodeIfPresent(FootnoteType.self, forKey: .footnoteType) {
-            self.footnoteType = footnoteType;
-        }
-        if let position = try container.decodeIfPresent(DocumentPosition.self, forKey: .position) {
-            self.position = position;
-        }
-        if let referenceMark = try container.decodeIfPresent(String.self, forKey: .referenceMark) {
-            self.referenceMark = referenceMark;
-        }
-        if let text = try container.decodeIfPresent(String.self, forKey: .text) {
-            self.text = text;
-        }
-
+        self.content = try container.decodeIfPresent(StoryChildNodes.self, forKey: .content);
+        self.footnoteType = try container.decodeIfPresent(FootnoteType.self, forKey: .footnoteType);
+        self.position = try container.decodeIfPresent(DocumentPosition.self, forKey: .position);
+        self.referenceMark = try container.decodeIfPresent(String.self, forKey: .referenceMark);
+        self.text = try container.decodeIfPresent(String.self, forKey: .text);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -99,7 +88,6 @@ public class Footnote : FootnoteLink {
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

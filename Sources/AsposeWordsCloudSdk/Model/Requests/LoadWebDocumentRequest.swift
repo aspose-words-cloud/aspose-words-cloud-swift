@@ -42,10 +42,7 @@ public class LoadWebDocumentRequest : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
         self.data = try container.decode(.self, forKey: .data);
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -54,7 +51,6 @@ public class LoadWebDocumentRequest : Codable {
         if (self.storage != nil) {
             try container.encode(self.storage, forKey: .storage);
         }
-        
         
     }
     

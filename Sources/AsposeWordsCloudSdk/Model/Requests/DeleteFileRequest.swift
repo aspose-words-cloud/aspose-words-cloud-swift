@@ -44,13 +44,8 @@ public class DeleteFileRequest : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
         self.path = try container.decode(.self, forKey: .path);
-        if let storageName = try container.decodeIfPresent(.self, forKey: .storageName) {
-            self.storageName = storageName;
-        }
-        if let versionId = try container.decodeIfPresent(.self, forKey: .versionId) {
-            self.versionId = versionId;
-        }
-
+        self.storageName = try container.decodeIfPresent(.self, forKey: .storageName);
+        self.versionId = try container.decodeIfPresent(.self, forKey: .versionId);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -62,7 +57,6 @@ public class DeleteFileRequest : Codable {
         if (self.versionId != nil) {
             try container.encode(self.versionId, forKey: .versionId);
         }
-        
         
     }
     

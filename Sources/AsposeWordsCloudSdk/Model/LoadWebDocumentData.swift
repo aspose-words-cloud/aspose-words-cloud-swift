@@ -44,13 +44,8 @@ public class LoadWebDocumentData : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let loadingDocumentUrl = try container.decodeIfPresent(String.self, forKey: .loadingDocumentUrl) {
-            self.loadingDocumentUrl = loadingDocumentUrl;
-        }
-        if let saveOptions = try container.decodeIfPresent(SaveOptionsData.self, forKey: .saveOptions) {
-            self.saveOptions = saveOptions;
-        }
-
+        self.loadingDocumentUrl = try container.decodeIfPresent(String.self, forKey: .loadingDocumentUrl);
+        self.saveOptions = try container.decodeIfPresent(SaveOptionsData.self, forKey: .saveOptions);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -61,7 +56,6 @@ public class LoadWebDocumentData : Codable {
         if (self.saveOptions != nil) {
             try container.encode(self.saveOptions, forKey: .saveOptions);
         }
-        
         
     }
         

@@ -43,16 +43,9 @@ public class CreateDocumentRequest : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-        if let fileName = try container.decodeIfPresent(.self, forKey: .fileName) {
-            self.fileName = fileName;
-        }
-        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
-            self.folder = folder;
-        }
-
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
+        self.fileName = try container.decodeIfPresent(.self, forKey: .fileName);
+        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -66,7 +59,6 @@ public class CreateDocumentRequest : Codable {
         if (self.folder != nil) {
             try container.encode(self.folder, forKey: .folder);
         }
-        
         
     }
     

@@ -41,10 +41,7 @@ public class FormFieldsResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let formFields = try container.decodeIfPresent(FormFieldCollection.self, forKey: .formFields) {
-            self.formFields = formFields;
-        }
-
+        self.formFields = try container.decodeIfPresent(FormFieldCollection.self, forKey: .formFields);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class FormFieldsResponse : WordsResponse {
         if (self.formFields != nil) {
             try container.encode(self.formFields, forKey: .formFields);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

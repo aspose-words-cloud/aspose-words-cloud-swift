@@ -41,10 +41,7 @@ public class ParagraphLinkCollection : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let paragraphLinkList = try container.decodeIfPresent([ParagraphLink].self, forKey: .paragraphLinkList) {
-            self.paragraphLinkList = paragraphLinkList;
-        }
-
+        self.paragraphLinkList = try container.decodeIfPresent([ParagraphLink].self, forKey: .paragraphLinkList);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class ParagraphLinkCollection : LinkElement {
         if (self.paragraphLinkList != nil) {
             try container.encode(self.paragraphLinkList, forKey: .paragraphLinkList);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

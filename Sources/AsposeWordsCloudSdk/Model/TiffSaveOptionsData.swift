@@ -47,16 +47,9 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let thresholdForFloydSteinbergDithering = try container.decodeIfPresent(Int.self, forKey: .thresholdForFloydSteinbergDithering) {
-            self.thresholdForFloydSteinbergDithering = thresholdForFloydSteinbergDithering;
-        }
-        if let tiffBinarizationMethod = try container.decodeIfPresent(String.self, forKey: .tiffBinarizationMethod) {
-            self.tiffBinarizationMethod = tiffBinarizationMethod;
-        }
-        if let tiffCompression = try container.decodeIfPresent(String.self, forKey: .tiffCompression) {
-            self.tiffCompression = tiffCompression;
-        }
-
+        self.thresholdForFloydSteinbergDithering = try container.decodeIfPresent(Int.self, forKey: .thresholdForFloydSteinbergDithering);
+        self.tiffBinarizationMethod = try container.decodeIfPresent(String.self, forKey: .tiffBinarizationMethod);
+        self.tiffCompression = try container.decodeIfPresent(String.self, forKey: .tiffCompression);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -70,7 +63,6 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
         if (self.tiffCompression != nil) {
             try container.encode(self.tiffCompression, forKey: .tiffCompression);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

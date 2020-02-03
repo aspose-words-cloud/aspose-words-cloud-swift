@@ -53,22 +53,11 @@ public class GetHeaderFooterRequest : Codable {
         
         self.name = try container.decode(.self, forKey: .name);
         self.headerFooterIndex = try container.decode(.self, forKey: .headerFooterIndex);
-        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
-            self.folder = folder;
-        }
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
-            self.loadEncoding = loadEncoding;
-        }
-        if let password = try container.decodeIfPresent(.self, forKey: .password) {
-            self.password = password;
-        }
-        if let filterByType = try container.decodeIfPresent(.self, forKey: .filterByType) {
-            self.filterByType = filterByType;
-        }
-
+        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
+        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
+        self.password = try container.decodeIfPresent(.self, forKey: .password);
+        self.filterByType = try container.decodeIfPresent(.self, forKey: .filterByType);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -90,7 +79,6 @@ public class GetHeaderFooterRequest : Codable {
         if (self.filterByType != nil) {
             try container.encode(self.filterByType, forKey: .filterByType);
         }
-        
         
     }
     

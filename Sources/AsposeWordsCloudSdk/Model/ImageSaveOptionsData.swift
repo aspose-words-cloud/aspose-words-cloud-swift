@@ -77,46 +77,19 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let graphicsQualityOptions = try container.decodeIfPresent(GraphicsQualityOptionsData.self, forKey: .graphicsQualityOptions) {
-            self.graphicsQualityOptions = graphicsQualityOptions;
-        }
-        if let horizontalResolution = try container.decodeIfPresent(Double.self, forKey: .horizontalResolution) {
-            self.horizontalResolution = horizontalResolution;
-        }
-        if let imageBrightness = try container.decodeIfPresent(Double.self, forKey: .imageBrightness) {
-            self.imageBrightness = imageBrightness;
-        }
-        if let imageColorMode = try container.decodeIfPresent(String.self, forKey: .imageColorMode) {
-            self.imageColorMode = imageColorMode;
-        }
-        if let imageContrast = try container.decodeIfPresent(Double.self, forKey: .imageContrast) {
-            self.imageContrast = imageContrast;
-        }
-        if let paperColor = try container.decodeIfPresent(String.self, forKey: .paperColor) {
-            self.paperColor = paperColor;
-        }
-        if let pixelFormat = try container.decodeIfPresent(String.self, forKey: .pixelFormat) {
-            self.pixelFormat = pixelFormat;
-        }
-        if let resolution = try container.decodeIfPresent(Double.self, forKey: .resolution) {
-            self.resolution = resolution;
-        }
-        if let scale = try container.decodeIfPresent(Double.self, forKey: .scale) {
-            self.scale = scale;
-        }
-        if let useAntiAliasing = try container.decodeIfPresent(Bool.self, forKey: .useAntiAliasing) {
-            self.useAntiAliasing = useAntiAliasing;
-        }
-        if let useGdiEmfRenderer = try container.decodeIfPresent(Bool.self, forKey: .useGdiEmfRenderer) {
-            self.useGdiEmfRenderer = useGdiEmfRenderer;
-        }
-        if let useHighQualityRendering = try container.decodeIfPresent(Bool.self, forKey: .useHighQualityRendering) {
-            self.useHighQualityRendering = useHighQualityRendering;
-        }
-        if let verticalResolution = try container.decodeIfPresent(Double.self, forKey: .verticalResolution) {
-            self.verticalResolution = verticalResolution;
-        }
-
+        self.graphicsQualityOptions = try container.decodeIfPresent(GraphicsQualityOptionsData.self, forKey: .graphicsQualityOptions);
+        self.horizontalResolution = try container.decodeIfPresent(Double.self, forKey: .horizontalResolution);
+        self.imageBrightness = try container.decodeIfPresent(Double.self, forKey: .imageBrightness);
+        self.imageColorMode = try container.decodeIfPresent(String.self, forKey: .imageColorMode);
+        self.imageContrast = try container.decodeIfPresent(Double.self, forKey: .imageContrast);
+        self.paperColor = try container.decodeIfPresent(String.self, forKey: .paperColor);
+        self.pixelFormat = try container.decodeIfPresent(String.self, forKey: .pixelFormat);
+        self.resolution = try container.decodeIfPresent(Double.self, forKey: .resolution);
+        self.scale = try container.decodeIfPresent(Double.self, forKey: .scale);
+        self.useAntiAliasing = try container.decodeIfPresent(Bool.self, forKey: .useAntiAliasing);
+        self.useGdiEmfRenderer = try container.decodeIfPresent(Bool.self, forKey: .useGdiEmfRenderer);
+        self.useHighQualityRendering = try container.decodeIfPresent(Bool.self, forKey: .useHighQualityRendering);
+        self.verticalResolution = try container.decodeIfPresent(Double.self, forKey: .verticalResolution);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -160,7 +133,6 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         if (self.verticalResolution != nil) {
             try container.encode(self.verticalResolution, forKey: .verticalResolution);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

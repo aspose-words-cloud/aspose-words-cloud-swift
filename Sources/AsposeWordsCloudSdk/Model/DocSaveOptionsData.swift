@@ -50,19 +50,10 @@ public class DocSaveOptionsData : SaveOptionsData {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let alwaysCompressMetafiles = try container.decodeIfPresent(Bool.self, forKey: .alwaysCompressMetafiles) {
-            self.alwaysCompressMetafiles = alwaysCompressMetafiles;
-        }
-        if let password = try container.decodeIfPresent(String.self, forKey: .password) {
-            self.password = password;
-        }
-        if let savePictureBullet = try container.decodeIfPresent(Bool.self, forKey: .savePictureBullet) {
-            self.savePictureBullet = savePictureBullet;
-        }
-        if let saveRoutingSlip = try container.decodeIfPresent(Bool.self, forKey: .saveRoutingSlip) {
-            self.saveRoutingSlip = saveRoutingSlip;
-        }
-
+        self.alwaysCompressMetafiles = try container.decodeIfPresent(Bool.self, forKey: .alwaysCompressMetafiles);
+        self.password = try container.decodeIfPresent(String.self, forKey: .password);
+        self.savePictureBullet = try container.decodeIfPresent(Bool.self, forKey: .savePictureBullet);
+        self.saveRoutingSlip = try container.decodeIfPresent(Bool.self, forKey: .saveRoutingSlip);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -79,7 +70,6 @@ public class DocSaveOptionsData : SaveOptionsData {
         if (self.saveRoutingSlip != nil) {
             try container.encode(self.saveRoutingSlip, forKey: .saveRoutingSlip);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

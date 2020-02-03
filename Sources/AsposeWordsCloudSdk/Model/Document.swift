@@ -124,19 +124,12 @@ public class Document : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let links = try container.decodeIfPresent([Link].self, forKey: .links) {
-            self.links = links;
-        }
-        if let fileName = try container.decodeIfPresent(String.self, forKey: .fileName) {
-            self.fileName = fileName;
-        }
+        self.links = try container.decodeIfPresent([Link].self, forKey: .links);
+        self.fileName = try container.decodeIfPresent(String.self, forKey: .fileName);
         self.sourceFormat = try container.decode(SourceFormat.self, forKey: .sourceFormat);
         self.isEncrypted = try container.decode(Bool.self, forKey: .isEncrypted);
         self.isSigned = try container.decode(Bool.self, forKey: .isSigned);
-        if let documentProperties = try container.decodeIfPresent(DocumentProperties.self, forKey: .documentProperties) {
-            self.documentProperties = documentProperties;
-        }
-
+        self.documentProperties = try container.decodeIfPresent(DocumentProperties.self, forKey: .documentProperties);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -153,7 +146,6 @@ public class Document : Codable {
         if (self.documentProperties != nil) {
             try container.encode(self.documentProperties, forKey: .documentProperties);
         }
-        
         
     }
         

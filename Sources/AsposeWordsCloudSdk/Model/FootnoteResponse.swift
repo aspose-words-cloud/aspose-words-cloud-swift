@@ -41,10 +41,7 @@ public class FootnoteResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let footnote = try container.decodeIfPresent(Footnote.self, forKey: .footnote) {
-            self.footnote = footnote;
-        }
-
+        self.footnote = try container.decodeIfPresent(Footnote.self, forKey: .footnote);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class FootnoteResponse : WordsResponse {
         if (self.footnote != nil) {
             try container.encode(self.footnote, forKey: .footnote);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

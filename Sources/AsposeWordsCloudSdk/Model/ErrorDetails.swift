@@ -44,11 +44,8 @@ public class ErrorDetails : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let requestId = try container.decodeIfPresent(String.self, forKey: .requestId) {
-            self.requestId = requestId;
-        }
+        self.requestId = try container.decodeIfPresent(String.self, forKey: .requestId);
         self.errorDateTime = try container.decode(Date.self, forKey: .errorDateTime);
-
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -57,7 +54,6 @@ public class ErrorDetails : Codable {
             try container.encode(self.requestId, forKey: .requestId);
         }
         try container.encode(self.errorDateTime, forKey: .errorDateTime);
-        
         
     }
         

@@ -44,13 +44,8 @@ public class ReplaceTextResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let documentLink = try container.decodeIfPresent(FileLink.self, forKey: .documentLink) {
-            self.documentLink = documentLink;
-        }
-        if let matches = try container.decodeIfPresent(Int.self, forKey: .matches) {
-            self.matches = matches;
-        }
-
+        self.documentLink = try container.decodeIfPresent(FileLink.self, forKey: .documentLink);
+        self.matches = try container.decodeIfPresent(Int.self, forKey: .matches);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -61,7 +56,6 @@ public class ReplaceTextResponse : WordsResponse {
         if (self.matches != nil) {
             try container.encode(self.matches, forKey: .matches);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

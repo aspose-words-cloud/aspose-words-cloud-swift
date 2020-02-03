@@ -41,10 +41,7 @@ public class Bookmarks : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let bookmarkList = try container.decodeIfPresent([Bookmark].self, forKey: .bookmarkList) {
-            self.bookmarkList = bookmarkList;
-        }
-
+        self.bookmarkList = try container.decodeIfPresent([Bookmark].self, forKey: .bookmarkList);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class Bookmarks : LinkElement {
         if (self.bookmarkList != nil) {
             try container.encode(self.bookmarkList, forKey: .bookmarkList);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

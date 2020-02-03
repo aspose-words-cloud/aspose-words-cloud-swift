@@ -41,10 +41,7 @@ public class FontResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let font = try container.decodeIfPresent(Font.self, forKey: .font) {
-            self.font = font;
-        }
-
+        self.font = try container.decodeIfPresent(Font.self, forKey: .font);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class FontResponse : WordsResponse {
         if (self.font != nil) {
             try container.encode(self.font, forKey: .font);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

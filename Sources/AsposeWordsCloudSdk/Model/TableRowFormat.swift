@@ -64,19 +64,10 @@ public class TableRowFormat : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let allowBreakAcrossPages = try container.decodeIfPresent(Bool.self, forKey: .allowBreakAcrossPages) {
-            self.allowBreakAcrossPages = allowBreakAcrossPages;
-        }
-        if let headingFormat = try container.decodeIfPresent(Bool.self, forKey: .headingFormat) {
-            self.headingFormat = headingFormat;
-        }
-        if let height = try container.decodeIfPresent(Double.self, forKey: .height) {
-            self.height = height;
-        }
-        if let heightRule = try container.decodeIfPresent(HeightRule.self, forKey: .heightRule) {
-            self.heightRule = heightRule;
-        }
-
+        self.allowBreakAcrossPages = try container.decodeIfPresent(Bool.self, forKey: .allowBreakAcrossPages);
+        self.headingFormat = try container.decodeIfPresent(Bool.self, forKey: .headingFormat);
+        self.height = try container.decodeIfPresent(Double.self, forKey: .height);
+        self.heightRule = try container.decodeIfPresent(HeightRule.self, forKey: .heightRule);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -93,7 +84,6 @@ public class TableRowFormat : LinkElement {
         if (self.heightRule != nil) {
             try container.encode(self.heightRule, forKey: .heightRule);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

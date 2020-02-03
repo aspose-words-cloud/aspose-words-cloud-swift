@@ -55,13 +55,8 @@ public class ReplaceRange : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let text = try container.decodeIfPresent(String.self, forKey: .text) {
-            self.text = text;
-        }
-        if let textType = try container.decodeIfPresent(TextType.self, forKey: .textType) {
-            self.textType = textType;
-        }
-
+        self.text = try container.decodeIfPresent(String.self, forKey: .text);
+        self.textType = try container.decodeIfPresent(TextType.self, forKey: .textType);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -72,7 +67,6 @@ public class ReplaceRange : Codable {
         if (self.textType != nil) {
             try container.encode(self.textType, forKey: .textType);
         }
-        
         
     }
         

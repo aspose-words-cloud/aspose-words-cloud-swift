@@ -55,25 +55,12 @@ public class GetDocumentWithFormatRequest : Codable {
         
         self.name = try container.decode(.self, forKey: .name);
         self.format = try container.decode(.self, forKey: .format);
-        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
-            self.folder = folder;
-        }
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
-            self.loadEncoding = loadEncoding;
-        }
-        if let password = try container.decodeIfPresent(.self, forKey: .password) {
-            self.password = password;
-        }
-        if let outPath = try container.decodeIfPresent(.self, forKey: .outPath) {
-            self.outPath = outPath;
-        }
-        if let fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation) {
-            self.fontsLocation = fontsLocation;
-        }
-
+        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
+        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
+        self.password = try container.decodeIfPresent(.self, forKey: .password);
+        self.outPath = try container.decodeIfPresent(.self, forKey: .outPath);
+        self.fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -98,7 +85,6 @@ public class GetDocumentWithFormatRequest : Codable {
         if (self.fontsLocation != nil) {
             try container.encode(self.fontsLocation, forKey: .fontsLocation);
         }
-        
         
     }
     

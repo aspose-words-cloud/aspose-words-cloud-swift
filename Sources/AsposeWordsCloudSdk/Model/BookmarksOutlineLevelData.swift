@@ -44,11 +44,8 @@ public class BookmarksOutlineLevelData : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let name = try container.decodeIfPresent(String.self, forKey: .name) {
-            self.name = name;
-        }
+        self.name = try container.decodeIfPresent(String.self, forKey: .name);
         self.bookmarksOutlineLevel = try container.decode(Int.self, forKey: .bookmarksOutlineLevel);
-
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -57,7 +54,6 @@ public class BookmarksOutlineLevelData : Codable {
             try container.encode(self.name, forKey: .name);
         }
         try container.encode(self.bookmarksOutlineLevel, forKey: .bookmarksOutlineLevel);
-        
         
     }
         

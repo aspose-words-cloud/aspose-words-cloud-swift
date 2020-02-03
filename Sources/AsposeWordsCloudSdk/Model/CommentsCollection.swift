@@ -41,10 +41,7 @@ public class CommentsCollection : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let commentList = try container.decodeIfPresent([Comment].self, forKey: .commentList) {
-            self.commentList = commentList;
-        }
-
+        self.commentList = try container.decodeIfPresent([Comment].self, forKey: .commentList);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class CommentsCollection : LinkElement {
         if (self.commentList != nil) {
             try container.encode(self.commentList, forKey: .commentList);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

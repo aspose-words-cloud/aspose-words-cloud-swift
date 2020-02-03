@@ -47,16 +47,9 @@ public class DocumentProperty : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let builtIn = try container.decodeIfPresent(Bool.self, forKey: .builtIn) {
-            self.builtIn = builtIn;
-        }
-        if let name = try container.decodeIfPresent(String.self, forKey: .name) {
-            self.name = name;
-        }
-        if let value = try container.decodeIfPresent(String.self, forKey: .value) {
-            self.value = value;
-        }
-
+        self.builtIn = try container.decodeIfPresent(Bool.self, forKey: .builtIn);
+        self.name = try container.decodeIfPresent(String.self, forKey: .name);
+        self.value = try container.decodeIfPresent(String.self, forKey: .value);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -70,7 +63,6 @@ public class DocumentProperty : LinkElement {
         if (self.value != nil) {
             try container.encode(self.value, forKey: .value);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

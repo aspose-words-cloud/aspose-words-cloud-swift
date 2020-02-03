@@ -60,37 +60,16 @@ public class SplitDocumentRequest : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
         self.name = try container.decode(.self, forKey: .name);
-        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
-            self.folder = folder;
-        }
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
-            self.loadEncoding = loadEncoding;
-        }
-        if let password = try container.decodeIfPresent(.self, forKey: .password) {
-            self.password = password;
-        }
-        if let destFileName = try container.decodeIfPresent(.self, forKey: .destFileName) {
-            self.destFileName = destFileName;
-        }
-        if let format = try container.decodeIfPresent(.self, forKey: .format) {
-            self.format = format;
-        }
-        if let from = try container.decodeIfPresent(.self, forKey: .from) {
-            self.from = from;
-        }
-        if let to = try container.decodeIfPresent(.self, forKey: .to) {
-            self.to = to;
-        }
-        if let zipOutput = try container.decodeIfPresent(.self, forKey: .zipOutput) {
-            self.zipOutput = zipOutput;
-        }
-        if let fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation) {
-            self.fontsLocation = fontsLocation;
-        }
-
+        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
+        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
+        self.password = try container.decodeIfPresent(.self, forKey: .password);
+        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
+        self.format = try container.decodeIfPresent(.self, forKey: .format);
+        self.from = try container.decodeIfPresent(.self, forKey: .from);
+        self.to = try container.decodeIfPresent(.self, forKey: .to);
+        self.zipOutput = try container.decodeIfPresent(.self, forKey: .zipOutput);
+        self.fontsLocation = try container.decodeIfPresent(.self, forKey: .fontsLocation);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -126,7 +105,6 @@ public class SplitDocumentRequest : Codable {
         if (self.fontsLocation != nil) {
             try container.encode(self.fontsLocation, forKey: .fontsLocation);
         }
-        
         
     }
     

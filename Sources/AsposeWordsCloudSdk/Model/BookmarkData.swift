@@ -44,13 +44,8 @@ public class BookmarkData : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let name = try container.decodeIfPresent(String.self, forKey: .name) {
-            self.name = name;
-        }
-        if let text = try container.decodeIfPresent(String.self, forKey: .text) {
-            self.text = text;
-        }
-
+        self.name = try container.decodeIfPresent(String.self, forKey: .name);
+        self.text = try container.decodeIfPresent(String.self, forKey: .text);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -61,7 +56,6 @@ public class BookmarkData : Codable {
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
         }
-        
         
     }
         

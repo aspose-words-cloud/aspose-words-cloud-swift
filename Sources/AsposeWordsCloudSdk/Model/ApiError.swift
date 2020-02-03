@@ -53,22 +53,11 @@ public class ApiError : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let code = try container.decodeIfPresent(String.self, forKey: .code) {
-            self.code = code;
-        }
-        if let message = try container.decodeIfPresent(String.self, forKey: .message) {
-            self.message = message;
-        }
-        if let _description = try container.decodeIfPresent(String.self, forKey: ._description) {
-            self._description = _description;
-        }
-        if let dateTime = try container.decodeIfPresent(Date.self, forKey: .dateTime) {
-            self.dateTime = dateTime;
-        }
-        if let innerError = try container.decodeIfPresent(ApiError.self, forKey: .innerError) {
-            self.innerError = innerError;
-        }
-
+        self.code = try container.decodeIfPresent(String.self, forKey: .code);
+        self.message = try container.decodeIfPresent(String.self, forKey: .message);
+        self._description = try container.decodeIfPresent(String.self, forKey: ._description);
+        self.dateTime = try container.decodeIfPresent(Date.self, forKey: .dateTime);
+        self.innerError = try container.decodeIfPresent(ApiError.self, forKey: .innerError);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -88,7 +77,6 @@ public class ApiError : Codable {
         if (self.innerError != nil) {
             try container.encode(self.innerError, forKey: .innerError);
         }
-        
         
     }
         

@@ -44,13 +44,8 @@ public class FilesUploadResult : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let uploaded = try container.decodeIfPresent([String].self, forKey: .uploaded) {
-            self.uploaded = uploaded;
-        }
-        if let errors = try container.decodeIfPresent([ModelError].self, forKey: .errors) {
-            self.errors = errors;
-        }
-
+        self.uploaded = try container.decodeIfPresent([String].self, forKey: .uploaded);
+        self.errors = try container.decodeIfPresent([ModelError].self, forKey: .errors);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -61,7 +56,6 @@ public class FilesUploadResult : Codable {
         if (self.errors != nil) {
             try container.encode(self.errors, forKey: .errors);
         }
-        
         
     }
         

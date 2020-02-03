@@ -50,19 +50,10 @@ public class Link : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let href = try container.decodeIfPresent(String.self, forKey: .href) {
-            self.href = href;
-        }
-        if let rel = try container.decodeIfPresent(String.self, forKey: .rel) {
-            self.rel = rel;
-        }
-        if let type = try container.decodeIfPresent(String.self, forKey: .type) {
-            self.type = type;
-        }
-        if let title = try container.decodeIfPresent(String.self, forKey: .title) {
-            self.title = title;
-        }
-
+        self.href = try container.decodeIfPresent(String.self, forKey: .href);
+        self.rel = try container.decodeIfPresent(String.self, forKey: .rel);
+        self.type = try container.decodeIfPresent(String.self, forKey: .type);
+        self.title = try container.decodeIfPresent(String.self, forKey: .title);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -79,7 +70,6 @@ public class Link : Codable {
         if (self.title != nil) {
             try container.encode(self.title, forKey: .title);
         }
-        
         
     }
         

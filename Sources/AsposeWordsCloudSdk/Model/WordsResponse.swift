@@ -41,10 +41,7 @@ public class WordsResponse : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let requestId = try container.decodeIfPresent(String.self, forKey: .requestId) {
-            self.requestId = requestId;
-        }
-
+        self.requestId = try container.decodeIfPresent(String.self, forKey: .requestId);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class WordsResponse : Codable {
         if (self.requestId != nil) {
             try container.encode(self.requestId, forKey: .requestId);
         }
-        
         
     }
         

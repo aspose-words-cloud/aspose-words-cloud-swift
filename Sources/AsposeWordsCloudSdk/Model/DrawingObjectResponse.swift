@@ -41,10 +41,7 @@ public class DrawingObjectResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let drawingObject = try container.decodeIfPresent(DrawingObject.self, forKey: .drawingObject) {
-            self.drawingObject = drawingObject;
-        }
-
+        self.drawingObject = try container.decodeIfPresent(DrawingObject.self, forKey: .drawingObject);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class DrawingObjectResponse : WordsResponse {
         if (self.drawingObject != nil) {
             try container.encode(self.drawingObject, forKey: .drawingObject);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

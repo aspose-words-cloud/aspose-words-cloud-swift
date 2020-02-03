@@ -60,28 +60,13 @@ public class UpdateBookmarkRequest : Codable {
         self.name = try container.decode(.self, forKey: .name);
         self.bookmarkData = try container.decode(.self, forKey: .bookmarkData);
         self.bookmarkName = try container.decode(.self, forKey: .bookmarkName);
-        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
-            self.folder = folder;
-        }
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
-            self.loadEncoding = loadEncoding;
-        }
-        if let password = try container.decodeIfPresent(.self, forKey: .password) {
-            self.password = password;
-        }
-        if let destFileName = try container.decodeIfPresent(.self, forKey: .destFileName) {
-            self.destFileName = destFileName;
-        }
-        if let revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor) {
-            self.revisionAuthor = revisionAuthor;
-        }
-        if let revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime) {
-            self.revisionDateTime = revisionDateTime;
-        }
-
+        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
+        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
+        self.password = try container.decodeIfPresent(.self, forKey: .password);
+        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
+        self.revisionAuthor = try container.decodeIfPresent(.self, forKey: .revisionAuthor);
+        self.revisionDateTime = try container.decodeIfPresent(.self, forKey: .revisionDateTime);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -110,7 +95,6 @@ public class UpdateBookmarkRequest : Codable {
         if (self.revisionDateTime != nil) {
             try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
         }
-        
         
     }
     

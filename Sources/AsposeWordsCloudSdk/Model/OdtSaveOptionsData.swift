@@ -58,16 +58,9 @@ public class OdtSaveOptionsData : SaveOptionsData {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let isStrictSchema11 = try container.decodeIfPresent(Bool.self, forKey: .isStrictSchema11) {
-            self.isStrictSchema11 = isStrictSchema11;
-        }
-        if let measureUnit = try container.decodeIfPresent(MeasureUnit.self, forKey: .measureUnit) {
-            self.measureUnit = measureUnit;
-        }
-        if let prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat) {
-            self.prettyFormat = prettyFormat;
-        }
-
+        self.isStrictSchema11 = try container.decodeIfPresent(Bool.self, forKey: .isStrictSchema11);
+        self.measureUnit = try container.decodeIfPresent(MeasureUnit.self, forKey: .measureUnit);
+        self.prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -81,7 +74,6 @@ public class OdtSaveOptionsData : SaveOptionsData {
         if (self.prettyFormat != nil) {
             try container.encode(self.prettyFormat, forKey: .prettyFormat);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

@@ -56,25 +56,12 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let exportEmbeddedImages = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedImages) {
-            self.exportEmbeddedImages = exportEmbeddedImages;
-        }
-        if let fitToViewPort = try container.decodeIfPresent(Bool.self, forKey: .fitToViewPort) {
-            self.fitToViewPort = fitToViewPort;
-        }
-        if let resourcesFolder = try container.decodeIfPresent(String.self, forKey: .resourcesFolder) {
-            self.resourcesFolder = resourcesFolder;
-        }
-        if let resourcesFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourcesFolderAlias) {
-            self.resourcesFolderAlias = resourcesFolderAlias;
-        }
-        if let showPageBorder = try container.decodeIfPresent(Bool.self, forKey: .showPageBorder) {
-            self.showPageBorder = showPageBorder;
-        }
-        if let textOutputMode = try container.decodeIfPresent(String.self, forKey: .textOutputMode) {
-            self.textOutputMode = textOutputMode;
-        }
-
+        self.exportEmbeddedImages = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedImages);
+        self.fitToViewPort = try container.decodeIfPresent(Bool.self, forKey: .fitToViewPort);
+        self.resourcesFolder = try container.decodeIfPresent(String.self, forKey: .resourcesFolder);
+        self.resourcesFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourcesFolderAlias);
+        self.showPageBorder = try container.decodeIfPresent(Bool.self, forKey: .showPageBorder);
+        self.textOutputMode = try container.decodeIfPresent(String.self, forKey: .textOutputMode);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -97,7 +84,6 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         if (self.textOutputMode != nil) {
             try container.encode(self.textOutputMode, forKey: .textOutputMode);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

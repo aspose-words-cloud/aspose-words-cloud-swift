@@ -44,13 +44,8 @@ public class TableRow : NodeLink {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let rowFormat = try container.decodeIfPresent(TableRowFormat.self, forKey: .rowFormat) {
-            self.rowFormat = rowFormat;
-        }
-        if let tableCellList = try container.decodeIfPresent([TableCell].self, forKey: .tableCellList) {
-            self.tableCellList = tableCellList;
-        }
-
+        self.rowFormat = try container.decodeIfPresent(TableRowFormat.self, forKey: .rowFormat);
+        self.tableCellList = try container.decodeIfPresent([TableCell].self, forKey: .tableCellList);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -61,7 +56,6 @@ public class TableRow : NodeLink {
         if (self.tableCellList != nil) {
             try container.encode(self.tableCellList, forKey: .tableCellList);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

@@ -44,13 +44,8 @@ public class ProtectionDataResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let documentLink = try container.decodeIfPresent(FileLink.self, forKey: .documentLink) {
-            self.documentLink = documentLink;
-        }
-        if let protectionData = try container.decodeIfPresent(ProtectionData.self, forKey: .protectionData) {
-            self.protectionData = protectionData;
-        }
-
+        self.documentLink = try container.decodeIfPresent(FileLink.self, forKey: .documentLink);
+        self.protectionData = try container.decodeIfPresent(ProtectionData.self, forKey: .protectionData);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -61,7 +56,6 @@ public class ProtectionDataResponse : WordsResponse {
         if (self.protectionData != nil) {
             try container.encode(self.protectionData, forKey: .protectionData);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

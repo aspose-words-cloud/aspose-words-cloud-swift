@@ -56,13 +56,8 @@ public class DocumentStatData : Codable {
         self.wordCount = try container.decode(Int.self, forKey: .wordCount);
         self.paragraphCount = try container.decode(Int.self, forKey: .paragraphCount);
         self.pageCount = try container.decode(Int.self, forKey: .pageCount);
-        if let footnotesStatData = try container.decodeIfPresent(FootnotesStatData.self, forKey: .footnotesStatData) {
-            self.footnotesStatData = footnotesStatData;
-        }
-        if let pageStatData = try container.decodeIfPresent([PageStatData].self, forKey: .pageStatData) {
-            self.pageStatData = pageStatData;
-        }
-
+        self.footnotesStatData = try container.decodeIfPresent(FootnotesStatData.self, forKey: .footnotesStatData);
+        self.pageStatData = try container.decodeIfPresent([PageStatData].self, forKey: .pageStatData);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -76,7 +71,6 @@ public class DocumentStatData : Codable {
         if (self.pageStatData != nil) {
             try container.encode(self.pageStatData, forKey: .pageStatData);
         }
-        
         
     }
         

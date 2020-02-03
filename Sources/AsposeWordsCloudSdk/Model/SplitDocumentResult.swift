@@ -47,16 +47,9 @@ public class SplitDocumentResult : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let sourceDocument = try container.decodeIfPresent(FileLink.self, forKey: .sourceDocument) {
-            self.sourceDocument = sourceDocument;
-        }
-        if let pages = try container.decodeIfPresent([FileLink].self, forKey: .pages) {
-            self.pages = pages;
-        }
-        if let zippedPages = try container.decodeIfPresent(FileLink.self, forKey: .zippedPages) {
-            self.zippedPages = zippedPages;
-        }
-
+        self.sourceDocument = try container.decodeIfPresent(FileLink.self, forKey: .sourceDocument);
+        self.pages = try container.decodeIfPresent([FileLink].self, forKey: .pages);
+        self.zippedPages = try container.decodeIfPresent(FileLink.self, forKey: .zippedPages);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -70,7 +63,6 @@ public class SplitDocumentResult : Codable {
         if (self.zippedPages != nil) {
             try container.encode(self.zippedPages, forKey: .zippedPages);
         }
-        
         
     }
         

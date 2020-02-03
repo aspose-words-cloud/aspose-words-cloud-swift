@@ -41,10 +41,7 @@ public class NodeLink : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let nodeId = try container.decodeIfPresent(String.self, forKey: .nodeId) {
-            self.nodeId = nodeId;
-        }
-
+        self.nodeId = try container.decodeIfPresent(String.self, forKey: .nodeId);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class NodeLink : LinkElement {
         if (self.nodeId != nil) {
             try container.encode(self.nodeId, forKey: .nodeId);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

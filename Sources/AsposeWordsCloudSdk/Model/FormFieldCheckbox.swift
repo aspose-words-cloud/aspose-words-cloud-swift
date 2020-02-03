@@ -47,16 +47,9 @@ public class FormFieldCheckbox : FormField {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let checkBoxSize = try container.decodeIfPresent(Double.self, forKey: .checkBoxSize) {
-            self.checkBoxSize = checkBoxSize;
-        }
-        if let checked = try container.decodeIfPresent(Bool.self, forKey: .checked) {
-            self.checked = checked;
-        }
-        if let isCheckBoxExactSize = try container.decodeIfPresent(Bool.self, forKey: .isCheckBoxExactSize) {
-            self.isCheckBoxExactSize = isCheckBoxExactSize;
-        }
-
+        self.checkBoxSize = try container.decodeIfPresent(Double.self, forKey: .checkBoxSize);
+        self.checked = try container.decodeIfPresent(Bool.self, forKey: .checked);
+        self.isCheckBoxExactSize = try container.decodeIfPresent(Bool.self, forKey: .isCheckBoxExactSize);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -70,7 +63,6 @@ public class FormFieldCheckbox : FormField {
         if (self.isCheckBoxExactSize != nil) {
             try container.encode(self.isCheckBoxExactSize, forKey: .isCheckBoxExactSize);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

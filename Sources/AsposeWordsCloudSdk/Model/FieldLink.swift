@@ -41,10 +41,7 @@ public class FieldLink : NodeLink {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let fieldCode = try container.decodeIfPresent(String.self, forKey: .fieldCode) {
-            self.fieldCode = fieldCode;
-        }
-
+        self.fieldCode = try container.decodeIfPresent(String.self, forKey: .fieldCode);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class FieldLink : NodeLink {
         if (self.fieldCode != nil) {
             try container.encode(self.fieldCode, forKey: .fieldCode);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

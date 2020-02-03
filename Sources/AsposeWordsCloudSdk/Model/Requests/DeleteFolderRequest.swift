@@ -44,13 +44,8 @@ public class DeleteFolderRequest : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
         self.path = try container.decode(.self, forKey: .path);
-        if let storageName = try container.decodeIfPresent(.self, forKey: .storageName) {
-            self.storageName = storageName;
-        }
-        if let recursive = try container.decodeIfPresent(.self, forKey: .recursive) {
-            self.recursive = recursive;
-        }
-
+        self.storageName = try container.decodeIfPresent(.self, forKey: .storageName);
+        self.recursive = try container.decodeIfPresent(.self, forKey: .recursive);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -62,7 +57,6 @@ public class DeleteFolderRequest : Codable {
         if (self.recursive != nil) {
             try container.encode(self.recursive, forKey: .recursive);
         }
-        
         
     }
     

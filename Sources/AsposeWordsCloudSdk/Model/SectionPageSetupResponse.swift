@@ -41,10 +41,7 @@ public class SectionPageSetupResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let pageSetup = try container.decodeIfPresent(PageSetup.self, forKey: .pageSetup) {
-            self.pageSetup = pageSetup;
-        }
-
+        self.pageSetup = try container.decodeIfPresent(PageSetup.self, forKey: .pageSetup);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class SectionPageSetupResponse : WordsResponse {
         if (self.pageSetup != nil) {
             try container.encode(self.pageSetup, forKey: .pageSetup);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

@@ -47,13 +47,8 @@ public class MoveFolderRequest : Codable {
         
         self.destPath = try container.decode(.self, forKey: .destPath);
         self.srcPath = try container.decode(.self, forKey: .srcPath);
-        if let srcStorageName = try container.decodeIfPresent(.self, forKey: .srcStorageName) {
-            self.srcStorageName = srcStorageName;
-        }
-        if let destStorageName = try container.decodeIfPresent(.self, forKey: .destStorageName) {
-            self.destStorageName = destStorageName;
-        }
-
+        self.srcStorageName = try container.decodeIfPresent(.self, forKey: .srcStorageName);
+        self.destStorageName = try container.decodeIfPresent(.self, forKey: .destStorageName);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -66,7 +61,6 @@ public class MoveFolderRequest : Codable {
         if (self.destStorageName != nil) {
             try container.encode(self.destStorageName, forKey: .destStorageName);
         }
-        
         
     }
     

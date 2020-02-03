@@ -41,10 +41,7 @@ public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let exportCidUrlsForMhtmlResources = try container.decodeIfPresent(Bool.self, forKey: .exportCidUrlsForMhtmlResources) {
-            self.exportCidUrlsForMhtmlResources = exportCidUrlsForMhtmlResources;
-        }
-
+        self.exportCidUrlsForMhtmlResources = try container.decodeIfPresent(Bool.self, forKey: .exportCidUrlsForMhtmlResources);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
         if (self.exportCidUrlsForMhtmlResources != nil) {
             try container.encode(self.exportCidUrlsForMhtmlResources, forKey: .exportCidUrlsForMhtmlResources);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

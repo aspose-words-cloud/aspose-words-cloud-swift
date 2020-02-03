@@ -41,10 +41,7 @@ public class CommentsResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let comments = try container.decodeIfPresent(CommentsCollection.self, forKey: .comments) {
-            self.comments = comments;
-        }
-
+        self.comments = try container.decodeIfPresent(CommentsCollection.self, forKey: .comments);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class CommentsResponse : WordsResponse {
         if (self.comments != nil) {
             try container.encode(self.comments, forKey: .comments);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

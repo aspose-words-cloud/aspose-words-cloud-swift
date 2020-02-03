@@ -158,37 +158,16 @@ public class DrawingObject : DrawingObjectLink {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let height = try container.decodeIfPresent(Double.self, forKey: .height) {
-            self.height = height;
-        }
-        if let imageDataLink = try container.decodeIfPresent(WordsApiLink.self, forKey: .imageDataLink) {
-            self.imageDataLink = imageDataLink;
-        }
-        if let _left = try container.decodeIfPresent(Double.self, forKey: ._left) {
-            self._left = _left;
-        }
-        if let oleDataLink = try container.decodeIfPresent(WordsApiLink.self, forKey: .oleDataLink) {
-            self.oleDataLink = oleDataLink;
-        }
-        if let relativeHorizontalPosition = try container.decodeIfPresent(RelativeHorizontalPosition.self, forKey: .relativeHorizontalPosition) {
-            self.relativeHorizontalPosition = relativeHorizontalPosition;
-        }
-        if let relativeVerticalPosition = try container.decodeIfPresent(RelativeVerticalPosition.self, forKey: .relativeVerticalPosition) {
-            self.relativeVerticalPosition = relativeVerticalPosition;
-        }
-        if let renderLinks = try container.decodeIfPresent([WordsApiLink].self, forKey: .renderLinks) {
-            self.renderLinks = renderLinks;
-        }
-        if let top = try container.decodeIfPresent(Double.self, forKey: .top) {
-            self.top = top;
-        }
-        if let width = try container.decodeIfPresent(Double.self, forKey: .width) {
-            self.width = width;
-        }
-        if let wrapType = try container.decodeIfPresent(WrapType.self, forKey: .wrapType) {
-            self.wrapType = wrapType;
-        }
-
+        self.height = try container.decodeIfPresent(Double.self, forKey: .height);
+        self.imageDataLink = try container.decodeIfPresent(WordsApiLink.self, forKey: .imageDataLink);
+        self._left = try container.decodeIfPresent(Double.self, forKey: ._left);
+        self.oleDataLink = try container.decodeIfPresent(WordsApiLink.self, forKey: .oleDataLink);
+        self.relativeHorizontalPosition = try container.decodeIfPresent(RelativeHorizontalPosition.self, forKey: .relativeHorizontalPosition);
+        self.relativeVerticalPosition = try container.decodeIfPresent(RelativeVerticalPosition.self, forKey: .relativeVerticalPosition);
+        self.renderLinks = try container.decodeIfPresent([WordsApiLink].self, forKey: .renderLinks);
+        self.top = try container.decodeIfPresent(Double.self, forKey: .top);
+        self.width = try container.decodeIfPresent(Double.self, forKey: .width);
+        self.wrapType = try container.decodeIfPresent(WrapType.self, forKey: .wrapType);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -223,7 +202,6 @@ public class DrawingObject : DrawingObjectLink {
         if (self.wrapType != nil) {
             try container.encode(self.wrapType, forKey: .wrapType);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

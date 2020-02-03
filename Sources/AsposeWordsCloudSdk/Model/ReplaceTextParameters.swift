@@ -53,16 +53,11 @@ public class ReplaceTextParameters : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let oldValue = try container.decodeIfPresent(String.self, forKey: .oldValue) {
-            self.oldValue = oldValue;
-        }
-        if let newValue = try container.decodeIfPresent(String.self, forKey: .newValue) {
-            self.newValue = newValue;
-        }
+        self.oldValue = try container.decodeIfPresent(String.self, forKey: .oldValue);
+        self.newValue = try container.decodeIfPresent(String.self, forKey: .newValue);
         self.isMatchCase = try container.decode(Bool.self, forKey: .isMatchCase);
         self.isMatchWholeWord = try container.decode(Bool.self, forKey: .isMatchWholeWord);
         self.isOldValueRegex = try container.decode(Bool.self, forKey: .isOldValueRegex);
-
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -76,7 +71,6 @@ public class ReplaceTextParameters : Codable {
         try container.encode(self.isMatchCase, forKey: .isMatchCase);
         try container.encode(self.isMatchWholeWord, forKey: .isMatchWholeWord);
         try container.encode(self.isOldValueRegex, forKey: .isOldValueRegex);
-        
         
     }
         

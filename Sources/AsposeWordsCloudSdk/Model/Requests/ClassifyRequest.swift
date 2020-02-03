@@ -42,10 +42,7 @@ public class ClassifyRequest : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
         self.text = try container.decode(.self, forKey: .text);
-        if let bestClassesCount = try container.decodeIfPresent(.self, forKey: .bestClassesCount) {
-            self.bestClassesCount = bestClassesCount;
-        }
-
+        self.bestClassesCount = try container.decodeIfPresent(.self, forKey: .bestClassesCount);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -54,7 +51,6 @@ public class ClassifyRequest : Codable {
         if (self.bestClassesCount != nil) {
             try container.encode(self.bestClassesCount, forKey: .bestClassesCount);
         }
-        
         
     }
     

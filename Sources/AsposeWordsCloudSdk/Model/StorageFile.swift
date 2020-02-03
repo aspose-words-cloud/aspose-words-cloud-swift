@@ -53,18 +53,11 @@ public class StorageFile : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let name = try container.decodeIfPresent(String.self, forKey: .name) {
-            self.name = name;
-        }
+        self.name = try container.decodeIfPresent(String.self, forKey: .name);
         self.isFolder = try container.decode(Bool.self, forKey: .isFolder);
-        if let modifiedDate = try container.decodeIfPresent(Date.self, forKey: .modifiedDate) {
-            self.modifiedDate = modifiedDate;
-        }
+        self.modifiedDate = try container.decodeIfPresent(Date.self, forKey: .modifiedDate);
         self.size = try container.decode(Int64.self, forKey: .size);
-        if let path = try container.decodeIfPresent(String.self, forKey: .path) {
-            self.path = path;
-        }
-
+        self.path = try container.decodeIfPresent(String.self, forKey: .path);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -80,7 +73,6 @@ public class StorageFile : Codable {
         if (self.path != nil) {
             try container.encode(self.path, forKey: .path);
         }
-        
         
     }
         

@@ -41,10 +41,7 @@ public class TableCellInsert : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let insertAfter = try container.decodeIfPresent(Int.self, forKey: .insertAfter) {
-            self.insertAfter = insertAfter;
-        }
-
+        self.insertAfter = try container.decodeIfPresent(Int.self, forKey: .insertAfter);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class TableCellInsert : Codable {
         if (self.insertAfter != nil) {
             try container.encode(self.insertAfter, forKey: .insertAfter);
         }
-        
         
     }
         

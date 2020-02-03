@@ -47,16 +47,9 @@ public class RtfSaveOptionsData : SaveOptionsData {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let exportCompactSize = try container.decodeIfPresent(Bool.self, forKey: .exportCompactSize) {
-            self.exportCompactSize = exportCompactSize;
-        }
-        if let exportImagesForOldReaders = try container.decodeIfPresent(Bool.self, forKey: .exportImagesForOldReaders) {
-            self.exportImagesForOldReaders = exportImagesForOldReaders;
-        }
-        if let prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat) {
-            self.prettyFormat = prettyFormat;
-        }
-
+        self.exportCompactSize = try container.decodeIfPresent(Bool.self, forKey: .exportCompactSize);
+        self.exportImagesForOldReaders = try container.decodeIfPresent(Bool.self, forKey: .exportImagesForOldReaders);
+        self.prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -70,7 +63,6 @@ public class RtfSaveOptionsData : SaveOptionsData {
         if (self.prettyFormat != nil) {
             try container.encode(self.prettyFormat, forKey: .prettyFormat);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

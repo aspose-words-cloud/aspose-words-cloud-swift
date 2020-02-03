@@ -168,25 +168,12 @@ public class GraphicsQualityOptionsData : Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
-        if let compositingMode = try container.decodeIfPresent(CompositingMode.self, forKey: .compositingMode) {
-            self.compositingMode = compositingMode;
-        }
-        if let compositingQuality = try container.decodeIfPresent(CompositingQuality.self, forKey: .compositingQuality) {
-            self.compositingQuality = compositingQuality;
-        }
-        if let interpolationMode = try container.decodeIfPresent(InterpolationMode.self, forKey: .interpolationMode) {
-            self.interpolationMode = interpolationMode;
-        }
-        if let smoothingMode = try container.decodeIfPresent(SmoothingMode.self, forKey: .smoothingMode) {
-            self.smoothingMode = smoothingMode;
-        }
-        if let stringFormat = try container.decodeIfPresent(StringFormatData.self, forKey: .stringFormat) {
-            self.stringFormat = stringFormat;
-        }
-        if let textRenderingHint = try container.decodeIfPresent(TextRenderingHint.self, forKey: .textRenderingHint) {
-            self.textRenderingHint = textRenderingHint;
-        }
-
+        self.compositingMode = try container.decodeIfPresent(CompositingMode.self, forKey: .compositingMode);
+        self.compositingQuality = try container.decodeIfPresent(CompositingQuality.self, forKey: .compositingQuality);
+        self.interpolationMode = try container.decodeIfPresent(InterpolationMode.self, forKey: .interpolationMode);
+        self.smoothingMode = try container.decodeIfPresent(SmoothingMode.self, forKey: .smoothingMode);
+        self.stringFormat = try container.decodeIfPresent(StringFormatData.self, forKey: .stringFormat);
+        self.textRenderingHint = try container.decodeIfPresent(TextRenderingHint.self, forKey: .textRenderingHint);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -209,7 +196,6 @@ public class GraphicsQualityOptionsData : Codable {
         if (self.textRenderingHint != nil) {
             try container.encode(self.textRenderingHint, forKey: .textRenderingHint);
         }
-        
         
     }
         

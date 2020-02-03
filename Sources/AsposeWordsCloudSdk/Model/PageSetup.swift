@@ -459,94 +459,35 @@ public class PageSetup : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi) {
-            self.bidi = bidi;
-        }
-        if let borderAlwaysInFront = try container.decodeIfPresent(Bool.self, forKey: .borderAlwaysInFront) {
-            self.borderAlwaysInFront = borderAlwaysInFront;
-        }
-        if let borderAppliesTo = try container.decodeIfPresent(BorderAppliesTo.self, forKey: .borderAppliesTo) {
-            self.borderAppliesTo = borderAppliesTo;
-        }
-        if let borderDistanceFrom = try container.decodeIfPresent(BorderDistanceFrom.self, forKey: .borderDistanceFrom) {
-            self.borderDistanceFrom = borderDistanceFrom;
-        }
-        if let bottomMargin = try container.decodeIfPresent(Double.self, forKey: .bottomMargin) {
-            self.bottomMargin = bottomMargin;
-        }
-        if let differentFirstPageHeaderFooter = try container.decodeIfPresent(Bool.self, forKey: .differentFirstPageHeaderFooter) {
-            self.differentFirstPageHeaderFooter = differentFirstPageHeaderFooter;
-        }
-        if let firstPageTray = try container.decodeIfPresent(Int.self, forKey: .firstPageTray) {
-            self.firstPageTray = firstPageTray;
-        }
-        if let footerDistance = try container.decodeIfPresent(Double.self, forKey: .footerDistance) {
-            self.footerDistance = footerDistance;
-        }
-        if let gutter = try container.decodeIfPresent(Double.self, forKey: .gutter) {
-            self.gutter = gutter;
-        }
-        if let headerDistance = try container.decodeIfPresent(Double.self, forKey: .headerDistance) {
-            self.headerDistance = headerDistance;
-        }
-        if let leftMargin = try container.decodeIfPresent(Double.self, forKey: .leftMargin) {
-            self.leftMargin = leftMargin;
-        }
-        if let lineNumberCountBy = try container.decodeIfPresent(Int.self, forKey: .lineNumberCountBy) {
-            self.lineNumberCountBy = lineNumberCountBy;
-        }
-        if let lineNumberDistanceFromText = try container.decodeIfPresent(Double.self, forKey: .lineNumberDistanceFromText) {
-            self.lineNumberDistanceFromText = lineNumberDistanceFromText;
-        }
-        if let lineNumberRestartMode = try container.decodeIfPresent(LineNumberRestartMode.self, forKey: .lineNumberRestartMode) {
-            self.lineNumberRestartMode = lineNumberRestartMode;
-        }
-        if let lineStartingNumber = try container.decodeIfPresent(Int.self, forKey: .lineStartingNumber) {
-            self.lineStartingNumber = lineStartingNumber;
-        }
-        if let orientation = try container.decodeIfPresent(Orientation.self, forKey: .orientation) {
-            self.orientation = orientation;
-        }
-        if let otherPagesTray = try container.decodeIfPresent(Int.self, forKey: .otherPagesTray) {
-            self.otherPagesTray = otherPagesTray;
-        }
-        if let pageHeight = try container.decodeIfPresent(Double.self, forKey: .pageHeight) {
-            self.pageHeight = pageHeight;
-        }
-        if let pageNumberStyle = try container.decodeIfPresent(PageNumberStyle.self, forKey: .pageNumberStyle) {
-            self.pageNumberStyle = pageNumberStyle;
-        }
-        if let pageStartingNumber = try container.decodeIfPresent(Int.self, forKey: .pageStartingNumber) {
-            self.pageStartingNumber = pageStartingNumber;
-        }
-        if let pageWidth = try container.decodeIfPresent(Double.self, forKey: .pageWidth) {
-            self.pageWidth = pageWidth;
-        }
-        if let paperSize = try container.decodeIfPresent(PaperSize.self, forKey: .paperSize) {
-            self.paperSize = paperSize;
-        }
-        if let restartPageNumbering = try container.decodeIfPresent(Bool.self, forKey: .restartPageNumbering) {
-            self.restartPageNumbering = restartPageNumbering;
-        }
-        if let rightMargin = try container.decodeIfPresent(Double.self, forKey: .rightMargin) {
-            self.rightMargin = rightMargin;
-        }
-        if let rtlGutter = try container.decodeIfPresent(Bool.self, forKey: .rtlGutter) {
-            self.rtlGutter = rtlGutter;
-        }
-        if let sectionStart = try container.decodeIfPresent(SectionStart.self, forKey: .sectionStart) {
-            self.sectionStart = sectionStart;
-        }
-        if let suppressEndnotes = try container.decodeIfPresent(Bool.self, forKey: .suppressEndnotes) {
-            self.suppressEndnotes = suppressEndnotes;
-        }
-        if let topMargin = try container.decodeIfPresent(Double.self, forKey: .topMargin) {
-            self.topMargin = topMargin;
-        }
-        if let verticalAlignment = try container.decodeIfPresent(VerticalAlignment.self, forKey: .verticalAlignment) {
-            self.verticalAlignment = verticalAlignment;
-        }
-
+        self.bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi);
+        self.borderAlwaysInFront = try container.decodeIfPresent(Bool.self, forKey: .borderAlwaysInFront);
+        self.borderAppliesTo = try container.decodeIfPresent(BorderAppliesTo.self, forKey: .borderAppliesTo);
+        self.borderDistanceFrom = try container.decodeIfPresent(BorderDistanceFrom.self, forKey: .borderDistanceFrom);
+        self.bottomMargin = try container.decodeIfPresent(Double.self, forKey: .bottomMargin);
+        self.differentFirstPageHeaderFooter = try container.decodeIfPresent(Bool.self, forKey: .differentFirstPageHeaderFooter);
+        self.firstPageTray = try container.decodeIfPresent(Int.self, forKey: .firstPageTray);
+        self.footerDistance = try container.decodeIfPresent(Double.self, forKey: .footerDistance);
+        self.gutter = try container.decodeIfPresent(Double.self, forKey: .gutter);
+        self.headerDistance = try container.decodeIfPresent(Double.self, forKey: .headerDistance);
+        self.leftMargin = try container.decodeIfPresent(Double.self, forKey: .leftMargin);
+        self.lineNumberCountBy = try container.decodeIfPresent(Int.self, forKey: .lineNumberCountBy);
+        self.lineNumberDistanceFromText = try container.decodeIfPresent(Double.self, forKey: .lineNumberDistanceFromText);
+        self.lineNumberRestartMode = try container.decodeIfPresent(LineNumberRestartMode.self, forKey: .lineNumberRestartMode);
+        self.lineStartingNumber = try container.decodeIfPresent(Int.self, forKey: .lineStartingNumber);
+        self.orientation = try container.decodeIfPresent(Orientation.self, forKey: .orientation);
+        self.otherPagesTray = try container.decodeIfPresent(Int.self, forKey: .otherPagesTray);
+        self.pageHeight = try container.decodeIfPresent(Double.self, forKey: .pageHeight);
+        self.pageNumberStyle = try container.decodeIfPresent(PageNumberStyle.self, forKey: .pageNumberStyle);
+        self.pageStartingNumber = try container.decodeIfPresent(Int.self, forKey: .pageStartingNumber);
+        self.pageWidth = try container.decodeIfPresent(Double.self, forKey: .pageWidth);
+        self.paperSize = try container.decodeIfPresent(PaperSize.self, forKey: .paperSize);
+        self.restartPageNumbering = try container.decodeIfPresent(Bool.self, forKey: .restartPageNumbering);
+        self.rightMargin = try container.decodeIfPresent(Double.self, forKey: .rightMargin);
+        self.rtlGutter = try container.decodeIfPresent(Bool.self, forKey: .rtlGutter);
+        self.sectionStart = try container.decodeIfPresent(SectionStart.self, forKey: .sectionStart);
+        self.suppressEndnotes = try container.decodeIfPresent(Bool.self, forKey: .suppressEndnotes);
+        self.topMargin = try container.decodeIfPresent(Double.self, forKey: .topMargin);
+        self.verticalAlignment = try container.decodeIfPresent(VerticalAlignment.self, forKey: .verticalAlignment);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -638,7 +579,6 @@ public class PageSetup : LinkElement {
         if (self.verticalAlignment != nil) {
             try container.encode(self.verticalAlignment, forKey: .verticalAlignment);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

@@ -59,28 +59,13 @@ public class Comment : CommentLink {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let author = try container.decodeIfPresent(String.self, forKey: .author) {
-            self.author = author;
-        }
-        if let content = try container.decodeIfPresent(StoryChildNodes.self, forKey: .content) {
-            self.content = content;
-        }
-        if let dateTime = try container.decodeIfPresent(Date.self, forKey: .dateTime) {
-            self.dateTime = dateTime;
-        }
-        if let initial = try container.decodeIfPresent(String.self, forKey: .initial) {
-            self.initial = initial;
-        }
-        if let rangeEnd = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeEnd) {
-            self.rangeEnd = rangeEnd;
-        }
-        if let rangeStart = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeStart) {
-            self.rangeStart = rangeStart;
-        }
-        if let text = try container.decodeIfPresent(String.self, forKey: .text) {
-            self.text = text;
-        }
-
+        self.author = try container.decodeIfPresent(String.self, forKey: .author);
+        self.content = try container.decodeIfPresent(StoryChildNodes.self, forKey: .content);
+        self.dateTime = try container.decodeIfPresent(Date.self, forKey: .dateTime);
+        self.initial = try container.decodeIfPresent(String.self, forKey: .initial);
+        self.rangeEnd = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeEnd);
+        self.rangeStart = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeStart);
+        self.text = try container.decodeIfPresent(String.self, forKey: .text);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -106,7 +91,6 @@ public class Comment : CommentLink {
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

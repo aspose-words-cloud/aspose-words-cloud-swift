@@ -41,10 +41,7 @@ public class SearchResultsCollection : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let resultsList = try container.decodeIfPresent([SearchResult].self, forKey: .resultsList) {
-            self.resultsList = resultsList;
-        }
-
+        self.resultsList = try container.decodeIfPresent([SearchResult].self, forKey: .resultsList);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class SearchResultsCollection : LinkElement {
         if (self.resultsList != nil) {
             try container.encode(self.resultsList, forKey: .resultsList);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

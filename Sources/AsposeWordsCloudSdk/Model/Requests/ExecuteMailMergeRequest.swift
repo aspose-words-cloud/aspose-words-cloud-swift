@@ -60,37 +60,16 @@ public class ExecuteMailMergeRequest : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
         self.name = try container.decode(.self, forKey: .name);
-        if let data = try container.decodeIfPresent(.self, forKey: .data) {
-            self.data = data;
-        }
-        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
-            self.folder = folder;
-        }
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
-            self.loadEncoding = loadEncoding;
-        }
-        if let password = try container.decodeIfPresent(.self, forKey: .password) {
-            self.password = password;
-        }
-        if let withRegions = try container.decodeIfPresent(.self, forKey: .withRegions) {
-            self.withRegions = withRegions;
-        }
-        if let mailMergeDataFile = try container.decodeIfPresent(.self, forKey: .mailMergeDataFile) {
-            self.mailMergeDataFile = mailMergeDataFile;
-        }
-        if let cleanup = try container.decodeIfPresent(.self, forKey: .cleanup) {
-            self.cleanup = cleanup;
-        }
-        if let useWholeParagraphAsRegion = try container.decodeIfPresent(.self, forKey: .useWholeParagraphAsRegion) {
-            self.useWholeParagraphAsRegion = useWholeParagraphAsRegion;
-        }
-        if let destFileName = try container.decodeIfPresent(.self, forKey: .destFileName) {
-            self.destFileName = destFileName;
-        }
-
+        self.data = try container.decodeIfPresent(.self, forKey: .data);
+        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
+        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
+        self.password = try container.decodeIfPresent(.self, forKey: .password);
+        self.withRegions = try container.decodeIfPresent(.self, forKey: .withRegions);
+        self.mailMergeDataFile = try container.decodeIfPresent(.self, forKey: .mailMergeDataFile);
+        self.cleanup = try container.decodeIfPresent(.self, forKey: .cleanup);
+        self.useWholeParagraphAsRegion = try container.decodeIfPresent(.self, forKey: .useWholeParagraphAsRegion);
+        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -126,7 +105,6 @@ public class ExecuteMailMergeRequest : Codable {
         if (self.destFileName != nil) {
             try container.encode(self.destFileName, forKey: .destFileName);
         }
-        
         
     }
     

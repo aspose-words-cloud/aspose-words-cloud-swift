@@ -41,10 +41,7 @@ public class TablePropertiesResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let properties = try container.decodeIfPresent(TableProperties.self, forKey: .properties) {
-            self.properties = properties;
-        }
-
+        self.properties = try container.decodeIfPresent(TableProperties.self, forKey: .properties);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -52,7 +49,6 @@ public class TablePropertiesResponse : WordsResponse {
         if (self.properties != nil) {
             try container.encode(self.properties, forKey: .properties);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

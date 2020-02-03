@@ -77,46 +77,19 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let cssClassNamesPrefix = try container.decodeIfPresent(String.self, forKey: .cssClassNamesPrefix) {
-            self.cssClassNamesPrefix = cssClassNamesPrefix;
-        }
-        if let encoding = try container.decodeIfPresent(String.self, forKey: .encoding) {
-            self.encoding = encoding;
-        }
-        if let exportEmbeddedCss = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedCss) {
-            self.exportEmbeddedCss = exportEmbeddedCss;
-        }
-        if let exportEmbeddedFonts = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedFonts) {
-            self.exportEmbeddedFonts = exportEmbeddedFonts;
-        }
-        if let exportEmbeddedImages = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedImages) {
-            self.exportEmbeddedImages = exportEmbeddedImages;
-        }
-        if let exportFormFields = try container.decodeIfPresent(Bool.self, forKey: .exportFormFields) {
-            self.exportFormFields = exportFormFields;
-        }
-        if let fontFormat = try container.decodeIfPresent(String.self, forKey: .fontFormat) {
-            self.fontFormat = fontFormat;
-        }
-        if let pageHorizontalAlignment = try container.decodeIfPresent(String.self, forKey: .pageHorizontalAlignment) {
-            self.pageHorizontalAlignment = pageHorizontalAlignment;
-        }
-        if let pageMargins = try container.decodeIfPresent(Double.self, forKey: .pageMargins) {
-            self.pageMargins = pageMargins;
-        }
-        if let resourcesFolder = try container.decodeIfPresent(String.self, forKey: .resourcesFolder) {
-            self.resourcesFolder = resourcesFolder;
-        }
-        if let resourcesFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourcesFolderAlias) {
-            self.resourcesFolderAlias = resourcesFolderAlias;
-        }
-        if let saveFontFaceCssSeparately = try container.decodeIfPresent(Bool.self, forKey: .saveFontFaceCssSeparately) {
-            self.saveFontFaceCssSeparately = saveFontFaceCssSeparately;
-        }
-        if let showPageBorder = try container.decodeIfPresent(Bool.self, forKey: .showPageBorder) {
-            self.showPageBorder = showPageBorder;
-        }
-
+        self.cssClassNamesPrefix = try container.decodeIfPresent(String.self, forKey: .cssClassNamesPrefix);
+        self.encoding = try container.decodeIfPresent(String.self, forKey: .encoding);
+        self.exportEmbeddedCss = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedCss);
+        self.exportEmbeddedFonts = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedFonts);
+        self.exportEmbeddedImages = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedImages);
+        self.exportFormFields = try container.decodeIfPresent(Bool.self, forKey: .exportFormFields);
+        self.fontFormat = try container.decodeIfPresent(String.self, forKey: .fontFormat);
+        self.pageHorizontalAlignment = try container.decodeIfPresent(String.self, forKey: .pageHorizontalAlignment);
+        self.pageMargins = try container.decodeIfPresent(Double.self, forKey: .pageMargins);
+        self.resourcesFolder = try container.decodeIfPresent(String.self, forKey: .resourcesFolder);
+        self.resourcesFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourcesFolderAlias);
+        self.saveFontFaceCssSeparately = try container.decodeIfPresent(Bool.self, forKey: .saveFontFaceCssSeparately);
+        self.showPageBorder = try container.decodeIfPresent(Bool.self, forKey: .showPageBorder);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -160,7 +133,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         if (self.showPageBorder != nil) {
             try container.encode(self.showPageBorder, forKey: .showPageBorder);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

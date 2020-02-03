@@ -139,43 +139,18 @@ public class TableCellFormat : LinkElement {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         try super.init(from: try container.superDecoder());
-        if let bottomPadding = try container.decodeIfPresent(Double.self, forKey: .bottomPadding) {
-            self.bottomPadding = bottomPadding;
-        }
-        if let fitText = try container.decodeIfPresent(Bool.self, forKey: .fitText) {
-            self.fitText = fitText;
-        }
-        if let horizontalMerge = try container.decodeIfPresent(HorizontalMerge.self, forKey: .horizontalMerge) {
-            self.horizontalMerge = horizontalMerge;
-        }
-        if let leftPadding = try container.decodeIfPresent(Double.self, forKey: .leftPadding) {
-            self.leftPadding = leftPadding;
-        }
-        if let orientation = try container.decodeIfPresent(Orientation.self, forKey: .orientation) {
-            self.orientation = orientation;
-        }
-        if let preferredWidth = try container.decodeIfPresent(PreferredWidth.self, forKey: .preferredWidth) {
-            self.preferredWidth = preferredWidth;
-        }
-        if let rightPadding = try container.decodeIfPresent(Double.self, forKey: .rightPadding) {
-            self.rightPadding = rightPadding;
-        }
-        if let topPadding = try container.decodeIfPresent(Double.self, forKey: .topPadding) {
-            self.topPadding = topPadding;
-        }
-        if let verticalAlignment = try container.decodeIfPresent(VerticalAlignment.self, forKey: .verticalAlignment) {
-            self.verticalAlignment = verticalAlignment;
-        }
-        if let verticalMerge = try container.decodeIfPresent(VerticalMerge.self, forKey: .verticalMerge) {
-            self.verticalMerge = verticalMerge;
-        }
-        if let width = try container.decodeIfPresent(Double.self, forKey: .width) {
-            self.width = width;
-        }
-        if let wrapText = try container.decodeIfPresent(Bool.self, forKey: .wrapText) {
-            self.wrapText = wrapText;
-        }
-
+        self.bottomPadding = try container.decodeIfPresent(Double.self, forKey: .bottomPadding);
+        self.fitText = try container.decodeIfPresent(Bool.self, forKey: .fitText);
+        self.horizontalMerge = try container.decodeIfPresent(HorizontalMerge.self, forKey: .horizontalMerge);
+        self.leftPadding = try container.decodeIfPresent(Double.self, forKey: .leftPadding);
+        self.orientation = try container.decodeIfPresent(Orientation.self, forKey: .orientation);
+        self.preferredWidth = try container.decodeIfPresent(PreferredWidth.self, forKey: .preferredWidth);
+        self.rightPadding = try container.decodeIfPresent(Double.self, forKey: .rightPadding);
+        self.topPadding = try container.decodeIfPresent(Double.self, forKey: .topPadding);
+        self.verticalAlignment = try container.decodeIfPresent(VerticalAlignment.self, forKey: .verticalAlignment);
+        self.verticalMerge = try container.decodeIfPresent(VerticalMerge.self, forKey: .verticalMerge);
+        self.width = try container.decodeIfPresent(Double.self, forKey: .width);
+        self.wrapText = try container.decodeIfPresent(Bool.self, forKey: .wrapText);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -216,7 +191,6 @@ public class TableCellFormat : LinkElement {
         if (self.wrapText != nil) {
             try container.encode(self.wrapText, forKey: .wrapText);
         }
-        
         try super.encode(to: container.superEncoder());
     }
         

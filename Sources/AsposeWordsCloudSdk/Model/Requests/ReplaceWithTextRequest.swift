@@ -59,22 +59,11 @@ public class ReplaceWithTextRequest : Codable {
         self.rangeStartIdentifier = try container.decode(.self, forKey: .rangeStartIdentifier);
         self.rangeText = try container.decode(.self, forKey: .rangeText);
         self.rangeEndIdentifier = try container.decode(.self, forKey: .rangeEndIdentifier);
-        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
-            self.folder = folder;
-        }
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
-            self.loadEncoding = loadEncoding;
-        }
-        if let password = try container.decodeIfPresent(.self, forKey: .password) {
-            self.password = password;
-        }
-        if let destFileName = try container.decodeIfPresent(.self, forKey: .destFileName) {
-            self.destFileName = destFileName;
-        }
-
+        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
+        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
+        self.password = try container.decodeIfPresent(.self, forKey: .password);
+        self.destFileName = try container.decodeIfPresent(.self, forKey: .destFileName);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -98,7 +87,6 @@ public class ReplaceWithTextRequest : Codable {
         if (self.destFileName != nil) {
             try container.encode(self.destFileName, forKey: .destFileName);
         }
-        
         
     }
     

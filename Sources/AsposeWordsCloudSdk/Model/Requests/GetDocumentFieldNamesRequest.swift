@@ -50,22 +50,11 @@ public class GetDocumentFieldNamesRequest : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
         self.name = try container.decode(.self, forKey: .name);
-        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
-            self.folder = folder;
-        }
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
-            self.loadEncoding = loadEncoding;
-        }
-        if let password = try container.decodeIfPresent(.self, forKey: .password) {
-            self.password = password;
-        }
-        if let useNonMergeFields = try container.decodeIfPresent(.self, forKey: .useNonMergeFields) {
-            self.useNonMergeFields = useNonMergeFields;
-        }
-
+        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
+        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
+        self.password = try container.decodeIfPresent(.self, forKey: .password);
+        self.useNonMergeFields = try container.decodeIfPresent(.self, forKey: .useNonMergeFields);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -86,7 +75,6 @@ public class GetDocumentFieldNamesRequest : Codable {
         if (self.useNonMergeFields != nil) {
             try container.encode(self.useNonMergeFields, forKey: .useNonMergeFields);
         }
-        
         
     }
     

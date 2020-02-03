@@ -54,28 +54,13 @@ public class GetDocumentStatisticsRequest : Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         
         self.name = try container.decode(.self, forKey: .name);
-        if let folder = try container.decodeIfPresent(.self, forKey: .folder) {
-            self.folder = folder;
-        }
-        if let storage = try container.decodeIfPresent(.self, forKey: .storage) {
-            self.storage = storage;
-        }
-        if let loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding) {
-            self.loadEncoding = loadEncoding;
-        }
-        if let password = try container.decodeIfPresent(.self, forKey: .password) {
-            self.password = password;
-        }
-        if let includeComments = try container.decodeIfPresent(.self, forKey: .includeComments) {
-            self.includeComments = includeComments;
-        }
-        if let includeFootnotes = try container.decodeIfPresent(.self, forKey: .includeFootnotes) {
-            self.includeFootnotes = includeFootnotes;
-        }
-        if let includeTextInShapes = try container.decodeIfPresent(.self, forKey: .includeTextInShapes) {
-            self.includeTextInShapes = includeTextInShapes;
-        }
-
+        self.folder = try container.decodeIfPresent(.self, forKey: .folder);
+        self.storage = try container.decodeIfPresent(.self, forKey: .storage);
+        self.loadEncoding = try container.decodeIfPresent(.self, forKey: .loadEncoding);
+        self.password = try container.decodeIfPresent(.self, forKey: .password);
+        self.includeComments = try container.decodeIfPresent(.self, forKey: .includeComments);
+        self.includeFootnotes = try container.decodeIfPresent(.self, forKey: .includeFootnotes);
+        self.includeTextInShapes = try container.decodeIfPresent(.self, forKey: .includeTextInShapes);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -102,7 +87,6 @@ public class GetDocumentStatisticsRequest : Codable {
         if (self.includeTextInShapes != nil) {
             try container.encode(self.includeTextInShapes, forKey: .includeTextInShapes);
         }
-        
         
     }
     
