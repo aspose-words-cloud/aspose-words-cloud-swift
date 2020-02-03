@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertWatermarkTextRequest : Decodable {
+public class InsertWatermarkTextRequest : Codable {
     private let name : String;
     private let watermarkText : WatermarkText;
     private let folder : String?;

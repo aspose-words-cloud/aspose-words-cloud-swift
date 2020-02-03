@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertParagraphRequest : Decodable {
+public class InsertParagraphRequest : Codable {
     private let name : String;
     private let paragraph : ParagraphInsert;
     private let nodePath : String;

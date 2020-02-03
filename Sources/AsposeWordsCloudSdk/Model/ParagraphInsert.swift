@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ParagraphInsert : Decodable {
+public class ParagraphInsert : Codable {
         
     // Gets or sets paragraph&#39;s text.
     private let text : String?;

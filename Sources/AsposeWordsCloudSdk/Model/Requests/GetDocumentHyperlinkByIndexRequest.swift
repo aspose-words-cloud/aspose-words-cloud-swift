@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetDocumentHyperlinkByIndexRequest : Decodable {
+public class GetDocumentHyperlinkByIndexRequest : Codable {
     private let name : String;
     private let hyperlinkIndex : Int;
     private let folder : String?;

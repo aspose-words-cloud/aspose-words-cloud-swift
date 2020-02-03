@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ApiError : Decodable {
+public class ApiError : Codable {
         
     // Gets or sets api error code.
     private let code : String?;

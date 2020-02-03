@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ProtectionRequest : Decodable {
+public class ProtectionRequest : Codable {
         
     // Gets or sets current password.
     private let password : String?;

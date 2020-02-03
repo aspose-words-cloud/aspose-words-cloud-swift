@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class CompareDocumentRequest : Decodable {
+public class CompareDocumentRequest : Codable {
     private let name : String;
     private let compareData : CompareData;
     private let folder : String?;

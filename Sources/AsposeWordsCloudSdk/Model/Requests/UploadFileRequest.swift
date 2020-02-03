@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UploadFileRequest : Decodable {
+public class UploadFileRequest : Codable {
     private let fileContent : URL;
     private let path : String;
     private let storageName : String?;

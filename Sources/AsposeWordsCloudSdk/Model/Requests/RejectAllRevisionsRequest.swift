@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RejectAllRevisionsRequest : Decodable {
+public class RejectAllRevisionsRequest : Codable {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetRangeTextRequest : Decodable {
+public class GetRangeTextRequest : Codable {
     private let name : String;
     private let rangeStartIdentifier : String;
     private let rangeEndIdentifier : String;

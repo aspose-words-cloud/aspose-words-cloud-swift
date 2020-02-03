@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableRowInsert : Decodable {
+public class TableRowInsert : Codable {
         
     // Gets or sets table row will be inserted after row with specified 0-based index.
     private let insertAfter : Int?;

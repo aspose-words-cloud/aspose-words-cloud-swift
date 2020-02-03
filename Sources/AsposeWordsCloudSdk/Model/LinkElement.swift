@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class LinkElement : Decodable {
+public class LinkElement : Codable {
         
     // Gets or sets link to the document.
     private let link : WordsApiLink?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Document : Decodable {
+public class Document : Codable {
     // Gets or sets the original format of the document.
     public enum SourceFormat
     { 

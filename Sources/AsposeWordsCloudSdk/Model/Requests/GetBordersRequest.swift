@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetBordersRequest : Decodable {
+public class GetBordersRequest : Codable {
     private let name : String;
     private let nodePath : String;
     private let folder : String?;

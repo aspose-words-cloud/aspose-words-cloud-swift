@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FootnotesStatData : Decodable {
+public class FootnotesStatData : Codable {
         
     // Gets or sets total count of words in footnotes.
     private let wordCount : Int;

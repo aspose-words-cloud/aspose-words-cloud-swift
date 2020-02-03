@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetDocumentFieldNamesRequest : Decodable {
+public class GetDocumentFieldNamesRequest : Codable {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

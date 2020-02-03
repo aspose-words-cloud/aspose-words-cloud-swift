@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ExecuteMailMergeRequest : Decodable {
+public class ExecuteMailMergeRequest : Codable {
     private let name : String;
     private let data : String?;
     private let folder : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DownloadFileRequest : Decodable {
+public class DownloadFileRequest : Codable {
     private let path : String;
     private let storageName : String?;
     private let versionId : String?;

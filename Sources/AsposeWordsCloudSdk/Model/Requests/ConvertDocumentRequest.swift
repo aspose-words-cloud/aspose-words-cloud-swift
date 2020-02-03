@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ConvertDocumentRequest : Decodable {
+public class ConvertDocumentRequest : Codable {
     private let document : URL;
     private let format : String;
     private let storage : String?;

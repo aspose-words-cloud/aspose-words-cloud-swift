@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateFormFieldWithoutNodePathRequest : Decodable {
+public class UpdateFormFieldWithoutNodePathRequest : Codable {
     private let name : String;
     private let formField : FormField;
     private let index : Int;

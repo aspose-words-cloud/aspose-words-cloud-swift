@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class CompareData : Decodable {
+public class CompareData : Codable {
         
     // Gets or sets path to document to compare at the server.
     private let comparingWithDocument : String?;

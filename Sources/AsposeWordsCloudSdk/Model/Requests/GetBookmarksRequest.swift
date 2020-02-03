@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetBookmarksRequest : Decodable {
+public class GetBookmarksRequest : Codable {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class OutlineOptionsData : Decodable {
+public class OutlineOptionsData : Codable {
         
     // Gets or sets allows to specify individual bookmarks outline level.
     private let bookmarksOutlineLevels : [BookmarksOutlineLevelData]?;

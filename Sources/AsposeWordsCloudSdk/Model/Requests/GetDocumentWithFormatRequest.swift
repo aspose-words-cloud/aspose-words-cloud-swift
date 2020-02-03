@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetDocumentWithFormatRequest : Decodable {
+public class GetDocumentWithFormatRequest : Codable {
     private let name : String;
     private let format : String;
     private let folder : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RenderMathObjectRequest : Decodable {
+public class RenderMathObjectRequest : Codable {
     private let name : String;
     private let format : String;
     private let nodePath : String;

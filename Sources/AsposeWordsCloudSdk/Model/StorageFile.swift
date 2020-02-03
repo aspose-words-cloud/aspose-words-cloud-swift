@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class StorageFile : Decodable {
+public class StorageFile : Codable {
         
     // File or folder name.
     private let name : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateFootnoteRequest : Decodable {
+public class UpdateFootnoteRequest : Codable {
     private let name : String;
     private let footnoteDto : Footnote;
     private let nodePath : String;

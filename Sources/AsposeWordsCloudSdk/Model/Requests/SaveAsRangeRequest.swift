@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SaveAsRangeRequest : Decodable {
+public class SaveAsRangeRequest : Codable {
     private let name : String;
     private let rangeStartIdentifier : String;
     private let documentParameters : RangeDocument;

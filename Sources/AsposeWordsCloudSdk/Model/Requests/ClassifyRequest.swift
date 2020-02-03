@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ClassifyRequest : Decodable {
+public class ClassifyRequest : Codable {
     private let text : String;
     private let bestClassesCount : String?;
     

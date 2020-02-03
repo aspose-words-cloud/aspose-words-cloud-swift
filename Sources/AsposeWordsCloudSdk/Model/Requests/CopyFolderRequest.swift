@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class CopyFolderRequest : Decodable {
+public class CopyFolderRequest : Codable {
     private let destPath : String;
     private let srcPath : String;
     private let srcStorageName : String?;

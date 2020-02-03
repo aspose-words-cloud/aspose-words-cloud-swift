@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ModificationOperationResult : Decodable {
+public class ModificationOperationResult : Codable {
         
     // Gets or sets link to the source document (source for the modification operation).
     private let source : FileLink?;

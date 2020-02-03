@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetCommentRequest : Decodable {
+public class GetCommentRequest : Codable {
     private let name : String;
     private let commentIndex : Int;
     private let folder : String?;

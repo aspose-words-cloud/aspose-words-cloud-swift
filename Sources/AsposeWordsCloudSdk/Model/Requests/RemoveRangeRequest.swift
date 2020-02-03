@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RemoveRangeRequest : Decodable {
+public class RemoveRangeRequest : Codable {
     private let name : String;
     private let rangeStartIdentifier : String;
     private let rangeEndIdentifier : String;

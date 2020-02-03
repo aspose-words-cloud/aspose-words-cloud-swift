@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetDocumentFieldNamesOnlineRequest : Decodable {
+public class GetDocumentFieldNamesOnlineRequest : Codable {
     private let template : URL;
     private let useNonMergeFields : Bool?;
     

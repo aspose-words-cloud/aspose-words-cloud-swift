@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateParagraphFormatRequest : Decodable {
+public class UpdateParagraphFormatRequest : Codable {
     private let name : String;
     private let dto : ParagraphFormat;
     private let nodePath : String;

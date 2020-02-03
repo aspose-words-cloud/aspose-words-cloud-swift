@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteDrawingObjectWithoutNodePathRequest : Decodable {
+public class DeleteDrawingObjectWithoutNodePathRequest : Codable {
     private let name : String;
     private let index : Int;
     private let folder : String?;

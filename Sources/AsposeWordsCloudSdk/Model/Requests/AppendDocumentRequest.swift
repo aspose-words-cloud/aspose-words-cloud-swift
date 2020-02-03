@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class AppendDocumentRequest : Decodable {
+public class AppendDocumentRequest : Codable {
     private let name : String;
     private let documentList : DocumentEntryList;
     private let folder : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SearchRequest : Decodable {
+public class SearchRequest : Codable {
     private let name : String;
     private let pattern : String;
     private let folder : String?;

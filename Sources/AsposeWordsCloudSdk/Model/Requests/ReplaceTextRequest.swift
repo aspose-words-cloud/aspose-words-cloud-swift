@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ReplaceTextRequest : Decodable {
+public class ReplaceTextRequest : Codable {
     private let name : String;
     private let replaceText : ReplaceTextParameters;
     private let folder : String?;

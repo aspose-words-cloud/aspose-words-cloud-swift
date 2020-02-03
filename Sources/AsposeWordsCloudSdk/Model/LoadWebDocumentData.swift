@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class LoadWebDocumentData : Decodable {
+public class LoadWebDocumentData : Codable {
         
     // Gets or sets web document url.
     private let loadingDocumentUrl : String?;

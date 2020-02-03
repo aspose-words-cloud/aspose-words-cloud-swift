@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ModelError : Decodable {
+public class ModelError : Codable {
         
     // Code             
     private let code : String?;

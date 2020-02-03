@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RenderParagraphRequest : Decodable {
+public class RenderParagraphRequest : Codable {
     private let name : String;
     private let format : String;
     private let nodePath : String;

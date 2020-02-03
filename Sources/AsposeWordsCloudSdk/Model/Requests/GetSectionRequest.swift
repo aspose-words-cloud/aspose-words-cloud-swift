@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetSectionRequest : Decodable {
+public class GetSectionRequest : Codable {
     private let name : String;
     private let sectionIndex : Int;
     private let folder : String?;

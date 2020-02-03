@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetFootnotesWithoutNodePathRequest : Decodable {
+public class GetFootnotesWithoutNodePathRequest : Codable {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

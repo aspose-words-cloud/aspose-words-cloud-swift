@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetTablePropertiesRequest : Decodable {
+public class GetTablePropertiesRequest : Codable {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

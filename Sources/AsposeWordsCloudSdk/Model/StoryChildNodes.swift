@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class StoryChildNodes : Decodable {
+public class StoryChildNodes : Codable {
         
     // Gets or sets child nodes.
     private let childNodes : [NodeLink]?;

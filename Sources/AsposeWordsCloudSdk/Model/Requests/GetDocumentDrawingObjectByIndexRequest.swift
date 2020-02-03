@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetDocumentDrawingObjectByIndexRequest : Decodable {
+public class GetDocumentDrawingObjectByIndexRequest : Codable {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

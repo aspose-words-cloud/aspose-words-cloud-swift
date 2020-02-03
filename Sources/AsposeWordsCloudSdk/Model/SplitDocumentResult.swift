@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SplitDocumentResult : Decodable {
+public class SplitDocumentResult : Codable {
         
     // Gets or sets linkt to the source document.
     private let sourceDocument : FileLink?;

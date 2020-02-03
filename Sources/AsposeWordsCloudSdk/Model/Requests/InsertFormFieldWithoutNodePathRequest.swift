@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertFormFieldWithoutNodePathRequest : Decodable {
+public class InsertFormFieldWithoutNodePathRequest : Codable {
     private let name : String;
     private let formField : FormField;
     private let folder : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetAvailableFontsRequest : Decodable {
+public class GetAvailableFontsRequest : Codable {
     private let fontsLocation : String?;
     
     private enum CodingKeys: String, CodingKey { case fontsLocation }

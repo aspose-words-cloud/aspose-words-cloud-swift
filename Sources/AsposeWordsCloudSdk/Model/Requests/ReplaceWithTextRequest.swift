@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ReplaceWithTextRequest : Decodable {
+public class ReplaceWithTextRequest : Codable {
     private let name : String;
     private let rangeStartIdentifier : String;
     private let rangeText : ReplaceRange;

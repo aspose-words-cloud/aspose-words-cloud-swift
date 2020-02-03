@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetRunFontRequest : Decodable {
+public class GetRunFontRequest : Codable {
     private let name : String;
     private let paragraphPath : String;
     private let index : Int;

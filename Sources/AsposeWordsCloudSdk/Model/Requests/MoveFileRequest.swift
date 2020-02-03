@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class MoveFileRequest : Decodable {
+public class MoveFileRequest : Codable {
     private let destPath : String;
     private let srcPath : String;
     private let srcStorageName : String?;

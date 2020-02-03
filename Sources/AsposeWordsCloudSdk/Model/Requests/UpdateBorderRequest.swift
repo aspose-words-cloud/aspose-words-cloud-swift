@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateBorderRequest : Decodable {
+public class UpdateBorderRequest : Codable {
     private let name : String;
     private let borderProperties : Border;
     private let nodePath : String;

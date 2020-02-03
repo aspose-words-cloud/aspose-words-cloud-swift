@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SaveResult : Decodable {
+public class SaveResult : Codable {
         
     // Gets or sets link to source document.
     private let sourceDocument : FileLink?;

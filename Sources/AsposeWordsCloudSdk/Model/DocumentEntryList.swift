@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DocumentEntryList : Decodable {
+public class DocumentEntryList : Codable {
         
     // Gets or sets list of documents.
     private let documentEntries : [DocumentEntry]?;

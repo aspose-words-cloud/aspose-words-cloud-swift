@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteFileRequest : Decodable {
+public class DeleteFileRequest : Codable {
     private let path : String;
     private let storageName : String?;
     private let versionId : String?;

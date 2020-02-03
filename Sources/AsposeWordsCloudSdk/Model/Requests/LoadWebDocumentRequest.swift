@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class LoadWebDocumentRequest : Decodable {
+public class LoadWebDocumentRequest : Codable {
     private let data : LoadWebDocumentData;
     private let storage : String?;
     

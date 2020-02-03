@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteSectionRequest : Decodable {
+public class DeleteSectionRequest : Codable {
     private let name : String;
     private let sectionIndex : Int;
     private let folder : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class BookmarkData : Decodable {
+public class BookmarkData : Codable {
         
     // Gets or sets the name of the bookmark.
     private let name : String?;

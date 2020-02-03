@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetFormFieldRequest : Decodable {
+public class GetFormFieldRequest : Codable {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

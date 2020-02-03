@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteDocumentPropertyRequest : Decodable {
+public class DeleteDocumentPropertyRequest : Codable {
     private let name : String;
     private let propertyName : String;
     private let folder : String?;

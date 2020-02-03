@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteRunRequest : Decodable {
+public class DeleteRunRequest : Codable {
     private let name : String;
     private let paragraphPath : String;
     private let index : Int;

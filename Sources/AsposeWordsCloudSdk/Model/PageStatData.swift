@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class PageStatData : Decodable {
+public class PageStatData : Codable {
         
     // Gets or sets page number.
     private let pageNumber : Int;

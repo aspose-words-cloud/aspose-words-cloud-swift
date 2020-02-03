@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class WatermarkText : Decodable {
+public class WatermarkText : Codable {
         
     // Gets or sets the watermark text.
     private let text : String?;

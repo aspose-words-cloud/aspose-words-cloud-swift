@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetFormFieldsRequest : Decodable {
+public class GetFormFieldsRequest : Codable {
     private let name : String;
     private let nodePath : String;
     private let folder : String?;

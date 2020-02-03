@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateBookmarkRequest : Decodable {
+public class UpdateBookmarkRequest : Codable {
     private let name : String;
     private let bookmarkData : BookmarkData;
     private let bookmarkName : String;

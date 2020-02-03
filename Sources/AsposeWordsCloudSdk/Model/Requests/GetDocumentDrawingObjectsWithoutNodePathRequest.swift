@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetDocumentDrawingObjectsWithoutNodePathRequest : Decodable {
+public class GetDocumentDrawingObjectsWithoutNodePathRequest : Codable {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

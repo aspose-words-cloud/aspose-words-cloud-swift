@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SearchResult : Decodable {
+public class SearchResult : Codable {
         
     // Gets or sets link to result range start node.
     private let rangeStart : DocumentPosition?;

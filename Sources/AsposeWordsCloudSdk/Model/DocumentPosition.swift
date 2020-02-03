@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DocumentPosition : Decodable {
+public class DocumentPosition : Codable {
         
     // Gets or sets link to  node.
     private let node : NodeLink?;

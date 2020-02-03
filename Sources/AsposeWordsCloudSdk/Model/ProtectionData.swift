@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ProtectionData : Decodable {
+public class ProtectionData : Codable {
         
     // Gets or sets type of the protection.
     private let protectionType : String?;

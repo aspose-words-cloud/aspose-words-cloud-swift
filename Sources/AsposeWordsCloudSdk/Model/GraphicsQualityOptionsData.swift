@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GraphicsQualityOptionsData : Decodable {
+public class GraphicsQualityOptionsData : Codable {
     // Gets or sets a value that specifies how composited images are drawn to this Graphics.
     public enum CompositingMode
     { 

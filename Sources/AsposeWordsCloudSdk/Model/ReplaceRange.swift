@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ReplaceRange : Decodable {
+public class ReplaceRange : Codable {
     // Gets or sets range&#39;s text type.
     public enum TextType
     { 

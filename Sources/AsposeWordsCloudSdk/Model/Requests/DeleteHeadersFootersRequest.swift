@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteHeadersFootersRequest : Decodable {
+public class DeleteHeadersFootersRequest : Codable {
     private let name : String;
     private let sectionPath : String;
     private let folder : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteFootnoteRequest : Decodable {
+public class DeleteFootnoteRequest : Codable {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

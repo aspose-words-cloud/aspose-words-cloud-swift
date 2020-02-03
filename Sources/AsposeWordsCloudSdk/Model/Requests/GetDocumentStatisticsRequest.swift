@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetDocumentStatisticsRequest : Decodable {
+public class GetDocumentStatisticsRequest : Codable {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

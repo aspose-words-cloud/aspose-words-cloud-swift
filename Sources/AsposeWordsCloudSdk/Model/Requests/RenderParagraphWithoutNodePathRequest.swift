@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RenderParagraphWithoutNodePathRequest : Decodable {
+public class RenderParagraphWithoutNodePathRequest : Codable {
     private let name : String;
     private let format : String;
     private let index : Int;

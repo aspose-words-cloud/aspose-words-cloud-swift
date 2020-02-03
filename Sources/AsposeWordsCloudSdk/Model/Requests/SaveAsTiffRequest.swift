@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SaveAsTiffRequest : Decodable {
+public class SaveAsTiffRequest : Codable {
     private let name : String;
     private let saveOptions : TiffSaveOptionsData;
     private let folder : String?;

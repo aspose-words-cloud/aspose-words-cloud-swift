@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RangeDocument : Decodable {
+public class RangeDocument : Codable {
         
     // Gets or sets name for new document.
     private let documentName : String?;

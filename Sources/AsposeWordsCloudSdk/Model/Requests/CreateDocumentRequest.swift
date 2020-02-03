@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class CreateDocumentRequest : Decodable {
+public class CreateDocumentRequest : Codable {
     private let storage : String?;
     private let fileName : String?;
     private let folder : String?;

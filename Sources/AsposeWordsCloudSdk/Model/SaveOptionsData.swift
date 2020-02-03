@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SaveOptionsData : Decodable {
+public class SaveOptionsData : Codable {
         
     // Gets or sets format of save.
     private let saveFormat : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertWatermarkImageRequest : Decodable {
+public class InsertWatermarkImageRequest : Codable {
     private let name : String;
     private let imageFile : URL?;
     private let folder : String?;

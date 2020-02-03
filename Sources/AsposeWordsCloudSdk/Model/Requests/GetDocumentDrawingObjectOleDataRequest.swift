@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetDocumentDrawingObjectOleDataRequest : Decodable {
+public class GetDocumentDrawingObjectOleDataRequest : Codable {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

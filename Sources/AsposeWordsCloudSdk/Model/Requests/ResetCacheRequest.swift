@@ -27,5 +27,5 @@
 
 import Foundation
 
-public class ResetCacheRequest : Decodable {
+public class ResetCacheRequest : Codable {
 }

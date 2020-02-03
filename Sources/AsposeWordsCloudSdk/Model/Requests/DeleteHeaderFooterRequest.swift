@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteHeaderFooterRequest : Decodable {
+public class DeleteHeaderFooterRequest : Codable {
     private let name : String;
     private let sectionPath : String;
     private let index : Int;

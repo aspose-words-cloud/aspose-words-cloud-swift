@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ClassificationResult : Decodable {
+public class ClassificationResult : Codable {
         
     // Gets or sets the name of the class.
     private let className : String?;

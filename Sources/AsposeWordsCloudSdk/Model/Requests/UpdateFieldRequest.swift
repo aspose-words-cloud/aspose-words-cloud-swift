@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateFieldRequest : Decodable {
+public class UpdateFieldRequest : Codable {
     private let name : String;
     private let field : Field;
     private let nodePath : String;

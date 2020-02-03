@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class PdfDigitalSignatureDetailsData : Decodable {
+public class PdfDigitalSignatureDetailsData : Codable {
         
     // Gets or sets certificate&#39;s filename using for signing.
     private let certificateFilename : String?;

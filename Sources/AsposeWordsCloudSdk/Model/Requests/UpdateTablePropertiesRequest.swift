@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateTablePropertiesRequest : Decodable {
+public class UpdateTablePropertiesRequest : Codable {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

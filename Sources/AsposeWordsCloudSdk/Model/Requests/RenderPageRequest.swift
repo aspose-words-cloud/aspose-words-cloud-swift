@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RenderPageRequest : Decodable {
+public class RenderPageRequest : Codable {
     private let name : String;
     private let pageIndex : Int;
     private let format : String;

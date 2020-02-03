@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertHeaderFooterRequest : Decodable {
+public class InsertHeaderFooterRequest : Codable {
     private let name : String;
     private let headerFooterType : String;
     private let sectionPath : String;

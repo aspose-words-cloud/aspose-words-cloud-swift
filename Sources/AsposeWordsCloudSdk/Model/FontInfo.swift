@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FontInfo : Decodable {
+public class FontInfo : Codable {
         
     // Gets or sets family name of the font.
     private let fontFamilyName : String?;

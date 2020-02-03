@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FilesList : Decodable {
+public class FilesList : Codable {
         
     // Files and folders contained by folder .
     private let value : [StorageFile]?;

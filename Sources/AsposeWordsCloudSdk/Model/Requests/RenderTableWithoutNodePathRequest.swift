@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RenderTableWithoutNodePathRequest : Decodable {
+public class RenderTableWithoutNodePathRequest : Codable {
     private let name : String;
     private let format : String;
     private let index : Int;

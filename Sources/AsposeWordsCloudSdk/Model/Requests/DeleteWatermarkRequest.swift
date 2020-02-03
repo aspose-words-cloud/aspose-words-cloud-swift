@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteWatermarkRequest : Decodable {
+public class DeleteWatermarkRequest : Codable {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

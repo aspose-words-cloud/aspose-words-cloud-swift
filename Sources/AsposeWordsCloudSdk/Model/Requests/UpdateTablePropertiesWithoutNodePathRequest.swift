@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateTablePropertiesWithoutNodePathRequest : Decodable {
+public class UpdateTablePropertiesWithoutNodePathRequest : Codable {
     private let name : String;
     private let index : Int;
     private let folder : String?;

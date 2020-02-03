@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetParagraphRequest : Decodable {
+public class GetParagraphRequest : Codable {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

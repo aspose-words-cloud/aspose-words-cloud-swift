@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class XmlColor : Decodable {
+public class XmlColor : Codable {
         
     // Gets or sets hTML string color representation.
     private let web : String?;

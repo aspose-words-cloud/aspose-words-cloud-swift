@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateCommentRequest : Decodable {
+public class UpdateCommentRequest : Codable {
     private let name : String;
     private let commentIndex : Int;
     private let comment : Comment;

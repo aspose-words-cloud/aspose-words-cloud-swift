@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RenderDrawingObjectWithoutNodePathRequest : Decodable {
+public class RenderDrawingObjectWithoutNodePathRequest : Codable {
     private let name : String;
     private let format : String;
     private let index : Int;

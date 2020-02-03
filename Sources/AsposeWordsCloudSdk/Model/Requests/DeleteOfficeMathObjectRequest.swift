@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteOfficeMathObjectRequest : Decodable {
+public class DeleteOfficeMathObjectRequest : Codable {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

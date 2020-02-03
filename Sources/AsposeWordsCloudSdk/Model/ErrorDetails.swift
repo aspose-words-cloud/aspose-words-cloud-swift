@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ErrorDetails : Decodable {
+public class ErrorDetails : Codable {
         
     // The request id.
     private let requestId : String?;

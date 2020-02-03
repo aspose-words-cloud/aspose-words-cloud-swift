@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class CreateOrUpdateDocumentPropertyRequest : Decodable {
+public class CreateOrUpdateDocumentPropertyRequest : Codable {
     private let name : String;
     private let propertyName : String;
     private let property : DocumentProperty;

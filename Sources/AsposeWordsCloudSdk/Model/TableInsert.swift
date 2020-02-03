@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableInsert : Decodable {
+public class TableInsert : Codable {
         
     // Gets or sets table will be inserted before specified position.
     private let position : DocumentPosition?;

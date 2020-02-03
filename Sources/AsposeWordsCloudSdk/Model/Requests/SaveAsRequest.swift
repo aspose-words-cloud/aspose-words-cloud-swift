@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SaveAsRequest : Decodable {
+public class SaveAsRequest : Codable {
     private let name : String;
     private let saveOptionsData : SaveOptionsData;
     private let folder : String?;

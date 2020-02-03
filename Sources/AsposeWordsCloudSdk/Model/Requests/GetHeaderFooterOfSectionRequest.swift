@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetHeaderFooterOfSectionRequest : Decodable {
+public class GetHeaderFooterOfSectionRequest : Codable {
     private let name : String;
     private let headerFooterIndex : Int;
     private let sectionIndex : Int;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteCommentRequest : Decodable {
+public class DeleteCommentRequest : Codable {
     private let name : String;
     private let commentIndex : Int;
     private let folder : String?;

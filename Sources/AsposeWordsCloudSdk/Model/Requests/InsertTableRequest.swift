@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertTableRequest : Decodable {
+public class InsertTableRequest : Codable {
     private let name : String;
     private let nodePath : String;
     private let folder : String?;

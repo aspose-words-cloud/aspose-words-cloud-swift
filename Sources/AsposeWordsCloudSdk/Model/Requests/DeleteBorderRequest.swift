@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteBorderRequest : Decodable {
+public class DeleteBorderRequest : Codable {
     private let name : String;
     private let nodePath : String;
     private let borderType : String;

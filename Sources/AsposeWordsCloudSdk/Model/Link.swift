@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Link : Decodable {
+public class Link : Codable {
         
     // Gets or sets the \&quot;href\&quot; attribute contains the link&#39;s IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference.
     private let href : String?;

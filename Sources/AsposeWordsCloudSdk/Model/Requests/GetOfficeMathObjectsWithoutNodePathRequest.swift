@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetOfficeMathObjectsWithoutNodePathRequest : Decodable {
+public class GetOfficeMathObjectsWithoutNodePathRequest : Codable {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

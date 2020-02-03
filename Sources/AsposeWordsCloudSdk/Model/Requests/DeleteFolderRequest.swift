@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteFolderRequest : Decodable {
+public class DeleteFolderRequest : Codable {
     private let path : String;
     private let storageName : String?;
     private let recursive : Bool?;

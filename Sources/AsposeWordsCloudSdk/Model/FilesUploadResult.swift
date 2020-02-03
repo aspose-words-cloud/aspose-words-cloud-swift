@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FilesUploadResult : Decodable {
+public class FilesUploadResult : Codable {
         
     // List of uploaded file names
     private let uploaded : [String]?;

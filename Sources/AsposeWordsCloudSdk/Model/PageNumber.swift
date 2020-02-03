@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class PageNumber : Decodable {
+public class PageNumber : Codable {
         
     // Gets or sets page number format, e.g. \&quot;{PAGE} of {NUMPAGES}\&quot;.
     private let format : String?;

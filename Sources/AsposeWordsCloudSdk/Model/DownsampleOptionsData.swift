@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DownsampleOptionsData : Decodable {
+public class DownsampleOptionsData : Codable {
         
     // Gets or sets specifies whether images should be downsampled.
     private let downsampleImages : Bool?;

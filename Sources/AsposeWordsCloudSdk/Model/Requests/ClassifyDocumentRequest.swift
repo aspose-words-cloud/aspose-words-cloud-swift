@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ClassifyDocumentRequest : Decodable {
+public class ClassifyDocumentRequest : Codable {
     private let documentName : String;
     private let folder : String?;
     private let storage : String?;

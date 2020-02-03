@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class PdfEncryptionDetailsData : Decodable {
+public class PdfEncryptionDetailsData : Codable {
         
     // Gets or sets specifies the encryption algorithm to use.
     private let encryptionAlgorithm : String?;

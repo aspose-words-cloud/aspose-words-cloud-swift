@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ReplaceTextParameters : Decodable {
+public class ReplaceTextParameters : Codable {
         
     // Gets or sets old text value (or regex pattern ) to replace.
     private let oldValue : String?;

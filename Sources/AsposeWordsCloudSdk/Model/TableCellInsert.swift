@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableCellInsert : Decodable {
+public class TableCellInsert : Codable {
         
     // Gets or sets table cell will be inserted after cell with specified 0-based index.
     private let insertAfter : Int?;

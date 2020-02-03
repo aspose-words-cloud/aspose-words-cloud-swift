@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertDrawingObjectWithoutNodePathRequest : Decodable {
+public class InsertDrawingObjectWithoutNodePathRequest : Codable {
     private let name : String;
     private let drawingObject : String;
     private let imageFile : URL;

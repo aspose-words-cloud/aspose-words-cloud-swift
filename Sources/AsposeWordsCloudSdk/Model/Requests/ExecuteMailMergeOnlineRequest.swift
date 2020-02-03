@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ExecuteMailMergeOnlineRequest : Decodable {
+public class ExecuteMailMergeOnlineRequest : Codable {
     private let template : URL;
     private let data : URL;
     private let withRegions : Bool?;

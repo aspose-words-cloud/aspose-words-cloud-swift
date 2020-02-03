@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteFormFieldWithoutNodePathRequest : Decodable {
+public class DeleteFormFieldWithoutNodePathRequest : Codable {
     private let name : String;
     private let index : Int;
     private let folder : String?;

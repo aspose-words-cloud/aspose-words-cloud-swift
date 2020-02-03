@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetParagraphWithoutNodePathRequest : Decodable {
+public class GetParagraphWithoutNodePathRequest : Codable {
     private let name : String;
     private let index : Int;
     private let folder : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteMacrosRequest : Decodable {
+public class DeleteMacrosRequest : Codable {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

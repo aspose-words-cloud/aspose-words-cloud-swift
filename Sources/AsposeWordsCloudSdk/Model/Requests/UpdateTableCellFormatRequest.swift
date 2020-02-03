@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateTableCellFormatRequest : Decodable {
+public class UpdateTableCellFormatRequest : Codable {
     private let name : String;
     private let tableRowPath : String;
     private let index : Int;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class CreateFolderRequest : Decodable {
+public class CreateFolderRequest : Codable {
     private let path : String;
     private let storageName : String?;
     

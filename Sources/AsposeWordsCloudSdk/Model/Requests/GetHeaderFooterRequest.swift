@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetHeaderFooterRequest : Decodable {
+public class GetHeaderFooterRequest : Codable {
     private let name : String;
     private let headerFooterIndex : Int;
     private let folder : String?;

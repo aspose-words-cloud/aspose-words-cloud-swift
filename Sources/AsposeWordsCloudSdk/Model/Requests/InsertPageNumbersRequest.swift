@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertPageNumbersRequest : Decodable {
+public class InsertPageNumbersRequest : Codable {
     private let name : String;
     private let pageNumber : PageNumber;
     private let folder : String?;

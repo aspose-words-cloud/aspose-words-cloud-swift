@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ProtectDocumentRequest : Decodable {
+public class ProtectDocumentRequest : Codable {
     private let name : String;
     private let protectionRequest : ProtectionRequest;
     private let folder : String?;

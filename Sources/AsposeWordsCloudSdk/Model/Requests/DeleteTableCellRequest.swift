@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteTableCellRequest : Decodable {
+public class DeleteTableCellRequest : Codable {
     private let name : String;
     private let tableRowPath : String;
     private let index : Int;

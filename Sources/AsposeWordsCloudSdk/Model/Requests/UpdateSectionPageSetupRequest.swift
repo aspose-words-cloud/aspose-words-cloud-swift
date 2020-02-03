@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateSectionPageSetupRequest : Decodable {
+public class UpdateSectionPageSetupRequest : Codable {
     private let name : String;
     private let sectionIndex : Int;
     private let pageSetup : PageSetup;
