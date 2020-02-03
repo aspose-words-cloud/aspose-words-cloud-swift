@@ -36,7 +36,7 @@ public class FieldNames : LinkElement {
         self.names = names;
     }
         
-    public func getFieldNames() -> [String]? {
+    public func getNames() -> [String]? {
         return self.names;
     }
 }

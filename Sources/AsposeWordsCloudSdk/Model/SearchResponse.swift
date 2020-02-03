@@ -39,10 +39,10 @@ public class SearchResponse : WordsResponse {
         self.searchResults = searchResults;
     }
         
-    public func getSearchResponse() -> String? {
+    public func getSearchingPattern() -> String? {
         return self.searchingPattern;
     }
-    public func getSearchResponse() -> SearchResultsCollection? {
+    public func getSearchResults() -> SearchResultsCollection? {
         return self.searchResults;
     }
 }

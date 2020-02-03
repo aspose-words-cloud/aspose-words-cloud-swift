@@ -68,16 +68,16 @@ public class FormFieldTextInput : FormField {
         self.textInputType = textInputType;
     }
         
-    public func getFormFieldTextInput() -> Int? {
+    public func getMaxLength() -> Int? {
         return self.maxLength;
     }
-    public func getFormFieldTextInput() -> String? {
+    public func getTextInputDefault() -> String? {
         return self.textInputDefault;
     }
-    public func getFormFieldTextInput() -> String? {
+    public func getTextInputFormat() -> String? {
         return self.textInputFormat;
     }
-    public func getFormFieldTextInput() -> TextInputType? {
+    public func getTextInputType() -> TextInputType? {
         return self.textInputType;
     }
 }

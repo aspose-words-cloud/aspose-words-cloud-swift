@@ -48,19 +48,19 @@ public class ReplaceTextParameters : Decodable {
         self.isOldValueRegex = isOldValueRegex;
     }
         
-    public func getReplaceTextParameters() -> String? {
+    public func getOldValue() -> String? {
         return self.oldValue;
     }
-    public func getReplaceTextParameters() -> String? {
+    public func getNewValue() -> String? {
         return self.newValue;
     }
-    public func getReplaceTextParameters() -> Bool {
+    public func getIsMatchCase() -> Bool {
         return self.isMatchCase;
     }
-    public func getReplaceTextParameters() -> Bool {
+    public func getIsMatchWholeWord() -> Bool {
         return self.isMatchWholeWord;
     }
-    public func getReplaceTextParameters() -> Bool {
+    public func getIsOldValueRegex() -> Bool {
         return self.isOldValueRegex;
     }
 }

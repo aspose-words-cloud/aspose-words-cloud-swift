@@ -39,10 +39,10 @@ public class BookmarkData : Decodable {
         self.text = text;
     }
         
-    public func getBookmarkData() -> String? {
+    public func getName() -> String? {
         return self.name;
     }
-    public func getBookmarkData() -> String? {
+    public func getText() -> String? {
         return self.text;
     }
 }

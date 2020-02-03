@@ -42,13 +42,13 @@ public class ProtectionRequest : Decodable {
         self.protectionType = protectionType;
     }
         
-    public func getProtectionRequest() -> String? {
+    public func getPassword() -> String? {
         return self.password;
     }
-    public func getProtectionRequest() -> String? {
+    public func getNewPassword() -> String? {
         return self.newPassword;
     }
-    public func getProtectionRequest() -> String? {
+    public func getProtectionType() -> String? {
         return self.protectionType;
     }
 }

@@ -36,7 +36,7 @@ public class Paragraph : NodeLink {
         self.childNodes = childNodes;
     }
         
-    public func getParagraph() -> [NodeLink]? {
+    public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }
 }

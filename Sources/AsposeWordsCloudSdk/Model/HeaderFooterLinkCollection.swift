@@ -36,7 +36,7 @@ public class HeaderFooterLinkCollection : LinkElement {
         self.list = list;
     }
         
-    public func getHeaderFooterLinkCollection() -> [HeaderFooterLink]? {
+    public func getList() -> [HeaderFooterLink]? {
         return self.list;
     }
 }

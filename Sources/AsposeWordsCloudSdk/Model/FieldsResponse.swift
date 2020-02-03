@@ -36,7 +36,7 @@ public class FieldsResponse : WordsResponse {
         self.fields = fields;
     }
         
-    public func getFieldsResponse() -> FieldCollection? {
+    public func getFields() -> FieldCollection? {
         return self.fields;
     }
 }

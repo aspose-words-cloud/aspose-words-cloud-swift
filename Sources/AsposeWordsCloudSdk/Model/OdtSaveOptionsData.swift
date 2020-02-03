@@ -53,13 +53,13 @@ public class OdtSaveOptionsData : SaveOptionsData {
         self.prettyFormat = prettyFormat;
     }
         
-    public func getOdtSaveOptionsData() -> Bool? {
+    public func getIsStrictSchema11() -> Bool? {
         return self.isStrictSchema11;
     }
-    public func getOdtSaveOptionsData() -> MeasureUnit? {
+    public func getMeasureUnit() -> MeasureUnit? {
         return self.measureUnit;
     }
-    public func getOdtSaveOptionsData() -> Bool? {
+    public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }
 }

@@ -36,7 +36,7 @@ public class NodeLink : LinkElement {
         self.nodeId = nodeId;
     }
         
-    public func getNodeLink() -> String? {
+    public func getNodeId() -> String? {
         return self.nodeId;
     }
 }

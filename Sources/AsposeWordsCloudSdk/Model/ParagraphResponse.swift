@@ -36,7 +36,7 @@ public class ParagraphResponse : WordsResponse {
         self.paragraph = paragraph;
     }
         
-    public func getParagraphResponse() -> Paragraph? {
+    public func getParagraph() -> Paragraph? {
         return self.paragraph;
     }
 }

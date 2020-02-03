@@ -1259,46 +1259,46 @@ public class TableProperties : LinkElement {
         self.topPadding = topPadding;
     }
         
-    public func getTableProperties() -> Alignment? {
+    public func getAlignment() -> Alignment? {
         return self.alignment;
     }
-    public func getTableProperties() -> Bool? {
+    public func getAllowAutoFit() -> Bool? {
         return self.allowAutoFit;
     }
-    public func getTableProperties() -> Bool? {
+    public func getBidi() -> Bool? {
         return self.bidi;
     }
-    public func getTableProperties() -> Double? {
+    public func getBottomPadding() -> Double? {
         return self.bottomPadding;
     }
-    public func getTableProperties() -> Double? {
+    public func getCellSpacing() -> Double? {
         return self.cellSpacing;
     }
-    public func getTableProperties() -> Double? {
+    public func getLeftIndent() -> Double? {
         return self.leftIndent;
     }
-    public func getTableProperties() -> Double? {
+    public func getLeftPadding() -> Double? {
         return self.leftPadding;
     }
-    public func getTableProperties() -> PreferredWidth? {
+    public func getPreferredWidth() -> PreferredWidth? {
         return self.preferredWidth;
     }
-    public func getTableProperties() -> Double? {
+    public func getRightPadding() -> Double? {
         return self.rightPadding;
     }
-    public func getTableProperties() -> StyleIdentifier? {
+    public func getStyleIdentifier() -> StyleIdentifier? {
         return self.styleIdentifier;
     }
-    public func getTableProperties() -> String? {
+    public func getStyleName() -> String? {
         return self.styleName;
     }
-    public func getTableProperties() -> StyleOptions? {
+    public func getStyleOptions() -> StyleOptions? {
         return self.styleOptions;
     }
-    public func getTableProperties() -> TextWrapping? {
+    public func getTextWrapping() -> TextWrapping? {
         return self.textWrapping;
     }
-    public func getTableProperties() -> Double? {
+    public func getTopPadding() -> Double? {
         return self.topPadding;
     }
 }

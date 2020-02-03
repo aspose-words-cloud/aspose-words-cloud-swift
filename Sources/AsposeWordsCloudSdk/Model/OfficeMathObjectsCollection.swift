@@ -36,7 +36,7 @@ public class OfficeMathObjectsCollection : LinkElement {
         self.list = list;
     }
         
-    public func getOfficeMathObjectsCollection() -> [OfficeMathObject]? {
+    public func getList() -> [OfficeMathObject]? {
         return self.list;
     }
 }

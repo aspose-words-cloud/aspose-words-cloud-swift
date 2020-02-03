@@ -36,7 +36,7 @@ public class TableCellInsert : Decodable {
         self.insertAfter = insertAfter;
     }
         
-    public func getTableCellInsert() -> Int? {
+    public func getInsertAfter() -> Int? {
         return self.insertAfter;
     }
 }

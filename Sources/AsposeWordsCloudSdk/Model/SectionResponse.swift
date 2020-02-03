@@ -36,7 +36,7 @@ public class SectionResponse : WordsResponse {
         self.section = section;
     }
         
-    public func getSectionResponse() -> Section? {
+    public func getSection() -> Section? {
         return self.section;
     }
 }

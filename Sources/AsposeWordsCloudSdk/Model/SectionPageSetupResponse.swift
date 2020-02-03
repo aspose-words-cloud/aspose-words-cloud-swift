@@ -36,7 +36,7 @@ public class SectionPageSetupResponse : WordsResponse {
         self.pageSetup = pageSetup;
     }
         
-    public func getSectionPageSetupResponse() -> PageSetup? {
+    public func getPageSetup() -> PageSetup? {
         return self.pageSetup;
     }
 }

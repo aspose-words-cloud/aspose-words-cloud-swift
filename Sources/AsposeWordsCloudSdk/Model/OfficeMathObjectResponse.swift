@@ -36,7 +36,7 @@ public class OfficeMathObjectResponse : WordsResponse {
         self.officeMathObject = officeMathObject;
     }
         
-    public func getOfficeMathObjectResponse() -> OfficeMathObject? {
+    public func getOfficeMathObject() -> OfficeMathObject? {
         return self.officeMathObject;
     }
 }

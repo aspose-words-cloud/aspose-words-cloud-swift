@@ -39,10 +39,10 @@ public class DocumentEntry : Decodable {
         self.importFormatMode = importFormatMode;
     }
         
-    public func getDocumentEntry() -> String? {
+    public func getHref() -> String? {
         return self.href;
     }
-    public func getDocumentEntry() -> String? {
+    public func getImportFormatMode() -> String? {
         return self.importFormatMode;
     }
 }

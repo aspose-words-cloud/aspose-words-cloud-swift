@@ -36,7 +36,7 @@ public class ParagraphInsert : Decodable {
         self.text = text;
     }
         
-    public func getParagraphInsert() -> String? {
+    public func getText() -> String? {
         return self.text;
     }
 }

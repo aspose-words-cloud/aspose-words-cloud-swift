@@ -36,7 +36,7 @@ public class RangeDocument : Decodable {
         self.documentName = documentName;
     }
         
-    public func getRangeDocument() -> String? {
+    public func getDocumentName() -> String? {
         return self.documentName;
     }
 }

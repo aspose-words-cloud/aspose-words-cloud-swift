@@ -1362,124 +1362,124 @@ public class Font : LinkElement {
         self.underlineColor = underlineColor;
     }
         
-    public func getFont() -> Bool? {
+    public func getAllCaps() -> Bool? {
         return self.allCaps;
     }
-    public func getFont() -> Bool? {
+    public func getBidi() -> Bool? {
         return self.bidi;
     }
-    public func getFont() -> Bool? {
+    public func getBold() -> Bool? {
         return self.bold;
     }
-    public func getFont() -> Bool? {
+    public func getBoldBi() -> Bool? {
         return self.boldBi;
     }
-    public func getFont() -> Border? {
+    public func getBorder() -> Border? {
         return self.border;
     }
-    public func getFont() -> XmlColor? {
+    public func getColor() -> XmlColor? {
         return self.color;
     }
-    public func getFont() -> Bool? {
+    public func getComplexScript() -> Bool? {
         return self.complexScript;
     }
-    public func getFont() -> Bool? {
+    public func getDoubleStrikeThrough() -> Bool? {
         return self.doubleStrikeThrough;
     }
-    public func getFont() -> Bool? {
+    public func getEmboss() -> Bool? {
         return self.emboss;
     }
-    public func getFont() -> Bool? {
+    public func getEngrave() -> Bool? {
         return self.engrave;
     }
-    public func getFont() -> Bool? {
+    public func getHidden() -> Bool? {
         return self.hidden;
     }
-    public func getFont() -> XmlColor? {
+    public func getHighlightColor() -> XmlColor? {
         return self.highlightColor;
     }
-    public func getFont() -> Bool? {
+    public func getItalic() -> Bool? {
         return self.italic;
     }
-    public func getFont() -> Bool? {
+    public func getItalicBi() -> Bool? {
         return self.italicBi;
     }
-    public func getFont() -> Double? {
+    public func getKerning() -> Double? {
         return self.kerning;
     }
-    public func getFont() -> Int? {
+    public func getLocaleId() -> Int? {
         return self.localeId;
     }
-    public func getFont() -> Int? {
+    public func getLocaleIdBi() -> Int? {
         return self.localeIdBi;
     }
-    public func getFont() -> Int? {
+    public func getLocaleIdFarEast() -> Int? {
         return self.localeIdFarEast;
     }
-    public func getFont() -> String? {
+    public func getName() -> String? {
         return self.name;
     }
-    public func getFont() -> String? {
+    public func getNameAscii() -> String? {
         return self.nameAscii;
     }
-    public func getFont() -> String? {
+    public func getNameBi() -> String? {
         return self.nameBi;
     }
-    public func getFont() -> String? {
+    public func getNameFarEast() -> String? {
         return self.nameFarEast;
     }
-    public func getFont() -> String? {
+    public func getNameOther() -> String? {
         return self.nameOther;
     }
-    public func getFont() -> Bool? {
+    public func getNoProofing() -> Bool? {
         return self.noProofing;
     }
-    public func getFont() -> Bool? {
+    public func getOutline() -> Bool? {
         return self.outline;
     }
-    public func getFont() -> Double? {
+    public func getPosition() -> Double? {
         return self.position;
     }
-    public func getFont() -> Int? {
+    public func getScaling() -> Int? {
         return self.scaling;
     }
-    public func getFont() -> Bool? {
+    public func getShadow() -> Bool? {
         return self.shadow;
     }
-    public func getFont() -> Double? {
+    public func getSize() -> Double? {
         return self.size;
     }
-    public func getFont() -> Double? {
+    public func getSizeBi() -> Double? {
         return self.sizeBi;
     }
-    public func getFont() -> Bool? {
+    public func getSmallCaps() -> Bool? {
         return self.smallCaps;
     }
-    public func getFont() -> Double? {
+    public func getSpacing() -> Double? {
         return self.spacing;
     }
-    public func getFont() -> Bool? {
+    public func getStrikeThrough() -> Bool? {
         return self.strikeThrough;
     }
-    public func getFont() -> StyleIdentifier? {
+    public func getStyleIdentifier() -> StyleIdentifier? {
         return self.styleIdentifier;
     }
-    public func getFont() -> String? {
+    public func getStyleName() -> String? {
         return self.styleName;
     }
-    public func getFont() -> Bool? {
+    public func getSubscript() -> Bool? {
         return self._subscript;
     }
-    public func getFont() -> Bool? {
+    public func getSuperscript() -> Bool? {
         return self.superscript;
     }
-    public func getFont() -> TextEffect? {
+    public func getTextEffect() -> TextEffect? {
         return self.textEffect;
     }
-    public func getFont() -> Underline? {
+    public func getUnderline() -> Underline? {
         return self.underline;
     }
-    public func getFont() -> XmlColor? {
+    public func getUnderlineColor() -> XmlColor? {
         return self.underlineColor;
     }
 }

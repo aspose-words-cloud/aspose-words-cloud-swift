@@ -36,7 +36,7 @@ public class BorderResponse : WordsResponse {
         self.border = border;
     }
         
-    public func getBorderResponse() -> Border? {
+    public func getBorder() -> Border? {
         return self.border;
     }
 }

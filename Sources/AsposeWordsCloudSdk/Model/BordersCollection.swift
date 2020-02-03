@@ -36,7 +36,7 @@ public class BordersCollection : LinkElement {
         self.list = list;
     }
         
-    public func getBordersCollection() -> [Border]? {
+    public func getList() -> [Border]? {
         return self.list;
     }
 }

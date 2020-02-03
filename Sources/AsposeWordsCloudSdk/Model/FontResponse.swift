@@ -36,7 +36,7 @@ public class FontResponse : WordsResponse {
         self.font = font;
     }
         
-    public func getFontResponse() -> Font? {
+    public func getFont() -> Font? {
         return self.font;
     }
 }

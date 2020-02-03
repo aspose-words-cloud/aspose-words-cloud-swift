@@ -42,13 +42,13 @@ public class AvailableFontsResponse : WordsResponse {
         self.systemFonts = systemFonts;
     }
         
-    public func getAvailableFontsResponse() -> [FontInfo]? {
+    public func getAdditionalFonts() -> [FontInfo]? {
         return self.additionalFonts;
     }
-    public func getAvailableFontsResponse() -> [FontInfo]? {
+    public func getCustomFonts() -> [FontInfo]? {
         return self.customFonts;
     }
-    public func getAvailableFontsResponse() -> [FontInfo]? {
+    public func getSystemFonts() -> [FontInfo]? {
         return self.systemFonts;
     }
 }

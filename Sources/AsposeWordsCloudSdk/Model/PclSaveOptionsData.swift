@@ -39,10 +39,10 @@ public class PclSaveOptionsData : FixedPageSaveOptionsData {
         self.rasterizeTransformedElements = rasterizeTransformedElements;
     }
         
-    public func getPclSaveOptionsData() -> String? {
+    public func getFalllbackFontName() -> String? {
         return self.falllbackFontName;
     }
-    public func getPclSaveOptionsData() -> Bool? {
+    public func getRasterizeTransformedElements() -> Bool? {
         return self.rasterizeTransformedElements;
     }
 }

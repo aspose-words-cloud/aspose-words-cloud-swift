@@ -36,7 +36,7 @@ public class HyperlinkResponse : WordsResponse {
         self.hyperlink = hyperlink;
     }
         
-    public func getHyperlinkResponse() -> Hyperlink? {
+    public func getHyperlink() -> Hyperlink? {
         return self.hyperlink;
     }
 }

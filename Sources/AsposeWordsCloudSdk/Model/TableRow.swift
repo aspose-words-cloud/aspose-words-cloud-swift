@@ -39,10 +39,10 @@ public class TableRow : NodeLink {
         self.tableCellList = tableCellList;
     }
         
-    public func getTableRow() -> TableRowFormat? {
+    public func getRowFormat() -> TableRowFormat? {
         return self.rowFormat;
     }
-    public func getTableRow() -> [TableCell]? {
+    public func getTableCellList() -> [TableCell]? {
         return self.tableCellList;
     }
 }

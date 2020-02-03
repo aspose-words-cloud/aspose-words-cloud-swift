@@ -57,28 +57,28 @@ public class SaveOptionsData : Decodable {
         self.updateFields = updateFields;
     }
         
-    public func getSaveOptionsData() -> String? {
+    public func getSaveFormat() -> String? {
         return self.saveFormat;
     }
-    public func getSaveOptionsData() -> String? {
+    public func getFileName() -> String? {
         return self.fileName;
     }
-    public func getSaveOptionsData() -> String? {
+    public func getDmlRenderingMode() -> String? {
         return self.dmlRenderingMode;
     }
-    public func getSaveOptionsData() -> String? {
+    public func getDmlEffectsRenderingMode() -> String? {
         return self.dmlEffectsRenderingMode;
     }
-    public func getSaveOptionsData() -> Bool? {
+    public func getZipOutput() -> Bool? {
         return self.zipOutput;
     }
-    public func getSaveOptionsData() -> Bool? {
+    public func getUpdateLastSavedTimeProperty() -> Bool? {
         return self.updateLastSavedTimeProperty;
     }
-    public func getSaveOptionsData() -> Bool? {
+    public func getUpdateSdtContent() -> Bool? {
         return self.updateSdtContent;
     }
-    public func getSaveOptionsData() -> Bool? {
+    public func getUpdateFields() -> Bool? {
         return self.updateFields;
     }
 }

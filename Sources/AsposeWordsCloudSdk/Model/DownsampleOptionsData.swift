@@ -42,13 +42,13 @@ public class DownsampleOptionsData : Decodable {
         self.resolutionThreshold = resolutionThreshold;
     }
         
-    public func getDownsampleOptionsData() -> Bool? {
+    public func getDownsampleImages() -> Bool? {
         return self.downsampleImages;
     }
-    public func getDownsampleOptionsData() -> Int? {
+    public func getResolution() -> Int? {
         return self.resolution;
     }
-    public func getDownsampleOptionsData() -> Int? {
+    public func getResolutionThreshold() -> Int? {
         return self.resolutionThreshold;
     }
 }

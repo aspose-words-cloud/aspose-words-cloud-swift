@@ -36,7 +36,7 @@ public class FieldCollection : LinkElement {
         self.list = list;
     }
         
-    public func getFieldCollection() -> [Field]? {
+    public func getList() -> [Field]? {
         return self.list;
     }
 }

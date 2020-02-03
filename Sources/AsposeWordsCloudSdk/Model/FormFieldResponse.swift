@@ -36,7 +36,7 @@ public class FormFieldResponse : WordsResponse {
         self.formField = formField;
     }
         
-    public func getFormFieldResponse() -> FormField? {
+    public func getFormField() -> FormField? {
         return self.formField;
     }
 }

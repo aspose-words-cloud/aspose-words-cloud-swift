@@ -54,25 +54,25 @@ public class Comment : CommentLink {
         self.text = text;
     }
         
-    public func getComment() -> String? {
+    public func getAuthor() -> String? {
         return self.author;
     }
-    public func getComment() -> StoryChildNodes? {
+    public func getContent() -> StoryChildNodes? {
         return self.content;
     }
-    public func getComment() -> Date? {
+    public func getDateTime() -> Date? {
         return self.dateTime;
     }
-    public func getComment() -> String? {
+    public func getInitial() -> String? {
         return self.initial;
     }
-    public func getComment() -> DocumentPosition? {
+    public func getRangeEnd() -> DocumentPosition? {
         return self.rangeEnd;
     }
-    public func getComment() -> DocumentPosition? {
+    public func getRangeStart() -> DocumentPosition? {
         return self.rangeStart;
     }
-    public func getComment() -> String? {
+    public func getText() -> String? {
         return self.text;
     }
 }

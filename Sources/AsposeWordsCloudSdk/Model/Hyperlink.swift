@@ -39,10 +39,10 @@ public class Hyperlink : LinkElement {
         self.value = value;
     }
         
-    public func getHyperlink() -> String? {
+    public func getDisplayText() -> String? {
         return self.displayText;
     }
-    public func getHyperlink() -> String? {
+    public func getValue() -> String? {
         return self.value;
     }
 }

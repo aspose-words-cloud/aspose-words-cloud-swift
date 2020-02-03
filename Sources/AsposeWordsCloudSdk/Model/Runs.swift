@@ -36,7 +36,7 @@ public class Runs : LinkElement {
         self.list = list;
     }
         
-    public func getRuns() -> [Run]? {
+    public func getList() -> [Run]? {
         return self.list;
     }
 }

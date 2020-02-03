@@ -45,16 +45,16 @@ public class DocSaveOptionsData : SaveOptionsData {
         self.saveRoutingSlip = saveRoutingSlip;
     }
         
-    public func getDocSaveOptionsData() -> Bool? {
+    public func getAlwaysCompressMetafiles() -> Bool? {
         return self.alwaysCompressMetafiles;
     }
-    public func getDocSaveOptionsData() -> String? {
+    public func getPassword() -> String? {
         return self.password;
     }
-    public func getDocSaveOptionsData() -> Bool? {
+    public func getSavePictureBullet() -> Bool? {
         return self.savePictureBullet;
     }
-    public func getDocSaveOptionsData() -> Bool? {
+    public func getSaveRoutingSlip() -> Bool? {
         return self.saveRoutingSlip;
     }
 }

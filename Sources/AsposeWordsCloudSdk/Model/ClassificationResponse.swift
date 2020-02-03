@@ -42,13 +42,13 @@ public class ClassificationResponse : WordsResponse {
         self.bestResults = bestResults;
     }
         
-    public func getClassificationResponse() -> String? {
+    public func getBestClassName() -> String? {
         return self.bestClassName;
     }
-    public func getClassificationResponse() -> Double? {
+    public func getBestClassProbability() -> Double? {
         return self.bestClassProbability;
     }
-    public func getClassificationResponse() -> [ClassificationResult]? {
+    public func getBestResults() -> [ClassificationResult]? {
         return self.bestResults;
     }
 }

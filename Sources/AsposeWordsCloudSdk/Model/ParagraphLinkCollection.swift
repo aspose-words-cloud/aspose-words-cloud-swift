@@ -36,7 +36,7 @@ public class ParagraphLinkCollection : LinkElement {
         self.paragraphLinkList = paragraphLinkList;
     }
         
-    public func getParagraphLinkCollection() -> [ParagraphLink]? {
+    public func getParagraphLinkList() -> [ParagraphLink]? {
         return self.paragraphLinkList;
     }
 }

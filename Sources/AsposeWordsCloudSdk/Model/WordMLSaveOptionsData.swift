@@ -36,7 +36,7 @@ public class WordMLSaveOptionsData : SaveOptionsData {
         self.prettyFormat = prettyFormat;
     }
         
-    public func getWordMLSaveOptionsData() -> Bool? {
+    public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }
 }

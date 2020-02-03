@@ -36,7 +36,7 @@ public class DocumentProperties : LinkElement {
         self.list = list;
     }
         
-    public func getDocumentProperties() -> [DocumentProperty]? {
+    public func getList() -> [DocumentProperty]? {
         return self.list;
     }
 }

@@ -42,13 +42,13 @@ public class SaveResult : Decodable {
         self.additionalItems = additionalItems;
     }
         
-    public func getSaveResult() -> FileLink? {
+    public func getSourceDocument() -> FileLink? {
         return self.sourceDocument;
     }
-    public func getSaveResult() -> FileLink? {
+    public func getDestDocument() -> FileLink? {
         return self.destDocument;
     }
-    public func getSaveResult() -> [FileLink]? {
+    public func getAdditionalItems() -> [FileLink]? {
         return self.additionalItems;
     }
 }

@@ -36,7 +36,7 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
         self.epubNavigationMapLevel = epubNavigationMapLevel;
     }
         
-    public func getEpubSaveOptionsData() -> Int? {
+    public func getEpubNavigationMapLevel() -> Int? {
         return self.epubNavigationMapLevel;
     }
 }

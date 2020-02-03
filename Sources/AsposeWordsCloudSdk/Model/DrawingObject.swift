@@ -153,34 +153,34 @@ public class DrawingObject : DrawingObjectLink {
         self.wrapType = wrapType;
     }
         
-    public func getDrawingObject() -> Double? {
+    public func getHeight() -> Double? {
         return self.height;
     }
-    public func getDrawingObject() -> WordsApiLink? {
+    public func getImageDataLink() -> WordsApiLink? {
         return self.imageDataLink;
     }
-    public func getDrawingObject() -> Double? {
+    public func getLeft() -> Double? {
         return self._left;
     }
-    public func getDrawingObject() -> WordsApiLink? {
+    public func getOleDataLink() -> WordsApiLink? {
         return self.oleDataLink;
     }
-    public func getDrawingObject() -> RelativeHorizontalPosition? {
+    public func getRelativeHorizontalPosition() -> RelativeHorizontalPosition? {
         return self.relativeHorizontalPosition;
     }
-    public func getDrawingObject() -> RelativeVerticalPosition? {
+    public func getRelativeVerticalPosition() -> RelativeVerticalPosition? {
         return self.relativeVerticalPosition;
     }
-    public func getDrawingObject() -> [WordsApiLink]? {
+    public func getRenderLinks() -> [WordsApiLink]? {
         return self.renderLinks;
     }
-    public func getDrawingObject() -> Double? {
+    public func getTop() -> Double? {
         return self.top;
     }
-    public func getDrawingObject() -> Double? {
+    public func getWidth() -> Double? {
         return self.width;
     }
-    public func getDrawingObject() -> WrapType? {
+    public func getWrapType() -> WrapType? {
         return self.wrapType;
     }
 }

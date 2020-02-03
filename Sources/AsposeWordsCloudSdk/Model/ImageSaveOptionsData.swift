@@ -72,43 +72,43 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         self.verticalResolution = verticalResolution;
     }
         
-    public func getImageSaveOptionsData() -> GraphicsQualityOptionsData? {
+    public func getGraphicsQualityOptions() -> GraphicsQualityOptionsData? {
         return self.graphicsQualityOptions;
     }
-    public func getImageSaveOptionsData() -> Double? {
+    public func getHorizontalResolution() -> Double? {
         return self.horizontalResolution;
     }
-    public func getImageSaveOptionsData() -> Double? {
+    public func getImageBrightness() -> Double? {
         return self.imageBrightness;
     }
-    public func getImageSaveOptionsData() -> String? {
+    public func getImageColorMode() -> String? {
         return self.imageColorMode;
     }
-    public func getImageSaveOptionsData() -> Double? {
+    public func getImageContrast() -> Double? {
         return self.imageContrast;
     }
-    public func getImageSaveOptionsData() -> String? {
+    public func getPaperColor() -> String? {
         return self.paperColor;
     }
-    public func getImageSaveOptionsData() -> String? {
+    public func getPixelFormat() -> String? {
         return self.pixelFormat;
     }
-    public func getImageSaveOptionsData() -> Double? {
+    public func getResolution() -> Double? {
         return self.resolution;
     }
-    public func getImageSaveOptionsData() -> Double? {
+    public func getScale() -> Double? {
         return self.scale;
     }
-    public func getImageSaveOptionsData() -> Bool? {
+    public func getUseAntiAliasing() -> Bool? {
         return self.useAntiAliasing;
     }
-    public func getImageSaveOptionsData() -> Bool? {
+    public func getUseGdiEmfRenderer() -> Bool? {
         return self.useGdiEmfRenderer;
     }
-    public func getImageSaveOptionsData() -> Bool? {
+    public func getUseHighQualityRendering() -> Bool? {
         return self.useHighQualityRendering;
     }
-    public func getImageSaveOptionsData() -> Double? {
+    public func getVerticalResolution() -> Double? {
         return self.verticalResolution;
     }
 }

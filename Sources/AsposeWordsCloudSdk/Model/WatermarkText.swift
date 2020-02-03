@@ -39,10 +39,10 @@ public class WatermarkText : Decodable {
         self.rotationAngle = rotationAngle;
     }
         
-    public func getWatermarkText() -> String? {
+    public func getText() -> String? {
         return self.text;
     }
-    public func getWatermarkText() -> Double {
+    public func getRotationAngle() -> Double {
         return self.rotationAngle;
     }
 }

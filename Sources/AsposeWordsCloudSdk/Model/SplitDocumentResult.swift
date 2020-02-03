@@ -42,13 +42,13 @@ public class SplitDocumentResult : Decodable {
         self.zippedPages = zippedPages;
     }
         
-    public func getSplitDocumentResult() -> FileLink? {
+    public func getSourceDocument() -> FileLink? {
         return self.sourceDocument;
     }
-    public func getSplitDocumentResult() -> [FileLink]? {
+    public func getPages() -> [FileLink]? {
         return self.pages;
     }
-    public func getSplitDocumentResult() -> FileLink? {
+    public func getZippedPages() -> FileLink? {
         return self.zippedPages;
     }
 }

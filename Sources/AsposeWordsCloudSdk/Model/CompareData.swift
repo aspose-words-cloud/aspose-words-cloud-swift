@@ -42,13 +42,13 @@ public class CompareData : Decodable {
         self.dateTime = dateTime;
     }
         
-    public func getCompareData() -> String? {
+    public func getComparingWithDocument() -> String? {
         return self.comparingWithDocument;
     }
-    public func getCompareData() -> String? {
+    public func getAuthor() -> String? {
         return self.author;
     }
-    public func getCompareData() -> Date? {
+    public func getDateTime() -> Date? {
         return self.dateTime;
     }
 }

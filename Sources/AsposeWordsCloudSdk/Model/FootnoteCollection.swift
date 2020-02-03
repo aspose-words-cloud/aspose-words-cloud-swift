@@ -36,7 +36,7 @@ public class FootnoteCollection : LinkElement {
         self.list = list;
     }
         
-    public func getFootnoteCollection() -> [Footnote]? {
+    public func getList() -> [Footnote]? {
         return self.list;
     }
 }

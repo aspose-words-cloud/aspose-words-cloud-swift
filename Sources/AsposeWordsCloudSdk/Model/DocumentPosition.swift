@@ -39,10 +39,10 @@ public class DocumentPosition : Decodable {
         self.offset = offset;
     }
         
-    public func getDocumentPosition() -> NodeLink? {
+    public func getNode() -> NodeLink? {
         return self.node;
     }
-    public func getDocumentPosition() -> Int? {
+    public func getOffset() -> Int? {
         return self.offset;
     }
 }

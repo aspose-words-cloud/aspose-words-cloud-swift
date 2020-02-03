@@ -134,40 +134,40 @@ public class TableCellFormat : LinkElement {
         self.wrapText = wrapText;
     }
         
-    public func getTableCellFormat() -> Double? {
+    public func getBottomPadding() -> Double? {
         return self.bottomPadding;
     }
-    public func getTableCellFormat() -> Bool? {
+    public func getFitText() -> Bool? {
         return self.fitText;
     }
-    public func getTableCellFormat() -> HorizontalMerge? {
+    public func getHorizontalMerge() -> HorizontalMerge? {
         return self.horizontalMerge;
     }
-    public func getTableCellFormat() -> Double? {
+    public func getLeftPadding() -> Double? {
         return self.leftPadding;
     }
-    public func getTableCellFormat() -> Orientation? {
+    public func getOrientation() -> Orientation? {
         return self.orientation;
     }
-    public func getTableCellFormat() -> PreferredWidth? {
+    public func getPreferredWidth() -> PreferredWidth? {
         return self.preferredWidth;
     }
-    public func getTableCellFormat() -> Double? {
+    public func getRightPadding() -> Double? {
         return self.rightPadding;
     }
-    public func getTableCellFormat() -> Double? {
+    public func getTopPadding() -> Double? {
         return self.topPadding;
     }
-    public func getTableCellFormat() -> VerticalAlignment? {
+    public func getVerticalAlignment() -> VerticalAlignment? {
         return self.verticalAlignment;
     }
-    public func getTableCellFormat() -> VerticalMerge? {
+    public func getVerticalMerge() -> VerticalMerge? {
         return self.verticalMerge;
     }
-    public func getTableCellFormat() -> Double? {
+    public func getWidth() -> Double? {
         return self.width;
     }
-    public func getTableCellFormat() -> Bool? {
+    public func getWrapText() -> Bool? {
         return self.wrapText;
     }
 }

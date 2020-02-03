@@ -45,16 +45,16 @@ public class PdfEncryptionDetailsData : Decodable {
         self.userPassword = userPassword;
     }
         
-    public func getPdfEncryptionDetailsData() -> String? {
+    public func getEncryptionAlgorithm() -> String? {
         return self.encryptionAlgorithm;
     }
-    public func getPdfEncryptionDetailsData() -> String? {
+    public func getOwnerPassword() -> String? {
         return self.ownerPassword;
     }
-    public func getPdfEncryptionDetailsData() -> String? {
+    public func getPermissions() -> String? {
         return self.permissions;
     }
-    public func getPdfEncryptionDetailsData() -> String? {
+    public func getUserPassword() -> String? {
         return self.userPassword;
     }
 }

@@ -36,7 +36,7 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
         self.paragraphs = paragraphs;
     }
         
-    public func getParagraphLinkCollectionResponse() -> ParagraphLinkCollection? {
+    public func getParagraphs() -> ParagraphLinkCollection? {
         return self.paragraphs;
     }
 }

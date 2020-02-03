@@ -42,13 +42,13 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
         self.tiffCompression = tiffCompression;
     }
         
-    public func getTiffSaveOptionsData() -> Int? {
+    public func getThresholdForFloydSteinbergDithering() -> Int? {
         return self.thresholdForFloydSteinbergDithering;
     }
-    public func getTiffSaveOptionsData() -> String? {
+    public func getTiffBinarizationMethod() -> String? {
         return self.tiffBinarizationMethod;
     }
-    public func getTiffSaveOptionsData() -> String? {
+    public func getTiffCompression() -> String? {
         return self.tiffCompression;
     }
 }

@@ -42,13 +42,13 @@ public class FormFieldCheckbox : FormField {
         self.isCheckBoxExactSize = isCheckBoxExactSize;
     }
         
-    public func getFormFieldCheckbox() -> Double? {
+    public func getCheckBoxSize() -> Double? {
         return self.checkBoxSize;
     }
-    public func getFormFieldCheckbox() -> Bool? {
+    public func getChecked() -> Bool? {
         return self.checked;
     }
-    public func getFormFieldCheckbox() -> Bool? {
+    public func getIsCheckBoxExactSize() -> Bool? {
         return self.isCheckBoxExactSize;
     }
 }

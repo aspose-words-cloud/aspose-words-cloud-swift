@@ -36,7 +36,7 @@ public class TableCellFormatResponse : WordsResponse {
         self.cellFormat = cellFormat;
     }
         
-    public func getTableCellFormatResponse() -> TableCellFormat? {
+    public func getCellFormat() -> TableCellFormat? {
         return self.cellFormat;
     }
 }

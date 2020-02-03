@@ -1330,82 +1330,82 @@ public class ParagraphFormat : LinkElement {
         self.widowControl = widowControl;
     }
         
-    public func getParagraphFormat() -> Bool? {
+    public func getAddSpaceBetweenFarEastAndAlpha() -> Bool? {
         return self.addSpaceBetweenFarEastAndAlpha;
     }
-    public func getParagraphFormat() -> Bool? {
+    public func getAddSpaceBetweenFarEastAndDigit() -> Bool? {
         return self.addSpaceBetweenFarEastAndDigit;
     }
-    public func getParagraphFormat() -> Alignment? {
+    public func getAlignment() -> Alignment? {
         return self.alignment;
     }
-    public func getParagraphFormat() -> Bool? {
+    public func getBidi() -> Bool? {
         return self.bidi;
     }
-    public func getParagraphFormat() -> DropCapPosition? {
+    public func getDropCapPosition() -> DropCapPosition? {
         return self.dropCapPosition;
     }
-    public func getParagraphFormat() -> Double? {
+    public func getFirstLineIndent() -> Double? {
         return self.firstLineIndent;
     }
-    public func getParagraphFormat() -> Bool? {
+    public func getIsListItem() -> Bool? {
         return self.isListItem;
     }
-    public func getParagraphFormat() -> Bool? {
+    public func getKeepTogether() -> Bool? {
         return self.keepTogether;
     }
-    public func getParagraphFormat() -> Bool? {
+    public func getKeepWithNext() -> Bool? {
         return self.keepWithNext;
     }
-    public func getParagraphFormat() -> Double? {
+    public func getLeftIndent() -> Double? {
         return self.leftIndent;
     }
-    public func getParagraphFormat() -> Double? {
+    public func getLineSpacing() -> Double? {
         return self.lineSpacing;
     }
-    public func getParagraphFormat() -> LineSpacingRule? {
+    public func getLineSpacingRule() -> LineSpacingRule? {
         return self.lineSpacingRule;
     }
-    public func getParagraphFormat() -> Int? {
+    public func getLinesToDrop() -> Int? {
         return self.linesToDrop;
     }
-    public func getParagraphFormat() -> Bool? {
+    public func getNoSpaceBetweenParagraphsOfSameStyle() -> Bool? {
         return self.noSpaceBetweenParagraphsOfSameStyle;
     }
-    public func getParagraphFormat() -> OutlineLevel? {
+    public func getOutlineLevel() -> OutlineLevel? {
         return self.outlineLevel;
     }
-    public func getParagraphFormat() -> Bool? {
+    public func getPageBreakBefore() -> Bool? {
         return self.pageBreakBefore;
     }
-    public func getParagraphFormat() -> Double? {
+    public func getRightIndent() -> Double? {
         return self.rightIndent;
     }
-    public func getParagraphFormat() -> Double? {
+    public func getSpaceAfter() -> Double? {
         return self.spaceAfter;
     }
-    public func getParagraphFormat() -> Bool? {
+    public func getSpaceAfterAuto() -> Bool? {
         return self.spaceAfterAuto;
     }
-    public func getParagraphFormat() -> Double? {
+    public func getSpaceBefore() -> Double? {
         return self.spaceBefore;
     }
-    public func getParagraphFormat() -> Bool? {
+    public func getSpaceBeforeAuto() -> Bool? {
         return self.spaceBeforeAuto;
     }
-    public func getParagraphFormat() -> StyleIdentifier? {
+    public func getStyleIdentifier() -> StyleIdentifier? {
         return self.styleIdentifier;
     }
-    public func getParagraphFormat() -> String? {
+    public func getStyleName() -> String? {
         return self.styleName;
     }
-    public func getParagraphFormat() -> Bool? {
+    public func getSuppressAutoHyphens() -> Bool? {
         return self.suppressAutoHyphens;
     }
-    public func getParagraphFormat() -> Bool? {
+    public func getSuppressLineNumbers() -> Bool? {
         return self.suppressLineNumbers;
     }
-    public func getParagraphFormat() -> Bool? {
+    public func getWidowControl() -> Bool? {
         return self.widowControl;
     }
 }

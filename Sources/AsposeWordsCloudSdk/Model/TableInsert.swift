@@ -42,13 +42,13 @@ public class TableInsert : Decodable {
         self.rowsCount = rowsCount;
     }
         
-    public func getTableInsert() -> DocumentPosition? {
+    public func getPosition() -> DocumentPosition? {
         return self.position;
     }
-    public func getTableInsert() -> Int {
+    public func getColumnsCount() -> Int {
         return self.columnsCount;
     }
-    public func getTableInsert() -> Int {
+    public func getRowsCount() -> Int {
         return self.rowsCount;
     }
 }

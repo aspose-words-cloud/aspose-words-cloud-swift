@@ -36,7 +36,7 @@ public class RangeTextResponse : WordsResponse {
         self.text = text;
     }
         
-    public func getRangeTextResponse() -> String? {
+    public func getText() -> String? {
         return self.text;
     }
 }

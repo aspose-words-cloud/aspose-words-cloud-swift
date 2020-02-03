@@ -39,10 +39,10 @@ public class SearchResult : Decodable {
         self.rangeEnd = rangeEnd;
     }
         
-    public func getSearchResult() -> DocumentPosition? {
+    public func getRangeStart() -> DocumentPosition? {
         return self.rangeStart;
     }
-    public func getSearchResult() -> DocumentPosition? {
+    public func getRangeEnd() -> DocumentPosition? {
         return self.rangeEnd;
     }
 }

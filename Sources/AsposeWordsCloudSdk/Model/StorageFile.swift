@@ -48,19 +48,19 @@ public class StorageFile : Decodable {
         self.path = path;
     }
         
-    public func getStorageFile() -> String? {
+    public func getName() -> String? {
         return self.name;
     }
-    public func getStorageFile() -> Bool {
+    public func getIsFolder() -> Bool {
         return self.isFolder;
     }
-    public func getStorageFile() -> Date? {
+    public func getModifiedDate() -> Date? {
         return self.modifiedDate;
     }
-    public func getStorageFile() -> Int64 {
+    public func getSize() -> Int64 {
         return self.size;
     }
-    public func getStorageFile() -> String? {
+    public func getPath() -> String? {
         return self.path;
     }
 }

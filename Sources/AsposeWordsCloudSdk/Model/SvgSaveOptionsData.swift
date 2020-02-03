@@ -51,22 +51,22 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         self.textOutputMode = textOutputMode;
     }
         
-    public func getSvgSaveOptionsData() -> Bool? {
+    public func getExportEmbeddedImages() -> Bool? {
         return self.exportEmbeddedImages;
     }
-    public func getSvgSaveOptionsData() -> Bool? {
+    public func getFitToViewPort() -> Bool? {
         return self.fitToViewPort;
     }
-    public func getSvgSaveOptionsData() -> String? {
+    public func getResourcesFolder() -> String? {
         return self.resourcesFolder;
     }
-    public func getSvgSaveOptionsData() -> String? {
+    public func getResourcesFolderAlias() -> String? {
         return self.resourcesFolderAlias;
     }
-    public func getSvgSaveOptionsData() -> Bool? {
+    public func getShowPageBorder() -> Bool? {
         return self.showPageBorder;
     }
-    public func getSvgSaveOptionsData() -> String? {
+    public func getTextOutputMode() -> String? {
         return self.textOutputMode;
     }
 }

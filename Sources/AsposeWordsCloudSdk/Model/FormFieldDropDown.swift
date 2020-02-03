@@ -39,10 +39,10 @@ public class FormFieldDropDown : FormField {
         self.dropDownSelectedIndex = dropDownSelectedIndex;
     }
         
-    public func getFormFieldDropDown() -> [String]? {
+    public func getDropDownItems() -> [String]? {
         return self.dropDownItems;
     }
-    public func getFormFieldDropDown() -> Int? {
+    public func getDropDownSelectedIndex() -> Int? {
         return self.dropDownSelectedIndex;
     }
 }

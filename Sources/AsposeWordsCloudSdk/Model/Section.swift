@@ -48,19 +48,19 @@ public class Section : LinkElement {
         self.tables = tables;
     }
         
-    public func getSection() -> [NodeLink]? {
+    public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }
-    public func getSection() -> LinkElement? {
+    public func getHeaderFooters() -> LinkElement? {
         return self.headerFooters;
     }
-    public func getSection() -> LinkElement? {
+    public func getPageSetup() -> LinkElement? {
         return self.pageSetup;
     }
-    public func getSection() -> LinkElement? {
+    public func getParagraphs() -> LinkElement? {
         return self.paragraphs;
     }
-    public func getSection() -> LinkElement? {
+    public func getTables() -> LinkElement? {
         return self.tables;
     }
 }

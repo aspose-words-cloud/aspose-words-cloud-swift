@@ -39,10 +39,10 @@ public class ModificationOperationResult : Decodable {
         self.dest = dest;
     }
         
-    public func getModificationOperationResult() -> FileLink? {
+    public func getSource() -> FileLink? {
         return self.source;
     }
-    public func getModificationOperationResult() -> FileLink? {
+    public func getDest() -> FileLink? {
         return self.dest;
     }
 }

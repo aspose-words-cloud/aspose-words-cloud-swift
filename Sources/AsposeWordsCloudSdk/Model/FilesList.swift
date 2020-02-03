@@ -36,7 +36,7 @@ public class FilesList : Decodable {
         self.value = value;
     }
         
-    public func getFilesList() -> [StorageFile]? {
+    public func getValue() -> [StorageFile]? {
         return self.value;
     }
 }

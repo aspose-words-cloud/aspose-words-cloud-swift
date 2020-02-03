@@ -36,7 +36,7 @@ public class RevisionsModificationResponse : WordsResponse {
         self.result = result;
     }
         
-    public func getRevisionsModificationResponse() -> ModificationOperationResult? {
+    public func getResult() -> ModificationOperationResult? {
         return self.result;
     }
 }

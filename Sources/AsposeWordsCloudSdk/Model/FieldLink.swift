@@ -36,7 +36,7 @@ public class FieldLink : NodeLink {
         self.fieldCode = fieldCode;
     }
         
-    public func getFieldLink() -> String? {
+    public func getFieldCode() -> String? {
         return self.fieldCode;
     }
 }

@@ -72,43 +72,43 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         self.showPageBorder = showPageBorder;
     }
         
-    public func getHtmlFixedSaveOptionsData() -> String? {
+    public func getCssClassNamesPrefix() -> String? {
         return self.cssClassNamesPrefix;
     }
-    public func getHtmlFixedSaveOptionsData() -> String? {
+    public func getEncoding() -> String? {
         return self.encoding;
     }
-    public func getHtmlFixedSaveOptionsData() -> Bool? {
+    public func getExportEmbeddedCss() -> Bool? {
         return self.exportEmbeddedCss;
     }
-    public func getHtmlFixedSaveOptionsData() -> Bool? {
+    public func getExportEmbeddedFonts() -> Bool? {
         return self.exportEmbeddedFonts;
     }
-    public func getHtmlFixedSaveOptionsData() -> Bool? {
+    public func getExportEmbeddedImages() -> Bool? {
         return self.exportEmbeddedImages;
     }
-    public func getHtmlFixedSaveOptionsData() -> Bool? {
+    public func getExportFormFields() -> Bool? {
         return self.exportFormFields;
     }
-    public func getHtmlFixedSaveOptionsData() -> String? {
+    public func getFontFormat() -> String? {
         return self.fontFormat;
     }
-    public func getHtmlFixedSaveOptionsData() -> String? {
+    public func getPageHorizontalAlignment() -> String? {
         return self.pageHorizontalAlignment;
     }
-    public func getHtmlFixedSaveOptionsData() -> Double? {
+    public func getPageMargins() -> Double? {
         return self.pageMargins;
     }
-    public func getHtmlFixedSaveOptionsData() -> String? {
+    public func getResourcesFolder() -> String? {
         return self.resourcesFolder;
     }
-    public func getHtmlFixedSaveOptionsData() -> String? {
+    public func getResourcesFolderAlias() -> String? {
         return self.resourcesFolderAlias;
     }
-    public func getHtmlFixedSaveOptionsData() -> Bool? {
+    public func getSaveFontFaceCssSeparately() -> Bool? {
         return self.saveFontFaceCssSeparately;
     }
-    public func getHtmlFixedSaveOptionsData() -> Bool? {
+    public func getShowPageBorder() -> Bool? {
         return self.showPageBorder;
     }
 }

@@ -39,10 +39,10 @@ public class ClassificationResult : Decodable {
         self.classProbability = classProbability;
     }
         
-    public func getClassificationResult() -> String? {
+    public func getClassName() -> String? {
         return self.className;
     }
-    public func getClassificationResult() -> Double {
+    public func getClassProbability() -> Double {
         return self.classProbability;
     }
 }

@@ -39,10 +39,10 @@ public class ErrorDetails : Decodable {
         self.errorDateTime = errorDateTime;
     }
         
-    public func getErrorDetails() -> String? {
+    public func getRequestId() -> String? {
         return self.requestId;
     }
-    public func getErrorDetails() -> Date {
+    public func getErrorDateTime() -> Date {
         return self.errorDateTime;
     }
 }

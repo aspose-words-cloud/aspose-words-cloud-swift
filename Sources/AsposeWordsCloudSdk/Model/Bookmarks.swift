@@ -36,7 +36,7 @@ public class Bookmarks : LinkElement {
         self.bookmarkList = bookmarkList;
     }
         
-    public func getBookmarks() -> [Bookmark]? {
+    public func getBookmarkList() -> [Bookmark]? {
         return self.bookmarkList;
     }
 }

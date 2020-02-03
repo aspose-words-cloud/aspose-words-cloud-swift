@@ -36,7 +36,7 @@ public class ParagraphLink : NodeLink {
         self.text = text;
     }
         
-    public func getParagraphLink() -> String? {
+    public func getText() -> String? {
         return self.text;
     }
 }

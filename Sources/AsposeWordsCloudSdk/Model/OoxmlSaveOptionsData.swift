@@ -42,13 +42,13 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
         self.prettyFormat = prettyFormat;
     }
         
-    public func getOoxmlSaveOptionsData() -> String? {
+    public func getCompliance() -> String? {
         return self.compliance;
     }
-    public func getOoxmlSaveOptionsData() -> String? {
+    public func getPassword() -> String? {
         return self.password;
     }
-    public func getOoxmlSaveOptionsData() -> Bool? {
+    public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }
 }

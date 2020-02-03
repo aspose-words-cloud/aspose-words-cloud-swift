@@ -36,7 +36,7 @@ public class DocumentResponse : WordsResponse {
         self.document = document;
     }
         
-    public func getDocumentResponse() -> Document? {
+    public func getDocument() -> Document? {
         return self.document;
     }
 }

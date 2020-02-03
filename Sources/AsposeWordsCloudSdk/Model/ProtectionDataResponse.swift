@@ -39,10 +39,10 @@ public class ProtectionDataResponse : WordsResponse {
         self.protectionData = protectionData;
     }
         
-    public func getProtectionDataResponse() -> FileLink? {
+    public func getDocumentLink() -> FileLink? {
         return self.documentLink;
     }
-    public func getProtectionDataResponse() -> ProtectionData? {
+    public func getProtectionData() -> ProtectionData? {
         return self.protectionData;
     }
 }

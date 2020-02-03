@@ -48,19 +48,19 @@ public class ApiError : Decodable {
         self.innerError = innerError;
     }
         
-    public func getApiError() -> String? {
+    public func getCode() -> String? {
         return self.code;
     }
-    public func getApiError() -> String? {
+    public func getMessage() -> String? {
         return self.message;
     }
-    public func getApiError() -> String? {
+    public func getDescription() -> String? {
         return self._description;
     }
-    public func getApiError() -> Date? {
+    public func getDateTime() -> Date? {
         return self.dateTime;
     }
-    public func getApiError() -> ApiError? {
+    public func getInnerError() -> ApiError? {
         return self.innerError;
     }
 }

@@ -36,7 +36,7 @@ public class FootnotesResponse : WordsResponse {
         self.footnotes = footnotes;
     }
         
-    public func getFootnotesResponse() -> FootnoteCollection? {
+    public func getFootnotes() -> FootnoteCollection? {
         return self.footnotes;
     }
 }

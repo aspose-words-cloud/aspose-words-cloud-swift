@@ -45,16 +45,16 @@ public class Link : Decodable {
         self.title = title;
     }
         
-    public func getLink() -> String? {
+    public func getHref() -> String? {
         return self.href;
     }
-    public func getLink() -> String? {
+    public func getRel() -> String? {
         return self.rel;
     }
-    public func getLink() -> String? {
+    public func getType() -> String? {
         return self.type;
     }
-    public func getLink() -> String? {
+    public func getTitle() -> String? {
         return self.title;
     }
 }

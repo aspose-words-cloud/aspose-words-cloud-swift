@@ -39,10 +39,10 @@ public class FootnotesStatData : Decodable {
         self.paragraphCount = paragraphCount;
     }
         
-    public func getFootnotesStatData() -> Int {
+    public func getWordCount() -> Int {
         return self.wordCount;
     }
-    public func getFootnotesStatData() -> Int {
+    public func getParagraphCount() -> Int {
         return self.paragraphCount;
     }
 }

@@ -39,10 +39,10 @@ public class LoadWebDocumentData : Decodable {
         self.saveOptions = saveOptions;
     }
         
-    public func getLoadWebDocumentData() -> String? {
+    public func getLoadingDocumentUrl() -> String? {
         return self.loadingDocumentUrl;
     }
-    public func getLoadWebDocumentData() -> SaveOptionsData? {
+    public func getSaveOptions() -> SaveOptionsData? {
         return self.saveOptions;
     }
 }

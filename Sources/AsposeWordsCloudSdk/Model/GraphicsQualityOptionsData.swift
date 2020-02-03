@@ -163,22 +163,22 @@ public class GraphicsQualityOptionsData : Decodable {
         self.textRenderingHint = textRenderingHint;
     }
         
-    public func getGraphicsQualityOptionsData() -> CompositingMode? {
+    public func getCompositingMode() -> CompositingMode? {
         return self.compositingMode;
     }
-    public func getGraphicsQualityOptionsData() -> CompositingQuality? {
+    public func getCompositingQuality() -> CompositingQuality? {
         return self.compositingQuality;
     }
-    public func getGraphicsQualityOptionsData() -> InterpolationMode? {
+    public func getInterpolationMode() -> InterpolationMode? {
         return self.interpolationMode;
     }
-    public func getGraphicsQualityOptionsData() -> SmoothingMode? {
+    public func getSmoothingMode() -> SmoothingMode? {
         return self.smoothingMode;
     }
-    public func getGraphicsQualityOptionsData() -> StringFormatData? {
+    public func getStringFormat() -> StringFormatData? {
         return self.stringFormat;
     }
-    public func getGraphicsQualityOptionsData() -> TextRenderingHint? {
+    public func getTextRenderingHint() -> TextRenderingHint? {
         return self.textRenderingHint;
     }
 }

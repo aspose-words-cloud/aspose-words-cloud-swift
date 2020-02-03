@@ -36,7 +36,7 @@ public class HeaderFooterResponse : WordsResponse {
         self.headerFooter = headerFooter;
     }
         
-    public func getHeaderFooterResponse() -> HeaderFooter? {
+    public func getHeaderFooter() -> HeaderFooter? {
         return self.headerFooter;
     }
 }

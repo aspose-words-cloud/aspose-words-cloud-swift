@@ -36,7 +36,7 @@ public class TableLinkCollection : LinkElement {
         self.tableLinkList = tableLinkList;
     }
         
-    public func getTableLinkCollection() -> [TableLink]? {
+    public func getTableLinkList() -> [TableLink]? {
         return self.tableLinkList;
     }
 }

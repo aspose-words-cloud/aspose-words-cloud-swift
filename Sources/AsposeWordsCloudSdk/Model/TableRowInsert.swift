@@ -39,10 +39,10 @@ public class TableRowInsert : Decodable {
         self.columnsCount = columnsCount;
     }
         
-    public func getTableRowInsert() -> Int? {
+    public func getInsertAfter() -> Int? {
         return self.insertAfter;
     }
-    public func getTableRowInsert() -> Int {
+    public func getColumnsCount() -> Int {
         return self.columnsCount;
     }
 }

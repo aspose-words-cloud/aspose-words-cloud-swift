@@ -36,7 +36,7 @@ public class SectionLinkCollectionResponse : WordsResponse {
         self.sections = sections;
     }
         
-    public func getSectionLinkCollectionResponse() -> SectionLinkCollection? {
+    public func getSections() -> SectionLinkCollection? {
         return self.sections;
     }
 }

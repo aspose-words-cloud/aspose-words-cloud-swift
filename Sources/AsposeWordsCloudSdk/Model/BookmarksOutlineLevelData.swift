@@ -39,10 +39,10 @@ public class BookmarksOutlineLevelData : Decodable {
         self.bookmarksOutlineLevel = bookmarksOutlineLevel;
     }
         
-    public func getBookmarksOutlineLevelData() -> String? {
+    public func getName() -> String? {
         return self.name;
     }
-    public func getBookmarksOutlineLevelData() -> Int {
+    public func getBookmarksOutlineLevel() -> Int {
         return self.bookmarksOutlineLevel;
     }
 }

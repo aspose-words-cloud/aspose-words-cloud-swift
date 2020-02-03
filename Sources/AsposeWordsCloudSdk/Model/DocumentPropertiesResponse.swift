@@ -36,7 +36,7 @@ public class DocumentPropertiesResponse : WordsResponse {
         self.documentProperties = documentProperties;
     }
         
-    public func getDocumentPropertiesResponse() -> DocumentProperties? {
+    public func getDocumentProperties() -> DocumentProperties? {
         return self.documentProperties;
     }
 }

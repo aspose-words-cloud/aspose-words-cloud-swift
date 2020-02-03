@@ -59,16 +59,16 @@ public class TableRowFormat : LinkElement {
         self.heightRule = heightRule;
     }
         
-    public func getTableRowFormat() -> Bool? {
+    public func getAllowBreakAcrossPages() -> Bool? {
         return self.allowBreakAcrossPages;
     }
-    public func getTableRowFormat() -> Bool? {
+    public func getHeadingFormat() -> Bool? {
         return self.headingFormat;
     }
-    public func getTableRowFormat() -> Double? {
+    public func getHeight() -> Double? {
         return self.height;
     }
-    public func getTableRowFormat() -> HeightRule? {
+    public func getHeightRule() -> HeightRule? {
         return self.heightRule;
     }
 }

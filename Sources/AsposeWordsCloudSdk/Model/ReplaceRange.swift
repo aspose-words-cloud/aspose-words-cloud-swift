@@ -50,10 +50,10 @@ public class ReplaceRange : Decodable {
         self.textType = textType;
     }
         
-    public func getReplaceRange() -> String? {
+    public func getText() -> String? {
         return self.text;
     }
-    public func getReplaceRange() -> TextType? {
+    public func getTextType() -> TextType? {
         return self.textType;
     }
 }

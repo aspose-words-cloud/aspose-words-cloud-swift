@@ -45,16 +45,16 @@ public class PageNumber : Decodable {
         self.setPageNumberOnFirstPage = setPageNumberOnFirstPage;
     }
         
-    public func getPageNumber() -> String? {
+    public func getFormat() -> String? {
         return self.format;
     }
-    public func getPageNumber() -> String? {
+    public func getAlignment() -> String? {
         return self.alignment;
     }
-    public func getPageNumber() -> Bool {
+    public func getIsTop() -> Bool {
         return self.isTop;
     }
-    public func getPageNumber() -> Bool {
+    public func getSetPageNumberOnFirstPage() -> Bool {
         return self.setPageNumberOnFirstPage;
     }
 }

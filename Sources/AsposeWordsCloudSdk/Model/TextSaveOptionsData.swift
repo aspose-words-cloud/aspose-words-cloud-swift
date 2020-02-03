@@ -68,25 +68,25 @@ public class TextSaveOptionsData : SaveOptionsData {
         self.simplifyListLabels = simplifyListLabels;
     }
         
-    public func getTextSaveOptionsData() -> Bool? {
+    public func getAddBidiMarks() -> Bool? {
         return self.addBidiMarks;
     }
-    public func getTextSaveOptionsData() -> String? {
+    public func getEncoding() -> String? {
         return self.encoding;
     }
-    public func getTextSaveOptionsData() -> ExportHeadersFootersMode? {
+    public func getExportHeadersFootersMode() -> ExportHeadersFootersMode? {
         return self.exportHeadersFootersMode;
     }
-    public func getTextSaveOptionsData() -> Bool? {
+    public func getForcePageBreaks() -> Bool? {
         return self.forcePageBreaks;
     }
-    public func getTextSaveOptionsData() -> String? {
+    public func getParagraphBreak() -> String? {
         return self.paragraphBreak;
     }
-    public func getTextSaveOptionsData() -> Bool? {
+    public func getPreserveTableLayout() -> Bool? {
         return self.preserveTableLayout;
     }
-    public func getTextSaveOptionsData() -> Bool? {
+    public func getSimplifyListLabels() -> Bool? {
         return self.simplifyListLabels;
     }
 }

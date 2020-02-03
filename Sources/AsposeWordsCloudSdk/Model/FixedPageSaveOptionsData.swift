@@ -54,25 +54,25 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         self.pageIndex = pageIndex;
     }
         
-    public func getFixedPageSaveOptionsData() -> String? {
+    public func getColorMode() -> String? {
         return self.colorMode;
     }
-    public func getFixedPageSaveOptionsData() -> Int? {
+    public func getJpegQuality() -> Int? {
         return self.jpegQuality;
     }
-    public func getFixedPageSaveOptionsData() -> MetafileRenderingOptionsData? {
+    public func getMetafileRenderingOptions() -> MetafileRenderingOptionsData? {
         return self.metafileRenderingOptions;
     }
-    public func getFixedPageSaveOptionsData() -> String? {
+    public func getNumeralFormat() -> String? {
         return self.numeralFormat;
     }
-    public func getFixedPageSaveOptionsData() -> Bool? {
+    public func getOptimizeOutput() -> Bool? {
         return self.optimizeOutput;
     }
-    public func getFixedPageSaveOptionsData() -> Int? {
+    public func getPageCount() -> Int? {
         return self.pageCount;
     }
-    public func getFixedPageSaveOptionsData() -> Int? {
+    public func getPageIndex() -> Int? {
         return self.pageIndex;
     }
 }

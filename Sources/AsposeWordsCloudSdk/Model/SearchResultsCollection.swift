@@ -36,7 +36,7 @@ public class SearchResultsCollection : LinkElement {
         self.resultsList = resultsList;
     }
         
-    public func getSearchResultsCollection() -> [SearchResult]? {
+    public func getResultsList() -> [SearchResult]? {
         return self.resultsList;
     }
 }

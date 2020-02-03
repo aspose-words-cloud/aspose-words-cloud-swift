@@ -39,10 +39,10 @@ public class XmlColor : Decodable {
         self.alpha = alpha;
     }
         
-    public func getXmlColor() -> String? {
+    public func getWeb() -> String? {
         return self.web;
     }
-    public func getXmlColor() -> Int {
+    public func getAlpha() -> Int {
         return self.alpha;
     }
 }

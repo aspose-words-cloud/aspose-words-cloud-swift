@@ -45,16 +45,16 @@ public class FontInfo : Decodable {
         self.filePath = filePath;
     }
         
-    public func getFontInfo() -> String? {
+    public func getFontFamilyName() -> String? {
         return self.fontFamilyName;
     }
-    public func getFontInfo() -> String? {
+    public func getFullFontName() -> String? {
         return self.fullFontName;
     }
-    public func getFontInfo() -> String? {
+    public func getVersion() -> String? {
         return self.version;
     }
-    public func getFontInfo() -> String? {
+    public func getFilePath() -> String? {
         return self.filePath;
     }
 }

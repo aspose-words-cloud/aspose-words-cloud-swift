@@ -169,22 +169,22 @@ public class Border : LinkElement {
         self.shadow = shadow;
     }
         
-    public func getBorder() -> BorderType? {
+    public func getBorderType() -> BorderType? {
         return self.borderType;
     }
-    public func getBorder() -> XmlColor? {
+    public func getColor() -> XmlColor? {
         return self.color;
     }
-    public func getBorder() -> Double? {
+    public func getDistanceFromText() -> Double? {
         return self.distanceFromText;
     }
-    public func getBorder() -> LineStyle? {
+    public func getLineStyle() -> LineStyle? {
         return self.lineStyle;
     }
-    public func getBorder() -> Double? {
+    public func getLineWidth() -> Double? {
         return self.lineWidth;
     }
-    public func getBorder() -> Bool? {
+    public func getShadow() -> Bool? {
         return self.shadow;
     }
 }

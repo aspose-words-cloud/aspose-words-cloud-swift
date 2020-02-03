@@ -174,16 +174,16 @@ public class OfficeMathObject : OfficeMathLink {
         self.mathObjectType = mathObjectType;
     }
         
-    public func getOfficeMathObject() -> StoryChildNodes? {
+    public func getContent() -> StoryChildNodes? {
         return self.content;
     }
-    public func getOfficeMathObject() -> DisplayType? {
+    public func getDisplayType() -> DisplayType? {
         return self.displayType;
     }
-    public func getOfficeMathObject() -> Justification? {
+    public func getJustification() -> Justification? {
         return self.justification;
     }
-    public func getOfficeMathObject() -> MathObjectType? {
+    public func getMathObjectType() -> MathObjectType? {
         return self.mathObjectType;
     }
 }

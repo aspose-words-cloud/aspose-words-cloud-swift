@@ -39,10 +39,10 @@ public class Table : NodeLink {
         self.tableRowList = tableRowList;
     }
         
-    public func getTable() -> TableProperties? {
+    public func getTableProperties() -> TableProperties? {
         return self.tableProperties;
     }
-    public func getTable() -> [TableRow]? {
+    public func getTableRowList() -> [TableRow]? {
         return self.tableRowList;
     }
 }

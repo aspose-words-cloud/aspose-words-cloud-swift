@@ -36,7 +36,7 @@ public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
         self.exportCidUrlsForMhtmlResources = exportCidUrlsForMhtmlResources;
     }
         
-    public func getMhtmlSaveOptionsData() -> Bool? {
+    public func getExportCidUrlsForMhtmlResources() -> Bool? {
         return self.exportCidUrlsForMhtmlResources;
     }
 }

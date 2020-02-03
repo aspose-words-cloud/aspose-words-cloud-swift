@@ -48,19 +48,19 @@ public class PdfDigitalSignatureDetailsData : Decodable {
         self.signatureDate = signatureDate;
     }
         
-    public func getPdfDigitalSignatureDetailsData() -> String? {
+    public func getCertificateFilename() -> String? {
         return self.certificateFilename;
     }
-    public func getPdfDigitalSignatureDetailsData() -> String? {
+    public func getHashAlgorithm() -> String? {
         return self.hashAlgorithm;
     }
-    public func getPdfDigitalSignatureDetailsData() -> String? {
+    public func getLocation() -> String? {
         return self.location;
     }
-    public func getPdfDigitalSignatureDetailsData() -> String? {
+    public func getReason() -> String? {
         return self.reason;
     }
-    public func getPdfDigitalSignatureDetailsData() -> Date? {
+    public func getSignatureDate() -> Date? {
         return self.signatureDate;
     }
 }

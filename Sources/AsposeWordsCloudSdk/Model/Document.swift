@@ -119,22 +119,22 @@ public class Document : Decodable {
         self.documentProperties = documentProperties;
     }
         
-    public func getDocument() -> [Link]? {
+    public func getLinks() -> [Link]? {
         return self.links;
     }
-    public func getDocument() -> String? {
+    public func getFileName() -> String? {
         return self.fileName;
     }
-    public func getDocument() -> SourceFormat {
+    public func getSourceFormat() -> SourceFormat {
         return self.sourceFormat;
     }
-    public func getDocument() -> Bool {
+    public func getIsEncrypted() -> Bool {
         return self.isEncrypted;
     }
-    public func getDocument() -> Bool {
+    public func getIsSigned() -> Bool {
         return self.isSigned;
     }
-    public func getDocument() -> DocumentProperties? {
+    public func getDocumentProperties() -> DocumentProperties? {
         return self.documentProperties;
     }
 }

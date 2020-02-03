@@ -36,7 +36,7 @@ public class WordsApiErrorResponse : WordsResponse {
         self.error = error;
     }
         
-    public func getWordsApiErrorResponse() -> ApiError? {
+    public func getError() -> ApiError? {
         return self.error;
     }
 }

@@ -36,7 +36,7 @@ public class PsSaveOptionsData : FixedPageSaveOptionsData {
         self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
     }
         
-    public func getPsSaveOptionsData() -> Bool? {
+    public func getUseBookFoldPrintingSettings() -> Bool? {
         return self.useBookFoldPrintingSettings;
     }
 }

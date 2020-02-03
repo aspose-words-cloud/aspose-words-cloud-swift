@@ -45,16 +45,16 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
     }
         
-    public func getXpsSaveOptionsData() -> Int? {
+    public func getBookmarksOutlineLevel() -> Int? {
         return self.bookmarksOutlineLevel;
     }
-    public func getXpsSaveOptionsData() -> Int? {
+    public func getHeadingsOutlineLevels() -> Int? {
         return self.headingsOutlineLevels;
     }
-    public func getXpsSaveOptionsData() -> OutlineOptionsData? {
+    public func getOutlineOptions() -> OutlineOptionsData? {
         return self.outlineOptions;
     }
-    public func getXpsSaveOptionsData() -> Bool? {
+    public func getUseBookFoldPrintingSettings() -> Bool? {
         return self.useBookFoldPrintingSettings;
     }
 }

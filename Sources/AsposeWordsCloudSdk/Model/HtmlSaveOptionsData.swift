@@ -189,121 +189,121 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         self.tableWidthOutputMode = tableWidthOutputMode;
     }
         
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getAllowNegativeIndent() -> Bool? {
         return self.allowNegativeIndent;
     }
-    public func getHtmlSaveOptionsData() -> String? {
+    public func getCssClassNamePrefix() -> String? {
         return self.cssClassNamePrefix;
     }
-    public func getHtmlSaveOptionsData() -> String? {
+    public func getCssStyleSheetFileName() -> String? {
         return self.cssStyleSheetFileName;
     }
-    public func getHtmlSaveOptionsData() -> String? {
+    public func getCssStyleSheetType() -> String? {
         return self.cssStyleSheetType;
     }
-    public func getHtmlSaveOptionsData() -> String? {
+    public func getDocumentSplitCriteria() -> String? {
         return self.documentSplitCriteria;
     }
-    public func getHtmlSaveOptionsData() -> Int? {
+    public func getDocumentSplitHeadingLevel() -> Int? {
         return self.documentSplitHeadingLevel;
     }
-    public func getHtmlSaveOptionsData() -> String? {
+    public func getEncoding() -> String? {
         return self.encoding;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getExportDocumentProperties() -> Bool? {
         return self.exportDocumentProperties;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getExportDropDownFormFieldAsText() -> Bool? {
         return self.exportDropDownFormFieldAsText;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getExportFontResources() -> Bool? {
         return self.exportFontResources;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getExportFontsAsBase64() -> Bool? {
         return self.exportFontsAsBase64;
     }
-    public func getHtmlSaveOptionsData() -> String? {
+    public func getExportHeadersFootersMode() -> String? {
         return self.exportHeadersFootersMode;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getExportImagesAsBase64() -> Bool? {
         return self.exportImagesAsBase64;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getExportLanguageInformation() -> Bool? {
         return self.exportLanguageInformation;
     }
-    public func getHtmlSaveOptionsData() -> String? {
+    public func getExportListLabels() -> String? {
         return self.exportListLabels;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getExportOriginalUrlForLinkedImages() -> Bool? {
         return self.exportOriginalUrlForLinkedImages;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getExportPageMargins() -> Bool? {
         return self.exportPageMargins;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getExportPageSetup() -> Bool? {
         return self.exportPageSetup;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getExportRelativeFontSize() -> Bool? {
         return self.exportRelativeFontSize;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getExportRoundtripInformation() -> Bool? {
         return self.exportRoundtripInformation;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getExportTextBoxAsSvg() -> Bool? {
         return self.exportTextBoxAsSvg;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getExportTextInputFormFieldAsText() -> Bool? {
         return self.exportTextInputFormFieldAsText;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getExportTocPageNumbers() -> Bool? {
         return self.exportTocPageNumbers;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getExportXhtmlTransitional() -> Bool? {
         return self.exportXhtmlTransitional;
     }
-    public func getHtmlSaveOptionsData() -> Int? {
+    public func getFontResourcesSubsettingSizeThreshold() -> Int? {
         return self.fontResourcesSubsettingSizeThreshold;
     }
-    public func getHtmlSaveOptionsData() -> String? {
+    public func getFontsFolder() -> String? {
         return self.fontsFolder;
     }
-    public func getHtmlSaveOptionsData() -> String? {
+    public func getFontsFolderAlias() -> String? {
         return self.fontsFolderAlias;
     }
-    public func getHtmlSaveOptionsData() -> HtmlVersion? {
+    public func getHtmlVersion() -> HtmlVersion? {
         return self.htmlVersion;
     }
-    public func getHtmlSaveOptionsData() -> Int? {
+    public func getImageResolution() -> Int? {
         return self.imageResolution;
     }
-    public func getHtmlSaveOptionsData() -> String? {
+    public func getImagesFolder() -> String? {
         return self.imagesFolder;
     }
-    public func getHtmlSaveOptionsData() -> String? {
+    public func getImagesFolderAlias() -> String? {
         return self.imagesFolderAlias;
     }
-    public func getHtmlSaveOptionsData() -> MetafileFormat? {
+    public func getMetafileFormat() -> MetafileFormat? {
         return self.metafileFormat;
     }
-    public func getHtmlSaveOptionsData() -> OfficeMathOutputMode? {
+    public func getOfficeMathOutputMode() -> OfficeMathOutputMode? {
         return self.officeMathOutputMode;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getResolveFontNames() -> Bool? {
         return self.resolveFontNames;
     }
-    public func getHtmlSaveOptionsData() -> String? {
+    public func getResourceFolder() -> String? {
         return self.resourceFolder;
     }
-    public func getHtmlSaveOptionsData() -> String? {
+    public func getResourceFolderAlias() -> String? {
         return self.resourceFolderAlias;
     }
-    public func getHtmlSaveOptionsData() -> Bool? {
+    public func getScaleImageToShapeSize() -> Bool? {
         return self.scaleImageToShapeSize;
     }
-    public func getHtmlSaveOptionsData() -> String? {
+    public func getTableWidthOutputMode() -> String? {
         return self.tableWidthOutputMode;
     }
 }

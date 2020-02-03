@@ -36,7 +36,7 @@ public class WordsResponse : Decodable {
         self.requestId = requestId;
     }
         
-    public func getWordsResponse() -> String? {
+    public func getRequestId() -> String? {
         return self.requestId;
     }
 }

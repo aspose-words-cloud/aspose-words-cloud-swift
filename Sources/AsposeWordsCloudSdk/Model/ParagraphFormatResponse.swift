@@ -36,7 +36,7 @@ public class ParagraphFormatResponse : WordsResponse {
         self.paragraphFormat = paragraphFormat;
     }
         
-    public func getParagraphFormatResponse() -> ParagraphFormat? {
+    public func getParagraphFormat() -> ParagraphFormat? {
         return self.paragraphFormat;
     }
 }

@@ -36,7 +36,7 @@ public class Hyperlinks : LinkElement {
         self.hyperlinkList = hyperlinkList;
     }
         
-    public func getHyperlinks() -> [Hyperlink]? {
+    public func getHyperlinkList() -> [Hyperlink]? {
         return self.hyperlinkList;
     }
 }

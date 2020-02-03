@@ -36,7 +36,7 @@ public class SplitDocumentResponse : WordsResponse {
         self.splitResult = splitResult;
     }
         
-    public func getSplitDocumentResponse() -> SplitDocumentResult? {
+    public func getSplitResult() -> SplitDocumentResult? {
         return self.splitResult;
     }
 }

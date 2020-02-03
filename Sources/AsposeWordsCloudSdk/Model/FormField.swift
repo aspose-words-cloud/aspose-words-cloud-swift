@@ -60,31 +60,31 @@ public class FormField : NodeLink {
         self.statusText = statusText;
     }
         
-    public func getFormField() -> Bool? {
+    public func getCalculateOnExit() -> Bool? {
         return self.calculateOnExit;
     }
-    public func getFormField() -> Bool? {
+    public func getEnabled() -> Bool? {
         return self.enabled;
     }
-    public func getFormField() -> String? {
+    public func getEntryMacro() -> String? {
         return self.entryMacro;
     }
-    public func getFormField() -> String? {
+    public func getExitMacro() -> String? {
         return self.exitMacro;
     }
-    public func getFormField() -> String? {
+    public func getHelpText() -> String? {
         return self.helpText;
     }
-    public func getFormField() -> String? {
+    public func getName() -> String? {
         return self.name;
     }
-    public func getFormField() -> Bool? {
+    public func getOwnHelp() -> Bool? {
         return self.ownHelp;
     }
-    public func getFormField() -> Bool? {
+    public func getOwnStatus() -> Bool? {
         return self.ownStatus;
     }
-    public func getFormField() -> String? {
+    public func getStatusText() -> String? {
         return self.statusText;
     }
 }

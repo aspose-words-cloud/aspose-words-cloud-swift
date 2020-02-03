@@ -36,7 +36,7 @@ public class TableCell : NodeLink {
         self.childNodes = childNodes;
     }
         
-    public func getTableCell() -> [NodeLink]? {
+    public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }
 }

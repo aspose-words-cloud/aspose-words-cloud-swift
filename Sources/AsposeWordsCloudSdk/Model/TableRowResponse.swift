@@ -36,7 +36,7 @@ public class TableRowResponse : WordsResponse {
         self.row = row;
     }
         
-    public func getTableRowResponse() -> TableRow? {
+    public func getRow() -> TableRow? {
         return self.row;
     }
 }

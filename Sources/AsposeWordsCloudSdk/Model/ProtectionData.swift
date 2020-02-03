@@ -36,7 +36,7 @@ public class ProtectionData : Decodable {
         self.protectionType = protectionType;
     }
         
-    public func getProtectionData() -> String? {
+    public func getProtectionType() -> String? {
         return self.protectionType;
     }
 }

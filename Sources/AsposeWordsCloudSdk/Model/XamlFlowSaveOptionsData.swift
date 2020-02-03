@@ -39,10 +39,10 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
         self.imagesFolderAlias = imagesFolderAlias;
     }
         
-    public func getXamlFlowSaveOptionsData() -> String? {
+    public func getImagesFolder() -> String? {
         return self.imagesFolder;
     }
-    public func getXamlFlowSaveOptionsData() -> String? {
+    public func getImagesFolderAlias() -> String? {
         return self.imagesFolderAlias;
     }
 }

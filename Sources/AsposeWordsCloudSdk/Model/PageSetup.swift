@@ -454,91 +454,91 @@ public class PageSetup : LinkElement {
         self.verticalAlignment = verticalAlignment;
     }
         
-    public func getPageSetup() -> Bool? {
+    public func getBidi() -> Bool? {
         return self.bidi;
     }
-    public func getPageSetup() -> Bool? {
+    public func getBorderAlwaysInFront() -> Bool? {
         return self.borderAlwaysInFront;
     }
-    public func getPageSetup() -> BorderAppliesTo? {
+    public func getBorderAppliesTo() -> BorderAppliesTo? {
         return self.borderAppliesTo;
     }
-    public func getPageSetup() -> BorderDistanceFrom? {
+    public func getBorderDistanceFrom() -> BorderDistanceFrom? {
         return self.borderDistanceFrom;
     }
-    public func getPageSetup() -> Double? {
+    public func getBottomMargin() -> Double? {
         return self.bottomMargin;
     }
-    public func getPageSetup() -> Bool? {
+    public func getDifferentFirstPageHeaderFooter() -> Bool? {
         return self.differentFirstPageHeaderFooter;
     }
-    public func getPageSetup() -> Int? {
+    public func getFirstPageTray() -> Int? {
         return self.firstPageTray;
     }
-    public func getPageSetup() -> Double? {
+    public func getFooterDistance() -> Double? {
         return self.footerDistance;
     }
-    public func getPageSetup() -> Double? {
+    public func getGutter() -> Double? {
         return self.gutter;
     }
-    public func getPageSetup() -> Double? {
+    public func getHeaderDistance() -> Double? {
         return self.headerDistance;
     }
-    public func getPageSetup() -> Double? {
+    public func getLeftMargin() -> Double? {
         return self.leftMargin;
     }
-    public func getPageSetup() -> Int? {
+    public func getLineNumberCountBy() -> Int? {
         return self.lineNumberCountBy;
     }
-    public func getPageSetup() -> Double? {
+    public func getLineNumberDistanceFromText() -> Double? {
         return self.lineNumberDistanceFromText;
     }
-    public func getPageSetup() -> LineNumberRestartMode? {
+    public func getLineNumberRestartMode() -> LineNumberRestartMode? {
         return self.lineNumberRestartMode;
     }
-    public func getPageSetup() -> Int? {
+    public func getLineStartingNumber() -> Int? {
         return self.lineStartingNumber;
     }
-    public func getPageSetup() -> Orientation? {
+    public func getOrientation() -> Orientation? {
         return self.orientation;
     }
-    public func getPageSetup() -> Int? {
+    public func getOtherPagesTray() -> Int? {
         return self.otherPagesTray;
     }
-    public func getPageSetup() -> Double? {
+    public func getPageHeight() -> Double? {
         return self.pageHeight;
     }
-    public func getPageSetup() -> PageNumberStyle? {
+    public func getPageNumberStyle() -> PageNumberStyle? {
         return self.pageNumberStyle;
     }
-    public func getPageSetup() -> Int? {
+    public func getPageStartingNumber() -> Int? {
         return self.pageStartingNumber;
     }
-    public func getPageSetup() -> Double? {
+    public func getPageWidth() -> Double? {
         return self.pageWidth;
     }
-    public func getPageSetup() -> PaperSize? {
+    public func getPaperSize() -> PaperSize? {
         return self.paperSize;
     }
-    public func getPageSetup() -> Bool? {
+    public func getRestartPageNumbering() -> Bool? {
         return self.restartPageNumbering;
     }
-    public func getPageSetup() -> Double? {
+    public func getRightMargin() -> Double? {
         return self.rightMargin;
     }
-    public func getPageSetup() -> Bool? {
+    public func getRtlGutter() -> Bool? {
         return self.rtlGutter;
     }
-    public func getPageSetup() -> SectionStart? {
+    public func getSectionStart() -> SectionStart? {
         return self.sectionStart;
     }
-    public func getPageSetup() -> Bool? {
+    public func getSuppressEndnotes() -> Bool? {
         return self.suppressEndnotes;
     }
-    public func getPageSetup() -> Double? {
+    public func getTopMargin() -> Double? {
         return self.topMargin;
     }
-    public func getPageSetup() -> VerticalAlignment? {
+    public func getVerticalAlignment() -> VerticalAlignment? {
         return self.verticalAlignment;
     }
 }

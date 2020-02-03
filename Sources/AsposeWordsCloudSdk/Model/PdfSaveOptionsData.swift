@@ -119,76 +119,76 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         self.zoomFactor = zoomFactor;
     }
         
-    public func getPdfSaveOptionsData() -> String? {
+    public func getCompliance() -> String? {
         return self.compliance;
     }
-    public func getPdfSaveOptionsData() -> Bool? {
+    public func getCreateNoteHyperlinks() -> Bool? {
         return self.createNoteHyperlinks;
     }
-    public func getPdfSaveOptionsData() -> String? {
+    public func getCustomPropertiesExport() -> String? {
         return self.customPropertiesExport;
     }
-    public func getPdfSaveOptionsData() -> PdfDigitalSignatureDetailsData? {
+    public func getDigitalSignatureDetails() -> PdfDigitalSignatureDetailsData? {
         return self.digitalSignatureDetails;
     }
-    public func getPdfSaveOptionsData() -> Bool? {
+    public func getDisplayDocTitle() -> Bool? {
         return self.displayDocTitle;
     }
-    public func getPdfSaveOptionsData() -> DownsampleOptionsData? {
+    public func getDownsampleOptions() -> DownsampleOptionsData? {
         return self.downsampleOptions;
     }
-    public func getPdfSaveOptionsData() -> Bool? {
+    public func getEmbedFullFonts() -> Bool? {
         return self.embedFullFonts;
     }
-    public func getPdfSaveOptionsData() -> PdfEncryptionDetailsData? {
+    public func getEncryptionDetails() -> PdfEncryptionDetailsData? {
         return self.encryptionDetails;
     }
-    public func getPdfSaveOptionsData() -> Bool? {
+    public func getEscapeUri() -> Bool? {
         return self.escapeUri;
     }
-    public func getPdfSaveOptionsData() -> Bool? {
+    public func getExportDocumentStructure() -> Bool? {
         return self.exportDocumentStructure;
     }
-    public func getPdfSaveOptionsData() -> String? {
+    public func getFontEmbeddingMode() -> String? {
         return self.fontEmbeddingMode;
     }
-    public func getPdfSaveOptionsData() -> HeaderFooterBookmarksExportMode? {
+    public func getHeaderFooterBookmarksExportMode() -> HeaderFooterBookmarksExportMode? {
         return self.headerFooterBookmarksExportMode;
     }
-    public func getPdfSaveOptionsData() -> String? {
+    public func getImageColorSpaceExportMode() -> String? {
         return self.imageColorSpaceExportMode;
     }
-    public func getPdfSaveOptionsData() -> String? {
+    public func getImageCompression() -> String? {
         return self.imageCompression;
     }
-    public func getPdfSaveOptionsData() -> Bool? {
+    public func getOpenHyperlinksInNewWindow() -> Bool? {
         return self.openHyperlinksInNewWindow;
     }
-    public func getPdfSaveOptionsData() -> OutlineOptionsData? {
+    public func getOutlineOptions() -> OutlineOptionsData? {
         return self.outlineOptions;
     }
-    public func getPdfSaveOptionsData() -> String? {
+    public func getPageMode() -> String? {
         return self.pageMode;
     }
-    public func getPdfSaveOptionsData() -> Bool? {
+    public func getPreblendImages() -> Bool? {
         return self.preblendImages;
     }
-    public func getPdfSaveOptionsData() -> Bool? {
+    public func getPreserveFormFields() -> Bool? {
         return self.preserveFormFields;
     }
-    public func getPdfSaveOptionsData() -> String? {
+    public func getTextCompression() -> String? {
         return self.textCompression;
     }
-    public func getPdfSaveOptionsData() -> Bool? {
+    public func getUseBookFoldPrintingSettings() -> Bool? {
         return self.useBookFoldPrintingSettings;
     }
-    public func getPdfSaveOptionsData() -> Bool? {
+    public func getUseCoreFonts() -> Bool? {
         return self.useCoreFonts;
     }
-    public func getPdfSaveOptionsData() -> String? {
+    public func getZoomBehavior() -> String? {
         return self.zoomBehavior;
     }
-    public func getPdfSaveOptionsData() -> Int? {
+    public func getZoomFactor() -> Int? {
         return self.zoomFactor;
     }
 }

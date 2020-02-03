@@ -36,7 +36,7 @@ public class DrawingObjectResponse : WordsResponse {
         self.drawingObject = drawingObject;
     }
         
-    public func getDrawingObjectResponse() -> DrawingObject? {
+    public func getDrawingObject() -> DrawingObject? {
         return self.drawingObject;
     }
 }

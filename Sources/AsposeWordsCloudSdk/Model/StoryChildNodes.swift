@@ -36,7 +36,7 @@ public class StoryChildNodes : Decodable {
         self.childNodes = childNodes;
     }
         
-    public func getStoryChildNodes() -> [NodeLink]? {
+    public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }
 }

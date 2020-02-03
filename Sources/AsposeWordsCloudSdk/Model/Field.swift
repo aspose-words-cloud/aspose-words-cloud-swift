@@ -39,10 +39,10 @@ public class Field : FieldLink {
         self.result = result;
     }
         
-    public func getField() -> String? {
+    public func getLocaleId() -> String? {
         return self.localeId;
     }
-    public func getField() -> String? {
+    public func getResult() -> String? {
         return self.result;
     }
 }

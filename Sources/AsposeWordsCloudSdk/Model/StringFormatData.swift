@@ -145,19 +145,19 @@ public class StringFormatData : Decodable {
         self.trimming = trimming;
     }
         
-    public func getStringFormatData() -> Alignment? {
+    public func getAlignment() -> Alignment? {
         return self.alignment;
     }
-    public func getStringFormatData() -> FormatFlags? {
+    public func getFormatFlags() -> FormatFlags? {
         return self.formatFlags;
     }
-    public func getStringFormatData() -> HotkeyPrefix? {
+    public func getHotkeyPrefix() -> HotkeyPrefix? {
         return self.hotkeyPrefix;
     }
-    public func getStringFormatData() -> LineAlignment? {
+    public func getLineAlignment() -> LineAlignment? {
         return self.lineAlignment;
     }
-    public func getStringFormatData() -> Trimming? {
+    public func getTrimming() -> Trimming? {
         return self.trimming;
     }
 }

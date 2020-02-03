@@ -39,10 +39,10 @@ public class StatDataResponse : WordsResponse {
         self.statData = statData;
     }
         
-    public func getStatDataResponse() -> FileLink? {
+    public func getDocumentLink() -> FileLink? {
         return self.documentLink;
     }
-    public func getStatDataResponse() -> DocumentStatData? {
+    public func getStatData() -> DocumentStatData? {
         return self.statData;
     }
 }

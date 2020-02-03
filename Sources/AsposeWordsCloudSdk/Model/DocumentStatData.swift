@@ -48,19 +48,19 @@ public class DocumentStatData : Decodable {
         self.pageStatData = pageStatData;
     }
         
-    public func getDocumentStatData() -> Int {
+    public func getWordCount() -> Int {
         return self.wordCount;
     }
-    public func getDocumentStatData() -> Int {
+    public func getParagraphCount() -> Int {
         return self.paragraphCount;
     }
-    public func getDocumentStatData() -> Int {
+    public func getPageCount() -> Int {
         return self.pageCount;
     }
-    public func getDocumentStatData() -> FootnotesStatData? {
+    public func getFootnotesStatData() -> FootnotesStatData? {
         return self.footnotesStatData;
     }
-    public func getDocumentStatData() -> [PageStatData]? {
+    public func getPageStatData() -> [PageStatData]? {
         return self.pageStatData;
     }
 }

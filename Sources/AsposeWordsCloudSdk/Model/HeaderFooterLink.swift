@@ -59,7 +59,7 @@ public class HeaderFooterLink : LinkElement {
         self.type = type;
     }
         
-    public func getHeaderFooterLink() -> ModelType? {
+    public func getType() -> ModelType? {
         return self.type;
     }
 }

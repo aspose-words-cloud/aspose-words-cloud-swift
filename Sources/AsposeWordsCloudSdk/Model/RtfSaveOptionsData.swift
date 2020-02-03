@@ -42,13 +42,13 @@ public class RtfSaveOptionsData : SaveOptionsData {
         self.prettyFormat = prettyFormat;
     }
         
-    public func getRtfSaveOptionsData() -> Bool? {
+    public func getExportCompactSize() -> Bool? {
         return self.exportCompactSize;
     }
-    public func getRtfSaveOptionsData() -> Bool? {
+    public func getExportImagesForOldReaders() -> Bool? {
         return self.exportImagesForOldReaders;
     }
-    public func getRtfSaveOptionsData() -> Bool? {
+    public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }
 }

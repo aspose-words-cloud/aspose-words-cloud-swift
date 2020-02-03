@@ -36,7 +36,7 @@ public class TablePropertiesResponse : WordsResponse {
         self.properties = properties;
     }
         
-    public func getTablePropertiesResponse() -> TableProperties? {
+    public func getProperties() -> TableProperties? {
         return self.properties;
     }
 }

@@ -36,7 +36,7 @@ public class SaveResponse : WordsResponse {
         self.saveResult = saveResult;
     }
         
-    public func getSaveResponse() -> SaveResult? {
+    public func getSaveResult() -> SaveResult? {
         return self.saveResult;
     }
 }

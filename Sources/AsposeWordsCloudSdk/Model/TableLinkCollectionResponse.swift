@@ -36,7 +36,7 @@ public class TableLinkCollectionResponse : WordsResponse {
         self.tables = tables;
     }
         
-    public func getTableLinkCollectionResponse() -> TableLinkCollection? {
+    public func getTables() -> TableLinkCollection? {
         return self.tables;
     }
 }

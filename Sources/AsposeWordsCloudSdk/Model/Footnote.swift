@@ -59,19 +59,19 @@ public class Footnote : FootnoteLink {
         self.text = text;
     }
         
-    public func getFootnote() -> StoryChildNodes? {
+    public func getContent() -> StoryChildNodes? {
         return self.content;
     }
-    public func getFootnote() -> FootnoteType? {
+    public func getFootnoteType() -> FootnoteType? {
         return self.footnoteType;
     }
-    public func getFootnote() -> DocumentPosition? {
+    public func getPosition() -> DocumentPosition? {
         return self.position;
     }
-    public func getFootnote() -> String? {
+    public func getReferenceMark() -> String? {
         return self.referenceMark;
     }
-    public func getFootnote() -> String? {
+    public func getText() -> String? {
         return self.text;
     }
 }

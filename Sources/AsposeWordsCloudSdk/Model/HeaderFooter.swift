@@ -42,13 +42,13 @@ public class HeaderFooter : HeaderFooterLink {
         self.paragraphs = paragraphs;
     }
         
-    public func getHeaderFooter() -> [NodeLink]? {
+    public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }
-    public func getHeaderFooter() -> LinkElement? {
+    public func getDrawingObjects() -> LinkElement? {
         return self.drawingObjects;
     }
-    public func getHeaderFooter() -> LinkElement? {
+    public func getParagraphs() -> LinkElement? {
         return self.paragraphs;
     }
 }

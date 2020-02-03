@@ -45,16 +45,16 @@ public class ModelError : Decodable {
         self.innerError = innerError;
     }
         
-    public func getModelError() -> String? {
+    public func getCode() -> String? {
         return self.code;
     }
-    public func getModelError() -> String? {
+    public func getMessage() -> String? {
         return self.message;
     }
-    public func getModelError() -> String? {
+    public func getDescription() -> String? {
         return self._description;
     }
-    public func getModelError() -> ErrorDetails? {
+    public func getInnerError() -> ErrorDetails? {
         return self.innerError;
     }
 }

@@ -36,7 +36,7 @@ public class DrawingObjectCollection : LinkElement {
         self.list = list;
     }
         
-    public func getDrawingObjectCollection() -> [LinkElement]? {
+    public func getList() -> [LinkElement]? {
         return self.list;
     }
 }

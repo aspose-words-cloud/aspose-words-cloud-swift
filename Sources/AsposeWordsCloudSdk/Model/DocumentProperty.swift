@@ -42,13 +42,13 @@ public class DocumentProperty : LinkElement {
         self.value = value;
     }
         
-    public func getDocumentProperty() -> Bool? {
+    public func getBuiltIn() -> Bool? {
         return self.builtIn;
     }
-    public func getDocumentProperty() -> String? {
+    public func getName() -> String? {
         return self.name;
     }
-    public func getDocumentProperty() -> String? {
+    public func getValue() -> String? {
         return self.value;
     }
 }

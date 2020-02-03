@@ -36,7 +36,7 @@ public class DocumentEntryList : Decodable {
         self.documentEntries = documentEntries;
     }
         
-    public func getDocumentEntryList() -> [DocumentEntry]? {
+    public func getDocumentEntries() -> [DocumentEntry]? {
         return self.documentEntries;
     }
 }

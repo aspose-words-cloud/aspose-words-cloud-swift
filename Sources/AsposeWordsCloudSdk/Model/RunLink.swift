@@ -36,7 +36,7 @@ public class RunLink : NodeLink {
         self.text = text;
     }
         
-    public func getRunLink() -> String? {
+    public func getText() -> String? {
         return self.text;
     }
 }

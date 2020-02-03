@@ -51,22 +51,22 @@ public class OutlineOptionsData : Decodable {
         self.headingsOutlineLevels = headingsOutlineLevels;
     }
         
-    public func getOutlineOptionsData() -> [BookmarksOutlineLevelData]? {
+    public func getBookmarksOutlineLevels() -> [BookmarksOutlineLevelData]? {
         return self.bookmarksOutlineLevels;
     }
-    public func getOutlineOptionsData() -> Int? {
+    public func getDefaultBookmarksOutlineLevel() -> Int? {
         return self.defaultBookmarksOutlineLevel;
     }
-    public func getOutlineOptionsData() -> Bool? {
+    public func getCreateMissingOutlineLevels() -> Bool? {
         return self.createMissingOutlineLevels;
     }
-    public func getOutlineOptionsData() -> Bool? {
+    public func getCreateOutlinesForHeadingsInTables() -> Bool? {
         return self.createOutlinesForHeadingsInTables;
     }
-    public func getOutlineOptionsData() -> Int? {
+    public func getExpandedOutlineLevels() -> Int? {
         return self.expandedOutlineLevels;
     }
-    public func getOutlineOptionsData() -> Int? {
+    public func getHeadingsOutlineLevels() -> Int? {
         return self.headingsOutlineLevels;
     }
 }

@@ -39,10 +39,10 @@ public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
         self.resourcesFolderAlias = resourcesFolderAlias;
     }
         
-    public func getXamlFixedSaveOptionsData() -> String? {
+    public func getResourcesFolder() -> String? {
         return self.resourcesFolder;
     }
-    public func getXamlFixedSaveOptionsData() -> String? {
+    public func getResourcesFolderAlias() -> String? {
         return self.resourcesFolderAlias;
     }
 }

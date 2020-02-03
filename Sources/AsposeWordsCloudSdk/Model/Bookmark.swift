@@ -39,10 +39,10 @@ public class Bookmark : LinkElement {
         self.text = text;
     }
         
-    public func getBookmark() -> String? {
+    public func getName() -> String? {
         return self.name;
     }
-    public func getBookmark() -> String? {
+    public func getText() -> String? {
         return self.text;
     }
 }

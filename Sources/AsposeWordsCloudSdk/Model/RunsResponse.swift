@@ -36,7 +36,7 @@ public class RunsResponse : WordsResponse {
         self.runs = runs;
     }
         
-    public func getRunsResponse() -> Runs? {
+    public func getRuns() -> Runs? {
         return self.runs;
     }
 }

@@ -39,10 +39,10 @@ public class ReplaceTextResponse : WordsResponse {
         self.matches = matches;
     }
         
-    public func getReplaceTextResponse() -> FileLink? {
+    public func getDocumentLink() -> FileLink? {
         return self.documentLink;
     }
-    public func getReplaceTextResponse() -> Int? {
+    public func getMatches() -> Int? {
         return self.matches;
     }
 }

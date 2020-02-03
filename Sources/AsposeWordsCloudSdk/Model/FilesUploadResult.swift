@@ -39,10 +39,10 @@ public class FilesUploadResult : Decodable {
         self.errors = errors;
     }
         
-    public func getFilesUploadResult() -> [String]? {
+    public func getUploaded() -> [String]? {
         return self.uploaded;
     }
-    public func getFilesUploadResult() -> [ModelError]? {
+    public func getErrors() -> [ModelError]? {
         return self.errors;
     }
 }

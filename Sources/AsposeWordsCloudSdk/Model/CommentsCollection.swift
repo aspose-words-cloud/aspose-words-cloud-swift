@@ -36,7 +36,7 @@ public class CommentsCollection : LinkElement {
         self.commentList = commentList;
     }
         
-    public func getCommentsCollection() -> [Comment]? {
+    public func getCommentList() -> [Comment]? {
         return self.commentList;
     }
 }

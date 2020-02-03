@@ -36,7 +36,7 @@ public class SectionLinkCollection : LinkElement {
         self.sectionLinkList = sectionLinkList;
     }
         
-    public func getSectionLinkCollection() -> [SectionLink]? {
+    public func getSectionLinkList() -> [SectionLink]? {
         return self.sectionLinkList;
     }
 }

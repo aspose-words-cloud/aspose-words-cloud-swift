@@ -36,7 +36,7 @@ public class LinkElement : Decodable {
         self.link = link;
     }
         
-    public func getLinkElement() -> WordsApiLink? {
+    public func getLink() -> WordsApiLink? {
         return self.link;
     }
 }

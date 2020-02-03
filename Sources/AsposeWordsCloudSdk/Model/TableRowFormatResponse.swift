@@ -36,7 +36,7 @@ public class TableRowFormatResponse : WordsResponse {
         self.rowFormat = rowFormat;
     }
         
-    public func getTableRowFormatResponse() -> TableRowFormat? {
+    public func getRowFormat() -> TableRowFormat? {
         return self.rowFormat;
     }
 }

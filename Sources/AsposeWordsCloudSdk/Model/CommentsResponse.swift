@@ -36,7 +36,7 @@ public class CommentsResponse : WordsResponse {
         self.comments = comments;
     }
         
-    public func getCommentsResponse() -> CommentsCollection? {
+    public func getComments() -> CommentsCollection? {
         return self.comments;
     }
 }

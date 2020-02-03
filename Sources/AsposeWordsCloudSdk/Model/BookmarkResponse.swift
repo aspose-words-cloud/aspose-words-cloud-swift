@@ -36,7 +36,7 @@ public class BookmarkResponse : WordsResponse {
         self.bookmark = bookmark;
     }
         
-    public func getBookmarkResponse() -> Bookmark? {
+    public func getBookmark() -> Bookmark? {
         return self.bookmark;
     }
 }

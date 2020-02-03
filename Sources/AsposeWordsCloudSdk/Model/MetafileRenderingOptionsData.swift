@@ -48,19 +48,19 @@ public class MetafileRenderingOptionsData : Decodable {
         self.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
     }
         
-    public func getMetafileRenderingOptionsData() -> String? {
+    public func getEmfPlusDualRenderingMode() -> String? {
         return self.emfPlusDualRenderingMode;
     }
-    public func getMetafileRenderingOptionsData() -> Bool? {
+    public func getEmulateRasterOperations() -> Bool? {
         return self.emulateRasterOperations;
     }
-    public func getMetafileRenderingOptionsData() -> String? {
+    public func getRenderingMode() -> String? {
         return self.renderingMode;
     }
-    public func getMetafileRenderingOptionsData() -> Bool? {
+    public func getUseEmfEmbeddedToWmf() -> Bool? {
         return self.useEmfEmbeddedToWmf;
     }
-    public func getMetafileRenderingOptionsData() -> Bool? {
+    public func getScaleWmfFontsToMetafileSize() -> Bool? {
         return self.scaleWmfFontsToMetafileSize;
     }
 }

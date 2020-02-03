@@ -53,10 +53,10 @@ public class PreferredWidth : Decodable {
         self.value = value;
     }
         
-    public func getPreferredWidth() -> ModelType {
+    public func getType() -> ModelType {
         return self.type;
     }
-    public func getPreferredWidth() -> Double? {
+    public func getValue() -> Double? {
         return self.value;
     }
 }
