@@ -1,6 +1,6 @@
 import Foundation
 
-public enum ApiError : LocalizedError {
+public enum WordsApiError : LocalizedError {
     case requestError(errorCode: Int, message: String?)
     
     public var errorDescription: String? {

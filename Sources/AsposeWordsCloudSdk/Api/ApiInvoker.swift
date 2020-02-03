@@ -66,7 +66,7 @@ public class ApiInvoker {
             return resp.data!;
         }
         else {
-            throw ApiError.requestError(errorCode: resp.errorCode, message: resp.errorMessage);
+            throw WordsApiError.requestError(errorCode: resp.errorCode, message: resp.errorMessage);
         }
     }
     
