@@ -29,7 +29,7 @@ import Foundation
 
 public class PreferredWidth : Codable {
     // Gets or sets the unit of measure used for this preferred width value.
-    public enum ModelType
+    public enum ModelType : Int, Codable
     { 
         // Enum value "auto"
         case auto

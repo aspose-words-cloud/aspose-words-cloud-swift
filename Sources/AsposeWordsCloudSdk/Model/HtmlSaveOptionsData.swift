@@ -29,7 +29,7 @@ import Foundation
 
 public class HtmlSaveOptionsData : SaveOptionsData {
     // Gets or sets specifies version of HTML standard that should be used when saving the document to HTML or MHTML. Default value is Aspose.Words.Saving.HtmlVersion.Xhtml.
-    public enum HtmlVersion
+    public enum HtmlVersion : Int, Codable
     { 
         // Enum value "xhtml"
         case xhtml
@@ -40,7 +40,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Gets or sets specifies in what format metafiles are saved when exporting to HTML, MHTML, or EPUB. Default value is Aspose.Words.Saving.HtmlMetafileFormat.Png, meaning that metafiles are rendered to raster PNG images.  Metafiles are not natively displayed by HTML browsers. By default, Aspose.Words converts WMF and EMF images into PNG files when exporting to HTML.Other options are to convert metafiles to SVG images or to export them as is without conversion. Some image transforms, in particular image cropping, will not be applied to metafile images if they are exported to HTML without conversion.
-    public enum MetafileFormat
+    public enum MetafileFormat : Int, Codable
     { 
         // Enum value "png"
         case png
@@ -54,7 +54,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Gets or sets controls how OfficeMath objects are exported to HTML, MHTML or EPUB.  Default value is HtmlOfficeMathOutputMode.Image.
-    public enum OfficeMathOutputMode
+    public enum OfficeMathOutputMode : Int, Codable
     { 
         // Enum value "image"
         case image

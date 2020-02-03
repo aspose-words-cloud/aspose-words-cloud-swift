@@ -29,7 +29,7 @@ import Foundation
 
 public class Document : Codable {
     // Gets or sets the original format of the document.
-    public enum SourceFormat
+    public enum SourceFormat : Int, Codable
     { 
         // Enum value "unknown"
         case unknown

@@ -29,7 +29,7 @@ import Foundation
 
 public class OfficeMathObject : OfficeMathLink {
     // Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.
-    public enum DisplayType
+    public enum DisplayType : Int, Codable
     { 
         // Enum value "display"
         case display
@@ -40,7 +40,7 @@ public class OfficeMathObject : OfficeMathLink {
     }
 
     // Gets or sets /sets Office Math justification.
-    public enum Justification
+    public enum Justification : Int, Codable
     { 
         // Enum value "centerGroup"
         case centerGroup
@@ -63,7 +63,7 @@ public class OfficeMathObject : OfficeMathLink {
     }
 
     // Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
-    public enum MathObjectType
+    public enum MathObjectType : Int, Codable
     { 
         // Enum value "omath"
         case omath

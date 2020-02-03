@@ -29,7 +29,7 @@ import Foundation
 
 public class ParagraphFormat : LinkElement {
     // Gets or sets text alignment for the paragraph.             
-    public enum Alignment
+    public enum Alignment : Int, Codable
     { 
         // Enum value "_left"
         case _left
@@ -61,7 +61,7 @@ public class ParagraphFormat : LinkElement {
     }
 
     // Gets or sets the position for a drop cap text.             
-    public enum DropCapPosition
+    public enum DropCapPosition : Int, Codable
     { 
         // Enum value "_none"
         case _none
@@ -75,7 +75,7 @@ public class ParagraphFormat : LinkElement {
     }
 
     // Gets or sets the line spacing for the paragraph.             
-    public enum LineSpacingRule
+    public enum LineSpacingRule : Int, Codable
     { 
         // Enum value "atLeast"
         case atLeast
@@ -89,7 +89,7 @@ public class ParagraphFormat : LinkElement {
     }
 
     // Gets or sets specifies the outline level of the paragraph in the document.             
-    public enum OutlineLevel
+    public enum OutlineLevel : Int, Codable
     { 
         // Enum value "level1"
         case level1
@@ -124,7 +124,7 @@ public class ParagraphFormat : LinkElement {
     }
 
     // Gets or sets the locale independent style identifier of the paragraph style applied to this formatting.             
-    public enum StyleIdentifier
+    public enum StyleIdentifier : Int, Codable
     { 
         // Enum value "normal"
         case normal

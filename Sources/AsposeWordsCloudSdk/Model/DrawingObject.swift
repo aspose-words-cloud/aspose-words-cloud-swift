@@ -29,7 +29,7 @@ import Foundation
 
 public class DrawingObject : DrawingObjectLink {
     // Gets or sets specifies where the distance to the image is measured from.             
-    public enum RelativeHorizontalPosition
+    public enum RelativeHorizontalPosition : Int, Codable
     { 
         // Enum value "margin"
         case margin
@@ -61,7 +61,7 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Gets or sets specifies where the distance to the image measured from.
-    public enum RelativeVerticalPosition
+    public enum RelativeVerticalPosition : Int, Codable
     { 
         // Enum value "margin"
         case margin
@@ -96,7 +96,7 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Gets or sets specifies how to wrap text around the image.
-    public enum WrapType
+    public enum WrapType : Int, Codable
     { 
         // Enum value "inline"
         case inline

@@ -29,7 +29,7 @@ import Foundation
 
 public class Border : LinkElement {
     // Gets or sets the border type.             
-    public enum BorderType
+    public enum BorderType : Int, Codable
     { 
         // Enum value "bottom"
         case bottom
@@ -61,7 +61,7 @@ public class Border : LinkElement {
     }
 
     // Gets or sets the border style.
-    public enum LineStyle
+    public enum LineStyle : Int, Codable
     { 
         // Enum value "_none"
         case _none

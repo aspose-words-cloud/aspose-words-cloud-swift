@@ -29,7 +29,7 @@ import Foundation
 
 public class PageSetup : LinkElement {
     // Gets or sets specifies which pages the page border is printed on.             
-    public enum BorderAppliesTo
+    public enum BorderAppliesTo : Int, Codable
     { 
         // Enum value "allPages"
         case allPages
@@ -43,7 +43,7 @@ public class PageSetup : LinkElement {
     }
 
     // Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.             
-    public enum BorderDistanceFrom
+    public enum BorderDistanceFrom : Int, Codable
     { 
         // Enum value "text"
         case text
@@ -54,7 +54,7 @@ public class PageSetup : LinkElement {
     }
 
     // Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.             
-    public enum LineNumberRestartMode
+    public enum LineNumberRestartMode : Int, Codable
     { 
         // Enum value "restartPage"
         case restartPage
@@ -68,7 +68,7 @@ public class PageSetup : LinkElement {
     }
 
     // Gets or sets returns or sets the orientation of the page.             
-    public enum Orientation
+    public enum Orientation : Int, Codable
     { 
         // Enum value "portrait"
         case portrait
@@ -79,7 +79,7 @@ public class PageSetup : LinkElement {
     }
 
     // Gets or sets the page number format.             
-    public enum PageNumberStyle
+    public enum PageNumberStyle : Int, Codable
     { 
         // Enum value "arabic"
         case arabic
@@ -270,7 +270,7 @@ public class PageSetup : LinkElement {
     }
 
     // Gets or sets returns or sets the paper size.             
-    public enum PaperSize
+    public enum PaperSize : Int, Codable
     { 
         // Enum value "a3"
         case a3
@@ -326,7 +326,7 @@ public class PageSetup : LinkElement {
     }
 
     // Gets or sets returns or sets the type of section break for the specified object.             
-    public enum SectionStart
+    public enum SectionStart : Int, Codable
     { 
         // Enum value "continuous"
         case continuous
@@ -346,7 +346,7 @@ public class PageSetup : LinkElement {
     }
 
     // Gets or sets returns or sets the vertical alignment of text on each page in a document or section.             
-    public enum VerticalAlignment
+    public enum VerticalAlignment : Int, Codable
     { 
         // Enum value "top"
         case top

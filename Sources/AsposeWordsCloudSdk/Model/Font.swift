@@ -29,7 +29,7 @@ import Foundation
 
 public class Font : LinkElement {
     // Gets or sets the locale independent style identifier of the character style applied to this formatting.
-    public enum StyleIdentifier
+    public enum StyleIdentifier : Int, Codable
     { 
         // Enum value "normal"
         case normal
@@ -1153,7 +1153,7 @@ public class Font : LinkElement {
     }
 
     // Gets or sets the font animation effect.
-    public enum TextEffect
+    public enum TextEffect : Int, Codable
     { 
         // Enum value "_none"
         case _none
@@ -1179,7 +1179,7 @@ public class Font : LinkElement {
     }
 
     // Gets or sets the type of underline applied to the font.
-    public enum Underline
+    public enum Underline : Int, Codable
     { 
         // Enum value "_none"
         case _none

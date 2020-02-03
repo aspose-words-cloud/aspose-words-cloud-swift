@@ -29,7 +29,7 @@ import Foundation
 
 public class TableCellFormat : LinkElement {
     // Gets or sets specifies how the cell is merged horizontally with other cells in the row.
-    public enum HorizontalMerge
+    public enum HorizontalMerge : Int, Codable
     { 
         // Enum value "_none"
         case _none
@@ -43,7 +43,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Gets or sets returns or sets the orientation of text in a table cell.
-    public enum Orientation
+    public enum Orientation : Int, Codable
     { 
         // Enum value "horizontal"
         case horizontal
@@ -66,7 +66,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Gets or sets returns or sets the vertical alignment of text in the cell.
-    public enum VerticalAlignment
+    public enum VerticalAlignment : Int, Codable
     { 
         // Enum value "top"
         case top
@@ -80,7 +80,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Gets or sets specifies how the cell is merged with other cells vertically.
-    public enum VerticalMerge
+    public enum VerticalMerge : Int, Codable
     { 
         // Enum value "_none"
         case _none

@@ -29,7 +29,7 @@ import Foundation
 
 public class TextSaveOptionsData : SaveOptionsData {
     // Gets or sets specifies whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.
-    public enum ExportHeadersFootersMode
+    public enum ExportHeadersFootersMode : Int, Codable
     { 
         // Enum value "_none"
         case _none

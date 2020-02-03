@@ -29,7 +29,7 @@ import Foundation
 
 public class TableProperties : LinkElement {
     // Gets or sets specifies how an inline table is aligned in the document.
-    public enum Alignment
+    public enum Alignment : Int, Codable
     { 
         // Enum value "_left"
         case _left
@@ -43,7 +43,7 @@ public class TableProperties : LinkElement {
     }
 
     // Gets or sets the locale independent style identifier of the table style applied to this table.
-    public enum StyleIdentifier
+    public enum StyleIdentifier : Int, Codable
     { 
         // Enum value "normal"
         case normal
@@ -1167,7 +1167,7 @@ public class TableProperties : LinkElement {
     }
 
     // Gets or sets bit flags that specify how a table style is applied to this table.
-    public enum StyleOptions
+    public enum StyleOptions : Int, Codable
     { 
         // Enum value "_none"
         case _none
@@ -1199,7 +1199,7 @@ public class TableProperties : LinkElement {
     }
 
     // Gets or sets get or sets TextWrapping  for table.
-    public enum TextWrapping
+    public enum TextWrapping : Int, Codable
     { 
         // Enum value "_default"
         case _default

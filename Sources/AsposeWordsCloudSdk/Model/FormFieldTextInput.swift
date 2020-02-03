@@ -29,7 +29,7 @@ import Foundation
 
 public class FormFieldTextInput : FormField {
     // Gets or sets the type of a text form field.
-    public enum TextInputType
+    public enum TextInputType : Int, Codable
     { 
         // Enum value "regular"
         case regular

@@ -29,7 +29,7 @@ import Foundation
 
 public class GraphicsQualityOptionsData : Codable {
     // Gets or sets a value that specifies how composited images are drawn to this Graphics.
-    public enum CompositingMode
+    public enum CompositingMode : Int, Codable
     { 
         // Enum value "sourceOver"
         case sourceOver
@@ -40,7 +40,7 @@ public class GraphicsQualityOptionsData : Codable {
     }
 
     // Gets or sets the rendering quality of composited images drawn to this Graphics.
-    public enum CompositingQuality
+    public enum CompositingQuality : Int, Codable
     { 
         // Enum value "_default"
         case _default
@@ -63,7 +63,7 @@ public class GraphicsQualityOptionsData : Codable {
     }
 
     // Gets or sets the interpolation mode associated with this Graphics.
-    public enum InterpolationMode
+    public enum InterpolationMode : Int, Codable
     { 
         // Enum value "_default"
         case _default
@@ -95,7 +95,7 @@ public class GraphicsQualityOptionsData : Codable {
     }
 
     // Gets or sets the rendering quality for this Graphics.
-    public enum SmoothingMode
+    public enum SmoothingMode : Int, Codable
     { 
         // Enum value "_default"
         case _default
@@ -118,7 +118,7 @@ public class GraphicsQualityOptionsData : Codable {
     }
 
     // Gets or sets the rendering mode for text associated with this Graphics.
-    public enum TextRenderingHint
+    public enum TextRenderingHint : Int, Codable
     { 
         // Enum value "systemDefault"
         case systemDefault

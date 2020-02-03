@@ -29,7 +29,7 @@ import Foundation
 
 public class StringFormatData : Codable {
     // Gets or sets horizontal alignment of the string.
-    public enum Alignment
+    public enum Alignment : Int, Codable
     { 
         // Enum value "near"
         case near
@@ -43,7 +43,7 @@ public class StringFormatData : Codable {
     }
 
     // Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
-    public enum FormatFlags
+    public enum FormatFlags : Int, Codable
     { 
         // Enum value "directionRightToLeft"
         case directionRightToLeft
@@ -75,7 +75,7 @@ public class StringFormatData : Codable {
     }
 
     // Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.
-    public enum HotkeyPrefix
+    public enum HotkeyPrefix : Int, Codable
     { 
         // Enum value "_none"
         case _none
@@ -89,7 +89,7 @@ public class StringFormatData : Codable {
     }
 
     // Gets or sets the vertical alignment of the string.
-    public enum LineAlignment
+    public enum LineAlignment : Int, Codable
     { 
         // Enum value "near"
         case near
@@ -103,7 +103,7 @@ public class StringFormatData : Codable {
     }
 
     // Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.
-    public enum Trimming
+    public enum Trimming : Int, Codable
     { 
         // Enum value "_none"
         case _none

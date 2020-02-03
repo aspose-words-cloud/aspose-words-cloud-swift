@@ -29,7 +29,7 @@ import Foundation
 
 public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets determines how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
-    public enum HeaderFooterBookmarksExportMode
+    public enum HeaderFooterBookmarksExportMode : Int, Codable
     { 
         // Enum value "_none"
         case _none
