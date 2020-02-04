@@ -58,7 +58,9 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -100,7 +102,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -123,7 +127,9 @@ public class WordsAPI {
         if (request.getBestClassesCount() != nil) {
             queryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: request.getBestClassesCount()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -162,7 +168,9 @@ public class WordsAPI {
         if (request.getTaxonomy() != nil) {
             queryItems.append(URLQueryItem(name: "taxonomy", value: try ObjectSerializer.serializeToString(value: request.getTaxonomy()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -198,7 +206,9 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -231,7 +241,9 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         var formParams = Dictionary<String, Data>();
@@ -264,7 +276,9 @@ public class WordsAPI {
         if (request.getVersionId() != nil) {
             queryItems.append(URLQueryItem(name: "versionId", value: try ObjectSerializer.serializeToString(value: request.getVersionId()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -292,7 +306,9 @@ public class WordsAPI {
         if (request.getDestStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "destStorageName", value: try ObjectSerializer.serializeToString(value: request.getDestStorageName()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -321,7 +337,9 @@ public class WordsAPI {
         if (request.getFolder() != nil) {
             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -345,7 +363,9 @@ public class WordsAPI {
         if (request.getStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: request.getStorageName()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -388,7 +408,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -432,7 +454,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -475,7 +499,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -518,7 +544,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -561,7 +589,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -605,7 +635,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -648,7 +680,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -692,7 +726,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -735,7 +771,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -778,7 +816,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -820,7 +860,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -847,7 +889,9 @@ public class WordsAPI {
         if (request.getVersionId() != nil) {
             queryItems.append(URLQueryItem(name: "versionId", value: try ObjectSerializer.serializeToString(value: request.getVersionId()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -874,7 +918,9 @@ public class WordsAPI {
         if (request.getRecursive() != nil) {
             queryItems.append(URLQueryItem(name: "recursive", value: try ObjectSerializer.serializeToString(value: request.getRecursive()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -918,7 +964,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -961,7 +1009,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1005,7 +1055,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1048,7 +1100,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1092,7 +1146,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1138,7 +1194,9 @@ public class WordsAPI {
         if (request.getHeadersFootersTypes() != nil) {
             queryItems.append(URLQueryItem(name: "headersFootersTypes", value: try ObjectSerializer.serializeToString(value: request.getHeadersFootersTypes()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1180,7 +1238,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1224,7 +1284,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1267,7 +1329,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1311,7 +1375,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1354,7 +1420,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1398,7 +1466,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1441,7 +1511,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1485,7 +1557,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1529,7 +1603,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1573,7 +1649,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1616,7 +1694,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1658,7 +1738,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1685,7 +1767,9 @@ public class WordsAPI {
         if (request.getVersionId() != nil) {
             queryItems.append(URLQueryItem(name: "versionId", value: try ObjectSerializer.serializeToString(value: request.getVersionId()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1733,7 +1817,9 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         var formParams = Dictionary<String, Data>();
@@ -1766,7 +1852,9 @@ public class WordsAPI {
         if (request.getDocumentFileName() != nil) {
             queryItems.append(URLQueryItem(name: "documentFileName", value: try ObjectSerializer.serializeToString(value: request.getDocumentFileName()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         var formParams = Dictionary<String, Data>();
@@ -1792,7 +1880,9 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1826,7 +1916,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1859,7 +1951,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1894,7 +1988,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1928,7 +2024,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1962,7 +2060,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -1995,7 +2095,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2028,7 +2130,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2063,7 +2167,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2097,7 +2203,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2132,7 +2240,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2166,7 +2276,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2201,7 +2313,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2235,7 +2349,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2269,7 +2385,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2302,7 +2420,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2338,7 +2458,9 @@ public class WordsAPI {
         if (request.getUseNonMergeFields() != nil) {
             queryItems.append(URLQueryItem(name: "useNonMergeFields", value: try ObjectSerializer.serializeToString(value: request.getUseNonMergeFields()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2361,7 +2483,9 @@ public class WordsAPI {
         if (request.getUseNonMergeFields() != nil) {
             queryItems.append(URLQueryItem(name: "useNonMergeFields", value: try ObjectSerializer.serializeToString(value: request.getUseNonMergeFields()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         var formParams = Dictionary<String, Data>();
@@ -2397,7 +2521,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2430,7 +2556,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2463,7 +2591,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2497,7 +2627,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2530,7 +2662,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2572,7 +2706,9 @@ public class WordsAPI {
         if (request.getIncludeTextInShapes() != nil) {
             queryItems.append(URLQueryItem(name: "includeTextInShapes", value: try ObjectSerializer.serializeToString(value: request.getIncludeTextInShapes()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2612,7 +2748,9 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2647,7 +2785,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2681,7 +2821,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2715,7 +2857,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2748,7 +2892,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2772,7 +2918,9 @@ public class WordsAPI {
         if (request.getStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: request.getStorageName()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2807,7 +2955,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2841,7 +2991,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2875,7 +3027,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2908,7 +3062,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2943,7 +3099,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -2977,7 +3135,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3011,7 +3171,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3044,7 +3206,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3081,7 +3245,9 @@ public class WordsAPI {
         if (request.getFilterByType() != nil) {
             queryItems.append(URLQueryItem(name: "filterByType", value: try ObjectSerializer.serializeToString(value: request.getFilterByType()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3119,7 +3285,9 @@ public class WordsAPI {
         if (request.getFilterByType() != nil) {
             queryItems.append(URLQueryItem(name: "filterByType", value: try ObjectSerializer.serializeToString(value: request.getFilterByType()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3156,7 +3324,9 @@ public class WordsAPI {
         if (request.getFilterByType() != nil) {
             queryItems.append(URLQueryItem(name: "filterByType", value: try ObjectSerializer.serializeToString(value: request.getFilterByType()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3191,7 +3361,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3225,7 +3397,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3259,7 +3433,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3292,7 +3468,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3327,7 +3505,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3362,7 +3542,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3396,7 +3578,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3430,7 +3614,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3464,7 +3650,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3497,7 +3685,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3532,7 +3722,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3567,7 +3759,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3602,7 +3796,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3636,7 +3832,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3670,7 +3868,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3704,7 +3904,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3737,7 +3939,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3772,7 +3976,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3807,7 +4013,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3842,7 +4050,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3877,7 +4087,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3911,7 +4123,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3946,7 +4160,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -3981,7 +4197,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4015,7 +4233,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4049,7 +4269,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4082,7 +4304,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4124,7 +4348,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4167,7 +4393,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         var formParams = Dictionary<String, Data>();
@@ -4212,7 +4440,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         var formParams = Dictionary<String, Data>();
@@ -4261,7 +4491,9 @@ public class WordsAPI {
         if (request.getInsertBeforeNode() != nil) {
             queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: request.getInsertBeforeNode()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4306,7 +4538,9 @@ public class WordsAPI {
         if (request.getInsertBeforeNode() != nil) {
             queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: request.getInsertBeforeNode()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4349,7 +4583,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4391,7 +4627,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4437,7 +4675,9 @@ public class WordsAPI {
         if (request.getInsertBeforeNode() != nil) {
             queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: request.getInsertBeforeNode()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4482,7 +4722,9 @@ public class WordsAPI {
         if (request.getInsertBeforeNode() != nil) {
             queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: request.getInsertBeforeNode()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4525,7 +4767,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4567,7 +4811,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4613,7 +4859,9 @@ public class WordsAPI {
         if (request.getInsertBeforeNode() != nil) {
             queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: request.getInsertBeforeNode()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4659,7 +4907,9 @@ public class WordsAPI {
         if (request.getInsertBeforeNode() != nil) {
             queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: request.getInsertBeforeNode()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4702,7 +4952,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4745,7 +4997,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4788,7 +5042,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4830,7 +5086,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4878,7 +5136,9 @@ public class WordsAPI {
         if (request.getImage() != nil) {
             queryItems.append(URLQueryItem(name: "image", value: try ObjectSerializer.serializeToString(value: request.getImage()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         var formParams = Dictionary<String, Data>();
@@ -4924,7 +5184,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4947,7 +5209,9 @@ public class WordsAPI {
         if (request.getStorage() != nil) {
             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -4978,7 +5242,9 @@ public class WordsAPI {
         if (request.getVersionId() != nil) {
             queryItems.append(URLQueryItem(name: "versionId", value: try ObjectSerializer.serializeToString(value: request.getVersionId()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5006,7 +5272,9 @@ public class WordsAPI {
         if (request.getDestStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "destStorageName", value: try ObjectSerializer.serializeToString(value: request.getDestStorageName()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5042,7 +5310,9 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5078,7 +5348,9 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5116,7 +5388,9 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5155,7 +5429,9 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5193,7 +5469,9 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5232,7 +5510,9 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5270,7 +5550,9 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5308,7 +5590,9 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5347,7 +5631,9 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5385,7 +5671,9 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5424,7 +5712,9 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5462,7 +5752,9 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5504,7 +5796,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5542,7 +5836,9 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5595,7 +5891,9 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5630,7 +5928,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5717,7 +6017,9 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5751,7 +6053,9 @@ public class WordsAPI {
         if (request.getPassword() != nil) {
             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5802,7 +6106,9 @@ public class WordsAPI {
         if (request.getFontsLocation() != nil) {
             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5838,7 +6144,9 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5881,7 +6189,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5925,7 +6235,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -5968,7 +6280,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -6012,7 +6326,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         var formParams = Dictionary<String, Data>();
@@ -6058,7 +6374,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         var formParams = Dictionary<String, Data>();
@@ -6105,7 +6423,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -6141,7 +6461,9 @@ public class WordsAPI {
         if (request.getDestFileName() != nil) {
             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -6185,7 +6507,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -6228,7 +6552,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -6272,7 +6598,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -6315,7 +6643,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -6359,7 +6689,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -6403,7 +6735,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -6447,7 +6781,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -6490,7 +6826,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -6534,7 +6872,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -6578,7 +6918,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -6621,7 +6963,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -6665,7 +7009,9 @@ public class WordsAPI {
         if (request.getRevisionDateTime() != nil) {
             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         
@@ -6689,7 +7035,9 @@ public class WordsAPI {
         if (request.getStorageName() != nil) {
             queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: request.getStorageName()!)));
         }
-        urlBuilder.queryItems = queryItems;
+        if (queryItems.count > 0) {
+            urlBuilder.queryItems = queryItems;
+        }
         
         
         var formParams = Dictionary<String, Data>();
