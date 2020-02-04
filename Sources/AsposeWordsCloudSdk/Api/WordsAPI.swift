@@ -176,7 +176,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -462,7 +462,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -507,7 +507,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -552,7 +552,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -597,7 +597,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -643,7 +643,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -688,7 +688,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -734,7 +734,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -779,7 +779,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -824,7 +824,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -868,7 +868,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -897,7 +897,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -926,7 +926,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -972,7 +972,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1017,7 +1017,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1063,7 +1063,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1108,7 +1108,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1154,7 +1154,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1202,7 +1202,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1246,7 +1246,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1292,7 +1292,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1337,7 +1337,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1383,7 +1383,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1428,7 +1428,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1474,7 +1474,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1519,7 +1519,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1565,7 +1565,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1611,7 +1611,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1657,7 +1657,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1702,7 +1702,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1746,7 +1746,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1775,7 +1775,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1888,7 +1888,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1924,7 +1924,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1959,7 +1959,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -1996,7 +1996,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2032,7 +2032,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2068,7 +2068,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2103,7 +2103,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2138,7 +2138,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2175,7 +2175,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2211,7 +2211,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2248,7 +2248,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2284,7 +2284,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2321,7 +2321,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2357,7 +2357,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2393,7 +2393,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2428,7 +2428,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2466,7 +2466,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2529,7 +2529,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2564,7 +2564,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2599,7 +2599,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2635,7 +2635,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2670,7 +2670,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2714,7 +2714,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2756,7 +2756,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2793,7 +2793,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2829,7 +2829,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2865,7 +2865,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2900,7 +2900,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2926,7 +2926,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2963,7 +2963,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -2999,7 +2999,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3035,7 +3035,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3070,7 +3070,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3107,7 +3107,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3143,7 +3143,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3179,7 +3179,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3214,7 +3214,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3253,7 +3253,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3293,7 +3293,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3332,7 +3332,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3369,7 +3369,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3405,7 +3405,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3441,7 +3441,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3476,7 +3476,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3513,7 +3513,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3550,7 +3550,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3586,7 +3586,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3622,7 +3622,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3658,7 +3658,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3693,7 +3693,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3730,7 +3730,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3767,7 +3767,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3804,7 +3804,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3840,7 +3840,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3876,7 +3876,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3912,7 +3912,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3947,7 +3947,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -3984,7 +3984,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -4021,7 +4021,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -4058,7 +4058,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -4095,7 +4095,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -4131,7 +4131,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -4168,7 +4168,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -4205,7 +4205,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -4241,7 +4241,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -4277,7 +4277,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -4312,7 +4312,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -4356,7 +4356,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getComment()),
             headers: nil,
             formParams: nil
@@ -4404,7 +4404,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: nil,
             headers: nil,
             formParams: formParams
@@ -4451,7 +4451,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: nil,
             headers: nil,
             formParams: formParams
@@ -4499,7 +4499,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getField()),
             headers: nil,
             formParams: nil
@@ -4546,7 +4546,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getField()),
             headers: nil,
             formParams: nil
@@ -4591,7 +4591,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getFootnoteDto()),
             headers: nil,
             formParams: nil
@@ -4635,7 +4635,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getFootnoteDto()),
             headers: nil,
             formParams: nil
@@ -4683,7 +4683,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getFormField()),
             headers: nil,
             formParams: nil
@@ -4730,7 +4730,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getFormField()),
             headers: nil,
             formParams: nil
@@ -4867,7 +4867,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getParagraph()),
             headers: nil,
             formParams: nil
@@ -4915,7 +4915,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getRun()),
             headers: nil,
             formParams: nil
@@ -4960,7 +4960,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getTable()),
             headers: nil,
             formParams: nil
@@ -5005,7 +5005,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getCell()),
             headers: nil,
             formParams: nil
@@ -5050,7 +5050,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getRow()),
             headers: nil,
             formParams: nil
@@ -5094,7 +5094,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getTable()),
             headers: nil,
             formParams: nil
@@ -5148,7 +5148,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: nil,
             headers: nil,
             formParams: formParams
@@ -5192,7 +5192,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getWatermarkText()),
             headers: nil,
             formParams: nil
@@ -5396,7 +5396,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -5437,7 +5437,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -5477,7 +5477,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -5518,7 +5518,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -5558,7 +5558,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -5598,7 +5598,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -5639,7 +5639,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -5679,7 +5679,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -5720,7 +5720,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -5760,7 +5760,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -5844,7 +5844,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getRangeText()),
             headers: nil,
             formParams: nil
@@ -5861,7 +5861,7 @@ public class WordsAPI {
         
         _ = try apiInvoker.invoke(
             url: urlPath,
-            method: "PUT",
+            method: "DELETE",
             body: nil,
             headers: nil,
             formParams: nil
@@ -5936,7 +5936,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "POST",
             body: try ObjectSerializer.serialize(value: request.getDocumentParameters()),
             headers: nil,
             formParams: nil
@@ -6061,7 +6061,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "GET",
             body: nil,
             headers: nil,
             formParams: nil
@@ -6152,7 +6152,7 @@ public class WordsAPI {
         
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
-            method: "PUT",
+            method: "DELETE",
             body: try ObjectSerializer.serialize(value: request.getProtectionRequest()),
             headers: nil,
             formParams: nil
