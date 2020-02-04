@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Runs : LinkElement, WordsApiModel {
+public class Runs : LinkElement {
         
     // Gets or sets collection of fields.
     private var list : [Run]?;

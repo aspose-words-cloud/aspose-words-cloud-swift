@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData, WordsApiModel {
+public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         
     // Gets or sets specifies prefix which is added to all class names in style.css file. Default value is \&quot;aw\&quot;.
     private var cssClassNamesPrefix : String?;

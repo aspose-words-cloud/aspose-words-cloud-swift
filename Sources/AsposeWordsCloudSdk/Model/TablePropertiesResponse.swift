@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TablePropertiesResponse : WordsResponse, WordsApiModel {
+public class TablePropertiesResponse : WordsResponse {
         
     // Gets or sets table.
     private var properties : TableProperties?;

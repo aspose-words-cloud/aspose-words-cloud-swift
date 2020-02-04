@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableLinkCollection : LinkElement, WordsApiModel {
+public class TableLinkCollection : LinkElement {
         
     // Gets or sets collection of table&#39;s links.
     private var tableLinkList : [TableLink]?;

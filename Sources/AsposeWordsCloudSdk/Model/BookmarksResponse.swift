@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class BookmarksResponse : WordsResponse, WordsApiModel {
+public class BookmarksResponse : WordsResponse {
         
     // Gets or sets bookmarks which are contained in document.
     private var bookmarks : Bookmarks?;

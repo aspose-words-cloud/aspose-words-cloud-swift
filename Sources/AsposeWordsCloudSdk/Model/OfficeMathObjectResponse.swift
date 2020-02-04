@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class OfficeMathObjectResponse : WordsResponse, WordsApiModel {
+public class OfficeMathObjectResponse : WordsResponse {
         
     // Gets or sets officeMathObject information.
     private var officeMathObject : OfficeMathObject?;

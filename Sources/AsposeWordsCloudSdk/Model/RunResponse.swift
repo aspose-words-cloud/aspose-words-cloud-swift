@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RunResponse : WordsResponse, WordsApiModel {
+public class RunResponse : WordsResponse {
         
     // Gets or sets run.
     private var run : Run?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RunsResponse : WordsResponse, WordsApiModel {
+public class RunsResponse : WordsResponse {
         
     // Gets or sets collection of runs.
     private var runs : Runs?;

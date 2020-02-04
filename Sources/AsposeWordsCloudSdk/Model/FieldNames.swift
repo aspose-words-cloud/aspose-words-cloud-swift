@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FieldNames : LinkElement, WordsApiModel {
+public class FieldNames : LinkElement {
         
     // Gets or sets collection of fields names.
     private var names : [String]?;

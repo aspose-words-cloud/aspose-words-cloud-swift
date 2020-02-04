@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Paragraph : NodeLink, WordsApiModel {
+public class Paragraph : NodeLink {
         
     // Gets or sets child nodes.
     private var childNodes : [NodeLink]?;

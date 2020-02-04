@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SectionLinkCollection : LinkElement, WordsApiModel {
+public class SectionLinkCollection : LinkElement {
         
     // Gets or sets collection of section&#39;s links.
     private var sectionLinkList : [SectionLink]?;

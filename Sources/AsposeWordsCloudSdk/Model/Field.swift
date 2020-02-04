@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Field : FieldLink, WordsApiModel {
+public class Field : FieldLink {
         
     // Gets or sets LCID of the field.
     private var localeId : String?;

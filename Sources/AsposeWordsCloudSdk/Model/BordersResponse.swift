@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class BordersResponse : WordsResponse, WordsApiModel {
+public class BordersResponse : WordsResponse {
         
     // Gets or sets table.
     private var borders : BordersCollection?;

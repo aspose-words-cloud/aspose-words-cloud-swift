@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DrawingObjectLink : NodeLink, WordsApiModel {
+public class DrawingObjectLink : NodeLink {
         
         
     private enum CodingKeys: String, CodingKey {

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RtfSaveOptionsData : SaveOptionsData, WordsApiModel {
+public class RtfSaveOptionsData : SaveOptionsData {
         
     // Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
     private var exportCompactSize : Bool?;

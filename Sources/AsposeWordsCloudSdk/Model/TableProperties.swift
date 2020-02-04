@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableProperties : LinkElement, WordsApiModel {
+public class TableProperties : LinkElement {
     // Gets or sets specifies how an inline table is aligned in the document.
     public enum Alignment : String, Codable
     { 

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class CommentResponse : WordsResponse, WordsApiModel {
+public class CommentResponse : WordsResponse {
         
     // Gets or sets comment information.
     private var comment : Comment?;

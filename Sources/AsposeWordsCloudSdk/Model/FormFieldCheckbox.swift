@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FormFieldCheckbox : FormField, WordsApiModel {
+public class FormFieldCheckbox : FormField {
         
     // Gets or sets the size of the checkbox in points. Has effect only when  is true.
     private var checkBoxSize : Double?;

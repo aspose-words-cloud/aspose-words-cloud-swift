@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class EpubSaveOptionsData : HtmlSaveOptionsData, WordsApiModel {
+public class EpubSaveOptionsData : HtmlSaveOptionsData {
         
     // Gets or sets specifies the maximum level of headings populated to the navigation map when exporting.
     private var epubNavigationMapLevel : Int?;

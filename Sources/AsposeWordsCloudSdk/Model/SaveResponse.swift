@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SaveResponse : WordsResponse, WordsApiModel {
+public class SaveResponse : WordsResponse {
         
     // Gets or sets save result.
     private var saveResult : SaveResult?;

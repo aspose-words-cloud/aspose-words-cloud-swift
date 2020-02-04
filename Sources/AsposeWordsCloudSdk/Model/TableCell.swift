@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableCell : NodeLink, WordsApiModel {
+public class TableCell : NodeLink {
         
     // Gets or sets child nodes.
     private var childNodes : [NodeLink]?;

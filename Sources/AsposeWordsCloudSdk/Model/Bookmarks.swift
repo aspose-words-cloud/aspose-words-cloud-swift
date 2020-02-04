@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Bookmarks : LinkElement, WordsApiModel {
+public class Bookmarks : LinkElement {
         
     // Gets or sets array of bookmarks.
     private var bookmarkList : [Bookmark]?;

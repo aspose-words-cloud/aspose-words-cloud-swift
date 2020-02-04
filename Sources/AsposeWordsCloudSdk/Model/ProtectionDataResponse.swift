@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ProtectionDataResponse : WordsResponse, WordsApiModel {
+public class ProtectionDataResponse : WordsResponse {
         
     // Gets or sets link to the document.
     private var documentLink : FileLink?;

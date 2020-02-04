@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ParagraphResponse : WordsResponse, WordsApiModel {
+public class ParagraphResponse : WordsResponse {
         
     // Gets or sets paragraph.
     private var paragraph : Paragraph?;

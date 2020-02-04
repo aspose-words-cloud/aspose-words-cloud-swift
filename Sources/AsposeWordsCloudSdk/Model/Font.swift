@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Font : LinkElement, WordsApiModel {
+public class Font : LinkElement {
     // Gets or sets the locale independent style identifier of the character style applied to this formatting.
     public enum StyleIdentifier : String, Codable
     { 

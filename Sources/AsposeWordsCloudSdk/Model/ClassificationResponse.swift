@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ClassificationResponse : WordsResponse, WordsApiModel {
+public class ClassificationResponse : WordsResponse {
         
     // Gets or sets best class name.
     private var bestClassName : String?;

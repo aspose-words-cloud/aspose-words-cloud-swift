@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableLinkCollectionResponse : WordsResponse, WordsApiModel {
+public class TableLinkCollectionResponse : WordsResponse {
         
     // Gets or sets collection of tables.
     private var tables : TableLinkCollection?;

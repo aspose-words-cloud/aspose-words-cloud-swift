@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class MhtmlSaveOptionsData : HtmlSaveOptionsData, WordsApiModel {
+public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
         
     // Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. Default value is false.             
     private var exportCidUrlsForMhtmlResources : Bool?;

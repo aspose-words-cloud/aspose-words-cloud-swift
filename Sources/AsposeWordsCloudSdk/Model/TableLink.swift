@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableLink : NodeLink, WordsApiModel {
+public class TableLink : NodeLink {
         
         
     private enum CodingKeys: String, CodingKey {

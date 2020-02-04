@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FixedPageSaveOptionsData : SaveOptionsData, WordsApiModel {
+public class FixedPageSaveOptionsData : SaveOptionsData {
         
     // Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.
     private var colorMode : String?;

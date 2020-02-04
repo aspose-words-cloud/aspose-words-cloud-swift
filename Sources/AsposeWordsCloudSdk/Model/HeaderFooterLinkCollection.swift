@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class HeaderFooterLinkCollection : LinkElement, WordsApiModel {
+public class HeaderFooterLinkCollection : LinkElement {
         
     // Gets or sets collection of section&#39;s links.
     private var list : [HeaderFooterLink]?;

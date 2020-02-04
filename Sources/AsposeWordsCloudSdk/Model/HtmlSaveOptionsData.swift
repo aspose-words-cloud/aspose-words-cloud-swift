@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class HtmlSaveOptionsData : SaveOptionsData, WordsApiModel {
+public class HtmlSaveOptionsData : SaveOptionsData {
     // Gets or sets specifies version of HTML standard that should be used when saving the document to HTML or MHTML. Default value is Aspose.Words.Saving.HtmlVersion.Xhtml.
     public enum HtmlVersion : String, Codable
     { 

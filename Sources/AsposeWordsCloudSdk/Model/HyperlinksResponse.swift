@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class HyperlinksResponse : WordsResponse, WordsApiModel {
+public class HyperlinksResponse : WordsResponse {
         
     // Gets or sets collection of hyperlinks.
     private var hyperlinks : Hyperlinks?;

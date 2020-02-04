@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FieldsResponse : WordsResponse, WordsApiModel {
+public class FieldsResponse : WordsResponse {
         
     // Gets or sets collection of fields.
     private var fields : FieldCollection?;

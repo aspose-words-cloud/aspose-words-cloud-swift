@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RangeTextResponse : WordsResponse, WordsApiModel {
+public class RangeTextResponse : WordsResponse {
         
     // Gets or sets text from range.
     private var text : String?;

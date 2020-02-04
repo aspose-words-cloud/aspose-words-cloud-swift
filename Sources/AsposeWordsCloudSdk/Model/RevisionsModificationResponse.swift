@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RevisionsModificationResponse : WordsResponse, WordsApiModel {
+public class RevisionsModificationResponse : WordsResponse {
         
     // Gets or sets result of the modification operations for the revisions collection.
     private var result : ModificationOperationResult?;

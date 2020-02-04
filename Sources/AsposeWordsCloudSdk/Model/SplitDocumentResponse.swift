@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SplitDocumentResponse : WordsResponse, WordsApiModel {
+public class SplitDocumentResponse : WordsResponse {
         
     // Gets or sets resylt of splitting document.
     private var splitResult : SplitDocumentResult?;

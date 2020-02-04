@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DocumentProperties : LinkElement, WordsApiModel {
+public class DocumentProperties : LinkElement {
         
     // Gets or sets collection of document properties.
     private var list : [DocumentProperty]?;

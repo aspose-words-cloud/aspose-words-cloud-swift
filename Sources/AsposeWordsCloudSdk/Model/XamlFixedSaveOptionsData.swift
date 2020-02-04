@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData, WordsApiModel {
+public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
         
     // Gets or sets specifies the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format. Default is null.
     private var resourcesFolder : String?;

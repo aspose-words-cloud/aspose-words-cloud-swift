@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FootnoteCollection : LinkElement, WordsApiModel {
+public class FootnoteCollection : LinkElement {
         
     // Gets or sets collection of foonotes links.
     private var list : [Footnote]?;

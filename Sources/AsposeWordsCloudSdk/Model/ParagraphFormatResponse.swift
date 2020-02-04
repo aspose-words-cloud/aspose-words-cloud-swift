@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ParagraphFormatResponse : WordsResponse, WordsApiModel {
+public class ParagraphFormatResponse : WordsResponse {
         
     // Gets or sets represents all the formatting for a paragraph.
     private var paragraphFormat : ParagraphFormat?;

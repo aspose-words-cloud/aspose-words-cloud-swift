@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class EmfSaveOptionsData : ImageSaveOptionsData, WordsApiModel {
+public class EmfSaveOptionsData : ImageSaveOptionsData {
         
         
     private enum CodingKeys: String, CodingKey {

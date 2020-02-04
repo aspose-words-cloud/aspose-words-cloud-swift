@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class StatDataResponse : WordsResponse, WordsApiModel {
+public class StatDataResponse : WordsResponse {
         
     // Gets or sets link to the document.
     private var documentLink : FileLink?;

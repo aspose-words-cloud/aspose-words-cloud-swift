@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RunLink : NodeLink, WordsApiModel {
+public class RunLink : NodeLink {
         
     // Gets or sets run&#39;s text.
     private var text : String?;

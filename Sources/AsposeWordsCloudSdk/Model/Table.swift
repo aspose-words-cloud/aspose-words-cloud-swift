@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Table : NodeLink, WordsApiModel {
+public class Table : NodeLink {
         
     // Gets or sets table properties.
     private var tableProperties : TableProperties?;

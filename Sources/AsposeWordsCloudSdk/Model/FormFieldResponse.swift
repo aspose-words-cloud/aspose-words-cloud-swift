@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FormFieldResponse : WordsResponse, WordsApiModel {
+public class FormFieldResponse : WordsResponse {
         
     // Gets or sets field information.
     private var formField : FormField?;

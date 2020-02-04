@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ParagraphLinkCollectionResponse : WordsResponse, WordsApiModel {
+public class ParagraphLinkCollectionResponse : WordsResponse {
         
     // Gets or sets collection of paragraphs.
     private var paragraphs : ParagraphLinkCollection?;
