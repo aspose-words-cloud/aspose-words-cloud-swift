@@ -59,7 +59,7 @@ public class ApiInvoker {
     ) throws -> Data {
         var request = URLRequest(url: url);
         request.httpMethod = method;
-        
+
         if (headers != nil) {
             for (key, value) in headers! {
                 request.setValue(value, forHTTPHeaderField: key);
