@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableCellInsert : Codable {
+public class TableCellInsert : Codable, WordsApiModel {
         
     // Gets or sets table cell will be inserted after cell with specified 0-based index.
     private var insertAfter : Int?;

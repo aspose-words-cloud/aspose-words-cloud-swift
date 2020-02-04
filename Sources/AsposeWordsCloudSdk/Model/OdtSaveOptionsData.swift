@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class OdtSaveOptionsData : SaveOptionsData {
+public class OdtSaveOptionsData : SaveOptionsData, WordsApiModel {
     // Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
     public enum MeasureUnit : String, Codable
     { 

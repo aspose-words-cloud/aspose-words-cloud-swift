@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteMacrosRequest : Encodable {
+public class DeleteMacrosRequest : Encodable, WordsApiModel {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

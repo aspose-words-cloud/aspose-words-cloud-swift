@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class BordersCollection : LinkElement {
+public class BordersCollection : LinkElement, WordsApiModel {
         
     // Gets or sets collection of comments.
     private var list : [Border]?;

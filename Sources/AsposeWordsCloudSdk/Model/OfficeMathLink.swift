@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class OfficeMathLink : NodeLink {
+public class OfficeMathLink : NodeLink, WordsApiModel {
         
         
     private enum CodingKeys: String, CodingKey {

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SectionLinkCollectionResponse : WordsResponse {
+public class SectionLinkCollectionResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets collection of sections.
     private var sections : SectionLinkCollection?;

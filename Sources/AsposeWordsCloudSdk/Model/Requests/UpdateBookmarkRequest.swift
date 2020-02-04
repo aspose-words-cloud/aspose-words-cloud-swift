@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateBookmarkRequest : Encodable {
+public class UpdateBookmarkRequest : Encodable, WordsApiModel {
     private let name : String;
     private let bookmarkData : BookmarkData;
     private let bookmarkName : String;

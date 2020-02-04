@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SaveAsRangeRequest : Encodable {
+public class SaveAsRangeRequest : Encodable, WordsApiModel {
     private let name : String;
     private let rangeStartIdentifier : String;
     private let documentParameters : RangeDocument;

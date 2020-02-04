@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteTableCellRequest : Encodable {
+public class DeleteTableCellRequest : Encodable, WordsApiModel {
     private let name : String;
     private let tableRowPath : String;
     private let index : Int;

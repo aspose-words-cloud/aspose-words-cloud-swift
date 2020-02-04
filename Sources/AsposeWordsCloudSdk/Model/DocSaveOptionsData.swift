@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DocSaveOptionsData : SaveOptionsData {
+public class DocSaveOptionsData : SaveOptionsData, WordsApiModel {
         
     // Gets or sets When false, small metafiles are not compressed for performance reason. Default value is true, all metafiles are compressed regardless of its size.
     private var alwaysCompressMetafiles : Bool?;

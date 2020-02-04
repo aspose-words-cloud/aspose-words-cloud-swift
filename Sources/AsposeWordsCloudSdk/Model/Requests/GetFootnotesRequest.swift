@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetFootnotesRequest : Encodable {
+public class GetFootnotesRequest : Encodable, WordsApiModel {
     private let name : String;
     private let nodePath : String;
     private let folder : String?;

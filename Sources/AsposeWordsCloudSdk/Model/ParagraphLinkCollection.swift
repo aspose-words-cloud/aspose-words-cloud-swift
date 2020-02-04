@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ParagraphLinkCollection : LinkElement {
+public class ParagraphLinkCollection : LinkElement, WordsApiModel {
         
     // Gets or sets collection of paragraph&#39;s links.
     private var paragraphLinkList : [ParagraphLink]?;

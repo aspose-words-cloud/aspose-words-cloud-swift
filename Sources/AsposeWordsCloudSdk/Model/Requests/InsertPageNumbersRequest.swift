@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertPageNumbersRequest : Encodable {
+public class InsertPageNumbersRequest : Encodable, WordsApiModel {
     private let name : String;
     private let pageNumber : PageNumber;
     private let folder : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteDrawingObjectRequest : Encodable {
+public class DeleteDrawingObjectRequest : Encodable, WordsApiModel {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

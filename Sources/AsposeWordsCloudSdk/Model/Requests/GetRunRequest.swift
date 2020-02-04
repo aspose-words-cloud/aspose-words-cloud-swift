@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetRunRequest : Encodable {
+public class GetRunRequest : Encodable, WordsApiModel {
     private let name : String;
     private let paragraphPath : String;
     private let index : Int;

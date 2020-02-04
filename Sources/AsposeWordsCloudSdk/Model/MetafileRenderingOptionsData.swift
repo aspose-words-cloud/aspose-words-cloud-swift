@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class MetafileRenderingOptionsData : Codable {
+public class MetafileRenderingOptionsData : Codable, WordsApiModel {
         
     // Gets or sets determines how EMF+ Dual metafiles should be rendered.
     private var emfPlusDualRenderingMode : String?;

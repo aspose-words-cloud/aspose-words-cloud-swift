@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteFolderRequest : Encodable {
+public class DeleteFolderRequest : Encodable, WordsApiModel {
     private let path : String;
     private let storageName : String?;
     private let recursive : Bool?;

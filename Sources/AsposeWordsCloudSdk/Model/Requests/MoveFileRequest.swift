@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class MoveFileRequest : Encodable {
+public class MoveFileRequest : Encodable, WordsApiModel {
     private let destPath : String;
     private let srcPath : String;
     private let srcStorageName : String?;

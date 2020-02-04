@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DownsampleOptionsData : Codable {
+public class DownsampleOptionsData : Codable, WordsApiModel {
         
     // Gets or sets specifies whether images should be downsampled.
     private var downsampleImages : Bool?;

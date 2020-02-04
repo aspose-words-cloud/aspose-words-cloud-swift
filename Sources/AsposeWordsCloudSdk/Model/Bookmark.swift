@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Bookmark : LinkElement {
+public class Bookmark : LinkElement, WordsApiModel {
         
     // Gets or sets the name of the bookmark.
     private var name : String?;

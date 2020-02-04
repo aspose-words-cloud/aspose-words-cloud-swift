@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class PdfDigitalSignatureDetailsData : Codable {
+public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
         
     // Gets or sets certificate&#39;s filename using for signing.
     private var certificateFilename : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class StringFormatData : Codable {
+public class StringFormatData : Codable, WordsApiModel {
     // Gets or sets horizontal alignment of the string.
     public enum Alignment : String, Codable
     { 

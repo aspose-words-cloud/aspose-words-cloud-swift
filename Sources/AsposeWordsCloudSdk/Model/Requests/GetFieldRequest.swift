@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetFieldRequest : Encodable {
+public class GetFieldRequest : Encodable, WordsApiModel {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

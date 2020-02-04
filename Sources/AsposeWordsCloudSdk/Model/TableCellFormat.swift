@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableCellFormat : LinkElement {
+public class TableCellFormat : LinkElement, WordsApiModel {
     // Gets or sets specifies how the cell is merged horizontally with other cells in the row.
     public enum HorizontalMerge : String, Codable
     { 

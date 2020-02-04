@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SaveAsRequest : Encodable {
+public class SaveAsRequest : Encodable, WordsApiModel {
     private let name : String;
     private let saveOptionsData : SaveOptionsData;
     private let folder : String?;

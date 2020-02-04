@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateTableCellFormatRequest : Encodable {
+public class UpdateTableCellFormatRequest : Encodable, WordsApiModel {
     private let name : String;
     private let tableRowPath : String;
     private let index : Int;

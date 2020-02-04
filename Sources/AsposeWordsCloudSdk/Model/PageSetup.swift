@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class PageSetup : LinkElement {
+public class PageSetup : LinkElement, WordsApiModel {
     // Gets or sets specifies which pages the page border is printed on.             
     public enum BorderAppliesTo : String, Codable
     { 

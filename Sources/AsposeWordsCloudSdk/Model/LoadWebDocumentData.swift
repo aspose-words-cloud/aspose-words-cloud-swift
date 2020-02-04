@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class LoadWebDocumentData : Codable {
+public class LoadWebDocumentData : Codable, WordsApiModel {
         
     // Gets or sets web document url.
     private var loadingDocumentUrl : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetDocumentFieldNamesOnlineRequest : Encodable {
+public class GetDocumentFieldNamesOnlineRequest : Encodable, WordsApiModel {
     private let template : URL;
     private let useNonMergeFields : Bool?;
     

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteFieldRequest : Encodable {
+public class DeleteFieldRequest : Encodable, WordsApiModel {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateDrawingObjectWithoutNodePathRequest : Encodable {
+public class UpdateDrawingObjectWithoutNodePathRequest : Encodable, WordsApiModel {
     private let name : String;
     private let drawingObject : String;
     private let imageFile : URL;

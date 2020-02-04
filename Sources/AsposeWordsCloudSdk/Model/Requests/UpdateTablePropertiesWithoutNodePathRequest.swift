@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateTablePropertiesWithoutNodePathRequest : Encodable {
+public class UpdateTablePropertiesWithoutNodePathRequest : Encodable, WordsApiModel {
     private let name : String;
     private let index : Int;
     private let folder : String?;

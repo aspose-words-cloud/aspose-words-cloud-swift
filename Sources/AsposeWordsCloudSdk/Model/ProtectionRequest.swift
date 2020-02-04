@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ProtectionRequest : Codable {
+public class ProtectionRequest : Codable, WordsApiModel {
         
     // Gets or sets current password.
     private var password : String?;

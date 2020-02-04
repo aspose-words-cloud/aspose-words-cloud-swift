@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetFilesListRequest : Encodable {
+public class GetFilesListRequest : Encodable, WordsApiModel {
     private let path : String;
     private let storageName : String?;
     

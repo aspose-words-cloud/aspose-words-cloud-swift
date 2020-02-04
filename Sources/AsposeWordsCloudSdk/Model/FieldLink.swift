@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FieldLink : NodeLink {
+public class FieldLink : NodeLink, WordsApiModel {
         
     // Gets or sets field code.
     private var fieldCode : String?;

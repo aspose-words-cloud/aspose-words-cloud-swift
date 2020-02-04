@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetRangeTextRequest : Encodable {
+public class GetRangeTextRequest : Encodable, WordsApiModel {
     private let name : String;
     private let rangeStartIdentifier : String;
     private let rangeEndIdentifier : String;

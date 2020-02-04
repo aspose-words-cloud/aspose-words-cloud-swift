@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FontResponse : WordsResponse {
+public class FontResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets font.
     private var font : Font?;

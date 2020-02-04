@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class CompareDocumentRequest : Encodable {
+public class CompareDocumentRequest : Encodable, WordsApiModel {
     private let name : String;
     private let compareData : CompareData;
     private let folder : String?;

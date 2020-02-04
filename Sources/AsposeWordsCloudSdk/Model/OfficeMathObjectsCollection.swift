@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class OfficeMathObjectsCollection : LinkElement {
+public class OfficeMathObjectsCollection : LinkElement, WordsApiModel {
         
     // Gets or sets collection of OfficeMath objects.
     private var list : [OfficeMathObject]?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ReplaceTextResponse : WordsResponse {
+public class ReplaceTextResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets link to the document.
     private var documentLink : FileLink?;

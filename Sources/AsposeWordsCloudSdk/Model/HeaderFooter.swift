@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class HeaderFooter : HeaderFooterLink {
+public class HeaderFooter : HeaderFooterLink, WordsApiModel {
         
     // Gets or sets child nodes.
     private var childNodes : [NodeLink]?;

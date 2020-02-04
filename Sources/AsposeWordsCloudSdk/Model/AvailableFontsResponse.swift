@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class AvailableFontsResponse : WordsResponse {
+public class AvailableFontsResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets the list of addititional fonts, provided by aspose team.
     private var additionalFonts : [FontInfo]?;

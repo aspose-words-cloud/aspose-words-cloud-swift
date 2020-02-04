@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SplitDocumentResult : Codable {
+public class SplitDocumentResult : Codable, WordsApiModel {
         
     // Gets or sets linkt to the source document.
     private var sourceDocument : FileLink?;

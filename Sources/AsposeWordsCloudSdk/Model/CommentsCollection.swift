@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class CommentsCollection : LinkElement {
+public class CommentsCollection : LinkElement, WordsApiModel {
         
     // Gets or sets collection of comments.
     private var commentList : [Comment]?;

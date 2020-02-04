@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetAvailableFontsRequest : Encodable {
+public class GetAvailableFontsRequest : Encodable, WordsApiModel {
     private let fontsLocation : String?;
     
     private enum CodingKeys: String, CodingKey {

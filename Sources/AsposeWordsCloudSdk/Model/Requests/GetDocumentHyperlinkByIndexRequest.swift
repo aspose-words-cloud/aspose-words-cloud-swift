@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetDocumentHyperlinkByIndexRequest : Encodable {
+public class GetDocumentHyperlinkByIndexRequest : Encodable, WordsApiModel {
     private let name : String;
     private let hyperlinkIndex : Int;
     private let folder : String?;

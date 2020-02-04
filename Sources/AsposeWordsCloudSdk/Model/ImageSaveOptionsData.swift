@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ImageSaveOptionsData : FixedPageSaveOptionsData {
+public class ImageSaveOptionsData : FixedPageSaveOptionsData, WordsApiModel {
         
     // Gets or sets allows to specify additional System.Drawing.Graphics quality options.
     private var graphicsQualityOptions : GraphicsQualityOptionsData?;

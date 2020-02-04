@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateParagraphFormatRequest : Encodable {
+public class UpdateParagraphFormatRequest : Encodable, WordsApiModel {
     private let name : String;
     private let dto : ParagraphFormat;
     private let nodePath : String;

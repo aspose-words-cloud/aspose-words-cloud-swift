@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetBordersRequest : Encodable {
+public class GetBordersRequest : Encodable, WordsApiModel {
     private let name : String;
     private let nodePath : String;
     private let folder : String?;

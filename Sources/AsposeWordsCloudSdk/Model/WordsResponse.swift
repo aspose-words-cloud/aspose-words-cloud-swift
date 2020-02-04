@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class WordsResponse : Codable {
+public class WordsResponse : Codable, WordsApiModel {
         
     // Gets or sets request Id.
     private var requestId : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetTablePropertiesRequest : Encodable {
+public class GetTablePropertiesRequest : Encodable, WordsApiModel {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

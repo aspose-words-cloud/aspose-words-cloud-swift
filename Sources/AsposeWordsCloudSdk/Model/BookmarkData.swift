@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class BookmarkData : Codable {
+public class BookmarkData : Codable, WordsApiModel {
         
     // Gets or sets the name of the bookmark.
     private var name : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Section : LinkElement {
+public class Section : LinkElement, WordsApiModel {
         
     // Gets or sets child nodes.
     private var childNodes : [NodeLink]?;

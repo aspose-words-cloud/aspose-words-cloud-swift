@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class OutlineOptionsData : Codable {
+public class OutlineOptionsData : Codable, WordsApiModel {
         
     // Gets or sets allows to specify individual bookmarks outline level.
     private var bookmarksOutlineLevels : [BookmarksOutlineLevelData]?;

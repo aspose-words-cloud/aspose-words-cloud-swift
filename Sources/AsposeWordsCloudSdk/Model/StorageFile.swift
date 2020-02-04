@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class StorageFile : Codable {
+public class StorageFile : Codable, WordsApiModel {
         
     // File or folder name.
     private var name : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DrawingObjectsResponse : WordsResponse {
+public class DrawingObjectsResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets collection of drawing objects.
     private var drawingObjects : DrawingObjectCollection?;

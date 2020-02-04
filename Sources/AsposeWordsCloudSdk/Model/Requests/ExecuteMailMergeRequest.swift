@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ExecuteMailMergeRequest : Encodable {
+public class ExecuteMailMergeRequest : Encodable, WordsApiModel {
     private let name : String;
     private let data : String?;
     private let folder : String?;

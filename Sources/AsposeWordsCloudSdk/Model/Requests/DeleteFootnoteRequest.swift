@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteFootnoteRequest : Encodable {
+public class DeleteFootnoteRequest : Encodable, WordsApiModel {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

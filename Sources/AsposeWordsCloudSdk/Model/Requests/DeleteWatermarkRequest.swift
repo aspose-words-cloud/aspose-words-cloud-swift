@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteWatermarkRequest : Encodable {
+public class DeleteWatermarkRequest : Encodable, WordsApiModel {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

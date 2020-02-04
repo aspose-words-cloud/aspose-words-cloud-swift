@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetParagraphFormatRequest : Encodable {
+public class GetParagraphFormatRequest : Encodable, WordsApiModel {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DocumentProperty : LinkElement {
+public class DocumentProperty : LinkElement, WordsApiModel {
         
     // Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.
     private var builtIn : Bool?;

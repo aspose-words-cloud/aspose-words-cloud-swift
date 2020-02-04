@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetDocumentPropertiesRequest : Encodable {
+public class GetDocumentPropertiesRequest : Encodable, WordsApiModel {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

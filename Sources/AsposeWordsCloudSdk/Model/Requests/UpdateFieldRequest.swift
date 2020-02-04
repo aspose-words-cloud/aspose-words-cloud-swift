@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateFieldRequest : Encodable {
+public class UpdateFieldRequest : Encodable, WordsApiModel {
     private let name : String;
     private let field : Field;
     private let nodePath : String;

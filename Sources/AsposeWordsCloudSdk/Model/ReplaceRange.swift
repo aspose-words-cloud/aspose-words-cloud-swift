@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ReplaceRange : Codable {
+public class ReplaceRange : Codable, WordsApiModel {
     // Gets or sets range&#39;s text type.
     public enum TextType : String, Codable
     { 

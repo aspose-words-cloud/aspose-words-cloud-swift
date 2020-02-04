@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Comment : CommentLink {
+public class Comment : CommentLink, WordsApiModel {
         
     // Gets or sets returns or sets the author name for a comment.
     private var author : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SaveAsTiffRequest : Encodable {
+public class SaveAsTiffRequest : Encodable, WordsApiModel {
     private let name : String;
     private let saveOptions : TiffSaveOptionsData;
     private let folder : String?;

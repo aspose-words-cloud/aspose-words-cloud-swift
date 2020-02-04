@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteCommentRequest : Encodable {
+public class DeleteCommentRequest : Encodable, WordsApiModel {
     private let name : String;
     private let commentIndex : Int;
     private let folder : String?;

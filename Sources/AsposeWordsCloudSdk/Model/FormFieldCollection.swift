@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FormFieldCollection : LinkElement {
+public class FormFieldCollection : LinkElement, WordsApiModel {
         
     // Gets or sets collection of formfields.
     private var list : [FormField]?;

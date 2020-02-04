@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ModificationOperationResult : Codable {
+public class ModificationOperationResult : Codable, WordsApiModel {
         
     // Gets or sets link to the source document (source for the modification operation).
     private var source : FileLink?;

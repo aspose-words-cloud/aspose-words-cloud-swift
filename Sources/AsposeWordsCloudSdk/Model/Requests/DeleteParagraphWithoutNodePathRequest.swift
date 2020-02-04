@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteParagraphWithoutNodePathRequest : Encodable {
+public class DeleteParagraphWithoutNodePathRequest : Encodable, WordsApiModel {
     private let name : String;
     private let index : Int;
     private let folder : String?;

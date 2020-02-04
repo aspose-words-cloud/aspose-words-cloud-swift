@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableRowResponse : WordsResponse {
+public class TableRowResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets table row.
     private var row : TableRow?;

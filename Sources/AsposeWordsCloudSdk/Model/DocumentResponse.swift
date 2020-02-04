@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DocumentResponse : WordsResponse {
+public class DocumentResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets document description.
     private var document : Document?;

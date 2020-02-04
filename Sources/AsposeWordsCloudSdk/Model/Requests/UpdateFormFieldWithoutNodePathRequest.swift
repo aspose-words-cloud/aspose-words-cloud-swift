@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateFormFieldWithoutNodePathRequest : Encodable {
+public class UpdateFormFieldWithoutNodePathRequest : Encodable, WordsApiModel {
     private let name : String;
     private let formField : FormField;
     private let index : Int;

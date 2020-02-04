@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class HeaderFootersResponse : WordsResponse {
+public class HeaderFootersResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets collection of headers/footers.
     private var headerFooters : HeaderFooterLinkCollection?;

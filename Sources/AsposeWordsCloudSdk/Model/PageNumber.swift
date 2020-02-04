@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class PageNumber : Codable {
+public class PageNumber : Codable, WordsApiModel {
         
     // Gets or sets page number format, e.g. \&quot;{PAGE} of {NUMPAGES}\&quot;.
     private var format : String?;

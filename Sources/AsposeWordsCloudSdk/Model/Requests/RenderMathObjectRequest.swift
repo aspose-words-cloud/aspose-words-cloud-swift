@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RenderMathObjectRequest : Encodable {
+public class RenderMathObjectRequest : Encodable, WordsApiModel {
     private let name : String;
     private let format : String;
     private let nodePath : String;

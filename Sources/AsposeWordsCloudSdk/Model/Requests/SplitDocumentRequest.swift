@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SplitDocumentRequest : Encodable {
+public class SplitDocumentRequest : Encodable, WordsApiModel {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

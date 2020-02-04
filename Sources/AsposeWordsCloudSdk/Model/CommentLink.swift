@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class CommentLink : LinkElement {
+public class CommentLink : LinkElement, WordsApiModel {
         
         
     private enum CodingKeys: String, CodingKey {

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Document : Codable {
+public class Document : Codable, WordsApiModel {
     // Gets or sets the original format of the document.
     public enum SourceFormat : String, Codable
     { 

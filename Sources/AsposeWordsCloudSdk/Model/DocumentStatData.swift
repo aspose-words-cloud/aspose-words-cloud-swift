@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DocumentStatData : Codable {
+public class DocumentStatData : Codable, WordsApiModel {
         
     // Gets or sets total count of words in the document.
     private var wordCount : Int?;

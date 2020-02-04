@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ModelError : Codable {
+public class ModelError : Codable, WordsApiModel {
         
     // Code             
     private var code : String?;

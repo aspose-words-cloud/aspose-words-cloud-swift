@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DownloadFileRequest : Encodable {
+public class DownloadFileRequest : Encodable, WordsApiModel {
     private let path : String;
     private let storageName : String?;
     private let versionId : String?;

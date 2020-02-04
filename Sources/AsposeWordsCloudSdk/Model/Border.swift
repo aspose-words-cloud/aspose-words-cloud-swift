@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Border : LinkElement {
+public class Border : LinkElement, WordsApiModel {
     // Gets or sets the border type.             
     public enum BorderType : String, Codable
     { 

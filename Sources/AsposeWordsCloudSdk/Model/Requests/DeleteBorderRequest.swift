@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteBorderRequest : Encodable {
+public class DeleteBorderRequest : Encodable, WordsApiModel {
     private let name : String;
     private let nodePath : String;
     private let borderType : String;

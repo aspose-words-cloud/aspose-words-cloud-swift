@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ProtectionData : Codable {
+public class ProtectionData : Codable, WordsApiModel {
         
     // Gets or sets type of the protection.
     private var protectionType : String?;

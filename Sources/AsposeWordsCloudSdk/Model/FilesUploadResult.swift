@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FilesUploadResult : Codable {
+public class FilesUploadResult : Codable, WordsApiModel {
         
     // List of uploaded file names
     private var uploaded : [String]?;

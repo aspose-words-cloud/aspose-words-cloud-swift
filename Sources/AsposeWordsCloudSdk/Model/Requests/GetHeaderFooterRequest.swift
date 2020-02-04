@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetHeaderFooterRequest : Encodable {
+public class GetHeaderFooterRequest : Encodable, WordsApiModel {
     private let name : String;
     private let headerFooterIndex : Int;
     private let folder : String?;

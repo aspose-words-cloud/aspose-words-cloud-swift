@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertWatermarkTextRequest : Encodable {
+public class InsertWatermarkTextRequest : Encodable, WordsApiModel {
     private let name : String;
     private let watermarkText : WatermarkText;
     private let folder : String?;

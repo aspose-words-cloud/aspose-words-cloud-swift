@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FootnotesStatData : Codable {
+public class FootnotesStatData : Codable, WordsApiModel {
         
     // Gets or sets total count of words in footnotes.
     private var wordCount : Int?;

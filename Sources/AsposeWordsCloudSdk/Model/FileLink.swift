@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FileLink : Link {
+public class FileLink : Link, WordsApiModel {
         
         
     private enum CodingKeys: String, CodingKey {

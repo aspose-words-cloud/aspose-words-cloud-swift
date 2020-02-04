@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GraphicsQualityOptionsData : Codable {
+public class GraphicsQualityOptionsData : Codable, WordsApiModel {
     // Gets or sets a value that specifies how composited images are drawn to this Graphics.
     public enum CompositingMode : String, Codable
     { 

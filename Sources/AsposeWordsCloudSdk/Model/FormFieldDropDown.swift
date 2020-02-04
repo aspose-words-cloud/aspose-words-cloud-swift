@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FormFieldDropDown : FormField {
+public class FormFieldDropDown : FormField, WordsApiModel {
         
     // Gets or sets provides access to the items of a dropdown form field.
     private var dropDownItems : [String]?;

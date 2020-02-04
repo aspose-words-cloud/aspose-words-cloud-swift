@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class WordsApiErrorResponse : WordsResponse {
+public class WordsApiErrorResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets error.
     private var error : ApiError?;

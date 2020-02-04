@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class CompareData : Codable {
+public class CompareData : Codable, WordsApiModel {
         
     // Gets or sets path to document to compare at the server.
     private var comparingWithDocument : String?;

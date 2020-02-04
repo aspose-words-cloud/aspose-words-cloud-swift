@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DocumentEntryList : Codable {
+public class DocumentEntryList : Codable, WordsApiModel {
         
     // Gets or sets list of documents.
     private var documentEntries : [DocumentEntry]?;

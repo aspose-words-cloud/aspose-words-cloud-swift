@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteSectionRequest : Encodable {
+public class DeleteSectionRequest : Encodable, WordsApiModel {
     private let name : String;
     private let sectionIndex : Int;
     private let folder : String?;

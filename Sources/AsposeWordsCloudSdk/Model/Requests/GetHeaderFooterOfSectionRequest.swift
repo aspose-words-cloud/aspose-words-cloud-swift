@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetHeaderFooterOfSectionRequest : Encodable {
+public class GetHeaderFooterOfSectionRequest : Encodable, WordsApiModel {
     private let name : String;
     private let headerFooterIndex : Int;
     private let sectionIndex : Int;

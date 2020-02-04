@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RejectAllRevisionsRequest : Encodable {
+public class RejectAllRevisionsRequest : Encodable, WordsApiModel {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

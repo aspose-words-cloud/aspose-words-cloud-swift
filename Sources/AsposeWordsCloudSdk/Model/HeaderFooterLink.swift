@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class HeaderFooterLink : LinkElement {
+public class HeaderFooterLink : LinkElement, WordsApiModel {
     // Gets or sets paragraph&#39;s text.
     public enum ModelType : String, Codable
     { 

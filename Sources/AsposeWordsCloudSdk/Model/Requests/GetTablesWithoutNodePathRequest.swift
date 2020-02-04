@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetTablesWithoutNodePathRequest : Encodable {
+public class GetTablesWithoutNodePathRequest : Encodable, WordsApiModel {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

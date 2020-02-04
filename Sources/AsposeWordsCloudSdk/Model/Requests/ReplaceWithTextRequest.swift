@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ReplaceWithTextRequest : Encodable {
+public class ReplaceWithTextRequest : Encodable, WordsApiModel {
     private let name : String;
     private let rangeStartIdentifier : String;
     private let rangeText : ReplaceRange;

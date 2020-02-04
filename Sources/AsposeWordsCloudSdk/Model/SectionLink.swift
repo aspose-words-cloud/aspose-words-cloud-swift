@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SectionLink : NodeLink {
+public class SectionLink : NodeLink, WordsApiModel {
         
         
     private enum CodingKeys: String, CodingKey {

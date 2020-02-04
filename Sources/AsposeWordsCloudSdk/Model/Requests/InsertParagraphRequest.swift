@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertParagraphRequest : Encodable {
+public class InsertParagraphRequest : Encodable, WordsApiModel {
     private let name : String;
     private let paragraph : ParagraphInsert;
     private let nodePath : String;

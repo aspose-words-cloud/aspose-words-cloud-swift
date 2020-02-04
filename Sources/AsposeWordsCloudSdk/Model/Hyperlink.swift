@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Hyperlink : LinkElement {
+public class Hyperlink : LinkElement, WordsApiModel {
         
     // Gets or sets hypelink&#39;s display text.
     private var displayText : String?;

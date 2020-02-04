@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetDocumentDrawingObjectImageDataRequest : Encodable {
+public class GetDocumentDrawingObjectImageDataRequest : Encodable, WordsApiModel {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

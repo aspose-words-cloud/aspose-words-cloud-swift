@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteFileRequest : Encodable {
+public class DeleteFileRequest : Encodable, WordsApiModel {
     private let path : String;
     private let storageName : String?;
     private let versionId : String?;

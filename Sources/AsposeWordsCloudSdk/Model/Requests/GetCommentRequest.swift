@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetCommentRequest : Encodable {
+public class GetCommentRequest : Encodable, WordsApiModel {
     private let name : String;
     private let commentIndex : Int;
     private let folder : String?;

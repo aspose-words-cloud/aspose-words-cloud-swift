@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableCellResponse : WordsResponse {
+public class TableCellResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets table cell.
     private var cell : TableCell?;

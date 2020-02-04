@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class WatermarkText : Codable {
+public class WatermarkText : Codable, WordsApiModel {
         
     // Gets or sets the watermark text.
     private var text : String?;

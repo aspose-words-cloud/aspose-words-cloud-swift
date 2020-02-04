@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class XmlColor : Codable {
+public class XmlColor : Codable, WordsApiModel {
         
     // Gets or sets hTML string color representation.
     private var web : String?;

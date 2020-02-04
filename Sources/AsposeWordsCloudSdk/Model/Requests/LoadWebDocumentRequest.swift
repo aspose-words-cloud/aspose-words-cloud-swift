@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class LoadWebDocumentRequest : Encodable {
+public class LoadWebDocumentRequest : Encodable, WordsApiModel {
     private let data : LoadWebDocumentData;
     private let storage : String?;
     

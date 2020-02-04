@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertTableRowRequest : Encodable {
+public class InsertTableRowRequest : Encodable, WordsApiModel {
     private let name : String;
     private let tablePath : String;
     private let folder : String?;

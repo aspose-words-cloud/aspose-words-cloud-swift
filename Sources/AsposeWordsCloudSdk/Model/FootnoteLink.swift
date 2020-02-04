@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FootnoteLink : NodeLink {
+public class FootnoteLink : NodeLink, WordsApiModel {
         
         
     private enum CodingKeys: String, CodingKey {

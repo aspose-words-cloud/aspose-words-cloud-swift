@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetOfficeMathObjectsWithoutNodePathRequest : Encodable {
+public class GetOfficeMathObjectsWithoutNodePathRequest : Encodable, WordsApiModel {
     private let name : String;
     private let folder : String?;
     private let storage : String?;

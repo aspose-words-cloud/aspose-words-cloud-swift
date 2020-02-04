@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class PsSaveOptionsData : FixedPageSaveOptionsData {
+public class PsSaveOptionsData : FixedPageSaveOptionsData, WordsApiModel {
         
     // Gets or sets determines whether the document should be saved using a booklet printing layout.
     private var useBookFoldPrintingSettings : Bool?;

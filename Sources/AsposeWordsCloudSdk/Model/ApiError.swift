@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ApiError : Codable {
+public class ApiError : Codable, WordsApiModel {
         
     // Gets or sets api error code.
     private var code : String?;

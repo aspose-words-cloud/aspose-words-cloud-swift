@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TextSaveOptionsData : SaveOptionsData {
+public class TextSaveOptionsData : SaveOptionsData, WordsApiModel {
     // Gets or sets specifies whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.
     public enum ExportHeadersFootersMode : String, Codable
     { 

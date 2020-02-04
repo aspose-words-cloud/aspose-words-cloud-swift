@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateSectionPageSetupRequest : Encodable {
+public class UpdateSectionPageSetupRequest : Encodable, WordsApiModel {
     private let name : String;
     private let sectionIndex : Int;
     private let pageSetup : PageSetup;

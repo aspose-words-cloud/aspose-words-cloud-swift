@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FontInfo : Codable {
+public class FontInfo : Codable, WordsApiModel {
         
     // Gets or sets family name of the font.
     private var fontFamilyName : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class NodeLink : LinkElement {
+public class NodeLink : LinkElement, WordsApiModel {
         
     // Gets or sets node id.
     private var nodeId : String?;

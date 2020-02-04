@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ClassifyDocumentRequest : Encodable {
+public class ClassifyDocumentRequest : Encodable, WordsApiModel {
     private let documentName : String;
     private let folder : String?;
     private let storage : String?;

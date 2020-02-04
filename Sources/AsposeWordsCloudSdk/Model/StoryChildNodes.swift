@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class StoryChildNodes : Codable {
+public class StoryChildNodes : Codable, WordsApiModel {
         
     // Gets or sets child nodes.
     private var childNodes : [NodeLink]?;

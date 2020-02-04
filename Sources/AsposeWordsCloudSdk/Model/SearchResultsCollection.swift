@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SearchResultsCollection : LinkElement {
+public class SearchResultsCollection : LinkElement, WordsApiModel {
         
     // Gets or sets collection of comments.
     private var resultsList : [SearchResult]?;

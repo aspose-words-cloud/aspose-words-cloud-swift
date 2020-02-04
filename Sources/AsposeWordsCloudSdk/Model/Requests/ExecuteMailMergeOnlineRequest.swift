@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ExecuteMailMergeOnlineRequest : Encodable {
+public class ExecuteMailMergeOnlineRequest : Encodable, WordsApiModel {
     private let template : URL;
     private let data : URL;
     private let withRegions : Bool?;

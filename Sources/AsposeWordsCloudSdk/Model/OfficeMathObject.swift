@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class OfficeMathObject : OfficeMathLink {
+public class OfficeMathObject : OfficeMathLink, WordsApiModel {
     // Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.
     public enum DisplayType : String, Codable
     { 

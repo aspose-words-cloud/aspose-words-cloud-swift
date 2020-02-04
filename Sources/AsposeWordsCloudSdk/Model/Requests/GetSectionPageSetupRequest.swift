@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetSectionPageSetupRequest : Encodable {
+public class GetSectionPageSetupRequest : Encodable, WordsApiModel {
     private let name : String;
     private let sectionIndex : Int;
     private let folder : String?;

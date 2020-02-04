@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SearchRequest : Encodable {
+public class SearchRequest : Encodable, WordsApiModel {
     private let name : String;
     private let pattern : String;
     private let folder : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteTableWithoutNodePathRequest : Encodable {
+public class DeleteTableWithoutNodePathRequest : Encodable, WordsApiModel {
     private let name : String;
     private let index : Int;
     private let folder : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableInsert : Codable {
+public class TableInsert : Codable, WordsApiModel {
         
     // Gets or sets table will be inserted before specified position.
     private var position : DocumentPosition?;

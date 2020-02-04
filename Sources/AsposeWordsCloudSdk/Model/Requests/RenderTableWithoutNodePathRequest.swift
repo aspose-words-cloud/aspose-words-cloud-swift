@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RenderTableWithoutNodePathRequest : Encodable {
+public class RenderTableWithoutNodePathRequest : Encodable, WordsApiModel {
     private let name : String;
     private let format : String;
     private let index : Int;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class BookmarksOutlineLevelData : Codable {
+public class BookmarksOutlineLevelData : Codable, WordsApiModel {
         
     // Gets or sets specify the bookmark&#39;s name.
     private var name : String?;

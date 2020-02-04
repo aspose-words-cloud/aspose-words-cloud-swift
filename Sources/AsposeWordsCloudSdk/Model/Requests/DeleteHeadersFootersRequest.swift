@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteHeadersFootersRequest : Encodable {
+public class DeleteHeadersFootersRequest : Encodable, WordsApiModel {
     private let name : String;
     private let sectionPath : String;
     private let folder : String?;

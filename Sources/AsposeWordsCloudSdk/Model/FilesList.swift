@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FilesList : Codable {
+public class FilesList : Codable, WordsApiModel {
         
     // Files and folders contained by folder .
     private var value : [StorageFile]?;

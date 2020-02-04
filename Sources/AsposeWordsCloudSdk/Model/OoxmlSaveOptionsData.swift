@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class OoxmlSaveOptionsData : SaveOptionsData {
+public class OoxmlSaveOptionsData : SaveOptionsData, WordsApiModel {
         
     // Gets or sets specifies the OOXML version for the output document.
     private var compliance : String?;

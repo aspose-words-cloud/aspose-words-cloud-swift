@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Hyperlinks : LinkElement {
+public class Hyperlinks : LinkElement, WordsApiModel {
         
     // Gets or sets array of .
     private var hyperlinkList : [Hyperlink]?;

@@ -27,5 +27,5 @@
 
 import Foundation
 
-public class ResetCacheRequest : Encodable {
+public class ResetCacheRequest : Encodable, WordsApiModel {
 }

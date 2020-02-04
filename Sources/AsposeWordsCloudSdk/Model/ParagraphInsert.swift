@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ParagraphInsert : Codable {
+public class ParagraphInsert : Codable, WordsApiModel {
         
     // Gets or sets paragraph&#39;s text.
     private var text : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ReplaceTextParameters : Codable {
+public class ReplaceTextParameters : Codable, WordsApiModel {
         
     // Gets or sets old text value (or regex pattern ) to replace.
     private var oldValue : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ErrorDetails : Codable {
+public class ErrorDetails : Codable, WordsApiModel {
         
     // The request id.
     private var requestId : String?;

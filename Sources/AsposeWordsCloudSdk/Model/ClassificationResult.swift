@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ClassificationResult : Codable {
+public class ClassificationResult : Codable, WordsApiModel {
         
     // Gets or sets the name of the class.
     private var className : String?;

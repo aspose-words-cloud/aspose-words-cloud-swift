@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class XamlFlowSaveOptionsData : SaveOptionsData {
+public class XamlFlowSaveOptionsData : SaveOptionsData, WordsApiModel {
         
     // Gets or sets specifies the physical folder where images are saved when exporting.
     private var imagesFolder : String?;

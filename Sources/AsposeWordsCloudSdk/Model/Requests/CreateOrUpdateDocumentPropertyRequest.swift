@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class CreateOrUpdateDocumentPropertyRequest : Encodable {
+public class CreateOrUpdateDocumentPropertyRequest : Encodable, WordsApiModel {
     private let name : String;
     private let propertyName : String;
     private let property : DocumentProperty;

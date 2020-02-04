@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SectionResponse : WordsResponse {
+public class SectionResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets section.
     private var section : Section?;

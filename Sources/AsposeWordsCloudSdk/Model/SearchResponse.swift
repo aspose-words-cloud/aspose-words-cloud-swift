@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SearchResponse : WordsResponse {
+public class SearchResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets a regular expression pattern used to find matches.
     private var searchingPattern : String?;

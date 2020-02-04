@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SearchResult : Codable {
+public class SearchResult : Codable, WordsApiModel {
         
     // Gets or sets link to result range start node.
     private var rangeStart : DocumentPosition?;

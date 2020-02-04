@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class PreferredWidth : Codable {
+public class PreferredWidth : Codable, WordsApiModel {
     // Gets or sets the unit of measure used for this preferred width value.
     public enum ModelType : String, Codable
     { 

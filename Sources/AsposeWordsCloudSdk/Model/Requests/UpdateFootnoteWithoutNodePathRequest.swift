@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class UpdateFootnoteWithoutNodePathRequest : Encodable {
+public class UpdateFootnoteWithoutNodePathRequest : Encodable, WordsApiModel {
     private let name : String;
     private let footnoteDto : Footnote;
     private let index : Int;

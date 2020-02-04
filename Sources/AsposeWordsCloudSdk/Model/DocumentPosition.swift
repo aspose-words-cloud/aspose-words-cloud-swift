@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DocumentPosition : Codable {
+public class DocumentPosition : Codable, WordsApiModel {
         
     // Gets or sets link to  node.
     private var node : NodeLink?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteOfficeMathObjectRequest : Encodable {
+public class DeleteOfficeMathObjectRequest : Encodable, WordsApiModel {
     private let name : String;
     private let nodePath : String;
     private let index : Int;

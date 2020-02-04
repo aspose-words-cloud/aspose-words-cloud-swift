@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertHeaderFooterRequest : Encodable {
+public class InsertHeaderFooterRequest : Encodable, WordsApiModel {
     private let name : String;
     private let headerFooterType : String;
     private let sectionPath : String;

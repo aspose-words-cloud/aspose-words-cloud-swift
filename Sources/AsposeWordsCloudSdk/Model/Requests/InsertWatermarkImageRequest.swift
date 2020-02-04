@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertWatermarkImageRequest : Encodable {
+public class InsertWatermarkImageRequest : Encodable, WordsApiModel {
     private let name : String;
     private let imageFile : URL?;
     private let folder : String?;

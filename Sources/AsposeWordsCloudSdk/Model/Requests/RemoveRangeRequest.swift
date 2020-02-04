@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RemoveRangeRequest : Encodable {
+public class RemoveRangeRequest : Encodable, WordsApiModel {
     private let name : String;
     private let rangeStartIdentifier : String;
     private let rangeEndIdentifier : String;

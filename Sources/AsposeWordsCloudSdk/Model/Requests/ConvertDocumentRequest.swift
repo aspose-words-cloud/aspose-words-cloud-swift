@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ConvertDocumentRequest : Encodable {
+public class ConvertDocumentRequest : Encodable, WordsApiModel {
     private let document : URL;
     private let format : String;
     private let storage : String?;

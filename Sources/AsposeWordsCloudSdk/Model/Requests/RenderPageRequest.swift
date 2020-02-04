@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RenderPageRequest : Encodable {
+public class RenderPageRequest : Encodable, WordsApiModel {
     private let name : String;
     private let pageIndex : Int;
     private let format : String;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SectionPageSetupResponse : WordsResponse {
+public class SectionPageSetupResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets section.
     private var pageSetup : PageSetup?;

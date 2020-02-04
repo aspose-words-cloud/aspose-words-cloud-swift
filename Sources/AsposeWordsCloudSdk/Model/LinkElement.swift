@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class LinkElement : Codable {
+public class LinkElement : Codable, WordsApiModel {
         
     // Gets or sets link to the document.
     private var link : WordsApiLink?;

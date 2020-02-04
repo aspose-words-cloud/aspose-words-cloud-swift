@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DocumentEntry : Codable {
+public class DocumentEntry : Codable, WordsApiModel {
         
     // Gets or sets path to document to append at the server.
     private var href : String?;

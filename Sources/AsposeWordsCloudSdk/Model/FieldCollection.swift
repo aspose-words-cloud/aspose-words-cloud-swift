@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FieldCollection : LinkElement {
+public class FieldCollection : LinkElement, WordsApiModel {
         
     // Gets or sets collection of fields.
     private var list : [Field]?;

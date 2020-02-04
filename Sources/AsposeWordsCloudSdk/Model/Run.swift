@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class Run : RunLink {
+public class Run : RunLink, WordsApiModel {
         
         
     private enum CodingKeys: String, CodingKey {

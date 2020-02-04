@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class PdfEncryptionDetailsData : Codable {
+public class PdfEncryptionDetailsData : Codable, WordsApiModel {
         
     // Gets or sets specifies the encryption algorithm to use.
     private var encryptionAlgorithm : String?;

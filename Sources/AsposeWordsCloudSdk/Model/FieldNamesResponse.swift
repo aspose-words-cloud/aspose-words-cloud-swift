@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FieldNamesResponse : WordsResponse {
+public class FieldNamesResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets collection of mail merge fields.
     private var fieldNames : FieldNames?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DocumentPropertyResponse : WordsResponse {
+public class DocumentPropertyResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets document property.
     private var documentProperty : DocumentProperty?;

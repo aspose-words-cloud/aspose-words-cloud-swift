@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class InsertFieldWithoutNodePathRequest : Encodable {
+public class InsertFieldWithoutNodePathRequest : Encodable, WordsApiModel {
     private let name : String;
     private let field : Field;
     private let folder : String?;

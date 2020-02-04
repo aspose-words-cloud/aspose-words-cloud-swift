@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class JpegSaveOptionsData : ImageSaveOptionsData {
+public class JpegSaveOptionsData : ImageSaveOptionsData, WordsApiModel {
         
         
     private enum CodingKeys: String, CodingKey {

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FormFieldTextInput : FormField {
+public class FormFieldTextInput : FormField, WordsApiModel {
     // Gets or sets the type of a text form field.
     public enum TextInputType : String, Codable
     { 

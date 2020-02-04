@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetParagraphFormatWithoutNodePathRequest : Encodable {
+public class GetParagraphFormatWithoutNodePathRequest : Encodable, WordsApiModel {
     private let name : String;
     private let index : Int;
     private let folder : String?;

@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ClassifyRequest : Encodable {
+public class ClassifyRequest : Encodable, WordsApiModel {
     private let text : String;
     private let bestClassesCount : String?;
     

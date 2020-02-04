@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class RangeDocument : Codable {
+public class RangeDocument : Codable, WordsApiModel {
         
     // Gets or sets name for new document.
     private var documentName : String?;

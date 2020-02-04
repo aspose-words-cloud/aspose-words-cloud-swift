@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class GetBookmarkByNameRequest : Encodable {
+public class GetBookmarkByNameRequest : Encodable, WordsApiModel {
     private let name : String;
     private let bookmarkName : String;
     private let folder : String?;

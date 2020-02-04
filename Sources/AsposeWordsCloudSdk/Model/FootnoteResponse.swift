@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class FootnoteResponse : WordsResponse {
+public class FootnoteResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets footnote information.
     private var footnote : Footnote?;

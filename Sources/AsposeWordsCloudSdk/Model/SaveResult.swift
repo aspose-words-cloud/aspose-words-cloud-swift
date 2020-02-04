@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SaveResult : Codable {
+public class SaveResult : Codable, WordsApiModel {
         
     // Gets or sets link to source document.
     private var sourceDocument : FileLink?;

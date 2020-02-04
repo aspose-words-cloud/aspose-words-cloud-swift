@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DeleteRunRequest : Encodable {
+public class DeleteRunRequest : Encodable, WordsApiModel {
     private let name : String;
     private let paragraphPath : String;
     private let index : Int;

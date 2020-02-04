@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class SaveOptionsData : Codable {
+public class SaveOptionsData : Codable, WordsApiModel {
         
     // Gets or sets format of save.
     private var saveFormat : String?;

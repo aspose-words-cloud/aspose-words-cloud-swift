@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableRowInsert : Codable {
+public class TableRowInsert : Codable, WordsApiModel {
         
     // Gets or sets table row will be inserted after row with specified 0-based index.
     private var insertAfter : Int?;

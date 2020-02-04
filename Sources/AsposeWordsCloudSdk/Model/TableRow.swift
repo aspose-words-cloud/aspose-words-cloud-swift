@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableRow : NodeLink {
+public class TableRow : NodeLink, WordsApiModel {
         
     // Gets or sets provides access to the formatting properties of the row.
     private var rowFormat : TableRowFormat?;

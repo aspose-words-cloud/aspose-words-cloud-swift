@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class XpsSaveOptionsData : FixedPageSaveOptionsData {
+public class XpsSaveOptionsData : FixedPageSaveOptionsData, WordsApiModel {
         
     // Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.
     private var bookmarksOutlineLevel : Int?;

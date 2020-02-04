@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class TableCellFormatResponse : WordsResponse {
+public class TableCellFormatResponse : WordsResponse, WordsApiModel {
         
     // Gets or sets table.
     private var cellFormat : TableCellFormat?;

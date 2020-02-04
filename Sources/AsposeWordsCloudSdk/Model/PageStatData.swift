@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class PageStatData : Codable {
+public class PageStatData : Codable, WordsApiModel {
         
     // Gets or sets page number.
     private var pageNumber : Int?;

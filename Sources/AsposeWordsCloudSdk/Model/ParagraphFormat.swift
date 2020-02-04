@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class ParagraphFormat : LinkElement {
+public class ParagraphFormat : LinkElement, WordsApiModel {
     // Gets or sets text alignment for the paragraph.             
     public enum Alignment : String, Codable
     { 

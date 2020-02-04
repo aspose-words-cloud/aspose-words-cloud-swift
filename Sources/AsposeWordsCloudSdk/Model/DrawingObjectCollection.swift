@@ -27,7 +27,7 @@
 
 import Foundation
 
-public class DrawingObjectCollection : LinkElement {
+public class DrawingObjectCollection : LinkElement, WordsApiModel {
         
     // Gets or sets collection of DrawingObjects links.
     private var list : [LinkElement]?;
