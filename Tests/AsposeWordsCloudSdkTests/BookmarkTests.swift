@@ -18,10 +18,9 @@ class BookmarkTests: BaseTestContext {
             .appendingPathComponent("Common", isDirectory: true)
             .appendingPathComponent(localName, isDirectory: false);
         
-        let req = UploadFileRequest(fileContent: localPath, path: fullName);
-        let res = try super.getApi().uploadFile(request: req);
-        XCTAssert(res.getErrors()?.count == 0);
-        XCTAssert(res.getUploaded()?.count == 1);
+        try super.uploadFile(fileContent: localPath, path: fullName);
         
+        let request = GetBookmarksRequest(name: remoteName, folder: getRemoteDataFolder());
+        _ = try super.getApi().getBookmarks(request: request);
     }
 }
