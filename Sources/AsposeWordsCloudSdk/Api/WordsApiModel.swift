@@ -27,19 +27,6 @@
 
 import Foundation
 
-public enum WordsApiError : LocalizedError {
-    case requestError(errorCode: Int, message: String?)
-    case requiredArgumentError(argumentName: String)
-    case invalidTypeSerialization(typeName: String)
+protocol WordsApiModel {
     
-    public var errorDescription: String? {
-        switch self {
-            case let .requestError(errorCode, message):
-                return "Request error: \(errorCode); Description: \(message ?? "")";
-            case let .requiredArgumentError(argumentName):
-                return "Required argument \(argumentName) not present.";
-            case let .invalidTypeSerialization(typeName):
-                return "Failed to serialize type '\(typeName)'.";
-        }
-    }
 }

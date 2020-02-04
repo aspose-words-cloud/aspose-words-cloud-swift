@@ -45,11 +45,28 @@ class ObjectSerializer {
         }
     }
     
-    
-    public static func serialize<T>(value: T) throws -> Data where T : Encodable {
-        let jsonEncoder = JSONEncoder();
-        return try jsonEncoder.encode(value);
+    public static func serializeToString<T : Encodable>(value : T) throws -> String {
+        if (value is WordsApiModel) {
+            return String(decoding: try JSONEncoder().encode(value), as: UTF8.self);
+        }
+        else {
+            return String(describing: value);
+        }
     }
+    
+    public static func serialize<T : Encodable>(value: T) throws -> Data {
+        if (value is WordsApiModel) {
+            return try JSONEncoder().encode(value);
+        }
+        else {
+            let result = String(describing: value).data(using: .utf8);
+            if (result == nil) {
+                throw WordsApiError.invalidTypeSerialization(typeName: String(describing: type(of: value)));
+            }
+            return result!;
+        }
+    }
+    
     public static func deserialize<T>(type: T.Type, from data: Data) throws -> T where T : Decodable {
         let jsonDecoder = JSONDecoder();
         jsonDecoder.keyDecodingStrategy = .custom { keys in
