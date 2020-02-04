@@ -4671,6 +4671,7 @@ public class WordsAPI {
     
     public func resetCache(request : ResetCacheRequest) throws  {
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/fonts/cache");
+        var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         
         _ = try apiInvoker.invoke(
             url: urlBuilder.url!,
