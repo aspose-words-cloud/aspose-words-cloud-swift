@@ -21,6 +21,13 @@ class BaseTestContext: XCTestCase {
         return "Temp/SwiftSdkTests/TestData/";
     }
     
+    public func uploadFile(fileContent : URL, path : String) throws {
+        let req = UploadFileRequest(fileContent: fileContent, path: path);
+        let res = try getApi().uploadFile(request: req);
+        XCTAssert(res.getErrors()?.count == 0);
+        XCTAssert(res.getUploaded()?.count == 1);
+    }
+    
     override func setUp() {
         if (self.api == nil) {
             self.baseFolder = URL(fileURLWithPath: #file)
