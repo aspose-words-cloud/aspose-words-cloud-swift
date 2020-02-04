@@ -49,6 +49,9 @@ class ObjectSerializer {
         if (value is WordsApiModel) {
             return String(decoding: try JSONEncoder().encode(value), as: UTF8.self);
         }
+        if (value is URL) {
+            return try String(contentsOf: value as! URL);
+        }
         else {
             return String(describing: value);
         }
@@ -57,6 +60,9 @@ class ObjectSerializer {
     public static func serialize<T : Encodable>(value: T) throws -> Data {
         if (value is WordsApiModel) {
             return try JSONEncoder().encode(value);
+        }
+        if (value is URL) {
+            return try Data(contentsOf: value as! URL);
         }
         else {
             let result = String(describing: value).data(using: .utf8);

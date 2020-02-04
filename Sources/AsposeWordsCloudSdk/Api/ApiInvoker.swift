@@ -59,7 +59,6 @@ public class ApiInvoker {
     ) throws -> Data {
         var request = URLRequest(url: url);
         request.httpMethod = method;
-        request.setValue(contentType, forHTTPHeaderField: "Content-Type");
         
         if (headers != nil) {
             for (key, value) in headers! {
@@ -69,22 +68,33 @@ public class ApiInvoker {
         
         if (body != nil) {
             request.httpBody = body;
+            request.setValue(contentType, forHTTPHeaderField: "Content-Type");
         }
-        else if (formParams != nil) {
-            var needsClrf = false;
-            let formBody = NSMutableData();
-            let boundaryPrefix = "Something";
-            for (key, value) in formParams! {
-                if (needsClrf) {
-                    formBody.append("\r\n".data(using: .utf8)!);
-                }
-                needsClrf = true;
-                
-                formBody.append("--\(boundaryPrefix)\r\nContent-Disposition: form-data; name=\"\(key)\";\r\n\r\n".data(using: .utf8)!);
-                formBody.append(value);
-                formBody.append("\r\n--\(boundaryPrefix)--\r\n".data(using: .utf8)!);
+        else if (formParams != nil && formParams!.count > 0) {
+            if (formParams?.count == 1) {
+                request.httpBody = formParams!.first!.value;
             }
-            request.setValue("multipart/form-data; boundary=\(boundaryPrefix)", forHTTPHeaderField: "Content-Type");
+            else {
+                var needsClrf = false;
+                var formBody = Data();
+                let boundaryPrefix = "Something";
+                for (key, value) in formParams! {
+                    if (needsClrf) {
+                        formBody.append("\r\n".data(using: .utf8)!);
+                    }
+                    needsClrf = true;
+                    
+                    formBody.append("--\(boundaryPrefix)\r\nContent-Disposition: form-data; name=\"\(key)\";\r\n\r\n".data(using: .utf8)!);
+                    formBody.append(value);
+                    formBody.append("\r\n--\(boundaryPrefix)--\r\n".data(using: .utf8)!);
+                }
+                request.httpBody = formBody;
+                request.setValue("multipart/form-data; boundary=\(boundaryPrefix)", forHTTPHeaderField: "Content-Type");
+            }
+        }
+        
+        if (request.httpBody != nil) {
+            request.setValue(String(request.httpBody!.count), forHTTPHeaderField: "Content-Length");
         }
         
         if (accessToken == nil) {
@@ -119,7 +129,14 @@ public class ApiInvoker {
                 print("\tHEADERS: \(String(describing: urlRequest.allHTTPHeaderFields!))");
             }
             if (urlRequest.httpBody != nil) {
-                print("\tBODY: \(String(data: urlRequest.httpBody!, encoding: .utf8)!)");
+                let bodyStr = String(data: urlRequest.httpBody!, encoding: .utf8);
+                if (bodyStr != nil) {
+                    print("\tBODY: \(bodyStr!)");
+                }
+                else {
+                    let chars = urlRequest.httpBody!.map { Character(UnicodeScalar($0)) };
+                    print("\tBODY: \(String(Array(chars)))");
+                }
             }
             print("REQUEST END");
         }
@@ -147,7 +164,14 @@ public class ApiInvoker {
                 print("\tMESSAGE: \(invokeResponse.errorMessage!)");
             }
             if (invokeResponse.data != nil) {
-                print("\tBODY: \(String(data: invokeResponse.data!, encoding: .utf8)!)");
+                let bodyStr = String(data: invokeResponse.data!, encoding: .utf8);
+                if (bodyStr != nil) {
+                    print("\tBODY: \(bodyStr!)");
+                }
+                else {
+                    let chars = invokeResponse.data!.map { Character(UnicodeScalar($0)) };
+                    print("\tBODY: \(String(Array(chars)))");
+                }
             }
             print("RESPONSE END");
         }
