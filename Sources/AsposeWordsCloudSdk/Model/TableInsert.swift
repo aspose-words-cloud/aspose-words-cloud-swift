@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class TableInsert : Codable {
         
     // Gets or sets table will be inserted before specified position.

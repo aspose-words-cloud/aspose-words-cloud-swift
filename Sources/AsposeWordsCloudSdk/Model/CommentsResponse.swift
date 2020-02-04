@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class CommentsResponse : WordsResponse {
         
     // Gets or sets collection of comments.

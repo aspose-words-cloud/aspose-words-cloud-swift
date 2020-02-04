@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class ErrorDetails : Codable {
         
     // The request id.

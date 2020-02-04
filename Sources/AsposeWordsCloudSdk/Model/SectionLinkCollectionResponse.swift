@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class SectionLinkCollectionResponse : WordsResponse {
         
     // Gets or sets collection of sections.

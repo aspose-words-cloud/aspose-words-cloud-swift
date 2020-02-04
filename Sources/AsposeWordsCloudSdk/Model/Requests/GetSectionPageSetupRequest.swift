@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class GetSectionPageSetupRequest : Encodable {
     private let name : String;
     private let sectionIndex : Int;

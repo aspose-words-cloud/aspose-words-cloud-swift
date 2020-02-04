@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class DocumentEntry : Codable {
         
     // Gets or sets path to document to append at the server.

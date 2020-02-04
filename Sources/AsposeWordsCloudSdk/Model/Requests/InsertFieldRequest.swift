@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class InsertFieldRequest : Encodable {
     private let name : String;
     private let field : Field;

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class OfficeMathObjectsResponse : WordsResponse {
         
     // Gets or sets collection of OfficeMath objects.

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class SaveAsTiffRequest : Encodable {
     private let name : String;
     private let saveOptions : TiffSaveOptionsData;

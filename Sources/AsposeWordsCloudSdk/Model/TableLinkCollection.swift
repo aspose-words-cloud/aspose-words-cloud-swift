@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class TableLinkCollection : LinkElement {
         
     // Gets or sets collection of table&#39;s links.

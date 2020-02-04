@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class HeaderFootersResponse : WordsResponse {
         
     // Gets or sets collection of headers/footers.

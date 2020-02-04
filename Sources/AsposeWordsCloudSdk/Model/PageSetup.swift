@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class PageSetup : LinkElement {
     // Gets or sets specifies which pages the page border is printed on.             
     public enum BorderAppliesTo : String, Codable

@@ -1,3 +1,5 @@
+import Foundation
+
 public class ApiInvoker {
     private var configuration : Configuration;
     private var accessToken : String?;

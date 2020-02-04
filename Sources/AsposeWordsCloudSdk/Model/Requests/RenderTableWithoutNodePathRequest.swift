@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class RenderTableWithoutNodePathRequest : Encodable {
     private let name : String;
     private let format : String;

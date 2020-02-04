@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class RunsResponse : WordsResponse {
         
     // Gets or sets collection of runs.

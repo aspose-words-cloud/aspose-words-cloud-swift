@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class TableCellFormatResponse : WordsResponse {
         
     // Gets or sets table.

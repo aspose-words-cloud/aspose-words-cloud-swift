@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class GetOfficeMathObjectRequest : Encodable {
     private let name : String;
     private let nodePath : String;

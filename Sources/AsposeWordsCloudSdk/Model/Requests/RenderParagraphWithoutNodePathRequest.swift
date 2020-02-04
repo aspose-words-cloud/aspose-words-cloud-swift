@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class RenderParagraphWithoutNodePathRequest : Encodable {
     private let name : String;
     private let format : String;

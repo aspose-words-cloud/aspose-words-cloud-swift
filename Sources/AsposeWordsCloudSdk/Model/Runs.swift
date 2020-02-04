@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class Runs : LinkElement {
         
     // Gets or sets collection of fields.

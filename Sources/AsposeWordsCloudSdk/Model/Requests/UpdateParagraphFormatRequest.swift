@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class UpdateParagraphFormatRequest : Encodable {
     private let name : String;
     private let dto : ParagraphFormat;

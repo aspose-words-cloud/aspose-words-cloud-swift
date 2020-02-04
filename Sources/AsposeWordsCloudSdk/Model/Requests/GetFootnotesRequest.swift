@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class GetFootnotesRequest : Encodable {
     private let name : String;
     private let nodePath : String;

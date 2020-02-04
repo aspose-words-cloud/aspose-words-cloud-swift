@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class BookmarkResponse : WordsResponse {
         
     // Gets or sets bookmark.

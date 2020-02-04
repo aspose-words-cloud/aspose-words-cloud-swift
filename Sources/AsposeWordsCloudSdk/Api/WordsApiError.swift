@@ -1,3 +1,5 @@
+import Foundation
+
 public enum WordsApiError : LocalizedError {
     case requestError(errorCode: Int, message: String?)
     case requiredArgumentError(argumentName: String)

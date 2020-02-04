@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class ExecuteMailMergeOnlineRequest : Encodable {
     private let template : URL;
     private let data : URL;

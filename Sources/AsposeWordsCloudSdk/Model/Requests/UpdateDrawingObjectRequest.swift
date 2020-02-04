@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class UpdateDrawingObjectRequest : Encodable {
     private let name : String;
     private let drawingObject : String;

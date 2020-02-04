@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class DeleteFieldRequest : Encodable {
     private let name : String;
     private let nodePath : String;

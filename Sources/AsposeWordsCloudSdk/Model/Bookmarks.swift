@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class Bookmarks : LinkElement {
         
     // Gets or sets array of bookmarks.

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class HeaderFooter : HeaderFooterLink {
         
     // Gets or sets child nodes.

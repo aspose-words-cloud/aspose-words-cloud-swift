@@ -1,3 +1,5 @@
+import Foundation
+
 class ObjectSerializer {
     private init() { }
     

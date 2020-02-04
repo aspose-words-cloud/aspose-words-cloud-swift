@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class UpdateTableCellFormatRequest : Encodable {
     private let name : String;
     private let tableRowPath : String;

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class TableRowFormat : LinkElement {
     // Gets or sets the rule for determining the height of the table row.
     public enum HeightRule : String, Codable

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class HeaderFooterLink : LinkElement {
     // Gets or sets paragraph&#39;s text.
     public enum ModelType : String, Codable

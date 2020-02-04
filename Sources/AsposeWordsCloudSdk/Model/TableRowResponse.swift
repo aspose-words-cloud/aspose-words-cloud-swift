@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class TableRowResponse : WordsResponse {
         
     // Gets or sets table row.

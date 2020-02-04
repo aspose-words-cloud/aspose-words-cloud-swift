@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class SearchResult : Codable {
         
     // Gets or sets link to result range start node.

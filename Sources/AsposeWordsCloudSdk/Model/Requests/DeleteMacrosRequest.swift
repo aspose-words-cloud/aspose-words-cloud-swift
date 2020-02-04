@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class DeleteMacrosRequest : Encodable {
     private let name : String;
     private let folder : String?;

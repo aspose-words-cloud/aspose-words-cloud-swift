@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class SaveAsRangeRequest : Encodable {
     private let name : String;
     private let rangeStartIdentifier : String;

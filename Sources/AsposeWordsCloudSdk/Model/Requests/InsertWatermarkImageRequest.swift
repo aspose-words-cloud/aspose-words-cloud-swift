@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class InsertWatermarkImageRequest : Encodable {
     private let name : String;
     private let imageFile : URL?;

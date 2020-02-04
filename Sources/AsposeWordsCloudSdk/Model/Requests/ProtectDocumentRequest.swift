@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class ProtectDocumentRequest : Encodable {
     private let name : String;
     private let protectionRequest : ProtectionRequest;

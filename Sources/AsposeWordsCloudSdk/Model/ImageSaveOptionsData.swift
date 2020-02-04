@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         
     // Gets or sets allows to specify additional System.Drawing.Graphics quality options.

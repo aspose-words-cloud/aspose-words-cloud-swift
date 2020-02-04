@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class XmlColor : Codable {
         
     // Gets or sets hTML string color representation.

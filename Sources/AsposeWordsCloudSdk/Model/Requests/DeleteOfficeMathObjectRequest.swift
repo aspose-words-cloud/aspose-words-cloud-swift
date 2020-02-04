@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class DeleteOfficeMathObjectRequest : Encodable {
     private let name : String;
     private let nodePath : String;

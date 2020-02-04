@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class GetDocumentHyperlinkByIndexRequest : Encodable {
     private let name : String;
     private let hyperlinkIndex : Int;

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class ParagraphFormat : LinkElement {
     // Gets or sets text alignment for the paragraph.             
     public enum Alignment : String, Codable

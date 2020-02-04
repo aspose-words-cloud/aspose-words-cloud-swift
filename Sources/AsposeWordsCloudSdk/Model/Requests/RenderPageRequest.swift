@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class RenderPageRequest : Encodable {
     private let name : String;
     private let pageIndex : Int;

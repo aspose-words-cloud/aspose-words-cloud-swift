@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class DeleteDrawingObjectWithoutNodePathRequest : Encodable {
     private let name : String;
     private let index : Int;

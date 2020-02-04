@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class FormFieldCheckbox : FormField {
         
     // Gets or sets the size of the checkbox in points. Has effect only when  is true.

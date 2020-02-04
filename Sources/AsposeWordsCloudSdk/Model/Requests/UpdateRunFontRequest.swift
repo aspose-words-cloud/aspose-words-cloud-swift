@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class UpdateRunFontRequest : Encodable {
     private let name : String;
     private let fontDto : Font;

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class Bookmark : LinkElement {
         
     // Gets or sets the name of the bookmark.

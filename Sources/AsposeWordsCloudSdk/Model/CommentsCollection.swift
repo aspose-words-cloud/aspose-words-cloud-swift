@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class CommentsCollection : LinkElement {
         
     // Gets or sets collection of comments.

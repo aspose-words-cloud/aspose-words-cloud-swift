@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class Comment : CommentLink {
         
     // Gets or sets returns or sets the author name for a comment.

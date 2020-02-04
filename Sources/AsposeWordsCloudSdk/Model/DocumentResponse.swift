@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class DocumentResponse : WordsResponse {
         
     // Gets or sets document description.

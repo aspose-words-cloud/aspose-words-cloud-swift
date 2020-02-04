@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class GetDocumentRequest : Encodable {
     private let documentName : String;
     private let folder : String?;

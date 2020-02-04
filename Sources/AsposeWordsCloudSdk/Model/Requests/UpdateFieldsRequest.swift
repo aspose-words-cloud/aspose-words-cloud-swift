@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class UpdateFieldsRequest : Encodable {
     private let name : String;
     private let folder : String?;

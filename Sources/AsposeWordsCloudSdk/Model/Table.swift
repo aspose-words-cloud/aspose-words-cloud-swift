@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class Table : NodeLink {
         
     // Gets or sets table properties.

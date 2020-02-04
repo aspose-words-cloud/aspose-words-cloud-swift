@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class FormFieldDropDown : FormField {
         
     // Gets or sets provides access to the items of a dropdown form field.

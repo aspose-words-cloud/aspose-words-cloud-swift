@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class RangeTextResponse : WordsResponse {
         
     // Gets or sets text from range.

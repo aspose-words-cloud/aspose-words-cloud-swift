@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class TableCell : NodeLink {
         
     // Gets or sets child nodes.

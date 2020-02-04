@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class SplitDocumentResult : Codable {
         
     // Gets or sets linkt to the source document.

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class CreateOrUpdateDocumentPropertyRequest : Encodable {
     private let name : String;
     private let propertyName : String;

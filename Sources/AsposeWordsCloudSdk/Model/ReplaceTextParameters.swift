@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class ReplaceTextParameters : Codable {
         
     // Gets or sets old text value (or regex pattern ) to replace.

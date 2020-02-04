@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class PageNumber : Codable {
         
     // Gets or sets page number format, e.g. \&quot;{PAGE} of {NUMPAGES}\&quot;.

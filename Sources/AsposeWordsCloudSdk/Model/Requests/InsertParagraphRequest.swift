@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class InsertParagraphRequest : Encodable {
     private let name : String;
     private let paragraph : ParagraphInsert;

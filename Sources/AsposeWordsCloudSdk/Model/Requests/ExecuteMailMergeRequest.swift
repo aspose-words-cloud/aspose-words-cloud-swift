@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class ExecuteMailMergeRequest : Encodable {
     private let name : String;
     private let data : String?;

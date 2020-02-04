@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class DeleteHeadersFootersRequest : Encodable {
     private let name : String;
     private let sectionPath : String;

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class BookmarkData : Codable {
         
     // Gets or sets the name of the bookmark.

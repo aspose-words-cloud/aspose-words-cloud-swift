@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class StoryChildNodes : Codable {
         
     // Gets or sets child nodes.

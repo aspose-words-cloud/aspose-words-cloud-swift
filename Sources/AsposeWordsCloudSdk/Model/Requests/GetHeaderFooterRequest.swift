@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class GetHeaderFooterRequest : Encodable {
     private let name : String;
     private let headerFooterIndex : Int;

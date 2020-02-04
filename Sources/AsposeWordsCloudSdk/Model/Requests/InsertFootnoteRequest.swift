@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class InsertFootnoteRequest : Encodable {
     private let name : String;
     private let footnoteDto : Footnote;

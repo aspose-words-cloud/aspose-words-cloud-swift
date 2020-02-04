@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         
     // Gets or sets specified whether images should be embedded into SVG document as base64.

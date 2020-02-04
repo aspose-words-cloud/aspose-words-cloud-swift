@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class WatermarkText : Codable {
         
     // Gets or sets the watermark text.

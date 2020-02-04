@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class RangeDocument : Codable {
         
     // Gets or sets name for new document.

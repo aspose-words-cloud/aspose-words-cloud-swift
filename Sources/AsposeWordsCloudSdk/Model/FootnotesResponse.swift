@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class FootnotesResponse : WordsResponse {
         
     // Gets or sets collection of footnotes.

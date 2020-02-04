@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class DownsampleOptionsData : Codable {
         
     // Gets or sets specifies whether images should be downsampled.

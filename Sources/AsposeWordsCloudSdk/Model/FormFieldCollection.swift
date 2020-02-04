@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class FormFieldCollection : LinkElement {
         
     // Gets or sets collection of formfields.

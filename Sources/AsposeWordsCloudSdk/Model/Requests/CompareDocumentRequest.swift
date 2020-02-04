@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class CompareDocumentRequest : Encodable {
     private let name : String;
     private let compareData : CompareData;

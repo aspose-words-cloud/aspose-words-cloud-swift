@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class GetFootnoteWithoutNodePathRequest : Encodable {
     private let name : String;
     private let index : Int;

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class TablePropertiesResponse : WordsResponse {
         
     // Gets or sets table.

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class ParagraphInsert : Codable {
         
     // Gets or sets paragraph&#39;s text.

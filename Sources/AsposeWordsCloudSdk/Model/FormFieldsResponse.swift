@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class FormFieldsResponse : WordsResponse {
         
     // Gets or sets collection of form fields.

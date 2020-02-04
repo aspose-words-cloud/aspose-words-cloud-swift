@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class ReplaceWithTextRequest : Encodable {
     private let name : String;
     private let rangeStartIdentifier : String;

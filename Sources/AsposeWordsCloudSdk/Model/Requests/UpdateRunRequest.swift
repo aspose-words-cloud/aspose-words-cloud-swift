@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class UpdateRunRequest : Encodable {
     private let name : String;
     private let run : Run;

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class DrawingObjectResponse : WordsResponse {
         
     // Gets or sets drawing object.

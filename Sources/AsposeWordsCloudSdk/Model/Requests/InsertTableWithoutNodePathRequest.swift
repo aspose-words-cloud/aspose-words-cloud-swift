@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class InsertTableWithoutNodePathRequest : Encodable {
     private let name : String;
     private let folder : String?;

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class GetRunsRequest : Encodable {
     private let name : String;
     private let paragraphPath : String;

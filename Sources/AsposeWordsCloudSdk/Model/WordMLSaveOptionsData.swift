@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class WordMLSaveOptionsData : SaveOptionsData {
         
     // Gets or sets specifies whether or not use pretty formats output.

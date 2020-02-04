@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class UpdateCommentRequest : Encodable {
     private let name : String;
     private let commentIndex : Int;

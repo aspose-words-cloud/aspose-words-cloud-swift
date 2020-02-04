@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class DeleteTableRowRequest : Encodable {
     private let name : String;
     private let tablePath : String;

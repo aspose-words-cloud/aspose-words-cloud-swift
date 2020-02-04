@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class InsertPageNumbersRequest : Encodable {
     private let name : String;
     private let pageNumber : PageNumber;

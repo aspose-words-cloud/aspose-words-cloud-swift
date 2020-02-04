@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class GetAvailableFontsRequest : Encodable {
     private let fontsLocation : String?;
     

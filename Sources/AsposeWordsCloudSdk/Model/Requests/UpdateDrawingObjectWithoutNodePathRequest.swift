@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class UpdateDrawingObjectWithoutNodePathRequest : Encodable {
     private let name : String;
     private let drawingObject : String;

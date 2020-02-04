@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class CompareData : Codable {
         
     // Gets or sets path to document to compare at the server.

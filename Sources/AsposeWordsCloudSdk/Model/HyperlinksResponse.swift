@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class HyperlinksResponse : WordsResponse {
         
     // Gets or sets collection of hyperlinks.

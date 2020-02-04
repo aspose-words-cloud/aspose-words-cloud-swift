@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class ParagraphLinkCollection : LinkElement {
         
     // Gets or sets collection of paragraph&#39;s links.

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class DocumentEntryList : Codable {
         
     // Gets or sets list of documents.

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class SplitDocumentResponse : WordsResponse {
         
     // Gets or sets resylt of splitting document.

@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class Hyperlink : LinkElement {
         
     // Gets or sets hypelink&#39;s display text.

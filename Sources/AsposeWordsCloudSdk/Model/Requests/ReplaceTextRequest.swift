@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class ReplaceTextRequest : Encodable {
     private let name : String;
     private let replaceText : ReplaceTextParameters;

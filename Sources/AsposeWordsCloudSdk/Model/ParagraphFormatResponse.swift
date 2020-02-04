@@ -24,6 +24,9 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
+
+import Foundation
+
 public class ParagraphFormatResponse : WordsResponse {
         
     // Gets or sets represents all the formatting for a paragraph.

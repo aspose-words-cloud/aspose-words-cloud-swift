@@ -1,3 +1,5 @@
+import Foundation
+
 public class Configuration : Codable {
     private var baseUrl : String;
     private var appSid: String;
