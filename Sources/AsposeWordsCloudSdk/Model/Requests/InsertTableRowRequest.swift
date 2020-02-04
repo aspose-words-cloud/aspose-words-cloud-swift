@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class InsertTableRowRequest : Encodable {
     private let name : String;
     private let tablePath : String;

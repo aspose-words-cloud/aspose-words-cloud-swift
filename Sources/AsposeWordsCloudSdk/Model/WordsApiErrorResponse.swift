@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class WordsApiErrorResponse : WordsResponse {
         
     // Gets or sets error.

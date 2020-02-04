@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class FilesList : Codable {
         
     // Files and folders contained by folder .

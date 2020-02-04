@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class GetFieldsRequest : Encodable {
     private let name : String;
     private let nodePath : String;

@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class MetafileRenderingOptionsData : Codable {
         
     // Gets or sets determines how EMF+ Dual metafiles should be rendered.

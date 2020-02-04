@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class DeleteCommentRequest : Encodable {
     private let name : String;
     private let commentIndex : Int;

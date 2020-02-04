@@ -24,8 +24,5 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class ResetCacheRequest : Encodable {
 }

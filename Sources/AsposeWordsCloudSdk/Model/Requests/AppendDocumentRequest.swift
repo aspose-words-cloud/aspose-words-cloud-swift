@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class AppendDocumentRequest : Encodable {
     private let name : String;
     private let documentList : DocumentEntryList;

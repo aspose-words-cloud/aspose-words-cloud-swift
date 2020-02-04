@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class SaveResult : Codable {
         
     // Gets or sets link to source document.

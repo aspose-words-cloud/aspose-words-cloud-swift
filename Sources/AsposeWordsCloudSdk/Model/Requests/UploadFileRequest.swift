@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class UploadFileRequest : Encodable {
     private let fileContent : URL;
     private let path : String;

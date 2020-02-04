@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class DocumentPosition : Codable {
         
     // Gets or sets link to  node.

@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class InsertCommentRequest : Encodable {
     private let name : String;
     private let comment : Comment;

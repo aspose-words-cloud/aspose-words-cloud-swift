@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class FixedPageSaveOptionsData : SaveOptionsData {
         
     // Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.

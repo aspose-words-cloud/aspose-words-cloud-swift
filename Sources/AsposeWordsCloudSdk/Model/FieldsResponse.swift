@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class FieldsResponse : WordsResponse {
         
     // Gets or sets collection of fields.

@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class Paragraph : NodeLink {
         
     // Gets or sets child nodes.

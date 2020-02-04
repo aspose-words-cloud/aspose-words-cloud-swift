@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class RevisionsModificationResponse : WordsResponse {
         
     // Gets or sets result of the modification operations for the revisions collection.

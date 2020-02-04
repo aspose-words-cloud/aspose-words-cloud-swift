@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class RemoveRangeRequest : Encodable {
     private let name : String;
     private let rangeStartIdentifier : String;

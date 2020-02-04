@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class UpdateFootnoteWithoutNodePathRequest : Encodable {
     private let name : String;
     private let footnoteDto : Footnote;

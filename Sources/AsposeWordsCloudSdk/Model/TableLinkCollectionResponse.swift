@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class TableLinkCollectionResponse : WordsResponse {
         
     // Gets or sets collection of tables.

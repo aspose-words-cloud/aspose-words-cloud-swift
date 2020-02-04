@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class FontResponse : WordsResponse {
         
     // Gets or sets font.

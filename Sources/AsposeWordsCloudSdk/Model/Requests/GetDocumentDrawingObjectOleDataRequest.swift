@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class GetDocumentDrawingObjectOleDataRequest : Encodable {
     private let name : String;
     private let nodePath : String;

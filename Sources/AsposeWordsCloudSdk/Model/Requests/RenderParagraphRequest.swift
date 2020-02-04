@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class RenderParagraphRequest : Encodable {
     private let name : String;
     private let format : String;

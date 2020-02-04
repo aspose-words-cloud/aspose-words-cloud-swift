@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class Section : LinkElement {
         
     // Gets or sets child nodes.

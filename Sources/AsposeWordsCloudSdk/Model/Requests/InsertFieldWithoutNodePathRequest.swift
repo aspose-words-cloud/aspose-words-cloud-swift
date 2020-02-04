@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class InsertFieldWithoutNodePathRequest : Encodable {
     private let name : String;
     private let field : Field;

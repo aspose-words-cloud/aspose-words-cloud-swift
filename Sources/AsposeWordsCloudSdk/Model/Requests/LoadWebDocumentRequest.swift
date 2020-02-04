@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class LoadWebDocumentRequest : Encodable {
     private let data : LoadWebDocumentData;
     private let storage : String?;

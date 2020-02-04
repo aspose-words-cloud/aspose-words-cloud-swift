@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class GetDocumentHyperlinksRequest : Encodable {
     private let name : String;
     private let folder : String?;

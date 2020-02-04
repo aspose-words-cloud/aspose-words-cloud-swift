@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class FontInfo : Codable {
         
     // Gets or sets family name of the font.

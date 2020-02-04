@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class ParagraphLink : NodeLink {
         
     // Gets or sets paragraph&#39;s text.

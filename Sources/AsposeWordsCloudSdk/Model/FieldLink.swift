@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class FieldLink : NodeLink {
         
     // Gets or sets field code.

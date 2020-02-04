@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class FormFieldResponse : WordsResponse {
         
     // Gets or sets field information.

@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class GetTableRowFormatRequest : Encodable {
     private let name : String;
     private let tablePath : String;

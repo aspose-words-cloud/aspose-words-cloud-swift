@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class DrawingObjectCollection : LinkElement {
         
     // Gets or sets collection of DrawingObjects links.

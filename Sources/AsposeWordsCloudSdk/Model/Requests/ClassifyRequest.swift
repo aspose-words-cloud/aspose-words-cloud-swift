@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class ClassifyRequest : Encodable {
     private let text : String;
     private let bestClassesCount : String?;

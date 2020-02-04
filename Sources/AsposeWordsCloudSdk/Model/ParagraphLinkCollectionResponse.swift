@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class ParagraphLinkCollectionResponse : WordsResponse {
         
     // Gets or sets collection of paragraphs.

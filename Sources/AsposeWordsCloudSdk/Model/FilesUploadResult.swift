@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class FilesUploadResult : Codable {
         
     // List of uploaded file names

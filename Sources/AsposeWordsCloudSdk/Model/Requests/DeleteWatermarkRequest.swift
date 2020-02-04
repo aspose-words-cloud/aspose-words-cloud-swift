@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class DeleteWatermarkRequest : Encodable {
     private let name : String;
     private let folder : String?;

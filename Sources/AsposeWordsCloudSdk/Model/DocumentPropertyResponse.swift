@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class DocumentPropertyResponse : WordsResponse {
         
     // Gets or sets document property.

@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class ApiError : Codable {
         
     // Gets or sets api error code.

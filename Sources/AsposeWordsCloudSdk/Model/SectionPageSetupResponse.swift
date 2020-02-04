@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class SectionPageSetupResponse : WordsResponse {
         
     // Gets or sets section.

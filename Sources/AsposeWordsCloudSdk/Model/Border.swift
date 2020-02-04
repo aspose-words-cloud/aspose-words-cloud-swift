@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class Border : LinkElement {
     // Gets or sets the border type.             
     public enum BorderType : String, Codable

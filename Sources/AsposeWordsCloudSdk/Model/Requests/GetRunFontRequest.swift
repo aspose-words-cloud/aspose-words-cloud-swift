@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class GetRunFontRequest : Encodable {
     private let name : String;
     private let paragraphPath : String;

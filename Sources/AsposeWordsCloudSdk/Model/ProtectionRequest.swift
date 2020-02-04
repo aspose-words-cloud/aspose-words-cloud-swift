@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class ProtectionRequest : Codable {
         
     // Gets or sets current password.

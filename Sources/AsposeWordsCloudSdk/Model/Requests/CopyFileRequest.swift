@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class CopyFileRequest : Encodable {
     private let destPath : String;
     private let srcPath : String;

@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class FootnoteCollection : LinkElement {
         
     // Gets or sets collection of foonotes links.

@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class CreateDocumentRequest : Encodable {
     private let storage : String?;
     private let fileName : String?;

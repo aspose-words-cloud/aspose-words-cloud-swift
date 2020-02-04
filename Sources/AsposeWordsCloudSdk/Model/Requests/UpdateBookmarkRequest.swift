@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class UpdateBookmarkRequest : Encodable {
     private let name : String;
     private let bookmarkData : BookmarkData;

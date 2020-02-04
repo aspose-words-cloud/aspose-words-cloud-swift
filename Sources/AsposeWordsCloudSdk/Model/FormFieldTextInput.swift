@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class FormFieldTextInput : FormField {
     // Gets or sets the type of a text form field.
     public enum TextInputType : String, Codable

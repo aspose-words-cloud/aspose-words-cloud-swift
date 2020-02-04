@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class WordsResponse : Codable {
         
     // Gets or sets request Id.

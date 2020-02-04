@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class DeleteDocumentPropertyRequest : Encodable {
     private let name : String;
     private let propertyName : String;

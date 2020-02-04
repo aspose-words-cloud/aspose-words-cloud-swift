@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class WordsAPI {
     private let configuration : Configuration;
     private let apiInvoker : ApiInvoker;

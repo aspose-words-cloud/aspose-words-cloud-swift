@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class AvailableFontsResponse : WordsResponse {
         
     // Gets or sets the list of addititional fonts, provided by aspose team.

@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class SearchRequest : Encodable {
     private let name : String;
     private let pattern : String;

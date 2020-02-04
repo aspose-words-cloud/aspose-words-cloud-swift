@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         
     // Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.

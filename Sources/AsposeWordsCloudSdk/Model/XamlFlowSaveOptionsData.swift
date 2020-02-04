@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class XamlFlowSaveOptionsData : SaveOptionsData {
         
     // Gets or sets specifies the physical folder where images are saved when exporting.

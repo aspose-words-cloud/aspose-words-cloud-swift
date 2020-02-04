@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class DeleteBordersRequest : Encodable {
     private let name : String;
     private let nodePath : String;

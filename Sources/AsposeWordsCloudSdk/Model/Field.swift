@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class Field : FieldLink {
         
     // Gets or sets LCID of the field.

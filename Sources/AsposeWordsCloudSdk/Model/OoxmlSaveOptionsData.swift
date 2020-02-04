@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class OoxmlSaveOptionsData : SaveOptionsData {
         
     // Gets or sets specifies the OOXML version for the output document.

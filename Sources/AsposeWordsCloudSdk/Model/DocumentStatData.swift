@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class DocumentStatData : Codable {
         
     // Gets or sets total count of words in the document.

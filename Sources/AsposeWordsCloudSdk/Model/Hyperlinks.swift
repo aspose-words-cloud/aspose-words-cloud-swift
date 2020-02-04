@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class Hyperlinks : LinkElement {
         
     // Gets or sets array of .

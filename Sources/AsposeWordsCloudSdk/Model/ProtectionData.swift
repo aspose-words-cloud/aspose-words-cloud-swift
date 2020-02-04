@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class ProtectionData : Codable {
         
     // Gets or sets type of the protection.

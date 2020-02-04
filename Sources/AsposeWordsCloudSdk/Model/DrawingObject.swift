@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class DrawingObject : DrawingObjectLink {
     // Gets or sets specifies where the distance to the image is measured from.             
     public enum RelativeHorizontalPosition : String, Codable

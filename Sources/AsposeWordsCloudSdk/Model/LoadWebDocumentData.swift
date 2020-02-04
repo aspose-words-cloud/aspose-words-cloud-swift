@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class LoadWebDocumentData : Codable {
         
     // Gets or sets web document url.

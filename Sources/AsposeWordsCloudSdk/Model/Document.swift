@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class Document : Codable {
     // Gets or sets the original format of the document.
     public enum SourceFormat : String, Codable

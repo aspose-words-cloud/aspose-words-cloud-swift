@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class TableRowInsert : Codable {
         
     // Gets or sets table row will be inserted after row with specified 0-based index.

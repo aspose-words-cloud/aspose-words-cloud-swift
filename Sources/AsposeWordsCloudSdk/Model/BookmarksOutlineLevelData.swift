@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class BookmarksOutlineLevelData : Codable {
         
     // Gets or sets specify the bookmark&#39;s name.

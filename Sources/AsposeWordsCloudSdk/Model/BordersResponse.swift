@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class BordersResponse : WordsResponse {
         
     // Gets or sets table.

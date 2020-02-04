@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class InsertDrawingObjectRequest : Encodable {
     private let name : String;
     private let drawingObject : String;

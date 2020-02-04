@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class MoveFolderRequest : Encodable {
     private let destPath : String;
     private let srcPath : String;

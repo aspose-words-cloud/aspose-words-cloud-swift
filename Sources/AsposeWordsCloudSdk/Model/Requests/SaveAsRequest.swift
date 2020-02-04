@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class SaveAsRequest : Encodable {
     private let name : String;
     private let saveOptionsData : SaveOptionsData;

@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class GetBookmarksRequest : Encodable {
     private let name : String;
     private let folder : String?;

@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class CommentResponse : WordsResponse {
         
     // Gets or sets comment information.

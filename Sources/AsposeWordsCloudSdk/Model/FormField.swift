@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class FormField : NodeLink {
         
     // Gets or sets true if references to the specified form field are automatically updated whenever the field is exited.

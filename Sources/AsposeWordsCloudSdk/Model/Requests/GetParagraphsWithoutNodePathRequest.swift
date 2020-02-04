@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class GetParagraphsWithoutNodePathRequest : Encodable {
     private let name : String;
     private let folder : String?;

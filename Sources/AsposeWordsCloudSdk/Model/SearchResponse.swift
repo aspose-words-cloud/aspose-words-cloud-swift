@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class SearchResponse : WordsResponse {
         
     // Gets or sets a regular expression pattern used to find matches.

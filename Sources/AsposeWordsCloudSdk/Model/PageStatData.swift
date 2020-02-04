@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class PageStatData : Codable {
         
     // Gets or sets page number.

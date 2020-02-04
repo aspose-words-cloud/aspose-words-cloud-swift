@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class Footnote : FootnoteLink {
     // Gets or sets returns a value that specifies whether this is a footnote or endnote.
     public enum FootnoteType : String, Codable

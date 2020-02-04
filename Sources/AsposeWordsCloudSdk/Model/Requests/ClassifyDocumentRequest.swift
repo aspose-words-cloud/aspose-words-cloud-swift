@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class ClassifyDocumentRequest : Encodable {
     private let documentName : String;
     private let folder : String?;

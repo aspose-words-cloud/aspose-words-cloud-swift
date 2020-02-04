@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class ProtectionDataResponse : WordsResponse {
         
     // Gets or sets link to the document.

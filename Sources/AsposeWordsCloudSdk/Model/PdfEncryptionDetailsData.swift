@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class PdfEncryptionDetailsData : Codable {
         
     // Gets or sets specifies the encryption algorithm to use.

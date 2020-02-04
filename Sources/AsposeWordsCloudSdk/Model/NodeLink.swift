@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class NodeLink : LinkElement {
         
     // Gets or sets node id.

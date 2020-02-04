@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class TableRow : NodeLink {
         
     // Gets or sets provides access to the formatting properties of the row.

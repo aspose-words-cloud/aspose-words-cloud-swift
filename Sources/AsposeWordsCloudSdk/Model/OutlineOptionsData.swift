@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class OutlineOptionsData : Codable {
         
     // Gets or sets allows to specify individual bookmarks outline level.

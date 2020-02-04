@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class SaveOptionsData : Codable {
         
     // Gets or sets format of save.

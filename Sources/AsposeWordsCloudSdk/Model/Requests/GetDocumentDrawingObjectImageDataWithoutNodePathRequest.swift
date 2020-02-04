@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class GetDocumentDrawingObjectImageDataWithoutNodePathRequest : Encodable {
     private let name : String;
     private let index : Int;

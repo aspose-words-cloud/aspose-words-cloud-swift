@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class CreateFolderRequest : Encodable {
     private let path : String;
     private let storageName : String?;

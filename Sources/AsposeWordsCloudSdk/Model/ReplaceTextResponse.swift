@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class ReplaceTextResponse : WordsResponse {
         
     // Gets or sets link to the document.

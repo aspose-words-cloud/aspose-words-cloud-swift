@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class FootnotesStatData : Codable {
         
     // Gets or sets total count of words in footnotes.

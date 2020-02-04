@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class ConvertDocumentRequest : Encodable {
     private let document : URL;
     private let format : String;

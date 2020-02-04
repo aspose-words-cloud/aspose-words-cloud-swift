@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class FieldNames : LinkElement {
         
     // Gets or sets collection of fields names.

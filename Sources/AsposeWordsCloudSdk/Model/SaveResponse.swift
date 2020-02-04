@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class SaveResponse : WordsResponse {
         
     // Gets or sets save result.

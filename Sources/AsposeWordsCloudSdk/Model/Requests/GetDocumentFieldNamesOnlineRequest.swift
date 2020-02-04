@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class GetDocumentFieldNamesOnlineRequest : Encodable {
     private let template : URL;
     private let useNonMergeFields : Bool?;

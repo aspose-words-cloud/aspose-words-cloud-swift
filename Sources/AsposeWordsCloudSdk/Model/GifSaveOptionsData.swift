@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class GifSaveOptionsData : ImageSaveOptionsData {
         
         

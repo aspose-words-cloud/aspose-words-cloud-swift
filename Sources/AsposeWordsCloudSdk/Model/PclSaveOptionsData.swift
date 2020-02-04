@@ -24,9 +24,6 @@
  * </summary>
  * --------------------------------------------------------------------------------
  */
-
-import Foundation
-
 public class PclSaveOptionsData : FixedPageSaveOptionsData {
         
     // Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.
