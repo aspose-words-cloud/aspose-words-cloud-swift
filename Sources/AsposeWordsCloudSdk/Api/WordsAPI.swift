@@ -37,7 +37,7 @@ public class WordsAPI {
     }
     
     public func acceptAllRevisions(request : AcceptAllRevisionsRequest) throws -> RevisionsModificationResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/revisions/acceptAll".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/revisions/acceptAll".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -68,7 +68,7 @@ public class WordsAPI {
     }   
     
     public func appendDocument(request : AppendDocumentRequest) throws -> DocumentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/appendDocument".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/appendDocument".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -124,7 +124,7 @@ public class WordsAPI {
     }   
     
     public func classifyDocument(request : ClassifyDocumentRequest) throws -> ClassificationResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{documentName}/classify".replacingOccurrences(of: "{documentName}", with: request.getDocumentName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{documentName}/classify".replacingOccurrences(of: "{documentName}", with: (request.getDocumentName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -158,7 +158,7 @@ public class WordsAPI {
     }   
     
     public func compareDocument(request : CompareDocumentRequest) throws -> DocumentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/compareDocument".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/compareDocument".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -218,7 +218,7 @@ public class WordsAPI {
     }   
     
     public func copyFile(request : CopyFileRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/file/copy/{srcPath}".replacingOccurrences(of: "{srcPath}", with: request.getSrcPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/file/copy/{srcPath}".replacingOccurrences(of: "{srcPath}", with: (request.getSrcPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         queryItems.append(URLQueryItem(name: "destPath", value: request.getDestPath()));
@@ -244,7 +244,7 @@ public class WordsAPI {
     }   
     
     public func copyFolder(request : CopyFolderRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/folder/copy/{srcPath}".replacingOccurrences(of: "{srcPath}", with: request.getSrcPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/folder/copy/{srcPath}".replacingOccurrences(of: "{srcPath}", with: (request.getSrcPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         queryItems.append(URLQueryItem(name: "destPath", value: request.getDestPath()));
@@ -292,7 +292,7 @@ public class WordsAPI {
     }   
     
     public func createFolder(request : CreateFolderRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/folder/{path}".replacingOccurrences(of: "{path}", with: request.getPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/folder/{path}".replacingOccurrences(of: "{path}", with: (request.getPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getStorageName() != nil) {
@@ -311,7 +311,7 @@ public class WordsAPI {
     }   
     
     public func createOrUpdateDocumentProperty(request : CreateOrUpdateDocumentPropertyRequest) throws -> DocumentPropertyResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/documentProperties/{propertyName}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{propertyName}", with: request.getPropertyName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/documentProperties/{propertyName}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{propertyName}", with: (request.getPropertyName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -348,7 +348,7 @@ public class WordsAPI {
     }   
     
     public func deleteBorder(request : DeleteBorderRequest) throws -> BorderResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/borders/{borderType}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{borderType}", with: request.getBorderType()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/borders/{borderType}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{borderType}", with: (request.getBorderType())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -385,7 +385,7 @@ public class WordsAPI {
     }   
     
     public func deleteBorders(request : DeleteBordersRequest) throws -> BordersResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/borders".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/borders".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -422,7 +422,7 @@ public class WordsAPI {
     }   
     
     public func deleteComment(request : DeleteCommentRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/comments/{commentIndex}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{commentIndex}", with: request.getCommentIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/comments/{commentIndex}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{commentIndex}", with: String(request.getCommentIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -459,7 +459,7 @@ public class WordsAPI {
     }   
     
     public func deleteDocumentProperty(request : DeleteDocumentPropertyRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/documentProperties/{propertyName}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{propertyName}", with: request.getPropertyName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/documentProperties/{propertyName}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{propertyName}", with: (request.getPropertyName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -496,7 +496,7 @@ public class WordsAPI {
     }   
     
     public func deleteDrawingObject(request : DeleteDrawingObjectRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -533,7 +533,7 @@ public class WordsAPI {
     }   
     
     public func deleteDrawingObjectWithoutNodePath(request : DeleteDrawingObjectWithoutNodePathRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -570,7 +570,7 @@ public class WordsAPI {
     }   
     
     public func deleteField(request : DeleteFieldRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -607,7 +607,7 @@ public class WordsAPI {
     }   
     
     public func deleteFieldWithoutNodePath(request : DeleteFieldWithoutNodePathRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/fields/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/fields/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -644,7 +644,7 @@ public class WordsAPI {
     }   
     
     public func deleteFields(request : DeleteFieldsRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -681,7 +681,7 @@ public class WordsAPI {
     }   
     
     public func deleteFieldsWithoutNodePath(request : DeleteFieldsWithoutNodePathRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/fields".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/fields".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -718,7 +718,7 @@ public class WordsAPI {
     }   
     
     public func deleteFile(request : DeleteFileRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/file/{path}".replacingOccurrences(of: "{path}", with: request.getPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/file/{path}".replacingOccurrences(of: "{path}", with: (request.getPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getStorageName() != nil) {
@@ -740,7 +740,7 @@ public class WordsAPI {
     }   
     
     public func deleteFolder(request : DeleteFolderRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/folder/{path}".replacingOccurrences(of: "{path}", with: request.getPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/folder/{path}".replacingOccurrences(of: "{path}", with: (request.getPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getStorageName() != nil) {
@@ -762,7 +762,7 @@ public class WordsAPI {
     }   
     
     public func deleteFootnote(request : DeleteFootnoteRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/footnotes/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/footnotes/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -799,7 +799,7 @@ public class WordsAPI {
     }   
     
     public func deleteFootnoteWithoutNodePath(request : DeleteFootnoteWithoutNodePathRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/footnotes/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/footnotes/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -836,7 +836,7 @@ public class WordsAPI {
     }   
     
     public func deleteFormField(request : DeleteFormFieldRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/formfields/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/formfields/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -873,7 +873,7 @@ public class WordsAPI {
     }   
     
     public func deleteFormFieldWithoutNodePath(request : DeleteFormFieldWithoutNodePathRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/formfields/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/formfields/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -910,7 +910,7 @@ public class WordsAPI {
     }   
     
     public func deleteHeaderFooter(request : DeleteHeaderFooterRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{sectionPath}/headersfooters/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{sectionPath}", with: request.getSectionPath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{sectionPath}/headersfooters/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{sectionPath}", with: (request.getSectionPath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -947,7 +947,7 @@ public class WordsAPI {
     }   
     
     public func deleteHeadersFooters(request : DeleteHeadersFootersRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{sectionPath}/headersfooters".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{sectionPath}", with: request.getSectionPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{sectionPath}/headersfooters".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{sectionPath}", with: (request.getSectionPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -987,7 +987,7 @@ public class WordsAPI {
     }   
     
     public func deleteMacros(request : DeleteMacrosRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/macros".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/macros".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1024,7 +1024,7 @@ public class WordsAPI {
     }   
     
     public func deleteOfficeMathObject(request : DeleteOfficeMathObjectRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/OfficeMathObjects/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/OfficeMathObjects/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1061,7 +1061,7 @@ public class WordsAPI {
     }   
     
     public func deleteOfficeMathObjectWithoutNodePath(request : DeleteOfficeMathObjectWithoutNodePathRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/OfficeMathObjects/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/OfficeMathObjects/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1098,7 +1098,7 @@ public class WordsAPI {
     }   
     
     public func deleteParagraph(request : DeleteParagraphRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1135,7 +1135,7 @@ public class WordsAPI {
     }   
     
     public func deleteParagraphWithoutNodePath(request : DeleteParagraphWithoutNodePathRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/paragraphs/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/paragraphs/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1172,7 +1172,7 @@ public class WordsAPI {
     }   
     
     public func deleteRun(request : DeleteRunRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{paragraphPath}", with: request.getParagraphPath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{paragraphPath}", with: (request.getParagraphPath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1209,7 +1209,7 @@ public class WordsAPI {
     }   
     
     public func deleteSection(request : DeleteSectionRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections/{sectionIndex}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{sectionIndex}", with: request.getSectionIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections/{sectionIndex}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{sectionIndex}", with: String(request.getSectionIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1246,7 +1246,7 @@ public class WordsAPI {
     }   
     
     public func deleteTable(request : DeleteTableRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1283,7 +1283,7 @@ public class WordsAPI {
     }   
     
     public func deleteTableCell(request : DeleteTableCellRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tableRowPath}/cells/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{tableRowPath}", with: request.getTableRowPath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tableRowPath}/cells/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{tableRowPath}", with: (request.getTableRowPath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1320,7 +1320,7 @@ public class WordsAPI {
     }   
     
     public func deleteTableRow(request : DeleteTableRowRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tablePath}/rows/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{tablePath}", with: request.getTablePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tablePath}/rows/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{tablePath}", with: (request.getTablePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1357,7 +1357,7 @@ public class WordsAPI {
     }   
     
     public func deleteTableWithoutNodePath(request : DeleteTableWithoutNodePathRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1394,7 +1394,7 @@ public class WordsAPI {
     }   
     
     public func deleteWatermark(request : DeleteWatermarkRequest) throws -> DocumentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/watermarks/deleteLast".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/watermarks/deleteLast".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1431,7 +1431,7 @@ public class WordsAPI {
     }   
     
     public func downloadFile(request : DownloadFileRequest) throws -> URL {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/file/{path}".replacingOccurrences(of: "{path}", with: request.getPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/file/{path}".replacingOccurrences(of: "{path}", with: (request.getPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getStorageName() != nil) {
@@ -1453,7 +1453,7 @@ public class WordsAPI {
     }   
     
     public func executeMailMerge(request : ExecuteMailMergeRequest) throws -> DocumentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/MailMerge".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/MailMerge".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1540,7 +1540,7 @@ public class WordsAPI {
     }   
     
     public func getBookmarkByName(request : GetBookmarkByNameRequest) throws -> BookmarkResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/bookmarks/{bookmarkName}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{bookmarkName}", with: request.getBookmarkName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/bookmarks/{bookmarkName}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{bookmarkName}", with: (request.getBookmarkName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1568,7 +1568,7 @@ public class WordsAPI {
     }   
     
     public func getBookmarks(request : GetBookmarksRequest) throws -> BookmarksResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/bookmarks".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/bookmarks".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1596,7 +1596,7 @@ public class WordsAPI {
     }   
     
     public func getBorder(request : GetBorderRequest) throws -> BorderResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/borders/{borderType}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{borderType}", with: request.getBorderType()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/borders/{borderType}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{borderType}", with: (request.getBorderType())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1624,7 +1624,7 @@ public class WordsAPI {
     }   
     
     public func getBorders(request : GetBordersRequest) throws -> BordersResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/borders".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/borders".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1652,7 +1652,7 @@ public class WordsAPI {
     }   
     
     public func getComment(request : GetCommentRequest) throws -> CommentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/comments/{commentIndex}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{commentIndex}", with: request.getCommentIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/comments/{commentIndex}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{commentIndex}", with: String(request.getCommentIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1680,7 +1680,7 @@ public class WordsAPI {
     }   
     
     public func getComments(request : GetCommentsRequest) throws -> CommentsResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/comments".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/comments".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1708,7 +1708,7 @@ public class WordsAPI {
     }   
     
     public func getDocument(request : GetDocumentRequest) throws -> DocumentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{documentName}".replacingOccurrences(of: "{documentName}", with: request.getDocumentName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{documentName}".replacingOccurrences(of: "{documentName}", with: (request.getDocumentName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1736,7 +1736,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentDrawingObjectByIndex(request : GetDocumentDrawingObjectByIndexRequest) throws -> DrawingObjectResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1764,7 +1764,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentDrawingObjectByIndexWithoutNodePath(request : GetDocumentDrawingObjectByIndexWithoutNodePathRequest) throws -> DrawingObjectResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1792,7 +1792,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentDrawingObjectImageData(request : GetDocumentDrawingObjectImageDataRequest) throws -> URL {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}/imageData".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}/imageData".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1820,7 +1820,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentDrawingObjectImageDataWithoutNodePath(request : GetDocumentDrawingObjectImageDataWithoutNodePathRequest) throws -> URL {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}/imageData".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}/imageData".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1848,7 +1848,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentDrawingObjectOleData(request : GetDocumentDrawingObjectOleDataRequest) throws -> URL {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}/oleData".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}/oleData".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1876,7 +1876,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentDrawingObjectOleDataWithoutNodePath(request : GetDocumentDrawingObjectOleDataWithoutNodePathRequest) throws -> URL {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}/oleData".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}/oleData".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1904,7 +1904,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentDrawingObjects(request : GetDocumentDrawingObjectsRequest) throws -> DrawingObjectsResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1932,7 +1932,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentDrawingObjectsWithoutNodePath(request : GetDocumentDrawingObjectsWithoutNodePathRequest) throws -> DrawingObjectsResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -1960,7 +1960,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentFieldNames(request : GetDocumentFieldNamesRequest) throws -> FieldNamesResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/mailMerge/FieldNames".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/mailMerge/FieldNames".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2010,7 +2010,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentHyperlinkByIndex(request : GetDocumentHyperlinkByIndexRequest) throws -> HyperlinkResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/hyperlinks/{hyperlinkIndex}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{hyperlinkIndex}", with: request.getHyperlinkIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/hyperlinks/{hyperlinkIndex}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{hyperlinkIndex}", with: String(request.getHyperlinkIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2038,7 +2038,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentHyperlinks(request : GetDocumentHyperlinksRequest) throws -> HyperlinksResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/hyperlinks".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/hyperlinks".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2066,7 +2066,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentProperties(request : GetDocumentPropertiesRequest) throws -> DocumentPropertiesResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/documentProperties".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/documentProperties".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2094,7 +2094,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentProperty(request : GetDocumentPropertyRequest) throws -> DocumentPropertyResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/documentProperties/{propertyName}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{propertyName}", with: request.getPropertyName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/documentProperties/{propertyName}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{propertyName}", with: (request.getPropertyName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2122,7 +2122,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentProtection(request : GetDocumentProtectionRequest) throws -> ProtectionDataResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/protection".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/protection".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2150,7 +2150,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentStatistics(request : GetDocumentStatisticsRequest) throws -> StatDataResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/statistics".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/statistics".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2187,7 +2187,7 @@ public class WordsAPI {
     }   
     
     public func getDocumentWithFormat(request : GetDocumentWithFormatRequest) throws -> URL {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
@@ -2222,7 +2222,7 @@ public class WordsAPI {
     }   
     
     public func getField(request : GetFieldRequest) throws -> FieldResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2250,7 +2250,7 @@ public class WordsAPI {
     }   
     
     public func getFieldWithoutNodePath(request : GetFieldWithoutNodePathRequest) throws -> FieldResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/fields/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/fields/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2278,7 +2278,7 @@ public class WordsAPI {
     }   
     
     public func getFields(request : GetFieldsRequest) throws -> FieldsResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2306,7 +2306,7 @@ public class WordsAPI {
     }   
     
     public func getFieldsWithoutNodePath(request : GetFieldsWithoutNodePathRequest) throws -> FieldsResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/fields".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/fields".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2334,7 +2334,7 @@ public class WordsAPI {
     }   
     
     public func getFilesList(request : GetFilesListRequest) throws -> FilesList {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/folder/{path}".replacingOccurrences(of: "{path}", with: request.getPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/folder/{path}".replacingOccurrences(of: "{path}", with: (request.getPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getStorageName() != nil) {
@@ -2353,7 +2353,7 @@ public class WordsAPI {
     }   
     
     public func getFootnote(request : GetFootnoteRequest) throws -> FootnoteResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/footnotes/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/footnotes/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2381,7 +2381,7 @@ public class WordsAPI {
     }   
     
     public func getFootnoteWithoutNodePath(request : GetFootnoteWithoutNodePathRequest) throws -> FootnoteResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/footnotes/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/footnotes/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2409,7 +2409,7 @@ public class WordsAPI {
     }   
     
     public func getFootnotes(request : GetFootnotesRequest) throws -> FootnotesResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/footnotes".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/footnotes".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2437,7 +2437,7 @@ public class WordsAPI {
     }   
     
     public func getFootnotesWithoutNodePath(request : GetFootnotesWithoutNodePathRequest) throws -> FootnotesResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/footnotes".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/footnotes".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2465,7 +2465,7 @@ public class WordsAPI {
     }   
     
     public func getFormField(request : GetFormFieldRequest) throws -> FormFieldResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/formfields/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/formfields/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2493,7 +2493,7 @@ public class WordsAPI {
     }   
     
     public func getFormFieldWithoutNodePath(request : GetFormFieldWithoutNodePathRequest) throws -> FormFieldResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/formfields/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/formfields/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2521,7 +2521,7 @@ public class WordsAPI {
     }   
     
     public func getFormFields(request : GetFormFieldsRequest) throws -> FormFieldsResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/formfields".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/formfields".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2549,7 +2549,7 @@ public class WordsAPI {
     }   
     
     public func getFormFieldsWithoutNodePath(request : GetFormFieldsWithoutNodePathRequest) throws -> FormFieldsResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/formfields".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/formfields".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2577,7 +2577,7 @@ public class WordsAPI {
     }   
     
     public func getHeaderFooter(request : GetHeaderFooterRequest) throws -> HeaderFooterResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/headersfooters/{headerFooterIndex}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{headerFooterIndex}", with: request.getHeaderFooterIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/headersfooters/{headerFooterIndex}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{headerFooterIndex}", with: String(request.getHeaderFooterIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2608,7 +2608,7 @@ public class WordsAPI {
     }   
     
     public func getHeaderFooterOfSection(request : GetHeaderFooterOfSectionRequest) throws -> HeaderFooterResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{headerFooterIndex}", with: request.getHeaderFooterIndex()).replacingOccurrences(of: "{sectionIndex}", with: request.getSectionIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{headerFooterIndex}", with: String(request.getHeaderFooterIndex())).replacingOccurrences(of: "{sectionIndex}", with: String(request.getSectionIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2639,7 +2639,7 @@ public class WordsAPI {
     }   
     
     public func getHeaderFooters(request : GetHeaderFootersRequest) throws -> HeaderFootersResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{sectionPath}/headersfooters".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{sectionPath}", with: request.getSectionPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{sectionPath}/headersfooters".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{sectionPath}", with: (request.getSectionPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2670,7 +2670,7 @@ public class WordsAPI {
     }   
     
     public func getOfficeMathObject(request : GetOfficeMathObjectRequest) throws -> OfficeMathObjectResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/OfficeMathObjects/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/OfficeMathObjects/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2698,7 +2698,7 @@ public class WordsAPI {
     }   
     
     public func getOfficeMathObjectWithoutNodePath(request : GetOfficeMathObjectWithoutNodePathRequest) throws -> OfficeMathObjectResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/OfficeMathObjects/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/OfficeMathObjects/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2726,7 +2726,7 @@ public class WordsAPI {
     }   
     
     public func getOfficeMathObjects(request : GetOfficeMathObjectsRequest) throws -> OfficeMathObjectsResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/OfficeMathObjects".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/OfficeMathObjects".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2754,7 +2754,7 @@ public class WordsAPI {
     }   
     
     public func getOfficeMathObjectsWithoutNodePath(request : GetOfficeMathObjectsWithoutNodePathRequest) throws -> OfficeMathObjectsResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/OfficeMathObjects".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/OfficeMathObjects".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2782,7 +2782,7 @@ public class WordsAPI {
     }   
     
     public func getParagraph(request : GetParagraphRequest) throws -> ParagraphResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2810,7 +2810,7 @@ public class WordsAPI {
     }   
     
     public func getParagraphFormat(request : GetParagraphFormatRequest) throws -> ParagraphFormatResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs/{index}/format".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs/{index}/format".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2838,7 +2838,7 @@ public class WordsAPI {
     }   
     
     public func getParagraphFormatWithoutNodePath(request : GetParagraphFormatWithoutNodePathRequest) throws -> ParagraphFormatResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/paragraphs/{index}/format".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/paragraphs/{index}/format".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2866,7 +2866,7 @@ public class WordsAPI {
     }   
     
     public func getParagraphWithoutNodePath(request : GetParagraphWithoutNodePathRequest) throws -> ParagraphResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/paragraphs/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/paragraphs/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2894,7 +2894,7 @@ public class WordsAPI {
     }   
     
     public func getParagraphs(request : GetParagraphsRequest) throws -> ParagraphLinkCollectionResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2922,7 +2922,7 @@ public class WordsAPI {
     }   
     
     public func getParagraphsWithoutNodePath(request : GetParagraphsWithoutNodePathRequest) throws -> ParagraphLinkCollectionResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/paragraphs".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/paragraphs".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2950,7 +2950,7 @@ public class WordsAPI {
     }   
     
     public func getRangeText(request : GetRangeTextRequest) throws -> RangeTextResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{rangeStartIdentifier}", with: request.getRangeStartIdentifier()).replacingOccurrences(of: "{rangeEndIdentifier}", with: request.getRangeEndIdentifier()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{rangeStartIdentifier}", with: (request.getRangeStartIdentifier())).replacingOccurrences(of: "{rangeEndIdentifier}", with: (request.getRangeEndIdentifier())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -2978,7 +2978,7 @@ public class WordsAPI {
     }   
     
     public func getRun(request : GetRunRequest) throws -> RunResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{paragraphPath}", with: request.getParagraphPath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{paragraphPath}", with: (request.getParagraphPath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3006,7 +3006,7 @@ public class WordsAPI {
     }   
     
     public func getRunFont(request : GetRunFontRequest) throws -> FontResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs/{index}/font".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{paragraphPath}", with: request.getParagraphPath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs/{index}/font".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{paragraphPath}", with: (request.getParagraphPath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3034,7 +3034,7 @@ public class WordsAPI {
     }   
     
     public func getRuns(request : GetRunsRequest) throws -> RunsResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{paragraphPath}", with: request.getParagraphPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{paragraphPath}", with: (request.getParagraphPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3062,7 +3062,7 @@ public class WordsAPI {
     }   
     
     public func getSection(request : GetSectionRequest) throws -> SectionResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections/{sectionIndex}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{sectionIndex}", with: request.getSectionIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections/{sectionIndex}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{sectionIndex}", with: String(request.getSectionIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3090,7 +3090,7 @@ public class WordsAPI {
     }   
     
     public func getSectionPageSetup(request : GetSectionPageSetupRequest) throws -> SectionPageSetupResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections/{sectionIndex}/pageSetup".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{sectionIndex}", with: request.getSectionIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections/{sectionIndex}/pageSetup".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{sectionIndex}", with: String(request.getSectionIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3118,7 +3118,7 @@ public class WordsAPI {
     }   
     
     public func getSections(request : GetSectionsRequest) throws -> SectionLinkCollectionResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3146,7 +3146,7 @@ public class WordsAPI {
     }   
     
     public func getTable(request : GetTableRequest) throws -> TableResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3174,7 +3174,7 @@ public class WordsAPI {
     }   
     
     public func getTableCell(request : GetTableCellRequest) throws -> TableCellResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tableRowPath}/cells/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{tableRowPath}", with: request.getTableRowPath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tableRowPath}/cells/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{tableRowPath}", with: (request.getTableRowPath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3202,7 +3202,7 @@ public class WordsAPI {
     }   
     
     public func getTableCellFormat(request : GetTableCellFormatRequest) throws -> TableCellFormatResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tableRowPath}/cells/{index}/cellformat".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{tableRowPath}", with: request.getTableRowPath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tableRowPath}/cells/{index}/cellformat".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{tableRowPath}", with: (request.getTableRowPath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3230,7 +3230,7 @@ public class WordsAPI {
     }   
     
     public func getTableProperties(request : GetTablePropertiesRequest) throws -> TablePropertiesResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables/{index}/properties".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables/{index}/properties".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3258,7 +3258,7 @@ public class WordsAPI {
     }   
     
     public func getTablePropertiesWithoutNodePath(request : GetTablePropertiesWithoutNodePathRequest) throws -> TablePropertiesResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables/{index}/properties".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables/{index}/properties".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3286,7 +3286,7 @@ public class WordsAPI {
     }   
     
     public func getTableRow(request : GetTableRowRequest) throws -> TableRowResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tablePath}/rows/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{tablePath}", with: request.getTablePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tablePath}/rows/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{tablePath}", with: (request.getTablePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3314,7 +3314,7 @@ public class WordsAPI {
     }   
     
     public func getTableRowFormat(request : GetTableRowFormatRequest) throws -> TableRowFormatResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tablePath}/rows/{index}/rowformat".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{tablePath}", with: request.getTablePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tablePath}/rows/{index}/rowformat".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{tablePath}", with: (request.getTablePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3342,7 +3342,7 @@ public class WordsAPI {
     }   
     
     public func getTableWithoutNodePath(request : GetTableWithoutNodePathRequest) throws -> TableResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3370,7 +3370,7 @@ public class WordsAPI {
     }   
     
     public func getTables(request : GetTablesRequest) throws -> TableLinkCollectionResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3398,7 +3398,7 @@ public class WordsAPI {
     }   
     
     public func getTablesWithoutNodePath(request : GetTablesWithoutNodePathRequest) throws -> TableLinkCollectionResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3426,7 +3426,7 @@ public class WordsAPI {
     }   
     
     public func insertComment(request : InsertCommentRequest) throws -> CommentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/comments".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/comments".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3463,7 +3463,7 @@ public class WordsAPI {
     }   
     
     public func insertDrawingObject(request : InsertDrawingObjectRequest) throws -> DrawingObjectResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3500,7 +3500,7 @@ public class WordsAPI {
     }   
     
     public func insertDrawingObjectWithoutNodePath(request : InsertDrawingObjectWithoutNodePathRequest) throws -> DrawingObjectResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3537,7 +3537,7 @@ public class WordsAPI {
     }   
     
     public func insertField(request : InsertFieldRequest) throws -> FieldResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3577,7 +3577,7 @@ public class WordsAPI {
     }   
     
     public func insertFieldWithoutNodePath(request : InsertFieldWithoutNodePathRequest) throws -> FieldResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/fields".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/fields".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3617,7 +3617,7 @@ public class WordsAPI {
     }   
     
     public func insertFootnote(request : InsertFootnoteRequest) throws -> FootnoteResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/footnotes".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/footnotes".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3654,7 +3654,7 @@ public class WordsAPI {
     }   
     
     public func insertFootnoteWithoutNodePath(request : InsertFootnoteWithoutNodePathRequest) throws -> FootnoteResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/footnotes".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/footnotes".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3691,7 +3691,7 @@ public class WordsAPI {
     }   
     
     public func insertFormField(request : InsertFormFieldRequest) throws -> FormFieldResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/formfields".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/formfields".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3731,7 +3731,7 @@ public class WordsAPI {
     }   
     
     public func insertFormFieldWithoutNodePath(request : InsertFormFieldWithoutNodePathRequest) throws -> FormFieldResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/formfields".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/formfields".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3771,7 +3771,7 @@ public class WordsAPI {
     }   
     
     public func insertHeaderFooter(request : InsertHeaderFooterRequest) throws -> HeaderFooterResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{sectionPath}/headersfooters".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{sectionPath}", with: request.getSectionPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{sectionPath}/headersfooters".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{sectionPath}", with: (request.getSectionPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3808,7 +3808,7 @@ public class WordsAPI {
     }   
     
     public func insertPageNumbers(request : InsertPageNumbersRequest) throws -> DocumentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/PageNumbers".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/PageNumbers".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3845,7 +3845,7 @@ public class WordsAPI {
     }   
     
     public func insertParagraph(request : InsertParagraphRequest) throws -> ParagraphResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3885,7 +3885,7 @@ public class WordsAPI {
     }   
     
     public func insertRun(request : InsertRunRequest) throws -> RunResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{paragraphPath}", with: request.getParagraphPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{paragraphPath}", with: (request.getParagraphPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3925,7 +3925,7 @@ public class WordsAPI {
     }   
     
     public func insertTable(request : InsertTableRequest) throws -> TableResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3962,7 +3962,7 @@ public class WordsAPI {
     }   
     
     public func insertTableCell(request : InsertTableCellRequest) throws -> TableCellResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tableRowPath}/cells".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{tableRowPath}", with: request.getTableRowPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tableRowPath}/cells".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{tableRowPath}", with: (request.getTableRowPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -3999,7 +3999,7 @@ public class WordsAPI {
     }   
     
     public func insertTableRow(request : InsertTableRowRequest) throws -> TableRowResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tablePath}/rows".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{tablePath}", with: request.getTablePath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tablePath}/rows".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{tablePath}", with: (request.getTablePath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -4036,7 +4036,7 @@ public class WordsAPI {
     }   
     
     public func insertTableWithoutNodePath(request : InsertTableWithoutNodePathRequest) throws -> TableResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -4073,7 +4073,7 @@ public class WordsAPI {
     }   
     
     public func insertWatermarkImage(request : InsertWatermarkImageRequest) throws -> DocumentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/watermarks/images".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/watermarks/images".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -4116,7 +4116,7 @@ public class WordsAPI {
     }   
     
     public func insertWatermarkText(request : InsertWatermarkTextRequest) throws -> DocumentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/watermarks/texts".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/watermarks/texts".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -4172,7 +4172,7 @@ public class WordsAPI {
     }   
     
     public func moveFile(request : MoveFileRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/file/move/{srcPath}".replacingOccurrences(of: "{srcPath}", with: request.getSrcPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/file/move/{srcPath}".replacingOccurrences(of: "{srcPath}", with: (request.getSrcPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         queryItems.append(URLQueryItem(name: "destPath", value: request.getDestPath()));
@@ -4198,7 +4198,7 @@ public class WordsAPI {
     }   
     
     public func moveFolder(request : MoveFolderRequest) throws  {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/folder/move/{srcPath}".replacingOccurrences(of: "{srcPath}", with: request.getSrcPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/folder/move/{srcPath}".replacingOccurrences(of: "{srcPath}", with: (request.getSrcPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         queryItems.append(URLQueryItem(name: "destPath", value: request.getDestPath()));
@@ -4221,7 +4221,7 @@ public class WordsAPI {
     }   
     
     public func protectDocument(request : ProtectDocumentRequest) throws -> ProtectionDataResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/protection".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/protection".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -4252,7 +4252,7 @@ public class WordsAPI {
     }   
     
     public func rejectAllRevisions(request : RejectAllRevisionsRequest) throws -> RevisionsModificationResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/revisions/rejectAll".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/revisions/rejectAll".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -4283,7 +4283,7 @@ public class WordsAPI {
     }   
     
     public func removeRange(request : RemoveRangeRequest) throws -> DocumentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{rangeStartIdentifier}", with: request.getRangeStartIdentifier()).replacingOccurrences(of: "{rangeEndIdentifier}", with: request.getRangeEndIdentifier()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{rangeStartIdentifier}", with: (request.getRangeStartIdentifier())).replacingOccurrences(of: "{rangeEndIdentifier}", with: (request.getRangeEndIdentifier())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -4314,7 +4314,7 @@ public class WordsAPI {
     }   
     
     public func renderDrawingObject(request : RenderDrawingObjectRequest) throws -> URL {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}/render".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}/render".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
@@ -4346,7 +4346,7 @@ public class WordsAPI {
     }   
     
     public func renderDrawingObjectWithoutNodePath(request : RenderDrawingObjectWithoutNodePathRequest) throws -> URL {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}/render".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}/render".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
@@ -4378,7 +4378,7 @@ public class WordsAPI {
     }   
     
     public func renderMathObject(request : RenderMathObjectRequest) throws -> URL {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/OfficeMathObjects/{index}/render".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/OfficeMathObjects/{index}/render".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
@@ -4410,7 +4410,7 @@ public class WordsAPI {
     }   
     
     public func renderMathObjectWithoutNodePath(request : RenderMathObjectWithoutNodePathRequest) throws -> URL {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/OfficeMathObjects/{index}/render".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/OfficeMathObjects/{index}/render".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
@@ -4442,7 +4442,7 @@ public class WordsAPI {
     }   
     
     public func renderPage(request : RenderPageRequest) throws -> URL {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/pages/{pageIndex}/render".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{pageIndex}", with: request.getPageIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/pages/{pageIndex}/render".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{pageIndex}", with: String(request.getPageIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
@@ -4474,7 +4474,7 @@ public class WordsAPI {
     }   
     
     public func renderParagraph(request : RenderParagraphRequest) throws -> URL {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs/{index}/render".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs/{index}/render".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
@@ -4506,7 +4506,7 @@ public class WordsAPI {
     }   
     
     public func renderParagraphWithoutNodePath(request : RenderParagraphWithoutNodePathRequest) throws -> URL {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/paragraphs/{index}/render".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/paragraphs/{index}/render".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
@@ -4538,7 +4538,7 @@ public class WordsAPI {
     }   
     
     public func renderTable(request : RenderTableRequest) throws -> URL {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables/{index}/render".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables/{index}/render".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
@@ -4570,7 +4570,7 @@ public class WordsAPI {
     }   
     
     public func renderTableWithoutNodePath(request : RenderTableWithoutNodePathRequest) throws -> URL {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables/{index}/render".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables/{index}/render".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         queryItems.append(URLQueryItem(name: "format", value: request.getFormat()));
@@ -4602,7 +4602,7 @@ public class WordsAPI {
     }   
     
     public func replaceText(request : ReplaceTextRequest) throws -> ReplaceTextResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/replaceText".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/replaceText".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -4639,7 +4639,7 @@ public class WordsAPI {
     }   
     
     public func replaceWithText(request : ReplaceWithTextRequest) throws -> DocumentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{rangeStartIdentifier}", with: request.getRangeStartIdentifier()).replacingOccurrences(of: "{rangeEndIdentifier}", with: request.getRangeEndIdentifier()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{rangeStartIdentifier}", with: (request.getRangeStartIdentifier())).replacingOccurrences(of: "{rangeEndIdentifier}", with: (request.getRangeEndIdentifier())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -4683,7 +4683,7 @@ public class WordsAPI {
     }   
     
     public func saveAs(request : SaveAsRequest) throws -> SaveResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/saveAs".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/saveAs".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -4714,7 +4714,7 @@ public class WordsAPI {
     }   
     
     public func saveAsRange(request : SaveAsRangeRequest) throws -> DocumentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{rangeStartIdentifier}", with: request.getRangeStartIdentifier()).replacingOccurrences(of: "{rangeEndIdentifier}", with: request.getRangeEndIdentifier()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{rangeStartIdentifier}", with: (request.getRangeStartIdentifier())).replacingOccurrences(of: "{rangeEndIdentifier}", with: (request.getRangeEndIdentifier())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -4742,7 +4742,7 @@ public class WordsAPI {
     }   
     
     public func saveAsTiff(request : SaveAsTiffRequest) throws -> SaveResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/saveAs/tiff".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/saveAs/tiff".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -4824,7 +4824,7 @@ public class WordsAPI {
     }   
     
     public func search(request : SearchRequest) throws -> SearchResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/search".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/search".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         queryItems.append(URLQueryItem(name: "pattern", value: request.getPattern()));
@@ -4853,7 +4853,7 @@ public class WordsAPI {
     }   
     
     public func splitDocument(request : SplitDocumentRequest) throws -> SplitDocumentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/split".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/split".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -4899,7 +4899,7 @@ public class WordsAPI {
     }   
     
     public func unprotectDocument(request : UnprotectDocumentRequest) throws -> ProtectionDataResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/protection".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/protection".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -4930,7 +4930,7 @@ public class WordsAPI {
     }   
     
     public func updateBookmark(request : UpdateBookmarkRequest) throws -> BookmarkResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/bookmarks/{bookmarkName}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{bookmarkName}", with: request.getBookmarkName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/bookmarks/{bookmarkName}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{bookmarkName}", with: (request.getBookmarkName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -4967,7 +4967,7 @@ public class WordsAPI {
     }   
     
     public func updateBorder(request : UpdateBorderRequest) throws -> BorderResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/borders/{borderType}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{borderType}", with: request.getBorderType()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/borders/{borderType}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{borderType}", with: (request.getBorderType())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5004,7 +5004,7 @@ public class WordsAPI {
     }   
     
     public func updateComment(request : UpdateCommentRequest) throws -> CommentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/comments/{commentIndex}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{commentIndex}", with: request.getCommentIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/comments/{commentIndex}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{commentIndex}", with: String(request.getCommentIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5041,7 +5041,7 @@ public class WordsAPI {
     }   
     
     public func updateDrawingObject(request : UpdateDrawingObjectRequest) throws -> DrawingObjectResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/drawingObjects/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5078,7 +5078,7 @@ public class WordsAPI {
     }   
     
     public func updateDrawingObjectWithoutNodePath(request : UpdateDrawingObjectWithoutNodePathRequest) throws -> DrawingObjectResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/drawingObjects/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5115,7 +5115,7 @@ public class WordsAPI {
     }   
     
     public func updateField(request : UpdateFieldRequest) throws -> FieldResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/fields/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5152,7 +5152,7 @@ public class WordsAPI {
     }   
     
     public func updateFields(request : UpdateFieldsRequest) throws -> DocumentResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/updateFields".replacingOccurrences(of: "{name}", with: request.getName()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/updateFields".replacingOccurrences(of: "{name}", with: (request.getName())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5183,7 +5183,7 @@ public class WordsAPI {
     }   
     
     public func updateFootnote(request : UpdateFootnoteRequest) throws -> FootnoteResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/footnotes/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/footnotes/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5220,7 +5220,7 @@ public class WordsAPI {
     }   
     
     public func updateFootnoteWithoutNodePath(request : UpdateFootnoteWithoutNodePathRequest) throws -> FootnoteResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/footnotes/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/footnotes/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5257,7 +5257,7 @@ public class WordsAPI {
     }   
     
     public func updateFormField(request : UpdateFormFieldRequest) throws -> FormFieldResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/formfields/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/formfields/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5294,7 +5294,7 @@ public class WordsAPI {
     }   
     
     public func updateFormFieldWithoutNodePath(request : UpdateFormFieldWithoutNodePathRequest) throws -> FormFieldResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/formfields/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/formfields/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5331,7 +5331,7 @@ public class WordsAPI {
     }   
     
     public func updateParagraphFormat(request : UpdateParagraphFormatRequest) throws -> ParagraphFormatResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs/{index}/format".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/paragraphs/{index}/format".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5368,7 +5368,7 @@ public class WordsAPI {
     }   
     
     public func updateRun(request : UpdateRunRequest) throws -> RunResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs/{index}".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{paragraphPath}", with: request.getParagraphPath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs/{index}".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{paragraphPath}", with: (request.getParagraphPath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5405,7 +5405,7 @@ public class WordsAPI {
     }   
     
     public func updateRunFont(request : UpdateRunFontRequest) throws -> FontResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs/{index}/font".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{paragraphPath}", with: request.getParagraphPath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{paragraphPath}/runs/{index}/font".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{paragraphPath}", with: (request.getParagraphPath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5442,7 +5442,7 @@ public class WordsAPI {
     }   
     
     public func updateSectionPageSetup(request : UpdateSectionPageSetupRequest) throws -> SectionPageSetupResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections/{sectionIndex}/pageSetup".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{sectionIndex}", with: request.getSectionIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/sections/{sectionIndex}/pageSetup".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{sectionIndex}", with: String(request.getSectionIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5479,7 +5479,7 @@ public class WordsAPI {
     }   
     
     public func updateTableCellFormat(request : UpdateTableCellFormatRequest) throws -> TableCellFormatResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tableRowPath}/cells/{index}/cellformat".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{tableRowPath}", with: request.getTableRowPath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tableRowPath}/cells/{index}/cellformat".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{tableRowPath}", with: (request.getTableRowPath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5516,7 +5516,7 @@ public class WordsAPI {
     }   
     
     public func updateTableProperties(request : UpdateTablePropertiesRequest) throws -> TablePropertiesResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables/{index}/properties".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{nodePath}", with: request.getNodePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{nodePath}/tables/{index}/properties".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{nodePath}", with: (request.getNodePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5553,7 +5553,7 @@ public class WordsAPI {
     }   
     
     public func updateTablePropertiesWithoutNodePath(request : UpdateTablePropertiesWithoutNodePathRequest) throws -> TablePropertiesResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables/{index}/properties".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/tables/{index}/properties".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5590,7 +5590,7 @@ public class WordsAPI {
     }   
     
     public func updateTableRowFormat(request : UpdateTableRowFormatRequest) throws -> TableRowFormatResponse {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tablePath}/rows/{index}/rowformat".replacingOccurrences(of: "{name}", with: request.getName()).replacingOccurrences(of: "{tablePath}", with: request.getTablePath()).replacingOccurrences(of: "{index}", with: request.getIndex()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/{name}/{tablePath}/rows/{index}/rowformat".replacingOccurrences(of: "{name}", with: (request.getName())).replacingOccurrences(of: "{tablePath}", with: (request.getTablePath())).replacingOccurrences(of: "{index}", with: String(request.getIndex())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getFolder() != nil) {
@@ -5627,7 +5627,7 @@ public class WordsAPI {
     }   
     
     public func uploadFile(request : UploadFileRequest) throws -> FilesUploadResult {
-        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/file/{path}".replacingOccurrences(of: "{path}", with: request.getPath()));
+        let urlPath = self.configuration.getApiRootUrl().appendingPathComponent("/words/storage/file/{path}".replacingOccurrences(of: "{path}", with: (request.getPath())));
         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
         var queryItems : [URLQueryItem] = [];
         if (request.getStorageName() != nil) {
