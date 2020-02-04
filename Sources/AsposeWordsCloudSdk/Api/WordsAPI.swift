@@ -234,7 +234,7 @@ public class WordsAPI {
         urlBuilder.queryItems = queryItems;
         
         
-        var formParams : Dictionary<String, Data>();
+        var formParams = Dictionary<String, Data>();
         formParams["document", try ObjectSerializer.serialize(URL.self, request.getDocument())];
         
         let response = try apiInvoker.invoke(
@@ -1736,7 +1736,7 @@ public class WordsAPI {
         urlBuilder.queryItems = queryItems;
         
         
-        var formParams : Dictionary<String, Data>();
+        var formParams = Dictionary<String, Data>();
         if (request.getData() != nil) {
             formParams["data", try ObjectSerializer.serialize(String.self, request.getData()!)];
         }
@@ -1769,7 +1769,7 @@ public class WordsAPI {
         urlBuilder.queryItems = queryItems;
         
         
-        var formParams : Dictionary<String, Data>();
+        var formParams = Dictionary<String, Data>();
         formParams["template", try ObjectSerializer.serialize(URL.self, request.getTemplate())];
         formParams["data", try ObjectSerializer.serialize(URL.self, request.getData())];
         
@@ -2364,7 +2364,7 @@ public class WordsAPI {
         urlBuilder.queryItems = queryItems;
         
         
-        var formParams : Dictionary<String, Data>();
+        var formParams = Dictionary<String, Data>();
         formParams["template", try ObjectSerializer.serialize(URL.self, request.getTemplate())];
         
         let response = try apiInvoker.invoke(
@@ -4170,7 +4170,7 @@ public class WordsAPI {
         urlBuilder.queryItems = queryItems;
         
         
-        var formParams : Dictionary<String, Data>();
+        var formParams = Dictionary<String, Data>();
         formParams["drawingObject", try ObjectSerializer.serialize(String.self, request.getDrawingObject())];
         formParams["imageFile", try ObjectSerializer.serialize(URL.self, request.getImageFile())];
         
@@ -4215,7 +4215,7 @@ public class WordsAPI {
         urlBuilder.queryItems = queryItems;
         
         
-        var formParams : Dictionary<String, Data>();
+        var formParams = Dictionary<String, Data>();
         formParams["drawingObject", try ObjectSerializer.serialize(String.self, request.getDrawingObject())];
         formParams["imageFile", try ObjectSerializer.serialize(URL.self, request.getImageFile())];
         
@@ -4881,7 +4881,7 @@ public class WordsAPI {
         urlBuilder.queryItems = queryItems;
         
         
-        var formParams : Dictionary<String, Data>();
+        var formParams = Dictionary<String, Data>();
         if (request.getImageFile() != nil) {
             formParams["imageFile", try ObjectSerializer.serialize(URL.self, request.getImageFile()!)];
         }
@@ -6015,7 +6015,7 @@ public class WordsAPI {
         urlBuilder.queryItems = queryItems;
         
         
-        var formParams : Dictionary<String, Data>();
+        var formParams = Dictionary<String, Data>();
         formParams["drawingObject", try ObjectSerializer.serialize(String.self, request.getDrawingObject())];
         formParams["imageFile", try ObjectSerializer.serialize(URL.self, request.getImageFile())];
         
@@ -6061,7 +6061,7 @@ public class WordsAPI {
         urlBuilder.queryItems = queryItems;
         
         
-        var formParams : Dictionary<String, Data>();
+        var formParams = Dictionary<String, Data>();
         formParams["drawingObject", try ObjectSerializer.serialize(String.self, request.getDrawingObject())];
         formParams["imageFile", try ObjectSerializer.serialize(URL.self, request.getImageFile())];
         
@@ -6692,7 +6692,7 @@ public class WordsAPI {
         urlBuilder.queryItems = queryItems;
         
         
-        var formParams : Dictionary<String, Data>();
+        var formParams = Dictionary<String, Data>();
         formParams["fileContent", try ObjectSerializer.serialize(URL.self, request.getFileContent())];
         
         let response = try apiInvoker.invoke(
