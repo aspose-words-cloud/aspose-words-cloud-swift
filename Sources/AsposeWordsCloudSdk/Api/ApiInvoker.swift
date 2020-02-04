@@ -54,7 +54,7 @@ public class ApiInvoker {
         method: String,
         body: Data?,
         headers: Dictionary<String, String>?,
-        formParams: Dictionary<String, Any>?,
+        formParams: Dictionary<String, Data>?,
         contentType: String = "application/json"
     ) throws -> Data {
         var request = URLRequest(url: url);
@@ -71,7 +71,20 @@ public class ApiInvoker {
             request.httpBody = body;
         }
         else if (formParams != nil) {
-            // TODO: Not implemented;
+            var needsClrf = false;
+            let formBody = NSMutableData();
+            let boundaryPrefix = "Something";
+            for (key, value) in formParams! {
+                if (needsClrf) {
+                    formBody.append("\r\n".data(using: .utf8)!);
+                }
+                needsClrf = true;
+                
+                formBody.append("--\(boundaryPrefix)\r\nContent-Disposition: form-data; name=\"\(key)\";\r\n\r\n".data(using: .utf8)!);
+                formBody.append(value);
+                formBody.append("\r\n--\(boundaryPrefix)--\r\n".data(using: .utf8)!);
+            }
+            request.setValue("multipart/form-data; boundary=\(boundaryPrefix)", forHTTPHeaderField: "Content-Type");
         }
         
         if (accessToken == nil) {
