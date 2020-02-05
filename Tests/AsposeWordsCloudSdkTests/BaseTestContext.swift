@@ -21,6 +21,10 @@ class BaseTestContext: XCTestCase {
         return "Temp/SwiftSdkTests/TestData/";
     }
     
+    public func getRemoteTestOut() -> String {
+        return "SwiftTestOut";
+    }
+    
     public func uploadFile(fileContent : URL, path : String) throws {
         let req = UploadFileRequest(fileContent: fileContent, path: path);
         let res = try getApi().uploadFile(request: req);

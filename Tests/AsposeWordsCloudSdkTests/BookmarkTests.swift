@@ -15,7 +15,7 @@ class BookmarkTests: BaseTestContext {
     func testGetDocumentBookmarks() throws {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestGetDocumentBookmarks.docx";
-        let remoteDir = getRemoteDataFolder("GetBookmarks");
+        let remoteDir = getRemoteDataFolder(action: "GetBookmarks");
         let fullName = remoteDir + "/" + remoteName;
         let localPath = self.getLocalTestDataFolder()
             .appendingPathComponent("Common", isDirectory: true)
@@ -32,27 +32,42 @@ class BookmarkTests: BaseTestContext {
     func testGetDocumentBookmarkByName() throws {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestGetDocumentBookmarkByName.docx";
-        let remoteDir = getRemoteDataFolder("GetBookmarks");
+        let remoteDir = getRemoteDataFolder(action: "GetBookmarkByName");
         let fullName = remoteDir + "/" + remoteName;
         let bookmarkName = "aspose";
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
-
-        var request = new GetBookmarkByNameRequest(remoteName, bookmarkName, this.dataFolder);
-        var actual = this.WordsApi.GetBookmarkByName(request);
+        let request = GetBookmarkByNameRequest(name: remoteName, bookmarkName: bookmarkName, folder: remoteDir);
+        let response = try super.getApi().getBookmarkByName(request: request);
+        XCTAssert(response.getBookmark()?.getName() == bookmarkName);
+        XCTAssert(response.getBookmark()?.getText()?.isEmpty == false);
     }
     
     func testUpdateDocumentBookmark() throws {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestUpdateDocumentBookmark.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
-        var bookmarkName = "aspose";
-        var destFileName = Path.Combine(BaseTestOutPath, remoteName);
-        var body = new BookmarkData { Name = bookmarkName, Text = "This will be the text for Aspose" };
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestUpdateDocumentBookmark.docx";
+        let remoteDir = getRemoteDataFolder(action: "UpdateBookmark");
+        let fullName = remoteDir + "/" + remoteName;
+        let bookmarkName = "aspose";
+        let bookmarkText = "This will be the text for Aspose";
+        let destFileName = super.getRemoteTestOut() + "/" + remoteName;
+        let body = BookmarkData();
+        body.setName(name: bookmarkName);
+        body.setText(text: bookmarkText);
+        
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
-
-        var request = new UpdateBookmarkRequest(remoteName, body, bookmarkName, this.dataFolder, destFileName: destFileName);
-        var actual = this.WordsApi.UpdateBookmark(request);
+        let request = UpdateBookmarkRequest(name: remoteName, bookmarkData: body, bookmarkName: bookmarkName, folder: remoteDir, destFileName: destFileName);
+        let response = try super.getApi().updateBookmark(request: request);
+        XCTAssert(response.getBookmark()?.getName() == bookmarkName);
+        XCTAssert(response.getBookmark()?.getText() == bookmarkText);
     }
 }

@@ -40,349 +40,448 @@ class DocumentTests: BaseTestContext {
         XCTAssert(res.getDocument()?.getFileName() == fileName);
     }
     
-    func testAppendDocument()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestAppendDocument.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
-        var destFileName = Path.Combine(BaseTestOutPath, remoteName);
+    func testAppendDocument() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestAppendDocument.docx";
+        let remoteDir = getRemoteDataFolder(action: "AppendDocument");
+        let fullName = remoteDir + "/" + remoteName;
+        let destFileName = super.getRemoteTestOut() + "/" + remoteName;
 
-        var body = new DocumentEntryList();
-        System.Collections.Generic.List<DocumentEntry> docEntries = new System.Collections.Generic.List<DocumentEntry>();
+        let body = DocumentEntryList();
+        var docEntries : [DocumentEntry] = [];
 
-        DocumentEntry docEntry = new DocumentEntry { Href = fullName, ImportFormatMode = "KeepSourceFormatting" };
-        docEntries.Add(docEntry);
-        body.DocumentEntries = docEntries;
+        let docEntry = DocumentEntry();
+        docEntry.setHref(href: fullName);
+        docEntry.setImportFormatMode(importFormatMode: "KeepSourceFormatting");
+        docEntries += [docEntry];
+        body.setDocumentEntries(documentEntries: docEntries);
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new AppendDocumentRequest(remoteName, body, this.dataFolder, destFileName: destFileName);
-        var actual = this.WordsApi.AppendDocument(request);
+        let request = AppendDocumentRequest(name: remoteName, documentList: body, folder: remoteDir, destFileName: destFileName);
+        let response = try super.getApi().appendDocument(request: request);
+        XCTAssert(response.getDocument()?.getFileName() == remoteName);
     }
     
-    func testClassify()
-    {
-        var request = new ClassifyRequest("Try text classification", "3");
-        var actual = this.WordsApi.Classify(request);
+    func testClassify() throws {
+        let request = ClassifyRequest(text: "Try text classification", bestClassesCount: "3");
+        let response = try super.getApi().classify(request: request);
+        XCTAssert(response.getBestClassName()?.isEmpty == false);
     }
     
-    func testClassifyDocument()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "Source.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
+    func testClassifyDocument() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "Source.docx";
+        let remoteDir = getRemoteDataFolder(action: "ClassifyDocument");
+        let fullName = remoteDir + "/" + remoteName;
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new ClassifyDocumentRequest(remoteName,
-            this.dataFolder,
-            bestClassesCount: "3");
-
-        var actual = this.WordsApi.ClassifyDocument(request);
+        let request = ClassifyDocumentRequest(documentName: remoteName, folder: remoteDir, bestClassesCount: "3");
+        let response = try super.getApi().classifyDocument(request : request);
+        XCTAssert(response.getBestClassName()?.isEmpty == false);
     }
     
-    func testClassifyTaxonomyDocuments()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "Source.docx";
-        var taxonomy = "documents";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
+    func testClassifyTaxonomyDocuments() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "Source.docx";
+        let taxonomy = "documents";
+        let remoteDir = getRemoteDataFolder(action: "ClassifyTaxonomy");
+        let fullName = remoteDir + "/" + remoteName;
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new ClassifyDocumentRequest(remoteName,
-            this.dataFolder,
-            bestClassesCount: "3",
-            taxonomy: taxonomy);
+        let request = ClassifyDocumentRequest(documentName: remoteName,
+                                              folder: remoteDir,
+                                              bestClassesCount: "3",
+                                              taxonomy: taxonomy);
 
-        var actual = this.WordsApi.ClassifyDocument(request);
+        let response = try super.getApi().classifyDocument(request : request);
+        XCTAssert(response.getBestClassName()?.isEmpty == false);
     }
     
-    func testGetComment()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestGetComment.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
-        int commentIndex = 0;
+    func testGetComment() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestGetComment.docx";
+        let remoteDir = getRemoteDataFolder(action: "GetComment");
+        let fullName = remoteDir + "/" + remoteName;
+        let commentIndex = 0;
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new GetCommentRequest(remoteName, commentIndex, this.dataFolder);
-        var actual = this.WordsApi.GetComment(request);
+        let request = GetCommentRequest(name: remoteName, commentIndex: commentIndex, folder: remoteDir);
+        let response = try super.getApi().getComment(request : request);
+        XCTAssert(response.getComment()?.getText()?.isEmpty == false);
     }
     
-    func testGetComments()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestGetComments.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
+    func testGetComments() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestGetComments.docx";
+        let remoteDir = getRemoteDataFolder(action: "GetComments");
+        let fullName = remoteDir + "/" + remoteName;
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new GetCommentsRequest(remoteName, this.dataFolder);
-        var actual = this.WordsApi.GetComments(request);
+        let request = GetCommentsRequest(name: remoteName, folder: remoteDir);
+        let response = try super.getApi().getComments(request : request);
+        XCTAssert(response.getComments()?.getCommentList()?.count ?? 0 > 0);
     }
     
-    func testInsertComment()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestInsertComment.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
-        var nodeLink = new NodeLink { NodeId = "0.3.0.3" };
-        var documentPosition = new DocumentPosition { Node = nodeLink, Offset = 0 };
-        var body = new Comment
-                       {
-                           RangeStart = documentPosition,
-                           RangeEnd = documentPosition,
-                           Initial = "IA",
-                           Author = "Imran Anwar",
-                           Text = "A new Comment"
-                       };
+    func testInsertComment() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestInsertComment.docx";
+        let remoteDir = getRemoteDataFolder(action: "InsertComment");
+        let fullName = remoteDir + "/" + remoteName;
+        let nodeLink = NodeLink();
+        nodeLink.setNodeId(nodeId: "0.3.0.3");
+        let documentPosition = DocumentPosition();
+        documentPosition.setNode(node: nodeLink);
+        documentPosition.setOffset(offset: 0);
+        let body = Comment();
+        body.setRangeStart(rangeStart: documentPosition);
+        body.setRangeEnd(rangeEnd: documentPosition);
+        body.setInitial(initial: "IA");
+        body.setAuthor(author: "Imran Anwar");
+        body.setText(text: "A new Comment");
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new InsertCommentRequest(remoteName, body, this.dataFolder);
-        var actual = this.WordsApi.InsertComment(request);
+        let request = InsertCommentRequest(name: remoteName, comment: body, folder: remoteDir);
+        let response = try super.getApi().insertComment(request : request);
+        XCTAssert(response.getComment()?.getText() == body.getText());
+        XCTAssert(response.getComment()?.getAuthor() == body.getAuthor());
     }
     
-    func testUpdateComment()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestUpdateComment.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
-        var commentIndex = 0;
-        var nodeLink = new NodeLink { NodeId = "0.3.0" };
-        var documentPosition = new DocumentPosition { Node = nodeLink, Offset = 0 };
-        var body = new Comment
-                       {
-                           RangeStart = documentPosition,
-                           RangeEnd = documentPosition,
-                           Initial = "IA",
-                           Author = "Imran Anwar",
-                           Text = "A new Comment"
-                       };
+    func testUpdateComment() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestUpdateComment.docx";
+        let remoteDir = getRemoteDataFolder(action: "UpdateComment");
+        let fullName = remoteDir + "/" + remoteName;
+        let commentIndex = 0;
+        let nodeLink = NodeLink();
+        nodeLink.setNodeId(nodeId: "0.3.0");
+        let documentPosition = DocumentPosition();
+        documentPosition.setNode(node: nodeLink);
+        documentPosition.setOffset(offset: 0);
+        let body = Comment();
+        body.setRangeStart(rangeStart: documentPosition);
+        body.setRangeEnd(rangeEnd: documentPosition);
+        body.setInitial(initial: "IA");
+        body.setAuthor(author: "Imran Anwar");
+        body.setText(text: "A new Comment");
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new UpdateCommentRequest(remoteName, commentIndex, body, this.dataFolder);
-        var actual = this.WordsApi.UpdateComment(request);
+        let request = UpdateCommentRequest(name: remoteName, commentIndex: commentIndex, comment: body, folder: remoteDir);
+        let response = try super.getApi().updateComment(request : request);
+        XCTAssert(response.getComment()?.getText() == body.getText());
+        XCTAssert(response.getComment()?.getAuthor() == body.getAuthor());
     }
     
-    func testDeleteComment()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestDeleteComment.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
-        var commentIndex = 0;
-        var destFileName = Path.Combine(BaseTestOutPath, remoteName);
+    func testDeleteComment() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestDeleteComment.docx";
+        let remoteDir = getRemoteDataFolder(action: "DeleteComment");
+        let fullName = remoteDir + "/" + remoteName;
+        let commentIndex = 0;
+        let destFileName = super.getRemoteTestOut() + "/" + remoteName;
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new DeleteCommentRequest(remoteName, commentIndex, this.dataFolder, destFileName: destFileName);
-        this.WordsApi.DeleteComment(request);            
+        let request = DeleteCommentRequest(name: remoteName, commentIndex: commentIndex, folder: remoteDir, destFileName: destFileName);
+        try super.getApi().deleteComment(request : request);
     }
     
-    func testCompareDocument()
-    {
-        var localName1 = "compareTestDoc1.doc";
-        var localName2 = "compareTestDoc2.doc";
-        var remoteName1 = "TestCompareDocument1.doc";
-        var remoteName2 = "TestCompareDocument2.doc";
-        var fullName1 = Path.Combine(this.dataFolder, remoteName1);
-        var fullName2 = Path.Combine(this.dataFolder, remoteName2);
-        var destFileName = Path.Combine(BaseTestOutPath, "TestCompareDocumentOut.doc");
-        var compareData = new CompareData { Author = "author", ComparingWithDocument = fullName2, DateTime = new DateTime(2015, 10, 26) };
+    func testCompareDocument() throws {
+        let localName1 = "compareTestDoc1.doc";
+        let localName2 = "compareTestDoc2.doc";
+        let remoteName1 = "TestCompareDocument1.doc";
+        let remoteName2 = "TestCompareDocument2.doc";
+        let remoteDir = getRemoteDataFolder(action: "CompareDocument");
+        let fullName1 = remoteDir + "/" + remoteName1;
+        let fullName2 = remoteDir + "/" + remoteName2;
+        let destFileName = super.getRemoteTestOut() + "/" + "TestCompareDocumentOut.doc";
+        let compareData = CompareData();
+        compareData.setAuthor(author: "author");
+        compareData.setComparingWithDocument(comparingWithDocument: fullName2);
+        
+        var dateComp = DateComponents();
+        dateComp.year = 2015;
+        dateComp.month = 10;
+        dateComp.day = 26;
+        compareData.setDateTime(dateTime: Calendar.current.date(from: dateComp));
 
-        this.UploadFileToStorage(fullName1, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(this.compareFolder) + localName1));
-        this.UploadFileToStorage(fullName2, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(this.compareFolder) + localName2));
-
-        var request = new CompareDocumentRequest(remoteName1, compareData, this.dataFolder, destFileName: destFileName);
-        var actual = this.WordsApi.CompareDocument(request);
+        let localPath1 = self.getLocalTestDataFolder()
+            .appendingPathComponent("DocumentActions", isDirectory: true)
+            .appendingPathComponent("CompareDocument", isDirectory: true)
+            .appendingPathComponent(localName1, isDirectory: false);
+        
+        let localPath2 = self.getLocalTestDataFolder()
+            .appendingPathComponent("DocumentActions", isDirectory: true)
+            .appendingPathComponent("CompareDocument", isDirectory: true)
+            .appendingPathComponent(localName2, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath1, path: fullName1);
+        try super.uploadFile(fileContent: localPath2, path: fullName2);
+        
+        let request = CompareDocumentRequest(name: remoteName1, compareData: compareData, folder: remoteDir, destFileName: destFileName);
+        let response = try super.getApi().compareDocument(request : request);
+        XCTAssert(response.getDocument() != nil);
     }
     
-    func testSaveAs()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestSaveAs.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
-        var destFileName = Path.Combine(BaseTestOutPath, Path.GetFileNameWithoutExtension(remoteName) + ".pdf");
-        var saveOptionsData = new SaveOptionsData { SaveFormat = "pdf", FileName = destFileName };
+    func testSaveAs() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestSaveAs.docx";
+        let remoteNewName = "TestSaveAs.pdf";
+        let remoteDir = getRemoteDataFolder(action: "SaveAs");
+        let fullName = remoteDir + "/" + remoteName;
+        let destFileName = super.getRemoteTestOut() + "/" + remoteNewName;
+        let saveOptionsData = SaveOptionsData();
+        saveOptionsData.setSaveFormat(saveFormat: "pdf");
+        saveOptionsData.setFileName(fileName: destFileName);
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new SaveAsRequest(remoteName, saveOptionsData, this.dataFolder);
-        var actual = this.WordsApi.SaveAs(request);
+        let request = SaveAsRequest(name: remoteName, saveOptionsData: saveOptionsData, folder: remoteDir);
+        let response = try super.getApi().saveAs(request : request);
+        XCTAssert(response.getSaveResult() != nil);
     }
     
-    func testSaveAsFromPdfToDoc()
-    {
-        var localName = "45.pdf";
-        var remoteName = "TestSaveAsFromPdfToDoc.pdf";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
-        var destFileName = Path.Combine(BaseTestOutPath, Path.GetFileNameWithoutExtension(remoteName) + ".docx");
-        var saveOptionsData = new SaveOptionsData { SaveFormat = "docx", FileName = destFileName };
+    func testSaveAsFromPdfToDoc() throws {
+        let localName = "45.pdf";
+        let remoteName = "TestSaveAsFromPdfToDoc.pdf";
+        let remoteNewName = "TestSaveAsFromPdfToDoc.docx";
+        let remoteDir = getRemoteDataFolder(action: "SaveAsPdfToDoc");
+        let fullName = remoteDir + "/" + remoteName;
+        let destFileName = super.getRemoteTestOut() + "/" + remoteNewName;
+        let saveOptionsData = SaveOptionsData();
+        saveOptionsData.setSaveFormat(saveFormat: "docx");
+        saveOptionsData.setFileName(fileName: destFileName);
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(this.convertFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("DocumentActions", isDirectory: true)
+            .appendingPathComponent("ConvertDocument", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new SaveAsRequest(remoteName, saveOptionsData, this.dataFolder);
-        var actual = this.WordsApi.SaveAs(request);
+        let request = SaveAsRequest(name: remoteName, saveOptionsData: saveOptionsData, folder: remoteDir);
+        let response = try super.getApi().saveAs(request : request);
+        XCTAssert(response.getSaveResult() != nil);
     }
     
-    func testConvertDocument()
-    {
-        var format = "pdf";
-        using (var fileStream = File.OpenRead(BaseTestContext.GetDataDir(this.convertFolder) + "test_uploadfile.docx"))
-        {
-            var request = new ConvertDocumentRequest(fileStream, format);
-            var result = this.WordsApi.ConvertDocument(request);
-            Assert.IsTrue(result.Length > 0, "Error occurred while converting document");
-        }
+    func testConvertDocument() throws {
+        let format = "pdf";
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("DocumentActions", isDirectory: true)
+            .appendingPathComponent("ConvertDocument", isDirectory: true)
+            .appendingPathComponent("test_uploadfile.docx", isDirectory: false);
+
+        let request = ConvertDocumentRequest(document: localPath, format: format);
+        let result = try super.getApi().convertDocument(request : request);
+        XCTAssert(try result.checkResourceIsReachable());
     }
     
-    func testSaveAsTiffonline()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestSaveAsTiffonline.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
-        var destFileName = Path.Combine(BaseTestOutPath, Path.GetFileNameWithoutExtension(remoteName) + ".tiff");
-        var body = new TiffSaveOptionsData { FileName = "abc.tiff", SaveFormat = "tiff" };
+    func testSaveAsTiffonline() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestSaveAsTiffonline.docx";
+        let remoteDir = getRemoteDataFolder(action: "SaveAsTiffon");
+        let fullName = remoteDir + "/" + remoteName;
+        let body = TiffSaveOptionsData();
+        body.setFileName(fileName: "abc.tiff");
+        body.setSaveFormat(saveFormat: "tiff");
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new SaveAsTiffRequest(remoteName,
-            body,
-            this.dataFolder);
-        var actual = this.WordsApi.SaveAsTiff(request);
+        let request = SaveAsTiffRequest(name: remoteName, saveOptions: body, folder: remoteDir);
+        let response = try super.getApi().saveAsTiff(request : request);
+        XCTAssert(response.getSaveResult() != nil);
     }
     
-    func testGetDocumentStatistics()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestGetDocumentStatistics.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
+    func testGetDocumentStatistics() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestGetDocumentStatistics.docx";
+        let remoteDir = getRemoteDataFolder(action: "GetDocumentStatistic");
+        let fullName = remoteDir + "/" + remoteName;
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new GetDocumentStatisticsRequest(remoteName, this.dataFolder);
-        var actual = this.WordsApi.GetDocumentStatistics(request);
+        let request = GetDocumentStatisticsRequest(name: remoteName, folder: remoteDir);
+        let response = try super.getApi().getDocumentStatistics(request : request);
+        XCTAssert(response.getStatData()?.getPageCount() ?? 0 > 0)
     }
     
-    func testGetDocument()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestGetDocument.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
+    func testGetDocument() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestGetDocument.docx";
+        let remoteDir = getRemoteDataFolder(action: "GetDocument");
+        let fullName = remoteDir + "/" + remoteName;
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new GetDocumentRequest(remoteName, this.dataFolder);
-        var actual = this.WordsApi.GetDocument(request);
+        let request = GetDocumentRequest(documentName: remoteName, folder: remoteDir);
+        let response = try super.getApi().getDocument(request : request);
+        XCTAssert(response.getDocument()?.getFileName() == remoteName);
     }
     
-    func testGetDocumentWithFormat()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestGetDocumentWithFormat.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
-        var format = "text";
+    func testGetDocumentWithFormat() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestGetDocumentWithFormat.docx";
+        let remoteDir = getRemoteDataFolder(action: "GetDocumentWIthFormat");
+        let fullName = remoteDir + "/" + remoteName;
+        let format = "text";
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new GetDocumentWithFormatRequest(remoteName, format, this.dataFolder);
-        var result = this.WordsApi.GetDocumentWithFormat(request);
-        Assert.IsTrue(result.Length > 0, "Conversion has failed");
+        let request = GetDocumentWithFormatRequest(name: remoteName, format: format, folder: remoteDir);
+        let result = try super.getApi().getDocumentWithFormat(request : request);
+        XCTAssert(try result.checkResourceIsReachable());
     }
     
-    func testGetDocumentWithFormatAndOutPath()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestGetDocumentWithFormatAndOutPath.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
-        var format = "text";
-        var destFileName = Path.Combine(BaseTestOutPath, Path.GetFileNameWithoutExtension(remoteName) + ".text");
+    func testGetDocumentWithFormatAndOutPath() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestGetDocumentWithFormatAndOutPath.docx";
+        let remoteDir = getRemoteDataFolder(action: "GetDocumentWithFormatAndOut");
+        let fullName = remoteDir + "/" + remoteName;
+        let format = "text";
+        let destFileName = super.getRemoteTestOut() + "/" + "TestGetDocumentWithFormatAndOutPath.text";
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new GetDocumentWithFormatRequest(remoteName, format, this.dataFolder, outPath: destFileName);
-        this.WordsApi.GetDocumentWithFormat(request);
-        var result = this.WordsApi.DownloadFile(new DownloadFileRequest(destFileName));
-        Assert.IsNotNull(result, "Cannot download document from storage");
+        let request = GetDocumentWithFormatRequest(name: remoteName, format: format, folder: remoteDir, outPath: destFileName);
+        _ = try super.getApi().getDocumentWithFormat(request : request);
+        let result = try super.getApi().downloadFile(request: DownloadFileRequest(path: destFileName));
+        XCTAssert(try result.checkResourceIsReachable());
     }
     
-    func testGetDocumentFormatUsingStorage()
-    {
-        var remoteName = "TestGetDocumentFormatUsingStorage.docx";            
-        var format = "text"; 
-        var storage = "AWSStorageS3";
+    func testLoadWebDocument() throws {
+        let body = LoadWebDocumentData();
+        let saveOptions = SaveOptionsData();
+        saveOptions.setFileName(fileName: "google.doc");
+        saveOptions.setSaveFormat(saveFormat: "doc");
+        saveOptions.setDmlEffectsRenderingMode(dmlEffectsRenderingMode: "1");
+        saveOptions.setDmlRenderingMode(dmlRenderingMode: "1");
+        saveOptions.setUpdateSdtContent(updateSdtContent: false);
+        saveOptions.setZipOutput(zipOutput: false);
 
-        // TODO to run this test please put your AppKey and AppSid for another storage
-        // var anotherStorageApi = new StorageApi(StorageAppKey, StorageAppSID, BaseProductUri);
-        // anotherStorageApi.PutCreate(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
-        var anotherWordApi = new WordsApi(new Configuration { ApiBaseUrl = BaseProductUri, AppKey = this.AppKey, AppSid = this.AppSid });
-        var request = new GetDocumentWithFormatRequest(remoteName, format, this.dataFolder, storage);
-        var result = anotherWordApi.GetDocumentWithFormat(request);
-        Assert.IsTrue(result.Length > 0, "Conversion has failed");
+        body.setLoadingDocumentUrl(loadingDocumentUrl: "http://google.com");
+        body.setSaveOptions(saveOptions: saveOptions);
+
+        let request = LoadWebDocumentRequest(data: body);
+        let response = try super.getApi().loadWebDocument(request : request);
+        XCTAssert(response.getSaveResult() != nil);
     }
     
-    func testLoadWebDocument()
-    {
-        var body = new LoadWebDocumentData();
-        var saveOptions = new SaveOptionsData
-                           {
-                               FileName = "google.doc",
-                               SaveFormat = "doc",
-                               DmlEffectsRenderingMode = "1",
-                               DmlRenderingMode = "1",
-                               UpdateSdtContent = false,
-                               ZipOutput = false
-                           };
+    func testAcceptAllRevisions() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestAcceptAllRevisions.docx";
+        let remoteDir = getRemoteDataFolder(action: "AcceptAllRevisions");
+        let fullName = remoteDir + "/" + remoteName;
+        let destFileName = super.getRemoteTestOut() + "/" + remoteName;
 
-        body.LoadingDocumentUrl = "http://google.com";
-        body.SaveOptions = saveOptions;
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new LoadWebDocumentRequest(body);
-        this.WordsApi.LoadWebDocument(request);
+        let request = AcceptAllRevisionsRequest(name: remoteName, folder: remoteDir, destFileName: destFileName);
+        let response = try super.getApi().acceptAllRevisions(request : request);
+        XCTAssert(response.getResult() != nil);
     }
     
-    func testAcceptAllRevisions()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestAcceptAllRevisions.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
-        var destFileName = Path.Combine(BaseTestOutPath, remoteName);
+    func testRejectAllRevisions() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestRejectAllRevisions.docx";
+        let remoteDir = getRemoteDataFolder(action: "RejectAllRevisions");
+        let fullName = remoteDir + "/" + remoteName;
+        let destFileName = super.getRemoteTestOut() + "/" + remoteName;
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new AcceptAllRevisionsRequest(remoteName, this.dataFolder, destFileName: destFileName);
-        var actual = this.WordsApi.AcceptAllRevisions(request);
+        let request = RejectAllRevisionsRequest(name: remoteName, folder: remoteDir, destFileName: destFileName);
+        let response = try super.getApi().rejectAllRevisions(request : request);
+        XCTAssert(response.getResult() != nil);
     }
     
-    func testRejectAllRevisions()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestRejectAllRevisions.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
-        var destFileName = Path.Combine(BaseTestOutPath, remoteName);
+    func testSplitDocument() throws {
+        let localName = "test_multi_pages.docx";
+        let remoteName = "TestSplitDocument.docx";
+        let remoteDir = getRemoteDataFolder(action: "SplitDocument");
+        let fullName = remoteDir + "/" + remoteName;
+        let format = "text";
+        let destFileName = super.getRemoteTestOut() + "/TestSplitDocument.text";
+        let from = 1;
+        let to = 2;
 
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
 
-        var request = new RejectAllRevisionsRequest(remoteName, this.dataFolder, destFileName: destFileName);
-        var actual = this.WordsApi.RejectAllRevisions(request);
-    }
-    
-    func testSplitDocument()
-    {
-        var localName = "test_multi_pages.docx";
-        var remoteName = "TestSplitDocument.docx";
-        var fullName = Path.Combine(this.dataFolder, remoteName);
-        string format = "text";
-        var destFileName = Path.Combine(BaseTestOutPath, Path.GetFileNameWithoutExtension(remoteName) + ".text");
-        int from = 1;
-        int to = 2;
-
-        this.UploadFileToStorage(fullName, null, null, File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName));
-
-        var request = new SplitDocumentRequest(remoteName, this.dataFolder, format: format, @from: from, to: to, destFileName: destFileName);
-        var actual = this.WordsApi.SplitDocument(request);
+        let request = SplitDocumentRequest(name: remoteName, folder: remoteDir, destFileName: destFileName, format: format, from: from, to: to);
+        let response = try super.getApi().splitDocument(request : request);
+        XCTAssert(response.getSplitResult() != nil);
     }
 }
