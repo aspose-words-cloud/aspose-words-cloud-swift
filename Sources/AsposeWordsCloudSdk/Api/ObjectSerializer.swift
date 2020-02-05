@@ -47,9 +47,7 @@ class ObjectSerializer {
     
     public static func serializeToString<T : Encodable>(value : T) throws -> String {
         if (value is WordsApiModel) {
-            let encoder = JSONEncoder();
-            encoder.dateEncodingStrategy = .formatted(iso8601Custom);
-            return String(decoding: try encoder.encode(value), as: UTF8.self);
+            return String(decoding: try customEncoder.encode(value), as: UTF8.self);
         }
         if (value is URL) {
             return try String(contentsOf: value as! URL);
@@ -61,9 +59,7 @@ class ObjectSerializer {
     
     public static func serialize<T : Encodable>(value: T) throws -> Data {
         if (value is WordsApiModel) {
-            let encoder = JSONEncoder();
-            encoder.dateEncodingStrategy = .formatted(iso8601Custom);
-            return try encoder.encode(value);
+            return try customEncoder.encode(value);
         }
         if (value is URL) {
             return try Data(contentsOf: value as! URL);
@@ -85,18 +81,10 @@ class ObjectSerializer {
     }
     
     public static func deserialize<T>(type: T.Type, from data: Data) throws -> T where T : Decodable {
-        let jsonDecoder = JSONDecoder();
-        jsonDecoder.dateDecodingStrategy = .formatted(iso8601Custom);
-        jsonDecoder.keyDecodingStrategy = .custom { keys in
-            let oldKey = keys.last!.stringValue;
-            let newKey = oldKey.prefix(1).lowercased() + oldKey.dropFirst();
-            return CustomKey(stringValue: newKey)!;
-        };
-        
-        return try jsonDecoder.decode(type, from: data);
+        return try customDecoder.decode(type, from: data);
     }
     
-    private static let iso8601Custom: DateFormatter = {
+    private static let customIso8601: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'";
         formatter.calendar = Calendar(identifier: .iso8601);
@@ -104,4 +92,26 @@ class ObjectSerializer {
         formatter.locale = Locale(identifier: "en_US_POSIX");
         return formatter;
     }()
+    
+    private static let customEncoder: JSONEncoder = {
+        let encoder = JSONEncoder();
+        encoder.dateEncodingStrategy = .formatted(customIso8601);
+        encoder.keyEncodingStrategy = .custom { keys in
+            let oldKey = keys.last!.stringValue;
+            let newKey = oldKey.prefix(1).uppercased() + oldKey.dropFirst();
+            return CustomKey(stringValue: newKey)!;
+        };
+        return encoder;
+    }();
+    
+    private static let customDecoder: JSONDecoder = {
+        let decoder = JSONDecoder();
+        decoder.dateDecodingStrategy = .formatted(customIso8601);
+        decoder.keyDecodingStrategy = .custom { keys in
+            let oldKey = keys.last!.stringValue;
+            let newKey = oldKey.prefix(1).lowercased() + oldKey.dropFirst();
+            return CustomKey(stringValue: newKey)!;
+        };
+        return decoder;
+    }();
 }

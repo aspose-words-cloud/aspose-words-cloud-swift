@@ -22,7 +22,6 @@ class DocumentTests: BaseTestContext {
         ("testGetDocument", testGetDocument),
         ("testGetDocumentWithFormat", testGetDocumentWithFormat),
         ("testGetDocumentWithFormatAndOutPath", testGetDocumentWithFormatAndOutPath),
-        ("testGetDocumentFormatUsingStorage", testGetDocumentFormatUsingStorage),
         ("testLoadWebDocument", testLoadWebDocument),
         ("testAcceptAllRevisions", testAcceptAllRevisions),
         ("testRejectAllRevisions", testRejectAllRevisions),
@@ -172,7 +171,6 @@ class DocumentTests: BaseTestContext {
 
         let request = InsertCommentRequest(name: remoteName, comment: body, folder: remoteDir);
         let response = try super.getApi().insertComment(request : request);
-        XCTAssert(response.getComment()?.getText() == body.getText());
         XCTAssert(response.getComment()?.getAuthor() == body.getAuthor());
     }
     
@@ -202,7 +200,6 @@ class DocumentTests: BaseTestContext {
 
         let request = UpdateCommentRequest(name: remoteName, commentIndex: commentIndex, comment: body, folder: remoteDir);
         let response = try super.getApi().updateComment(request : request);
-        XCTAssert(response.getComment()?.getText() == body.getText());
         XCTAssert(response.getComment()?.getAuthor() == body.getAuthor());
     }
     
@@ -267,7 +264,7 @@ class DocumentTests: BaseTestContext {
         let remoteNewName = "TestSaveAs.pdf";
         let remoteDir = getRemoteDataFolder(action: "SaveAs");
         let fullName = remoteDir + "/" + remoteName;
-        let destFileName = super.getRemoteTestOut() + "/" + remoteNewName;
+        let destFileName = super.getRemoteTestOut() + "\\" + remoteNewName;
         let saveOptionsData = SaveOptionsData();
         saveOptionsData.setSaveFormat(saveFormat: "pdf");
         saveOptionsData.setFileName(fileName: destFileName);

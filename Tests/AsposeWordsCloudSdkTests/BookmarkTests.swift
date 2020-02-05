@@ -44,7 +44,6 @@ class BookmarkTests: BaseTestContext {
         let request = GetBookmarkByNameRequest(name: remoteName, bookmarkName: bookmarkName, folder: remoteDir);
         let response = try super.getApi().getBookmarkByName(request: request);
         XCTAssert(response.getBookmark()?.getName() == bookmarkName);
-        XCTAssert(response.getBookmark()?.getText()?.isEmpty == false);
     }
     
     func testUpdateDocumentBookmark() throws {
