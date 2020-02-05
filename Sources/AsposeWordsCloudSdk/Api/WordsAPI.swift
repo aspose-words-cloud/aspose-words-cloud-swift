@@ -222,7 +222,7 @@ public class WordsAPI {
         return try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
     }   
     
-    public func convertDocument(request : ConvertDocumentRequest) throws -> URL {
+    public func convertDocument(request : ConvertDocumentRequest) throws -> Data {
         let rawPath = "/words/convert";
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent(rawPath);
         
@@ -256,7 +256,7 @@ public class WordsAPI {
             headers: nil,
             formParams: formParams
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
     public func copyFile(request : CopyFileRequest) throws  {
@@ -1754,7 +1754,7 @@ public class WordsAPI {
         return try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
     }   
     
-    public func downloadFile(request : DownloadFileRequest) throws -> URL {
+    public func downloadFile(request : DownloadFileRequest) throws -> Data {
         var rawPath = "/words/storage/file/{path}";
         rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent(rawPath);
@@ -1780,7 +1780,7 @@ public class WordsAPI {
             headers: nil,
             formParams: nil
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
     public func executeMailMerge(request : ExecuteMailMergeRequest) throws -> DocumentResponse {
@@ -1837,7 +1837,7 @@ public class WordsAPI {
         return try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
     }   
     
-    public func executeMailMergeOnline(request : ExecuteMailMergeOnlineRequest) throws -> URL {
+    public func executeMailMergeOnline(request : ExecuteMailMergeOnlineRequest) throws -> Data {
         let rawPath = "/words/MailMerge";
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent(rawPath);
         
@@ -1868,7 +1868,7 @@ public class WordsAPI {
             headers: nil,
             formParams: formParams
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
     public func getAvailableFonts(request : GetAvailableFontsRequest) throws -> AvailableFontsResponse {
@@ -2219,7 +2219,7 @@ public class WordsAPI {
         return try ObjectSerializer.deserialize(type: DrawingObjectResponse.self, from: response);
     }   
     
-    public func getDocumentDrawingObjectImageData(request : GetDocumentDrawingObjectImageDataRequest) throws -> URL {
+    public func getDocumentDrawingObjectImageData(request : GetDocumentDrawingObjectImageDataRequest) throws -> Data {
         var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}/imageData";
         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
         rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
@@ -2253,10 +2253,10 @@ public class WordsAPI {
             headers: nil,
             formParams: nil
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
-    public func getDocumentDrawingObjectImageDataWithoutNodePath(request : GetDocumentDrawingObjectImageDataWithoutNodePathRequest) throws -> URL {
+    public func getDocumentDrawingObjectImageDataWithoutNodePath(request : GetDocumentDrawingObjectImageDataWithoutNodePathRequest) throws -> Data {
         var rawPath = "/words/{name}/drawingObjects/{index}/imageData";
         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
         rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
@@ -2289,10 +2289,10 @@ public class WordsAPI {
             headers: nil,
             formParams: nil
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
-    public func getDocumentDrawingObjectOleData(request : GetDocumentDrawingObjectOleDataRequest) throws -> URL {
+    public func getDocumentDrawingObjectOleData(request : GetDocumentDrawingObjectOleDataRequest) throws -> Data {
         var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}/oleData";
         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
         rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
@@ -2326,10 +2326,10 @@ public class WordsAPI {
             headers: nil,
             formParams: nil
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
-    public func getDocumentDrawingObjectOleDataWithoutNodePath(request : GetDocumentDrawingObjectOleDataWithoutNodePathRequest) throws -> URL {
+    public func getDocumentDrawingObjectOleDataWithoutNodePath(request : GetDocumentDrawingObjectOleDataWithoutNodePathRequest) throws -> Data {
         var rawPath = "/words/{name}/drawingObjects/{index}/oleData";
         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
         rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
@@ -2362,7 +2362,7 @@ public class WordsAPI {
             headers: nil,
             formParams: nil
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
     public func getDocumentDrawingObjects(request : GetDocumentDrawingObjectsRequest) throws -> DrawingObjectsResponse {
@@ -2722,7 +2722,7 @@ public class WordsAPI {
         return try ObjectSerializer.deserialize(type: StatDataResponse.self, from: response);
     }   
     
-    public func getDocumentWithFormat(request : GetDocumentWithFormatRequest) throws -> URL {
+    public func getDocumentWithFormat(request : GetDocumentWithFormatRequest) throws -> Data {
         var rawPath = "/words/{name}";
         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
         let urlPath = self.configuration.getApiRootUrl().appendingPathComponent(rawPath);
@@ -2761,7 +2761,7 @@ public class WordsAPI {
             headers: nil,
             formParams: nil
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
     public func getField(request : GetFieldRequest) throws -> FieldResponse {
@@ -5404,7 +5404,7 @@ public class WordsAPI {
         return try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
     }   
     
-    public func renderDrawingObject(request : RenderDrawingObjectRequest) throws -> URL {
+    public func renderDrawingObject(request : RenderDrawingObjectRequest) throws -> Data {
         var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}/render";
         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
         rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
@@ -5442,10 +5442,10 @@ public class WordsAPI {
             headers: nil,
             formParams: nil
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
-    public func renderDrawingObjectWithoutNodePath(request : RenderDrawingObjectWithoutNodePathRequest) throws -> URL {
+    public func renderDrawingObjectWithoutNodePath(request : RenderDrawingObjectWithoutNodePathRequest) throws -> Data {
         var rawPath = "/words/{name}/drawingObjects/{index}/render";
         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
         rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
@@ -5482,10 +5482,10 @@ public class WordsAPI {
             headers: nil,
             formParams: nil
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
-    public func renderMathObject(request : RenderMathObjectRequest) throws -> URL {
+    public func renderMathObject(request : RenderMathObjectRequest) throws -> Data {
         var rawPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}/render";
         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
         rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
@@ -5523,10 +5523,10 @@ public class WordsAPI {
             headers: nil,
             formParams: nil
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
-    public func renderMathObjectWithoutNodePath(request : RenderMathObjectWithoutNodePathRequest) throws -> URL {
+    public func renderMathObjectWithoutNodePath(request : RenderMathObjectWithoutNodePathRequest) throws -> Data {
         var rawPath = "/words/{name}/OfficeMathObjects/{index}/render";
         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
         rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
@@ -5563,10 +5563,10 @@ public class WordsAPI {
             headers: nil,
             formParams: nil
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
-    public func renderPage(request : RenderPageRequest) throws -> URL {
+    public func renderPage(request : RenderPageRequest) throws -> Data {
         var rawPath = "/words/{name}/pages/{pageIndex}/render";
         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
         rawPath = rawPath.replacingOccurrences(of: "{pageIndex}", with: try ObjectSerializer.serializeToString(value: request.getPageIndex()));
@@ -5603,10 +5603,10 @@ public class WordsAPI {
             headers: nil,
             formParams: nil
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
-    public func renderParagraph(request : RenderParagraphRequest) throws -> URL {
+    public func renderParagraph(request : RenderParagraphRequest) throws -> Data {
         var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/render";
         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
         rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
@@ -5644,10 +5644,10 @@ public class WordsAPI {
             headers: nil,
             formParams: nil
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
-    public func renderParagraphWithoutNodePath(request : RenderParagraphWithoutNodePathRequest) throws -> URL {
+    public func renderParagraphWithoutNodePath(request : RenderParagraphWithoutNodePathRequest) throws -> Data {
         var rawPath = "/words/{name}/paragraphs/{index}/render";
         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
         rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
@@ -5684,10 +5684,10 @@ public class WordsAPI {
             headers: nil,
             formParams: nil
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
-    public func renderTable(request : RenderTableRequest) throws -> URL {
+    public func renderTable(request : RenderTableRequest) throws -> Data {
         var rawPath = "/words/{name}/{nodePath}/tables/{index}/render";
         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
         rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
@@ -5725,10 +5725,10 @@ public class WordsAPI {
             headers: nil,
             formParams: nil
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
-    public func renderTableWithoutNodePath(request : RenderTableWithoutNodePathRequest) throws -> URL {
+    public func renderTableWithoutNodePath(request : RenderTableWithoutNodePathRequest) throws -> Data {
         var rawPath = "/words/{name}/tables/{index}/render";
         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
         rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
@@ -5765,7 +5765,7 @@ public class WordsAPI {
             headers: nil,
             formParams: nil
         );
-        return try ObjectSerializer.deserialize(type: URL.self, from: response);
+        return response;
     }   
     
     public func replaceText(request : ReplaceTextRequest) throws -> ReplaceTextResponse {
