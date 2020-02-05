@@ -47,7 +47,9 @@ class ObjectSerializer {
     
     public static func serializeToString<T : Encodable>(value : T) throws -> String {
         if (value is WordsApiModel) {
-            return String(decoding: try JSONEncoder().encode(value), as: UTF8.self);
+            let encoder = JSONEncoder();
+            encoder.dateEncodingStrategy = .formatted(iso8601Custom);
+            return String(decoding: try encoder.encode(value), as: UTF8.self);
         }
         if (value is URL) {
             return try String(contentsOf: value as! URL);
@@ -59,10 +61,19 @@ class ObjectSerializer {
     
     public static func serialize<T : Encodable>(value: T) throws -> Data {
         if (value is WordsApiModel) {
-            return try JSONEncoder().encode(value);
+            let encoder = JSONEncoder();
+            encoder.dateEncodingStrategy = .formatted(iso8601Custom);
+            return try encoder.encode(value);
         }
         if (value is URL) {
             return try Data(contentsOf: value as! URL);
+        }
+        if (value is String) {
+            let result = String(describing: "\"\(value)\"").data(using: .utf8);
+            if (result == nil) {
+                throw WordsApiError.invalidTypeSerialization(typeName: String(describing: type(of: value)));
+            }
+            return result!;
         }
         else {
             let result = String(describing: value).data(using: .utf8);
@@ -75,12 +86,22 @@ class ObjectSerializer {
     
     public static func deserialize<T>(type: T.Type, from data: Data) throws -> T where T : Decodable {
         let jsonDecoder = JSONDecoder();
+        jsonDecoder.dateDecodingStrategy = .formatted(iso8601Custom);
         jsonDecoder.keyDecodingStrategy = .custom { keys in
             let oldKey = keys.last!.stringValue;
             let newKey = oldKey.prefix(1).lowercased() + oldKey.dropFirst();
             return CustomKey(stringValue: newKey)!;
-        }
+        };
         
         return try jsonDecoder.decode(type, from: data);
     }
+    
+    private static let iso8601Custom: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+        formatter.calendar = Calendar(identifier: .iso8601);
+        formatter.timeZone = TimeZone(secondsFromGMT: 0);
+        formatter.locale = Locale(identifier: "en_US_POSIX");
+        return formatter;
+    }()
 }
