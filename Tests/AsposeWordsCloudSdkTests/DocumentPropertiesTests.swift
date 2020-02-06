@@ -17,9 +17,9 @@ class DocumentPropertiesTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestGetDocumentProperties.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentProperties") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetDocumentPropertiesRequest(remoteName, getRemoteDataFolder(action: "GetDocumentProperties"));
-        let actual = super.getApi().getDocumentProperties(request);            
+        let actual = try super.getApi().getDocumentProperties(request: request);            
     }
     
 
@@ -28,9 +28,9 @@ class DocumentPropertiesTests: BaseTestContext {
         let remoteName = "TestGetDocumentProperty.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentProperty") + "/" + remoteName);
         string propertyName = "Author";
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetDocumentPropertyRequest(remoteName, propertyName, getRemoteDataFolder(action: "GetDocumentProperty"));
-        let actual = super.getApi().getDocumentProperty(request);
+        let actual = try super.getApi().getDocumentProperty(request: request);
     }
     
 
@@ -40,9 +40,9 @@ class DocumentPropertiesTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "DeleteDocumentProperty") + "/" + remoteName);
         let propertyName = "testProp";
         let destFileName = (BaseTestOutPath + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let deleteRequest = DeleteDocumentPropertyRequest(remoteName, propertyName, getRemoteDataFolder(action: "DeleteDocumentProperty"), destFileName: destFileName);
-        super.getApi().deleteDocumentProperty(deleteRequest);
+        try super.getApi().deleteDocumentProperty(deleteRequest);
     }
     
     
@@ -54,8 +54,8 @@ class DocumentPropertiesTests: BaseTestContext {
         let propertyName = "AsposeAuthor";
         let destFileName = (BaseTestOutPath + "/" + remoteName);
         DocumentProperty body = DocumentProperty { Name = "Author", Value = "Imran Anwar" };
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = CreateOrUpdateDocumentPropertyRequest(remoteName, propertyName, body, getRemoteDataFolder(action: "UpdateDocumentProperty"), destFileName: destFileName);
-        let actual = super.getApi().createOrUpdateDocumentProperty(request);
+        let actual = try super.getApi().createOrUpdateDocumentProperty(request: request);
     }
 }

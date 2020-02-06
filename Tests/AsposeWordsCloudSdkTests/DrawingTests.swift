@@ -29,9 +29,9 @@ class DrawingTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestGetDocumentDrawingObjects.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentDrawingObjects") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetDocumentDrawingObjectsRequest(remoteName, "sections/0", getRemoteDataFolder(action: "GetDocumentDrawingObjects"));
-        let actual = super.getApi().getDocumentDrawingObjects(request);
+        let actual = try super.getApi().getDocumentDrawingObjects(request: request);
     }
     
 
@@ -39,9 +39,9 @@ class DrawingTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestGetDocumentDrawingObjectsWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentDrawingObjectsWithoutNodePath") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetDocumentDrawingObjectsWithoutNodePathRequest(remoteName, getRemoteDataFolder(action: "GetDocumentDrawingObjectsWithoutNodePath"));
-        let actual = super.getApi().getDocumentDrawingObjectsWithoutNodePath(request);
+        let actual = try super.getApi().getDocumentDrawingObjectsWithoutNodePath(request: request);
     }
     
 
@@ -50,9 +50,9 @@ class DrawingTests: BaseTestContext {
         let remoteName = "TestGetDocumentDrawingObjectByIndex.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentDrawingObjectByIndex") + "/" + remoteName);
         let objectIndex = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetDocumentDrawingObjectByIndexRequest(remoteName, "sections/0", objectIndex, getRemoteDataFolder(action: "GetDocumentDrawingObjectByIndex"));
-        DrawingObjectResponse actual = super.getApi().getDocumentDrawingObjectByIndex(request);
+        DrawingObjectResponse actual = try super.getApi().getDocumentDrawingObjectByIndex(request: request);
     }
     
 
@@ -61,9 +61,9 @@ class DrawingTests: BaseTestContext {
         let remoteName = "TestGetDocumentDrawingObjectByIndexWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentDrawingObjectByIndexWithoutNodePath") + "/" + remoteName);
         let objectIndex = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetDocumentDrawingObjectByIndexWithoutNodePathRequest(remoteName, objectIndex, getRemoteDataFolder(action: "GetDocumentDrawingObjectByIndexWithoutNodePath"));
-        DrawingObjectResponse actual = super.getApi().getDocumentDrawingObjectByIndexWithoutNodePath(request);
+        DrawingObjectResponse actual = try super.getApi().getDocumentDrawingObjectByIndexWithoutNodePath(request: request);
     }
     
 
@@ -73,9 +73,9 @@ class DrawingTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "GetDocumentDrawingObjectByIndexWithFormat") + "/" + remoteName);
         let objectIndex = 0;
         let format = "png";
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = RenderDrawingObjectRequest(remoteName, format, "sections/0", objectIndex, getRemoteDataFolder(action: "GetDocumentDrawingObjectByIndexWithFormat"));
-        let result = super.getApi().renderDrawingObject(request);
+        let result = try super.getApi().renderDrawingObject(request: request);
         Assert.IsTrue(result.Length > 0, "Error occurred while getting drawing object");
     }
     
@@ -86,9 +86,9 @@ class DrawingTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "GetDocumentDrawingObjectByIndexWithFormatWithoutNodePath") + "/" + remoteName);
         let objectIndex = 0;
         let format = "png";
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = RenderDrawingObjectWithoutNodePathRequest(remoteName, format, objectIndex, getRemoteDataFolder(action: "GetDocumentDrawingObjectByIndexWithFormatWithoutNodePath"));
-        let result = super.getApi().renderDrawingObjectWithoutNodePath(request);
+        let result = try super.getApi().renderDrawingObjectWithoutNodePath(request: request);
         Assert.IsTrue(result.Length > 0, "Error occurred while getting drawing object");
     }
     
@@ -98,9 +98,9 @@ class DrawingTests: BaseTestContext {
         let remoteName = "TestGetDocumentDrawingObjectImageData.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentDrawingObjectImageData") + "/" + remoteName);
         let objectIndex = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetDocumentDrawingObjectImageDataRequest(remoteName, "sections/0", objectIndex, getRemoteDataFolder(action: "GetDocumentDrawingObjectImageData"));
-        let result = super.getApi().getDocumentDrawingObjectImageData(request);
+        let result = try super.getApi().getDocumentDrawingObjectImageData(request: request);
         Assert.IsTrue(result.Length > 0, "Error occurred while getting drawing object");
     }
     
@@ -110,9 +110,9 @@ class DrawingTests: BaseTestContext {
         let remoteName = "TestGetDocumentDrawingObjectImageDataWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentDrawingObjectImageDataWithoutNodePath") + "/" + remoteName);
         let objectIndex = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetDocumentDrawingObjectImageDataWithoutNodePathRequest(remoteName, objectIndex, getRemoteDataFolder(action: "GetDocumentDrawingObjectImageDataWithoutNodePath"));
-        let result = super.getApi().getDocumentDrawingObjectImageDataWithoutNodePath(request);
+        let result = try super.getApi().getDocumentDrawingObjectImageDataWithoutNodePath(request: request);
         Assert.IsTrue(result.Length > 0, "Error occurred while getting drawing object");
     }
     
@@ -122,9 +122,9 @@ class DrawingTests: BaseTestContext {
         let remoteName = "TestGetDocumentDrawingObjectOleData.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentDrawingObjectOleData") + "/" + remoteName);
         let objectIndex = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.drawingFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.drawingFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetDocumentDrawingObjectOleDataRequest(remoteName, "sections/0", objectIndex, getRemoteDataFolder(action: "GetDocumentDrawingObjectOleData"));
-        let result = super.getApi().getDocumentDrawingObjectOleData(request);
+        let result = try super.getApi().getDocumentDrawingObjectOleData(request: request);
         Assert.IsTrue(result.Length > 0, "Error occurred while getting drawing object");
     }
     
@@ -134,9 +134,9 @@ class DrawingTests: BaseTestContext {
         let remoteName = "TestGetDocumentDrawingObjectOleDataWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentDrawingObjectOleDataWithoutNodePath") + "/" + remoteName);
         let objectIndex = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.drawingFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.drawingFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetDocumentDrawingObjectOleDataWithoutNodePathRequest(remoteName, objectIndex, getRemoteDataFolder(action: "GetDocumentDrawingObjectOleDataWithoutNodePath"));
-        let result = super.getApi().getDocumentDrawingObjectOleDataWithoutNodePath(request);
+        let result = try super.getApi().getDocumentDrawingObjectOleDataWithoutNodePath(request: request);
         Assert.IsTrue(result.Length > 0, "Error occurred while getting drawing object");
     }
     
@@ -150,8 +150,8 @@ class DrawingTests: BaseTestContext {
         using (let file = File.OpenRead(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + image))
         {               
             let request = InsertDrawingObjectRequest(remoteName, "{\"Left\": 0}", file, null, getRemoteDataFolder(action: ""));
-            super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-            let actual = super.getApi().insertDrawingObject(request);
+            try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+            let actual = try super.getApi().insertDrawingObject(request: request);
         }
     }
     
@@ -164,8 +164,8 @@ class DrawingTests: BaseTestContext {
         using (let file = File.OpenRead(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + image))
         {
             let request = InsertDrawingObjectWithoutNodePathRequest(remoteName, "{\"Left\": 0}", file, getRemoteDataFolder(action: "InsetDrawingObjectWithoutNodePath"));
-            super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-            let actual = super.getApi().insertDrawingObjectWithoutNodePath(request);
+            try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+            let actual = try super.getApi().insertDrawingObjectWithoutNodePath(request: request);
         }
     }
     
@@ -175,9 +175,9 @@ class DrawingTests: BaseTestContext {
         let remoteName = "TestDeleteDrawingObject.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteDrawingObject") + "/" + remoteName);
         int objectIndex = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteDrawingObjectRequest(remoteName, null, objectIndex, getRemoteDataFolder(action: "DeleteDrawingObject"));
-        super.getApi().deleteDrawingObject(request);
+        try super.getApi().deleteDrawingObject(request: request);
     }
     
 
@@ -186,9 +186,9 @@ class DrawingTests: BaseTestContext {
         let remoteName = "TestDeleteDrawingObjectWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteDrawingObjectWithoutNodePath") + "/" + remoteName);
         int objectIndex = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteDrawingObjectWithoutNodePathRequest(remoteName, objectIndex, getRemoteDataFolder(action: "DeleteDrawingObjectWithoutNodePath"));
-        super.getApi().deleteDrawingObjectWithoutNodePath(request);
+        try super.getApi().deleteDrawingObjectWithoutNodePath(request: request);
     }
     
 
@@ -200,8 +200,8 @@ class DrawingTests: BaseTestContext {
         using (let file = File.OpenRead(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + image))
         {
             let request = UpdateDrawingObjectRequest(remoteName, "{\"Left\": 0}", file, null, 0, getRemoteDataFolder(action: "UpdateDrawingObject"));
-            super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-            let actual = super.getApi().updateDrawingObject(request);
+            try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+            let actual = try super.getApi().updateDrawingObject(request: request);
         }
     }
     
@@ -214,8 +214,8 @@ class DrawingTests: BaseTestContext {
         using (let file = File.OpenRead(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + image))
         {
             let request = UpdateDrawingObjectWithoutNodePathRequest(remoteName, "{\"Left\": 0}", file, 0, getRemoteDataFolder(action: "UpdateDrawingObjectWithoutNodePath"));
-            super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-            let actual = super.getApi().updateDrawingObjectWithoutNodePath(request);
+            try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+            let actual = try super.getApi().updateDrawingObjectWithoutNodePath(request: request);
         }
     }
 }

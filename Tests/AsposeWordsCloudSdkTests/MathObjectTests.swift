@@ -21,9 +21,9 @@ class MathObjectTests: BaseTestContext {
         let localName = "MathObjects.docx";
         let remoteName = "TestGetOfficeMathObjects.docx";
         let fullName = (getRemoteDataFolder(action: "GetOfficeMathObjects") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetOfficeMathObjectsRequest(remoteName, null, getRemoteDataFolder(action: "GetOfficeMathObjects"));
-        let actual = super.getApi().getOfficeMathObjects(request);
+        let actual = try super.getApi().getOfficeMathObjects(request: request);
     }
     
 
@@ -31,9 +31,9 @@ class MathObjectTests: BaseTestContext {
         let localName = "MathObjects.docx";
         let remoteName = "TestGetOfficeMathObjectsWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "GetOfficeMathObjectsWithoutNodePath") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetOfficeMathObjectsWithoutNodePathRequest(remoteName, getRemoteDataFolder(action: "GetOfficeMathObjectsWithoutNodePath"));
-        let actual = super.getApi().getOfficeMathObjectsWithoutNodePath(request);
+        let actual = try super.getApi().getOfficeMathObjectsWithoutNodePath(request: request);
     }
     
 
@@ -42,9 +42,9 @@ class MathObjectTests: BaseTestContext {
         let remoteName = "TestGetOfficeMathObject.docx";
         let fullName = (getRemoteDataFolder(action: "GetOfficeMathObject") + "/" + remoteName);
         let index = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetOfficeMathObjectRequest(remoteName, null, index, getRemoteDataFolder(action: "GetOfficeMathObject"));
-        let actual = super.getApi().getOfficeMathObject(request);
+        let actual = try super.getApi().getOfficeMathObject(request: request);
     }
     
 
@@ -53,9 +53,9 @@ class MathObjectTests: BaseTestContext {
         let remoteName = "TestGetOfficeMathObjectWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "GetOfficeMathObjectWithoutNodePath") + "/" + remoteName);
         let index = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetOfficeMathObjectWithoutNodePathRequest(remoteName, index, getRemoteDataFolder(action: "GetOfficeMathObjectWithoutNodePath"));
-        let actual = super.getApi().getOfficeMathObjectWithoutNodePath(request);
+        let actual = try super.getApi().getOfficeMathObjectWithoutNodePath(request: request);
     }
     
 
@@ -64,9 +64,9 @@ class MathObjectTests: BaseTestContext {
         let remoteName = "TestRenderMathObject.docx";
         let fullName = (getRemoteDataFolder(action: "RenderMathObject") + "/" + remoteName);
         let index = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = RenderMathObjectRequest(remoteName, "png", null, index, getRemoteDataFolder(action: "RenderMathObject"));
-        let actual = super.getApi().renderMathObject(request);
+        let actual = try super.getApi().renderMathObject(request: request);
         Assert.IsTrue(actual.Length > 0, "Error has occurred while mathObject rendering");
     }
     
@@ -76,9 +76,9 @@ class MathObjectTests: BaseTestContext {
         let remoteName = "TestRenderMathObjectWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "RenderMathObjectWithoutNodePath") + "/" + remoteName);
         let index = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = RenderMathObjectWithoutNodePathRequest(remoteName, "png", index, getRemoteDataFolder(action: "RenderMathObjectWithoutNodePath"));
-        let actual = super.getApi().renderMathObjectWithoutNodePath(request);
+        let actual = try super.getApi().renderMathObjectWithoutNodePath(request: request);
         Assert.IsTrue(actual.Length > 0, "Error has occurred while mathObject rendering");
     }
     
@@ -88,9 +88,9 @@ class MathObjectTests: BaseTestContext {
         let remoteName = "TestDeleteMathObject.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteMathObject") + "/" + remoteName);
         let index = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteOfficeMathObjectRequest(remoteName, null, index, getRemoteDataFolder(action: "DeleteMathObject"));
-        super.getApi().deleteOfficeMathObject(request);
+        try super.getApi().deleteOfficeMathObject(request: request);
     }
     
 
@@ -99,8 +99,8 @@ class MathObjectTests: BaseTestContext {
         let remoteName = "TestDeleteMathObjectWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteMathObjectWithoutNodePath") + "/" + remoteName);
         let index = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteOfficeMathObjectWithoutNodePathRequest(remoteName, index, getRemoteDataFolder(action: "DeleteMathObjectWithoutNodePath"));
-        super.getApi().deleteOfficeMathObjectWithoutNodePath(request);
+        try super.getApi().deleteOfficeMathObjectWithoutNodePath(request: request);
     }
 }

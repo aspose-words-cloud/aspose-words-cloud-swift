@@ -17,9 +17,9 @@ class TextTests: BaseTestContext {
         let fullName = (this.remoteDataFolder + "/" + remoteName);
         let destFileName = (BaseTestOutPath + "/" + remoteName);
         let body = ReplaceTextParameters { OldValue = "aspose", NewValue = "aspose new" };
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = ReplaceTextRequest(remoteName, body, this.remoteDataFolder, destFileName: destFileName);
-        let actual = super.getApi().replaceText(request);
+        let actual = try super.getApi().replaceText(request: request);
     }
     
 
@@ -28,8 +28,8 @@ class TextTests: BaseTestContext {
         let remoteName = "TestSearch.docx";
         let fullName = (this.remoteDataFolder + "/" + remoteName);
         let pattern = "aspose";
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder()(BaseTestContext.LocalTestDataFolder + "/" + textFolder + "/" + localName));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder()(BaseTestContext.LocalTestDataFolder + "/" + textFolder + "/" + localName));
         let request = SearchRequest(remoteName, pattern, this.remoteDataFolder);
-        let actual = super.getApi().search(request);
+        let actual = try super.getApi().search(request: request);
     }
 }

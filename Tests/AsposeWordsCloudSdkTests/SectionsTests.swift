@@ -18,9 +18,9 @@ class SectionsTests: BaseTestContext {
         let remoteName = "TestDeleteHeadersFooters.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteHeadersFooters") + "/" + remoteName);
         let destFileName = (BaseTestOutPath + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteHeadersFootersRequest(remoteName, "sections/0", getRemoteDataFolder(action: "DeleteHeadersFooters"), destFileName: destFileName);
-        super.getApi().deleteHeadersFooters(request);
+        try super.getApi().deleteHeadersFooters(request: request);
     }
 
     func testGetSection() throws {
@@ -28,9 +28,9 @@ class SectionsTests: BaseTestContext {
         let remoteName = "TestGetSection.docx";
         let fullName = (getRemoteDataFolder(action: "GetSection") + "/" + remoteName);
         let sectionIndex = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetSectionRequest(remoteName, sectionIndex, getRemoteDataFolder(action: "GetSection"));
-        let actual = super.getApi().getSection(request);
+        let actual = try super.getApi().getSection(request: request);
     }
     
 
@@ -38,9 +38,9 @@ class SectionsTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestGetSections.docx";
         let fullName = (getRemoteDataFolder(action: "GetSections") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetSectionsRequest(remoteName, getRemoteDataFolder(action: "GetSections"));
-        let actual = super.getApi().getSections(request);
+        let actual = try super.getApi().getSections(request: request);
     }
     
 
@@ -48,8 +48,8 @@ class SectionsTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestDeleteSections.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteSections") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteSectionRequest(remoteName, 0, getRemoteDataFolder(action: "DeleteSections"));
-        super.getApi().deleteSection(request);
+        try super.getApi().deleteSection(request: request);
     }
 }

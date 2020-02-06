@@ -42,9 +42,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestGetTableBorders.docx";
         let fullName = (getRemoteDataFolder(action: "GetTableBorders") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetBordersRequest(remoteName, "tables/1/rows/0/cells/0", getRemoteDataFolder(action: "GetTableBorders"));
-        let actual = super.getApi().getBorders(request);
+        let actual = try super.getApi().getBorders(request: request);
     }
     
 
@@ -52,9 +52,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestGetTableBorder.docx";
         let fullName = (getRemoteDataFolder(action: "GetTableBorder") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetBorderRequest(remoteName, "tables/1/rows/0/cells/0", "left", getRemoteDataFolder(action: "GetTableBorder"));
-        let actual = super.getApi().getBorder(request);
+        let actual = try super.getApi().getBorder(request: request);
     }
     
 
@@ -62,9 +62,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestDeleteTableBorders.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteTableBorders") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteBordersRequest(remoteName, "tables/1/rows/0/cells/0", getRemoteDataFolder(action: "DeleteTableBorders"));
-        let actual = super.getApi().deleteBorders(request);
+        let actual = try super.getApi().deleteBorders(request: request);
     }
     
 
@@ -72,9 +72,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestDeleteTableBorder.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteTableBorder") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteBorderRequest(remoteName, "tables/1/rows/0/cells/0", "left", getRemoteDataFolder(action: "DeleteTableBorder"));
-        let actual = super.getApi().deleteBorder(request);
+        let actual = try super.getApi().deleteBorder(request: request);
     }
     
 
@@ -91,18 +91,18 @@ class TableTests: BaseTestContext {
                              LineWidth = 2,
                              Shadow = true
                          };
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = UpdateBorderRequest(remoteName, border, "tables/1/rows/0/cells/0", "left", getRemoteDataFolder(action: "UpdateTableBorder"));
-        let actual = super.getApi().updateBorder(request);
+        let actual = try super.getApi().updateBorder(request: request);
     }
 
     func testGetTables() throws {
         let localName = "TablesGet.docx";
         let remoteName = "TestGetTables.docx";
         let fullName = (getRemoteDataFolder(action: "GetTables") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetTablesRequest(remoteName, null, getRemoteDataFolder(action: "GetTables"));
-        let actual = super.getApi().getTables(request);
+        let actual = try super.getApi().getTables(request: request);
     }
     
 
@@ -110,9 +110,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestGetTablesWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "GetTablesWithoutNodePath") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetTablesWithoutNodePathRequest(remoteName, getRemoteDataFolder(action: "GetTablesWithoutNodePath"));
-        let actual = super.getApi().getTablesWithoutNodePath(request);
+        let actual = try super.getApi().getTablesWithoutNodePath(request: request);
     }
     
 
@@ -120,9 +120,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestGetTable.docx";
         let fullName = (getRemoteDataFolder(action: "GetTable") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetTableRequest(remoteName, null, 1, getRemoteDataFolder(action: "GetTable"));
-        let actual = super.getApi().getTable(request);
+        let actual = try super.getApi().getTable(request: request);
     }
     
 
@@ -130,9 +130,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestGetTableWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "GetTableWithoutNodePath") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetTableWithoutNodePathRequest(remoteName, 1, getRemoteDataFolder(action: "GetTableWithoutNodePath"));
-        let actual = super.getApi().getTableWithoutNodePath(request);
+        let actual = try super.getApi().getTableWithoutNodePath(request: request);
     }
     
 
@@ -140,9 +140,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestDeleteTable.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteTable") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteTableRequest(remoteName, null, 1, getRemoteDataFolder(action: "DeleteTable"));
-        super.getApi().deleteTable(request);
+        try super.getApi().deleteTable(request: request);
     }
     
 
@@ -150,9 +150,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestDeleteTableWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteTableWithoutNodePath") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteTableWithoutNodePathRequest(remoteName, 1, getRemoteDataFolder(action: "DeleteTableWithoutNodePath"));
-        super.getApi().deleteTableWithoutNodePath(request);
+        try super.getApi().deleteTableWithoutNodePath(request: request);
     }
     
 
@@ -161,9 +161,9 @@ class TableTests: BaseTestContext {
         let remoteName = "TestInsertTable.docx";
         let fullName = (getRemoteDataFolder(action: "InsertTable") + "/" + remoteName);
         let tableDto = TableInsert { ColumnsCount = 5, RowsCount = 4 };
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = InsertTableRequest(remoteName, null, getRemoteDataFolder(action: "InsertTable"), table: tableDto);
-        let actual = super.getApi().insertTable(request);
+        let actual = try super.getApi().insertTable(request: request);
     }
     
 
@@ -172,9 +172,9 @@ class TableTests: BaseTestContext {
         let remoteName = "TestInsertTableWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "InsertTableWithoutNodePath") + "/" + remoteName);
         let tableDto = TableInsert { ColumnsCount = 5, RowsCount = 4 };
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = InsertTableWithoutNodePathRequest(remoteName, getRemoteDataFolder(action: "InsertTableWithoutNodePath"), table: tableDto);
-        let actual = super.getApi().insertTableWithoutNodePath(request);
+        let actual = try super.getApi().insertTableWithoutNodePath(request: request);
     }
     
 
@@ -182,9 +182,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestGetTableProperties.docx";
         let fullName = (getRemoteDataFolder(action: "GetTableProperties") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetTablePropertiesRequest(remoteName, null, 1, getRemoteDataFolder(action: "GetTableProperties"));
-        let actual = super.getApi().getTableProperties(request);
+        let actual = try super.getApi().getTableProperties(request: request);
     }
     
 
@@ -192,9 +192,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestGetTablePropertiesWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "GetTablePropertiesWithoutNodePath") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetTablePropertiesWithoutNodePathRequest(remoteName, 1, getRemoteDataFolder(action: "GetTablePropertiesWithoutNodePath"));
-        let actual = super.getApi().getTablePropertiesWithoutNodePath(request);
+        let actual = try super.getApi().getTablePropertiesWithoutNodePath(request: request);
     }
     
 
@@ -215,9 +215,9 @@ class TableTests: BaseTestContext {
                                     StyleOptions = TableProperties.StyleOptionsEnum.ColumnBands,
                                     TopPadding = 6
                                 };
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = UpdateTablePropertiesRequest(remoteName, null, 1, getRemoteDataFolder(action: "UpdateTableProperties"), properties: newProperties);
-        let actual = super.getApi().updateTableProperties(request);
+        let actual = try super.getApi().updateTableProperties(request: request);
     }
     
 
@@ -238,9 +238,9 @@ class TableTests: BaseTestContext {
             StyleOptions = TableProperties.StyleOptionsEnum.ColumnBands,
             TopPadding = 6
         };
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = UpdateTablePropertiesWithoutNodePathRequest(remoteName, 1, getRemoteDataFolder(action: "UpdateTablePropertiesWithoutNodePath"), properties: newProperties);
-        let actual = super.getApi().updateTablePropertiesWithoutNodePath(request);
+        let actual = try super.getApi().updateTablePropertiesWithoutNodePath(request: request);
     }
     
 
@@ -248,9 +248,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestGetTableRow.docx";
         let fullName = (getRemoteDataFolder(action: "GetTableRow") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetTableRowRequest(remoteName, "tables/1", 0, getRemoteDataFolder(action: "GetTableRow"));
-        let actual = super.getApi().getTableRow(request);
+        let actual = try super.getApi().getTableRow(request: request);
     }
     
 
@@ -258,9 +258,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestDeleteTableRow.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteTableRow") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteTableRowRequest(remoteName, "tables/1", 0, getRemoteDataFolder(action: "DeleteTableRow"));
-        super.getApi().deleteTableRow(request);
+        try super.getApi().deleteTableRow(request: request);
     }
     
 
@@ -269,9 +269,9 @@ class TableTests: BaseTestContext {
         let remoteName = "TestInsertTableRow.docx";
         let fullName = (getRemoteDataFolder(action: "InsertTableRow") + "/" + remoteName);
         let row = TableRowInsert { ColumnsCount = 5 };
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = InsertTableRowRequest(remoteName, "sections/0/tables/2", getRemoteDataFolder(action: "InsertTableRow"), row: row);
-        let actual = super.getApi().insertTableRow(request);
+        let actual = try super.getApi().insertTableRow(request: request);
     }
     
 
@@ -279,9 +279,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestGetTableRowFormat.docx";
         let fullName = (getRemoteDataFolder(action: "GetTableRowFormat") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetTableRowFormatRequest(remoteName, "sections/0/tables/2", 0, getRemoteDataFolder(action: "GetTableRowFormat"));
-        let actual = super.getApi().getTableRowFormat(request);
+        let actual = try super.getApi().getTableRowFormat(request: request);
     }
     
 
@@ -290,9 +290,9 @@ class TableTests: BaseTestContext {
         let remoteName = "TestUpdateTableRowFormat.docx";
         let fullName = (getRemoteDataFolder(action: "UpdateTableRowFormat") + "/" + remoteName);
         let rowFormat = TableRowFormat { AllowBreakAcrossPages = true, HeadingFormat = true, Height = 10, HeightRule = TableRowFormat.HeightRuleEnum.Auto };
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = UpdateTableRowFormatRequest(remoteName, "sections/0/tables/2", 0, getRemoteDataFolder(action: "UpdateTableRowFormat"), format: rowFormat);
-        let actual = super.getApi().updateTableRowFormat(request);
+        let actual = try super.getApi().updateTableRowFormat(request: request);
     }
     
 
@@ -300,9 +300,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestGetTableCell.docx";
         let fullName = (getRemoteDataFolder(action: "GetTableCell") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetTableCellRequest(remoteName, "sections/0/tables/2/rows/0", 0, getRemoteDataFolder(action: "GetTableCell"));
-        let actual = super.getApi().getTableCell(request);
+        let actual = try super.getApi().getTableCell(request: request);
     }
     
 
@@ -310,9 +310,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestDeleteCell.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteCell") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteTableCellRequest(remoteName, "sections/0/tables/2/rows/0", 0, getRemoteDataFolder(action: "DeleteCell"));
-        super.getApi().deleteTableCell(request);
+        try super.getApi().deleteTableCell(request: request);
     }
     
 
@@ -321,9 +321,9 @@ class TableTests: BaseTestContext {
         let remoteName = "TestInsertTableCell.docx";
         let fullName = (getRemoteDataFolder(action: "InsertTableCell") + "/" + remoteName);
         let cell = TableCellInsert();
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = InsertTableCellRequest(remoteName, "sections/0/tables/2/rows/0", getRemoteDataFolder(action: "InsertTableCell"), cell: cell);
-        let actual = super.getApi().insertTableCell(request);
+        let actual = try super.getApi().insertTableCell(request: request);
     }
     
 
@@ -331,9 +331,9 @@ class TableTests: BaseTestContext {
         let localName = "TablesGet.docx";
         let remoteName = "TestGetTableCellFormat.docx";
         let fullName = (getRemoteDataFolder(action: "GetTableCellFormat") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetTableCellFormatRequest(remoteName, "sections/0/tables/2/rows/0", 0, getRemoteDataFolder(action: "GetTableCellFormat"));
-        let actual = super.getApi().getTableCellFormat(request);
+        let actual = try super.getApi().getTableCellFormat(request: request);
     }
     
 
@@ -342,9 +342,9 @@ class TableTests: BaseTestContext {
         let remoteName = "TestUpdateTableCellFormat.docx";
         let fullName = (getRemoteDataFolder(action: "UpdateTableCellFormat") + "/" + remoteName);
         let cellFormat = TableCellFormat { BottomPadding = 5, FitText = true, HorizontalMerge = TableCellFormat.HorizontalMergeEnum.First, WrapText = true };
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = UpdateTableCellFormatRequest(remoteName, "sections/0/tables/2/rows/0", 0, getRemoteDataFolder(action: "UpdateTableCellFormat"), format: cellFormat);
-        let actual = super.getApi().updateTableCellFormat(request);
+        let actual = try super.getApi().updateTableCellFormat(request: request);
     }
     
 
@@ -354,9 +354,9 @@ class TableTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "RenderTable") + "/" + remoteName);
         let index = 0;
         let format = "png";
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = RenderTableRequest(remoteName, format, null, index, getRemoteDataFolder(action: "RenderTable"));
-        let actual = super.getApi().renderTable(request);
+        let actual = try super.getApi().renderTable(request: request);
         Assert.IsTrue(actual.Length > 0, "Error has occurred while table rendering");
     }
     
@@ -367,9 +367,9 @@ class TableTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "RenderTableWithoutNodePath") + "/" + remoteName);
         let index = 0;
         let format = "png";
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = RenderTableWithoutNodePathRequest(remoteName, format, index, getRemoteDataFolder(action: "RenderTableWithoutNodePath"));
-        let actual = super.getApi().renderTableWithoutNodePath(request);
+        let actual = try super.getApi().renderTableWithoutNodePath(request: request);
         Assert.IsTrue(actual.Length > 0, "Error has occurred while table rendering");
     }
 }

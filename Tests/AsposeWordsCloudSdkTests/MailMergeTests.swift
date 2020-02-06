@@ -21,7 +21,7 @@ class MailMergeTests: BaseTestContext {
             using (let data = File.OpenRead(BaseTestContext.GetDataDir(this.mailMergeFolder) + "SampleExecuteTemplateData.txt"))
             {
                 let request = ExecuteMailMergeOnlineRequest(file, data);
-                let result = super.getApi().executeMailMergeOnline(request);
+                let result = try super.getApi().executeMailMergeOnline(request: request);
                 Assert.IsTrue(result.Length > 0, "Error occurred while executing mail merge");
             }
         }
@@ -34,9 +34,9 @@ class MailMergeTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "ExecuteMailMerge") + "/" + remoteName);
         let destFileName = (BaseTestOutPath + "/" + remoteName);
         let data = File.ReadAllText(BaseTestContext.GetDataDir(this.mailMergeFolder) + "SampleMailMergeTemplateData.txt");
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mailMergeFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mailMergeFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = ExecuteMailMergeRequest(remoteName, data, getRemoteDataFolder(action: "ExecuteMailMerge"), destFileName: destFileName, withRegions: false);
-        let actual = super.getApi().executeMailMerge(request);
+        let actual = try super.getApi().executeMailMerge(request: request);
     }
 
     func testExecuteTemplate() throws {
@@ -45,9 +45,9 @@ class MailMergeTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "ExecuteTemplate") + "/" + remoteName);
         let destFileName = (BaseTestOutPath + "/" + remoteName);
         let data = File.ReadAllText(BaseTestContext.GetDataDir(this.mailMergeFolder) + "TestExecuteTemplateData.txt");
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mailMergeFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mailMergeFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = ExecuteMailMergeRequest(remoteName, data, getRemoteDataFolder(action: "ExecuteTemplate"), destFileName: destFileName);
-        let actual = super.getApi().executeMailMerge(request);
+        let actual = try super.getApi().executeMailMerge(request: request);
     }
     
 
@@ -57,7 +57,7 @@ class MailMergeTests: BaseTestContext {
             using (let data = File.OpenRead(BaseTestContext.GetDataDir(this.mailMergeFolder) + "SampleExecuteTemplateData.txt"))
             {
                 let request = ExecuteMailMergeOnlineRequest(file, data);
-                let result = super.getApi().executeMailMergeOnline(request);
+                let result = try super.getApi().executeMailMergeOnline(request: request);
                 Assert.IsTrue(result.Length > 0, "Error occurred while executing template");
             }
         }
@@ -67,9 +67,9 @@ class MailMergeTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestGetDocumentFieldNames.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentFieldNames") + "/" + remoteName);
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = GetDocumentFieldNamesRequest(remoteName, getRemoteDataFolder(action: "GetDocumentFieldNames"));
-        let actual = super.getApi().getDocumentFieldNames(request);
+        let actual = try super.getApi().getDocumentFieldNames(request: request);
     }
     
 
@@ -77,7 +77,7 @@ class MailMergeTests: BaseTestContext {
         using (let fileStream = File.OpenRead(BaseTestContext.GetDataDir(this.mailMergeFolder) + "SampleExecuteTemplate.docx"))
         {
             let request = GetDocumentFieldNamesOnlineRequest(fileStream, true);
-            FieldNamesResponse actual = super.getApi().getDocumentFieldNamesOnline(request);
+            FieldNamesResponse actual = try super.getApi().getDocumentFieldNamesOnline(request: request);
         }
     }
 }

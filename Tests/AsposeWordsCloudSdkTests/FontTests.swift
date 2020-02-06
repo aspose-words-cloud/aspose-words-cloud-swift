@@ -13,12 +13,12 @@ class FontTests: BaseTestContext {
 
     func testResetCache() throws {
         let request = ResetCacheRequest();
-        super.getApi().resetCache(request);
+        try super.getApi().resetCache(request: request);
     }
     
 
     func testGetAvailableFonts() throws {
         let request = GetAvailableFontsRequest();
-        let actual = super.getApi().getAvailableFonts(request);            
+        let actual = try super.getApi().getAvailableFonts(request: request);            
     }
 }

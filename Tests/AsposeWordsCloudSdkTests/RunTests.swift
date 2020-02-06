@@ -17,9 +17,9 @@ class RunTests: BaseTestContext {
         let remoteName = "TestUpdateRun.docx";
         let fullName = (getRemoteDataFolder(action: "UpdateRun") + "/" + remoteName);
         let run = Run { Text = "run with text" };
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = UpdateRunRequest(remoteName, run, "paragraphs/1", 0, getRemoteDataFolder(action: "UpdateRun"));
-        let actual = super.getApi().updateRun(request);
+        let actual = try super.getApi().updateRun(request: request);
     }
     
 
@@ -28,9 +28,9 @@ class RunTests: BaseTestContext {
         let remoteName = "TestInsertRun.docx";
         let fullName = (getRemoteDataFolder(action: "InsertRun") + "/" + remoteName);
         let run = Run { Text = "run with text" };
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = InsertRunRequest(remoteName, "paragraphs/1", run, getRemoteDataFolder(action: "InsertRun"));
-        let actual = super.getApi().insertRun(request);
+        let actual = try super.getApi().insertRun(request: request);
     }
     
 
@@ -39,8 +39,8 @@ class RunTests: BaseTestContext {
         let remoteName = "TestDeleteRun.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteRun") + "/" + remoteName);
         let index = 0;
-        super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteRunRequest(remoteName, "paragraphs/1", index, getRemoteDataFolder(action: "DeleteRun"));
-        super.getApi().deleteRun(request);
+        try super.getApi().deleteRun(request: request);
     }
 }
