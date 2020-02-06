@@ -9,8 +9,6 @@ class StorageTests: BaseTestContext {
         ("testCreateFolder", testCreateFolder),
         ("testDeleteFolder", testDeleteFolder),
         ("tesGetFileList", tesGetFileList),
-        ("testCopyFolder", testCopyFolder),
-        ("testMoveFolder", testMoveFolder),
     ];
 
     func getRemoteDataFolder(action : String) -> String {
