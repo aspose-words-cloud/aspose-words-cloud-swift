@@ -17,8 +17,8 @@ class PageSetupTests: BaseTestContext {
         let remoteName = "TestGetSectionPageSetup.docx";
         let fullName = (getRemoteDataFolder(action: "GetSectionPageSetup") + "/" + remoteName);
         let sectionIndex = 0;
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = GetSectionPageSetupRequest(remoteName, sectionIndex, getRemoteDataFolder(action: "GetSectionPageSetup"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = GetSectionPageSetupRequest(name: remoteName, sectionIndex: sectionIndex, folder: getRemoteDataFolder(action: "GetSectionPageSetup"));
         let actual = try super.getApi().getSectionPageSetup(request: request);
     }
     
@@ -28,15 +28,15 @@ class PageSetupTests: BaseTestContext {
         let remoteName = "TestUpdateSectionPageSetup.docx";
         let fullName = (getRemoteDataFolder(action: "UpdateSectionPageSetup") + "/" + remoteName);
         let sectionIndex = 0;
-        let body = PageSetup
-                       {
-                           RtlGutter = true,
-                           LeftMargin = 10.0f,
-                           Orientation = PageSetup.OrientationEnum.Landscape,
-                           PaperSize = PageSetup.PaperSizeEnum.A5
-                       };
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = UpdateSectionPageSetupRequest(remoteName, sectionIndex, body, getRemoteDataFolder(action: "UpdateSectionPageSetup"));
+        
+        let body = PageSetup();
+        body.setRtlGutter(rtlGutter: true);
+        body.setLeftMargin(leftMargin: 10);
+        body.setOrientation(orientation: PageSetup.Orientation.landscape);
+        body.setPaperSize(paperSize: PageSetup.PaperSize.a5);
+        
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = UpdateSectionPageSetupRequest(name: remoteName, sectionIndex: sectionIndex, pageSetup: body, folder: getRemoteDataFolder(action: "UpdateSectionPageSetup"));
         let actual = try super.getApi().updateSectionPageSetup(request: request);
     }
     
@@ -47,9 +47,9 @@ class PageSetupTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "GetRenderPage") + "/" + remoteName);
         let pageNumber = 1;
         let format = "bmp";
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.textFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = RenderPageRequest(remoteName, pageNumber, format, getRemoteDataFolder(action: "GetRenderPage"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("DocumentElements/Text", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = RenderPageRequest(name: remoteName, pageIndex: pageNumber, format: format, folder: getRemoteDataFolder(action: "GetRenderPage"));
         let result = try super.getApi().renderPage(request: request);
-        Assert.IsTrue(result.Length > 0, "Error while page render");
+        XCTAssert(result.count > 0, "Error while page render");
     }
 }

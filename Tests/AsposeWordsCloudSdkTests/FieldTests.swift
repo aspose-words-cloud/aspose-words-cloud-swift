@@ -36,7 +36,7 @@ class FieldTests: BaseTestContext {
     }
     
     private static let fieldFolder = "DocumentElements/Fields";
-    private static let textFolder = "DocumentElements/Text"
+    private static let textFolder = "DocumentElements/Text";
 
     func testGetFields() throws {
         let localName = "GetField.docx";

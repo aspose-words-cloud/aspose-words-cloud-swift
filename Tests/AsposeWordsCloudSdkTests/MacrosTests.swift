@@ -14,8 +14,8 @@ class MacrosTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestDeleteDocumentMacros.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteDocumentMacros") + "/" + remoteName);
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = DeleteMacrosRequest(remoteName, getRemoteDataFolder(action: "DeleteDocumentMacros"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = DeleteMacrosRequest(name: remoteName, folder: getRemoteDataFolder(action: "DeleteDocumentMacros"));
         try super.getApi().deleteMacros(request: request);
     }
 }

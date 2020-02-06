@@ -17,19 +17,17 @@ class WatermarkTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestInsertDocumentWatermarkImage.docx";
         let fullName = (getRemoteDataFolder(action: "InsertDocumentWatermarkImage") + "/" + remoteName);
-        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
-        double rotationAngle = 0F;
+        let destFileName = (super.getRemoteTestOut() + "/" + remoteName);
+        let rotationAngle = 0.0;
         let image = "aspose-cloud.png";
-        using (let file = File.OpenRead(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + image))
-        {
-            try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-            let request = InsertWatermarkImageRequest(remoteName,
-                file,
-                getRemoteDataFolder(action: "InsertDocumentWatermarkImage"),
-                rotationAngle: rotationAngle,
-                destFileName: destFileName);
-            let actual = try super.getApi().insertWatermarkImage(request: request);
-        }
+        let file = self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(image, isDirectory: false);
+        
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = InsertWatermarkImageRequest(name: remoteName,
+                                                  imageFile: file,
+                                                  folder: getRemoteDataFolder(action: "InsertDocumentWatermarkImage"),
+                destFileName: destFileName, rotationAngle: rotationAngle);
+        let actual = try super.getApi().insertWatermarkImage(request: request);
     }
     
 
@@ -37,14 +35,14 @@ class WatermarkTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestInsertWatermarkImage.docx";
         let fullName = (getRemoteDataFolder(action: "InsertWatermarkImage") + "/" + remoteName);
-        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
-        double rotationAngle = 0F;
+        let destFileName = (super.getRemoteTestOut() + "/" + remoteName);
+        let rotationAngle = 0.0;
         let localImage = "aspose-cloud.png";
         let remoteImage = "TestInsertWatermarkImage.png";
         let fullImagePath = (getRemoteDataFolder(action: "InsertWatermarkImage") + "/" + remoteImage);
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        try super.uploadFile(fullImagePath, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true) + localImage);
-        let request = InsertWatermarkImageRequest(remoteName, folder: getRemoteDataFolder(action: "InsertWatermarkImage"), image: fullImagePath, rotationAngle: rotationAngle, destFileName: destFileName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localImage, isDirectory: false), path: fullImagePath);
+        let request = InsertWatermarkImageRequest(name: remoteName, folder: getRemoteDataFolder(action: "InsertWatermarkImage"), destFileName: destFileName, rotationAngle: rotationAngle, image: fullImagePath);
         let actual = try super.getApi().insertWatermarkImage(request: request);
     }
     
@@ -53,10 +51,14 @@ class WatermarkTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestInsertWatermarkText.docx";
         let fullName = (getRemoteDataFolder(action: "InsertWatermarkText") + "/" + remoteName);
-        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
-        let body = WatermarkText { Text = "This is the text", RotationAngle = 90.0f };
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = InsertWatermarkTextRequest(remoteName, body, getRemoteDataFolder(action: "InsertWatermarkText"), destFileName: destFileName);
+        let destFileName = (super.getRemoteTestOut() + "/" + remoteName);
+        
+        let body = WatermarkText();
+        body.setText(text: "This is the text");
+        body.setRotationAngle(rotationAngle: 90.0);
+    
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = InsertWatermarkTextRequest(name: remoteName, watermarkText: body, folder: getRemoteDataFolder(action: "InsertWatermarkText"), destFileName: destFileName);
         let actual = try super.getApi().insertWatermarkText(request: request);
     }
     
@@ -65,9 +67,9 @@ class WatermarkTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestDeleteDocumentWatermark.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteDocumentWatermark") + "/" + remoteName);
-        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = DeleteWatermarkRequest(remoteName, getRemoteDataFolder(action: "DeleteDocumentWatermark"), destFileName: destFileName);
+        let destFileName = (super.getRemoteTestOut() + "/" + remoteName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = DeleteWatermarkRequest(name: remoteName, folder: getRemoteDataFolder(action: "DeleteDocumentWatermark"), destFileName: destFileName);
         let actual = try super.getApi().deleteWatermark(request: request);
     }
 }

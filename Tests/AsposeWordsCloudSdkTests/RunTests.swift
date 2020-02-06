@@ -12,13 +12,18 @@ class RunTests: BaseTestContext {
         return super.getRemoteTestDataFolder() + "Run/" + action;
     }
 
+    private let runFolder = "DocumentElements/Runs";
+    
     func testUpdateRun() throws {
         let localName = "Run.doc";
         let remoteName = "TestUpdateRun.docx";
         let fullName = (getRemoteDataFolder(action: "UpdateRun") + "/" + remoteName);
-        let run = Run { Text = "run with text" };
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = UpdateRunRequest(remoteName, run, "paragraphs/1", 0, getRemoteDataFolder(action: "UpdateRun"));
+        
+        let run = Run();
+        run.setText(text: "run with text");
+        
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = UpdateRunRequest(name: remoteName, run: run, paragraphPath: "paragraphs/1", index: 0, folder: getRemoteDataFolder(action: "UpdateRun"));
         let actual = try super.getApi().updateRun(request: request);
     }
     
@@ -27,9 +32,12 @@ class RunTests: BaseTestContext {
         let localName = "Run.doc";
         let remoteName = "TestInsertRun.docx";
         let fullName = (getRemoteDataFolder(action: "InsertRun") + "/" + remoteName);
-        let run = Run { Text = "run with text" };
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = InsertRunRequest(remoteName, "paragraphs/1", run, getRemoteDataFolder(action: "InsertRun"));
+        
+        let run = Run();
+        run.setText(text: "run with text");
+        
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = InsertRunRequest(name: remoteName, paragraphPath: "paragraphs/1", run: run, folder: getRemoteDataFolder(action: "InsertRun"));
         let actual = try super.getApi().insertRun(request: request);
     }
     
@@ -39,8 +47,8 @@ class RunTests: BaseTestContext {
         let remoteName = "TestDeleteRun.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteRun") + "/" + remoteName);
         let index = 0;
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = DeleteRunRequest(remoteName, "paragraphs/1", index, getRemoteDataFolder(action: "DeleteRun"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = DeleteRunRequest(name: remoteName, paragraphPath: "paragraphs/1", index: index, folder: getRemoteDataFolder(action: "DeleteRun"));
         try super.getApi().deleteRun(request: request);
     }
 }

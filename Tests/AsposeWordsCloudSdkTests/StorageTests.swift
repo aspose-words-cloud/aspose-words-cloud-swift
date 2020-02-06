@@ -19,63 +19,56 @@ class StorageTests: BaseTestContext {
 
     func testUploadFile() throws {
         let localName = "test_multi_pages.docx";
-        let remotePath = (RemoteBaseTestDataFolder + "/" + "TestUploadFile.docx");
-        using (let ms = MemoryStream(
-            File.ReadAllBytes(BaseTestContext.GetDataDir(BaseTestContext.CommonFolder) + localName)))
-        {
-            let request = UploadFileRequest(ms, remotePath);
-            try super.getApi().uploadFile(request: request);
-        }
+        let remotePath = (getRemoteDataFolder(action: "UploadFile") + "/" + "TestUploadFile.docx");
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        let request = UploadFileRequest(fileContent: localPath, path: remotePath);
+        try super.getApi().uploadFile(request: request);
     }
     
 
     func testCopyFile() throws {
         // Arrange
         let localName = "test_multi_pages.docx";
-        let remoteBasePathSrc = (RemoteBaseTestDataFolder + "/" + "TestCopyFileSrc.docx");
-        let remoteBasePathDest = (RemoteBaseTestDataFolder + "/" + $"TestCopyFileDest{Guid.NewGuid()}.docx");
-        try super.uploadFile(remoteBasePathSrc, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = CopyFileRequest(remoteBasePathDest, remoteBasePathSrc);
+        let remoteBasePathSrc = (getRemoteDataFolder(action: "CopyFile") + "/" + "TestCopyFileSrc.docx");
+        let remoteBasePathDest = (getRemoteDataFolder(action: "CopyFile") + "/" + "TestCopyFileDest\(UUID().uuidString).docx");
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: remoteBasePathSrc);
+        let request = CopyFileRequest(destPath: remoteBasePathDest, srcPath: remoteBasePathSrc);
         // Act
         try super.getApi().copyFile(request: request);
         // Assert
-        using (let result = try super.getApi().downloadFile(DownloadFileRequest(remoteBasePathDest)))
-        {
-            Assert.IsTrue(result.Length > 0);
-        }
+        let result = try super.getApi().downloadFile(request: DownloadFileRequest(path: remoteBasePathDest));
+        XCTAssert(result.count > 0);
     }
     
 
     func testMoveFile() throws {
         // Arrange
         let localName = "test_multi_pages.docx";
-        let remoteBasePathSrc = (RemoteBaseTestDataFolder + "/" + "TestMoveFileSrc.docx");
-        let remoteBasePathDest = (RemoteBaseTestDataFolder + "/" + $"TestMoveFileDest{Guid.NewGuid()}.docx");
-        try super.uploadFile(remoteBasePathSrc, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = MoveFileRequest(remoteBasePathDest, remoteBasePathSrc);
+        let remoteBasePathSrc = (getRemoteDataFolder(action: "MoveFile") + "/" + "TestMoveFileSrc.docx");
+        let remoteBasePathDest = (getRemoteDataFolder(action: "MoveFile") + "/" + "TestMoveFileDest\(UUID().uuidString).docx");
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: remoteBasePathSrc);
+        let request = MoveFileRequest(destPath: remoteBasePathDest, srcPath: remoteBasePathSrc);
         // Act
         try super.getApi().moveFile(request: request);
         // Assert
-        using (let result = try super.getApi().downloadFile(DownloadFileRequest(remoteBasePathDest)))
-        {
-            Assert.IsTrue(result.Length > 0);
-        }
-        
-        let exc = Assert.Throws<ApiException>(() => try super.getApi().downloadFile(DownloadFileRequest(remoteBasePathSrc)));
-        Assert.AreEqual(404, exc.ErrorCode);
+        let result = try super.getApi().downloadFile(request: DownloadFileRequest(path: remoteBasePathDest));
+        XCTAssert(result.count > 0);
     }
 
     func testCreateFolder() throws {
-        let request = CreateFolderRequest($"{this.storageFolder}/TestCreateFolder{Guid.NewGuid()}");
+        let request = CreateFolderRequest(path: "\(getRemoteDataFolder(action: "CreateFolder"))/TestCreateFolder\(UUID().uuidString)");
         try super.getApi().createFolder(request: request);
     }
     
 
     func testDeleteFolder() throws {
         // Arrange
-        let folderPath = $"{this.storageFolder}/TestCreateFolder{Guid.NewGuid()}";            
-        try super.getApi().createFolder(CreateFolderRequest(folderPath));
-        let request = DeleteFolderRequest(folderPath);
+        let folderPath = "\(getRemoteDataFolder(action: "CreateFolder"))/TestCreateFolder\(UUID().uuidString)";
+        try super.getApi().createFolder(request: CreateFolderRequest(path: folderPath));
+        let request = DeleteFolderRequest(path: folderPath);
         // Act && Assert
         try super.getApi().deleteFolder(request: request);
     }
@@ -83,37 +76,7 @@ class StorageTests: BaseTestContext {
 
     func tesGetFileList() throws {
         // Act && Assert
-        let result = try super.getApi().getFilesList(GetFilesListRequest(this.storageFolder));
-        Assert.IsTrue(result.Value.Count > 0);
-    }
-    
-
-    func testCopyFolder() throws {
-        // Arrange
-        let folderPathSrc = $"{this.storageFolder}/TestCopyFolderSrc{Guid.NewGuid()}";
-        let folderPathDest = $"{this.storageFolder}/TestCopyFolderDest{Guid.NewGuid()}";
-        try super.getApi().createFolder(CreateFolderRequest(folderPathSrc));
-        
-        let request = CopyFolderRequest(folderPathDest, folderPathSrc);
-        // Act
-        try super.getApi().copyFolder(request: request);
-        // Assert
-        let result = try super.getApi().getFilesList(GetFilesListRequest(this.storageFolder));
-        Assert.IsTrue(result.Value.Any(p => p.Path == $"/{folderPathDest}/"));
-    }
-    
-
-    func testMoveFolder() throws {
-        // Arrange
-        let folderPathSrc = $"{this.storageFolder}/TestMoveFolderSrc{Guid.NewGuid()}";
-        let folderPathDest = $"{this.storageFolder}/TestMoveFolderDest{Guid.NewGuid()}";
-        try super.getApi().createFolder(CreateFolderRequest(folderPathSrc));
-        let request = MoveFolderRequest(folderPathDest, folderPathSrc);
-        // Act
-        try super.getApi().moveFolder(request: request);
-        // Assert
-        let result = try super.getApi().getFilesList(GetFilesListRequest(this.storageFolder));
-        Assert.IsTrue(result.Value.Any(p => p.Path == $"/{folderPathDest}/"));
-        Assert.IsFalse(result.Value.Any(p => p.Path == $"/{folderPathSrc}/"));
+        let result = try super.getApi().getFilesList(request: GetFilesListRequest(path: super.getRemoteTestDataFolder()));
+        XCTAssert(result.getValue()?.count ?? 0 > 0);
     }
 }

@@ -14,11 +14,15 @@ class TextTests: BaseTestContext {
     func testReplaceText() throws {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestReplaceText.docx";
-        let fullName = (this.remoteDataFolder + "/" + remoteName);
-        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
-        let body = ReplaceTextParameters { OldValue = "aspose", NewValue = "aspose new" };
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = ReplaceTextRequest(remoteName, body, this.remoteDataFolder, destFileName: destFileName);
+        let fullName = (getRemoteDataFolder(action: "ReplaceText") + "/" + remoteName);
+        let destFileName = (super.getRemoteTestOut() + "/" + remoteName);
+        
+        let body = ReplaceTextParameters();
+        body.setOldValue(oldValue: "aspose");
+        body.setNewValue(newValue: "aspose new");
+        
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = ReplaceTextRequest(name: remoteName, replaceText: body, folder: getRemoteDataFolder(action: "ReplaceText"), destFileName: destFileName);
         let actual = try super.getApi().replaceText(request: request);
     }
     
@@ -26,10 +30,15 @@ class TextTests: BaseTestContext {
     func testSearch() throws {
         let localName = "SampleWordDocument.docx";
         let remoteName = "TestSearch.docx";
-        let fullName = (this.remoteDataFolder + "/" + remoteName);
+        let fullName = (getRemoteDataFolder(action: "ReplaceText") + "/" + remoteName);
         let pattern = "aspose";
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder()(BaseTestContext.LocalTestDataFolder + "/" + textFolder + "/" + localName));
-        let request = SearchRequest(remoteName, pattern, this.remoteDataFolder);
+        
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("DocumentElements/Text", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        try super.uploadFile(fileContent: localPath, path: fullName);
+        let request = SearchRequest(name: remoteName, pattern: pattern, folder: getRemoteDataFolder(action: "ReplaceText"));
         let actual = try super.getApi().search(request: request);
     }
 }

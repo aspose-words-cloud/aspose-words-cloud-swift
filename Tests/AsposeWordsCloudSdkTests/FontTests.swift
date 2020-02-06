@@ -7,10 +7,6 @@ class FontTests: BaseTestContext {
         ("testGetAvailableFonts", testGetAvailableFonts),
     ];
 
-    func getRemoteDataFolder(action : String) -> String {
-        return super.getRemoteTestDataFolder() + "Font/" + action;
-    }
-
     func testResetCache() throws {
         let request = ResetCacheRequest();
         try super.getApi().resetCache(request: request);

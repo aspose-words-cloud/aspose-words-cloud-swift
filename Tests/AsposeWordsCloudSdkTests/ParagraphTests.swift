@@ -26,13 +26,15 @@ class ParagraphTests: BaseTestContext {
         return super.getRemoteTestDataFolder() + "Paragraph/" + action;
     }
 
+    private static let fieldFolder = "DocumentElements/Fields";
+    
     func testGetDocumentParagraphByIndex() throws {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestGetDocumentParagraphByIndex.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentParagraphByIndex") + "/" + remoteName);
         let index = 0;
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = GetParagraphRequest(remoteName, "sections/0", index, getRemoteDataFolder(action: "GetDocumentParagraphByIndex"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = GetParagraphRequest(name: remoteName, nodePath: "sections/0", index: index, folder: getRemoteDataFolder(action: "GetDocumentParagraphByIndex"));
         let actual = try super.getApi().getParagraph(request: request);
     }
     
@@ -42,8 +44,8 @@ class ParagraphTests: BaseTestContext {
         let remoteName = "TestGetDocumentParagraphByIndexWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentParagraphByIndexWithoutNodePath") + "/" + remoteName);
         let index = 0;
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = GetParagraphWithoutNodePathRequest(remoteName, index, getRemoteDataFolder(action: "GetDocumentParagraphByIndexWithoutNodePath"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = GetParagraphWithoutNodePathRequest(name: remoteName, index: index, folder: getRemoteDataFolder(action: "GetDocumentParagraphByIndexWithoutNodePath"));
         let actual = try super.getApi().getParagraphWithoutNodePath(request: request);
     }
     
@@ -52,8 +54,8 @@ class ParagraphTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestGetDocumentParagraphs.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentParagraphs") + "/" + remoteName);
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = GetParagraphsRequest(remoteName, "sections/0", getRemoteDataFolder(action: "GetDocumentParagraphs"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = GetParagraphsRequest(name: remoteName, nodePath: "sections/0", folder: getRemoteDataFolder(action: "GetDocumentParagraphs"));
         let actual = try super.getApi().getParagraphs(request: request);
     }
     
@@ -62,8 +64,8 @@ class ParagraphTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestGetDocumentParagraphsWithoutNodePathWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentParagraphsWithoutNodePath") + "/" + remoteName);
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = GetParagraphsWithoutNodePathRequest(remoteName, getRemoteDataFolder(action: "GetDocumentParagraphsWithoutNodePath"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = GetParagraphsWithoutNodePathRequest(name: remoteName, folder: getRemoteDataFolder(action: "GetDocumentParagraphsWithoutNodePath"));
         let actual = try super.getApi().getParagraphsWithoutNodePath(request: request);
     }
     
@@ -73,8 +75,8 @@ class ParagraphTests: BaseTestContext {
         let remoteName = "TestGetDocumentParagraphWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentParagraphWithoutNodePath") + "/" + remoteName);
         let index = 0;
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = GetParagraphRequest(remoteName, null, index, getRemoteDataFolder(action: "GetDocumentParagraphWithoutNodePath"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = GetParagraphRequest(name: remoteName, nodePath: "", index: index, folder: getRemoteDataFolder(action: "GetDocumentParagraphWithoutNodePath"));
         let actual = try super.getApi().getParagraph(request: request);
     }
     
@@ -84,8 +86,8 @@ class ParagraphTests: BaseTestContext {
         let remoteName = "TestGetDocumentParagraphRun.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentParagraphRun") + "/" + remoteName);
         let runIndex = 0;
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = GetRunRequest(remoteName, "paragraphs/0", runIndex, getRemoteDataFolder(action: "GetDocumentParagraphRun"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = GetRunRequest(name: remoteName, paragraphPath: "paragraphs/0", index: runIndex, folder: getRemoteDataFolder(action: "GetDocumentParagraphRun"));
         let actual = try super.getApi().getRun(request: request);
     }
     
@@ -95,8 +97,8 @@ class ParagraphTests: BaseTestContext {
         let remoteName = "TestGetDocumentParagraphRunFont.docx";
         let fullName = (getRemoteDataFolder(action: "GetDocumentParagraphRunFont") + "/" + remoteName);
         let runIndex = 0;
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = GetRunFontRequest(remoteName, "paragraphs/0", runIndex, getRemoteDataFolder(action: "GetDocumentParagraphRunFont"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = GetRunFontRequest(name: remoteName, paragraphPath: "paragraphs/0", index: runIndex, folder: getRemoteDataFolder(action: "GetDocumentParagraphRunFont"));
         let actual = try super.getApi().getRunFont(request: request);
     }
     
@@ -105,9 +107,9 @@ class ParagraphTests: BaseTestContext {
         let localName = "GetField.docx";
         let remoteName = "TestGetParagraphRuns.docx";
         let fullName = (getRemoteDataFolder(action: "GetParagraphRuns") + "/" + remoteName);
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = GetRunsRequest(remoteName, "sections/0/paragraphs/0", getRemoteDataFolder(action: "GetParagraphRuns"));
-        RunsResponse actual = try super.getApi().getRuns(request: request);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(ParagraphTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = GetRunsRequest(name: remoteName, paragraphPath: "sections/0/paragraphs/0", folder: getRemoteDataFolder(action: "GetParagraphRuns"));
+        let actual = try super.getApi().getRuns(request: request);
     }
     
 
@@ -116,10 +118,13 @@ class ParagraphTests: BaseTestContext {
         let remoteName = "TestUpdateRunFont.docx";
         let fullName = (getRemoteDataFolder(action: "UpdateRunFont") + "/" + remoteName);
         let runIndex = 0;
-        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
-        let fontDto = Font { Bold = true };
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = UpdateRunFontRequest(remoteName, fontDto, "paragraphs/0", runIndex, getRemoteDataFolder(action: "UpdateRunFont"), destFileName: destFileName);
+        let destFileName = (super.getRemoteTestOut() + "/" + remoteName);
+        
+        let fontDto = Font();
+        fontDto.setBold(bold: true);
+        
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = UpdateRunFontRequest(name: remoteName, fontDto: fontDto, paragraphPath: "paragraphs/0", index: runIndex, folder: getRemoteDataFolder(action: "UpdateRunFont"), destFileName: destFileName);
         let actual = try super.getApi().updateRunFont(request: request);
     }
     
@@ -128,9 +133,12 @@ class ParagraphTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestInsertParagraph.docx";
         let fullName = (getRemoteDataFolder(action: "InsertParagraph") + "/" + remoteName);
-        let paragraph = ParagraphInsert { Text = "This is a paragraph for your document" };
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = InsertParagraphRequest(remoteName, paragraph, "sections/0", getRemoteDataFolder(action: "InsertParagraph"));
+        
+        let paragraph = ParagraphInsert();
+        paragraph.setText(text: "This is a paragraph for your document");
+        
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = InsertParagraphRequest(name: remoteName, paragraph: paragraph, nodePath: "sections/0", folder: getRemoteDataFolder(action: "InsertParagraph"));
         let actual = try super.getApi().insertParagraph(request: request);
     }
     
@@ -141,10 +149,10 @@ class ParagraphTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "RenderParagraph") + "/" + remoteName);
         let index = 0;
         let format = "png";
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = RenderParagraphRequest(remoteName, format, null, index, getRemoteDataFolder(action: "RenderParagraph"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = RenderParagraphRequest(name: remoteName, format: format, nodePath: "", index: index, folder: getRemoteDataFolder(action: "RenderParagraph"));
         let actual = try super.getApi().renderParagraph(request: request);
-        Assert.IsTrue(actual.Length > 0, "Error has occurred while paragraph rendering");
+        XCTAssert(actual.count > 0, "Error has occurred while paragraph rendering");
     }
     
 
@@ -154,10 +162,10 @@ class ParagraphTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "RenderParagraphWithoutNodePath") + "/" + remoteName);
         let index = 0;
         let format = "png";
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = RenderParagraphWithoutNodePathRequest(remoteName, format, index, getRemoteDataFolder(action: "RenderParagraphWithoutNodePath"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = RenderParagraphWithoutNodePathRequest(name: remoteName, format: format, index: index, folder: getRemoteDataFolder(action: "RenderParagraphWithoutNodePath"));
         let actual = try super.getApi().renderParagraphWithoutNodePath(request: request);
-        Assert.IsTrue(actual.Length > 0, "Error has occurred while paragraph rendering");
+        XCTAssert(actual.count > 0, "Error has occurred while paragraph rendering");
     }
     
 
@@ -166,9 +174,9 @@ class ParagraphTests: BaseTestContext {
         let remoteName = "TestGetDocumentParagraphs.docx";
         let fullName = (getRemoteDataFolder(action: "GetParagraphFormat") + "/" + remoteName);
         
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         
-        let request = GetParagraphFormatRequest(remoteName, null, 0, getRemoteDataFolder(action: "GetParagraphFormat"));
+        let request = GetParagraphFormatRequest(name: remoteName, nodePath: "", index: 0, folder: getRemoteDataFolder(action: "GetParagraphFormat"));
         let actual = try super.getApi().getParagraphFormat(request: request);
     }
     
@@ -177,8 +185,8 @@ class ParagraphTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestGetDocumentParagraphsWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "GetParagraphFormatWithoutNodePath") + "/" + remoteName);
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = GetParagraphFormatWithoutNodePathRequest(remoteName, 0, getRemoteDataFolder(action: "GetParagraphFormatWithoutNodePath"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = GetParagraphFormatWithoutNodePathRequest(name: remoteName, index: 0, folder: getRemoteDataFolder(action: "GetParagraphFormatWithoutNodePath"));
         let actual = try super.getApi().getParagraphFormatWithoutNodePath(request: request);
     }
     
@@ -188,12 +196,11 @@ class ParagraphTests: BaseTestContext {
         let remoteName = "TestGetDocumentParagraphs.docx";
         let fullName = (getRemoteDataFolder(action: "UpdateParagraphFormat") + "/" + remoteName);
         
-        let body = ParagraphFormat
-                       {
-                           Alignment = ParagraphFormat.AlignmentEnum.Right
-                       };
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = UpdateParagraphFormatRequest(remoteName, body, string.Empty, 0, getRemoteDataFolder(action: "UpdateParagraphFormat"));
+        let body = ParagraphFormat();
+        body.setAlignment(alignment: ParagraphFormat.Alignment._right);
+        
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = UpdateParagraphFormatRequest(name: remoteName, dto: body, nodePath: "", index: 0, folder: getRemoteDataFolder(action: "UpdateParagraphFormat"));
         let actual = try super.getApi().updateParagraphFormat(request: request);
     }
     
@@ -202,8 +209,8 @@ class ParagraphTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestGetDocumentParagraphs.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteParagraph") + "/" + remoteName);
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = DeleteParagraphRequest(remoteName, null, 0, getRemoteDataFolder(action: "DeleteParagraph"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = DeleteParagraphRequest(name: remoteName, nodePath: "", index: 0, folder: getRemoteDataFolder(action: "DeleteParagraph"));
         try super.getApi().deleteParagraph(request: request);
     }
     
@@ -212,8 +219,8 @@ class ParagraphTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestGetDocumentParagraphsWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteParagraphWithoutNodePath") + "/" + remoteName);
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = DeleteParagraphWithoutNodePathRequest(remoteName, 0, getRemoteDataFolder(action: "DeleteParagraphWithoutNodePath"));
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = DeleteParagraphWithoutNodePathRequest(name: remoteName, index: 0, folder: getRemoteDataFolder(action: "DeleteParagraphWithoutNodePath"));
         try super.getApi().deleteParagraphWithoutNodePath(request: request);
     }
 }

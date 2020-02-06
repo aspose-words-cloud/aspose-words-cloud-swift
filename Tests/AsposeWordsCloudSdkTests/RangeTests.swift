@@ -3,68 +3,76 @@ import XCTest
 
 class RangeTests: BaseTestContext {
     static var allTests = [
-        ("func GetRangeText", func GetRangeText),
-        ("func RemoveRange", func RemoveRange),
-        ("func SaveAsRange", func SaveAsRange),
-        ("func ReplaceWithText", func ReplaceWithText),
+        ("testGetRangeText", testGetRangeText),
+        ("testRemoveRange", testRemoveRange),
+        ("testSaveAsRange", testSaveAsRange),
+        ("testReplaceWithText", testReplaceWithText),
     ];
 
     func getRemoteDataFolder(action : String) -> String {
         return super.getRemoteTestDataFolder() + "Range/" + action;
     }
 
-    func GetRangeText() throws {
+    private let localDataFolder = "DocumentElements/Range";
+    
+    func testGetRangeText() throws {
         let rangeStart = "id0.0.0";
         let rangeEnd = "id0.0.1";
         let expectedText = "This is HEADER ";
         let localName = "RangeGet.doc";
         let remoteName = "TestGetRangeText.doc";
-        let fullName = (this.remoteDataFolder + "/" + remoteName);
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
-        let request = GetRangeTextRequest(remoteName, rangeStart, rangeEnd, this.remoteDataFolder);
+        let fullName = (getRemoteDataFolder(action: "GetRangeText") + "/" + remoteName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = GetRangeTextRequest(name: remoteName, rangeStartIdentifier: rangeStart, rangeEndIdentifier: rangeEnd, folder: getRemoteDataFolder(action: "GetRangeText"));
         let rangeTextResponse = try super.getApi().getRangeText(request: request);
-        Assert.AreEqual(expectedText, rangeTextResponse.Text);
+        XCTAssert(expectedText == rangeTextResponse.getText());
     }
     
 
-    func RemoveRange() throws {
+    func testRemoveRange() throws {
         let localName = "RangeGet.doc";
         let remoteName = "TestRemoveRange.doc";
-        let fullName = (this.remoteDataFolder + "/" + remoteName);
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        let fullName = (getRemoteDataFolder(action: "RemoveRange") + "/" + remoteName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let rangeStart = "id0.0.0";
         let rangeEnd = "id0.0.1";
-        let request = RemoveRangeRequest(remoteName, rangeStart, rangeEnd, this.remoteDataFolder);
+        let request = RemoveRangeRequest(name: remoteName, rangeStartIdentifier: rangeStart, rangeEndIdentifier: rangeEnd, folder: getRemoteDataFolder(action: "RemoveRange"));
         try super.getApi().removeRange(request: request);
     }
     
 
-    func SaveAsRange() throws {
+    func testSaveAsRange() throws {
         let localName = "RangeGet.doc";
         let remoteName = "TestSaveAsRange.doc";
-        let fullName = (this.remoteDataFolder + "/" + remoteName);
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        let fullName = (getRemoteDataFolder(action: "SaveAsRange") + "/" + remoteName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let rangeStart = "id0.0.0";
         let rangeEnd = "id0.0.1";
-        let newDocName = (this.remoteDataFolder + "/" + "NewDoc.docx");
-        let rangeDoc = RangeDocument { DocumentName = newDocName };
-        let request = SaveAsRangeRequest(remoteName, rangeStart, rangeDoc, rangeEnd, this.remoteDataFolder);
-        try super.getApi().saveAsRange(request: request);
-        let result = try super.getApi().downloadFile(DownloadFileRequest(newDocName));
-        Assert.IsNotNull(result, "Cannot download document from storage");
+        let newDocName = (getRemoteDataFolder(action: "SaveAsRange") + "/" + "NewDoc.docx");
+        
+        let rangeDoc = RangeDocument();
+        rangeDoc.setDocumentName(documentName: newDocName);
+        
+        let request = SaveAsRangeRequest(name: remoteName, rangeStartIdentifier: rangeStart, documentParameters: rangeDoc, rangeEndIdentifier: rangeEnd, folder: getRemoteDataFolder(action: "SaveAsRange"));
+        _ = try super.getApi().saveAsRange(request: request);
+        let result = try super.getApi().downloadFile(request: DownloadFileRequest(path: newDocName));
+        XCTAssert(result.count > 0, "Cannot download document from storage");
     }
     
 
-    func ReplaceWithText() throws {
+    func testReplaceWithText() throws {
         let localName = "RangeGet.doc";
         let remoteName = "TestSaveAsRange.doc";
-        let fullName = (this.remoteDataFolder + "/" + remoteName);
-        try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
+        let fullName = (getRemoteDataFolder(action: "ReplaceWithText") + "/" + remoteName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let rangeStart = "id0.0.0";
         let rangeEnd = "id0.0.1";
         let newText = "Replaced header";
-        let replacement = ReplaceRange { Text = newText };
-        let request = ReplaceWithTextRequest(remoteName, rangeStart, replacement, rangeEnd, this.remoteDataFolder);
+        
+        let replacement = ReplaceRange();
+        replacement.setText(text: newText);
+        
+        let request = ReplaceWithTextRequest(name: remoteName, rangeStartIdentifier: rangeStart, rangeText: replacement, rangeEndIdentifier: rangeEnd, folder: getRemoteDataFolder(action: "ReplaceWithText"));
         try super.getApi().replaceWithText(request: request);
     }
 }
