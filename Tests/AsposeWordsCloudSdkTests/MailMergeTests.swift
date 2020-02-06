@@ -32,7 +32,7 @@ class MailMergeTests: BaseTestContext {
         let localName = "SampleMailMergeTemplate.docx";
         let remoteName = "TestExecuteMailMerge.docx";
         let fullName = (getRemoteDataFolder(action: "ExecuteMailMerge") + "/" + remoteName);
-        let destFileName = (BaseTestOutPath + "/" + remoteName);
+        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
         let data = File.ReadAllText(BaseTestContext.GetDataDir(this.mailMergeFolder) + "SampleMailMergeTemplateData.txt");
         try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mailMergeFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = ExecuteMailMergeRequest(remoteName, data, getRemoteDataFolder(action: "ExecuteMailMerge"), destFileName: destFileName, withRegions: false);
@@ -43,7 +43,7 @@ class MailMergeTests: BaseTestContext {
         let localName = "TestExecuteTemplate.doc";
         let remoteName = "TestExecuteTemplate.docx";
         let fullName = (getRemoteDataFolder(action: "ExecuteTemplate") + "/" + remoteName);
-        let destFileName = (BaseTestOutPath + "/" + remoteName);
+        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
         let data = File.ReadAllText(BaseTestContext.GetDataDir(this.mailMergeFolder) + "TestExecuteTemplateData.txt");
         try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.mailMergeFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = ExecuteMailMergeRequest(remoteName, data, getRemoteDataFolder(action: "ExecuteTemplate"), destFileName: destFileName);

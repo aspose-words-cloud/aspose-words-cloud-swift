@@ -17,7 +17,7 @@ class SectionsTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestDeleteHeadersFooters.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteHeadersFooters") + "/" + remoteName);
-        let destFileName = (BaseTestOutPath + "/" + remoteName);
+        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
         try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteHeadersFootersRequest(remoteName, "sections/0", getRemoteDataFolder(action: "DeleteHeadersFooters"), destFileName: destFileName);
         try super.getApi().deleteHeadersFooters(request: request);

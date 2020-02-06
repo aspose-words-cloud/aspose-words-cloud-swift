@@ -116,7 +116,7 @@ class ParagraphTests: BaseTestContext {
         let remoteName = "TestUpdateRunFont.docx";
         let fullName = (getRemoteDataFolder(action: "UpdateRunFont") + "/" + remoteName);
         let runIndex = 0;
-        let destFileName = (BaseTestOutPath + "/" + remoteName);
+        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
         let fontDto = Font { Bold = true };
         try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = UpdateRunFontRequest(remoteName, fontDto, "paragraphs/0", runIndex, getRemoteDataFolder(action: "UpdateRunFont"), destFileName: destFileName);

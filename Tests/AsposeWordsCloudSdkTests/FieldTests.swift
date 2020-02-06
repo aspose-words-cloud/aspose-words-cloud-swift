@@ -104,7 +104,7 @@ class FieldTests: BaseTestContext {
         let remoteName = "TestUpdateField.docx";
         let fullName = (getRemoteDataFolder(action: "UpdateField") + "/" + remoteName);
         let fieldIndex = 0;
-        let destFileName = (BaseTestOutPath + "/" + remoteName);
+        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
         let body = Field { Result = "3", FieldCode = "{ NUMPAGES }", NodeId = "0.0.3" };
         try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = UpdateFieldRequest(remoteName, body, "sections/0/paragraphs/0", fieldIndex, getRemoteDataFolder(action: "UpdateField"), destFileName: destFileName);
@@ -116,7 +116,7 @@ class FieldTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestInsertPageNumbers.docx";
         let fullName = (getRemoteDataFolder(action: "InsertPageNumbers") + "/" + remoteName);
-        let destFileName = (BaseTestOutPath + "/" + remoteName);
+        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
         let body = PageNumber { Alignment = "center", Format = "{PAGE} of {NUMPAGES}" };
         try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = InsertPageNumbersRequest(remoteName, body, getRemoteDataFolder(action: "InsertPageNumbers"), destFileName: destFileName);
@@ -210,7 +210,7 @@ class FieldTests: BaseTestContext {
         let remoteName = "TestUpdateFormField.docx";
         let fullName = (getRemoteDataFolder(action: "UpdateFormField") + "/" + remoteName);
         let formfieldIndex = 0;
-        let destFileName = (BaseTestOutPath + "/" + remoteName);
+        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
         FormFieldTextInput body = FormFieldTextInput
                                       {
                                           Name = "FullName",
@@ -240,7 +240,7 @@ class FieldTests: BaseTestContext {
         let remoteName = "TestUpdateFormFieldWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "UpdateFormFieldWithoutNodePath") + "/" + remoteName);
         let formfieldIndex = 0;
-        let destFileName = (BaseTestOutPath + "/" + remoteName);
+        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
         FormFieldTextInput body = FormFieldTextInput
         {
             Name = "FullName",
@@ -310,7 +310,7 @@ class FieldTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestInsertFormField.docx";
         let fullName = (getRemoteDataFolder(action: "InsertFormField") + "/" + remoteName);
-        let destFileName = (BaseTestOutPath + "/" + remoteName);
+        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
         let body = FormFieldTextInput
                        {
                            Name = "FullName",
@@ -331,7 +331,7 @@ class FieldTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestInsertFormFieldWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "InsertFormFieldWithoutNodePath") + "/" + remoteName);
-        let destFileName = (BaseTestOutPath + "/" + remoteName);
+        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
         let body = FormFieldTextInput
         {
             Name = "FullName",
@@ -353,7 +353,7 @@ class FieldTests: BaseTestContext {
         let remoteName = "TestDeleteFormField.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteFormField") + "/" + remoteName);
         let formfieldIndex = 0;
-        let destFileName = (BaseTestOutPath + "/" + remoteName);
+        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
         try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteFormFieldRequest(remoteName, "sections/0", formfieldIndex, getRemoteDataFolder(action: "DeleteFormField"), destFileName: destFileName);
         try super.getApi().deleteFormField(request: request);
@@ -365,7 +365,7 @@ class FieldTests: BaseTestContext {
         let remoteName = "TestDeleteFormFieldWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "DeleteFormFieldWithoutNodePath") + "/" + remoteName);
         let formfieldIndex = 0;
-        let destFileName = (BaseTestOutPath + "/" + remoteName);
+        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
         try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent(this.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = DeleteFormFieldWithoutNodePathRequest(remoteName, formfieldIndex, getRemoteDataFolder(action: "DeleteFormFieldWithoutNodePath"), destFileName: destFileName);
         try super.getApi().deleteFormFieldWithoutNodePath(request: request);

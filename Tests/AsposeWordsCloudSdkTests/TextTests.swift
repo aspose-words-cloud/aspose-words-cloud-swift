@@ -15,7 +15,7 @@ class TextTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestReplaceText.docx";
         let fullName = (this.remoteDataFolder + "/" + remoteName);
-        let destFileName = (BaseTestOutPath + "/" + remoteName);
+        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
         let body = ReplaceTextParameters { OldValue = "aspose", NewValue = "aspose new" };
         try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = ReplaceTextRequest(remoteName, body, this.remoteDataFolder, destFileName: destFileName);

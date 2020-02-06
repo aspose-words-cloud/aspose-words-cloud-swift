@@ -17,7 +17,7 @@ class DocumentProtectionTests: BaseTestContext {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestProtectDocument.docx";
         let fullName = (getRemoteDataFolder(action: "ProtectDocument") + "/" + remoteName);
-        let destFileName = (BaseTestOutPath + "/" + remoteName);
+        let destFileName = (super.getRemoteTestOut + "/" + remoteName);
         let body = ProtectionRequest { NewPassword = "123" };
         try super.uploadFile(path: fullName, fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false));
         let request = ProtectDocumentRequest(remoteName, body, getRemoteDataFolder(action: "ProtectDocument"), destFileName: destFileName);
