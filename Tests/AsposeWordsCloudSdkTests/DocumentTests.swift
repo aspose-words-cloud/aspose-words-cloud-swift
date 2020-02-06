@@ -312,7 +312,7 @@ class DocumentTests: BaseTestContext {
 
         let request = ConvertDocumentRequest(document: localPath, format: format);
         let result = try super.getApi().convertDocument(request : request);
-        XCTAssert(try result.checkResourceIsReachable());
+        XCTAssert(result.count > 0);
     }
     
     func testSaveAsTiffonline() throws {
@@ -384,7 +384,7 @@ class DocumentTests: BaseTestContext {
 
         let request = GetDocumentWithFormatRequest(name: remoteName, format: format, folder: remoteDir);
         let result = try super.getApi().getDocumentWithFormat(request : request);
-        XCTAssert(try result.checkResourceIsReachable());
+        XCTAssert(result.count > 0);
     }
     
     func testGetDocumentWithFormatAndOutPath() throws {
@@ -404,7 +404,7 @@ class DocumentTests: BaseTestContext {
         let request = GetDocumentWithFormatRequest(name: remoteName, format: format, folder: remoteDir, outPath: destFileName);
         _ = try super.getApi().getDocumentWithFormat(request : request);
         let result = try super.getApi().downloadFile(request: DownloadFileRequest(path: destFileName));
-        XCTAssert(try result.checkResourceIsReachable());
+        XCTAssert(result.count > 0);
     }
     
     func testLoadWebDocument() throws {
