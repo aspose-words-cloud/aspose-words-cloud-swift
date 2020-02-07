@@ -25,6 +25,7 @@ class RunTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = UpdateRunRequest(name: remoteName, run: run, paragraphPath: "paragraphs/1", index: 0, folder: getRemoteDataFolder(action: "UpdateRun"));
         let actual = try super.getApi().updateRun(request: request);
+        XCTAssert(actual.getRun() != nil);
     }
     
 
@@ -39,6 +40,7 @@ class RunTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = InsertRunRequest(name: remoteName, paragraphPath: "paragraphs/1", run: run, folder: getRemoteDataFolder(action: "InsertRun"));
         let actual = try super.getApi().insertRun(request: request);
+        XCTAssert(actual.getRun() != nil);
     }
     
 
