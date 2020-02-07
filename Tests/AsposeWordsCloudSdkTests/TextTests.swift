@@ -20,10 +20,14 @@ class TextTests: BaseTestContext {
         let body = ReplaceTextParameters();
         body.setOldValue(oldValue: "aspose");
         body.setNewValue(newValue: "aspose new");
+        body.setIsMatchCase(isMatchCase: false);
+        body.setIsMatchWholeWord(isMatchWholeWord: false);
+        body.setIsOldValueRegex(isOldValueRegex: false);
         
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = ReplaceTextRequest(name: remoteName, replaceText: body, folder: getRemoteDataFolder(action: "ReplaceText"), destFileName: destFileName);
         let actual = try super.getApi().replaceText(request: request);
+        XCTAssert(actual.getDocumentLink() != nil);
     }
     
 
@@ -40,5 +44,6 @@ class TextTests: BaseTestContext {
         try super.uploadFile(fileContent: localPath, path: fullName);
         let request = SearchRequest(name: remoteName, pattern: pattern, folder: getRemoteDataFolder(action: "ReplaceText"));
         let actual = try super.getApi().search(request: request);
+        XCTAssert(actual.getSearchResults()?.getResultsList()?.count ?? 0 > 0);
     }
 }
