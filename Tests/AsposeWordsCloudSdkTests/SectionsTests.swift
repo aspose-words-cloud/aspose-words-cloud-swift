@@ -31,6 +31,7 @@ class SectionsTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetSectionRequest(name: remoteName, sectionIndex: sectionIndex, folder: getRemoteDataFolder(action: "GetSection"));
         let actual = try super.getApi().getSection(request: request);
+        XCTAssert(actual.getSection() != nil);
     }
     
 
@@ -41,6 +42,7 @@ class SectionsTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetSectionsRequest(name: remoteName, folder: getRemoteDataFolder(action: "GetSections"));
         let actual = try super.getApi().getSections(request: request);
+        XCTAssert(actual.getSections()?.getSectionLinkList()?.count ?? 0 > 0);
     }
     
 
