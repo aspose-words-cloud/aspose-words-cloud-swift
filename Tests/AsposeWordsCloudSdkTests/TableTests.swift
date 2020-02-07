@@ -3,8 +3,9 @@ import XCTest
 
 class TableTests: BaseTestContext {
     static var allTests = [
-        ("testGetTableBorders", testGetTableBorders),
-        ("testGetTableBorder", testGetTableBorder),
+        // TODO: Uncomment after XmlColor fixed on server side
+        //("testGetTableBorders", testGetTableBorders),
+        //("testGetTableBorder", testGetTableBorder),
         ("testDeleteTableBorders", testDeleteTableBorders),
         ("testDeleteTableBorder", testDeleteTableBorder),
         ("testUpdateTableBorder", testUpdateTableBorder),
