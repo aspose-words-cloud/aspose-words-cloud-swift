@@ -32,6 +32,7 @@ class FootnoteTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = InsertFootnoteRequest(name: remoteName, footnoteDto: footNote, nodePath: "", folder: getRemoteDataFolder(action: "InsertFootnote"));
         let actual = try super.getApi().insertFootnote(request: request);
+        XCTAssert(actual.getFootnote() != nil);
     }
     
 
@@ -47,6 +48,7 @@ class FootnoteTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = InsertFootnoteWithoutNodePathRequest(name: remoteName, footnoteDto: footNote, folder: getRemoteDataFolder(action: "InsertFootnoteWithoutNodePath"));
         let actual = try super.getApi().insertFootnoteWithoutNodePath(request: request);
+        XCTAssert(actual.getFootnote() != nil)
     }
     
 
@@ -79,6 +81,7 @@ class FootnoteTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetFootnotesRequest(name: remoteName, nodePath: "", folder: getRemoteDataFolder(action: "GetFootnotes"));
         let actual = try super.getApi().getFootnotes(request: request);
+        XCTAssert(actual.getFootnotes()?.getList()?.count ?? 0 > 0)
     }
     
 
@@ -89,6 +92,7 @@ class FootnoteTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetFootnotesWithoutNodePathRequest(name: remoteName, folder: getRemoteDataFolder(action: "GetFootnotesWithoutNodePath"));
         let actual = try super.getApi().getFootnotesWithoutNodePath(request: request);
+        XCTAssert(actual.getFootnotes()?.getList()?.count ?? 0 > 0);
     }
     
 
@@ -100,6 +104,7 @@ class FootnoteTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetFootnoteRequest(name: remoteName, nodePath: "", index: index, folder: getRemoteDataFolder(action: "GetFootnote"));
         let actual = try super.getApi().getFootnote(request: request);
+        XCTAssert(actual.getFootnote() != nil);
     }
     
 
@@ -111,6 +116,7 @@ class FootnoteTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetFootnoteWithoutNodePathRequest(name: remoteName, index: index, folder: getRemoteDataFolder(action: "GetFootnoteWithoutNodePath"));
         let actual = try super.getApi().getFootnoteWithoutNodePath(request: request);
+        XCTAssert(actual.getFootnote() != nil);
     }
     
 
@@ -124,6 +130,7 @@ class FootnoteTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = UpdateFootnoteRequest(name: remoteName, footnoteDto: footnote, nodePath: "", index: index, folder: getRemoteDataFolder(action: "UpdateFootnote"));
         let actual = try super.getApi().updateFootnote(request: request);
+        XCTAssert(actual.getFootnote() != nil);
     }
     
 
@@ -137,5 +144,6 @@ class FootnoteTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = UpdateFootnoteWithoutNodePathRequest(name: remoteName, footnoteDto: footnote, index: index, folder: getRemoteDataFolder(action: "UpdateFootnoteWithoutNodePath"));
         let actual = try super.getApi().updateFootnoteWithoutNodePath(request: request);
+        XCTAssert(actual.getFootnote() != nil);
     }
 }
