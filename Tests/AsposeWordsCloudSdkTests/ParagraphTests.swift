@@ -36,6 +36,7 @@ class ParagraphTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetParagraphRequest(name: remoteName, nodePath: "sections/0", index: index, folder: getRemoteDataFolder(action: "GetDocumentParagraphByIndex"));
         let actual = try super.getApi().getParagraph(request: request);
+        XCTAssert(actual.getParagraph() != nil);
     }
     
 
@@ -47,6 +48,7 @@ class ParagraphTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetParagraphWithoutNodePathRequest(name: remoteName, index: index, folder: getRemoteDataFolder(action: "GetDocumentParagraphByIndexWithoutNodePath"));
         let actual = try super.getApi().getParagraphWithoutNodePath(request: request);
+        XCTAssert(actual.getParagraph() != nil);
     }
     
 
@@ -57,6 +59,7 @@ class ParagraphTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetParagraphsRequest(name: remoteName, nodePath: "sections/0", folder: getRemoteDataFolder(action: "GetDocumentParagraphs"));
         let actual = try super.getApi().getParagraphs(request: request);
+        XCTAssert(actual.getParagraphs()?.getParagraphLinkList()?.count ?? 0 > 0);
     }
     
 
@@ -67,6 +70,7 @@ class ParagraphTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetParagraphsWithoutNodePathRequest(name: remoteName, folder: getRemoteDataFolder(action: "GetDocumentParagraphsWithoutNodePath"));
         let actual = try super.getApi().getParagraphsWithoutNodePath(request: request);
+        XCTAssert(actual.getParagraphs()?.getParagraphLinkList()?.count ?? 0 > 0);
     }
     
 
@@ -78,6 +82,7 @@ class ParagraphTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetParagraphRequest(name: remoteName, nodePath: "", index: index, folder: getRemoteDataFolder(action: "GetDocumentParagraphWithoutNodePath"));
         let actual = try super.getApi().getParagraph(request: request);
+        XCTAssert(actual.getParagraph() != nil);
     }
     
 
@@ -89,6 +94,7 @@ class ParagraphTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetRunRequest(name: remoteName, paragraphPath: "paragraphs/0", index: runIndex, folder: getRemoteDataFolder(action: "GetDocumentParagraphRun"));
         let actual = try super.getApi().getRun(request: request);
+        XCTAssert(actual.getRun() != nil);
     }
     
 
@@ -100,6 +106,7 @@ class ParagraphTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetRunFontRequest(name: remoteName, paragraphPath: "paragraphs/0", index: runIndex, folder: getRemoteDataFolder(action: "GetDocumentParagraphRunFont"));
         let actual = try super.getApi().getRunFont(request: request);
+        XCTAssert(actual.getFont() != nil);
     }
     
 
@@ -110,6 +117,7 @@ class ParagraphTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(ParagraphTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetRunsRequest(name: remoteName, paragraphPath: "sections/0/paragraphs/0", folder: getRemoteDataFolder(action: "GetParagraphRuns"));
         let actual = try super.getApi().getRuns(request: request);
+        XCTAssert(actual.getRuns()?.getList()?.count ?? 0 > 0);
     }
     
 
@@ -126,6 +134,7 @@ class ParagraphTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = UpdateRunFontRequest(name: remoteName, fontDto: fontDto, paragraphPath: "paragraphs/0", index: runIndex, folder: getRemoteDataFolder(action: "UpdateRunFont"), destFileName: destFileName);
         let actual = try super.getApi().updateRunFont(request: request);
+        XCTAssert(actual.getFont() != nil);
     }
     
 
@@ -140,6 +149,7 @@ class ParagraphTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = InsertParagraphRequest(name: remoteName, paragraph: paragraph, nodePath: "sections/0", folder: getRemoteDataFolder(action: "InsertParagraph"));
         let actual = try super.getApi().insertParagraph(request: request);
+        XCTAssert(actual.getParagraph() != nil);
     }
     
 
@@ -178,6 +188,7 @@ class ParagraphTests: BaseTestContext {
         
         let request = GetParagraphFormatRequest(name: remoteName, nodePath: "", index: 0, folder: getRemoteDataFolder(action: "GetParagraphFormat"));
         let actual = try super.getApi().getParagraphFormat(request: request);
+        XCTAssert(actual.getParagraphFormat() != nil);
     }
     
 
@@ -188,6 +199,7 @@ class ParagraphTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetParagraphFormatWithoutNodePathRequest(name: remoteName, index: 0, folder: getRemoteDataFolder(action: "GetParagraphFormatWithoutNodePath"));
         let actual = try super.getApi().getParagraphFormatWithoutNodePath(request: request);
+        XCTAssert(actual.getParagraphFormat() != nil);
     }
     
 
@@ -202,6 +214,7 @@ class ParagraphTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = UpdateParagraphFormatRequest(name: remoteName, dto: body, nodePath: "", index: 0, folder: getRemoteDataFolder(action: "UpdateParagraphFormat"));
         let actual = try super.getApi().updateParagraphFormat(request: request);
+        XCTAssert(actual.getParagraphFormat() != nil);
     }
     
 
