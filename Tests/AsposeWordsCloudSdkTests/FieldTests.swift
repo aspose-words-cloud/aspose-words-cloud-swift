@@ -36,6 +36,7 @@ class FieldTests: BaseTestContext {
     }
     
     private static let fieldFolder = "DocumentElements/Fields";
+    private static let formFieldFolder = "DocumentElements/FormFields";
     private static let textFolder = "DocumentElements/Text";
 
     func testGetFields() throws {
@@ -45,6 +46,7 @@ class FieldTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetFieldsRequest(name: remoteName, nodePath: "sections/0", folder: getRemoteDataFolder(action: "GetFields"));
         let actual = try super.getApi().getFields(request: request);
+        XCTAssert(actual.getFields()?.getList()?.count ?? 0 > 0);
     }
     
 
@@ -55,6 +57,7 @@ class FieldTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetFieldsWithoutNodePathRequest(name: remoteName, folder: getRemoteDataFolder(action: "GetFieldsWithoutNodePath"));
         let actual = try super.getApi().getFieldsWithoutNodePath(request: request);
+        XCTAssert(actual.getFields()?.getList()?.count ?? 0 > 0);
     }
     
 
@@ -66,6 +69,7 @@ class FieldTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetFieldRequest(name: remoteName, nodePath: "sections/0/paragraphs/0", index: fieldIndex, folder: getRemoteDataFolder(action: "GetField"));
         let actual = try super.getApi().getField(request: request);
+        XCTAssert(actual.getField() != nil);
     }
     
 
@@ -77,6 +81,7 @@ class FieldTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetFieldWithoutNodePathRequest(name: remoteName, index: fieldIndex, folder: getRemoteDataFolder(action: "GetFieldWithoutNodePath"));
         let actual = try super.getApi().getFieldWithoutNodePath(request: request);
+        XCTAssert(actual.getField() != nil);
     }
     
 
@@ -93,8 +98,8 @@ class FieldTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.textFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = InsertFieldRequest(name: remoteName, field: body, nodePath: "sections/0/paragraphs/0", folder: getRemoteDataFolder(action: "InsertField"));
         let actual = try super.getApi().insertField(request: request);            
+        XCTAssert(actual.getField() != nil);
     }
-    
 
     func testInsertFieldWithoutNodePath() throws {
         let localName = "SampleWordDocument.docx";
@@ -109,6 +114,7 @@ class FieldTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.textFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = InsertFieldWithoutNodePathRequest(name: remoteName, field: body, folder: getRemoteDataFolder(action: "InsertFieldWithoutNodePath"));
         let actual = try super.getApi().insertFieldWithoutNodePath(request: request);
+        XCTAssert(actual.getField() != nil);
     }
     
 
@@ -127,6 +133,7 @@ class FieldTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = UpdateFieldRequest(name: remoteName, field: body, nodePath: "sections/0/paragraphs/0", index: fieldIndex, folder: getRemoteDataFolder(action: "UpdateField"), destFileName: destFileName);
         let actual = try super.getApi().updateField(request: request);
+        XCTAssert(actual.getField() != nil);
     }
     
 
@@ -139,10 +146,13 @@ class FieldTests: BaseTestContext {
         let body = PageNumber();
         body.setAlignment(alignment: "center");
         body.setFormat(format: "{PAGE} of {NUMPAGES}");
+        body.setIsTop(isTop: false);
+        body.setSetPageNumberOnFirstPage(setPageNumberOnFirstPage: false);
         
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = InsertPageNumbersRequest(name: remoteName, pageNumber: body, folder: getRemoteDataFolder(action: "InsertPageNumbers"), destFileName: destFileName);
         let actual = try super.getApi().insertPageNumbers(request: request);
+        XCTAssert(actual.getDocument() != nil);
     }
     
 
@@ -225,6 +235,7 @@ class FieldTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = UpdateFieldsRequest(name: remoteName, folder: getRemoteDataFolder(action: "UpdateDocumentFields"));
         let actual = try super.getApi().updateFields(request: request);
+        XCTAssert(actual.getDocument() != nil);
     }
 
     func testUpdateFormField() throws {
@@ -242,15 +253,12 @@ class FieldTests: BaseTestContext {
         body.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
         body.setTextInputDefault(textInputDefault: "");
         
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.formFieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = UpdateFormFieldRequest(name: remoteName, formField: body, nodePath: "sections/0", index: formfieldIndex, folder: getRemoteDataFolder(action: "UpdateFormField"), destFileName: destFileName);
         let actual = try super.getApi().updateFormField(request: request);
         
         XCTAssert("FullName" == actual.getFormField()?.getName());
         XCTAssert(true == actual.getFormField()?.getEnabled());
-        let formFieldTextInput = actual.getFormField() as? FormFieldTextInput;
-        XCTAssert(formFieldTextInput != nil, "Incorrect type of formfield");
-        XCTAssert(FormFieldTextInput.TextInputType.regular == formFieldTextInput?.getTextInputType());
     }
     
 
@@ -269,14 +277,11 @@ class FieldTests: BaseTestContext {
         body.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
         body.setTextInputDefault(textInputDefault: "");
         
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.formFieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = UpdateFormFieldWithoutNodePathRequest(name: remoteName, formField: body, index: formfieldIndex, folder: getRemoteDataFolder(action: "UpdateFormFieldWithoutNodePath"), destFileName: destFileName);
         let actual = try super.getApi().updateFormFieldWithoutNodePath(request: request);
         XCTAssert("FullName" == actual.getFormField()?.getName());
         XCTAssert(true == actual.getFormField()?.getEnabled());
-        let formFieldTextInput = actual.getFormField() as? FormFieldTextInput;
-        XCTAssert(formFieldTextInput != nil, "Incorrect type of formfield");
-        XCTAssert(FormFieldTextInput.TextInputType.regular == formFieldTextInput?.getTextInputType());
     }
     
 
@@ -285,9 +290,10 @@ class FieldTests: BaseTestContext {
         let remoteName = "TestGetFormField.docx";
         let fullName = (getRemoteDataFolder(action: "GetFormField") + "/" + remoteName);
         let formfieldIndex = 0;
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.formFieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetFormFieldRequest(name: remoteName, nodePath: "sections/0", index: formfieldIndex, folder: getRemoteDataFolder(action: "GetFormField"));
         let actual = try super.getApi().getFormField(request: request);
+        XCTAssert(actual.getFormField() != nil);
     }
     
 
@@ -296,9 +302,10 @@ class FieldTests: BaseTestContext {
         let remoteName = "TestGetFormFieldWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "GetFormFieldWithoutNodePath") + "/" + remoteName);
         let formfieldIndex = 0;
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.formFieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetFormFieldWithoutNodePathRequest(name: remoteName, index: formfieldIndex, folder: getRemoteDataFolder(action: "GetFormFieldWithoutNodePath"));
         let actual = try super.getApi().getFormFieldWithoutNodePath(request: request);
+        XCTAssert(actual.getFormField() != nil);
     }
     
 
@@ -306,9 +313,10 @@ class FieldTests: BaseTestContext {
         let localName = "FormFilled.docx";
         let remoteName = "TestGetFormFields.docx";
         let fullName = (getRemoteDataFolder(action: "GetFormFields") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.formFieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetFormFieldsRequest(name: remoteName, nodePath: "sections/0", folder: getRemoteDataFolder(action: "GetFormFields"));
         let actual = try super.getApi().getFormFields(request: request);
+        XCTAssert(actual.getFormFields()?.getList()?.count ?? 0 > 0);
     }
     
 
@@ -316,9 +324,10 @@ class FieldTests: BaseTestContext {
         let localName = "FormFilled.docx";
         let remoteName = "TestGetFormFieldsWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "GetFormFieldsWithoutNodePath") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.formFieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetFormFieldsWithoutNodePathRequest(name: remoteName, folder: getRemoteDataFolder(action: "GetFormFieldsWithoutNodePath"));
         let actual = try super.getApi().getFormFieldsWithoutNodePath(request: request);
+        XCTAssert(actual.getFormFields()?.getList()?.count ?? 0 > 0);
     }
     
 
@@ -340,6 +349,7 @@ class FieldTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = InsertFormFieldRequest(name: remoteName, formField: body, nodePath: "sections/0/paragraphs/0", folder: getRemoteDataFolder(action: "InsertFormField"), destFileName: destFileName);
         let actual = try super.getApi().insertFormField(request: request);
+        XCTAssert(actual.getFormField() != nil);
     }
     
 
@@ -361,6 +371,7 @@ class FieldTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = InsertFormFieldWithoutNodePathRequest(name: remoteName, formField: body, folder: getRemoteDataFolder(action: "InsertFormFieldWithoutNodePath"), destFileName: destFileName);
         let actual = try super.getApi().insertFormFieldWithoutNodePath(request: request);
+        XCTAssert(actual.getFormField() != nil);
     }
     
 
@@ -370,7 +381,7 @@ class FieldTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "DeleteFormField") + "/" + remoteName);
         let formfieldIndex = 0;
         let destFileName = (super.getRemoteTestOut() + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.formFieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = DeleteFormFieldRequest(name: remoteName, nodePath: "sections/0", index: formfieldIndex, folder: getRemoteDataFolder(action: "DeleteFormField"), destFileName: destFileName);
         try super.getApi().deleteFormField(request: request);
     }
@@ -382,7 +393,7 @@ class FieldTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "DeleteFormFieldWithoutNodePath") + "/" + remoteName);
         let formfieldIndex = 0;
         let destFileName = (super.getRemoteTestOut() + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.formFieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = DeleteFormFieldWithoutNodePathRequest(name: remoteName, index: formfieldIndex, folder: getRemoteDataFolder(action: "DeleteFormFieldWithoutNodePath"), destFileName: destFileName);
         try super.getApi().deleteFormFieldWithoutNodePath(request: request);
     }
