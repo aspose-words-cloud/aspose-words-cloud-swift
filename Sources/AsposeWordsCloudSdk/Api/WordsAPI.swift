@@ -111,7 +111,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getDocumentList()),
+            body: try ObjectSerializer.serializeBody(value: request.getDocumentList()),
             headers: nil,
             formParams: nil
         );
@@ -136,7 +136,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getText()),
+            body: try ObjectSerializer.serializeBody(value: request.getText()),
             headers: nil,
             formParams: nil
         );
@@ -215,7 +215,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getCompareData()),
+            body: try ObjectSerializer.serializeBody(value: request.getCompareData()),
             headers: nil,
             formParams: nil
         );
@@ -417,7 +417,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getProperty()),
+            body: try ObjectSerializer.serializeBody(value: request.getProperty()),
             headers: nil,
             formParams: nil
         );
@@ -4357,7 +4357,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getComment()),
+            body: try ObjectSerializer.serializeBody(value: request.getComment()),
             headers: nil,
             formParams: nil
         );
@@ -4500,7 +4500,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getField()),
+            body: try ObjectSerializer.serializeBody(value: request.getField()),
             headers: nil,
             formParams: nil
         );
@@ -4547,7 +4547,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getField()),
+            body: try ObjectSerializer.serializeBody(value: request.getField()),
             headers: nil,
             formParams: nil
         );
@@ -4592,7 +4592,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getFootnoteDto()),
+            body: try ObjectSerializer.serializeBody(value: request.getFootnoteDto()),
             headers: nil,
             formParams: nil
         );
@@ -4636,7 +4636,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getFootnoteDto()),
+            body: try ObjectSerializer.serializeBody(value: request.getFootnoteDto()),
             headers: nil,
             formParams: nil
         );
@@ -4684,7 +4684,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getFormField()),
+            body: try ObjectSerializer.serializeBody(value: request.getFormField()),
             headers: nil,
             formParams: nil
         );
@@ -4731,7 +4731,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getFormField()),
+            body: try ObjectSerializer.serializeBody(value: request.getFormField()),
             headers: nil,
             formParams: nil
         );
@@ -4776,7 +4776,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getHeaderFooterType()),
+            body: try ObjectSerializer.serializeBody(value: request.getHeaderFooterType()),
             headers: nil,
             formParams: nil
         );
@@ -4820,7 +4820,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getPageNumber()),
+            body: try ObjectSerializer.serializeBody(value: request.getPageNumber()),
             headers: nil,
             formParams: nil
         );
@@ -4868,7 +4868,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getParagraph()),
+            body: try ObjectSerializer.serializeBody(value: request.getParagraph()),
             headers: nil,
             formParams: nil
         );
@@ -4916,7 +4916,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getRun()),
+            body: try ObjectSerializer.serializeBody(value: request.getRun()),
             headers: nil,
             formParams: nil
         );
@@ -4961,7 +4961,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getTable()),
+            body: try ObjectSerializer.serializeBody(value: request.getTable()),
             headers: nil,
             formParams: nil
         );
@@ -5006,7 +5006,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getCell()),
+            body: try ObjectSerializer.serializeBody(value: request.getCell()),
             headers: nil,
             formParams: nil
         );
@@ -5051,7 +5051,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getRow()),
+            body: try ObjectSerializer.serializeBody(value: request.getRow()),
             headers: nil,
             formParams: nil
         );
@@ -5095,7 +5095,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getTable()),
+            body: try ObjectSerializer.serializeBody(value: request.getTable()),
             headers: nil,
             formParams: nil
         );
@@ -5193,7 +5193,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getWatermarkText()),
+            body: try ObjectSerializer.serializeBody(value: request.getWatermarkText()),
             headers: nil,
             formParams: nil
         );
@@ -5218,7 +5218,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getData()),
+            body: try ObjectSerializer.serializeBody(value: request.getData()),
             headers: nil,
             formParams: nil
         );
@@ -5319,7 +5319,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getProtectionRequest()),
+            body: try ObjectSerializer.serializeBody(value: request.getProtectionRequest()),
             headers: nil,
             formParams: nil
         );
@@ -5805,7 +5805,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getReplaceText()),
+            body: try ObjectSerializer.serializeBody(value: request.getReplaceText()),
             headers: nil,
             formParams: nil
         );
@@ -5845,7 +5845,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getRangeText()),
+            body: try ObjectSerializer.serializeBody(value: request.getRangeText()),
             headers: nil,
             formParams: nil
         );
@@ -5900,7 +5900,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getSaveOptionsData()),
+            body: try ObjectSerializer.serializeBody(value: request.getSaveOptionsData()),
             headers: nil,
             formParams: nil
         );
@@ -5937,7 +5937,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "POST",
-            body: try ObjectSerializer.serialize(value: request.getDocumentParameters()),
+            body: try ObjectSerializer.serializeBody(value: request.getDocumentParameters()),
             headers: nil,
             formParams: nil
         );
@@ -6026,7 +6026,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getSaveOptions()),
+            body: try ObjectSerializer.serializeBody(value: request.getSaveOptions()),
             headers: nil,
             formParams: nil
         );
@@ -6153,7 +6153,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "DELETE",
-            body: try ObjectSerializer.serialize(value: request.getProtectionRequest()),
+            body: try ObjectSerializer.serializeBody(value: request.getProtectionRequest()),
             headers: nil,
             formParams: nil
         );
@@ -6198,7 +6198,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getBookmarkData()),
+            body: try ObjectSerializer.serializeBody(value: request.getBookmarkData()),
             headers: nil,
             formParams: nil
         );
@@ -6244,7 +6244,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getBorderProperties()),
+            body: try ObjectSerializer.serializeBody(value: request.getBorderProperties()),
             headers: nil,
             formParams: nil
         );
@@ -6289,7 +6289,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getComment()),
+            body: try ObjectSerializer.serializeBody(value: request.getComment()),
             headers: nil,
             formParams: nil
         );
@@ -6432,7 +6432,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getField()),
+            body: try ObjectSerializer.serializeBody(value: request.getField()),
             headers: nil,
             formParams: nil
         );
@@ -6516,7 +6516,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getFootnoteDto()),
+            body: try ObjectSerializer.serializeBody(value: request.getFootnoteDto()),
             headers: nil,
             formParams: nil
         );
@@ -6561,7 +6561,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getFootnoteDto()),
+            body: try ObjectSerializer.serializeBody(value: request.getFootnoteDto()),
             headers: nil,
             formParams: nil
         );
@@ -6607,7 +6607,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getFormField()),
+            body: try ObjectSerializer.serializeBody(value: request.getFormField()),
             headers: nil,
             formParams: nil
         );
@@ -6652,7 +6652,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getFormField()),
+            body: try ObjectSerializer.serializeBody(value: request.getFormField()),
             headers: nil,
             formParams: nil
         );
@@ -6698,7 +6698,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getDto()),
+            body: try ObjectSerializer.serializeBody(value: request.getDto()),
             headers: nil,
             formParams: nil
         );
@@ -6744,7 +6744,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getRun()),
+            body: try ObjectSerializer.serializeBody(value: request.getRun()),
             headers: nil,
             formParams: nil
         );
@@ -6790,7 +6790,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getFontDto()),
+            body: try ObjectSerializer.serializeBody(value: request.getFontDto()),
             headers: nil,
             formParams: nil
         );
@@ -6835,7 +6835,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getPageSetup()),
+            body: try ObjectSerializer.serializeBody(value: request.getPageSetup()),
             headers: nil,
             formParams: nil
         );
@@ -6881,7 +6881,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getFormat()),
+            body: try ObjectSerializer.serializeBody(value: request.getFormat()),
             headers: nil,
             formParams: nil
         );
@@ -6927,7 +6927,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getProperties()),
+            body: try ObjectSerializer.serializeBody(value: request.getProperties()),
             headers: nil,
             formParams: nil
         );
@@ -6972,7 +6972,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getProperties()),
+            body: try ObjectSerializer.serializeBody(value: request.getProperties()),
             headers: nil,
             formParams: nil
         );
@@ -7018,7 +7018,7 @@ public class WordsAPI {
         let response = try apiInvoker.invoke(
             url: urlBuilder.url!,
             method: "PUT",
-            body: try ObjectSerializer.serialize(value: request.getFormat()),
+            body: try ObjectSerializer.serializeBody(value: request.getFormat()),
             headers: nil,
             formParams: nil
         );
