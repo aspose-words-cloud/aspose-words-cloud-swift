@@ -57,6 +57,19 @@ class ObjectSerializer {
         }
     }
     
+    public static func serializeBody<T : Encodable>(value: T) throws -> Data {
+        if (value is String) {
+            let result = "\"\(value)\"".data(using: .utf8);
+            if (result == nil) {
+                throw WordsApiError.invalidTypeSerialization(typeName: String(describing: type(of: value)));
+            }
+            return result!;
+        }
+        else {
+            return try serialize(value: value);
+        }
+    }
+    
     public static func serialize<T : Encodable>(value: T) throws -> Data {
         if (value is WordsApiModel) {
             return try customEncoder.encode(value);
