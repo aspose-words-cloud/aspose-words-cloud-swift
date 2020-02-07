@@ -19,7 +19,8 @@ class DocumentPropertiesTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "GetDocumentProperties") + "/" + remoteName);
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetDocumentPropertiesRequest(name: remoteName, folder: getRemoteDataFolder(action: "GetDocumentProperties"));
-        let actual = try super.getApi().getDocumentProperties(request: request);            
+        let actual = try super.getApi().getDocumentProperties(request: request);
+        XCTAssert(actual.getDocumentProperties()?.getList()?.count ?? 0 > 0);
     }
     
 
@@ -31,6 +32,7 @@ class DocumentPropertiesTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetDocumentPropertyRequest(name: remoteName, propertyName: propertyName, folder: getRemoteDataFolder(action: "GetDocumentProperty"));
         let actual = try super.getApi().getDocumentProperty(request: request);
+        XCTAssert(actual.getDocumentProperty()?.getName() == propertyName);
     }
     
 
@@ -61,5 +63,6 @@ class DocumentPropertiesTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = CreateOrUpdateDocumentPropertyRequest(name: remoteName, propertyName: propertyName, property: body, folder: getRemoteDataFolder(action: "UpdateDocumentProperty"), destFileName: destFileName);
         let actual = try super.getApi().createOrUpdateDocumentProperty(request: request);
+        XCTAssert(actual.getDocumentProperty()?.getName() == propertyName);
     }
 }

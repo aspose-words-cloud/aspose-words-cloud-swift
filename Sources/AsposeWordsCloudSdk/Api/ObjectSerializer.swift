@@ -64,13 +64,6 @@ class ObjectSerializer {
         if (value is URL) {
             return try Data(contentsOf: value as! URL);
         }
-        if (value is String) {
-            let result = String(describing: "\"\(value)\"").data(using: .utf8);
-            if (result == nil) {
-                throw WordsApiError.invalidTypeSerialization(typeName: String(describing: type(of: value)));
-            }
-            return result!;
-        }
         else {
             let result = String(describing: value).data(using: .utf8);
             if (result == nil) {

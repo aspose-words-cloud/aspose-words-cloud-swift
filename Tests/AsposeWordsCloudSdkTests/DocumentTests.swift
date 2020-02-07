@@ -67,7 +67,7 @@ class DocumentTests: BaseTestContext {
     }
     
     func testClassify() throws {
-        let request = ClassifyRequest(text: "Try text classification", bestClassesCount: "3");
+        let request = ClassifyRequest(text: "\"Try text classification\"", bestClassesCount: "3");
         let response = try super.getApi().classify(request: request);
         XCTAssert(response.getBestClassName()?.isEmpty == false);
     }

@@ -77,17 +77,18 @@ public class ApiInvoker {
             else {
                 var needsClrf = false;
                 var formBody = Data();
-                let boundaryPrefix = "Something";
+                let boundaryPrefix = "Somthing";
                 for (key, value) in formParams! {
                     if (needsClrf) {
                         formBody.append("\r\n".data(using: .utf8)!);
                     }
                     needsClrf = true;
-                    
-                    formBody.append("--\(boundaryPrefix)\r\nContent-Disposition: form-data; name=\"\(key)\";\r\n\r\n".data(using: .utf8)!);
+                
+                    formBody.append("--\(boundaryPrefix)\r\nContent-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8)!);
                     formBody.append(value);
-                    formBody.append("\r\n--\(boundaryPrefix)--\r\n".data(using: .utf8)!);
                 }
+                formBody.append("\r\n--\(boundaryPrefix)--\r\n".data(using: .utf8)!);
+
                 request.httpBody = formBody;
                 request.setValue("multipart/form-data; boundary=\(boundaryPrefix)", forHTTPHeaderField: "Content-Type");
             }

@@ -25,6 +25,7 @@ class DocumentProtectionTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = ProtectDocumentRequest(name: remoteName, protectionRequest: body, folder: getRemoteDataFolder(action: "ProtectDocument"), destFileName: destFileName);
         let actual = try super.getApi().protectDocument(request: request);
+        XCTAssert(actual.getProtectionData()?.getProtectionType()?.isEmpty == false);
     }
     
 
@@ -35,6 +36,7 @@ class DocumentProtectionTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetDocumentProtectionRequest(name: remoteName, folder: getRemoteDataFolder(action: "GetDocumentProtection"));
         let actual = try super.getApi().getDocumentProtection(request: request);
+        XCTAssert(actual.getProtectionData()?.getProtectionType()?.isEmpty == false);
     }
     
 
@@ -48,7 +50,8 @@ class DocumentProtectionTests: BaseTestContext {
         
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = ProtectDocumentRequest(name: remoteName, protectionRequest: body, folder: getRemoteDataFolder(action: "ChangeDocumentProtection"));
-        let actual = try super.getApi().protectDocument(request: request);            
+        let actual = try super.getApi().protectDocument(request: request);
+        XCTAssert(actual.getProtectionData()?.getProtectionType()?.isEmpty == false)
     }
     
 
@@ -62,6 +65,7 @@ class DocumentProtectionTests: BaseTestContext {
         
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("DocumentActions", isDirectory: true).appendingPathComponent("DocumentProtection", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = UnprotectDocumentRequest(name: remoteName, protectionRequest: body, folder: getRemoteDataFolder(action: "DeleteUnprotectDocument"));
-        let actual = try super.getApi().unprotectDocument(request: request);            
+        let actual = try super.getApi().unprotectDocument(request: request);
+        XCTAssert(actual.getProtectionData()?.getProtectionType()?.isEmpty == false);
     }
 }
