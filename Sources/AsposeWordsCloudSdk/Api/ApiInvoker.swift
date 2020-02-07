@@ -54,7 +54,7 @@ public class ApiInvoker {
         method: String,
         body: Data?,
         headers: Dictionary<String, String>?,
-        formParams: Dictionary<String, Data>?,
+        formParams: [RequestFormParam]?,
         contentType: String = "application/json"
     ) throws -> Data {
         var request = URLRequest(url: url);
@@ -72,20 +72,20 @@ public class ApiInvoker {
         }
         else if (formParams != nil && formParams!.count > 0) {
             if (formParams?.count == 1) {
-                request.httpBody = formParams!.first!.value;
+                request.httpBody = (formParams!)[0].getBody();
             }
             else {
                 var needsClrf = false;
                 var formBody = Data();
                 let boundaryPrefix = "Somthing";
-                for (key, value) in formParams! {
+                for formParam in formParams! {
                     if (needsClrf) {
                         formBody.append("\r\n".data(using: .utf8)!);
                     }
                     needsClrf = true;
                 
-                    formBody.append("--\(boundaryPrefix)\r\nContent-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8)!);
-                    formBody.append(value);
+                    formBody.append("--\(boundaryPrefix)\r\nContent-Disposition: form-data; name=\"\(formParam.getName())\"\r\n\r\n".data(using: .utf8)!);
+                    formBody.append(formParam.getBody());
                 }
                 formBody.append("\r\n--\(boundaryPrefix)--\r\n".data(using: .utf8)!);
 
