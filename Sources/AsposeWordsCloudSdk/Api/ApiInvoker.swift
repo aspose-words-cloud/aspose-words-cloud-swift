@@ -31,6 +31,8 @@ public class ApiInvoker {
     private var configuration : Configuration;
     private var accessToken : String?;
     
+    private let maxDebugPrintingContentSize = 1024 * 1024; // 1Mb
+    
     public init(configuration : Configuration) {
         self.configuration = configuration;
     }
@@ -124,19 +126,24 @@ public class ApiInvoker {
         if (configuration.isDebugMode()) {
             print("REQUEST BEGIN");
             if (urlRequest.url?.absoluteString != nil) {
-                print("\tURL: \(String(describing: urlRequest.url!.absoluteString))");
+                print("URL: \(String(describing: urlRequest.url!.absoluteString))");
             }
             if (urlRequest.allHTTPHeaderFields != nil) {
-                print("\tHEADERS: \(String(describing: urlRequest.allHTTPHeaderFields!))");
+                print("HEADERS: \(String(describing: urlRequest.allHTTPHeaderFields!))");
             }
             if (urlRequest.httpBody != nil) {
-                let bodyStr = String(data: urlRequest.httpBody!, encoding: .utf8);
-                if (bodyStr != nil) {
-                    print("\tBODY: \(bodyStr!)");
+                if (urlRequest.httpBody!.count > maxDebugPrintingContentSize) {
+                    print("BODY: Response data too long for debug printing. Size: \(urlRequest.httpBody!.count)");
                 }
                 else {
-                    let chars = urlRequest.httpBody!.map { Character(UnicodeScalar($0)) };
-                    print("\tBODY: \(String(Array(chars)))");
+                    let bodyStr = String(data: urlRequest.httpBody!, encoding: .utf8);
+                    if (bodyStr != nil) {
+                        print("BODY: \(bodyStr!)");
+                    }
+                    else {
+                        let chars = urlRequest.httpBody!.map { Character(UnicodeScalar($0)) };
+                        print("BODY: \(String(Array(chars)))");
+                    }
                 }
             }
             print("REQUEST END");
@@ -162,16 +169,21 @@ public class ApiInvoker {
             print("RESPONSE BEGIN");
             print("\tSTATUS CODE: \(invokeResponse.errorCode)");
             if (invokeResponse.errorMessage != nil) {
-                print("\tMESSAGE: \(invokeResponse.errorMessage!)");
+                print("MESSAGE: \(invokeResponse.errorMessage!)");
             }
             if (invokeResponse.data != nil) {
-                let bodyStr = String(data: invokeResponse.data!, encoding: .utf8);
-                if (bodyStr != nil) {
-                    print("\tBODY: \(bodyStr!)");
+                if (invokeResponse.data!.count > maxDebugPrintingContentSize) {
+                    print("BODY: Response data too long for debug printing. Size: \(invokeResponse.data!.count)");
                 }
                 else {
-                    let chars = invokeResponse.data!.map { Character(UnicodeScalar($0)) };
-                    print("\tBODY: \(String(Array(chars)))");
+                    let bodyStr = String(data: invokeResponse.data!, encoding: .utf8);
+                    if (bodyStr != nil) {
+                        print("BODY: \(bodyStr!)");
+                    }
+                    else {
+                        let chars = invokeResponse.data!.map { Character(UnicodeScalar($0)) };
+                        print("BODY: \(String(Array(chars)))");
+                    }
                 }
             }
             print("RESPONSE END");
