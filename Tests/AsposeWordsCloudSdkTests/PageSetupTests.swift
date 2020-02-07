@@ -20,6 +20,7 @@ class PageSetupTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetSectionPageSetupRequest(name: remoteName, sectionIndex: sectionIndex, folder: getRemoteDataFolder(action: "GetSectionPageSetup"));
         let actual = try super.getApi().getSectionPageSetup(request: request);
+        XCTAssert(actual.getPageSetup() != nil);
     }
     
 
@@ -38,6 +39,7 @@ class PageSetupTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = UpdateSectionPageSetupRequest(name: remoteName, sectionIndex: sectionIndex, pageSetup: body, folder: getRemoteDataFolder(action: "UpdateSectionPageSetup"));
         let actual = try super.getApi().updateSectionPageSetup(request: request);
+        XCTAssert(actual.getPageSetup() != nil);
     }
     
 
