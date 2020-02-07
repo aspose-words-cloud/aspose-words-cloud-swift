@@ -26,6 +26,7 @@ class MathObjectTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetOfficeMathObjectsRequest(name: remoteName, nodePath: "", folder: getRemoteDataFolder(action: "GetOfficeMathObjects"));
         let actual = try super.getApi().getOfficeMathObjects(request: request);
+        XCTAssert(actual.getOfficeMathObjects()?.getList()?.count ?? 0 > 0);
     }
     
 
@@ -36,6 +37,7 @@ class MathObjectTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetOfficeMathObjectsWithoutNodePathRequest(name: remoteName, folder: getRemoteDataFolder(action: "GetOfficeMathObjectsWithoutNodePath"));
         let actual = try super.getApi().getOfficeMathObjectsWithoutNodePath(request: request);
+        XCTAssert(actual.getOfficeMathObjects()?.getList()?.count ?? 0 > 0);
     }
     
 
@@ -47,6 +49,7 @@ class MathObjectTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetOfficeMathObjectRequest(name: remoteName, nodePath: "", index: index, folder: getRemoteDataFolder(action: "GetOfficeMathObject"));
         let actual = try super.getApi().getOfficeMathObject(request: request);
+        XCTAssert(actual.getOfficeMathObject() != nil);
     }
     
 
@@ -58,6 +61,7 @@ class MathObjectTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(mathObjectFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetOfficeMathObjectWithoutNodePathRequest(name: remoteName, index: index, folder: getRemoteDataFolder(action: "GetOfficeMathObjectWithoutNodePath"));
         let actual = try super.getApi().getOfficeMathObjectWithoutNodePath(request: request);
+        XCTAssert(actual.getOfficeMathObject() != nil);
     }
     
 
