@@ -1824,7 +1824,7 @@ public class WordsAPI {
         
         var formParams : [RequestFormParam] = [];
         if (request.getData() != nil) {
-            formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: request.getData())));
+            formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: request.getData()!)));
         }
         
         let response = try apiInvoker.invoke(
@@ -5143,7 +5143,7 @@ public class WordsAPI {
         
         var formParams : [RequestFormParam] = [];
         if (request.getImageFile() != nil) {
-            formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serialize(value: request.getImageFile())));
+            formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serialize(value: request.getImageFile()!)));
         }
         
         let response = try apiInvoker.invoke(
