@@ -45,6 +45,7 @@ class MailMergeTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(mailMergeFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = ExecuteMailMergeRequest(name: remoteName, data: try String(contentsOf: data, encoding: .utf8), folder: getRemoteDataFolder(action: "ExecuteMailMerge"), withRegions: false, destFileName: destFileName);
         let actual = try super.getApi().executeMailMerge(request: request);
+        XCTAssert(actual.getDocument() != nil);
     }
 
     func testExecuteTemplate() throws {
@@ -60,6 +61,7 @@ class MailMergeTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(mailMergeFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = ExecuteMailMergeRequest(name: remoteName, data: try String(contentsOf: data, encoding: .utf8), folder: getRemoteDataFolder(action: "ExecuteTemplate"), destFileName: destFileName);
         let actual = try super.getApi().executeMailMerge(request: request);
+        XCTAssert(actual.getDocument() != nil);
     }
     
 
@@ -84,6 +86,7 @@ class MailMergeTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetDocumentFieldNamesRequest(name: remoteName, folder: getRemoteDataFolder(action: "GetDocumentFieldNames"));
         let actual = try super.getApi().getDocumentFieldNames(request: request);
+        XCTAssert(actual.getFieldNames() != nil);
     }
     
 
@@ -94,5 +97,6 @@ class MailMergeTests: BaseTestContext {
         
         let request = GetDocumentFieldNamesOnlineRequest(template: file, useNonMergeFields: true);
         let actual = try super.getApi().getDocumentFieldNamesOnline(request: request);
+        XCTAssert(actual.getFieldNames()?.getNames()?.count ?? 0 > 0);
     }
 }
