@@ -24,6 +24,7 @@ class HeaderFooterTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(headerFooterFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetHeaderFootersRequest(name: remoteName, sectionPath: "", folder: getRemoteDataFolder(action: "GetHeadersFooters"));
         let actual = try super.getApi().getHeaderFooters(request: request);
+        XCTAssert(actual.getHeaderFooters()?.getList()?.count ?? 0 > 0);
     }
     
 
@@ -35,6 +36,7 @@ class HeaderFooterTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(headerFooterFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetHeaderFooterRequest(name: remoteName, headerFooterIndex: index, folder: getRemoteDataFolder(action: "GetHeaderFooter"));
         let actual = try super.getApi().getHeaderFooter(request: request);
+        XCTAssert(actual.getHeaderFooter() != nil);
     }
     
 
@@ -47,6 +49,7 @@ class HeaderFooterTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(headerFooterFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = GetHeaderFooterOfSectionRequest(name: remoteName, headerFooterIndex: index, sectionIndex: sectionIndex, folder: getRemoteDataFolder(action: "GetHeaderFooterOfSection"));
         let actual = try super.getApi().getHeaderFooterOfSection(request: request);
+        XCTAssert(actual.getHeaderFooter() != nil);
     }
     
 
@@ -78,5 +81,6 @@ class HeaderFooterTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(headerFooterFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = InsertHeaderFooterRequest(name: remoteName, headerFooterType: "FooterEven", sectionPath: "",  folder: getRemoteDataFolder(action: "InsertHeaderFooter"));
         let actual = try super.getApi().insertHeaderFooter(request: request);
+        XCTAssert(actual.getHeaderFooter() != nil);
     }
 }
