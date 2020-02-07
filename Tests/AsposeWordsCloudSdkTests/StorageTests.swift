@@ -23,7 +23,9 @@ class StorageTests: BaseTestContext {
             .appendingPathComponent(localName, isDirectory: false);
         
         let request = UploadFileRequest(fileContent: localPath, path: remotePath);
-        try super.getApi().uploadFile(request: request);
+        let actual = try super.getApi().uploadFile(request: request);
+        XCTAssert(actual.getErrors()?.count ?? -1 == 0);
+        XCTAssert(actual.getUploaded()?.count ?? 0 == 1);
     }
     
 
