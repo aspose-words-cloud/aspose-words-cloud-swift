@@ -37,7 +37,8 @@ class RangeTests: BaseTestContext {
         let rangeStart = "id0.0.0";
         let rangeEnd = "id0.0.1";
         let request = RemoveRangeRequest(name: remoteName, rangeStartIdentifier: rangeStart, rangeEndIdentifier: rangeEnd, folder: getRemoteDataFolder(action: "RemoveRange"));
-        try super.getApi().removeRange(request: request);
+        let actual = try super.getApi().removeRange(request: request);
+        XCTAssert(actual.getDocument() != nil);
     }
     
 
@@ -73,6 +74,7 @@ class RangeTests: BaseTestContext {
         replacement.setText(text: newText);
         
         let request = ReplaceWithTextRequest(name: remoteName, rangeStartIdentifier: rangeStart, rangeText: replacement, rangeEndIdentifier: rangeEnd, folder: getRemoteDataFolder(action: "ReplaceWithText"));
-        try super.getApi().replaceWithText(request: request);
+        let actual = try super.getApi().replaceWithText(request: request);
+        XCTAssert(actual.getDocument() != nil);
     }
 }
