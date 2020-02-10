@@ -1,3 +1,4 @@
 Settings/*
 .build/*
 *.xcodeproj
+/.build

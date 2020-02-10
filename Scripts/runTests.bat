@@ -1,0 +1,1 @@
+docker run --rm -v %cd%:/opt/project -w="/opt/project" swift:4.2 /bin/bash Scripts/runTests.sh
