@@ -10561,9 +10561,7 @@ public class WordsAPI {
                 }
             );
         }
-        catch let error {
-            callback(error);
-        }
+        
     }   
     
     public func resetCache(request : ResetCacheRequest) throws  {
