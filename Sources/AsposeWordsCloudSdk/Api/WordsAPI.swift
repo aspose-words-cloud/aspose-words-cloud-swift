@@ -72,7 +72,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : RevisionsModificationResponse? = nil;
+                    var responseObject : RevisionsModificationResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -151,7 +151,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DocumentResponse? = nil;
+                    var responseObject : DocumentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -211,7 +211,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : ClassificationResponse? = nil;
+                    var responseObject : ClassificationResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -287,7 +287,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : ClassificationResponse? = nil;
+                    var responseObject : ClassificationResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -360,7 +360,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DocumentResponse? = nil;
+                    var responseObject : DocumentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -601,7 +601,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DocumentResponse? = nil;
+                    var responseObject : DocumentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -732,7 +732,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DocumentPropertyResponse? = nil;
+                    var responseObject : DocumentPropertyResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -813,7 +813,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : BorderResponse? = nil;
+                    var responseObject : BorderResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -893,7 +893,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : BordersResponse? = nil;
+                    var responseObject : BordersResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -2842,7 +2842,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DocumentResponse? = nil;
+                    var responseObject : DocumentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -2985,7 +2985,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    ver responseObject : DocumentResponse? = nil;
+                    var responseObject : DocumentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -3104,7 +3104,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : AvailableFontsResponse? = nil;
+                    var responseObject : AvailableFontsResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -3175,7 +3175,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : BookmarkResponse? = nil;
+                    var responseObject : BookmarkResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -3245,7 +3245,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : BookmarksResponse? = nil;
+                    var responseObject : BookmarksResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -3317,7 +3317,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : BorderResponse? = nil;
+                    var responseObject : BorderResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -3388,7 +3388,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : BordersResponse? = nil;
+                    var responseObject : BordersResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -3459,7 +3459,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : CommentResponse? = nil;
+                    var responseObject : CommentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -3529,7 +3529,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : CommentsResponse? = nil;
+                    var responseObject : CommentsResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -3599,7 +3599,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DocumentResponse? = nil;
+                    var responseObject : DocumentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -3671,7 +3671,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DrawingObjectResponse? = nil;
+                    var responseObject : DrawingObjectResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -3742,7 +3742,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DrawingObjectResponse? = nil;
+                    var responseObject : DrawingObjectResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -4059,7 +4059,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DrawingObjectsResponse? = nil;
+                    var responseObject : DrawingObjectsResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -4129,7 +4129,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DrawingObjectsResponse? = nil;
+                    var responseObject : DrawingObjectsResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -4202,7 +4202,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FieldNamesResponse? = nil;
+                    var responseObject : FieldNamesResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -4264,7 +4264,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    ver responseObject : FieldNamesResponse? = nil;
+                    var responseObject : FieldNamesResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -4335,7 +4335,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : HyperlinkResponse? = nil;
+                    var responseObject : HyperlinkResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -4405,7 +4405,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : HyperlinksResponse? = nil;
+                    var responseObject : HyperlinksResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -4475,7 +4475,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DocumentPropertiesResponse? = nil;
+                    var responseObject : DocumentPropertiesResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -4546,7 +4546,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DocumentPropertyResponse? = nil;
+                    var responseObject : DocumentPropertyResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -4616,7 +4616,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : ProtectionDataResponse? = nil;
+                    var responseObject : ProtectionDataResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -4695,7 +4695,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : StatDataResponse? = nil;
+                    var responseObject : StatDataResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -4834,7 +4834,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FieldResponse? = nil;
+                    var responseObject : FieldResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -4905,7 +4905,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FieldResponse? = nil;
+                    var responseObject : FieldResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -4976,7 +4976,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FieldsResponse? = nil;
+                    var responseObject : FieldsResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -5046,7 +5046,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FieldsResponse? = nil;
+                    var responseObject : FieldsResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -5107,7 +5107,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FilesList? = nil;
+                    var responseObject : FilesList? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -5179,7 +5179,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FootnoteResponse? = nil;
+                    var responseObject : FootnoteResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -5250,7 +5250,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FootnoteResponse? = nil;
+                    var responseObject : FootnoteResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -5321,7 +5321,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FootnotesResponse? = nil;
+                    var responseObject : FootnotesResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -5391,7 +5391,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FootnotesResponse? = nil;
+                    var responseObject : FootnotesResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -5463,7 +5463,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FormFieldResponse? = nil;
+                    var responseObject : FormFieldResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -5534,7 +5534,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FormFieldResponse? = nil;
+                    var responseObject : FormFieldResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -5605,7 +5605,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FormFieldsResponse? = nil;
+                    var responseObject : FormFieldsResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -5675,7 +5675,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FormFieldsResponse? = nil;
+                    var responseObject : FormFieldsResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -5749,7 +5749,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : HeaderFooterResponse? = nil;
+                    var responseObject : HeaderFooterResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -5824,7 +5824,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : HeaderFooterResponse? = nil;
+                    var responseObject : HeaderFooterResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -5898,7 +5898,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : HeaderFootersResponse? = nil;
+                    var responseObject : HeaderFootersResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -5970,7 +5970,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : OfficeMathObjectResponse? = nil;
+                    var responseObject : OfficeMathObjectResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -6041,7 +6041,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : OfficeMathObjectResponse? = nil;
+                    var responseObject : OfficeMathObjectResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -6112,7 +6112,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : OfficeMathObjectsResponse? = nil;
+                    var responseObject : OfficeMathObjectsResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -6182,7 +6182,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : OfficeMathObjectsResponse? = nil;
+                    var responseObject : OfficeMathObjectsResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -6254,7 +6254,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : ParagraphResponse? = nil;
+                    var responseObject : ParagraphResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -6326,7 +6326,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : ParagraphFormatResponse? = nil;
+                    var responseObject : ParagraphFormatResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -6397,7 +6397,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : ParagraphFormatResponse? = nil;
+                    var responseObject : ParagraphFormatResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -6468,7 +6468,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : ParagraphResponse? = nil;
+                    var responseObject : ParagraphResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -6539,7 +6539,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : ParagraphLinkCollectionResponse? = nil;
+                    var responseObject : ParagraphLinkCollectionResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -6609,7 +6609,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : ParagraphLinkCollectionResponse? = nil;
+                    var responseObject : ParagraphLinkCollectionResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -6681,7 +6681,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : RangeTextResponse? = nil;
+                    var responseObject : RangeTextResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -6753,7 +6753,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : RunResponse? = nil;
+                    var responseObject : RunResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -6825,7 +6825,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FontResponse? = nil;
+                    var responseObject : FontResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -6896,7 +6896,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : RunsResponse? = nil;
+                    var responseObject : RunsResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -6967,7 +6967,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : SectionResponse? = nil;
+                    var responseObject : SectionResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -7038,7 +7038,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : SectionPageSetupResponse? = nil;
+                    var responseObject : SectionPageSetupResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -7108,7 +7108,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : SectionLinkCollectionResponse? = nil;
+                    var responseObject : SectionLinkCollectionResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -7180,7 +7180,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TableResponse? = nil;
+                    var responseObject : TableResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -7252,7 +7252,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TableCellResponse? = nil;
+                    var responseObject : TableCellResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -7324,7 +7324,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TableCellFormatResponse? = nil;
+                    var responseObject : TableCellFormatResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -7396,7 +7396,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TablePropertiesResponse? = nil;
+                    var responseObject : TablePropertiesResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -7467,7 +7467,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TablePropertiesResponse? = nil;
+                    var responseObject : TablePropertiesResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -7539,7 +7539,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TableRowResponse? = nil;
+                    var responseObject : TableRowResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -7611,7 +7611,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TableRowFormatResponse? = nil;
+                    var responseObject : TableRowFormatResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -7682,7 +7682,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TableResponse? = nil;
+                    var responseObject : TableResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -7753,7 +7753,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TableLinkCollectionResponse? = nil;
+                    var responseObject : TableLinkCollectionResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -7823,7 +7823,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TableLinkCollectionResponse? = nil;
+                    var responseObject : TableLinkCollectionResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -7902,7 +7902,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : CommentResponse? = nil;
+                    var responseObject : CommentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -7985,7 +7985,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    ver responseObject : DrawingObjectResponse? = nil;
+                    var responseObject : DrawingObjectResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -8067,7 +8067,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    ver responseObject : DrawingObjectResponse? = nil;
+                    var responseObject : DrawingObjectResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -8150,7 +8150,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FieldResponse? = nil;
+                    var responseObject : FieldResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -8232,7 +8232,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FieldResponse? = nil;
+                    var responseObject : FieldResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -8312,7 +8312,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FootnoteResponse? = nil;
+                    var responseObject : FootnoteResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -8391,7 +8391,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FootnoteResponse? = nil;
+                    var responseObject : FootnoteResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -8474,7 +8474,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FormFieldResponse? = nil;
+                    var responseObject : FormFieldResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -8556,7 +8556,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FormFieldResponse? = nil;
+                    var responseObject : FormFieldResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -8636,7 +8636,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : HeaderFooterResponse? = nil;
+                    var responseObject : HeaderFooterResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -8715,7 +8715,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DocumentResponse? = nil;
+                    var responseObject : DocumentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -8798,7 +8798,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : ParagraphResponse? = nil;
+                    var responseObject : ParagraphResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -8881,7 +8881,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : RunResponse? = nil;
+                    var responseObject : RunResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -8961,7 +8961,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TableResponse? = nil;
+                    var responseObject : TableResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -9041,7 +9041,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TableCellResponse? = nil;
+                    var responseObject : TableCellResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -9121,7 +9121,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TableRowResponse? = nil;
+                    var responseObject : TableRowResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -9200,7 +9200,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TableResponse? = nil;
+                    var responseObject : TableResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -9289,7 +9289,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    ver responseObject : DocumentResponse? = nil;
+                    var responseObject : DocumentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -9368,7 +9368,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DocumentResponse? = nil;
+                    var responseObject : DocumentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -9428,7 +9428,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : SaveResponse? = nil;
+                    var responseObject : SaveResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -9614,7 +9614,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : ProtectionDataResponse? = nil;
+                    var responseObject : ProtectionDataResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -9687,7 +9687,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : RevisionsModificationResponse? = nil;
+                    var responseObject : RevisionsModificationResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -9762,7 +9762,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DocumentResponse? = nil;
+                    var responseObject : DocumentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -10430,7 +10430,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : ReplaceTextResponse? = nil;
+                    var responseObject : ReplaceTextResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -10505,7 +10505,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DocumentResponse? = nil;
+                    var responseObject : DocumentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -10620,7 +10620,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : SaveResponse? = nil;
+                    var responseObject : SaveResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -10692,7 +10692,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DocumentResponse? = nil;
+                    var responseObject : DocumentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -10816,7 +10816,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : SaveResponse? = nil;
+                    var responseObject : SaveResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -10887,7 +10887,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : SearchResponse? = nil;
+                    var responseObject : SearchResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -10975,7 +10975,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : SplitDocumentResponse? = nil;
+                    var responseObject : SplitDocumentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -11048,7 +11048,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : ProtectionDataResponse? = nil;
+                    var responseObject : ProtectionDataResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -11128,7 +11128,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : BookmarkResponse? = nil;
+                    var responseObject : BookmarkResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -11209,7 +11209,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : BorderResponse? = nil;
+                    var responseObject : BorderResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -11289,7 +11289,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : CommentResponse? = nil;
+                    var responseObject : CommentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -11373,7 +11373,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    ver responseObject : DrawingObjectResponse? = nil;
+                    var responseObject : DrawingObjectResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -11456,7 +11456,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    ver responseObject : DrawingObjectResponse? = nil;
+                    var responseObject : DrawingObjectResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -11537,7 +11537,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FieldResponse? = nil;
+                    var responseObject : FieldResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -11610,7 +11610,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : DocumentResponse? = nil;
+                    var responseObject : DocumentResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -11691,7 +11691,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FootnoteResponse? = nil;
+                    var responseObject : FootnoteResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -11771,7 +11771,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FootnoteResponse? = nil;
+                    var responseObject : FootnoteResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -11852,7 +11852,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FormFieldResponse? = nil;
+                    var responseObject : FormFieldResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -11932,7 +11932,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FormFieldResponse? = nil;
+                    var responseObject : FormFieldResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -12013,7 +12013,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : ParagraphFormatResponse? = nil;
+                    var responseObject : ParagraphFormatResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -12094,7 +12094,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : RunResponse? = nil;
+                    var responseObject : RunResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -12175,7 +12175,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : FontResponse? = nil;
+                    var responseObject : FontResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -12255,7 +12255,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : SectionPageSetupResponse? = nil;
+                    var responseObject : SectionPageSetupResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -12336,7 +12336,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TableCellFormatResponse? = nil;
+                    var responseObject : TableCellFormatResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -12417,7 +12417,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TablePropertiesResponse? = nil;
+                    var responseObject : TablePropertiesResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -12497,7 +12497,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TablePropertiesResponse? = nil;
+                    var responseObject : TablePropertiesResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -12578,7 +12578,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: nil,
                 callback: { response, error in
-                    ver responseObject : TableRowFormatResponse? = nil;
+                    var responseObject : TableRowFormatResponse? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
@@ -12641,7 +12641,7 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    ver responseObject : FilesUploadResult? = nil;
+                    var responseObject : FilesUploadResult? = nil;
                     var responseError = error;
                     if (responseError == nil) {
                         do {
