@@ -1,1 +1,1 @@
-swift build && swift test
+swift build && swift test | tee .build/testReport.log

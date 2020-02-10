@@ -22,7 +22,7 @@ def runtests(version)
             
                 stage('tests'){
 					try{
-						sh "swift test > .build/testReport.log"
+						sh "swift test | tee .build/testReport.log"
 					} finally{
 						junit '.build/testReport.log'
 					}
