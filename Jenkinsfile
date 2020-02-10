@@ -3,9 +3,9 @@ parameters {
 		string(name: 'testServerUrl', defaultValue: 'https://api-qa.aspose.cloud', description: 'server url')		
 }
 
-def runtests(directory)
+def runtests(version)
 {
-    dir(directory){
+    dir(version){
         try {
             stage('checkout'){
                 checkout([$class: 'GitSCM', branches: [[name: params.branch]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: "**"]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '361885ba-9425-4230-950e-0af201d90547', url: 'https://git.auckland.dynabic.com/words-cloud/aspose.words-cloud-sdk-swift.git']]])
@@ -15,7 +15,7 @@ def runtests(directory)
                 }
             }
             
-            docker.image('swift').inside{
+            docker.image('swift:' + version).inside{
                 stage('build'){
 					sh "swift build"
 				}
@@ -45,7 +45,8 @@ def runtests(directory)
 node('words-linux') {
 	cleanWs()
     if (!params.branch.contains("release")) {
-	    runtests("swift-sdk")
+	    runtests("4.2")
+        runtests("5.0")
     }
 
 }
