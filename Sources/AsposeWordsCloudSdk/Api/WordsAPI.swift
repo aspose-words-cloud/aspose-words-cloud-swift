@@ -36,7 +36,7 @@ public class WordsAPI {
         self.apiInvoker = ApiInvoker(configuration: configuration);
     }
     
-    public func acceptAllRevisions(request : AcceptAllRevisionsRequest, callback : (_ response : RevisionsModificationResponse?, _ error : Error?) -> ()) {
+    public func acceptAllRevisions(request : AcceptAllRevisionsRequest, callback : @escaping (_ response : RevisionsModificationResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/revisions/acceptAll";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -76,7 +76,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: RevisionsModificationResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: RevisionsModificationResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -109,7 +109,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func appendDocument(request : AppendDocumentRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+    public func appendDocument(request : AppendDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/appendDocument";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -155,7 +155,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -188,7 +188,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func classify(request : ClassifyRequest, callback : (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
+    public func classify(request : ClassifyRequest, callback : @escaping (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/classify";
             let urlPath = self.configuration.getApiRootUrl().appendingPathComponent(rawPath);
@@ -215,7 +215,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: ClassificationResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: ClassificationResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -248,7 +248,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func classifyDocument(request : ClassifyDocumentRequest, callback : (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
+    public func classifyDocument(request : ClassifyDocumentRequest, callback : @escaping (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{documentName}/classify";
             rawPath = rawPath.replacingOccurrences(of: "{documentName}", with: try ObjectSerializer.serializeToString(value: request.getDocumentName()));
@@ -291,7 +291,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: ClassificationResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: ClassificationResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -324,7 +324,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func compareDocument(request : CompareDocumentRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+    public func compareDocument(request : CompareDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/compareDocument";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -364,7 +364,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -397,7 +397,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func convertDocument(request : ConvertDocumentRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func convertDocument(request : ConvertDocumentRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/convert";
             let urlPath = self.configuration.getApiRootUrl().appendingPathComponent(rawPath);
@@ -459,7 +459,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func copyFile(request : CopyFileRequest, callback : (_ error : Error?) -> ()) {
+    public func copyFile(request : CopyFileRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/storage/file/copy/{srcPath}";
             rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: request.getSrcPath()));
@@ -517,7 +517,7 @@ public class WordsAPI {
         
     }
     
-    public func copyFolder(request : CopyFolderRequest, callback : (_ error : Error?) -> ()) {
+    public func copyFolder(request : CopyFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/storage/folder/copy/{srcPath}";
             rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: request.getSrcPath()));
@@ -572,7 +572,7 @@ public class WordsAPI {
         
     }
     
-    public func createDocument(request : CreateDocumentRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+    public func createDocument(request : CreateDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/create";
             let urlPath = self.configuration.getApiRootUrl().appendingPathComponent(rawPath);
@@ -605,7 +605,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -638,7 +638,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func createFolder(request : CreateFolderRequest, callback : (_ error : Error?) -> ()) {
+    public func createFolder(request : CreateFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/storage/folder/{path}";
             rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
@@ -689,7 +689,7 @@ public class WordsAPI {
         
     }
     
-    public func createOrUpdateDocumentProperty(request : CreateOrUpdateDocumentPropertyRequest, callback : (_ response : DocumentPropertyResponse?, _ error : Error?) -> ()) {
+    public func createOrUpdateDocumentProperty(request : CreateOrUpdateDocumentPropertyRequest, callback : @escaping (_ response : DocumentPropertyResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/documentProperties/{propertyName}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -736,7 +736,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentPropertyResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentPropertyResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -769,7 +769,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func deleteBorder(request : DeleteBorderRequest, callback : (_ response : BorderResponse?, _ error : Error?) -> ()) {
+    public func deleteBorder(request : DeleteBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/borders/{borderType}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -817,7 +817,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: BorderResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: BorderResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -850,7 +850,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func deleteBorders(request : DeleteBordersRequest, callback : (_ response : BordersResponse?, _ error : Error?) -> ()) {
+    public func deleteBorders(request : DeleteBordersRequest, callback : @escaping (_ response : BordersResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/borders";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -897,7 +897,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: BordersResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: BordersResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -930,7 +930,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func deleteComment(request : DeleteCommentRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteComment(request : DeleteCommentRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/comments/{commentIndex}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -1000,7 +1000,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteDocumentProperty(request : DeleteDocumentPropertyRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteDocumentProperty(request : DeleteDocumentPropertyRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/documentProperties/{propertyName}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -1070,7 +1070,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteDrawingObject(request : DeleteDrawingObjectRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteDrawingObject(request : DeleteDrawingObjectRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -1141,7 +1141,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteDrawingObjectWithoutNodePath(request : DeleteDrawingObjectWithoutNodePathRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteDrawingObjectWithoutNodePath(request : DeleteDrawingObjectWithoutNodePathRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/drawingObjects/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -1211,7 +1211,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteField(request : DeleteFieldRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteField(request : DeleteFieldRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/fields/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -1282,7 +1282,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteFieldWithoutNodePath(request : DeleteFieldWithoutNodePathRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteFieldWithoutNodePath(request : DeleteFieldWithoutNodePathRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/fields/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -1352,7 +1352,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteFields(request : DeleteFieldsRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteFields(request : DeleteFieldsRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/fields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -1422,7 +1422,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteFieldsWithoutNodePath(request : DeleteFieldsWithoutNodePathRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteFieldsWithoutNodePath(request : DeleteFieldsWithoutNodePathRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/fields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -1491,7 +1491,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteFile(request : DeleteFileRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteFile(request : DeleteFileRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/storage/file/{path}";
             rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
@@ -1545,7 +1545,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteFolder(request : DeleteFolderRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteFolder(request : DeleteFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/storage/folder/{path}";
             rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
@@ -1599,7 +1599,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteFootnote(request : DeleteFootnoteRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteFootnote(request : DeleteFootnoteRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/footnotes/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -1670,7 +1670,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteFootnoteWithoutNodePath(request : DeleteFootnoteWithoutNodePathRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteFootnoteWithoutNodePath(request : DeleteFootnoteWithoutNodePathRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/footnotes/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -1740,7 +1740,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteFormField(request : DeleteFormFieldRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteFormField(request : DeleteFormFieldRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/formfields/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -1811,7 +1811,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteFormFieldWithoutNodePath(request : DeleteFormFieldWithoutNodePathRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteFormFieldWithoutNodePath(request : DeleteFormFieldWithoutNodePathRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/formfields/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -1881,7 +1881,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteHeaderFooter(request : DeleteHeaderFooterRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteHeaderFooter(request : DeleteHeaderFooterRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{sectionPath}/headersfooters/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -1952,7 +1952,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteHeadersFooters(request : DeleteHeadersFootersRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteHeadersFooters(request : DeleteHeadersFootersRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{sectionPath}/headersfooters";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -2025,7 +2025,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteMacros(request : DeleteMacrosRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteMacros(request : DeleteMacrosRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/macros";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -2094,7 +2094,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteOfficeMathObject(request : DeleteOfficeMathObjectRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteOfficeMathObject(request : DeleteOfficeMathObjectRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -2165,7 +2165,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteOfficeMathObjectWithoutNodePath(request : DeleteOfficeMathObjectWithoutNodePathRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteOfficeMathObjectWithoutNodePath(request : DeleteOfficeMathObjectWithoutNodePathRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/OfficeMathObjects/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -2235,7 +2235,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteParagraph(request : DeleteParagraphRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteParagraph(request : DeleteParagraphRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -2306,7 +2306,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteParagraphWithoutNodePath(request : DeleteParagraphWithoutNodePathRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteParagraphWithoutNodePath(request : DeleteParagraphWithoutNodePathRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/paragraphs/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -2376,7 +2376,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteRun(request : DeleteRunRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteRun(request : DeleteRunRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{paragraphPath}/runs/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -2447,7 +2447,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteSection(request : DeleteSectionRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteSection(request : DeleteSectionRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/sections/{sectionIndex}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -2517,7 +2517,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteTable(request : DeleteTableRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteTable(request : DeleteTableRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/tables/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -2588,7 +2588,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteTableCell(request : DeleteTableCellRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteTableCell(request : DeleteTableCellRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{tableRowPath}/cells/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -2659,7 +2659,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteTableRow(request : DeleteTableRowRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteTableRow(request : DeleteTableRowRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{tablePath}/rows/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -2730,7 +2730,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteTableWithoutNodePath(request : DeleteTableWithoutNodePathRequest, callback : (_ error : Error?) -> ()) {
+    public func deleteTableWithoutNodePath(request : DeleteTableWithoutNodePathRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/tables/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -2800,7 +2800,7 @@ public class WordsAPI {
         
     }
     
-    public func deleteWatermark(request : DeleteWatermarkRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+    public func deleteWatermark(request : DeleteWatermarkRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/watermarks/deleteLast";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -2846,7 +2846,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -2879,7 +2879,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func downloadFile(request : DownloadFileRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func downloadFile(request : DownloadFileRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/storage/file/{path}";
             rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
@@ -2933,7 +2933,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func executeMailMerge(request : ExecuteMailMergeRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+    public func executeMailMerge(request : ExecuteMailMergeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/MailMerge";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -2989,7 +2989,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -3022,7 +3022,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func executeMailMergeOnline(request : ExecuteMailMergeOnlineRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func executeMailMergeOnline(request : ExecuteMailMergeOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/MailMerge";
             let urlPath = self.configuration.getApiRootUrl().appendingPathComponent(rawPath);
@@ -3081,7 +3081,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getAvailableFonts(request : GetAvailableFontsRequest, callback : (_ response : AvailableFontsResponse?, _ error : Error?) -> ()) {
+    public func getAvailableFonts(request : GetAvailableFontsRequest, callback : @escaping (_ response : AvailableFontsResponse?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/fonts/available";
             let urlPath = self.configuration.getApiRootUrl().appendingPathComponent(rawPath);
@@ -3108,7 +3108,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: AvailableFontsResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: AvailableFontsResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -3141,7 +3141,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getBookmarkByName(request : GetBookmarkByNameRequest, callback : (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
+    public func getBookmarkByName(request : GetBookmarkByNameRequest, callback : @escaping (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/bookmarks/{bookmarkName}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -3179,7 +3179,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: BookmarkResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: BookmarkResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -3212,7 +3212,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getBookmarks(request : GetBookmarksRequest, callback : (_ response : BookmarksResponse?, _ error : Error?) -> ()) {
+    public func getBookmarks(request : GetBookmarksRequest, callback : @escaping (_ response : BookmarksResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/bookmarks";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -3249,7 +3249,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: BookmarksResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: BookmarksResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -3282,7 +3282,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getBorder(request : GetBorderRequest, callback : (_ response : BorderResponse?, _ error : Error?) -> ()) {
+    public func getBorder(request : GetBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/borders/{borderType}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -3321,7 +3321,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: BorderResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: BorderResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -3354,7 +3354,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getBorders(request : GetBordersRequest, callback : (_ response : BordersResponse?, _ error : Error?) -> ()) {
+    public func getBorders(request : GetBordersRequest, callback : @escaping (_ response : BordersResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/borders";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -3392,7 +3392,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: BordersResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: BordersResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -3425,7 +3425,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getComment(request : GetCommentRequest, callback : (_ response : CommentResponse?, _ error : Error?) -> ()) {
+    public func getComment(request : GetCommentRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/comments/{commentIndex}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -3463,7 +3463,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: CommentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: CommentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -3496,7 +3496,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getComments(request : GetCommentsRequest, callback : (_ response : CommentsResponse?, _ error : Error?) -> ()) {
+    public func getComments(request : GetCommentsRequest, callback : @escaping (_ response : CommentsResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/comments";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -3533,7 +3533,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: CommentsResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: CommentsResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -3566,7 +3566,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocument(request : GetDocumentRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+    public func getDocument(request : GetDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{documentName}";
             rawPath = rawPath.replacingOccurrences(of: "{documentName}", with: try ObjectSerializer.serializeToString(value: request.getDocumentName()));
@@ -3603,7 +3603,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -3636,7 +3636,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentDrawingObjectByIndex(request : GetDocumentDrawingObjectByIndexRequest, callback : (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
+    public func getDocumentDrawingObjectByIndex(request : GetDocumentDrawingObjectByIndexRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -3675,7 +3675,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -3708,7 +3708,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentDrawingObjectByIndexWithoutNodePath(request : GetDocumentDrawingObjectByIndexWithoutNodePathRequest, callback : (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
+    public func getDocumentDrawingObjectByIndexWithoutNodePath(request : GetDocumentDrawingObjectByIndexWithoutNodePathRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/drawingObjects/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -3746,7 +3746,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -3779,7 +3779,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentDrawingObjectImageData(request : GetDocumentDrawingObjectImageDataRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func getDocumentDrawingObjectImageData(request : GetDocumentDrawingObjectImageDataRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}/imageData";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -3841,7 +3841,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentDrawingObjectImageDataWithoutNodePath(request : GetDocumentDrawingObjectImageDataWithoutNodePathRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func getDocumentDrawingObjectImageDataWithoutNodePath(request : GetDocumentDrawingObjectImageDataWithoutNodePathRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/drawingObjects/{index}/imageData";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -3902,7 +3902,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentDrawingObjectOleData(request : GetDocumentDrawingObjectOleDataRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func getDocumentDrawingObjectOleData(request : GetDocumentDrawingObjectOleDataRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}/oleData";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -3964,7 +3964,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentDrawingObjectOleDataWithoutNodePath(request : GetDocumentDrawingObjectOleDataWithoutNodePathRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func getDocumentDrawingObjectOleDataWithoutNodePath(request : GetDocumentDrawingObjectOleDataWithoutNodePathRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/drawingObjects/{index}/oleData";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -4025,7 +4025,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentDrawingObjects(request : GetDocumentDrawingObjectsRequest, callback : (_ response : DrawingObjectsResponse?, _ error : Error?) -> ()) {
+    public func getDocumentDrawingObjects(request : GetDocumentDrawingObjectsRequest, callback : @escaping (_ response : DrawingObjectsResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/drawingObjects";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -4063,7 +4063,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectsResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectsResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -4096,7 +4096,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentDrawingObjectsWithoutNodePath(request : GetDocumentDrawingObjectsWithoutNodePathRequest, callback : (_ response : DrawingObjectsResponse?, _ error : Error?) -> ()) {
+    public func getDocumentDrawingObjectsWithoutNodePath(request : GetDocumentDrawingObjectsWithoutNodePathRequest, callback : @escaping (_ response : DrawingObjectsResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/drawingObjects";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -4133,7 +4133,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectsResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectsResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -4166,7 +4166,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentFieldNames(request : GetDocumentFieldNamesRequest, callback : (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
+    public func getDocumentFieldNames(request : GetDocumentFieldNamesRequest, callback : @escaping (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/mailMerge/FieldNames";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -4206,7 +4206,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FieldNamesResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FieldNamesResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -4239,7 +4239,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentFieldNamesOnline(request : GetDocumentFieldNamesOnlineRequest, callback : (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
+    public func getDocumentFieldNamesOnline(request : GetDocumentFieldNamesOnlineRequest, callback : @escaping (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/mailMerge/FieldNames";
             let urlPath = self.configuration.getApiRootUrl().appendingPathComponent(rawPath);
@@ -4268,7 +4268,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FieldNamesResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FieldNamesResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -4301,7 +4301,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentHyperlinkByIndex(request : GetDocumentHyperlinkByIndexRequest, callback : (_ response : HyperlinkResponse?, _ error : Error?) -> ()) {
+    public func getDocumentHyperlinkByIndex(request : GetDocumentHyperlinkByIndexRequest, callback : @escaping (_ response : HyperlinkResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/hyperlinks/{hyperlinkIndex}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -4339,7 +4339,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: HyperlinkResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: HyperlinkResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -4372,7 +4372,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentHyperlinks(request : GetDocumentHyperlinksRequest, callback : (_ response : HyperlinksResponse?, _ error : Error?) -> ()) {
+    public func getDocumentHyperlinks(request : GetDocumentHyperlinksRequest, callback : @escaping (_ response : HyperlinksResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/hyperlinks";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -4409,7 +4409,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: HyperlinksResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: HyperlinksResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -4442,7 +4442,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentProperties(request : GetDocumentPropertiesRequest, callback : (_ response : DocumentPropertiesResponse?, _ error : Error?) -> ()) {
+    public func getDocumentProperties(request : GetDocumentPropertiesRequest, callback : @escaping (_ response : DocumentPropertiesResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/documentProperties";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -4479,7 +4479,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentPropertiesResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentPropertiesResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -4512,7 +4512,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentProperty(request : GetDocumentPropertyRequest, callback : (_ response : DocumentPropertyResponse?, _ error : Error?) -> ()) {
+    public func getDocumentProperty(request : GetDocumentPropertyRequest, callback : @escaping (_ response : DocumentPropertyResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/documentProperties/{propertyName}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -4550,7 +4550,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentPropertyResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentPropertyResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -4583,7 +4583,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentProtection(request : GetDocumentProtectionRequest, callback : (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
+    public func getDocumentProtection(request : GetDocumentProtectionRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/protection";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -4620,7 +4620,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: ProtectionDataResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: ProtectionDataResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -4653,7 +4653,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentStatistics(request : GetDocumentStatisticsRequest, callback : (_ response : StatDataResponse?, _ error : Error?) -> ()) {
+    public func getDocumentStatistics(request : GetDocumentStatisticsRequest, callback : @escaping (_ response : StatDataResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/statistics";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -4699,7 +4699,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: StatDataResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: StatDataResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -4732,7 +4732,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getDocumentWithFormat(request : GetDocumentWithFormatRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func getDocumentWithFormat(request : GetDocumentWithFormatRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -4799,7 +4799,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getField(request : GetFieldRequest, callback : (_ response : FieldResponse?, _ error : Error?) -> ()) {
+    public func getField(request : GetFieldRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/fields/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -4838,7 +4838,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FieldResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FieldResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -4871,7 +4871,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getFieldWithoutNodePath(request : GetFieldWithoutNodePathRequest, callback : (_ response : FieldResponse?, _ error : Error?) -> ()) {
+    public func getFieldWithoutNodePath(request : GetFieldWithoutNodePathRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/fields/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -4909,7 +4909,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FieldResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FieldResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -4942,7 +4942,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getFields(request : GetFieldsRequest, callback : (_ response : FieldsResponse?, _ error : Error?) -> ()) {
+    public func getFields(request : GetFieldsRequest, callback : @escaping (_ response : FieldsResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/fields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -4980,7 +4980,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FieldsResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FieldsResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -5013,7 +5013,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getFieldsWithoutNodePath(request : GetFieldsWithoutNodePathRequest, callback : (_ response : FieldsResponse?, _ error : Error?) -> ()) {
+    public func getFieldsWithoutNodePath(request : GetFieldsWithoutNodePathRequest, callback : @escaping (_ response : FieldsResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/fields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -5050,7 +5050,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FieldsResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FieldsResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -5083,7 +5083,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getFilesList(request : GetFilesListRequest, callback : (_ response : FilesList?, _ error : Error?) -> ()) {
+    public func getFilesList(request : GetFilesListRequest, callback : @escaping (_ response : FilesList?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/storage/folder/{path}";
             rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
@@ -5111,7 +5111,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FilesList.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FilesList.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -5144,7 +5144,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getFootnote(request : GetFootnoteRequest, callback : (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
+    public func getFootnote(request : GetFootnoteRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/footnotes/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -5183,7 +5183,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FootnoteResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FootnoteResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -5216,7 +5216,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getFootnoteWithoutNodePath(request : GetFootnoteWithoutNodePathRequest, callback : (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
+    public func getFootnoteWithoutNodePath(request : GetFootnoteWithoutNodePathRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/footnotes/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -5254,7 +5254,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FootnoteResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FootnoteResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -5287,7 +5287,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getFootnotes(request : GetFootnotesRequest, callback : (_ response : FootnotesResponse?, _ error : Error?) -> ()) {
+    public func getFootnotes(request : GetFootnotesRequest, callback : @escaping (_ response : FootnotesResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/footnotes";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -5325,7 +5325,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FootnotesResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FootnotesResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -5358,7 +5358,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getFootnotesWithoutNodePath(request : GetFootnotesWithoutNodePathRequest, callback : (_ response : FootnotesResponse?, _ error : Error?) -> ()) {
+    public func getFootnotesWithoutNodePath(request : GetFootnotesWithoutNodePathRequest, callback : @escaping (_ response : FootnotesResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/footnotes";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -5395,7 +5395,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FootnotesResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FootnotesResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -5428,7 +5428,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getFormField(request : GetFormFieldRequest, callback : (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
+    public func getFormField(request : GetFormFieldRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/formfields/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -5467,7 +5467,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FormFieldResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FormFieldResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -5500,7 +5500,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getFormFieldWithoutNodePath(request : GetFormFieldWithoutNodePathRequest, callback : (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
+    public func getFormFieldWithoutNodePath(request : GetFormFieldWithoutNodePathRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/formfields/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -5538,7 +5538,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FormFieldResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FormFieldResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -5571,7 +5571,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getFormFields(request : GetFormFieldsRequest, callback : (_ response : FormFieldsResponse?, _ error : Error?) -> ()) {
+    public func getFormFields(request : GetFormFieldsRequest, callback : @escaping (_ response : FormFieldsResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/formfields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -5609,7 +5609,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FormFieldsResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FormFieldsResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -5642,7 +5642,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getFormFieldsWithoutNodePath(request : GetFormFieldsWithoutNodePathRequest, callback : (_ response : FormFieldsResponse?, _ error : Error?) -> ()) {
+    public func getFormFieldsWithoutNodePath(request : GetFormFieldsWithoutNodePathRequest, callback : @escaping (_ response : FormFieldsResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/formfields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -5679,7 +5679,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FormFieldsResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FormFieldsResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -5712,7 +5712,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getHeaderFooter(request : GetHeaderFooterRequest, callback : (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
+    public func getHeaderFooter(request : GetHeaderFooterRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/headersfooters/{headerFooterIndex}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -5753,7 +5753,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: HeaderFooterResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: HeaderFooterResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -5786,7 +5786,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getHeaderFooterOfSection(request : GetHeaderFooterOfSectionRequest, callback : (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
+    public func getHeaderFooterOfSection(request : GetHeaderFooterOfSectionRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -5828,7 +5828,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: HeaderFooterResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: HeaderFooterResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -5861,7 +5861,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getHeaderFooters(request : GetHeaderFootersRequest, callback : (_ response : HeaderFootersResponse?, _ error : Error?) -> ()) {
+    public func getHeaderFooters(request : GetHeaderFootersRequest, callback : @escaping (_ response : HeaderFootersResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{sectionPath}/headersfooters";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -5902,7 +5902,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: HeaderFootersResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: HeaderFootersResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -5935,7 +5935,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getOfficeMathObject(request : GetOfficeMathObjectRequest, callback : (_ response : OfficeMathObjectResponse?, _ error : Error?) -> ()) {
+    public func getOfficeMathObject(request : GetOfficeMathObjectRequest, callback : @escaping (_ response : OfficeMathObjectResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -5974,7 +5974,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: OfficeMathObjectResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: OfficeMathObjectResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -6007,7 +6007,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getOfficeMathObjectWithoutNodePath(request : GetOfficeMathObjectWithoutNodePathRequest, callback : (_ response : OfficeMathObjectResponse?, _ error : Error?) -> ()) {
+    public func getOfficeMathObjectWithoutNodePath(request : GetOfficeMathObjectWithoutNodePathRequest, callback : @escaping (_ response : OfficeMathObjectResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/OfficeMathObjects/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -6045,7 +6045,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: OfficeMathObjectResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: OfficeMathObjectResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -6078,7 +6078,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getOfficeMathObjects(request : GetOfficeMathObjectsRequest, callback : (_ response : OfficeMathObjectsResponse?, _ error : Error?) -> ()) {
+    public func getOfficeMathObjects(request : GetOfficeMathObjectsRequest, callback : @escaping (_ response : OfficeMathObjectsResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/OfficeMathObjects";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -6116,7 +6116,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: OfficeMathObjectsResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: OfficeMathObjectsResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -6149,7 +6149,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getOfficeMathObjectsWithoutNodePath(request : GetOfficeMathObjectsWithoutNodePathRequest, callback : (_ response : OfficeMathObjectsResponse?, _ error : Error?) -> ()) {
+    public func getOfficeMathObjectsWithoutNodePath(request : GetOfficeMathObjectsWithoutNodePathRequest, callback : @escaping (_ response : OfficeMathObjectsResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/OfficeMathObjects";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -6186,7 +6186,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: OfficeMathObjectsResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: OfficeMathObjectsResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -6219,7 +6219,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getParagraph(request : GetParagraphRequest, callback : (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
+    public func getParagraph(request : GetParagraphRequest, callback : @escaping (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -6258,7 +6258,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: ParagraphResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -6291,7 +6291,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getParagraphFormat(request : GetParagraphFormatRequest, callback : (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
+    public func getParagraphFormat(request : GetParagraphFormatRequest, callback : @escaping (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/format";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -6330,7 +6330,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: ParagraphFormatResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphFormatResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -6363,7 +6363,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getParagraphFormatWithoutNodePath(request : GetParagraphFormatWithoutNodePathRequest, callback : (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
+    public func getParagraphFormatWithoutNodePath(request : GetParagraphFormatWithoutNodePathRequest, callback : @escaping (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/paragraphs/{index}/format";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -6401,7 +6401,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: ParagraphFormatResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphFormatResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -6434,7 +6434,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getParagraphWithoutNodePath(request : GetParagraphWithoutNodePathRequest, callback : (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
+    public func getParagraphWithoutNodePath(request : GetParagraphWithoutNodePathRequest, callback : @escaping (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/paragraphs/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -6472,7 +6472,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: ParagraphResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -6505,7 +6505,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getParagraphs(request : GetParagraphsRequest, callback : (_ response : ParagraphLinkCollectionResponse?, _ error : Error?) -> ()) {
+    public func getParagraphs(request : GetParagraphsRequest, callback : @escaping (_ response : ParagraphLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/paragraphs";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -6543,7 +6543,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: ParagraphLinkCollectionResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphLinkCollectionResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -6576,7 +6576,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getParagraphsWithoutNodePath(request : GetParagraphsWithoutNodePathRequest, callback : (_ response : ParagraphLinkCollectionResponse?, _ error : Error?) -> ()) {
+    public func getParagraphsWithoutNodePath(request : GetParagraphsWithoutNodePathRequest, callback : @escaping (_ response : ParagraphLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/paragraphs";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -6613,7 +6613,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: ParagraphLinkCollectionResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphLinkCollectionResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -6646,7 +6646,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getRangeText(request : GetRangeTextRequest, callback : (_ response : RangeTextResponse?, _ error : Error?) -> ()) {
+    public func getRangeText(request : GetRangeTextRequest, callback : @escaping (_ response : RangeTextResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -6685,7 +6685,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: RangeTextResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: RangeTextResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -6718,7 +6718,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getRun(request : GetRunRequest, callback : (_ response : RunResponse?, _ error : Error?) -> ()) {
+    public func getRun(request : GetRunRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{paragraphPath}/runs/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -6757,7 +6757,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: RunResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: RunResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -6790,7 +6790,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getRunFont(request : GetRunFontRequest, callback : (_ response : FontResponse?, _ error : Error?) -> ()) {
+    public func getRunFont(request : GetRunFontRequest, callback : @escaping (_ response : FontResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{paragraphPath}/runs/{index}/font";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -6829,7 +6829,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FontResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FontResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -6862,7 +6862,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getRuns(request : GetRunsRequest, callback : (_ response : RunsResponse?, _ error : Error?) -> ()) {
+    public func getRuns(request : GetRunsRequest, callback : @escaping (_ response : RunsResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{paragraphPath}/runs";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -6900,7 +6900,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: RunsResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: RunsResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -6933,7 +6933,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getSection(request : GetSectionRequest, callback : (_ response : SectionResponse?, _ error : Error?) -> ()) {
+    public func getSection(request : GetSectionRequest, callback : @escaping (_ response : SectionResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/sections/{sectionIndex}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -6971,7 +6971,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: SectionResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: SectionResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -7004,7 +7004,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getSectionPageSetup(request : GetSectionPageSetupRequest, callback : (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
+    public func getSectionPageSetup(request : GetSectionPageSetupRequest, callback : @escaping (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/sections/{sectionIndex}/pageSetup";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -7042,7 +7042,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: SectionPageSetupResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: SectionPageSetupResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -7075,7 +7075,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getSections(request : GetSectionsRequest, callback : (_ response : SectionLinkCollectionResponse?, _ error : Error?) -> ()) {
+    public func getSections(request : GetSectionsRequest, callback : @escaping (_ response : SectionLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/sections";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -7112,7 +7112,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: SectionLinkCollectionResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: SectionLinkCollectionResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -7145,7 +7145,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getTable(request : GetTableRequest, callback : (_ response : TableResponse?, _ error : Error?) -> ()) {
+    public func getTable(request : GetTableRequest, callback : @escaping (_ response : TableResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/tables/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -7184,7 +7184,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TableResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TableResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -7217,7 +7217,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getTableCell(request : GetTableCellRequest, callback : (_ response : TableCellResponse?, _ error : Error?) -> ()) {
+    public func getTableCell(request : GetTableCellRequest, callback : @escaping (_ response : TableCellResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{tableRowPath}/cells/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -7256,7 +7256,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TableCellResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TableCellResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -7289,7 +7289,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getTableCellFormat(request : GetTableCellFormatRequest, callback : (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
+    public func getTableCellFormat(request : GetTableCellFormatRequest, callback : @escaping (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -7328,7 +7328,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TableCellFormatResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TableCellFormatResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -7361,7 +7361,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getTableProperties(request : GetTablePropertiesRequest, callback : (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
+    public func getTableProperties(request : GetTablePropertiesRequest, callback : @escaping (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/tables/{index}/properties";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -7400,7 +7400,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TablePropertiesResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TablePropertiesResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -7433,7 +7433,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getTablePropertiesWithoutNodePath(request : GetTablePropertiesWithoutNodePathRequest, callback : (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
+    public func getTablePropertiesWithoutNodePath(request : GetTablePropertiesWithoutNodePathRequest, callback : @escaping (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/tables/{index}/properties";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -7471,7 +7471,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TablePropertiesResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TablePropertiesResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -7504,7 +7504,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getTableRow(request : GetTableRowRequest, callback : (_ response : TableRowResponse?, _ error : Error?) -> ()) {
+    public func getTableRow(request : GetTableRowRequest, callback : @escaping (_ response : TableRowResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{tablePath}/rows/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -7543,7 +7543,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TableRowResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TableRowResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -7576,7 +7576,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getTableRowFormat(request : GetTableRowFormatRequest, callback : (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
+    public func getTableRowFormat(request : GetTableRowFormatRequest, callback : @escaping (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{tablePath}/rows/{index}/rowformat";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -7615,7 +7615,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TableRowFormatResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TableRowFormatResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -7648,7 +7648,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getTableWithoutNodePath(request : GetTableWithoutNodePathRequest, callback : (_ response : TableResponse?, _ error : Error?) -> ()) {
+    public func getTableWithoutNodePath(request : GetTableWithoutNodePathRequest, callback : @escaping (_ response : TableResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/tables/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -7686,7 +7686,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TableResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TableResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -7719,7 +7719,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getTables(request : GetTablesRequest, callback : (_ response : TableLinkCollectionResponse?, _ error : Error?) -> ()) {
+    public func getTables(request : GetTablesRequest, callback : @escaping (_ response : TableLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/tables";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -7757,7 +7757,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TableLinkCollectionResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TableLinkCollectionResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -7790,7 +7790,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func getTablesWithoutNodePath(request : GetTablesWithoutNodePathRequest, callback : (_ response : TableLinkCollectionResponse?, _ error : Error?) -> ()) {
+    public func getTablesWithoutNodePath(request : GetTablesWithoutNodePathRequest, callback : @escaping (_ response : TableLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/tables";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -7827,7 +7827,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TableLinkCollectionResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TableLinkCollectionResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -7860,7 +7860,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertComment(request : InsertCommentRequest, callback : (_ response : CommentResponse?, _ error : Error?) -> ()) {
+    public func insertComment(request : InsertCommentRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/comments";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -7906,7 +7906,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: CommentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: CommentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -7939,7 +7939,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertDrawingObject(request : InsertDrawingObjectRequest, callback : (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
+    public func insertDrawingObject(request : InsertDrawingObjectRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/drawingObjects";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -7989,7 +7989,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -8022,7 +8022,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertDrawingObjectWithoutNodePath(request : InsertDrawingObjectWithoutNodePathRequest, callback : (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
+    public func insertDrawingObjectWithoutNodePath(request : InsertDrawingObjectWithoutNodePathRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/drawingObjects";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -8071,7 +8071,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -8104,7 +8104,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertField(request : InsertFieldRequest, callback : (_ response : FieldResponse?, _ error : Error?) -> ()) {
+    public func insertField(request : InsertFieldRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/fields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -8154,7 +8154,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FieldResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FieldResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -8187,7 +8187,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertFieldWithoutNodePath(request : InsertFieldWithoutNodePathRequest, callback : (_ response : FieldResponse?, _ error : Error?) -> ()) {
+    public func insertFieldWithoutNodePath(request : InsertFieldWithoutNodePathRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/fields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -8236,7 +8236,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FieldResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FieldResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -8269,7 +8269,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertFootnote(request : InsertFootnoteRequest, callback : (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
+    public func insertFootnote(request : InsertFootnoteRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/footnotes";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -8316,7 +8316,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FootnoteResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FootnoteResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -8349,7 +8349,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertFootnoteWithoutNodePath(request : InsertFootnoteWithoutNodePathRequest, callback : (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
+    public func insertFootnoteWithoutNodePath(request : InsertFootnoteWithoutNodePathRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/footnotes";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -8395,7 +8395,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FootnoteResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FootnoteResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -8428,7 +8428,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertFormField(request : InsertFormFieldRequest, callback : (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
+    public func insertFormField(request : InsertFormFieldRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/formfields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -8478,7 +8478,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FormFieldResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FormFieldResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -8511,7 +8511,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertFormFieldWithoutNodePath(request : InsertFormFieldWithoutNodePathRequest, callback : (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
+    public func insertFormFieldWithoutNodePath(request : InsertFormFieldWithoutNodePathRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/formfields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -8560,7 +8560,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FormFieldResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FormFieldResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -8593,7 +8593,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertHeaderFooter(request : InsertHeaderFooterRequest, callback : (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
+    public func insertHeaderFooter(request : InsertHeaderFooterRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{sectionPath}/headersfooters";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -8640,7 +8640,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: HeaderFooterResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: HeaderFooterResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -8673,7 +8673,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertPageNumbers(request : InsertPageNumbersRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+    public func insertPageNumbers(request : InsertPageNumbersRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/PageNumbers";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -8719,7 +8719,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -8752,7 +8752,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertParagraph(request : InsertParagraphRequest, callback : (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
+    public func insertParagraph(request : InsertParagraphRequest, callback : @escaping (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/paragraphs";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -8802,7 +8802,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: ParagraphResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -8835,7 +8835,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertRun(request : InsertRunRequest, callback : (_ response : RunResponse?, _ error : Error?) -> ()) {
+    public func insertRun(request : InsertRunRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{paragraphPath}/runs";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -8885,7 +8885,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: RunResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: RunResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -8918,7 +8918,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertTable(request : InsertTableRequest, callback : (_ response : TableResponse?, _ error : Error?) -> ()) {
+    public func insertTable(request : InsertTableRequest, callback : @escaping (_ response : TableResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/tables";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -8965,7 +8965,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TableResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TableResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -8998,7 +8998,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertTableCell(request : InsertTableCellRequest, callback : (_ response : TableCellResponse?, _ error : Error?) -> ()) {
+    public func insertTableCell(request : InsertTableCellRequest, callback : @escaping (_ response : TableCellResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{tableRowPath}/cells";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -9045,7 +9045,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TableCellResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TableCellResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -9078,7 +9078,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertTableRow(request : InsertTableRowRequest, callback : (_ response : TableRowResponse?, _ error : Error?) -> ()) {
+    public func insertTableRow(request : InsertTableRowRequest, callback : @escaping (_ response : TableRowResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{tablePath}/rows";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -9125,7 +9125,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TableRowResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TableRowResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -9158,7 +9158,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertTableWithoutNodePath(request : InsertTableWithoutNodePathRequest, callback : (_ response : TableResponse?, _ error : Error?) -> ()) {
+    public func insertTableWithoutNodePath(request : InsertTableWithoutNodePathRequest, callback : @escaping (_ response : TableResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/tables";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -9204,7 +9204,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TableResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TableResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -9237,7 +9237,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertWatermarkImage(request : InsertWatermarkImageRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+    public func insertWatermarkImage(request : InsertWatermarkImageRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/watermarks/images";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -9293,7 +9293,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -9326,7 +9326,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func insertWatermarkText(request : InsertWatermarkTextRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+    public func insertWatermarkText(request : InsertWatermarkTextRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/watermarks/texts";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -9372,7 +9372,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -9405,7 +9405,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func loadWebDocument(request : LoadWebDocumentRequest, callback : (_ response : SaveResponse?, _ error : Error?) -> ()) {
+    public func loadWebDocument(request : LoadWebDocumentRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/loadWebDocument";
             let urlPath = self.configuration.getApiRootUrl().appendingPathComponent(rawPath);
@@ -9432,7 +9432,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: SaveResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: SaveResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -9465,7 +9465,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func moveFile(request : MoveFileRequest, callback : (_ error : Error?) -> ()) {
+    public func moveFile(request : MoveFileRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/storage/file/move/{srcPath}";
             rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: request.getSrcPath()));
@@ -9523,7 +9523,7 @@ public class WordsAPI {
         
     }
     
-    public func moveFolder(request : MoveFolderRequest, callback : (_ error : Error?) -> ()) {
+    public func moveFolder(request : MoveFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             var rawPath = "/words/storage/folder/move/{srcPath}";
             rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: request.getSrcPath()));
@@ -9578,7 +9578,7 @@ public class WordsAPI {
         
     }
     
-    public func protectDocument(request : ProtectDocumentRequest, callback : (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
+    public func protectDocument(request : ProtectDocumentRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/protection";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -9618,7 +9618,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: ProtectionDataResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: ProtectionDataResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -9651,7 +9651,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func rejectAllRevisions(request : RejectAllRevisionsRequest, callback : (_ response : RevisionsModificationResponse?, _ error : Error?) -> ()) {
+    public func rejectAllRevisions(request : RejectAllRevisionsRequest, callback : @escaping (_ response : RevisionsModificationResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/revisions/rejectAll";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -9691,7 +9691,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: RevisionsModificationResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: RevisionsModificationResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -9724,7 +9724,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func removeRange(request : RemoveRangeRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+    public func removeRange(request : RemoveRangeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -9766,7 +9766,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -9799,7 +9799,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func renderDrawingObject(request : RenderDrawingObjectRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func renderDrawingObject(request : RenderDrawingObjectRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}/render";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -9865,7 +9865,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func renderDrawingObjectWithoutNodePath(request : RenderDrawingObjectWithoutNodePathRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func renderDrawingObjectWithoutNodePath(request : RenderDrawingObjectWithoutNodePathRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/drawingObjects/{index}/render";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -9930,7 +9930,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func renderMathObject(request : RenderMathObjectRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func renderMathObject(request : RenderMathObjectRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}/render";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -9996,7 +9996,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func renderMathObjectWithoutNodePath(request : RenderMathObjectWithoutNodePathRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func renderMathObjectWithoutNodePath(request : RenderMathObjectWithoutNodePathRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/OfficeMathObjects/{index}/render";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -10061,7 +10061,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func renderPage(request : RenderPageRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func renderPage(request : RenderPageRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/pages/{pageIndex}/render";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -10126,7 +10126,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func renderParagraph(request : RenderParagraphRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func renderParagraph(request : RenderParagraphRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/render";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -10192,7 +10192,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func renderParagraphWithoutNodePath(request : RenderParagraphWithoutNodePathRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func renderParagraphWithoutNodePath(request : RenderParagraphWithoutNodePathRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/paragraphs/{index}/render";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -10257,7 +10257,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func renderTable(request : RenderTableRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func renderTable(request : RenderTableRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/tables/{index}/render";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -10323,7 +10323,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func renderTableWithoutNodePath(request : RenderTableWithoutNodePathRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
+    public func renderTableWithoutNodePath(request : RenderTableWithoutNodePathRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/tables/{index}/render";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -10388,7 +10388,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func replaceText(request : ReplaceTextRequest, callback : (_ response : ReplaceTextResponse?, _ error : Error?) -> ()) {
+    public func replaceText(request : ReplaceTextRequest, callback : @escaping (_ response : ReplaceTextResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/replaceText";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -10434,7 +10434,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: ReplaceTextResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: ReplaceTextResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -10467,7 +10467,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func replaceWithText(request : ReplaceWithTextRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+    public func replaceWithText(request : ReplaceWithTextRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -10509,7 +10509,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -10542,7 +10542,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func resetCache(request : ResetCacheRequest, callback : (_ error : Error?) -> ()) {
+    public func resetCache(request : ResetCacheRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             let rawPath = "/words/fonts/cache";
             let urlPath = self.configuration.getApiRootUrl().appendingPathComponent(rawPath);
@@ -10584,7 +10584,7 @@ public class WordsAPI {
         
     }
     
-    public func saveAs(request : SaveAsRequest, callback : (_ response : SaveResponse?, _ error : Error?) -> ()) {
+    public func saveAs(request : SaveAsRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/saveAs";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -10624,7 +10624,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: SaveResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: SaveResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -10657,7 +10657,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func saveAsRange(request : SaveAsRangeRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+    public func saveAsRange(request : SaveAsRangeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -10696,7 +10696,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -10729,7 +10729,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func saveAsTiff(request : SaveAsTiffRequest, callback : (_ response : SaveResponse?, _ error : Error?) -> ()) {
+    public func saveAsTiff(request : SaveAsTiffRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/saveAs/tiff";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -10820,7 +10820,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: SaveResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: SaveResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -10853,7 +10853,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func search(request : SearchRequest, callback : (_ response : SearchResponse?, _ error : Error?) -> ()) {
+    public func search(request : SearchRequest, callback : @escaping (_ response : SearchResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/search";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -10891,7 +10891,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: SearchResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: SearchResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -10924,7 +10924,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func splitDocument(request : SplitDocumentRequest, callback : (_ response : SplitDocumentResponse?, _ error : Error?) -> ()) {
+    public func splitDocument(request : SplitDocumentRequest, callback : @escaping (_ response : SplitDocumentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/split";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -10979,7 +10979,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: SplitDocumentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: SplitDocumentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -11012,7 +11012,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func unprotectDocument(request : UnprotectDocumentRequest, callback : (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
+    public func unprotectDocument(request : UnprotectDocumentRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/protection";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -11052,7 +11052,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: ProtectionDataResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: ProtectionDataResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -11085,7 +11085,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateBookmark(request : UpdateBookmarkRequest, callback : (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
+    public func updateBookmark(request : UpdateBookmarkRequest, callback : @escaping (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/bookmarks/{bookmarkName}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -11132,7 +11132,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: BookmarkResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: BookmarkResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -11165,7 +11165,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateBorder(request : UpdateBorderRequest, callback : (_ response : BorderResponse?, _ error : Error?) -> ()) {
+    public func updateBorder(request : UpdateBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/borders/{borderType}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -11213,7 +11213,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: BorderResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: BorderResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -11246,7 +11246,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateComment(request : UpdateCommentRequest, callback : (_ response : CommentResponse?, _ error : Error?) -> ()) {
+    public func updateComment(request : UpdateCommentRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/comments/{commentIndex}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -11293,7 +11293,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: CommentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: CommentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -11326,7 +11326,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateDrawingObject(request : UpdateDrawingObjectRequest, callback : (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
+    public func updateDrawingObject(request : UpdateDrawingObjectRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -11377,7 +11377,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -11410,7 +11410,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateDrawingObjectWithoutNodePath(request : UpdateDrawingObjectWithoutNodePathRequest, callback : (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
+    public func updateDrawingObjectWithoutNodePath(request : UpdateDrawingObjectWithoutNodePathRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/drawingObjects/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -11460,7 +11460,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DrawingObjectResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -11493,7 +11493,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateField(request : UpdateFieldRequest, callback : (_ response : FieldResponse?, _ error : Error?) -> ()) {
+    public func updateField(request : UpdateFieldRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/fields/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -11541,7 +11541,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FieldResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FieldResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -11574,7 +11574,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateFields(request : UpdateFieldsRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+    public func updateFields(request : UpdateFieldsRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/updateFields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -11614,7 +11614,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -11647,7 +11647,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateFootnote(request : UpdateFootnoteRequest, callback : (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
+    public func updateFootnote(request : UpdateFootnoteRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/footnotes/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -11695,7 +11695,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FootnoteResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FootnoteResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -11728,7 +11728,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateFootnoteWithoutNodePath(request : UpdateFootnoteWithoutNodePathRequest, callback : (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
+    public func updateFootnoteWithoutNodePath(request : UpdateFootnoteWithoutNodePathRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/footnotes/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -11775,7 +11775,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FootnoteResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FootnoteResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -11808,7 +11808,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateFormField(request : UpdateFormFieldRequest, callback : (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
+    public func updateFormField(request : UpdateFormFieldRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/formfields/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -11856,7 +11856,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FormFieldResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FormFieldResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -11889,7 +11889,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateFormFieldWithoutNodePath(request : UpdateFormFieldWithoutNodePathRequest, callback : (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
+    public func updateFormFieldWithoutNodePath(request : UpdateFormFieldWithoutNodePathRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/formfields/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -11936,7 +11936,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FormFieldResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FormFieldResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -11969,7 +11969,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateParagraphFormat(request : UpdateParagraphFormatRequest, callback : (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
+    public func updateParagraphFormat(request : UpdateParagraphFormatRequest, callback : @escaping (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/format";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -12017,7 +12017,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: ParagraphFormatResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphFormatResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -12050,7 +12050,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateRun(request : UpdateRunRequest, callback : (_ response : RunResponse?, _ error : Error?) -> ()) {
+    public func updateRun(request : UpdateRunRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{paragraphPath}/runs/{index}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -12098,7 +12098,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: RunResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: RunResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -12131,7 +12131,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateRunFont(request : UpdateRunFontRequest, callback : (_ response : FontResponse?, _ error : Error?) -> ()) {
+    public func updateRunFont(request : UpdateRunFontRequest, callback : @escaping (_ response : FontResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{paragraphPath}/runs/{index}/font";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -12179,7 +12179,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FontResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FontResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -12212,7 +12212,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateSectionPageSetup(request : UpdateSectionPageSetupRequest, callback : (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
+    public func updateSectionPageSetup(request : UpdateSectionPageSetupRequest, callback : @escaping (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/sections/{sectionIndex}/pageSetup";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -12259,7 +12259,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: SectionPageSetupResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: SectionPageSetupResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -12292,7 +12292,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateTableCellFormat(request : UpdateTableCellFormatRequest, callback : (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
+    public func updateTableCellFormat(request : UpdateTableCellFormatRequest, callback : @escaping (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -12340,7 +12340,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TableCellFormatResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TableCellFormatResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -12373,7 +12373,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateTableProperties(request : UpdateTablePropertiesRequest, callback : (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
+    public func updateTableProperties(request : UpdateTablePropertiesRequest, callback : @escaping (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{nodePath}/tables/{index}/properties";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -12421,7 +12421,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TablePropertiesResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TablePropertiesResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -12454,7 +12454,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateTablePropertiesWithoutNodePath(request : UpdateTablePropertiesWithoutNodePathRequest, callback : (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
+    public func updateTablePropertiesWithoutNodePath(request : UpdateTablePropertiesWithoutNodePathRequest, callback : @escaping (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/tables/{index}/properties";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -12501,7 +12501,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TablePropertiesResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TablePropertiesResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -12534,7 +12534,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func updateTableRowFormat(request : UpdateTableRowFormatRequest, callback : (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
+    public func updateTableRowFormat(request : UpdateTableRowFormatRequest, callback : @escaping (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{tablePath}/rows/{index}/rowformat";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -12582,7 +12582,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: TableRowFormatResponse.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: TableRowFormatResponse.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
@@ -12615,7 +12615,7 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    public func uploadFile(request : UploadFileRequest, callback : (_ response : FilesUploadResult?, _ error : Error?) -> ()) {
+    public func uploadFile(request : UploadFileRequest, callback : @escaping (_ response : FilesUploadResult?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/storage/file/{path}";
             rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
@@ -12645,7 +12645,7 @@ public class WordsAPI {
                     var responseError = error;
                     if (responseError == nil) {
                         do {
-                            responseObject = try ObjectSerializer.deserialize(type: FilesUploadResult.self, from: response);
+                            responseObject = try ObjectSerializer.deserialize(type: FilesUploadResult.self, from: response!);
                         }
                         catch let deserializeError {
                             responseError = deserializeError;
