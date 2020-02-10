@@ -2,3 +2,5 @@ Settings/*
 .build/*
 *.xcodeproj
 /.build
+/tests.xml
+/Package.resolved
