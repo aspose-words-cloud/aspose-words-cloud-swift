@@ -87,7 +87,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -104,9 +104,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func appendDocument(request : AppendDocumentRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
@@ -166,7 +166,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -183,9 +183,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func classify(request : ClassifyRequest, callback : (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
@@ -226,7 +226,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -243,9 +243,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func classifyDocument(request : ClassifyDocumentRequest, callback : (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
@@ -302,7 +302,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -319,9 +319,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func compareDocument(request : CompareDocumentRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
@@ -375,7 +375,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -392,9 +392,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func convertDocument(request : ConvertDocumentRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -437,7 +437,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -454,9 +454,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func copyFile(request : CopyFileRequest, callback : (_ error : Error?) -> ()) {
@@ -495,7 +495,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -512,7 +512,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -550,7 +550,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -567,7 +567,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -616,7 +616,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -633,9 +633,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func createFolder(request : CreateFolderRequest, callback : (_ error : Error?) -> ()) {
@@ -667,7 +667,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -684,7 +684,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -747,7 +747,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -764,9 +764,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func deleteBorder(request : DeleteBorderRequest, callback : (_ response : BorderResponse?, _ error : Error?) -> ()) {
@@ -828,7 +828,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -845,9 +845,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func deleteBorders(request : DeleteBordersRequest, callback : (_ response : BordersResponse?, _ error : Error?) -> ()) {
@@ -908,7 +908,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -925,9 +925,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func deleteComment(request : DeleteCommentRequest, callback : (_ error : Error?) -> ()) {
@@ -978,7 +978,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -995,7 +995,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -1048,7 +1048,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -1065,7 +1065,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -1119,7 +1119,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -1136,7 +1136,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -1189,7 +1189,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -1206,7 +1206,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -1260,7 +1260,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -1277,7 +1277,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -1330,7 +1330,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -1347,7 +1347,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -1400,7 +1400,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -1417,7 +1417,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -1469,7 +1469,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -1486,7 +1486,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -1523,7 +1523,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -1540,7 +1540,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -1577,7 +1577,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -1594,7 +1594,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -1648,7 +1648,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -1665,7 +1665,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -1718,7 +1718,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -1735,7 +1735,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -1789,7 +1789,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -1806,7 +1806,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -1859,7 +1859,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -1876,7 +1876,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -1930,7 +1930,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -1947,7 +1947,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -2003,7 +2003,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -2020,7 +2020,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -2072,7 +2072,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -2089,7 +2089,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -2143,7 +2143,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -2160,7 +2160,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -2213,7 +2213,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -2230,7 +2230,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -2284,7 +2284,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -2301,7 +2301,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -2354,7 +2354,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -2371,7 +2371,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -2425,7 +2425,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -2442,7 +2442,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -2495,7 +2495,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -2512,7 +2512,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -2566,7 +2566,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -2583,7 +2583,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -2637,7 +2637,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -2654,7 +2654,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -2708,7 +2708,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -2725,7 +2725,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -2778,7 +2778,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -2795,7 +2795,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -2857,7 +2857,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -2874,9 +2874,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func downloadFile(request : DownloadFileRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -2911,7 +2911,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -2928,9 +2928,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func executeMailMerge(request : ExecuteMailMergeRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
@@ -3000,7 +3000,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -3017,9 +3017,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func executeMailMergeOnline(request : ExecuteMailMergeOnlineRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -3059,7 +3059,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -3076,9 +3076,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getAvailableFonts(request : GetAvailableFontsRequest, callback : (_ response : AvailableFontsResponse?, _ error : Error?) -> ()) {
@@ -3119,7 +3119,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -3136,9 +3136,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getBookmarkByName(request : GetBookmarkByNameRequest, callback : (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
@@ -3190,7 +3190,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -3207,9 +3207,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getBookmarks(request : GetBookmarksRequest, callback : (_ response : BookmarksResponse?, _ error : Error?) -> ()) {
@@ -3260,7 +3260,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -3277,9 +3277,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getBorder(request : GetBorderRequest, callback : (_ response : BorderResponse?, _ error : Error?) -> ()) {
@@ -3332,7 +3332,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -3349,9 +3349,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getBorders(request : GetBordersRequest, callback : (_ response : BordersResponse?, _ error : Error?) -> ()) {
@@ -3403,7 +3403,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -3420,9 +3420,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getComment(request : GetCommentRequest, callback : (_ response : CommentResponse?, _ error : Error?) -> ()) {
@@ -3474,7 +3474,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -3491,9 +3491,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getComments(request : GetCommentsRequest, callback : (_ response : CommentsResponse?, _ error : Error?) -> ()) {
@@ -3544,7 +3544,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -3561,9 +3561,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocument(request : GetDocumentRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
@@ -3614,7 +3614,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -3631,9 +3631,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentDrawingObjectByIndex(request : GetDocumentDrawingObjectByIndexRequest, callback : (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
@@ -3686,7 +3686,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -3703,9 +3703,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentDrawingObjectByIndexWithoutNodePath(request : GetDocumentDrawingObjectByIndexWithoutNodePathRequest, callback : (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
@@ -3757,7 +3757,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -3774,9 +3774,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentDrawingObjectImageData(request : GetDocumentDrawingObjectImageDataRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -3819,7 +3819,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -3836,9 +3836,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentDrawingObjectImageDataWithoutNodePath(request : GetDocumentDrawingObjectImageDataWithoutNodePathRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -3880,7 +3880,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -3897,9 +3897,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentDrawingObjectOleData(request : GetDocumentDrawingObjectOleDataRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -3942,7 +3942,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -3959,9 +3959,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentDrawingObjectOleDataWithoutNodePath(request : GetDocumentDrawingObjectOleDataWithoutNodePathRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -4003,7 +4003,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -4020,9 +4020,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentDrawingObjects(request : GetDocumentDrawingObjectsRequest, callback : (_ response : DrawingObjectsResponse?, _ error : Error?) -> ()) {
@@ -4074,7 +4074,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -4091,9 +4091,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentDrawingObjectsWithoutNodePath(request : GetDocumentDrawingObjectsWithoutNodePathRequest, callback : (_ response : DrawingObjectsResponse?, _ error : Error?) -> ()) {
@@ -4144,7 +4144,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -4161,9 +4161,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentFieldNames(request : GetDocumentFieldNamesRequest, callback : (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
@@ -4217,7 +4217,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -4234,9 +4234,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentFieldNamesOnline(request : GetDocumentFieldNamesOnlineRequest, callback : (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
@@ -4279,7 +4279,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -4296,9 +4296,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentHyperlinkByIndex(request : GetDocumentHyperlinkByIndexRequest, callback : (_ response : HyperlinkResponse?, _ error : Error?) -> ()) {
@@ -4350,7 +4350,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -4367,9 +4367,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentHyperlinks(request : GetDocumentHyperlinksRequest, callback : (_ response : HyperlinksResponse?, _ error : Error?) -> ()) {
@@ -4420,7 +4420,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -4437,9 +4437,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentProperties(request : GetDocumentPropertiesRequest, callback : (_ response : DocumentPropertiesResponse?, _ error : Error?) -> ()) {
@@ -4490,7 +4490,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -4507,9 +4507,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentProperty(request : GetDocumentPropertyRequest, callback : (_ response : DocumentPropertyResponse?, _ error : Error?) -> ()) {
@@ -4561,7 +4561,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -4578,9 +4578,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentProtection(request : GetDocumentProtectionRequest, callback : (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
@@ -4631,7 +4631,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -4648,9 +4648,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentStatistics(request : GetDocumentStatisticsRequest, callback : (_ response : StatDataResponse?, _ error : Error?) -> ()) {
@@ -4710,7 +4710,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -4727,9 +4727,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getDocumentWithFormat(request : GetDocumentWithFormatRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -4777,7 +4777,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -4794,9 +4794,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getField(request : GetFieldRequest, callback : (_ response : FieldResponse?, _ error : Error?) -> ()) {
@@ -4849,7 +4849,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -4866,9 +4866,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getFieldWithoutNodePath(request : GetFieldWithoutNodePathRequest, callback : (_ response : FieldResponse?, _ error : Error?) -> ()) {
@@ -4920,7 +4920,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -4937,9 +4937,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getFields(request : GetFieldsRequest, callback : (_ response : FieldsResponse?, _ error : Error?) -> ()) {
@@ -4991,7 +4991,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -5008,9 +5008,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getFieldsWithoutNodePath(request : GetFieldsWithoutNodePathRequest, callback : (_ response : FieldsResponse?, _ error : Error?) -> ()) {
@@ -5061,7 +5061,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -5078,9 +5078,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getFilesList(request : GetFilesListRequest, callback : (_ response : FilesList?, _ error : Error?) -> ()) {
@@ -5122,7 +5122,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -5139,9 +5139,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getFootnote(request : GetFootnoteRequest, callback : (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
@@ -5194,7 +5194,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -5211,9 +5211,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getFootnoteWithoutNodePath(request : GetFootnoteWithoutNodePathRequest, callback : (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
@@ -5265,7 +5265,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -5282,9 +5282,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getFootnotes(request : GetFootnotesRequest, callback : (_ response : FootnotesResponse?, _ error : Error?) -> ()) {
@@ -5336,7 +5336,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -5353,9 +5353,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getFootnotesWithoutNodePath(request : GetFootnotesWithoutNodePathRequest, callback : (_ response : FootnotesResponse?, _ error : Error?) -> ()) {
@@ -5406,7 +5406,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -5423,9 +5423,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getFormField(request : GetFormFieldRequest, callback : (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
@@ -5478,7 +5478,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -5495,9 +5495,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getFormFieldWithoutNodePath(request : GetFormFieldWithoutNodePathRequest, callback : (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
@@ -5549,7 +5549,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -5566,9 +5566,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getFormFields(request : GetFormFieldsRequest, callback : (_ response : FormFieldsResponse?, _ error : Error?) -> ()) {
@@ -5620,7 +5620,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -5637,9 +5637,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getFormFieldsWithoutNodePath(request : GetFormFieldsWithoutNodePathRequest, callback : (_ response : FormFieldsResponse?, _ error : Error?) -> ()) {
@@ -5690,7 +5690,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -5707,9 +5707,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getHeaderFooter(request : GetHeaderFooterRequest, callback : (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
@@ -5764,7 +5764,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -5781,9 +5781,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getHeaderFooterOfSection(request : GetHeaderFooterOfSectionRequest, callback : (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
@@ -5839,7 +5839,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -5856,9 +5856,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getHeaderFooters(request : GetHeaderFootersRequest, callback : (_ response : HeaderFootersResponse?, _ error : Error?) -> ()) {
@@ -5913,7 +5913,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -5930,9 +5930,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getOfficeMathObject(request : GetOfficeMathObjectRequest, callback : (_ response : OfficeMathObjectResponse?, _ error : Error?) -> ()) {
@@ -5985,7 +5985,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -6002,9 +6002,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getOfficeMathObjectWithoutNodePath(request : GetOfficeMathObjectWithoutNodePathRequest, callback : (_ response : OfficeMathObjectResponse?, _ error : Error?) -> ()) {
@@ -6056,7 +6056,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -6073,9 +6073,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getOfficeMathObjects(request : GetOfficeMathObjectsRequest, callback : (_ response : OfficeMathObjectsResponse?, _ error : Error?) -> ()) {
@@ -6127,7 +6127,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -6144,9 +6144,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getOfficeMathObjectsWithoutNodePath(request : GetOfficeMathObjectsWithoutNodePathRequest, callback : (_ response : OfficeMathObjectsResponse?, _ error : Error?) -> ()) {
@@ -6197,7 +6197,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -6214,9 +6214,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getParagraph(request : GetParagraphRequest, callback : (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
@@ -6269,7 +6269,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -6286,9 +6286,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getParagraphFormat(request : GetParagraphFormatRequest, callback : (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
@@ -6341,7 +6341,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -6358,9 +6358,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getParagraphFormatWithoutNodePath(request : GetParagraphFormatWithoutNodePathRequest, callback : (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
@@ -6412,7 +6412,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -6429,9 +6429,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getParagraphWithoutNodePath(request : GetParagraphWithoutNodePathRequest, callback : (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
@@ -6483,7 +6483,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -6500,9 +6500,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getParagraphs(request : GetParagraphsRequest, callback : (_ response : ParagraphLinkCollectionResponse?, _ error : Error?) -> ()) {
@@ -6554,7 +6554,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -6571,9 +6571,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getParagraphsWithoutNodePath(request : GetParagraphsWithoutNodePathRequest, callback : (_ response : ParagraphLinkCollectionResponse?, _ error : Error?) -> ()) {
@@ -6624,7 +6624,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -6641,9 +6641,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getRangeText(request : GetRangeTextRequest, callback : (_ response : RangeTextResponse?, _ error : Error?) -> ()) {
@@ -6696,7 +6696,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -6713,9 +6713,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getRun(request : GetRunRequest, callback : (_ response : RunResponse?, _ error : Error?) -> ()) {
@@ -6768,7 +6768,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -6785,9 +6785,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getRunFont(request : GetRunFontRequest, callback : (_ response : FontResponse?, _ error : Error?) -> ()) {
@@ -6840,7 +6840,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -6857,9 +6857,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getRuns(request : GetRunsRequest, callback : (_ response : RunsResponse?, _ error : Error?) -> ()) {
@@ -6911,7 +6911,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -6928,9 +6928,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getSection(request : GetSectionRequest, callback : (_ response : SectionResponse?, _ error : Error?) -> ()) {
@@ -6982,7 +6982,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -6999,9 +6999,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getSectionPageSetup(request : GetSectionPageSetupRequest, callback : (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
@@ -7053,7 +7053,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -7070,9 +7070,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getSections(request : GetSectionsRequest, callback : (_ response : SectionLinkCollectionResponse?, _ error : Error?) -> ()) {
@@ -7123,7 +7123,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -7140,9 +7140,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getTable(request : GetTableRequest, callback : (_ response : TableResponse?, _ error : Error?) -> ()) {
@@ -7195,7 +7195,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -7212,9 +7212,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getTableCell(request : GetTableCellRequest, callback : (_ response : TableCellResponse?, _ error : Error?) -> ()) {
@@ -7267,7 +7267,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -7284,9 +7284,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getTableCellFormat(request : GetTableCellFormatRequest, callback : (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
@@ -7339,7 +7339,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -7356,9 +7356,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getTableProperties(request : GetTablePropertiesRequest, callback : (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
@@ -7411,7 +7411,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -7428,9 +7428,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getTablePropertiesWithoutNodePath(request : GetTablePropertiesWithoutNodePathRequest, callback : (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
@@ -7482,7 +7482,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -7499,9 +7499,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getTableRow(request : GetTableRowRequest, callback : (_ response : TableRowResponse?, _ error : Error?) -> ()) {
@@ -7554,7 +7554,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -7571,9 +7571,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getTableRowFormat(request : GetTableRowFormatRequest, callback : (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
@@ -7626,7 +7626,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -7643,9 +7643,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getTableWithoutNodePath(request : GetTableWithoutNodePathRequest, callback : (_ response : TableResponse?, _ error : Error?) -> ()) {
@@ -7697,7 +7697,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -7714,9 +7714,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getTables(request : GetTablesRequest, callback : (_ response : TableLinkCollectionResponse?, _ error : Error?) -> ()) {
@@ -7768,7 +7768,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -7785,9 +7785,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func getTablesWithoutNodePath(request : GetTablesWithoutNodePathRequest, callback : (_ response : TableLinkCollectionResponse?, _ error : Error?) -> ()) {
@@ -7838,7 +7838,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -7855,9 +7855,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertComment(request : InsertCommentRequest, callback : (_ response : CommentResponse?, _ error : Error?) -> ()) {
@@ -7917,7 +7917,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -7934,9 +7934,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertDrawingObject(request : InsertDrawingObjectRequest, callback : (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
@@ -8000,7 +8000,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -8017,9 +8017,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertDrawingObjectWithoutNodePath(request : InsertDrawingObjectWithoutNodePathRequest, callback : (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
@@ -8082,7 +8082,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -8099,9 +8099,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertField(request : InsertFieldRequest, callback : (_ response : FieldResponse?, _ error : Error?) -> ()) {
@@ -8165,7 +8165,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -8182,9 +8182,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertFieldWithoutNodePath(request : InsertFieldWithoutNodePathRequest, callback : (_ response : FieldResponse?, _ error : Error?) -> ()) {
@@ -8247,7 +8247,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -8264,9 +8264,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertFootnote(request : InsertFootnoteRequest, callback : (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
@@ -8327,7 +8327,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -8344,9 +8344,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertFootnoteWithoutNodePath(request : InsertFootnoteWithoutNodePathRequest, callback : (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
@@ -8406,7 +8406,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -8423,9 +8423,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertFormField(request : InsertFormFieldRequest, callback : (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
@@ -8489,7 +8489,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -8506,9 +8506,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertFormFieldWithoutNodePath(request : InsertFormFieldWithoutNodePathRequest, callback : (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
@@ -8571,7 +8571,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -8588,9 +8588,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertHeaderFooter(request : InsertHeaderFooterRequest, callback : (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
@@ -8651,7 +8651,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -8668,9 +8668,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertPageNumbers(request : InsertPageNumbersRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
@@ -8730,7 +8730,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -8747,9 +8747,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertParagraph(request : InsertParagraphRequest, callback : (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
@@ -8813,7 +8813,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -8830,9 +8830,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertRun(request : InsertRunRequest, callback : (_ response : RunResponse?, _ error : Error?) -> ()) {
@@ -8896,7 +8896,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -8913,9 +8913,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertTable(request : InsertTableRequest, callback : (_ response : TableResponse?, _ error : Error?) -> ()) {
@@ -8976,7 +8976,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -8993,9 +8993,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertTableCell(request : InsertTableCellRequest, callback : (_ response : TableCellResponse?, _ error : Error?) -> ()) {
@@ -9056,7 +9056,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -9073,9 +9073,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertTableRow(request : InsertTableRowRequest, callback : (_ response : TableRowResponse?, _ error : Error?) -> ()) {
@@ -9136,7 +9136,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -9153,9 +9153,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertTableWithoutNodePath(request : InsertTableWithoutNodePathRequest, callback : (_ response : TableResponse?, _ error : Error?) -> ()) {
@@ -9215,7 +9215,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -9232,9 +9232,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertWatermarkImage(request : InsertWatermarkImageRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
@@ -9304,7 +9304,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -9321,9 +9321,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func insertWatermarkText(request : InsertWatermarkTextRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
@@ -9383,7 +9383,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -9400,9 +9400,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func loadWebDocument(request : LoadWebDocumentRequest, callback : (_ response : SaveResponse?, _ error : Error?) -> ()) {
@@ -9443,7 +9443,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -9460,9 +9460,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func moveFile(request : MoveFileRequest, callback : (_ error : Error?) -> ()) {
@@ -9501,7 +9501,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -9518,7 +9518,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -9556,7 +9556,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -9573,7 +9573,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -9629,7 +9629,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -9646,9 +9646,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func rejectAllRevisions(request : RejectAllRevisionsRequest, callback : (_ response : RevisionsModificationResponse?, _ error : Error?) -> ()) {
@@ -9702,7 +9702,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -9719,9 +9719,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func removeRange(request : RemoveRangeRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
@@ -9777,7 +9777,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -9794,9 +9794,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func renderDrawingObject(request : RenderDrawingObjectRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -9843,7 +9843,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -9860,9 +9860,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func renderDrawingObjectWithoutNodePath(request : RenderDrawingObjectWithoutNodePathRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -9908,7 +9908,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -9925,9 +9925,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func renderMathObject(request : RenderMathObjectRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -9974,7 +9974,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -9991,9 +9991,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func renderMathObjectWithoutNodePath(request : RenderMathObjectWithoutNodePathRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -10039,7 +10039,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -10056,9 +10056,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func renderPage(request : RenderPageRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -10104,7 +10104,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -10121,9 +10121,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func renderParagraph(request : RenderParagraphRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -10170,7 +10170,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -10187,9 +10187,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func renderParagraphWithoutNodePath(request : RenderParagraphWithoutNodePathRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -10235,7 +10235,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -10252,9 +10252,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func renderTable(request : RenderTableRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -10301,7 +10301,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -10318,9 +10318,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func renderTableWithoutNodePath(request : RenderTableWithoutNodePathRequest, callback : (_ response : Data?, _ error : Error?) -> ()) {
@@ -10366,7 +10366,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -10383,9 +10383,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func replaceText(request : ReplaceTextRequest, callback : (_ response : ReplaceTextResponse?, _ error : Error?) -> ()) {
@@ -10445,7 +10445,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -10462,9 +10462,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func replaceWithText(request : ReplaceWithTextRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
@@ -10520,7 +10520,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -10537,9 +10537,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func resetCache(request : ResetCacheRequest, callback : (_ error : Error?) -> ()) {
@@ -10562,7 +10562,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(, error);
+            callback(error);
         }
     }   
     
@@ -10579,7 +10579,7 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
         
     }
@@ -10635,7 +10635,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -10652,9 +10652,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func saveAsRange(request : SaveAsRangeRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
@@ -10707,7 +10707,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -10724,9 +10724,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func saveAsTiff(request : SaveAsTiffRequest, callback : (_ response : SaveResponse?, _ error : Error?) -> ()) {
@@ -10831,7 +10831,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -10848,9 +10848,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func search(request : SearchRequest, callback : (_ response : SearchResponse?, _ error : Error?) -> ()) {
@@ -10902,7 +10902,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -10919,9 +10919,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func splitDocument(request : SplitDocumentRequest, callback : (_ response : SplitDocumentResponse?, _ error : Error?) -> ()) {
@@ -10990,7 +10990,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -11007,9 +11007,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func unprotectDocument(request : UnprotectDocumentRequest, callback : (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
@@ -11063,7 +11063,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -11080,9 +11080,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateBookmark(request : UpdateBookmarkRequest, callback : (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
@@ -11143,7 +11143,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -11160,9 +11160,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateBorder(request : UpdateBorderRequest, callback : (_ response : BorderResponse?, _ error : Error?) -> ()) {
@@ -11224,7 +11224,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -11241,9 +11241,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateComment(request : UpdateCommentRequest, callback : (_ response : CommentResponse?, _ error : Error?) -> ()) {
@@ -11304,7 +11304,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -11321,9 +11321,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateDrawingObject(request : UpdateDrawingObjectRequest, callback : (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
@@ -11388,7 +11388,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -11405,9 +11405,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateDrawingObjectWithoutNodePath(request : UpdateDrawingObjectWithoutNodePathRequest, callback : (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
@@ -11471,7 +11471,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -11488,9 +11488,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateField(request : UpdateFieldRequest, callback : (_ response : FieldResponse?, _ error : Error?) -> ()) {
@@ -11552,7 +11552,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -11569,9 +11569,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateFields(request : UpdateFieldsRequest, callback : (_ response : DocumentResponse?, _ error : Error?) -> ()) {
@@ -11625,7 +11625,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -11642,9 +11642,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateFootnote(request : UpdateFootnoteRequest, callback : (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
@@ -11706,7 +11706,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -11723,9 +11723,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateFootnoteWithoutNodePath(request : UpdateFootnoteWithoutNodePathRequest, callback : (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
@@ -11786,7 +11786,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -11803,9 +11803,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateFormField(request : UpdateFormFieldRequest, callback : (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
@@ -11867,7 +11867,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -11884,9 +11884,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateFormFieldWithoutNodePath(request : UpdateFormFieldWithoutNodePathRequest, callback : (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
@@ -11947,7 +11947,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -11964,9 +11964,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateParagraphFormat(request : UpdateParagraphFormatRequest, callback : (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
@@ -12028,7 +12028,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -12045,9 +12045,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateRun(request : UpdateRunRequest, callback : (_ response : RunResponse?, _ error : Error?) -> ()) {
@@ -12109,7 +12109,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -12126,9 +12126,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateRunFont(request : UpdateRunFontRequest, callback : (_ response : FontResponse?, _ error : Error?) -> ()) {
@@ -12190,7 +12190,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -12207,9 +12207,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateSectionPageSetup(request : UpdateSectionPageSetupRequest, callback : (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
@@ -12270,7 +12270,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -12287,9 +12287,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateTableCellFormat(request : UpdateTableCellFormatRequest, callback : (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
@@ -12351,7 +12351,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -12368,9 +12368,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateTableProperties(request : UpdateTablePropertiesRequest, callback : (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
@@ -12432,7 +12432,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -12449,9 +12449,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateTablePropertiesWithoutNodePath(request : UpdateTablePropertiesWithoutNodePathRequest, callback : (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
@@ -12512,7 +12512,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -12529,9 +12529,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func updateTableRowFormat(request : UpdateTableRowFormatRequest, callback : (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
@@ -12593,7 +12593,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -12610,9 +12610,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
     
     public func uploadFile(request : UploadFileRequest, callback : (_ response : FilesUploadResult?, _ error : Error?) -> ()) {
@@ -12656,7 +12656,7 @@ public class WordsAPI {
             );
         }
         catch let error {
-            callback(nil, , error);
+            callback(nil, error);
         }
     }   
     
@@ -12673,9 +12673,9 @@ public class WordsAPI {
         _ = semaphore.wait();
         
         if (responseError != nil) {
-            throw responseError;
+            throw responseError!;
         }
-        return responseObject;
+        return responseObject!;
     }
 }
 
