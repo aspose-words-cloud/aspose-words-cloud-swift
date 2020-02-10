@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="WordsAPI.swift">
+ * <copyright company="Aspose" file="Configuration.swift">
  *   Copyright (c) 2019 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -56,11 +56,19 @@ public class Configuration : Codable {
         return self.debugMode != nil ? self.debugMode! : false;
     }
     
-    public func getVersion() -> String {
+    public func getApiVersion() -> String {
         return "v4.0";
     }
     
     public func getApiRootUrl() -> URL {
-        return URL(string: self.getBaseUrl())!.appendingPathComponent(self.getVersion());
+        return URL(string: self.getBaseUrl())!.appendingPathComponent(self.getApiVersion());
+    }
+    
+    public func getSdkName() -> String {
+        return "swift sdk";
+    }
+    
+    public func getSdkVersion() -> String {
+        return "19.10.0";
     }
 }

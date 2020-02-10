@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="WordsAPI.swift">
+ * <copyright company="Aspose" file="ApiInvoker.swift">
  *   Copyright (c) 2019 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -107,12 +107,24 @@ public class ApiInvoker {
         invokeAuthToken(forceTokenRequest: false, callback: { accessToken, statusCode in
             if (statusCode == 200) {
                 self.invokeRequest(urlRequest: &request, accessToken: accessToken, callback: { response in
-                    //if (resp.errorCode == 400) {
-                    //    try invokeAuthToken();
-                    //    resp = invokeRequestSync(urlRequest: &request, internalCall: false);
-                    //}
-                    
-                    if (response.errorCode == 200) {
+                    if (response.errorCode == 400) {
+                        self.invokeAuthToken(forceTokenRequest: true, callback: { accessToken, statusCode in
+                            if (statusCode == 200) {
+                                self.invokeRequest(urlRequest: &request, accessToken: accessToken, callback: { response in
+                                    if (response.errorCode == 200) {
+                                        callback(response.data, nil);
+                                    }
+                                    else {
+                                        callback(nil, WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
+                                    }
+                                });
+                            }
+                            else {
+                                callback(nil, WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
+                            }
+                        });
+                    }
+                    else if (response.errorCode == 200) {
                         callback(response.data, nil);
                     }
                     else {
@@ -130,6 +142,9 @@ public class ApiInvoker {
         if (accessToken != nil) {
             urlRequest.setValue(accessToken!, forHTTPHeaderField: "Authorization");
         }
+        
+        urlRequest.setValue(self.configuration.getSdkName(), forHTTPHeaderField: "x-aspose-client");
+        urlRequest.setValue(self.configuration.getSdkVersion(), forHTTPHeaderField: "x-aspose-client-version");
         
         if (configuration.isDebugMode()) {
             print("REQUEST BEGIN");
