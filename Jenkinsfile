@@ -22,9 +22,9 @@ def runtests(version)
             
                 stage('tests'){
 					try{
-						sh "swift test"
+						sh "swift test > .build/testReport.log"
 					} finally{
-						junit 'target/surefire-reports/*.xml'
+						junit '.build/testReport.log'
 					}
                 }
             
