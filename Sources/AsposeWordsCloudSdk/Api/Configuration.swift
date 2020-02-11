@@ -33,10 +33,10 @@ public class Configuration : Codable {
     private var appKey: String;
     private var debugMode: Bool?;
     
-    public init(baseUrl: String, appSid: String, appKey: String, debugMode: Bool = false) {
-        self.baseUrl = baseUrl;
+    public init(appSid: String, appKey: String, baseUrl: String = "https://api.aspose.cloud", debugMode: Bool = false) {
         self.appSid = appSid;
         self.appKey = appKey;
+        self.baseUrl = baseUrl;
         self.debugMode = debugMode;
     }
     
