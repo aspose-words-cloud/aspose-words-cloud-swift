@@ -50,7 +50,7 @@ public class XmlColor : Codable, WordsApiModel {
         
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.web = try container.decodeIfPresent(String.self, forKey: .web);
-        self.alpha = try container.decode(Int.self, forKey: .alpha);
+        self.alpha = try container.decodeIfPresent(Int.self, forKey: .alpha);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -59,10 +59,9 @@ public class XmlColor : Codable, WordsApiModel {
         if (self.web != nil) {
             try container.encode(self.web, forKey: .web);
         }
-        if (self.alpha == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "alpha");
+        if (self.alpha != nil) {
+            try container.encode(self.alpha, forKey: .alpha);
         }
-        try container.encode(self.alpha, forKey: .alpha);
     }
     
     // Sets web. Gets or sets hTML string color representation.  
@@ -76,12 +75,12 @@ public class XmlColor : Codable, WordsApiModel {
     }
     
     // Sets alpha. Gets or sets alpha component of color structure.  
-    public func setAlpha(alpha : Int) {
+    public func setAlpha(alpha : Int?) {
         self.alpha = alpha;
     }
     
     // Gets alpha. Gets or sets alpha component of color structure.  
-    public func getAlpha() -> Int {
-        return self.alpha!;
+    public func getAlpha() -> Int? {
+        return self.alpha;
     }
 }

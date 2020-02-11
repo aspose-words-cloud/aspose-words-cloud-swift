@@ -3,9 +3,8 @@ import XCTest
 
 class TableTests: BaseTestContext {
     static var allTests = [
-        // TODO: Uncomment after XmlColor fixed on server side
-        //("testGetTableBorders", testGetTableBorders),
-        //("testGetTableBorder", testGetTableBorder),
+        ("testGetTableBorders", testGetTableBorders),
+        ("testGetTableBorder", testGetTableBorder),
         ("testDeleteTableBorders", testDeleteTableBorders),
         ("testDeleteTableBorder", testDeleteTableBorder),
         ("testUpdateTableBorder", testUpdateTableBorder),
@@ -41,7 +40,7 @@ class TableTests: BaseTestContext {
     
     private let tableFolder = "DocumentElements/Tables"
 
-    /*func testGetTableBorders() throws {
+    func testGetTableBorders() throws {
         let localName = "TablesGet.docx";
         let remoteName = "TestGetTableBorders.docx";
         let fullName = (getRemoteDataFolder(action: "GetTableBorders") + "/" + remoteName);
@@ -60,7 +59,7 @@ class TableTests: BaseTestContext {
         let request = GetBorderRequest(name: remoteName, nodePath: "tables/1/rows/0/cells/0", borderType: "left", folder: getRemoteDataFolder(action: "GetTableBorder"));
         let actual = try super.getApi().getBorder(request: request);
         XCTAssert(actual.getBorder() != nil);
-    }*/
+    }
     
 
     func testDeleteTableBorders() throws {
