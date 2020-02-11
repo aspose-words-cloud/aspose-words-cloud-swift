@@ -27,17 +27,22 @@
 
 import Foundation
 
+// container class for options of metafile rendering.
 public class MetafileRenderingOptionsData : Codable, WordsApiModel {
-        
-    // Gets or sets determines how EMF+ Dual metafiles should be rendered.
+    
+    // Field of emfPlusDualRenderingMode. Gets or sets determines how EMF+ Dual metafiles should be rendered.      
     private var emfPlusDualRenderingMode : String?;
-    // Gets or sets a value determining whether or not the raster operations should be emulated.             
+    
+    // Field of emulateRasterOperations. Gets or sets a value determining whether or not the raster operations should be emulated.                   
     private var emulateRasterOperations : Bool?;
-    // Gets or sets determines how metafile images should be rendered.
+    
+    // Field of renderingMode. Gets or sets determines how metafile images should be rendered.      
     private var renderingMode : String?;
-    // Gets or sets determines how WMF metafiles with embedded EMF metafiles should be rendered.
+    
+    // Field of useEmfEmbeddedToWmf. Gets or sets determines how WMF metafiles with embedded EMF metafiles should be rendered.      
     private var useEmfEmbeddedToWmf : Bool?;
-    // Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page. The default value is true.
+    
+    // Field of scaleWmfFontsToMetafileSize. Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page. The default value is true.      
     private var scaleWmfFontsToMetafileSize : Bool?;
         
     private enum CodingKeys: String, CodingKey {
@@ -82,39 +87,53 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
             try container.encode(self.scaleWmfFontsToMetafileSize, forKey: .scaleWmfFontsToMetafileSize);
         }
     }
-        
+    
+    // Sets emfPlusDualRenderingMode. Gets or sets determines how EMF+ Dual metafiles should be rendered.  
     public func setEmfPlusDualRenderingMode(emfPlusDualRenderingMode : String?) {
         self.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
     }
     
+    // Gets emfPlusDualRenderingMode. Gets or sets determines how EMF+ Dual metafiles should be rendered.  
     public func getEmfPlusDualRenderingMode() -> String? {
         return self.emfPlusDualRenderingMode;
     }
+    
+    // Sets emulateRasterOperations. Gets or sets a value determining whether or not the raster operations should be emulated.               
     public func setEmulateRasterOperations(emulateRasterOperations : Bool?) {
         self.emulateRasterOperations = emulateRasterOperations;
     }
     
+    // Gets emulateRasterOperations. Gets or sets a value determining whether or not the raster operations should be emulated.               
     public func getEmulateRasterOperations() -> Bool? {
         return self.emulateRasterOperations;
     }
+    
+    // Sets renderingMode. Gets or sets determines how metafile images should be rendered.  
     public func setRenderingMode(renderingMode : String?) {
         self.renderingMode = renderingMode;
     }
     
+    // Gets renderingMode. Gets or sets determines how metafile images should be rendered.  
     public func getRenderingMode() -> String? {
         return self.renderingMode;
     }
+    
+    // Sets useEmfEmbeddedToWmf. Gets or sets determines how WMF metafiles with embedded EMF metafiles should be rendered.  
     public func setUseEmfEmbeddedToWmf(useEmfEmbeddedToWmf : Bool?) {
         self.useEmfEmbeddedToWmf = useEmfEmbeddedToWmf;
     }
     
+    // Gets useEmfEmbeddedToWmf. Gets or sets determines how WMF metafiles with embedded EMF metafiles should be rendered.  
     public func getUseEmfEmbeddedToWmf() -> Bool? {
         return self.useEmfEmbeddedToWmf;
     }
+    
+    // Sets scaleWmfFontsToMetafileSize. Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page. The default value is true.  
     public func setScaleWmfFontsToMetafileSize(scaleWmfFontsToMetafileSize : Bool?) {
         self.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
     }
     
+    // Gets scaleWmfFontsToMetafileSize. Gets or sets a value determining whether or not to scale fonts in WMF metafile according to metafile size on the page. The default value is true.  
     public func getScaleWmfFontsToMetafileSize() -> Bool? {
         return self.scaleWmfFontsToMetafileSize;
     }

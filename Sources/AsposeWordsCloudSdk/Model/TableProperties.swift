@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Represents the table properties.             
 public class TableProperties : LinkElement {
     // Gets or sets specifies how an inline table is aligned in the document.
     public enum Alignment : String, Codable
@@ -1212,34 +1213,47 @@ public class TableProperties : LinkElement {
         
     }
 
-        
-    // Gets or sets specifies how an inline table is aligned in the document.
+    
+    // Field of alignment. Gets or sets specifies how an inline table is aligned in the document.      
     private var alignment : Alignment?;
-    // Gets or sets allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.
+    
+    // Field of allowAutoFit. Gets or sets allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.      
     private var allowAutoFit : Bool?;
-    // Gets or sets whether this is a right-to-left table.
+    
+    // Field of bidi. Gets or sets whether this is a right-to-left table.      
     private var bidi : Bool?;
-    // Gets or sets the amount of space (in points) to add below the contents of cells.
+    
+    // Field of bottomPadding. Gets or sets the amount of space (in points) to add below the contents of cells.      
     private var bottomPadding : Double?;
-    // Gets or sets the amount of space (in points) between the cells.
+    
+    // Field of cellSpacing. Gets or sets the amount of space (in points) between the cells.      
     private var cellSpacing : Double?;
-    // Gets or sets the value that represents the left indent of the table.
+    
+    // Field of leftIndent. Gets or sets the value that represents the left indent of the table.      
     private var leftIndent : Double?;
-    // Gets or sets the amount of space (in points) to add to the left of the contents of cells.
+    
+    // Field of leftPadding. Gets or sets the amount of space (in points) to add to the left of the contents of cells.      
     private var leftPadding : Double?;
-    // Gets or sets the table preferred width. Preferred width can be specified as a percentage, number of points or a special \&quot;auto\&quot; value.
+    
+    // Field of preferredWidth. Gets or sets the table preferred width. Preferred width can be specified as a percentage, number of points or a special \"auto\" value.      
     private var preferredWidth : PreferredWidth?;
-    // Gets or sets the amount of space (in points) to add to the right of the contents of cells.
+    
+    // Field of rightPadding. Gets or sets the amount of space (in points) to add to the right of the contents of cells.      
     private var rightPadding : Double?;
-    // Gets or sets the locale independent style identifier of the table style applied to this table.
+    
+    // Field of styleIdentifier. Gets or sets the locale independent style identifier of the table style applied to this table.      
     private var styleIdentifier : StyleIdentifier?;
-    // Gets or sets the name of the table style applied to this table.
+    
+    // Field of styleName. Gets or sets the name of the table style applied to this table.      
     private var styleName : String?;
-    // Gets or sets bit flags that specify how a table style is applied to this table.
+    
+    // Field of styleOptions. Gets or sets bit flags that specify how a table style is applied to this table.      
     private var styleOptions : StyleOptions?;
-    // Gets or sets get or sets TextWrapping  for table.
+    
+    // Field of textWrapping. Gets or sets get or sets TextWrapping  for table.      
     private var textWrapping : TextWrapping?;
-    // Gets or sets the amount of space (in points) to add above the contents of cells.
+    
+    // Field of topPadding. Gets or sets the amount of space (in points) to add above the contents of cells.      
     private var topPadding : Double?;
         
     private enum CodingKeys: String, CodingKey {
@@ -1329,102 +1343,143 @@ public class TableProperties : LinkElement {
             try container.encode(self.topPadding, forKey: .topPadding);
         }
     }
-        
+    
+    // Sets alignment. Gets or sets specifies how an inline table is aligned in the document.  
     public func setAlignment(alignment : Alignment?) {
         self.alignment = alignment;
     }
     
+    // Gets alignment. Gets or sets specifies how an inline table is aligned in the document.  
     public func getAlignment() -> Alignment? {
         return self.alignment;
     }
+    
+    // Sets allowAutoFit. Gets or sets allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.  
     public func setAllowAutoFit(allowAutoFit : Bool?) {
         self.allowAutoFit = allowAutoFit;
     }
     
+    // Gets allowAutoFit. Gets or sets allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.  
     public func getAllowAutoFit() -> Bool? {
         return self.allowAutoFit;
     }
+    
+    // Sets bidi. Gets or sets whether this is a right-to-left table.  
     public func setBidi(bidi : Bool?) {
         self.bidi = bidi;
     }
     
+    // Gets bidi. Gets or sets whether this is a right-to-left table.  
     public func getBidi() -> Bool? {
         return self.bidi;
     }
+    
+    // Sets bottomPadding. Gets or sets the amount of space (in points) to add below the contents of cells.  
     public func setBottomPadding(bottomPadding : Double?) {
         self.bottomPadding = bottomPadding;
     }
     
+    // Gets bottomPadding. Gets or sets the amount of space (in points) to add below the contents of cells.  
     public func getBottomPadding() -> Double? {
         return self.bottomPadding;
     }
+    
+    // Sets cellSpacing. Gets or sets the amount of space (in points) between the cells.  
     public func setCellSpacing(cellSpacing : Double?) {
         self.cellSpacing = cellSpacing;
     }
     
+    // Gets cellSpacing. Gets or sets the amount of space (in points) between the cells.  
     public func getCellSpacing() -> Double? {
         return self.cellSpacing;
     }
+    
+    // Sets leftIndent. Gets or sets the value that represents the left indent of the table.  
     public func setLeftIndent(leftIndent : Double?) {
         self.leftIndent = leftIndent;
     }
     
+    // Gets leftIndent. Gets or sets the value that represents the left indent of the table.  
     public func getLeftIndent() -> Double? {
         return self.leftIndent;
     }
+    
+    // Sets leftPadding. Gets or sets the amount of space (in points) to add to the left of the contents of cells.  
     public func setLeftPadding(leftPadding : Double?) {
         self.leftPadding = leftPadding;
     }
     
+    // Gets leftPadding. Gets or sets the amount of space (in points) to add to the left of the contents of cells.  
     public func getLeftPadding() -> Double? {
         return self.leftPadding;
     }
+    
+    // Sets preferredWidth. Gets or sets the table preferred width. Preferred width can be specified as a percentage, number of points or a special \"auto\" value.  
     public func setPreferredWidth(preferredWidth : PreferredWidth?) {
         self.preferredWidth = preferredWidth;
     }
     
+    // Gets preferredWidth. Gets or sets the table preferred width. Preferred width can be specified as a percentage, number of points or a special \"auto\" value.  
     public func getPreferredWidth() -> PreferredWidth? {
         return self.preferredWidth;
     }
+    
+    // Sets rightPadding. Gets or sets the amount of space (in points) to add to the right of the contents of cells.  
     public func setRightPadding(rightPadding : Double?) {
         self.rightPadding = rightPadding;
     }
     
+    // Gets rightPadding. Gets or sets the amount of space (in points) to add to the right of the contents of cells.  
     public func getRightPadding() -> Double? {
         return self.rightPadding;
     }
+    
+    // Sets styleIdentifier. Gets or sets the locale independent style identifier of the table style applied to this table.  
     public func setStyleIdentifier(styleIdentifier : StyleIdentifier?) {
         self.styleIdentifier = styleIdentifier;
     }
     
+    // Gets styleIdentifier. Gets or sets the locale independent style identifier of the table style applied to this table.  
     public func getStyleIdentifier() -> StyleIdentifier? {
         return self.styleIdentifier;
     }
+    
+    // Sets styleName. Gets or sets the name of the table style applied to this table.  
     public func setStyleName(styleName : String?) {
         self.styleName = styleName;
     }
     
+    // Gets styleName. Gets or sets the name of the table style applied to this table.  
     public func getStyleName() -> String? {
         return self.styleName;
     }
+    
+    // Sets styleOptions. Gets or sets bit flags that specify how a table style is applied to this table.  
     public func setStyleOptions(styleOptions : StyleOptions?) {
         self.styleOptions = styleOptions;
     }
     
+    // Gets styleOptions. Gets or sets bit flags that specify how a table style is applied to this table.  
     public func getStyleOptions() -> StyleOptions? {
         return self.styleOptions;
     }
+    
+    // Sets textWrapping. Gets or sets get or sets TextWrapping  for table.  
     public func setTextWrapping(textWrapping : TextWrapping?) {
         self.textWrapping = textWrapping;
     }
     
+    // Gets textWrapping. Gets or sets get or sets TextWrapping  for table.  
     public func getTextWrapping() -> TextWrapping? {
         return self.textWrapping;
     }
+    
+    // Sets topPadding. Gets or sets the amount of space (in points) to add above the contents of cells.  
     public func setTopPadding(topPadding : Double?) {
         self.topPadding = topPadding;
     }
     
+    // Gets topPadding. Gets or sets the amount of space (in points) to add above the contents of cells.  
     public func getTopPadding() -> Double? {
         return self.topPadding;
     }

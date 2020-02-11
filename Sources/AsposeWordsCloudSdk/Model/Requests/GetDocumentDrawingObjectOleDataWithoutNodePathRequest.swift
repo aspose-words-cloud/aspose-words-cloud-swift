@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for getDocumentDrawingObjectOleDataWithoutNodePath operation.
 public class GetDocumentDrawingObjectOleDataWithoutNodePathRequest : Encodable, WordsApiModel {
     private let name : String;
     private let index : Int;
@@ -45,6 +46,7 @@ public class GetDocumentDrawingObjectOleDataWithoutNodePathRequest : Encodable, 
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the getDocumentDrawingObjectOleDataWithoutNodePathRequest class.
     public init(name : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.index = index;
@@ -72,26 +74,32 @@ public class GetDocumentDrawingObjectOleDataWithoutNodePathRequest : Encodable, 
         }
     }
     
+    // The document name.
     public func getName() -> String {
         return self.name;
     }
     
+    // Object index.
     public func getIndex() -> Int {
         return self.index;
     }
     
+    // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
     
+    // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
     
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
+    // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }

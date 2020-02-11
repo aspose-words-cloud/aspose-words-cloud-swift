@@ -27,9 +27,10 @@
 
 import Foundation
 
+// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/OfficeMathObjects.
 public class OfficeMathObjectsResponse : WordsResponse {
-        
-    // Gets or sets collection of OfficeMath objects.
+    
+    // Field of officeMathObjects. Gets or sets collection of OfficeMath objects.      
     private var officeMathObjects : OfficeMathObjectsCollection?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class OfficeMathObjectsResponse : WordsResponse {
             try container.encode(self.officeMathObjects, forKey: .officeMathObjects);
         }
     }
-        
+    
+    // Sets officeMathObjects. Gets or sets collection of OfficeMath objects.  
     public func setOfficeMathObjects(officeMathObjects : OfficeMathObjectsCollection?) {
         self.officeMathObjects = officeMathObjects;
     }
     
+    // Gets officeMathObjects. Gets or sets collection of OfficeMath objects.  
     public func getOfficeMathObjects() -> OfficeMathObjectsCollection? {
         return self.officeMathObjects;
     }

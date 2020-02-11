@@ -27,11 +27,13 @@
 
 import Foundation
 
+// Response for the request of data about protection.
 public class ProtectionDataResponse : WordsResponse {
-        
-    // Gets or sets link to the document.
+    
+    // Field of documentLink. Gets or sets link to the document.      
     private var documentLink : FileLink?;
-    // Gets or sets protection&#39;s data of the document.
+    
+    // Field of protectionData. Gets or sets protection's data of the document.      
     private var protectionData : ProtectionData?;
         
     private enum CodingKeys: String, CodingKey {
@@ -61,18 +63,23 @@ public class ProtectionDataResponse : WordsResponse {
             try container.encode(self.protectionData, forKey: .protectionData);
         }
     }
-        
+    
+    // Sets documentLink. Gets or sets link to the document.  
     public func setDocumentLink(documentLink : FileLink?) {
         self.documentLink = documentLink;
     }
     
+    // Gets documentLink. Gets or sets link to the document.  
     public func getDocumentLink() -> FileLink? {
         return self.documentLink;
     }
+    
+    // Sets protectionData. Gets or sets protection's data of the document.  
     public func setProtectionData(protectionData : ProtectionData?) {
         self.protectionData = protectionData;
     }
     
+    // Gets protectionData. Gets or sets protection's data of the document.  
     public func getProtectionData() -> ProtectionData? {
         return self.protectionData;
     }

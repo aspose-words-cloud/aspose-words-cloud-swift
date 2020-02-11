@@ -27,13 +27,16 @@
 
 import Foundation
 
+// Result of splitting document.
 public class SplitDocumentResult : Codable, WordsApiModel {
-        
-    // Gets or sets linkt to the source document.
+    
+    // Field of sourceDocument. Gets or sets linkt to the source document.      
     private var sourceDocument : FileLink?;
-    // Gets or sets array of pages.
+    
+    // Field of pages. Gets or sets array of pages.      
     private var pages : [FileLink]?;
-    // Gets or sets link to the file archive with pages.
+    
+    // Field of zippedPages. Gets or sets link to the file archive with pages.      
     private var zippedPages : FileLink?;
         
     private enum CodingKeys: String, CodingKey {
@@ -68,25 +71,33 @@ public class SplitDocumentResult : Codable, WordsApiModel {
             try container.encode(self.zippedPages, forKey: .zippedPages);
         }
     }
-        
+    
+    // Sets sourceDocument. Gets or sets linkt to the source document.  
     public func setSourceDocument(sourceDocument : FileLink?) {
         self.sourceDocument = sourceDocument;
     }
     
+    // Gets sourceDocument. Gets or sets linkt to the source document.  
     public func getSourceDocument() -> FileLink? {
         return self.sourceDocument;
     }
+    
+    // Sets pages. Gets or sets array of pages.  
     public func setPages(pages : [FileLink]?) {
         self.pages = pages;
     }
     
+    // Gets pages. Gets or sets array of pages.  
     public func getPages() -> [FileLink]? {
         return self.pages;
     }
+    
+    // Sets zippedPages. Gets or sets link to the file archive with pages.  
     public func setZippedPages(zippedPages : FileLink?) {
         self.zippedPages = zippedPages;
     }
     
+    // Gets zippedPages. Gets or sets link to the file archive with pages.  
     public func getZippedPages() -> FileLink? {
         return self.zippedPages;
     }

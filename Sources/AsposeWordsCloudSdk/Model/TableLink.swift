@@ -27,8 +27,8 @@
 
 import Foundation
 
+// Table link element.
 public class TableLink : NodeLink {
-        
         
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
@@ -45,5 +45,4 @@ public class TableLink : NodeLink {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
-        
 }

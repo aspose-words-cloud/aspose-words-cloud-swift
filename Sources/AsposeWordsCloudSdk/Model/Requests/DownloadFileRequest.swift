@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for downloadFile operation.
 public class DownloadFileRequest : Encodable, WordsApiModel {
     private let path : String;
     private let storageName : String?;
@@ -39,6 +40,7 @@ public class DownloadFileRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the downloadFileRequest class.
     public init(path : String, storageName : String? = nil, versionId : String? = nil) {
         self.path = path;
         self.storageName = storageName;
@@ -56,14 +58,17 @@ public class DownloadFileRequest : Encodable, WordsApiModel {
         }
     }
     
+    // Path of the file including the file name and extension e.g. /folder1/file.ext
     public func getPath() -> String {
         return self.path;
     }
     
+    // Storage name
     public func getStorageName() -> String? {
         return self.storageName;
     }
     
+    // File version ID to download
     public func getVersionId() -> String? {
         return self.versionId;
     }

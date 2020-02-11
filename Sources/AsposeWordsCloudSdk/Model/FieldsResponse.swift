@@ -27,9 +27,10 @@
 
 import Foundation
 
+// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/{nodePath}/fields.
 public class FieldsResponse : WordsResponse {
-        
-    // Gets or sets collection of fields.
+    
+    // Field of fields. Gets or sets collection of fields.      
     private var fields : FieldCollection?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class FieldsResponse : WordsResponse {
             try container.encode(self.fields, forKey: .fields);
         }
     }
-        
+    
+    // Sets fields. Gets or sets collection of fields.  
     public func setFields(fields : FieldCollection?) {
         self.fields = fields;
     }
     
+    // Gets fields. Gets or sets collection of fields.  
     public func getFields() -> FieldCollection? {
         return self.fields;
     }

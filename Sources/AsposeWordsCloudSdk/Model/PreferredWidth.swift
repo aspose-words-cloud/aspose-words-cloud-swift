@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Preferred width.
 public class PreferredWidth : Codable, WordsApiModel {
     // Gets or sets the unit of measure used for this preferred width value.
     public enum ModelType : String, Codable
@@ -42,10 +43,11 @@ public class PreferredWidth : Codable, WordsApiModel {
         
     }
 
-        
-    // Gets or sets the unit of measure used for this preferred width value.
+    
+    // Field of type. Gets or sets the unit of measure used for this preferred width value.      
     private var type : ModelType?;
-    // Gets or sets the preferred width value. The unit of measure is specified in the  property.
+    
+    // Field of value. Gets or sets the preferred width value. The unit of measure is specified in the  property.      
     private var value : Double?;
         
     private enum CodingKeys: String, CodingKey {
@@ -76,18 +78,23 @@ public class PreferredWidth : Codable, WordsApiModel {
             try container.encode(self.value, forKey: .value);
         }
     }
-        
+    
+    // Sets type. Gets or sets the unit of measure used for this preferred width value.  
     public func setType(type : ModelType) {
         self.type = type;
     }
     
+    // Gets type. Gets or sets the unit of measure used for this preferred width value.  
     public func getType() -> ModelType {
         return self.type!;
     }
+    
+    // Sets value. Gets or sets the preferred width value. The unit of measure is specified in the  property.  
     public func setValue(value : Double?) {
         self.value = value;
     }
     
+    // Gets value. Gets or sets the preferred width value. The unit of measure is specified in the  property.  
     public func getValue() -> Double? {
         return self.value;
     }

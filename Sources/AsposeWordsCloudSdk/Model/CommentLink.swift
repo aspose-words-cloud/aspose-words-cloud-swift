@@ -27,8 +27,8 @@
 
 import Foundation
 
+// Comment link.
 public class CommentLink : LinkElement {
-        
         
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
@@ -45,5 +45,4 @@ public class CommentLink : LinkElement {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
-        
 }

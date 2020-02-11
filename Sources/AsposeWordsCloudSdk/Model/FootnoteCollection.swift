@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Collection of footnotes.
 public class FootnoteCollection : LinkElement {
-        
-    // Gets or sets collection of foonotes links.
+    
+    // Field of list. Gets or sets collection of foonotes links.      
     private var list : [Footnote]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class FootnoteCollection : LinkElement {
             try container.encode(self.list, forKey: .list);
         }
     }
-        
+    
+    // Sets list. Gets or sets collection of foonotes links.  
     public func setList(list : [Footnote]?) {
         self.list = list;
     }
     
+    // Gets list. Gets or sets collection of foonotes links.  
     public func getList() -> [Footnote]? {
         return self.list;
     }

@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for getAvailableFonts operation.
 public class GetAvailableFontsRequest : Encodable, WordsApiModel {
     private let fontsLocation : String?;
     
@@ -35,6 +36,7 @@ public class GetAvailableFontsRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the getAvailableFontsRequest class.
     public init(fontsLocation : String? = nil) {
         self.fontsLocation = fontsLocation;
     }
@@ -46,6 +48,7 @@ public class GetAvailableFontsRequest : Encodable, WordsApiModel {
         }
     }
     
+    // Folder in filestorage with custom fonts.
     public func getFontsLocation() -> String? {
         return self.fontsLocation;
     }

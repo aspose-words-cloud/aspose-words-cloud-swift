@@ -27,17 +27,22 @@
 
 import Foundation
 
+// Api error.
 public class ApiError : Codable, WordsApiModel {
-        
-    // Gets or sets api error code.
+    
+    // Field of code. Gets or sets api error code.      
     private var code : String?;
-    // Gets or sets error message.
+    
+    // Field of message. Gets or sets error message.      
     private var message : String?;
-    // Gets or sets error description.
+    
+    // Field of _description. Gets or sets error description.      
     private var _description : String?;
-    // Gets or sets server datetime.
+    
+    // Field of dateTime. Gets or sets server datetime.      
     private var dateTime : Date?;
-    // Gets or sets inner error.
+    
+    // Field of innerError. Gets or sets inner error.      
     private var innerError : ApiError?;
         
     private enum CodingKeys: String, CodingKey {
@@ -82,39 +87,53 @@ public class ApiError : Codable, WordsApiModel {
             try container.encode(self.innerError, forKey: .innerError);
         }
     }
-        
+    
+    // Sets code. Gets or sets api error code.  
     public func setCode(code : String?) {
         self.code = code;
     }
     
+    // Gets code. Gets or sets api error code.  
     public func getCode() -> String? {
         return self.code;
     }
+    
+    // Sets message. Gets or sets error message.  
     public func setMessage(message : String?) {
         self.message = message;
     }
     
+    // Gets message. Gets or sets error message.  
     public func getMessage() -> String? {
         return self.message;
     }
+    
+    // Sets _description. Gets or sets error description.  
     public func setDescription(_description : String?) {
         self._description = _description;
     }
     
+    // Gets _description. Gets or sets error description.  
     public func getDescription() -> String? {
         return self._description;
     }
+    
+    // Sets dateTime. Gets or sets server datetime.  
     public func setDateTime(dateTime : Date?) {
         self.dateTime = dateTime;
     }
     
+    // Gets dateTime. Gets or sets server datetime.  
     public func getDateTime() -> Date? {
         return self.dateTime;
     }
+    
+    // Sets innerError. Gets or sets inner error.  
     public func setInnerError(innerError : ApiError?) {
         self.innerError = innerError;
     }
     
+    // Gets innerError. Gets or sets inner error.  
     public func getInnerError() -> ApiError? {
         return self.innerError;
     }

@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for getFilesList operation.
 public class GetFilesListRequest : Encodable, WordsApiModel {
     private let path : String;
     private let storageName : String?;
@@ -37,6 +38,7 @@ public class GetFilesListRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the getFilesListRequest class.
     public init(path : String, storageName : String? = nil) {
         self.path = path;
         self.storageName = storageName;
@@ -50,10 +52,12 @@ public class GetFilesListRequest : Encodable, WordsApiModel {
         }
     }
     
+    // Folder path e.g. /Folder1
     public func getPath() -> String {
         return self.path;
     }
     
+    // Storage name
     public func getStorageName() -> String? {
         return self.storageName;
     }

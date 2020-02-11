@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for convertDocument operation.
 public class ConvertDocumentRequest : Encodable, WordsApiModel {
     private let document : URL;
     private let format : String;
@@ -45,6 +46,7 @@ public class ConvertDocumentRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the convertDocumentRequest class.
     public init(document : URL, format : String, storage : String? = nil, outPath : String? = nil, fileNameFieldValue : String? = nil, fontsLocation : String? = nil) {
         self.document = document;
         self.format = format;
@@ -72,26 +74,32 @@ public class ConvertDocumentRequest : Encodable, WordsApiModel {
         }
     }
     
+    // Converting document
     public func getDocument() -> URL {
         return self.document;
     }
     
+    // Format to convert.
     public func getFormat() -> String {
         return self.format;
     }
     
+    // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
     
+    // Path for saving operation result to the local storage.
     public func getOutPath() -> String? {
         return self.outPath;
     }
     
+    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, \"sourceFilename\" will be used instead. 
     public func getFileNameFieldValue() -> String? {
         return self.fileNameFieldValue;
     }
     
+    // Folder in filestorage with custom fonts.
     public func getFontsLocation() -> String? {
         return self.fontsLocation;
     }

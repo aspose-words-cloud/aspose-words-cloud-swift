@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Field link.
 public class FieldLink : NodeLink {
-        
-    // Gets or sets field code.
+    
+    // Field of fieldCode. Gets or sets field code.      
     private var fieldCode : String?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class FieldLink : NodeLink {
             try container.encode(self.fieldCode, forKey: .fieldCode);
         }
     }
-        
+    
+    // Sets fieldCode. Gets or sets field code.  
     public func setFieldCode(fieldCode : String?) {
         self.fieldCode = fieldCode;
     }
     
+    // Gets fieldCode. Gets or sets field code.  
     public func getFieldCode() -> String? {
         return self.fieldCode;
     }

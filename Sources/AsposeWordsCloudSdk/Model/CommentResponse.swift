@@ -27,9 +27,10 @@
 
 import Foundation
 
+// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/comments/0.
 public class CommentResponse : WordsResponse {
-        
-    // Gets or sets comment information.
+    
+    // Field of comment. Gets or sets comment information.      
     private var comment : Comment?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class CommentResponse : WordsResponse {
             try container.encode(self.comment, forKey: .comment);
         }
     }
-        
+    
+    // Sets comment. Gets or sets comment information.  
     public func setComment(comment : Comment?) {
         self.comment = comment;
     }
     
+    // Gets comment. Gets or sets comment information.  
     public func getComment() -> Comment? {
         return self.comment;
     }

@@ -50,7 +50,7 @@ let config = Configuration(appSid: "YOUR_APP_SID", appKey: "YOUR_APP_KEY");
 let wordsApi = WordsAPI(configuration: config);
 let fileName = "TestCreateDocument.doc";
 let request = CreateDocumentRequest(fileName: fileName);
-let resonse = try wordsApi.createDocument(request: request);
+let response = try wordsApi.createDocument(request: request);
 
 ```
 

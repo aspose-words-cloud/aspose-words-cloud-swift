@@ -27,9 +27,10 @@
 
 import Foundation
 
+// response of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
 public class RevisionsModificationResponse : WordsResponse {
-        
-    // Gets or sets result of the modification operations for the revisions collection.
+    
+    // Field of result. Gets or sets result of the modification operations for the revisions collection.      
     private var result : ModificationOperationResult?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class RevisionsModificationResponse : WordsResponse {
             try container.encode(self.result, forKey: .result);
         }
     }
-        
+    
+    // Sets result. Gets or sets result of the modification operations for the revisions collection.  
     public func setResult(result : ModificationOperationResult?) {
         self.result = result;
     }
     
+    // Gets result. Gets or sets result of the modification operations for the revisions collection.  
     public func getResult() -> ModificationOperationResult? {
         return self.result;
     }

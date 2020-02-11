@@ -27,9 +27,10 @@
 
 import Foundation
 
+// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}.
 public class RunResponse : WordsResponse {
-        
-    // Gets or sets run.
+    
+    // Field of run. Gets or sets run.      
     private var run : Run?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class RunResponse : WordsResponse {
             try container.encode(self.run, forKey: .run);
         }
     }
-        
+    
+    // Sets run. Gets or sets run.  
     public func setRun(run : Run?) {
         self.run = run;
     }
     
+    // Gets run. Gets or sets run.  
     public func getRun() -> Run? {
         return self.run;
     }

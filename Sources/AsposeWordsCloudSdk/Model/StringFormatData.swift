@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Allows to specify System.Drawing.StringFormat options.
 public class StringFormatData : Codable, WordsApiModel {
     // Gets or sets horizontal alignment of the string.
     public enum Alignment : String, Codable
@@ -125,16 +126,20 @@ public class StringFormatData : Codable, WordsApiModel {
         
     }
 
-        
-    // Gets or sets horizontal alignment of the string.
+    
+    // Field of alignment. Gets or sets horizontal alignment of the string.      
     private var alignment : Alignment?;
-    // Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
+    
+    // Field of formatFlags. Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.      
     private var formatFlags : FormatFlags?;
-    // Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.
+    
+    // Field of hotkeyPrefix. Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.      
     private var hotkeyPrefix : HotkeyPrefix?;
-    // Gets or sets the vertical alignment of the string.
+    
+    // Field of lineAlignment. Gets or sets the vertical alignment of the string.      
     private var lineAlignment : LineAlignment?;
-    // Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.
+    
+    // Field of trimming. Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.      
     private var trimming : Trimming?;
         
     private enum CodingKeys: String, CodingKey {
@@ -179,39 +184,53 @@ public class StringFormatData : Codable, WordsApiModel {
             try container.encode(self.trimming, forKey: .trimming);
         }
     }
-        
+    
+    // Sets alignment. Gets or sets horizontal alignment of the string.  
     public func setAlignment(alignment : Alignment?) {
         self.alignment = alignment;
     }
     
+    // Gets alignment. Gets or sets horizontal alignment of the string.  
     public func getAlignment() -> Alignment? {
         return self.alignment;
     }
+    
+    // Sets formatFlags. Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.  
     public func setFormatFlags(formatFlags : FormatFlags?) {
         self.formatFlags = formatFlags;
     }
     
+    // Gets formatFlags. Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.  
     public func getFormatFlags() -> FormatFlags? {
         return self.formatFlags;
     }
+    
+    // Sets hotkeyPrefix. Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.  
     public func setHotkeyPrefix(hotkeyPrefix : HotkeyPrefix?) {
         self.hotkeyPrefix = hotkeyPrefix;
     }
     
+    // Gets hotkeyPrefix. Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.  
     public func getHotkeyPrefix() -> HotkeyPrefix? {
         return self.hotkeyPrefix;
     }
+    
+    // Sets lineAlignment. Gets or sets the vertical alignment of the string.  
     public func setLineAlignment(lineAlignment : LineAlignment?) {
         self.lineAlignment = lineAlignment;
     }
     
+    // Gets lineAlignment. Gets or sets the vertical alignment of the string.  
     public func getLineAlignment() -> LineAlignment? {
         return self.lineAlignment;
     }
+    
+    // Sets trimming. Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.  
     public func setTrimming(trimming : Trimming?) {
         self.trimming = trimming;
     }
     
+    // Gets trimming. Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.  
     public func getTrimming() -> Trimming? {
         return self.trimming;
     }

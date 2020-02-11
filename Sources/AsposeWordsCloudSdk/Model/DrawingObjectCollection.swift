@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Represents drawing objects collection DTO.
 public class DrawingObjectCollection : LinkElement {
-        
-    // Gets or sets collection of DrawingObjects links.
+    
+    // Field of list. Gets or sets collection of DrawingObjects links.      
     private var list : [LinkElement]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class DrawingObjectCollection : LinkElement {
             try container.encode(self.list, forKey: .list);
         }
     }
-        
+    
+    // Sets list. Gets or sets collection of DrawingObjects links.  
     public func setList(list : [LinkElement]?) {
         self.list = list;
     }
     
+    // Gets list. Gets or sets collection of DrawingObjects links.  
     public func getList() -> [LinkElement]? {
         return self.list;
     }

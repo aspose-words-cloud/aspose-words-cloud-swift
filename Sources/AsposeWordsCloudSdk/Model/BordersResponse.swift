@@ -27,9 +27,10 @@
 
 import Foundation
 
+// This response should be returned by the service when handling: GET {nodeWithBorders}/borders.
 public class BordersResponse : WordsResponse {
-        
-    // Gets or sets table.
+    
+    // Field of borders. Gets or sets table.      
     private var borders : BordersCollection?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class BordersResponse : WordsResponse {
             try container.encode(self.borders, forKey: .borders);
         }
     }
-        
+    
+    // Sets borders. Gets or sets table.  
     public func setBorders(borders : BordersCollection?) {
         self.borders = borders;
     }
     
+    // Gets borders. Gets or sets table.  
     public func getBorders() -> BordersCollection? {
         return self.borders;
     }

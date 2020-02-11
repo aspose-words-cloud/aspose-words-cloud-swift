@@ -27,13 +27,16 @@
 
 import Foundation
 
+// The list of fonts, available for document processing.
 public class AvailableFontsResponse : WordsResponse {
-        
-    // Gets or sets the list of addititional fonts, provided by aspose team.
+    
+    // Field of additionalFonts. Gets or sets the list of addititional fonts, provided by aspose team.      
     private var additionalFonts : [FontInfo]?;
-    // Gets or sets custom user fonts (from user file storage). To use them, you should specify \&quot;fontsLocation\&quot; parameter in any request.
+    
+    // Field of customFonts. Gets or sets custom user fonts (from user file storage). To use them, you should specify \"fontsLocation\" parameter in any request.      
     private var customFonts : [FontInfo]?;
-    // Gets or sets the list of system fonts, availiable on the server.
+    
+    // Field of systemFonts. Gets or sets the list of system fonts, availiable on the server.      
     private var systemFonts : [FontInfo]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -68,25 +71,33 @@ public class AvailableFontsResponse : WordsResponse {
             try container.encode(self.systemFonts, forKey: .systemFonts);
         }
     }
-        
+    
+    // Sets additionalFonts. Gets or sets the list of addititional fonts, provided by aspose team.  
     public func setAdditionalFonts(additionalFonts : [FontInfo]?) {
         self.additionalFonts = additionalFonts;
     }
     
+    // Gets additionalFonts. Gets or sets the list of addititional fonts, provided by aspose team.  
     public func getAdditionalFonts() -> [FontInfo]? {
         return self.additionalFonts;
     }
+    
+    // Sets customFonts. Gets or sets custom user fonts (from user file storage). To use them, you should specify \"fontsLocation\" parameter in any request.  
     public func setCustomFonts(customFonts : [FontInfo]?) {
         self.customFonts = customFonts;
     }
     
+    // Gets customFonts. Gets or sets custom user fonts (from user file storage). To use them, you should specify \"fontsLocation\" parameter in any request.  
     public func getCustomFonts() -> [FontInfo]? {
         return self.customFonts;
     }
+    
+    // Sets systemFonts. Gets or sets the list of system fonts, availiable on the server.  
     public func setSystemFonts(systemFonts : [FontInfo]?) {
         self.systemFonts = systemFonts;
     }
     
+    // Gets systemFonts. Gets or sets the list of system fonts, availiable on the server.  
     public func getSystemFonts() -> [FontInfo]? {
         return self.systemFonts;
     }

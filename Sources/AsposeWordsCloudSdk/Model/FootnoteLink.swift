@@ -27,8 +27,8 @@
 
 import Foundation
 
+// Footnote link.
 public class FootnoteLink : NodeLink {
-        
         
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
@@ -45,5 +45,4 @@ public class FootnoteLink : NodeLink {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
-        
 }

@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for createFolder operation.
 public class CreateFolderRequest : Encodable, WordsApiModel {
     private let path : String;
     private let storageName : String?;
@@ -37,6 +38,7 @@ public class CreateFolderRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the createFolderRequest class.
     public init(path : String, storageName : String? = nil) {
         self.path = path;
         self.storageName = storageName;
@@ -50,10 +52,12 @@ public class CreateFolderRequest : Encodable, WordsApiModel {
         }
     }
     
+    // Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively
     public func getPath() -> String {
         return self.path;
     }
     
+    // Storage name
     public func getStorageName() -> String? {
         return self.storageName;
     }

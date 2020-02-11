@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Range element.
 public class RangeDocument : Codable, WordsApiModel {
-        
-    // Gets or sets name for new document.
+    
+    // Field of documentName. Gets or sets name for new document.      
     private var documentName : String?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class RangeDocument : Codable, WordsApiModel {
             try container.encode(self.documentName, forKey: .documentName);
         }
     }
-        
+    
+    // Sets documentName. Gets or sets name for new document.  
     public func setDocumentName(documentName : String?) {
         self.documentName = documentName;
     }
     
+    // Gets documentName. Gets or sets name for new document.  
     public func getDocumentName() -> String? {
         return self.documentName;
     }

@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for executeMailMergeOnline operation.
 public class ExecuteMailMergeOnlineRequest : Encodable, WordsApiModel {
     private let template : URL;
     private let data : URL;
@@ -43,6 +44,7 @@ public class ExecuteMailMergeOnlineRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the executeMailMergeOnlineRequest class.
     public init(template : URL, data : URL, withRegions : Bool? = nil, cleanup : String? = nil, documentFileName : String? = nil) {
         self.template = template;
         self.data = data;
@@ -66,22 +68,27 @@ public class ExecuteMailMergeOnlineRequest : Encodable, WordsApiModel {
         }
     }
     
+    // File with template
     public func getTemplate() -> URL {
         return self.template;
     }
     
+    // File with mailmerge data
     public func getData() -> URL {
         return self.data;
     }
     
+    // With regions flag.
     public func getWithRegions() -> Bool? {
         return self.withRegions;
     }
     
+    // Clean up options.
     public func getCleanup() -> String? {
         return self.cleanup;
     }
     
+    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, \"template\" will be used instead. 
     public func getDocumentFileName() -> String? {
         return self.documentFileName;
     }

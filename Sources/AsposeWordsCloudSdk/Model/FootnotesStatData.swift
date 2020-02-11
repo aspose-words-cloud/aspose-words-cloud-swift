@@ -27,11 +27,13 @@
 
 import Foundation
 
+// Container for the footnotes statistical data.
 public class FootnotesStatData : Codable, WordsApiModel {
-        
-    // Gets or sets total count of words in footnotes.
+    
+    // Field of wordCount. Gets or sets total count of words in footnotes.      
     private var wordCount : Int?;
-    // Gets or sets total count of paragraphs in footnotes.
+    
+    // Field of paragraphCount. Gets or sets total count of paragraphs in footnotes.      
     private var paragraphCount : Int?;
         
     private enum CodingKeys: String, CodingKey {
@@ -63,18 +65,23 @@ public class FootnotesStatData : Codable, WordsApiModel {
         }
         try container.encode(self.paragraphCount, forKey: .paragraphCount);
     }
-        
+    
+    // Sets wordCount. Gets or sets total count of words in footnotes.  
     public func setWordCount(wordCount : Int) {
         self.wordCount = wordCount;
     }
     
+    // Gets wordCount. Gets or sets total count of words in footnotes.  
     public func getWordCount() -> Int {
         return self.wordCount!;
     }
+    
+    // Sets paragraphCount. Gets or sets total count of paragraphs in footnotes.  
     public func setParagraphCount(paragraphCount : Int) {
         self.paragraphCount = paragraphCount;
     }
     
+    // Gets paragraphCount. Gets or sets total count of paragraphs in footnotes.  
     public func getParagraphCount() -> Int {
         return self.paragraphCount!;
     }

@@ -27,13 +27,16 @@
 
 import Foundation
 
+// container class for rtf save options.
 public class RtfSaveOptionsData : SaveOptionsData {
-        
-    // Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
+    
+    // Field of exportCompactSize. Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.      
     private var exportCompactSize : Bool?;
-    // Gets or sets specifies whether the keywords for \&quot;old readers\&quot; are written to RTF or not.
+    
+    // Field of exportImagesForOldReaders. Gets or sets specifies whether the keywords for \"old readers\" are written to RTF or not.      
     private var exportImagesForOldReaders : Bool?;
-    // Gets or sets specifies whether or not use pretty formats output.
+    
+    // Field of prettyFormat. Gets or sets specifies whether or not use pretty formats output.      
     private var prettyFormat : Bool?;
         
     private enum CodingKeys: String, CodingKey {
@@ -68,25 +71,33 @@ public class RtfSaveOptionsData : SaveOptionsData {
             try container.encode(self.prettyFormat, forKey: .prettyFormat);
         }
     }
-        
+    
+    // Sets exportCompactSize. Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.  
     public func setExportCompactSize(exportCompactSize : Bool?) {
         self.exportCompactSize = exportCompactSize;
     }
     
+    // Gets exportCompactSize. Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.  
     public func getExportCompactSize() -> Bool? {
         return self.exportCompactSize;
     }
+    
+    // Sets exportImagesForOldReaders. Gets or sets specifies whether the keywords for \"old readers\" are written to RTF or not.  
     public func setExportImagesForOldReaders(exportImagesForOldReaders : Bool?) {
         self.exportImagesForOldReaders = exportImagesForOldReaders;
     }
     
+    // Gets exportImagesForOldReaders. Gets or sets specifies whether the keywords for \"old readers\" are written to RTF or not.  
     public func getExportImagesForOldReaders() -> Bool? {
         return self.exportImagesForOldReaders;
     }
+    
+    // Sets prettyFormat. Gets or sets specifies whether or not use pretty formats output.  
     public func setPrettyFormat(prettyFormat : Bool?) {
         self.prettyFormat = prettyFormat;
     }
     
+    // Gets prettyFormat. Gets or sets specifies whether or not use pretty formats output.  
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }

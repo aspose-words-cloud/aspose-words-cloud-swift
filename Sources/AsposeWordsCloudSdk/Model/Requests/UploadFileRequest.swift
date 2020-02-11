@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for uploadFile operation.
 public class UploadFileRequest : Encodable, WordsApiModel {
     private let fileContent : URL;
     private let path : String;
@@ -39,6 +40,7 @@ public class UploadFileRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the uploadFileRequest class.
     public init(fileContent : URL, path : String, storageName : String? = nil) {
         self.fileContent = fileContent;
         self.path = path;
@@ -54,14 +56,17 @@ public class UploadFileRequest : Encodable, WordsApiModel {
         }
     }
     
+    // File to upload
     public func getFileContent() -> URL {
         return self.fileContent;
     }
     
+    // Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext              If the content is multipart and path does not contains the file name it tries to get them from filename parameter              from Content-Disposition header.
     public func getPath() -> String {
         return self.path;
     }
     
+    // Storage name
     public func getStorageName() -> String? {
         return self.storageName;
     }

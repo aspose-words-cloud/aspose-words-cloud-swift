@@ -27,13 +27,16 @@
 
 import Foundation
 
+// Table element.
 public class TableInsert : Codable, WordsApiModel {
-        
-    // Gets or sets table will be inserted before specified position.
+    
+    // Field of position. Gets or sets table will be inserted before specified position.      
     private var position : DocumentPosition?;
-    // Gets or sets count of columns. Default is 2.
+    
+    // Field of columnsCount. Gets or sets count of columns. Default is 2.      
     private var columnsCount : Int?;
-    // Gets or sets count of rows. Default is 2.
+    
+    // Field of rowsCount. Gets or sets count of rows. Default is 2.      
     private var rowsCount : Int?;
         
     private enum CodingKeys: String, CodingKey {
@@ -70,25 +73,33 @@ public class TableInsert : Codable, WordsApiModel {
         }
         try container.encode(self.rowsCount, forKey: .rowsCount);
     }
-        
+    
+    // Sets position. Gets or sets table will be inserted before specified position.  
     public func setPosition(position : DocumentPosition?) {
         self.position = position;
     }
     
+    // Gets position. Gets or sets table will be inserted before specified position.  
     public func getPosition() -> DocumentPosition? {
         return self.position;
     }
+    
+    // Sets columnsCount. Gets or sets count of columns. Default is 2.  
     public func setColumnsCount(columnsCount : Int) {
         self.columnsCount = columnsCount;
     }
     
+    // Gets columnsCount. Gets or sets count of columns. Default is 2.  
     public func getColumnsCount() -> Int {
         return self.columnsCount!;
     }
+    
+    // Sets rowsCount. Gets or sets count of rows. Default is 2.  
     public func setRowsCount(rowsCount : Int) {
         self.rowsCount = rowsCount;
     }
     
+    // Gets rowsCount. Gets or sets count of rows. Default is 2.  
     public func getRowsCount() -> Int {
         return self.rowsCount!;
     }

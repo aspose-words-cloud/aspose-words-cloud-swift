@@ -27,11 +27,13 @@
 
 import Foundation
 
+// Class for insert watermark text request building.
 public class WatermarkText : Codable, WordsApiModel {
-        
-    // Gets or sets the watermark text.
+    
+    // Field of text. Gets or sets the watermark text.      
     private var text : String?;
-    // Gets or sets the watermark rotation angle.
+    
+    // Field of rotationAngle. Gets or sets the watermark rotation angle.      
     private var rotationAngle : Double?;
         
     private enum CodingKeys: String, CodingKey {
@@ -62,18 +64,23 @@ public class WatermarkText : Codable, WordsApiModel {
         }
         try container.encode(self.rotationAngle, forKey: .rotationAngle);
     }
-        
+    
+    // Sets text. Gets or sets the watermark text.  
     public func setText(text : String?) {
         self.text = text;
     }
     
+    // Gets text. Gets or sets the watermark text.  
     public func getText() -> String? {
         return self.text;
     }
+    
+    // Sets rotationAngle. Gets or sets the watermark rotation angle.  
     public func setRotationAngle(rotationAngle : Double) {
         self.rotationAngle = rotationAngle;
     }
     
+    // Gets rotationAngle. Gets or sets the watermark rotation angle.  
     public func getRotationAngle() -> Double {
         return self.rotationAngle!;
     }

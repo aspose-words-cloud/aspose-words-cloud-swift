@@ -27,15 +27,19 @@
 
 import Foundation
 
+// Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
 public class Link : Codable, WordsApiModel {
-        
-    // Gets or sets the \&quot;href\&quot; attribute contains the link&#39;s IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference.
+    
+    // Field of href. Gets or sets the \"href\" attribute contains the link's IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference.      
     private var href : String?;
-    // Gets or sets atom:link elements MAY have a \&quot;rel\&quot; attribute that indicates the link relation type.  If the \&quot;rel\&quot; attribute is not present, the link element MUST be interpreted as if the link relation type is \&quot;alternate\&quot;.
+    
+    // Field of rel. Gets or sets atom:link elements MAY have a \"rel\" attribute that indicates the link relation type.  If the \"rel\" attribute is not present, the link element MUST be interpreted as if the link relation type is \"alternate\".      
     private var rel : String?;
-    // Gets or sets on the link element, the \&quot;type\&quot; attribute&#39;s value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced.  Note that the type attribute does not override the actual media type returned with the representation.
+    
+    // Field of type. Gets or sets on the link element, the \"type\" attribute's value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced.  Note that the type attribute does not override the actual media type returned with the representation.      
     private var type : String?;
-    // Gets or sets the \&quot;title\&quot; attribute conveys human-readable information about the link.  The content of the \&quot;title\&quot; attribute is Language-Sensitive.
+    
+    // Field of title. Gets or sets the \"title\" attribute conveys human-readable information about the link.  The content of the \"title\" attribute is Language-Sensitive.      
     private var title : String?;
         
     private enum CodingKeys: String, CodingKey {
@@ -75,32 +79,43 @@ public class Link : Codable, WordsApiModel {
             try container.encode(self.title, forKey: .title);
         }
     }
-        
+    
+    // Sets href. Gets or sets the \"href\" attribute contains the link's IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference.  
     public func setHref(href : String?) {
         self.href = href;
     }
     
+    // Gets href. Gets or sets the \"href\" attribute contains the link's IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference.  
     public func getHref() -> String? {
         return self.href;
     }
+    
+    // Sets rel. Gets or sets atom:link elements MAY have a \"rel\" attribute that indicates the link relation type.  If the \"rel\" attribute is not present, the link element MUST be interpreted as if the link relation type is \"alternate\".  
     public func setRel(rel : String?) {
         self.rel = rel;
     }
     
+    // Gets rel. Gets or sets atom:link elements MAY have a \"rel\" attribute that indicates the link relation type.  If the \"rel\" attribute is not present, the link element MUST be interpreted as if the link relation type is \"alternate\".  
     public func getRel() -> String? {
         return self.rel;
     }
+    
+    // Sets type. Gets or sets on the link element, the \"type\" attribute's value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced.  Note that the type attribute does not override the actual media type returned with the representation.  
     public func setType(type : String?) {
         self.type = type;
     }
     
+    // Gets type. Gets or sets on the link element, the \"type\" attribute's value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced.  Note that the type attribute does not override the actual media type returned with the representation.  
     public func getType() -> String? {
         return self.type;
     }
+    
+    // Sets title. Gets or sets the \"title\" attribute conveys human-readable information about the link.  The content of the \"title\" attribute is Language-Sensitive.  
     public func setTitle(title : String?) {
         self.title = title;
     }
     
+    // Gets title. Gets or sets the \"title\" attribute conveys human-readable information about the link.  The content of the \"title\" attribute is Language-Sensitive.  
     public func getTitle() -> String? {
         return self.title;
     }

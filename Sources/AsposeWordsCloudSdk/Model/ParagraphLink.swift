@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Paragraph link element.
 public class ParagraphLink : NodeLink {
-        
-    // Gets or sets paragraph&#39;s text.
+    
+    // Field of text. Gets or sets paragraph's text.      
     private var text : String?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class ParagraphLink : NodeLink {
             try container.encode(self.text, forKey: .text);
         }
     }
-        
+    
+    // Sets text. Gets or sets paragraph's text.  
     public func setText(text : String?) {
         self.text = text;
     }
     
+    // Gets text. Gets or sets paragraph's text.  
     public func getText() -> String? {
         return self.text;
     }

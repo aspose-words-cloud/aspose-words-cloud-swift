@@ -27,15 +27,19 @@
 
 import Foundation
 
+// Font info.
 public class FontInfo : Codable, WordsApiModel {
-        
-    // Gets or sets family name of the font.
+    
+    // Field of fontFamilyName. Gets or sets family name of the font.      
     private var fontFamilyName : String?;
-    // Gets or sets full name of the font.
+    
+    // Field of fullFontName. Gets or sets full name of the font.      
     private var fullFontName : String?;
-    // Gets or sets version string of the font.
+    
+    // Field of version. Gets or sets version string of the font.      
     private var version : String?;
-    // Gets or sets path to the font file if any.
+    
+    // Field of filePath. Gets or sets path to the font file if any.      
     private var filePath : String?;
         
     private enum CodingKeys: String, CodingKey {
@@ -75,32 +79,43 @@ public class FontInfo : Codable, WordsApiModel {
             try container.encode(self.filePath, forKey: .filePath);
         }
     }
-        
+    
+    // Sets fontFamilyName. Gets or sets family name of the font.  
     public func setFontFamilyName(fontFamilyName : String?) {
         self.fontFamilyName = fontFamilyName;
     }
     
+    // Gets fontFamilyName. Gets or sets family name of the font.  
     public func getFontFamilyName() -> String? {
         return self.fontFamilyName;
     }
+    
+    // Sets fullFontName. Gets or sets full name of the font.  
     public func setFullFontName(fullFontName : String?) {
         self.fullFontName = fullFontName;
     }
     
+    // Gets fullFontName. Gets or sets full name of the font.  
     public func getFullFontName() -> String? {
         return self.fullFontName;
     }
+    
+    // Sets version. Gets or sets version string of the font.  
     public func setVersion(version : String?) {
         self.version = version;
     }
     
+    // Gets version. Gets or sets version string of the font.  
     public func getVersion() -> String? {
         return self.version;
     }
+    
+    // Sets filePath. Gets or sets path to the font file if any.  
     public func setFilePath(filePath : String?) {
         self.filePath = filePath;
     }
     
+    // Gets filePath. Gets or sets path to the font file if any.  
     public func getFilePath() -> String? {
         return self.filePath;
     }

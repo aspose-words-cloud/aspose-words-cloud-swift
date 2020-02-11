@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for classify operation.
 public class ClassifyRequest : Encodable, WordsApiModel {
     private let text : String;
     private let bestClassesCount : String?;
@@ -37,6 +38,7 @@ public class ClassifyRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the classifyRequest class.
     public init(text : String, bestClassesCount : String? = nil) {
         self.text = text;
         self.bestClassesCount = bestClassesCount;
@@ -50,10 +52,12 @@ public class ClassifyRequest : Encodable, WordsApiModel {
         }
     }
     
+    // Text to classify.
     public func getText() -> String {
         return self.text;
     }
     
+    // Number of the best classes to return.
     public func getBestClassesCount() -> String? {
         return self.bestClassesCount;
     }

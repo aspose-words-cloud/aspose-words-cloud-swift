@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for getDocumentFieldNames operation.
 public class GetDocumentFieldNamesRequest : Encodable, WordsApiModel {
     private let name : String;
     private let folder : String?;
@@ -45,6 +46,7 @@ public class GetDocumentFieldNamesRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the getDocumentFieldNamesRequest class.
     public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, useNonMergeFields : Bool? = nil) {
         self.name = name;
         self.folder = folder;
@@ -74,26 +76,32 @@ public class GetDocumentFieldNamesRequest : Encodable, WordsApiModel {
         }
     }
     
+    // The document name.
     public func getName() -> String {
         return self.name;
     }
     
+    // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
     
+    // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
     
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
+    // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }
     
+    // If true, result includes \"mustache\" field names.
     public func getUseNonMergeFields() -> Bool? {
         return self.useNonMergeFields;
     }

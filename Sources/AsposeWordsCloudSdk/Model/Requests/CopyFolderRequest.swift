@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for copyFolder operation.
 public class CopyFolderRequest : Encodable, WordsApiModel {
     private let destPath : String;
     private let srcPath : String;
@@ -41,6 +42,7 @@ public class CopyFolderRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the copyFolderRequest class.
     public init(destPath : String, srcPath : String, srcStorageName : String? = nil, destStorageName : String? = nil) {
         self.destPath = destPath;
         self.srcPath = srcPath;
@@ -60,18 +62,22 @@ public class CopyFolderRequest : Encodable, WordsApiModel {
         }
     }
     
+    // Destination folder path e.g. '/dst'
     public func getDestPath() -> String {
         return self.destPath;
     }
     
+    // Source folder path e.g. /Folder1
     public func getSrcPath() -> String {
         return self.srcPath;
     }
     
+    // Source storage name
     public func getSrcStorageName() -> String? {
         return self.srcStorageName;
     }
     
+    // Destination storage name
     public func getDestStorageName() -> String? {
         return self.destStorageName;
     }

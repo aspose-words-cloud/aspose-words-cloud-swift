@@ -27,33 +27,46 @@
 
 import Foundation
 
+// Container abstract class for image save options.
 public class ImageSaveOptionsData : FixedPageSaveOptionsData {
-        
-    // Gets or sets allows to specify additional System.Drawing.Graphics quality options.
+    
+    // Field of graphicsQualityOptions. Gets or sets allows to specify additional System.Drawing.Graphics quality options.      
     private var graphicsQualityOptions : GraphicsQualityOptionsData?;
-    // Gets or sets the horizontal resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.
+    
+    // Field of horizontalResolution. Gets or sets the horizontal resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.      
     private var horizontalResolution : Double?;
-    // Gets or sets brightness of image.
+    
+    // Field of imageBrightness. Gets or sets brightness of image.      
     private var imageBrightness : Double?;
-    // Gets or sets color mode of image.
+    
+    // Field of imageColorMode. Gets or sets color mode of image.      
     private var imageColorMode : String?;
-    // Gets or sets contrast of image.
+    
+    // Field of imageContrast. Gets or sets contrast of image.      
     private var imageContrast : Double?;
-    // Gets or sets background (paper) color of image.
+    
+    // Field of paperColor. Gets or sets background (paper) color of image.      
     private var paperColor : String?;
-    // Gets or sets pixel format of image.
+    
+    // Field of pixelFormat. Gets or sets pixel format of image.      
     private var pixelFormat : String?;
-    // Gets or sets both horizontal and vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.
+    
+    // Field of resolution. Gets or sets both horizontal and vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.      
     private var resolution : Double?;
-    // Gets or sets zoom factor of image.
+    
+    // Field of scale. Gets or sets zoom factor of image.      
     private var scale : Double?;
-    // Gets or sets determine whether or not to use anti-aliasing for rendering.
+    
+    // Field of useAntiAliasing. Gets or sets determine whether or not to use anti-aliasing for rendering.      
     private var useAntiAliasing : Bool?;
-    // Gets or sets a value determining whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
+    
+    // Field of useGdiEmfRenderer. Gets or sets a value determining whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.      
     private var useGdiEmfRenderer : Bool?;
-    // Gets or sets determine whether or not to use high quality (i.e. slow) rendering algorithms.
+    
+    // Field of useHighQualityRendering. Gets or sets determine whether or not to use high quality (i.e. slow) rendering algorithms.      
     private var useHighQualityRendering : Bool?;
-    // Gets or sets the vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.
+    
+    // Field of verticalResolution. Gets or sets the vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.      
     private var verticalResolution : Double?;
         
     private enum CodingKeys: String, CodingKey {
@@ -138,95 +151,133 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
             try container.encode(self.verticalResolution, forKey: .verticalResolution);
         }
     }
-        
+    
+    // Sets graphicsQualityOptions. Gets or sets allows to specify additional System.Drawing.Graphics quality options.  
     public func setGraphicsQualityOptions(graphicsQualityOptions : GraphicsQualityOptionsData?) {
         self.graphicsQualityOptions = graphicsQualityOptions;
     }
     
+    // Gets graphicsQualityOptions. Gets or sets allows to specify additional System.Drawing.Graphics quality options.  
     public func getGraphicsQualityOptions() -> GraphicsQualityOptionsData? {
         return self.graphicsQualityOptions;
     }
+    
+    // Sets horizontalResolution. Gets or sets the horizontal resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.  
     public func setHorizontalResolution(horizontalResolution : Double?) {
         self.horizontalResolution = horizontalResolution;
     }
     
+    // Gets horizontalResolution. Gets or sets the horizontal resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.  
     public func getHorizontalResolution() -> Double? {
         return self.horizontalResolution;
     }
+    
+    // Sets imageBrightness. Gets or sets brightness of image.  
     public func setImageBrightness(imageBrightness : Double?) {
         self.imageBrightness = imageBrightness;
     }
     
+    // Gets imageBrightness. Gets or sets brightness of image.  
     public func getImageBrightness() -> Double? {
         return self.imageBrightness;
     }
+    
+    // Sets imageColorMode. Gets or sets color mode of image.  
     public func setImageColorMode(imageColorMode : String?) {
         self.imageColorMode = imageColorMode;
     }
     
+    // Gets imageColorMode. Gets or sets color mode of image.  
     public func getImageColorMode() -> String? {
         return self.imageColorMode;
     }
+    
+    // Sets imageContrast. Gets or sets contrast of image.  
     public func setImageContrast(imageContrast : Double?) {
         self.imageContrast = imageContrast;
     }
     
+    // Gets imageContrast. Gets or sets contrast of image.  
     public func getImageContrast() -> Double? {
         return self.imageContrast;
     }
+    
+    // Sets paperColor. Gets or sets background (paper) color of image.  
     public func setPaperColor(paperColor : String?) {
         self.paperColor = paperColor;
     }
     
+    // Gets paperColor. Gets or sets background (paper) color of image.  
     public func getPaperColor() -> String? {
         return self.paperColor;
     }
+    
+    // Sets pixelFormat. Gets or sets pixel format of image.  
     public func setPixelFormat(pixelFormat : String?) {
         self.pixelFormat = pixelFormat;
     }
     
+    // Gets pixelFormat. Gets or sets pixel format of image.  
     public func getPixelFormat() -> String? {
         return self.pixelFormat;
     }
+    
+    // Sets resolution. Gets or sets both horizontal and vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.  
     public func setResolution(resolution : Double?) {
         self.resolution = resolution;
     }
     
+    // Gets resolution. Gets or sets both horizontal and vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.  
     public func getResolution() -> Double? {
         return self.resolution;
     }
+    
+    // Sets scale. Gets or sets zoom factor of image.  
     public func setScale(scale : Double?) {
         self.scale = scale;
     }
     
+    // Gets scale. Gets or sets zoom factor of image.  
     public func getScale() -> Double? {
         return self.scale;
     }
+    
+    // Sets useAntiAliasing. Gets or sets determine whether or not to use anti-aliasing for rendering.  
     public func setUseAntiAliasing(useAntiAliasing : Bool?) {
         self.useAntiAliasing = useAntiAliasing;
     }
     
+    // Gets useAntiAliasing. Gets or sets determine whether or not to use anti-aliasing for rendering.  
     public func getUseAntiAliasing() -> Bool? {
         return self.useAntiAliasing;
     }
+    
+    // Sets useGdiEmfRenderer. Gets or sets a value determining whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.  
     public func setUseGdiEmfRenderer(useGdiEmfRenderer : Bool?) {
         self.useGdiEmfRenderer = useGdiEmfRenderer;
     }
     
+    // Gets useGdiEmfRenderer. Gets or sets a value determining whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.  
     public func getUseGdiEmfRenderer() -> Bool? {
         return self.useGdiEmfRenderer;
     }
+    
+    // Sets useHighQualityRendering. Gets or sets determine whether or not to use high quality (i.e. slow) rendering algorithms.  
     public func setUseHighQualityRendering(useHighQualityRendering : Bool?) {
         self.useHighQualityRendering = useHighQualityRendering;
     }
     
+    // Gets useHighQualityRendering. Gets or sets determine whether or not to use high quality (i.e. slow) rendering algorithms.  
     public func getUseHighQualityRendering() -> Bool? {
         return self.useHighQualityRendering;
     }
+    
+    // Sets verticalResolution. Gets or sets the vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.  
     public func setVerticalResolution(verticalResolution : Double?) {
         self.verticalResolution = verticalResolution;
     }
     
+    // Gets verticalResolution. Gets or sets the vertical resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.  
     public func getVerticalResolution() -> Double? {
         return self.verticalResolution;
     }

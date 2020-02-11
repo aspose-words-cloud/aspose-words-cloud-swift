@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for getDocumentFieldNamesOnline operation.
 public class GetDocumentFieldNamesOnlineRequest : Encodable, WordsApiModel {
     private let template : URL;
     private let useNonMergeFields : Bool?;
@@ -37,6 +38,7 @@ public class GetDocumentFieldNamesOnlineRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the getDocumentFieldNamesOnlineRequest class.
     public init(template : URL, useNonMergeFields : Bool? = nil) {
         self.template = template;
         self.useNonMergeFields = useNonMergeFields;
@@ -50,10 +52,12 @@ public class GetDocumentFieldNamesOnlineRequest : Encodable, WordsApiModel {
         }
     }
     
+    // File with template
     public func getTemplate() -> URL {
         return self.template;
     }
     
+    // Use non merge fields or not.
     public func getUseNonMergeFields() -> Bool? {
         return self.useNonMergeFields;
     }

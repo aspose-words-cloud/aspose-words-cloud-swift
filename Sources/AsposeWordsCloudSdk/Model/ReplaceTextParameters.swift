@@ -27,17 +27,22 @@
 
 import Foundation
 
+// Class for document replace text request building.
 public class ReplaceTextParameters : Codable, WordsApiModel {
-        
-    // Gets or sets old text value (or regex pattern ) to replace.
+    
+    // Field of oldValue. Gets or sets old text value (or regex pattern ) to replace.      
     private var oldValue : String?;
-    // Gets or sets new text value to replace by.
+    
+    // Field of newValue. Gets or sets new text value to replace by.      
     private var newValue : String?;
-    // Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.
+    
+    // Field of isMatchCase. Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.      
     private var isMatchCase : Bool?;
-    // Gets or sets a value indicating whether flag, means that only whole word matched are replaced.
+    
+    // Field of isMatchWholeWord. Gets or sets a value indicating whether flag, means that only whole word matched are replaced.      
     private var isMatchWholeWord : Bool?;
-    // Gets or sets a value indicating whether flag, means that  contains regex expression.
+    
+    // Field of isOldValueRegex. Gets or sets a value indicating whether flag, means that  contains regex expression.      
     private var isOldValueRegex : Bool?;
         
     private enum CodingKeys: String, CodingKey {
@@ -85,39 +90,53 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
         }
         try container.encode(self.isOldValueRegex, forKey: .isOldValueRegex);
     }
-        
+    
+    // Sets oldValue. Gets or sets old text value (or regex pattern ) to replace.  
     public func setOldValue(oldValue : String?) {
         self.oldValue = oldValue;
     }
     
+    // Gets oldValue. Gets or sets old text value (or regex pattern ) to replace.  
     public func getOldValue() -> String? {
         return self.oldValue;
     }
+    
+    // Sets newValue. Gets or sets new text value to replace by.  
     public func setNewValue(newValue : String?) {
         self.newValue = newValue;
     }
     
+    // Gets newValue. Gets or sets new text value to replace by.  
     public func getNewValue() -> String? {
         return self.newValue;
     }
+    
+    // Sets isMatchCase. Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.  
     public func setIsMatchCase(isMatchCase : Bool) {
         self.isMatchCase = isMatchCase;
     }
     
+    // Gets isMatchCase. Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.  
     public func getIsMatchCase() -> Bool {
         return self.isMatchCase!;
     }
+    
+    // Sets isMatchWholeWord. Gets or sets a value indicating whether flag, means that only whole word matched are replaced.  
     public func setIsMatchWholeWord(isMatchWholeWord : Bool) {
         self.isMatchWholeWord = isMatchWholeWord;
     }
     
+    // Gets isMatchWholeWord. Gets or sets a value indicating whether flag, means that only whole word matched are replaced.  
     public func getIsMatchWholeWord() -> Bool {
         return self.isMatchWholeWord!;
     }
+    
+    // Sets isOldValueRegex. Gets or sets a value indicating whether flag, means that  contains regex expression.  
     public func setIsOldValueRegex(isOldValueRegex : Bool) {
         self.isOldValueRegex = isOldValueRegex;
     }
     
+    // Gets isOldValueRegex. Gets or sets a value indicating whether flag, means that  contains regex expression.  
     public func getIsOldValueRegex() -> Bool {
         return self.isOldValueRegex!;
     }

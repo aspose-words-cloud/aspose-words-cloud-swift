@@ -27,6 +27,7 @@
 
 import Foundation
 
+// OfficeMath object.
 public class OfficeMathObject : OfficeMathLink {
     // Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.
     public enum DisplayType : String, Codable
@@ -157,14 +158,17 @@ public class OfficeMathObject : OfficeMathLink {
         
     }
 
-        
-    // Gets or sets content of footnote.
+    
+    // Field of content. Gets or sets content of footnote.      
     private var content : StoryChildNodes?;
-    // Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.
+    
+    // Field of displayType. Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.      
     private var displayType : DisplayType?;
-    // Gets or sets /sets Office Math justification.
+    
+    // Field of justification. Gets or sets /sets Office Math justification.      
     private var justification : Justification?;
-    // Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
+    
+    // Field of mathObjectType. Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.      
     private var mathObjectType : MathObjectType?;
         
     private enum CodingKeys: String, CodingKey {
@@ -204,32 +208,43 @@ public class OfficeMathObject : OfficeMathLink {
             try container.encode(self.mathObjectType, forKey: .mathObjectType);
         }
     }
-        
+    
+    // Sets content. Gets or sets content of footnote.  
     public func setContent(content : StoryChildNodes?) {
         self.content = content;
     }
     
+    // Gets content. Gets or sets content of footnote.  
     public func getContent() -> StoryChildNodes? {
         return self.content;
     }
+    
+    // Sets displayType. Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.  
     public func setDisplayType(displayType : DisplayType?) {
         self.displayType = displayType;
     }
     
+    // Gets displayType. Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.  
     public func getDisplayType() -> DisplayType? {
         return self.displayType;
     }
+    
+    // Sets justification. Gets or sets /sets Office Math justification.  
     public func setJustification(justification : Justification?) {
         self.justification = justification;
     }
     
+    // Gets justification. Gets or sets /sets Office Math justification.  
     public func getJustification() -> Justification? {
         return self.justification;
     }
+    
+    // Sets mathObjectType. Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.  
     public func setMathObjectType(mathObjectType : MathObjectType?) {
         self.mathObjectType = mathObjectType;
     }
     
+    // Gets mathObjectType. Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.  
     public func getMathObjectType() -> MathObjectType? {
         return self.mathObjectType;
     }

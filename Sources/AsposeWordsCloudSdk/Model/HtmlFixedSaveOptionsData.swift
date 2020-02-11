@@ -27,33 +27,46 @@
 
 import Foundation
 
+// container class for fixed html save options.
 public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
-        
-    // Gets or sets specifies prefix which is added to all class names in style.css file. Default value is \&quot;aw\&quot;.
+    
+    // Field of cssClassNamesPrefix. Gets or sets specifies prefix which is added to all class names in style.css file. Default value is \"aw\".      
     private var cssClassNamesPrefix : String?;
-    // Gets or sets encoding.
+    
+    // Field of encoding. Gets or sets encoding.      
     private var encoding : String?;
-    // Gets or sets specifies whether the CSS (Cascading Style Sheet) should be embedded into Html document.
+    
+    // Field of exportEmbeddedCss. Gets or sets specifies whether the CSS (Cascading Style Sheet) should be embedded into Html document.      
     private var exportEmbeddedCss : Bool?;
-    // Gets or sets specifies whether fonts should be embedded into Html document in Base64 format.
+    
+    // Field of exportEmbeddedFonts. Gets or sets specifies whether fonts should be embedded into Html document in Base64 format.      
     private var exportEmbeddedFonts : Bool?;
-    // Gets or sets specifies whether images should be embedded into Html document in Base64 format.
+    
+    // Field of exportEmbeddedImages. Gets or sets specifies whether images should be embedded into Html document in Base64 format.      
     private var exportEmbeddedImages : Bool?;
-    // Gets or sets indication of whether form fields are exported as interactive items (as &#39;input&#39; tag) rather than converted to text or graphics.
+    
+    // Field of exportFormFields. Gets or sets indication of whether form fields are exported as interactive items (as 'input' tag) rather than converted to text or graphics.      
     private var exportFormFields : Bool?;
-    // Gets or sets specifies export format of fonts.
+    
+    // Field of fontFormat. Gets or sets specifies export format of fonts.      
     private var fontFormat : String?;
-    // Gets or sets specifies the horizontal alignment of pages in an HTML document. Default value is HtmlFixedHorizontalPageAlignment.Center.
+    
+    // Field of pageHorizontalAlignment. Gets or sets specifies the horizontal alignment of pages in an HTML document. Default value is HtmlFixedHorizontalPageAlignment.Center.      
     private var pageHorizontalAlignment : String?;
-    // Gets or sets specifies the margins around pages in an HTML document. The margins value is measured in points and should be equal to or greater than 0. Default value is 10 points.
+    
+    // Field of pageMargins. Gets or sets specifies the margins around pages in an HTML document. The margins value is measured in points and should be equal to or greater than 0. Default value is 10 points.      
     private var pageMargins : Double?;
-    // Gets or sets specifies the physical folder where resources are saved when exporting a document.
+    
+    // Field of resourcesFolder. Gets or sets specifies the physical folder where resources are saved when exporting a document.      
     private var resourcesFolder : String?;
-    // Gets or sets specifies the name of the folder used to construct resource URIs.
+    
+    // Field of resourcesFolderAlias. Gets or sets specifies the name of the folder used to construct resource URIs.      
     private var resourcesFolderAlias : String?;
-    // Gets or sets flag indicates whether \&quot;@font-face\&quot; CSS rules should be placed into a separate file \&quot;fontFaces.css\&quot; when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). Default value is false, all CSS rules are written into single file \&quot;styles.css\&quot;.
+    
+    // Field of saveFontFaceCssSeparately. Gets or sets flag indicates whether \"@font-face\" CSS rules should be placed into a separate file \"fontFaces.css\" when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). Default value is false, all CSS rules are written into single file \"styles.css\".      
     private var saveFontFaceCssSeparately : Bool?;
-    // Gets or sets specifies whether border around pages should be shown.
+    
+    // Field of showPageBorder. Gets or sets specifies whether border around pages should be shown.      
     private var showPageBorder : Bool?;
         
     private enum CodingKeys: String, CodingKey {
@@ -138,95 +151,133 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
             try container.encode(self.showPageBorder, forKey: .showPageBorder);
         }
     }
-        
+    
+    // Sets cssClassNamesPrefix. Gets or sets specifies prefix which is added to all class names in style.css file. Default value is \"aw\".  
     public func setCssClassNamesPrefix(cssClassNamesPrefix : String?) {
         self.cssClassNamesPrefix = cssClassNamesPrefix;
     }
     
+    // Gets cssClassNamesPrefix. Gets or sets specifies prefix which is added to all class names in style.css file. Default value is \"aw\".  
     public func getCssClassNamesPrefix() -> String? {
         return self.cssClassNamesPrefix;
     }
+    
+    // Sets encoding. Gets or sets encoding.  
     public func setEncoding(encoding : String?) {
         self.encoding = encoding;
     }
     
+    // Gets encoding. Gets or sets encoding.  
     public func getEncoding() -> String? {
         return self.encoding;
     }
+    
+    // Sets exportEmbeddedCss. Gets or sets specifies whether the CSS (Cascading Style Sheet) should be embedded into Html document.  
     public func setExportEmbeddedCss(exportEmbeddedCss : Bool?) {
         self.exportEmbeddedCss = exportEmbeddedCss;
     }
     
+    // Gets exportEmbeddedCss. Gets or sets specifies whether the CSS (Cascading Style Sheet) should be embedded into Html document.  
     public func getExportEmbeddedCss() -> Bool? {
         return self.exportEmbeddedCss;
     }
+    
+    // Sets exportEmbeddedFonts. Gets or sets specifies whether fonts should be embedded into Html document in Base64 format.  
     public func setExportEmbeddedFonts(exportEmbeddedFonts : Bool?) {
         self.exportEmbeddedFonts = exportEmbeddedFonts;
     }
     
+    // Gets exportEmbeddedFonts. Gets or sets specifies whether fonts should be embedded into Html document in Base64 format.  
     public func getExportEmbeddedFonts() -> Bool? {
         return self.exportEmbeddedFonts;
     }
+    
+    // Sets exportEmbeddedImages. Gets or sets specifies whether images should be embedded into Html document in Base64 format.  
     public func setExportEmbeddedImages(exportEmbeddedImages : Bool?) {
         self.exportEmbeddedImages = exportEmbeddedImages;
     }
     
+    // Gets exportEmbeddedImages. Gets or sets specifies whether images should be embedded into Html document in Base64 format.  
     public func getExportEmbeddedImages() -> Bool? {
         return self.exportEmbeddedImages;
     }
+    
+    // Sets exportFormFields. Gets or sets indication of whether form fields are exported as interactive items (as 'input' tag) rather than converted to text or graphics.  
     public func setExportFormFields(exportFormFields : Bool?) {
         self.exportFormFields = exportFormFields;
     }
     
+    // Gets exportFormFields. Gets or sets indication of whether form fields are exported as interactive items (as 'input' tag) rather than converted to text or graphics.  
     public func getExportFormFields() -> Bool? {
         return self.exportFormFields;
     }
+    
+    // Sets fontFormat. Gets or sets specifies export format of fonts.  
     public func setFontFormat(fontFormat : String?) {
         self.fontFormat = fontFormat;
     }
     
+    // Gets fontFormat. Gets or sets specifies export format of fonts.  
     public func getFontFormat() -> String? {
         return self.fontFormat;
     }
+    
+    // Sets pageHorizontalAlignment. Gets or sets specifies the horizontal alignment of pages in an HTML document. Default value is HtmlFixedHorizontalPageAlignment.Center.  
     public func setPageHorizontalAlignment(pageHorizontalAlignment : String?) {
         self.pageHorizontalAlignment = pageHorizontalAlignment;
     }
     
+    // Gets pageHorizontalAlignment. Gets or sets specifies the horizontal alignment of pages in an HTML document. Default value is HtmlFixedHorizontalPageAlignment.Center.  
     public func getPageHorizontalAlignment() -> String? {
         return self.pageHorizontalAlignment;
     }
+    
+    // Sets pageMargins. Gets or sets specifies the margins around pages in an HTML document. The margins value is measured in points and should be equal to or greater than 0. Default value is 10 points.  
     public func setPageMargins(pageMargins : Double?) {
         self.pageMargins = pageMargins;
     }
     
+    // Gets pageMargins. Gets or sets specifies the margins around pages in an HTML document. The margins value is measured in points and should be equal to or greater than 0. Default value is 10 points.  
     public func getPageMargins() -> Double? {
         return self.pageMargins;
     }
+    
+    // Sets resourcesFolder. Gets or sets specifies the physical folder where resources are saved when exporting a document.  
     public func setResourcesFolder(resourcesFolder : String?) {
         self.resourcesFolder = resourcesFolder;
     }
     
+    // Gets resourcesFolder. Gets or sets specifies the physical folder where resources are saved when exporting a document.  
     public func getResourcesFolder() -> String? {
         return self.resourcesFolder;
     }
+    
+    // Sets resourcesFolderAlias. Gets or sets specifies the name of the folder used to construct resource URIs.  
     public func setResourcesFolderAlias(resourcesFolderAlias : String?) {
         self.resourcesFolderAlias = resourcesFolderAlias;
     }
     
+    // Gets resourcesFolderAlias. Gets or sets specifies the name of the folder used to construct resource URIs.  
     public func getResourcesFolderAlias() -> String? {
         return self.resourcesFolderAlias;
     }
+    
+    // Sets saveFontFaceCssSeparately. Gets or sets flag indicates whether \"@font-face\" CSS rules should be placed into a separate file \"fontFaces.css\" when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). Default value is false, all CSS rules are written into single file \"styles.css\".  
     public func setSaveFontFaceCssSeparately(saveFontFaceCssSeparately : Bool?) {
         self.saveFontFaceCssSeparately = saveFontFaceCssSeparately;
     }
     
+    // Gets saveFontFaceCssSeparately. Gets or sets flag indicates whether \"@font-face\" CSS rules should be placed into a separate file \"fontFaces.css\" when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). Default value is false, all CSS rules are written into single file \"styles.css\".  
     public func getSaveFontFaceCssSeparately() -> Bool? {
         return self.saveFontFaceCssSeparately;
     }
+    
+    // Sets showPageBorder. Gets or sets specifies whether border around pages should be shown.  
     public func setShowPageBorder(showPageBorder : Bool?) {
         self.showPageBorder = showPageBorder;
     }
     
+    // Gets showPageBorder. Gets or sets specifies whether border around pages should be shown.  
     public func getShowPageBorder() -> Bool? {
         return self.showPageBorder;
     }

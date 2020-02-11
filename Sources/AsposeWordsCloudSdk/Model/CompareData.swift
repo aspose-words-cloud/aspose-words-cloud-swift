@@ -27,13 +27,16 @@
 
 import Foundation
 
+// Container class for compare documents.
 public class CompareData : Codable, WordsApiModel {
-        
-    // Gets or sets path to document to compare at the server.
+    
+    // Field of comparingWithDocument. Gets or sets path to document to compare at the server.      
     private var comparingWithDocument : String?;
-    // Gets or sets initials of the author to use for revisions.
+    
+    // Field of author. Gets or sets initials of the author to use for revisions.      
     private var author : String?;
-    // Gets or sets the date and time to use for revisions.             
+    
+    // Field of dateTime. Gets or sets the date and time to use for revisions.                   
     private var dateTime : Date?;
         
     private enum CodingKeys: String, CodingKey {
@@ -68,25 +71,33 @@ public class CompareData : Codable, WordsApiModel {
             try container.encode(self.dateTime, forKey: .dateTime);
         }
     }
-        
+    
+    // Sets comparingWithDocument. Gets or sets path to document to compare at the server.  
     public func setComparingWithDocument(comparingWithDocument : String?) {
         self.comparingWithDocument = comparingWithDocument;
     }
     
+    // Gets comparingWithDocument. Gets or sets path to document to compare at the server.  
     public func getComparingWithDocument() -> String? {
         return self.comparingWithDocument;
     }
+    
+    // Sets author. Gets or sets initials of the author to use for revisions.  
     public func setAuthor(author : String?) {
         self.author = author;
     }
     
+    // Gets author. Gets or sets initials of the author to use for revisions.  
     public func getAuthor() -> String? {
         return self.author;
     }
+    
+    // Sets dateTime. Gets or sets the date and time to use for revisions.               
     public func setDateTime(dateTime : Date?) {
         self.dateTime = dateTime;
     }
     
+    // Gets dateTime. Gets or sets the date and time to use for revisions.               
     public func getDateTime() -> Date? {
         return self.dateTime;
     }

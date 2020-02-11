@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for createDocument operation.
 public class CreateDocumentRequest : Encodable, WordsApiModel {
     private let storage : String?;
     private let fileName : String?;
@@ -39,6 +40,7 @@ public class CreateDocumentRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the createDocumentRequest class.
     public init(storage : String? = nil, fileName : String? = nil, folder : String? = nil) {
         self.storage = storage;
         self.fileName = fileName;
@@ -58,14 +60,17 @@ public class CreateDocumentRequest : Encodable, WordsApiModel {
         }
     }
     
+    // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
     
+    // The document name.
     public func getFileName() -> String? {
         return self.fileName;
     }
     
+    // The document folder.
     public func getFolder() -> String? {
         return self.folder;
     }

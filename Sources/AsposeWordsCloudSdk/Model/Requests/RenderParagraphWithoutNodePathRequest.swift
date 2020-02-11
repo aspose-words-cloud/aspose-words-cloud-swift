@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for renderParagraphWithoutNodePath operation.
 public class RenderParagraphWithoutNodePathRequest : Encodable, WordsApiModel {
     private let name : String;
     private let format : String;
@@ -49,6 +50,7 @@ public class RenderParagraphWithoutNodePathRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the renderParagraphWithoutNodePathRequest class.
     public init(name : String, format : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
         self.name = name;
         self.format = format;
@@ -82,34 +84,42 @@ public class RenderParagraphWithoutNodePathRequest : Encodable, WordsApiModel {
         }
     }
     
+    // The document name.
     public func getName() -> String {
         return self.name;
     }
     
+    // The destination format.
     public func getFormat() -> String {
         return self.format;
     }
     
+    // Object index.
     public func getIndex() -> Int {
         return self.index;
     }
     
+    // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
     
+    // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
     
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
+    // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }
     
+    // Folder in filestorage with custom fonts.
     public func getFontsLocation() -> String? {
         return self.fontsLocation;
     }

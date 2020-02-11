@@ -27,9 +27,10 @@
 
 import Foundation
 
+// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/range/{0}/{1}/.
 public class RangeTextResponse : WordsResponse {
-        
-    // Gets or sets text from range.
+    
+    // Field of text. Gets or sets text from range.      
     private var text : String?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class RangeTextResponse : WordsResponse {
             try container.encode(self.text, forKey: .text);
         }
     }
-        
+    
+    // Sets text. Gets or sets text from range.  
     public func setText(text : String?) {
         self.text = text;
     }
     
+    // Gets text. Gets or sets text from range.  
     public func getText() -> String? {
         return self.text;
     }

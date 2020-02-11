@@ -27,13 +27,16 @@
 
 import Foundation
 
+// This response should be returned by the service when handling: PUT http://api.aspose.com/v4.0/words/classify.
 public class ClassificationResponse : WordsResponse {
-        
-    // Gets or sets best class name.
+    
+    // Field of bestClassName. Gets or sets best class name.      
     private var bestClassName : String?;
-    // Gets or sets best class probability.
+    
+    // Field of bestClassProbability. Gets or sets best class probability.      
     private var bestClassProbability : Double?;
-    // Gets or sets array of best classes results.
+    
+    // Field of bestResults. Gets or sets array of best classes results.      
     private var bestResults : [ClassificationResult]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -68,25 +71,33 @@ public class ClassificationResponse : WordsResponse {
             try container.encode(self.bestResults, forKey: .bestResults);
         }
     }
-        
+    
+    // Sets bestClassName. Gets or sets best class name.  
     public func setBestClassName(bestClassName : String?) {
         self.bestClassName = bestClassName;
     }
     
+    // Gets bestClassName. Gets or sets best class name.  
     public func getBestClassName() -> String? {
         return self.bestClassName;
     }
+    
+    // Sets bestClassProbability. Gets or sets best class probability.  
     public func setBestClassProbability(bestClassProbability : Double?) {
         self.bestClassProbability = bestClassProbability;
     }
     
+    // Gets bestClassProbability. Gets or sets best class probability.  
     public func getBestClassProbability() -> Double? {
         return self.bestClassProbability;
     }
+    
+    // Sets bestResults. Gets or sets array of best classes results.  
     public func setBestResults(bestResults : [ClassificationResult]?) {
         self.bestResults = bestResults;
     }
     
+    // Gets bestResults. Gets or sets array of best classes results.  
     public func getBestResults() -> [ClassificationResult]? {
         return self.bestResults;
     }

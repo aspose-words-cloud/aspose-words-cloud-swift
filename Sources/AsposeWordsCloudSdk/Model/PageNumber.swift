@@ -27,15 +27,19 @@
 
 import Foundation
 
+// Class is used for insert page number request building.
 public class PageNumber : Codable, WordsApiModel {
-        
-    // Gets or sets page number format, e.g. \&quot;{PAGE} of {NUMPAGES}\&quot;.
+    
+    // Field of format. Gets or sets page number format, e.g. \"{PAGE} of {NUMPAGES}\".      
     private var format : String?;
-    // Gets or sets text alignment, possible values are left, right, center or justify.
+    
+    // Field of alignment. Gets or sets text alignment, possible values are left, right, center or justify.      
     private var alignment : String?;
-    // Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.
+    
+    // Field of isTop. Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.      
     private var isTop : Bool?;
-    // Gets or sets a value indicating whether if true the page number is added on first page too.
+    
+    // Field of setPageNumberOnFirstPage. Gets or sets a value indicating whether if true the page number is added on first page too.      
     private var setPageNumberOnFirstPage : Bool?;
         
     private enum CodingKeys: String, CodingKey {
@@ -77,32 +81,43 @@ public class PageNumber : Codable, WordsApiModel {
         }
         try container.encode(self.setPageNumberOnFirstPage, forKey: .setPageNumberOnFirstPage);
     }
-        
+    
+    // Sets format. Gets or sets page number format, e.g. \"{PAGE} of {NUMPAGES}\".  
     public func setFormat(format : String?) {
         self.format = format;
     }
     
+    // Gets format. Gets or sets page number format, e.g. \"{PAGE} of {NUMPAGES}\".  
     public func getFormat() -> String? {
         return self.format;
     }
+    
+    // Sets alignment. Gets or sets text alignment, possible values are left, right, center or justify.  
     public func setAlignment(alignment : String?) {
         self.alignment = alignment;
     }
     
+    // Gets alignment. Gets or sets text alignment, possible values are left, right, center or justify.  
     public func getAlignment() -> String? {
         return self.alignment;
     }
+    
+    // Sets isTop. Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.  
     public func setIsTop(isTop : Bool) {
         self.isTop = isTop;
     }
     
+    // Gets isTop. Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.  
     public func getIsTop() -> Bool {
         return self.isTop!;
     }
+    
+    // Sets setPageNumberOnFirstPage. Gets or sets a value indicating whether if true the page number is added on first page too.  
     public func setSetPageNumberOnFirstPage(setPageNumberOnFirstPage : Bool) {
         self.setPageNumberOnFirstPage = setPageNumberOnFirstPage;
     }
     
+    // Gets setPageNumberOnFirstPage. Gets or sets a value indicating whether if true the page number is added on first page too.  
     public func getSetPageNumberOnFirstPage() -> Bool {
         return self.setPageNumberOnFirstPage!;
     }

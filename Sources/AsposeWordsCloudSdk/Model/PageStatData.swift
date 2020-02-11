@@ -27,15 +27,19 @@
 
 import Foundation
 
+// Container for the page&#39;s statistical data.
 public class PageStatData : Codable, WordsApiModel {
-        
-    // Gets or sets page number.
+    
+    // Field of pageNumber. Gets or sets page number.      
     private var pageNumber : Int?;
-    // Gets or sets total count of words in the page.
+    
+    // Field of wordCount. Gets or sets total count of words in the page.      
     private var wordCount : Int?;
-    // Gets or sets total count of paragraphs in the page.
+    
+    // Field of paragraphCount. Gets or sets total count of paragraphs in the page.      
     private var paragraphCount : Int?;
-    // Gets or sets detailed statistics of footnotes.
+    
+    // Field of footnotesStatData. Gets or sets detailed statistics of footnotes.      
     private var footnotesStatData : FootnotesStatData?;
         
     private enum CodingKeys: String, CodingKey {
@@ -78,32 +82,43 @@ public class PageStatData : Codable, WordsApiModel {
             try container.encode(self.footnotesStatData, forKey: .footnotesStatData);
         }
     }
-        
+    
+    // Sets pageNumber. Gets or sets page number.  
     public func setPageNumber(pageNumber : Int) {
         self.pageNumber = pageNumber;
     }
     
+    // Gets pageNumber. Gets or sets page number.  
     public func getPageNumber() -> Int {
         return self.pageNumber!;
     }
+    
+    // Sets wordCount. Gets or sets total count of words in the page.  
     public func setWordCount(wordCount : Int) {
         self.wordCount = wordCount;
     }
     
+    // Gets wordCount. Gets or sets total count of words in the page.  
     public func getWordCount() -> Int {
         return self.wordCount!;
     }
+    
+    // Sets paragraphCount. Gets or sets total count of paragraphs in the page.  
     public func setParagraphCount(paragraphCount : Int) {
         self.paragraphCount = paragraphCount;
     }
     
+    // Gets paragraphCount. Gets or sets total count of paragraphs in the page.  
     public func getParagraphCount() -> Int {
         return self.paragraphCount!;
     }
+    
+    // Sets footnotesStatData. Gets or sets detailed statistics of footnotes.  
     public func setFootnotesStatData(footnotesStatData : FootnotesStatData?) {
         self.footnotesStatData = footnotesStatData;
     }
     
+    // Gets footnotesStatData. Gets or sets detailed statistics of footnotes.  
     public func getFootnotesStatData() -> FootnotesStatData? {
         return self.footnotesStatData;
     }

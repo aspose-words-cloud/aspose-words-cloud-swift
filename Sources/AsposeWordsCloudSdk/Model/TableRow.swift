@@ -27,11 +27,13 @@
 
 import Foundation
 
+// Table row element.
 public class TableRow : NodeLink {
-        
-    // Gets or sets provides access to the formatting properties of the row.
+    
+    // Field of rowFormat. Gets or sets provides access to the formatting properties of the row.      
     private var rowFormat : TableRowFormat?;
-    // Gets or sets collection of table&#39;s rows.
+    
+    // Field of tableCellList. Gets or sets collection of table's rows.      
     private var tableCellList : [TableCell]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -61,18 +63,23 @@ public class TableRow : NodeLink {
             try container.encode(self.tableCellList, forKey: .tableCellList);
         }
     }
-        
+    
+    // Sets rowFormat. Gets or sets provides access to the formatting properties of the row.  
     public func setRowFormat(rowFormat : TableRowFormat?) {
         self.rowFormat = rowFormat;
     }
     
+    // Gets rowFormat. Gets or sets provides access to the formatting properties of the row.  
     public func getRowFormat() -> TableRowFormat? {
         return self.rowFormat;
     }
+    
+    // Sets tableCellList. Gets or sets collection of table's rows.  
     public func setTableCellList(tableCellList : [TableCell]?) {
         self.tableCellList = tableCellList;
     }
     
+    // Gets tableCellList. Gets or sets collection of table's rows.  
     public func getTableCellList() -> [TableCell]? {
         return self.tableCellList;
     }

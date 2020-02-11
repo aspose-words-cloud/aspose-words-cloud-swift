@@ -27,8 +27,8 @@
 
 import Foundation
 
+// Provides information for the file link.
 public class FileLink : Link {
-        
         
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
@@ -45,5 +45,4 @@ public class FileLink : Link {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
-        
 }

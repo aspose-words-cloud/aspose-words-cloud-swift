@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Reference to node.
 public class NodeLink : LinkElement {
-        
-    // Gets or sets node id.
+    
+    // Field of nodeId. Gets or sets node id.      
     private var nodeId : String?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class NodeLink : LinkElement {
             try container.encode(self.nodeId, forKey: .nodeId);
         }
     }
-        
+    
+    // Sets nodeId. Gets or sets node id.  
     public func setNodeId(nodeId : String?) {
         self.nodeId = nodeId;
     }
     
+    // Gets nodeId. Gets or sets node id.  
     public func getNodeId() -> String? {
         return self.nodeId;
     }

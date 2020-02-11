@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for insertTableWithoutNodePath operation.
 public class InsertTableWithoutNodePathRequest : Encodable, WordsApiModel {
     private let name : String;
     private let folder : String?;
@@ -51,6 +52,7 @@ public class InsertTableWithoutNodePathRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the insertTableWithoutNodePathRequest class.
     public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, table : TableInsert? = nil) {
         self.name = name;
         self.folder = folder;
@@ -92,38 +94,47 @@ public class InsertTableWithoutNodePathRequest : Encodable, WordsApiModel {
         }
     }
     
+    // The document name.
     public func getName() -> String {
         return self.name;
     }
     
+    // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
     
+    // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
     
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
+    // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }
     
+    // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
     public func getDestFileName() -> String? {
         return self.destFileName;
     }
     
+    // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
     public func getRevisionAuthor() -> String? {
         return self.revisionAuthor;
     }
     
+    // The date and time to use for revisions.
     public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
     }
     
+    // Table parameters/.
     public func getTable() -> TableInsert? {
         return self.table;
     }

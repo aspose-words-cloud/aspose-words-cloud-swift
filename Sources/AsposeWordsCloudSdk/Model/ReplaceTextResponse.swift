@@ -27,11 +27,13 @@
 
 import Foundation
 
+// Response for \&quot;Replace text\&quot; action.
 public class ReplaceTextResponse : WordsResponse {
-        
-    // Gets or sets link to the document.
+    
+    // Field of documentLink. Gets or sets link to the document.      
     private var documentLink : FileLink?;
-    // Gets or sets number of occurrences of the captured text in the document.
+    
+    // Field of matches. Gets or sets number of occurrences of the captured text in the document.      
     private var matches : Int?;
         
     private enum CodingKeys: String, CodingKey {
@@ -61,18 +63,23 @@ public class ReplaceTextResponse : WordsResponse {
             try container.encode(self.matches, forKey: .matches);
         }
     }
-        
+    
+    // Sets documentLink. Gets or sets link to the document.  
     public func setDocumentLink(documentLink : FileLink?) {
         self.documentLink = documentLink;
     }
     
+    // Gets documentLink. Gets or sets link to the document.  
     public func getDocumentLink() -> FileLink? {
         return self.documentLink;
     }
+    
+    // Sets matches. Gets or sets number of occurrences of the captured text in the document.  
     public func setMatches(matches : Int?) {
         self.matches = matches;
     }
     
+    // Gets matches. Gets or sets number of occurrences of the captured text in the document.  
     public func getMatches() -> Int? {
         return self.matches;
     }

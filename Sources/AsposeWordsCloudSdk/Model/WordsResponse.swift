@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Base class for all responses.
 public class WordsResponse : Codable, WordsApiModel {
-        
-    // Gets or sets request Id.
+    
+    // Field of requestId. Gets or sets request Id.      
     private var requestId : String?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class WordsResponse : Codable, WordsApiModel {
             try container.encode(self.requestId, forKey: .requestId);
         }
     }
-        
+    
+    // Sets requestId. Gets or sets request Id.  
     public func setRequestId(requestId : String?) {
         self.requestId = requestId;
     }
     
+    // Gets requestId. Gets or sets request Id.  
     public func getRequestId() -> String? {
         return self.requestId;
     }

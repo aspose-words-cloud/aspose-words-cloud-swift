@@ -27,9 +27,10 @@
 
 import Foundation
 
+// This response should be returned by the service when handling:  GET /documentProperties.
 public class DocumentPropertiesResponse : WordsResponse {
-        
-    // Gets or sets collection of document properties.
+    
+    // Field of documentProperties. Gets or sets collection of document properties.      
     private var documentProperties : DocumentProperties?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class DocumentPropertiesResponse : WordsResponse {
             try container.encode(self.documentProperties, forKey: .documentProperties);
         }
     }
-        
+    
+    // Sets documentProperties. Gets or sets collection of document properties.  
     public func setDocumentProperties(documentProperties : DocumentProperties?) {
         self.documentProperties = documentProperties;
     }
     
+    // Gets documentProperties. Gets or sets collection of document properties.  
     public func getDocumentProperties() -> DocumentProperties? {
         return self.documentProperties;
     }

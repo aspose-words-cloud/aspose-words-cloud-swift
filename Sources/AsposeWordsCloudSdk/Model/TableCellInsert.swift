@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Table cell element.
 public class TableCellInsert : Codable, WordsApiModel {
-        
-    // Gets or sets table cell will be inserted after cell with specified 0-based index.
+    
+    // Field of insertAfter. Gets or sets table cell will be inserted after cell with specified 0-based index.      
     private var insertAfter : Int?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class TableCellInsert : Codable, WordsApiModel {
             try container.encode(self.insertAfter, forKey: .insertAfter);
         }
     }
-        
+    
+    // Sets insertAfter. Gets or sets table cell will be inserted after cell with specified 0-based index.  
     public func setInsertAfter(insertAfter : Int?) {
         self.insertAfter = insertAfter;
     }
     
+    // Gets insertAfter. Gets or sets table cell will be inserted after cell with specified 0-based index.  
     public func getInsertAfter() -> Int? {
         return self.insertAfter;
     }

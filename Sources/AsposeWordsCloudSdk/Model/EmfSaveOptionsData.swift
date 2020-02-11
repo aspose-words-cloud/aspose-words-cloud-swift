@@ -27,8 +27,8 @@
 
 import Foundation
 
+// Container class for emf save options.
 public class EmfSaveOptionsData : ImageSaveOptionsData {
-        
         
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
@@ -45,5 +45,4 @@ public class EmfSaveOptionsData : ImageSaveOptionsData {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
-        
 }

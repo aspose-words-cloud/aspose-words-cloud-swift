@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Range element.
 public class ReplaceRange : Codable, WordsApiModel {
     // Gets or sets range&#39;s text type.
     public enum TextType : String, Codable
@@ -39,10 +40,11 @@ public class ReplaceRange : Codable, WordsApiModel {
         
     }
 
-        
-    // Gets or sets range&#39;s text.
+    
+    // Field of text. Gets or sets range's text.      
     private var text : String?;
-    // Gets or sets range&#39;s text type.
+    
+    // Field of textType. Gets or sets range's text type.      
     private var textType : TextType?;
         
     private enum CodingKeys: String, CodingKey {
@@ -72,18 +74,23 @@ public class ReplaceRange : Codable, WordsApiModel {
             try container.encode(self.textType, forKey: .textType);
         }
     }
-        
+    
+    // Sets text. Gets or sets range's text.  
     public func setText(text : String?) {
         self.text = text;
     }
     
+    // Gets text. Gets or sets range's text.  
     public func getText() -> String? {
         return self.text;
     }
+    
+    // Sets textType. Gets or sets range's text type.  
     public func setTextType(textType : TextType?) {
         self.textType = textType;
     }
     
+    // Gets textType. Gets or sets range's text type.  
     public func getTextType() -> TextType? {
         return self.textType;
     }

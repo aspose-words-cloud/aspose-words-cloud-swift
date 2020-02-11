@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Paragraph format element.             
 public class ParagraphFormat : LinkElement {
     // Gets or sets text alignment for the paragraph.             
     public enum Alignment : String, Codable
@@ -1247,58 +1248,83 @@ public class ParagraphFormat : LinkElement {
         
     }
 
-        
-    // Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.             
+    
+    // Field of addSpaceBetweenFarEastAndAlpha. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.                   
     private var addSpaceBetweenFarEastAndAlpha : Bool?;
-    // Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.             
+    
+    // Field of addSpaceBetweenFarEastAndDigit. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.                   
     private var addSpaceBetweenFarEastAndDigit : Bool?;
-    // Gets or sets text alignment for the paragraph.             
+    
+    // Field of alignment. Gets or sets text alignment for the paragraph.                   
     private var alignment : Alignment?;
-    // Gets or sets whether this is a right-to-left paragraph.             
+    
+    // Field of bidi. Gets or sets whether this is a right-to-left paragraph.                   
     private var bidi : Bool?;
-    // Gets or sets the position for a drop cap text.             
+    
+    // Field of dropCapPosition. Gets or sets the position for a drop cap text.                   
     private var dropCapPosition : DropCapPosition?;
-    // Gets or sets the value (in points) for a first line or hanging indent. Use a positive value to set a first-line indent, and use a negative value to set a hanging indent.             
+    
+    // Field of firstLineIndent. Gets or sets the value (in points) for a first line or hanging indent. Use a positive value to set a first-line indent, and use a negative value to set a hanging indent.                   
     private var firstLineIndent : Double?;
-    // Gets or sets True when the paragraph is an item in a bulleted or numbered list.
+    
+    // Field of isListItem. Gets or sets True when the paragraph is an item in a bulleted or numbered list.      
     private var isListItem : Bool?;
-    // Gets or sets true if all lines in the paragraph are to remain on the same page.             
+    
+    // Field of keepTogether. Gets or sets true if all lines in the paragraph are to remain on the same page.                   
     private var keepTogether : Bool?;
-    // Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.             
+    
+    // Field of keepWithNext. Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.                   
     private var keepWithNext : Bool?;
-    // Gets or sets the value (in points) that represents the left indent for paragraph.             
+    
+    // Field of leftIndent. Gets or sets the value (in points) that represents the left indent for paragraph.                   
     private var leftIndent : Double?;
-    // Gets or sets the line spacing (in points) for the paragraph.             
+    
+    // Field of lineSpacing. Gets or sets the line spacing (in points) for the paragraph.                   
     private var lineSpacing : Double?;
-    // Gets or sets the line spacing for the paragraph.             
+    
+    // Field of lineSpacingRule. Gets or sets the line spacing for the paragraph.                   
     private var lineSpacingRule : LineSpacingRule?;
-    // Gets or sets the number of lines of the paragraph text used to calculate the drop cap height.             
+    
+    // Field of linesToDrop. Gets or sets the number of lines of the paragraph text used to calculate the drop cap height.                   
     private var linesToDrop : Int?;
-    // Gets or sets when true,  and  will be ignored between the paragraphs of the same style.             
+    
+    // Field of noSpaceBetweenParagraphsOfSameStyle. Gets or sets when true,  and  will be ignored between the paragraphs of the same style.                   
     private var noSpaceBetweenParagraphsOfSameStyle : Bool?;
-    // Gets or sets specifies the outline level of the paragraph in the document.             
+    
+    // Field of outlineLevel. Gets or sets specifies the outline level of the paragraph in the document.                   
     private var outlineLevel : OutlineLevel?;
-    // Gets or sets true if a page break is forced before the paragraph.             
+    
+    // Field of pageBreakBefore. Gets or sets true if a page break is forced before the paragraph.                   
     private var pageBreakBefore : Bool?;
-    // Gets or sets the value (in points) that represents the right indent for paragraph.             
+    
+    // Field of rightIndent. Gets or sets the value (in points) that represents the right indent for paragraph.                   
     private var rightIndent : Double?;
-    // Gets or sets the amount of spacing (in points) after the paragraph.             
+    
+    // Field of spaceAfter. Gets or sets the amount of spacing (in points) after the paragraph.                   
     private var spaceAfter : Double?;
-    // Gets or sets true if the amount of spacing after the paragraph is set automatically.             
+    
+    // Field of spaceAfterAuto. Gets or sets true if the amount of spacing after the paragraph is set automatically.                   
     private var spaceAfterAuto : Bool?;
-    // Gets or sets the amount of spacing (in points) before the paragraph.             
+    
+    // Field of spaceBefore. Gets or sets the amount of spacing (in points) before the paragraph.                   
     private var spaceBefore : Double?;
-    // Gets or sets true if the amount of spacing before the paragraph is set automatically.             
+    
+    // Field of spaceBeforeAuto. Gets or sets true if the amount of spacing before the paragraph is set automatically.                   
     private var spaceBeforeAuto : Bool?;
-    // Gets or sets the locale independent style identifier of the paragraph style applied to this formatting.             
+    
+    // Field of styleIdentifier. Gets or sets the locale independent style identifier of the paragraph style applied to this formatting.                   
     private var styleIdentifier : StyleIdentifier?;
-    // Gets or sets the name of the paragraph style applied to this formatting.             
+    
+    // Field of styleName. Gets or sets the name of the paragraph style applied to this formatting.                   
     private var styleName : String?;
-    // Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.             
+    
+    // Field of suppressAutoHyphens. Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.                   
     private var suppressAutoHyphens : Bool?;
-    // Gets or sets specifies whether the current paragraph&#39;s lines should be exempted from line numbering which is applied in the parent section.             
+    
+    // Field of suppressLineNumbers. Gets or sets specifies whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.                   
     private var suppressLineNumbers : Bool?;
-    // Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.             
+    
+    // Field of widowControl. Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.                   
     private var widowControl : Bool?;
         
     private enum CodingKeys: String, CodingKey {
@@ -1448,186 +1474,263 @@ public class ParagraphFormat : LinkElement {
             try container.encode(self.widowControl, forKey: .widowControl);
         }
     }
-        
+    
+    // Sets addSpaceBetweenFarEastAndAlpha. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.               
     public func setAddSpaceBetweenFarEastAndAlpha(addSpaceBetweenFarEastAndAlpha : Bool?) {
         self.addSpaceBetweenFarEastAndAlpha = addSpaceBetweenFarEastAndAlpha;
     }
     
+    // Gets addSpaceBetweenFarEastAndAlpha. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.               
     public func getAddSpaceBetweenFarEastAndAlpha() -> Bool? {
         return self.addSpaceBetweenFarEastAndAlpha;
     }
+    
+    // Sets addSpaceBetweenFarEastAndDigit. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.               
     public func setAddSpaceBetweenFarEastAndDigit(addSpaceBetweenFarEastAndDigit : Bool?) {
         self.addSpaceBetweenFarEastAndDigit = addSpaceBetweenFarEastAndDigit;
     }
     
+    // Gets addSpaceBetweenFarEastAndDigit. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.               
     public func getAddSpaceBetweenFarEastAndDigit() -> Bool? {
         return self.addSpaceBetweenFarEastAndDigit;
     }
+    
+    // Sets alignment. Gets or sets text alignment for the paragraph.               
     public func setAlignment(alignment : Alignment?) {
         self.alignment = alignment;
     }
     
+    // Gets alignment. Gets or sets text alignment for the paragraph.               
     public func getAlignment() -> Alignment? {
         return self.alignment;
     }
+    
+    // Sets bidi. Gets or sets whether this is a right-to-left paragraph.               
     public func setBidi(bidi : Bool?) {
         self.bidi = bidi;
     }
     
+    // Gets bidi. Gets or sets whether this is a right-to-left paragraph.               
     public func getBidi() -> Bool? {
         return self.bidi;
     }
+    
+    // Sets dropCapPosition. Gets or sets the position for a drop cap text.               
     public func setDropCapPosition(dropCapPosition : DropCapPosition?) {
         self.dropCapPosition = dropCapPosition;
     }
     
+    // Gets dropCapPosition. Gets or sets the position for a drop cap text.               
     public func getDropCapPosition() -> DropCapPosition? {
         return self.dropCapPosition;
     }
+    
+    // Sets firstLineIndent. Gets or sets the value (in points) for a first line or hanging indent. Use a positive value to set a first-line indent, and use a negative value to set a hanging indent.               
     public func setFirstLineIndent(firstLineIndent : Double?) {
         self.firstLineIndent = firstLineIndent;
     }
     
+    // Gets firstLineIndent. Gets or sets the value (in points) for a first line or hanging indent. Use a positive value to set a first-line indent, and use a negative value to set a hanging indent.               
     public func getFirstLineIndent() -> Double? {
         return self.firstLineIndent;
     }
+    
+    // Sets isListItem. Gets or sets True when the paragraph is an item in a bulleted or numbered list.  
     public func setIsListItem(isListItem : Bool?) {
         self.isListItem = isListItem;
     }
     
+    // Gets isListItem. Gets or sets True when the paragraph is an item in a bulleted or numbered list.  
     public func getIsListItem() -> Bool? {
         return self.isListItem;
     }
+    
+    // Sets keepTogether. Gets or sets true if all lines in the paragraph are to remain on the same page.               
     public func setKeepTogether(keepTogether : Bool?) {
         self.keepTogether = keepTogether;
     }
     
+    // Gets keepTogether. Gets or sets true if all lines in the paragraph are to remain on the same page.               
     public func getKeepTogether() -> Bool? {
         return self.keepTogether;
     }
+    
+    // Sets keepWithNext. Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.               
     public func setKeepWithNext(keepWithNext : Bool?) {
         self.keepWithNext = keepWithNext;
     }
     
+    // Gets keepWithNext. Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.               
     public func getKeepWithNext() -> Bool? {
         return self.keepWithNext;
     }
+    
+    // Sets leftIndent. Gets or sets the value (in points) that represents the left indent for paragraph.               
     public func setLeftIndent(leftIndent : Double?) {
         self.leftIndent = leftIndent;
     }
     
+    // Gets leftIndent. Gets or sets the value (in points) that represents the left indent for paragraph.               
     public func getLeftIndent() -> Double? {
         return self.leftIndent;
     }
+    
+    // Sets lineSpacing. Gets or sets the line spacing (in points) for the paragraph.               
     public func setLineSpacing(lineSpacing : Double?) {
         self.lineSpacing = lineSpacing;
     }
     
+    // Gets lineSpacing. Gets or sets the line spacing (in points) for the paragraph.               
     public func getLineSpacing() -> Double? {
         return self.lineSpacing;
     }
+    
+    // Sets lineSpacingRule. Gets or sets the line spacing for the paragraph.               
     public func setLineSpacingRule(lineSpacingRule : LineSpacingRule?) {
         self.lineSpacingRule = lineSpacingRule;
     }
     
+    // Gets lineSpacingRule. Gets or sets the line spacing for the paragraph.               
     public func getLineSpacingRule() -> LineSpacingRule? {
         return self.lineSpacingRule;
     }
+    
+    // Sets linesToDrop. Gets or sets the number of lines of the paragraph text used to calculate the drop cap height.               
     public func setLinesToDrop(linesToDrop : Int?) {
         self.linesToDrop = linesToDrop;
     }
     
+    // Gets linesToDrop. Gets or sets the number of lines of the paragraph text used to calculate the drop cap height.               
     public func getLinesToDrop() -> Int? {
         return self.linesToDrop;
     }
+    
+    // Sets noSpaceBetweenParagraphsOfSameStyle. Gets or sets when true,  and  will be ignored between the paragraphs of the same style.               
     public func setNoSpaceBetweenParagraphsOfSameStyle(noSpaceBetweenParagraphsOfSameStyle : Bool?) {
         self.noSpaceBetweenParagraphsOfSameStyle = noSpaceBetweenParagraphsOfSameStyle;
     }
     
+    // Gets noSpaceBetweenParagraphsOfSameStyle. Gets or sets when true,  and  will be ignored between the paragraphs of the same style.               
     public func getNoSpaceBetweenParagraphsOfSameStyle() -> Bool? {
         return self.noSpaceBetweenParagraphsOfSameStyle;
     }
+    
+    // Sets outlineLevel. Gets or sets specifies the outline level of the paragraph in the document.               
     public func setOutlineLevel(outlineLevel : OutlineLevel?) {
         self.outlineLevel = outlineLevel;
     }
     
+    // Gets outlineLevel. Gets or sets specifies the outline level of the paragraph in the document.               
     public func getOutlineLevel() -> OutlineLevel? {
         return self.outlineLevel;
     }
+    
+    // Sets pageBreakBefore. Gets or sets true if a page break is forced before the paragraph.               
     public func setPageBreakBefore(pageBreakBefore : Bool?) {
         self.pageBreakBefore = pageBreakBefore;
     }
     
+    // Gets pageBreakBefore. Gets or sets true if a page break is forced before the paragraph.               
     public func getPageBreakBefore() -> Bool? {
         return self.pageBreakBefore;
     }
+    
+    // Sets rightIndent. Gets or sets the value (in points) that represents the right indent for paragraph.               
     public func setRightIndent(rightIndent : Double?) {
         self.rightIndent = rightIndent;
     }
     
+    // Gets rightIndent. Gets or sets the value (in points) that represents the right indent for paragraph.               
     public func getRightIndent() -> Double? {
         return self.rightIndent;
     }
+    
+    // Sets spaceAfter. Gets or sets the amount of spacing (in points) after the paragraph.               
     public func setSpaceAfter(spaceAfter : Double?) {
         self.spaceAfter = spaceAfter;
     }
     
+    // Gets spaceAfter. Gets or sets the amount of spacing (in points) after the paragraph.               
     public func getSpaceAfter() -> Double? {
         return self.spaceAfter;
     }
+    
+    // Sets spaceAfterAuto. Gets or sets true if the amount of spacing after the paragraph is set automatically.               
     public func setSpaceAfterAuto(spaceAfterAuto : Bool?) {
         self.spaceAfterAuto = spaceAfterAuto;
     }
     
+    // Gets spaceAfterAuto. Gets or sets true if the amount of spacing after the paragraph is set automatically.               
     public func getSpaceAfterAuto() -> Bool? {
         return self.spaceAfterAuto;
     }
+    
+    // Sets spaceBefore. Gets or sets the amount of spacing (in points) before the paragraph.               
     public func setSpaceBefore(spaceBefore : Double?) {
         self.spaceBefore = spaceBefore;
     }
     
+    // Gets spaceBefore. Gets or sets the amount of spacing (in points) before the paragraph.               
     public func getSpaceBefore() -> Double? {
         return self.spaceBefore;
     }
+    
+    // Sets spaceBeforeAuto. Gets or sets true if the amount of spacing before the paragraph is set automatically.               
     public func setSpaceBeforeAuto(spaceBeforeAuto : Bool?) {
         self.spaceBeforeAuto = spaceBeforeAuto;
     }
     
+    // Gets spaceBeforeAuto. Gets or sets true if the amount of spacing before the paragraph is set automatically.               
     public func getSpaceBeforeAuto() -> Bool? {
         return self.spaceBeforeAuto;
     }
+    
+    // Sets styleIdentifier. Gets or sets the locale independent style identifier of the paragraph style applied to this formatting.               
     public func setStyleIdentifier(styleIdentifier : StyleIdentifier?) {
         self.styleIdentifier = styleIdentifier;
     }
     
+    // Gets styleIdentifier. Gets or sets the locale independent style identifier of the paragraph style applied to this formatting.               
     public func getStyleIdentifier() -> StyleIdentifier? {
         return self.styleIdentifier;
     }
+    
+    // Sets styleName. Gets or sets the name of the paragraph style applied to this formatting.               
     public func setStyleName(styleName : String?) {
         self.styleName = styleName;
     }
     
+    // Gets styleName. Gets or sets the name of the paragraph style applied to this formatting.               
     public func getStyleName() -> String? {
         return self.styleName;
     }
+    
+    // Sets suppressAutoHyphens. Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.               
     public func setSuppressAutoHyphens(suppressAutoHyphens : Bool?) {
         self.suppressAutoHyphens = suppressAutoHyphens;
     }
     
+    // Gets suppressAutoHyphens. Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.               
     public func getSuppressAutoHyphens() -> Bool? {
         return self.suppressAutoHyphens;
     }
+    
+    // Sets suppressLineNumbers. Gets or sets specifies whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.               
     public func setSuppressLineNumbers(suppressLineNumbers : Bool?) {
         self.suppressLineNumbers = suppressLineNumbers;
     }
     
+    // Gets suppressLineNumbers. Gets or sets specifies whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.               
     public func getSuppressLineNumbers() -> Bool? {
         return self.suppressLineNumbers;
     }
+    
+    // Sets widowControl. Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.               
     public func setWidowControl(widowControl : Bool?) {
         self.widowControl = widowControl;
     }
     
+    // Gets widowControl. Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.               
     public func getWidowControl() -> Bool? {
         return self.widowControl;
     }

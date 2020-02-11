@@ -27,21 +27,28 @@
 
 import Foundation
 
+// Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
 public class FixedPageSaveOptionsData : SaveOptionsData {
-        
-    // Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.
+    
+    // Field of colorMode. Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.      
     private var colorMode : String?;
-    // Gets or sets determines the quality of the JPEG images inside PDF document.
+    
+    // Field of jpegQuality. Gets or sets determines the quality of the JPEG images inside PDF document.      
     private var jpegQuality : Int?;
-    // Gets or sets allows to specify metafile rendering options.
+    
+    // Field of metafileRenderingOptions. Gets or sets allows to specify metafile rendering options.      
     private var metafileRenderingOptions : MetafileRenderingOptionsData?;
-    // Gets or sets indicates the symbol set that is used to represent numbers while rendering to fixed page formats.
+    
+    // Field of numeralFormat. Gets or sets indicates the symbol set that is used to represent numbers while rendering to fixed page formats.      
     private var numeralFormat : String?;
-    // Gets or sets flag indicates whether it is required to optimize output of XPS. If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated. Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.
+    
+    // Field of optimizeOutput. Gets or sets flag indicates whether it is required to optimize output of XPS. If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated. Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.      
     private var optimizeOutput : Bool?;
-    // Gets or sets determines number of pages to render.
+    
+    // Field of pageCount. Gets or sets determines number of pages to render.      
     private var pageCount : Int?;
-    // Gets or sets determines 0-based index of the first page to render.
+    
+    // Field of pageIndex. Gets or sets determines 0-based index of the first page to render.      
     private var pageIndex : Int?;
         
     private enum CodingKeys: String, CodingKey {
@@ -96,53 +103,73 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
             try container.encode(self.pageIndex, forKey: .pageIndex);
         }
     }
-        
+    
+    // Sets colorMode. Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.  
     public func setColorMode(colorMode : String?) {
         self.colorMode = colorMode;
     }
     
+    // Gets colorMode. Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.  
     public func getColorMode() -> String? {
         return self.colorMode;
     }
+    
+    // Sets jpegQuality. Gets or sets determines the quality of the JPEG images inside PDF document.  
     public func setJpegQuality(jpegQuality : Int?) {
         self.jpegQuality = jpegQuality;
     }
     
+    // Gets jpegQuality. Gets or sets determines the quality of the JPEG images inside PDF document.  
     public func getJpegQuality() -> Int? {
         return self.jpegQuality;
     }
+    
+    // Sets metafileRenderingOptions. Gets or sets allows to specify metafile rendering options.  
     public func setMetafileRenderingOptions(metafileRenderingOptions : MetafileRenderingOptionsData?) {
         self.metafileRenderingOptions = metafileRenderingOptions;
     }
     
+    // Gets metafileRenderingOptions. Gets or sets allows to specify metafile rendering options.  
     public func getMetafileRenderingOptions() -> MetafileRenderingOptionsData? {
         return self.metafileRenderingOptions;
     }
+    
+    // Sets numeralFormat. Gets or sets indicates the symbol set that is used to represent numbers while rendering to fixed page formats.  
     public func setNumeralFormat(numeralFormat : String?) {
         self.numeralFormat = numeralFormat;
     }
     
+    // Gets numeralFormat. Gets or sets indicates the symbol set that is used to represent numbers while rendering to fixed page formats.  
     public func getNumeralFormat() -> String? {
         return self.numeralFormat;
     }
+    
+    // Sets optimizeOutput. Gets or sets flag indicates whether it is required to optimize output of XPS. If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated. Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.  
     public func setOptimizeOutput(optimizeOutput : Bool?) {
         self.optimizeOutput = optimizeOutput;
     }
     
+    // Gets optimizeOutput. Gets or sets flag indicates whether it is required to optimize output of XPS. If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated. Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.  
     public func getOptimizeOutput() -> Bool? {
         return self.optimizeOutput;
     }
+    
+    // Sets pageCount. Gets or sets determines number of pages to render.  
     public func setPageCount(pageCount : Int?) {
         self.pageCount = pageCount;
     }
     
+    // Gets pageCount. Gets or sets determines number of pages to render.  
     public func getPageCount() -> Int? {
         return self.pageCount;
     }
+    
+    // Sets pageIndex. Gets or sets determines 0-based index of the first page to render.  
     public func setPageIndex(pageIndex : Int?) {
         self.pageIndex = pageIndex;
     }
     
+    // Gets pageIndex. Gets or sets determines 0-based index of the first page to render.  
     public func getPageIndex() -> Int? {
         return self.pageIndex;
     }

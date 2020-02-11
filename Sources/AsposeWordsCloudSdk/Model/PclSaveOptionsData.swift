@@ -27,11 +27,13 @@
 
 import Foundation
 
+// Container class for pcl save options.
 public class PclSaveOptionsData : FixedPageSaveOptionsData {
-        
-    // Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.
+    
+    // Field of falllbackFontName. Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.      
     private var falllbackFontName : String?;
-    // Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.
+    
+    // Field of rasterizeTransformedElements. Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.      
     private var rasterizeTransformedElements : Bool?;
         
     private enum CodingKeys: String, CodingKey {
@@ -61,18 +63,23 @@ public class PclSaveOptionsData : FixedPageSaveOptionsData {
             try container.encode(self.rasterizeTransformedElements, forKey: .rasterizeTransformedElements);
         }
     }
-        
+    
+    // Sets falllbackFontName. Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.  
     public func setFalllbackFontName(falllbackFontName : String?) {
         self.falllbackFontName = falllbackFontName;
     }
     
+    // Gets falllbackFontName. Gets or sets name of the font that will be used if no expected font is found in printer and built-in fonts collections.  
     public func getFalllbackFontName() -> String? {
         return self.falllbackFontName;
     }
+    
+    // Sets rasterizeTransformedElements. Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.  
     public func setRasterizeTransformedElements(rasterizeTransformedElements : Bool?) {
         self.rasterizeTransformedElements = rasterizeTransformedElements;
     }
     
+    // Gets rasterizeTransformedElements. Gets or sets a value determining whether or not complex transformed elements should be rasterized before saving to PCL document.  Default is true.  
     public func getRasterizeTransformedElements() -> Bool? {
         return self.rasterizeTransformedElements;
     }

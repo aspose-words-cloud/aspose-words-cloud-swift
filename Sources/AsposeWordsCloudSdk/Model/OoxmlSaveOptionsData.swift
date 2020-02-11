@@ -27,13 +27,16 @@
 
 import Foundation
 
+// container class for docx/docm/dotx/dotm/flatopc save options.
 public class OoxmlSaveOptionsData : SaveOptionsData {
-        
-    // Gets or sets specifies the OOXML version for the output document.
+    
+    // Field of compliance. Gets or sets specifies the OOXML version for the output document.      
     private var compliance : String?;
-    // Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.
+    
+    // Field of password. Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.      
     private var password : String?;
-    // Gets or sets specifies whether or not use pretty formats output.
+    
+    // Field of prettyFormat. Gets or sets specifies whether or not use pretty formats output.      
     private var prettyFormat : Bool?;
         
     private enum CodingKeys: String, CodingKey {
@@ -68,25 +71,33 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
             try container.encode(self.prettyFormat, forKey: .prettyFormat);
         }
     }
-        
+    
+    // Sets compliance. Gets or sets specifies the OOXML version for the output document.  
     public func setCompliance(compliance : String?) {
         self.compliance = compliance;
     }
     
+    // Gets compliance. Gets or sets specifies the OOXML version for the output document.  
     public func getCompliance() -> String? {
         return self.compliance;
     }
+    
+    // Sets password. Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.  
     public func setPassword(password : String?) {
         self.password = password;
     }
     
+    // Gets password. Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.  
     public func getPassword() -> String? {
         return self.password;
     }
+    
+    // Sets prettyFormat. Gets or sets specifies whether or not use pretty formats output.  
     public func setPrettyFormat(prettyFormat : Bool?) {
         self.prettyFormat = prettyFormat;
     }
     
+    // Gets prettyFormat. Gets or sets specifies whether or not use pretty formats output.  
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }

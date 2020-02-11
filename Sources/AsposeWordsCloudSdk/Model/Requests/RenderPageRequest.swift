@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for renderPage operation.
 public class RenderPageRequest : Encodable, WordsApiModel {
     private let name : String;
     private let pageIndex : Int;
@@ -49,6 +50,7 @@ public class RenderPageRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the renderPageRequest class.
     public init(name : String, pageIndex : Int, format : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
         self.name = name;
         self.pageIndex = pageIndex;
@@ -82,34 +84,42 @@ public class RenderPageRequest : Encodable, WordsApiModel {
         }
     }
     
+    // The document name.
     public func getName() -> String {
         return self.name;
     }
     
+    // Comment index.
     public func getPageIndex() -> Int {
         return self.pageIndex;
     }
     
+    // The destination format.
     public func getFormat() -> String {
         return self.format;
     }
     
+    // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
     
+    // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
     
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
+    // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }
     
+    // Folder in filestorage with custom fonts.
     public func getFontsLocation() -> String? {
         return self.fontsLocation;
     }

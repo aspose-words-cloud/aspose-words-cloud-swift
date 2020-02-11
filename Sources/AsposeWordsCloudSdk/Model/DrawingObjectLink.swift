@@ -27,8 +27,8 @@
 
 import Foundation
 
+// Represents link for Drawing Object DTO.
 public class DrawingObjectLink : NodeLink {
-        
         
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
@@ -45,5 +45,4 @@ public class DrawingObjectLink : NodeLink {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
-        
 }

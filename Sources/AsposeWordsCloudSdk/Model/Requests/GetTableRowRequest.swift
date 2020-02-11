@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for getTableRow operation.
 public class GetTableRowRequest : Encodable, WordsApiModel {
     private let name : String;
     private let tablePath : String;
@@ -47,6 +48,7 @@ public class GetTableRowRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the getTableRowRequest class.
     public init(name : String, tablePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.tablePath = tablePath;
@@ -76,30 +78,37 @@ public class GetTableRowRequest : Encodable, WordsApiModel {
         }
     }
     
+    // The document name.
     public func getName() -> String {
         return self.name;
     }
     
+    // Path to table.
     public func getTablePath() -> String {
         return self.tablePath;
     }
     
+    // Object index.
     public func getIndex() -> Int {
         return self.index;
     }
     
+    // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
     
+    // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
     
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
+    // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }

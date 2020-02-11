@@ -27,13 +27,16 @@
 
 import Foundation
 
+// Result of saving.
 public class SaveResult : Codable, WordsApiModel {
-        
-    // Gets or sets link to source document.
+    
+    // Field of sourceDocument. Gets or sets link to source document.      
     private var sourceDocument : FileLink?;
-    // Gets or sets link to destination document.
+    
+    // Field of destDocument. Gets or sets link to destination document.      
     private var destDocument : FileLink?;
-    // Gets or sets links to additional items (css, images etc).
+    
+    // Field of additionalItems. Gets or sets links to additional items (css, images etc).      
     private var additionalItems : [FileLink]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -68,25 +71,33 @@ public class SaveResult : Codable, WordsApiModel {
             try container.encode(self.additionalItems, forKey: .additionalItems);
         }
     }
-        
+    
+    // Sets sourceDocument. Gets or sets link to source document.  
     public func setSourceDocument(sourceDocument : FileLink?) {
         self.sourceDocument = sourceDocument;
     }
     
+    // Gets sourceDocument. Gets or sets link to source document.  
     public func getSourceDocument() -> FileLink? {
         return self.sourceDocument;
     }
+    
+    // Sets destDocument. Gets or sets link to destination document.  
     public func setDestDocument(destDocument : FileLink?) {
         self.destDocument = destDocument;
     }
     
+    // Gets destDocument. Gets or sets link to destination document.  
     public func getDestDocument() -> FileLink? {
         return self.destDocument;
     }
+    
+    // Sets additionalItems. Gets or sets links to additional items (css, images etc).  
     public func setAdditionalItems(additionalItems : [FileLink]?) {
         self.additionalItems = additionalItems;
     }
     
+    // Gets additionalItems. Gets or sets links to additional items (css, images etc).  
     public func getAdditionalItems() -> [FileLink]? {
         return self.additionalItems;
     }

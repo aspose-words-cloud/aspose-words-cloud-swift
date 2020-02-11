@@ -27,9 +27,10 @@
 
 import Foundation
 
+// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/footnotes.
 public class FootnotesResponse : WordsResponse {
-        
-    // Gets or sets collection of footnotes.
+    
+    // Field of footnotes. Gets or sets collection of footnotes.      
     private var footnotes : FootnoteCollection?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class FootnotesResponse : WordsResponse {
             try container.encode(self.footnotes, forKey: .footnotes);
         }
     }
-        
+    
+    // Sets footnotes. Gets or sets collection of footnotes.  
     public func setFootnotes(footnotes : FootnoteCollection?) {
         self.footnotes = footnotes;
     }
     
+    // Gets footnotes. Gets or sets collection of footnotes.  
     public func getFootnotes() -> FootnoteCollection? {
         return self.footnotes;
     }

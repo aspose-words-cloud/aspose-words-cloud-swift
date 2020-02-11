@@ -27,9 +27,10 @@
 
 import Foundation
 
+// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/headersfooters/{0}.
 public class HeaderFooterResponse : WordsResponse {
-        
-    // Gets or sets headerFooter.
+    
+    // Field of headerFooter. Gets or sets headerFooter.      
     private var headerFooter : HeaderFooter?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class HeaderFooterResponse : WordsResponse {
             try container.encode(self.headerFooter, forKey: .headerFooter);
         }
     }
-        
+    
+    // Sets headerFooter. Gets or sets headerFooter.  
     public func setHeaderFooter(headerFooter : HeaderFooter?) {
         self.headerFooter = headerFooter;
     }
     
+    // Gets headerFooter. Gets or sets headerFooter.  
     public func getHeaderFooter() -> HeaderFooter? {
         return self.headerFooter;
     }

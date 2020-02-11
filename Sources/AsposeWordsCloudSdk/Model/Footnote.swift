@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Footnote.
 public class Footnote : FootnoteLink {
     // Gets or sets returns a value that specifies whether this is a footnote or endnote.
     public enum FootnoteType : String, Codable
@@ -39,16 +40,20 @@ public class Footnote : FootnoteLink {
         
     }
 
-        
-    // Gets or sets content of footnote.
+    
+    // Field of content. Gets or sets content of footnote.      
     private var content : StoryChildNodes?;
-    // Gets or sets returns a value that specifies whether this is a footnote or endnote.
+    
+    // Field of footnoteType. Gets or sets returns a value that specifies whether this is a footnote or endnote.      
     private var footnoteType : FootnoteType?;
-    // Gets or sets link to comment range start node.
+    
+    // Field of position. Gets or sets link to comment range start node.      
     private var position : DocumentPosition?;
-    // Gets or sets /sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.
+    
+    // Field of referenceMark. Gets or sets /sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.      
     private var referenceMark : String?;
-    // Gets or sets this is a convenience property that allows to easily get or set text of the footnote.
+    
+    // Field of text. Gets or sets this is a convenience property that allows to easily get or set text of the footnote.      
     private var text : String?;
         
     private enum CodingKeys: String, CodingKey {
@@ -93,39 +98,53 @@ public class Footnote : FootnoteLink {
             try container.encode(self.text, forKey: .text);
         }
     }
-        
+    
+    // Sets content. Gets or sets content of footnote.  
     public func setContent(content : StoryChildNodes?) {
         self.content = content;
     }
     
+    // Gets content. Gets or sets content of footnote.  
     public func getContent() -> StoryChildNodes? {
         return self.content;
     }
+    
+    // Sets footnoteType. Gets or sets returns a value that specifies whether this is a footnote or endnote.  
     public func setFootnoteType(footnoteType : FootnoteType?) {
         self.footnoteType = footnoteType;
     }
     
+    // Gets footnoteType. Gets or sets returns a value that specifies whether this is a footnote or endnote.  
     public func getFootnoteType() -> FootnoteType? {
         return self.footnoteType;
     }
+    
+    // Sets position. Gets or sets link to comment range start node.  
     public func setPosition(position : DocumentPosition?) {
         self.position = position;
     }
     
+    // Gets position. Gets or sets link to comment range start node.  
     public func getPosition() -> DocumentPosition? {
         return self.position;
     }
+    
+    // Sets referenceMark. Gets or sets /sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.  
     public func setReferenceMark(referenceMark : String?) {
         self.referenceMark = referenceMark;
     }
     
+    // Gets referenceMark. Gets or sets /sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.  
     public func getReferenceMark() -> String? {
         return self.referenceMark;
     }
+    
+    // Sets text. Gets or sets this is a convenience property that allows to easily get or set text of the footnote.  
     public func setText(text : String?) {
         self.text = text;
     }
     
+    // Gets text. Gets or sets this is a convenience property that allows to easily get or set text of the footnote.  
     public func getText() -> String? {
         return self.text;
     }

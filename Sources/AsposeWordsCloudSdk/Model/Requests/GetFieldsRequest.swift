@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for getFields operation.
 public class GetFieldsRequest : Encodable, WordsApiModel {
     private let name : String;
     private let nodePath : String;
@@ -45,6 +46,7 @@ public class GetFieldsRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the getFieldsRequest class.
     public init(name : String, nodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.nodePath = nodePath;
@@ -72,26 +74,32 @@ public class GetFieldsRequest : Encodable, WordsApiModel {
         }
     }
     
+    // The document name.
     public func getName() -> String {
         return self.name;
     }
     
+    // Path to the node, which contains collection of fields.
     public func getNodePath() -> String {
         return self.nodePath;
     }
     
+    // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
     
+    // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
     
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
+    // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }

@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for getHeaderFooter operation.
 public class GetHeaderFooterRequest : Encodable, WordsApiModel {
     private let name : String;
     private let headerFooterIndex : Int;
@@ -47,6 +48,7 @@ public class GetHeaderFooterRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the getHeaderFooterRequest class.
     public init(name : String, headerFooterIndex : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, filterByType : String? = nil) {
         self.name = name;
         self.headerFooterIndex = headerFooterIndex;
@@ -78,30 +80,37 @@ public class GetHeaderFooterRequest : Encodable, WordsApiModel {
         }
     }
     
+    // The document name.
     public func getName() -> String {
         return self.name;
     }
     
+    // Header/footer index.
     public func getHeaderFooterIndex() -> Int {
         return self.headerFooterIndex;
     }
     
+    // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
     
+    // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
     
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
+    // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }
     
+    // List of types of headers and footers.
     public func getFilterByType() -> String? {
         return self.filterByType;
     }

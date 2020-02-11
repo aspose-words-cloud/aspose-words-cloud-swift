@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Represents Words document DTO.
 public class Document : Codable, WordsApiModel {
     // Gets or sets the original format of the document.
     public enum SourceFormat : String, Codable
@@ -96,18 +97,23 @@ public class Document : Codable, WordsApiModel {
         
     }
 
-        
-    // Gets or sets a list of links that originate from this document.
+    
+    // Field of links. Gets or sets a list of links that originate from this document.      
     private var links : [Link]?;
-    // Gets or sets the name of the file.
+    
+    // Field of fileName. Gets or sets the name of the file.      
     private var fileName : String?;
-    // Gets or sets the original format of the document.
+    
+    // Field of sourceFormat. Gets or sets the original format of the document.      
     private var sourceFormat : SourceFormat?;
-    // Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.
+    
+    // Field of isEncrypted. Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.      
     private var isEncrypted : Bool?;
-    // Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
+    
+    // Field of isSigned. Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.      
     private var isSigned : Bool?;
-    // Gets or sets returns document properties.
+    
+    // Field of documentProperties. Gets or sets returns document properties.      
     private var documentProperties : DocumentProperties?;
         
     private enum CodingKeys: String, CodingKey {
@@ -160,46 +166,63 @@ public class Document : Codable, WordsApiModel {
             try container.encode(self.documentProperties, forKey: .documentProperties);
         }
     }
-        
+    
+    // Sets links. Gets or sets a list of links that originate from this document.  
     public func setLinks(links : [Link]?) {
         self.links = links;
     }
     
+    // Gets links. Gets or sets a list of links that originate from this document.  
     public func getLinks() -> [Link]? {
         return self.links;
     }
+    
+    // Sets fileName. Gets or sets the name of the file.  
     public func setFileName(fileName : String?) {
         self.fileName = fileName;
     }
     
+    // Gets fileName. Gets or sets the name of the file.  
     public func getFileName() -> String? {
         return self.fileName;
     }
+    
+    // Sets sourceFormat. Gets or sets the original format of the document.  
     public func setSourceFormat(sourceFormat : SourceFormat) {
         self.sourceFormat = sourceFormat;
     }
     
+    // Gets sourceFormat. Gets or sets the original format of the document.  
     public func getSourceFormat() -> SourceFormat {
         return self.sourceFormat!;
     }
+    
+    // Sets isEncrypted. Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.  
     public func setIsEncrypted(isEncrypted : Bool) {
         self.isEncrypted = isEncrypted;
     }
     
+    // Gets isEncrypted. Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.  
     public func getIsEncrypted() -> Bool {
         return self.isEncrypted!;
     }
+    
+    // Sets isSigned. Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.  
     public func setIsSigned(isSigned : Bool) {
         self.isSigned = isSigned;
     }
     
+    // Gets isSigned. Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.  
     public func getIsSigned() -> Bool {
         return self.isSigned!;
     }
+    
+    // Sets documentProperties. Gets or sets returns document properties.  
     public func setDocumentProperties(documentProperties : DocumentProperties?) {
         self.documentProperties = documentProperties;
     }
     
+    // Gets documentProperties. Gets or sets returns document properties.  
     public func getDocumentProperties() -> DocumentProperties? {
         return self.documentProperties;
     }

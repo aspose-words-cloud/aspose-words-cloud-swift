@@ -27,11 +27,13 @@
 
 import Foundation
 
+// Represents a single classification result.
 public class ClassificationResult : Codable, WordsApiModel {
-        
-    // Gets or sets the name of the class.
+    
+    // Field of className. Gets or sets the name of the class.      
     private var className : String?;
-    // Gets or sets the probability of class.
+    
+    // Field of classProbability. Gets or sets the probability of class.      
     private var classProbability : Double?;
         
     private enum CodingKeys: String, CodingKey {
@@ -62,18 +64,23 @@ public class ClassificationResult : Codable, WordsApiModel {
         }
         try container.encode(self.classProbability, forKey: .classProbability);
     }
-        
+    
+    // Sets className. Gets or sets the name of the class.  
     public func setClassName(className : String?) {
         self.className = className;
     }
     
+    // Gets className. Gets or sets the name of the class.  
     public func getClassName() -> String? {
         return self.className;
     }
+    
+    // Sets classProbability. Gets or sets the probability of class.  
     public func setClassProbability(classProbability : Double) {
         self.classProbability = classProbability;
     }
     
+    // Gets classProbability. Gets or sets the probability of class.  
     public func getClassProbability() -> Double {
         return self.classProbability!;
     }

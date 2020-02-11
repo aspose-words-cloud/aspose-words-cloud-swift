@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Response for Api error.
 public class WordsApiErrorResponse : WordsResponse {
-        
-    // Gets or sets error.
+    
+    // Field of error. Gets or sets error.      
     private var error : ApiError?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class WordsApiErrorResponse : WordsResponse {
             try container.encode(self.error, forKey: .error);
         }
     }
-        
+    
+    // Sets error. Gets or sets error.  
     public func setError(error : ApiError?) {
         self.error = error;
     }
     
+    // Gets error. Gets or sets error.  
     public func getError() -> ApiError? {
         return self.error;
     }

@@ -27,9 +27,10 @@
 
 import Foundation
 
+// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/paragraphs.
 public class ParagraphLinkCollectionResponse : WordsResponse {
-        
-    // Gets or sets collection of paragraphs.
+    
+    // Field of paragraphs. Gets or sets collection of paragraphs.      
     private var paragraphs : ParagraphLinkCollection?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
             try container.encode(self.paragraphs, forKey: .paragraphs);
         }
     }
-        
+    
+    // Sets paragraphs. Gets or sets collection of paragraphs.  
     public func setParagraphs(paragraphs : ParagraphLinkCollection?) {
         self.paragraphs = paragraphs;
     }
     
+    // Gets paragraphs. Gets or sets collection of paragraphs.  
     public func getParagraphs() -> ParagraphLinkCollection? {
         return self.paragraphs;
     }

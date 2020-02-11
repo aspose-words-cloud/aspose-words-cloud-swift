@@ -27,13 +27,16 @@
 
 import Foundation
 
+// Words document property DTO.
 public class DocumentProperty : LinkElement {
-        
-    // Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.
+    
+    // Field of builtIn. Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.      
     private var builtIn : Bool?;
-    // Gets or sets name of the document property.
+    
+    // Field of name. Gets or sets name of the document property.      
     private var name : String?;
-    // Gets or sets string value of the document property.
+    
+    // Field of value. Gets or sets string value of the document property.      
     private var value : String?;
         
     private enum CodingKeys: String, CodingKey {
@@ -68,25 +71,33 @@ public class DocumentProperty : LinkElement {
             try container.encode(self.value, forKey: .value);
         }
     }
-        
+    
+    // Sets builtIn. Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.  
     public func setBuiltIn(builtIn : Bool?) {
         self.builtIn = builtIn;
     }
     
+    // Gets builtIn. Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.  
     public func getBuiltIn() -> Bool? {
         return self.builtIn;
     }
+    
+    // Sets name. Gets or sets name of the document property.  
     public func setName(name : String?) {
         self.name = name;
     }
     
+    // Gets name. Gets or sets name of the document property.  
     public func getName() -> String? {
         return self.name;
     }
+    
+    // Sets value. Gets or sets string value of the document property.  
     public func setValue(value : String?) {
         self.value = value;
     }
     
+    // Gets value. Gets or sets string value of the document property.  
     public func getValue() -> String? {
         return self.value;
     }

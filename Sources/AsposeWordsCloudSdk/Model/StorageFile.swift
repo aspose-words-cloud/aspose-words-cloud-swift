@@ -27,17 +27,22 @@
 
 import Foundation
 
+// File or folder information
 public class StorageFile : Codable, WordsApiModel {
-        
-    // File or folder name.
+    
+    // Field of name. File or folder name.      
     private var name : String?;
-    // True if it is a folder.
+    
+    // Field of isFolder. True if it is a folder.      
     private var isFolder : Bool?;
-    // File or folder last modified .
+    
+    // Field of modifiedDate. File or folder last modified .      
     private var modifiedDate : Date?;
-    // File or folder size.
+    
+    // Field of size. File or folder size.      
     private var size : Int64?;
-    // File or folder path.
+    
+    // Field of path. File or folder path.      
     private var path : String?;
         
     private enum CodingKeys: String, CodingKey {
@@ -84,39 +89,53 @@ public class StorageFile : Codable, WordsApiModel {
             try container.encode(self.path, forKey: .path);
         }
     }
-        
+    
+    // Sets name. File or folder name.  
     public func setName(name : String?) {
         self.name = name;
     }
     
+    // Gets name. File or folder name.  
     public func getName() -> String? {
         return self.name;
     }
+    
+    // Sets isFolder. True if it is a folder.  
     public func setIsFolder(isFolder : Bool) {
         self.isFolder = isFolder;
     }
     
+    // Gets isFolder. True if it is a folder.  
     public func getIsFolder() -> Bool {
         return self.isFolder!;
     }
+    
+    // Sets modifiedDate. File or folder last modified .  
     public func setModifiedDate(modifiedDate : Date?) {
         self.modifiedDate = modifiedDate;
     }
     
+    // Gets modifiedDate. File or folder last modified .  
     public func getModifiedDate() -> Date? {
         return self.modifiedDate;
     }
+    
+    // Sets size. File or folder size.  
     public func setSize(size : Int64) {
         self.size = size;
     }
     
+    // Gets size. File or folder size.  
     public func getSize() -> Int64 {
         return self.size!;
     }
+    
+    // Sets path. File or folder path.  
     public func setPath(path : String?) {
         self.path = path;
     }
     
+    // Gets path. File or folder path.  
     public func getPath() -> String? {
         return self.path;
     }

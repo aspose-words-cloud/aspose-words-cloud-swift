@@ -27,15 +27,19 @@
 
 import Foundation
 
+// Container class for xps save options.
 public class XpsSaveOptionsData : FixedPageSaveOptionsData {
-        
-    // Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.
+    
+    // Field of bookmarksOutlineLevel. Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.      
     private var bookmarksOutlineLevel : Int?;
-    // Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.
+    
+    // Field of headingsOutlineLevels. Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.      
     private var headingsOutlineLevels : Int?;
-    // Gets or sets allows to specify outline options.
+    
+    // Field of outlineOptions. Gets or sets allows to specify outline options.      
     private var outlineOptions : OutlineOptionsData?;
-    // Gets or sets determines whether the document should be saved using a booklet printing layout.
+    
+    // Field of useBookFoldPrintingSettings. Gets or sets determines whether the document should be saved using a booklet printing layout.      
     private var useBookFoldPrintingSettings : Bool?;
         
     private enum CodingKeys: String, CodingKey {
@@ -75,32 +79,43 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
             try container.encode(self.useBookFoldPrintingSettings, forKey: .useBookFoldPrintingSettings);
         }
     }
-        
+    
+    // Sets bookmarksOutlineLevel. Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.  
     public func setBookmarksOutlineLevel(bookmarksOutlineLevel : Int?) {
         self.bookmarksOutlineLevel = bookmarksOutlineLevel;
     }
     
+    // Gets bookmarksOutlineLevel. Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.  
     public func getBookmarksOutlineLevel() -> Int? {
         return self.bookmarksOutlineLevel;
     }
+    
+    // Sets headingsOutlineLevels. Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.  
     public func setHeadingsOutlineLevels(headingsOutlineLevels : Int?) {
         self.headingsOutlineLevels = headingsOutlineLevels;
     }
     
+    // Gets headingsOutlineLevels. Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.  
     public func getHeadingsOutlineLevels() -> Int? {
         return self.headingsOutlineLevels;
     }
+    
+    // Sets outlineOptions. Gets or sets allows to specify outline options.  
     public func setOutlineOptions(outlineOptions : OutlineOptionsData?) {
         self.outlineOptions = outlineOptions;
     }
     
+    // Gets outlineOptions. Gets or sets allows to specify outline options.  
     public func getOutlineOptions() -> OutlineOptionsData? {
         return self.outlineOptions;
     }
+    
+    // Sets useBookFoldPrintingSettings. Gets or sets determines whether the document should be saved using a booklet printing layout.  
     public func setUseBookFoldPrintingSettings(useBookFoldPrintingSettings : Bool?) {
         self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
     }
     
+    // Gets useBookFoldPrintingSettings. Gets or sets determines whether the document should be saved using a booklet printing layout.  
     public func getUseBookFoldPrintingSettings() -> Bool? {
         return self.useBookFoldPrintingSettings;
     }

@@ -27,11 +27,13 @@
 
 import Foundation
 
+// File upload result
 public class FilesUploadResult : Codable, WordsApiModel {
-        
-    // List of uploaded file names
+    
+    // Field of uploaded. List of uploaded file names      
     private var uploaded : [String]?;
-    // List of errors.
+    
+    // Field of errors. List of errors.      
     private var errors : [ModelError]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -61,18 +63,23 @@ public class FilesUploadResult : Codable, WordsApiModel {
             try container.encode(self.errors, forKey: .errors);
         }
     }
-        
+    
+    // Sets uploaded. List of uploaded file names  
     public func setUploaded(uploaded : [String]?) {
         self.uploaded = uploaded;
     }
     
+    // Gets uploaded. List of uploaded file names  
     public func getUploaded() -> [String]? {
         return self.uploaded;
     }
+    
+    // Sets errors. List of errors.  
     public func setErrors(errors : [ModelError]?) {
         self.errors = errors;
     }
     
+    // Gets errors. List of errors.  
     public func getErrors() -> [ModelError]? {
         return self.errors;
     }

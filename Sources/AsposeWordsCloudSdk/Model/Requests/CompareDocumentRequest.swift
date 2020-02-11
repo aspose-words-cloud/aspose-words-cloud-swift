@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for compareDocument operation.
 public class CompareDocumentRequest : Encodable, WordsApiModel {
     private let name : String;
     private let compareData : CompareData;
@@ -47,6 +48,7 @@ public class CompareDocumentRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the compareDocumentRequest class.
     public init(name : String, compareData : CompareData, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
         self.compareData = compareData;
@@ -78,30 +80,37 @@ public class CompareDocumentRequest : Encodable, WordsApiModel {
         }
     }
     
+    // Original document name.
     public func getName() -> String {
         return self.name;
     }
     
+    // with a document to compare.            
     public func getCompareData() -> CompareData {
         return self.compareData;
     }
     
+    // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
     
+    // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
     
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
+    // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }
     
+    // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
     public func getDestFileName() -> String? {
         return self.destFileName;
     }

@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Collection of links to tables.
 public class TableLinkCollection : LinkElement {
-        
-    // Gets or sets collection of table&#39;s links.
+    
+    // Field of tableLinkList. Gets or sets collection of table's links.      
     private var tableLinkList : [TableLink]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class TableLinkCollection : LinkElement {
             try container.encode(self.tableLinkList, forKey: .tableLinkList);
         }
     }
-        
+    
+    // Sets tableLinkList. Gets or sets collection of table's links.  
     public func setTableLinkList(tableLinkList : [TableLink]?) {
         self.tableLinkList = tableLinkList;
     }
     
+    // Gets tableLinkList. Gets or sets collection of table's links.  
     public func getTableLinkList() -> [TableLink]? {
         return self.tableLinkList;
     }

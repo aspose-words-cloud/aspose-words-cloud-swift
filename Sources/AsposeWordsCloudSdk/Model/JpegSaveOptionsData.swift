@@ -27,8 +27,8 @@
 
 import Foundation
 
+// container class for jpeg save options.
 public class JpegSaveOptionsData : ImageSaveOptionsData {
-        
         
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
@@ -45,5 +45,4 @@ public class JpegSaveOptionsData : ImageSaveOptionsData {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
-        
 }

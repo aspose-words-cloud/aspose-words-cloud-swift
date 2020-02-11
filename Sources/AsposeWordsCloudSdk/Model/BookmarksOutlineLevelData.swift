@@ -27,11 +27,13 @@
 
 import Foundation
 
+// container class for individual bookmarks outline level.
 public class BookmarksOutlineLevelData : Codable, WordsApiModel {
-        
-    // Gets or sets specify the bookmark&#39;s name.
+    
+    // Field of name. Gets or sets specify the bookmark's name.      
     private var name : String?;
-    // Gets or sets specify the bookmark&#39;s level.
+    
+    // Field of bookmarksOutlineLevel. Gets or sets specify the bookmark's level.      
     private var bookmarksOutlineLevel : Int?;
         
     private enum CodingKeys: String, CodingKey {
@@ -62,18 +64,23 @@ public class BookmarksOutlineLevelData : Codable, WordsApiModel {
         }
         try container.encode(self.bookmarksOutlineLevel, forKey: .bookmarksOutlineLevel);
     }
-        
+    
+    // Sets name. Gets or sets specify the bookmark's name.  
     public func setName(name : String?) {
         self.name = name;
     }
     
+    // Gets name. Gets or sets specify the bookmark's name.  
     public func getName() -> String? {
         return self.name;
     }
+    
+    // Sets bookmarksOutlineLevel. Gets or sets specify the bookmark's level.  
     public func setBookmarksOutlineLevel(bookmarksOutlineLevel : Int) {
         self.bookmarksOutlineLevel = bookmarksOutlineLevel;
     }
     
+    // Gets bookmarksOutlineLevel. Gets or sets specify the bookmark's level.  
     public func getBookmarksOutlineLevel() -> Int {
         return self.bookmarksOutlineLevel!;
     }

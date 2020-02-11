@@ -27,5 +27,6 @@
 
 import Foundation
 
+// Request model for resetCache operation.
 public class ResetCacheRequest : Encodable, WordsApiModel {
 }

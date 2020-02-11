@@ -27,11 +27,13 @@
 
 import Foundation
 
+// Table element.
 public class Table : NodeLink {
-        
-    // Gets or sets table properties.
+    
+    // Field of tableProperties. Gets or sets table properties.      
     private var tableProperties : TableProperties?;
-    // Gets or sets collection of table&#39;s rows.
+    
+    // Field of tableRowList. Gets or sets collection of table's rows.      
     private var tableRowList : [TableRow]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -61,18 +63,23 @@ public class Table : NodeLink {
             try container.encode(self.tableRowList, forKey: .tableRowList);
         }
     }
-        
+    
+    // Sets tableProperties. Gets or sets table properties.  
     public func setTableProperties(tableProperties : TableProperties?) {
         self.tableProperties = tableProperties;
     }
     
+    // Gets tableProperties. Gets or sets table properties.  
     public func getTableProperties() -> TableProperties? {
         return self.tableProperties;
     }
+    
+    // Sets tableRowList. Gets or sets collection of table's rows.  
     public func setTableRowList(tableRowList : [TableRow]?) {
         self.tableRowList = tableRowList;
     }
     
+    // Gets tableRowList. Gets or sets collection of table's rows.  
     public func getTableRowList() -> [TableRow]? {
         return self.tableRowList;
     }

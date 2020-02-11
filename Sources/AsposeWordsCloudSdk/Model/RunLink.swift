@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Run link element.
 public class RunLink : NodeLink {
-        
-    // Gets or sets run&#39;s text.
+    
+    // Field of text. Gets or sets run's text.      
     private var text : String?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class RunLink : NodeLink {
             try container.encode(self.text, forKey: .text);
         }
     }
-        
+    
+    // Sets text. Gets or sets run's text.  
     public func setText(text : String?) {
         self.text = text;
     }
     
+    // Gets text. Gets or sets run's text.  
     public func getText() -> String? {
         return self.text;
     }

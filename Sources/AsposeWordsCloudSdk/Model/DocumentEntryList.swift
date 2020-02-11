@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Represents a list of documents which will be appended to the original resource document.
 public class DocumentEntryList : Codable, WordsApiModel {
-        
-    // Gets or sets list of documents.
+    
+    // Field of documentEntries. Gets or sets list of documents.      
     private var documentEntries : [DocumentEntry]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class DocumentEntryList : Codable, WordsApiModel {
             try container.encode(self.documentEntries, forKey: .documentEntries);
         }
     }
-        
+    
+    // Sets documentEntries. Gets or sets list of documents.  
     public func setDocumentEntries(documentEntries : [DocumentEntry]?) {
         self.documentEntries = documentEntries;
     }
     
+    // Gets documentEntries. Gets or sets list of documents.  
     public func getDocumentEntries() -> [DocumentEntry]? {
         return self.documentEntries;
     }

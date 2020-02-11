@@ -27,15 +27,19 @@
 
 import Foundation
 
+// Error
 public class ModelError : Codable, WordsApiModel {
-        
-    // Code             
+    
+    // Field of code. Code                   
     private var code : String?;
-    // Message             
+    
+    // Field of message. Message                   
     private var message : String?;
-    // Description             
+    
+    // Field of _description. Description                   
     private var _description : String?;
-    // Inner Error             
+    
+    // Field of innerError. Inner Error                   
     private var innerError : ErrorDetails?;
         
     private enum CodingKeys: String, CodingKey {
@@ -75,32 +79,43 @@ public class ModelError : Codable, WordsApiModel {
             try container.encode(self.innerError, forKey: .innerError);
         }
     }
-        
+    
+    // Sets code. Code               
     public func setCode(code : String?) {
         self.code = code;
     }
     
+    // Gets code. Code               
     public func getCode() -> String? {
         return self.code;
     }
+    
+    // Sets message. Message               
     public func setMessage(message : String?) {
         self.message = message;
     }
     
+    // Gets message. Message               
     public func getMessage() -> String? {
         return self.message;
     }
+    
+    // Sets _description. Description               
     public func setDescription(_description : String?) {
         self._description = _description;
     }
     
+    // Gets _description. Description               
     public func getDescription() -> String? {
         return self._description;
     }
+    
+    // Sets innerError. Inner Error               
     public func setInnerError(innerError : ErrorDetails?) {
         self.innerError = innerError;
     }
     
+    // Gets innerError. Inner Error               
     public func getInnerError() -> ErrorDetails? {
         return self.innerError;
     }

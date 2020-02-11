@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Collection of comments.
 public class CommentsCollection : LinkElement {
-        
-    // Gets or sets collection of comments.
+    
+    // Field of commentList. Gets or sets collection of comments.      
     private var commentList : [Comment]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class CommentsCollection : LinkElement {
             try container.encode(self.commentList, forKey: .commentList);
         }
     }
-        
+    
+    // Sets commentList. Gets or sets collection of comments.  
     public func setCommentList(commentList : [Comment]?) {
         self.commentList = commentList;
     }
     
+    // Gets commentList. Gets or sets collection of comments.  
     public func getCommentList() -> [Comment]? {
         return self.commentList;
     }

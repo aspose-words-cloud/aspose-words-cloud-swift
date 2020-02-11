@@ -27,6 +27,7 @@
 
 import Foundation
 
+// HeaderFooter link element.
 public class HeaderFooterLink : LinkElement {
     // Gets or sets paragraph&#39;s text.
     public enum ModelType : String, Codable
@@ -51,8 +52,8 @@ public class HeaderFooterLink : LinkElement {
         
     }
 
-        
-    // Gets or sets paragraph&#39;s text.
+    
+    // Field of type. Gets or sets paragraph's text.      
     private var type : ModelType?;
         
     private enum CodingKeys: String, CodingKey {
@@ -77,11 +78,13 @@ public class HeaderFooterLink : LinkElement {
             try container.encode(self.type, forKey: .type);
         }
     }
-        
+    
+    // Sets type. Gets or sets paragraph's text.  
     public func setType(type : ModelType?) {
         self.type = type;
     }
     
+    // Gets type. Gets or sets paragraph's text.  
     public func getType() -> ModelType? {
         return self.type;
     }

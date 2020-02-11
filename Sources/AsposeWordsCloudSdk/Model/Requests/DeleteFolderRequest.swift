@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for deleteFolder operation.
 public class DeleteFolderRequest : Encodable, WordsApiModel {
     private let path : String;
     private let storageName : String?;
@@ -39,6 +40,7 @@ public class DeleteFolderRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the deleteFolderRequest class.
     public init(path : String, storageName : String? = nil, recursive : Bool? = nil) {
         self.path = path;
         self.storageName = storageName;
@@ -56,14 +58,17 @@ public class DeleteFolderRequest : Encodable, WordsApiModel {
         }
     }
     
+    // Folder path e.g. /Folder1s
     public func getPath() -> String {
         return self.path;
     }
     
+    // Storage name
     public func getStorageName() -> String? {
         return self.storageName;
     }
     
+    // Enable to delete folders, subfolders and files
     public func getRecursive() -> Bool? {
         return self.recursive;
     }

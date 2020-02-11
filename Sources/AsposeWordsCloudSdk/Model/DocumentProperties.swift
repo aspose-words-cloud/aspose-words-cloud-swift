@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Collection of document properties.
 public class DocumentProperties : LinkElement {
-        
-    // Gets or sets collection of document properties.
+    
+    // Field of list. Gets or sets collection of document properties.      
     private var list : [DocumentProperty]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class DocumentProperties : LinkElement {
             try container.encode(self.list, forKey: .list);
         }
     }
-        
+    
+    // Sets list. Gets or sets collection of document properties.  
     public func setList(list : [DocumentProperty]?) {
         self.list = list;
     }
     
+    // Gets list. Gets or sets collection of document properties.  
     public func getList() -> [DocumentProperty]? {
         return self.list;
     }

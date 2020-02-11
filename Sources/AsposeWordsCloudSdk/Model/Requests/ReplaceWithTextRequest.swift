@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for replaceWithText operation.
 public class ReplaceWithTextRequest : Encodable, WordsApiModel {
     private let name : String;
     private let rangeStartIdentifier : String;
@@ -51,6 +52,7 @@ public class ReplaceWithTextRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the replaceWithTextRequest class.
     public init(name : String, rangeStartIdentifier : String, rangeText : ReplaceRange, rangeEndIdentifier : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
         self.rangeStartIdentifier = rangeStartIdentifier;
@@ -86,38 +88,47 @@ public class ReplaceWithTextRequest : Encodable, WordsApiModel {
         }
     }
     
+    // The document.
     public func getName() -> String {
         return self.name;
     }
     
+    // The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
     public func getRangeStartIdentifier() -> String {
         return self.rangeStartIdentifier;
     }
     
+    // Model with text for replacement.
     public func getRangeText() -> ReplaceRange {
         return self.rangeText;
     }
     
+    // The range end identifier.
     public func getRangeEndIdentifier() -> String {
         return self.rangeEndIdentifier;
     }
     
+    // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
     
+    // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
     
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
+    // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }
     
+    // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
     public func getDestFileName() -> String? {
         return self.destFileName;
     }

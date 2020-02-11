@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Represents all formatting for a table row.
 public class TableRowFormat : LinkElement {
     // Gets or sets the rule for determining the height of the table row.
     public enum HeightRule : String, Codable
@@ -42,14 +43,17 @@ public class TableRowFormat : LinkElement {
         
     }
 
-        
-    // Gets or sets true if the text in a table row is allowed to split across a page break.
+    
+    // Field of allowBreakAcrossPages. Gets or sets true if the text in a table row is allowed to split across a page break.      
     private var allowBreakAcrossPages : Bool?;
-    // Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.
+    
+    // Field of headingFormat. Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.      
     private var headingFormat : Bool?;
-    // Gets or sets the height of the table row in points.
+    
+    // Field of height. Gets or sets the height of the table row in points.      
     private var height : Double?;
-    // Gets or sets the rule for determining the height of the table row.
+    
+    // Field of heightRule. Gets or sets the rule for determining the height of the table row.      
     private var heightRule : HeightRule?;
         
     private enum CodingKeys: String, CodingKey {
@@ -89,32 +93,43 @@ public class TableRowFormat : LinkElement {
             try container.encode(self.heightRule, forKey: .heightRule);
         }
     }
-        
+    
+    // Sets allowBreakAcrossPages. Gets or sets true if the text in a table row is allowed to split across a page break.  
     public func setAllowBreakAcrossPages(allowBreakAcrossPages : Bool?) {
         self.allowBreakAcrossPages = allowBreakAcrossPages;
     }
     
+    // Gets allowBreakAcrossPages. Gets or sets true if the text in a table row is allowed to split across a page break.  
     public func getAllowBreakAcrossPages() -> Bool? {
         return self.allowBreakAcrossPages;
     }
+    
+    // Sets headingFormat. Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.  
     public func setHeadingFormat(headingFormat : Bool?) {
         self.headingFormat = headingFormat;
     }
     
+    // Gets headingFormat. Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.  
     public func getHeadingFormat() -> Bool? {
         return self.headingFormat;
     }
+    
+    // Sets height. Gets or sets the height of the table row in points.  
     public func setHeight(height : Double?) {
         self.height = height;
     }
     
+    // Gets height. Gets or sets the height of the table row in points.  
     public func getHeight() -> Double? {
         return self.height;
     }
+    
+    // Sets heightRule. Gets or sets the rule for determining the height of the table row.  
     public func setHeightRule(heightRule : HeightRule?) {
         self.heightRule = heightRule;
     }
     
+    // Gets heightRule. Gets or sets the rule for determining the height of the table row.  
     public func getHeightRule() -> HeightRule? {
         return self.heightRule;
     }

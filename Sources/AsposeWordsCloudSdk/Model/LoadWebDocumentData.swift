@@ -27,11 +27,13 @@
 
 import Foundation
 
+// Contains data for load web document.
 public class LoadWebDocumentData : Codable, WordsApiModel {
-        
-    // Gets or sets web document url.
+    
+    // Field of loadingDocumentUrl. Gets or sets web document url.      
     private var loadingDocumentUrl : String?;
-    // Gets or sets save options.
+    
+    // Field of saveOptions. Gets or sets save options.      
     private var saveOptions : SaveOptionsData?;
         
     private enum CodingKeys: String, CodingKey {
@@ -61,18 +63,23 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
             try container.encode(self.saveOptions, forKey: .saveOptions);
         }
     }
-        
+    
+    // Sets loadingDocumentUrl. Gets or sets web document url.  
     public func setLoadingDocumentUrl(loadingDocumentUrl : String?) {
         self.loadingDocumentUrl = loadingDocumentUrl;
     }
     
+    // Gets loadingDocumentUrl. Gets or sets web document url.  
     public func getLoadingDocumentUrl() -> String? {
         return self.loadingDocumentUrl;
     }
+    
+    // Sets saveOptions. Gets or sets save options.  
     public func setSaveOptions(saveOptions : SaveOptionsData?) {
         self.saveOptions = saveOptions;
     }
     
+    // Gets saveOptions. Gets or sets save options.  
     public func getSaveOptions() -> SaveOptionsData? {
         return self.saveOptions;
     }

@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for moveFile operation.
 public class MoveFileRequest : Encodable, WordsApiModel {
     private let destPath : String;
     private let srcPath : String;
@@ -43,6 +44,7 @@ public class MoveFileRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the moveFileRequest class.
     public init(destPath : String, srcPath : String, srcStorageName : String? = nil, destStorageName : String? = nil, versionId : String? = nil) {
         self.destPath = destPath;
         self.srcPath = srcPath;
@@ -66,22 +68,27 @@ public class MoveFileRequest : Encodable, WordsApiModel {
         }
     }
     
+    // Destination file path e.g. '/dest.ext'
     public func getDestPath() -> String {
         return self.destPath;
     }
     
+    // Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'
     public func getSrcPath() -> String {
         return self.srcPath;
     }
     
+    // Source storage name
     public func getSrcStorageName() -> String? {
         return self.srcStorageName;
     }
     
+    // Destination storage name
     public func getDestStorageName() -> String? {
         return self.destStorageName;
     }
     
+    // File version ID to move
     public func getVersionId() -> String? {
         return self.versionId;
     }

@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Collection of OfficeMath objects.
 public class OfficeMathObjectsCollection : LinkElement {
-        
-    // Gets or sets collection of OfficeMath objects.
+    
+    // Field of list. Gets or sets collection of OfficeMath objects.      
     private var list : [OfficeMathObject]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class OfficeMathObjectsCollection : LinkElement {
             try container.encode(self.list, forKey: .list);
         }
     }
-        
+    
+    // Sets list. Gets or sets collection of OfficeMath objects.  
     public func setList(list : [OfficeMathObject]?) {
         self.list = list;
     }
     
+    // Gets list. Gets or sets collection of OfficeMath objects.  
     public func getList() -> [OfficeMathObject]? {
         return self.list;
     }

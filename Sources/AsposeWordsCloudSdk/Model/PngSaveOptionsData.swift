@@ -27,8 +27,8 @@
 
 import Foundation
 
+// container class for png save options.
 public class PngSaveOptionsData : ImageSaveOptionsData {
-        
         
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
@@ -45,5 +45,4 @@ public class PngSaveOptionsData : ImageSaveOptionsData {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
-        
 }

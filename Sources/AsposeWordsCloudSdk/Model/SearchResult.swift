@@ -27,11 +27,13 @@
 
 import Foundation
 
+// Result of search operation.
 public class SearchResult : Codable, WordsApiModel {
-        
-    // Gets or sets link to result range start node.
+    
+    // Field of rangeStart. Gets or sets link to result range start node.      
     private var rangeStart : DocumentPosition?;
-    // Gets or sets link to result range end node.
+    
+    // Field of rangeEnd. Gets or sets link to result range end node.      
     private var rangeEnd : DocumentPosition?;
         
     private enum CodingKeys: String, CodingKey {
@@ -61,18 +63,23 @@ public class SearchResult : Codable, WordsApiModel {
             try container.encode(self.rangeEnd, forKey: .rangeEnd);
         }
     }
-        
+    
+    // Sets rangeStart. Gets or sets link to result range start node.  
     public func setRangeStart(rangeStart : DocumentPosition?) {
         self.rangeStart = rangeStart;
     }
     
+    // Gets rangeStart. Gets or sets link to result range start node.  
     public func getRangeStart() -> DocumentPosition? {
         return self.rangeStart;
     }
+    
+    // Sets rangeEnd. Gets or sets link to result range end node.  
     public func setRangeEnd(rangeEnd : DocumentPosition?) {
         self.rangeEnd = rangeEnd;
     }
     
+    // Gets rangeEnd. Gets or sets link to result range end node.  
     public func getRangeEnd() -> DocumentPosition? {
         return self.rangeEnd;
     }

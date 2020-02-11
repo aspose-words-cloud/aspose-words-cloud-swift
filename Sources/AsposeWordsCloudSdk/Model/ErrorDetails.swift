@@ -27,11 +27,13 @@
 
 import Foundation
 
+// The error details
 public class ErrorDetails : Codable, WordsApiModel {
-        
-    // The request id.
+    
+    // Field of requestId. The request id.      
     private var requestId : String?;
-    // Error datetime.
+    
+    // Field of errorDateTime. Error datetime.      
     private var errorDateTime : Date?;
         
     private enum CodingKeys: String, CodingKey {
@@ -62,18 +64,23 @@ public class ErrorDetails : Codable, WordsApiModel {
         }
         try container.encode(self.errorDateTime, forKey: .errorDateTime);
     }
-        
+    
+    // Sets requestId. The request id.  
     public func setRequestId(requestId : String?) {
         self.requestId = requestId;
     }
     
+    // Gets requestId. The request id.  
     public func getRequestId() -> String? {
         return self.requestId;
     }
+    
+    // Sets errorDateTime. Error datetime.  
     public func setErrorDateTime(errorDateTime : Date) {
         self.errorDateTime = errorDateTime;
     }
     
+    // Gets errorDateTime. Error datetime.  
     public func getErrorDateTime() -> Date {
         return self.errorDateTime!;
     }

@@ -27,11 +27,13 @@
 
 import Foundation
 
+// Table row element.
 public class TableRowInsert : Codable, WordsApiModel {
-        
-    // Gets or sets table row will be inserted after row with specified 0-based index.
+    
+    // Field of insertAfter. Gets or sets table row will be inserted after row with specified 0-based index.      
     private var insertAfter : Int?;
-    // Gets or sets count of columns. Default is 1.
+    
+    // Field of columnsCount. Gets or sets count of columns. Default is 1.      
     private var columnsCount : Int?;
         
     private enum CodingKeys: String, CodingKey {
@@ -62,18 +64,23 @@ public class TableRowInsert : Codable, WordsApiModel {
         }
         try container.encode(self.columnsCount, forKey: .columnsCount);
     }
-        
+    
+    // Sets insertAfter. Gets or sets table row will be inserted after row with specified 0-based index.  
     public func setInsertAfter(insertAfter : Int?) {
         self.insertAfter = insertAfter;
     }
     
+    // Gets insertAfter. Gets or sets table row will be inserted after row with specified 0-based index.  
     public func getInsertAfter() -> Int? {
         return self.insertAfter;
     }
+    
+    // Sets columnsCount. Gets or sets count of columns. Default is 1.  
     public func setColumnsCount(columnsCount : Int) {
         self.columnsCount = columnsCount;
     }
     
+    // Gets columnsCount. Gets or sets count of columns. Default is 1.  
     public func getColumnsCount() -> Int {
         return self.columnsCount!;
     }

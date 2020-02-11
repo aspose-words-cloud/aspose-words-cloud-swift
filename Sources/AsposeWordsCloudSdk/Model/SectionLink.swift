@@ -27,8 +27,8 @@
 
 import Foundation
 
+// Section link element.
 public class SectionLink : NodeLink {
-        
         
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
@@ -45,5 +45,4 @@ public class SectionLink : NodeLink {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
-        
 }

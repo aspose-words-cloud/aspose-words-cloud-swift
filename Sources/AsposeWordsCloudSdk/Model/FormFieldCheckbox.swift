@@ -27,13 +27,16 @@
 
 import Foundation
 
+// FormField checkbox element.
 public class FormFieldCheckbox : FormField {
-        
-    // Gets or sets the size of the checkbox in points. Has effect only when  is true.
+    
+    // Field of checkBoxSize. Gets or sets the size of the checkbox in points. Has effect only when  is true.      
     private var checkBoxSize : Double?;
-    // Gets or sets the checked status of the check box form field.
+    
+    // Field of checked. Gets or sets the checked status of the check box form field.      
     private var checked : Bool?;
-    // Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.
+    
+    // Field of isCheckBoxExactSize. Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.      
     private var isCheckBoxExactSize : Bool?;
         
     private enum CodingKeys: String, CodingKey {
@@ -68,25 +71,33 @@ public class FormFieldCheckbox : FormField {
             try container.encode(self.isCheckBoxExactSize, forKey: .isCheckBoxExactSize);
         }
     }
-        
+    
+    // Sets checkBoxSize. Gets or sets the size of the checkbox in points. Has effect only when  is true.  
     public func setCheckBoxSize(checkBoxSize : Double?) {
         self.checkBoxSize = checkBoxSize;
     }
     
+    // Gets checkBoxSize. Gets or sets the size of the checkbox in points. Has effect only when  is true.  
     public func getCheckBoxSize() -> Double? {
         return self.checkBoxSize;
     }
+    
+    // Sets checked. Gets or sets the checked status of the check box form field.  
     public func setChecked(checked : Bool?) {
         self.checked = checked;
     }
     
+    // Gets checked. Gets or sets the checked status of the check box form field.  
     public func getChecked() -> Bool? {
         return self.checked;
     }
+    
+    // Sets isCheckBoxExactSize. Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.  
     public func setIsCheckBoxExactSize(isCheckBoxExactSize : Bool?) {
         self.isCheckBoxExactSize = isCheckBoxExactSize;
     }
     
+    // Gets isCheckBoxExactSize. Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.  
     public func getIsCheckBoxExactSize() -> Bool? {
         return self.isCheckBoxExactSize;
     }

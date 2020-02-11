@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Represents a collection of merge fields within a document.
 public class FieldNames : LinkElement {
-        
-    // Gets or sets collection of fields names.
+    
+    // Field of names. Gets or sets collection of fields names.      
     private var names : [String]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class FieldNames : LinkElement {
             try container.encode(self.names, forKey: .names);
         }
     }
-        
+    
+    // Sets names. Gets or sets collection of fields names.  
     public func setNames(names : [String]?) {
         self.names = names;
     }
     
+    // Gets names. Gets or sets collection of fields names.  
     public func getNames() -> [String]? {
         return self.names;
     }

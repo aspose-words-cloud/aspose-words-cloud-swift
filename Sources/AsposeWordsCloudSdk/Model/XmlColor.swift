@@ -27,11 +27,13 @@
 
 import Foundation
 
+// Utility class for  serialization.
 public class XmlColor : Codable, WordsApiModel {
-        
-    // Gets or sets hTML string color representation.
+    
+    // Field of web. Gets or sets hTML string color representation.      
     private var web : String?;
-    // Gets or sets alpha component of color structure.
+    
+    // Field of alpha. Gets or sets alpha component of color structure.      
     private var alpha : Int?;
         
     private enum CodingKeys: String, CodingKey {
@@ -62,18 +64,23 @@ public class XmlColor : Codable, WordsApiModel {
         }
         try container.encode(self.alpha, forKey: .alpha);
     }
-        
+    
+    // Sets web. Gets or sets hTML string color representation.  
     public func setWeb(web : String?) {
         self.web = web;
     }
     
+    // Gets web. Gets or sets hTML string color representation.  
     public func getWeb() -> String? {
         return self.web;
     }
+    
+    // Sets alpha. Gets or sets alpha component of color structure.  
     public func setAlpha(alpha : Int) {
         self.alpha = alpha;
     }
     
+    // Gets alpha. Gets or sets alpha component of color structure.  
     public func getAlpha() -> Int {
         return self.alpha!;
     }

@@ -27,9 +27,10 @@
 
 import Foundation
 
+// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/tables.
 public class TableLinkCollectionResponse : WordsResponse {
-        
-    // Gets or sets collection of tables.
+    
+    // Field of tables. Gets or sets collection of tables.      
     private var tables : TableLinkCollection?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class TableLinkCollectionResponse : WordsResponse {
             try container.encode(self.tables, forKey: .tables);
         }
     }
-        
+    
+    // Sets tables. Gets or sets collection of tables.  
     public func setTables(tables : TableLinkCollection?) {
         self.tables = tables;
     }
     
+    // Gets tables. Gets or sets collection of tables.  
     public func getTables() -> TableLinkCollection? {
         return self.tables;
     }

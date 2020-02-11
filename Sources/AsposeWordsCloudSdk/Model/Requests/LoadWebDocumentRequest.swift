@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for loadWebDocument operation.
 public class LoadWebDocumentRequest : Encodable, WordsApiModel {
     private let data : LoadWebDocumentData;
     private let storage : String?;
@@ -37,6 +38,7 @@ public class LoadWebDocumentRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the loadWebDocumentRequest class.
     public init(data : LoadWebDocumentData, storage : String? = nil) {
         self.data = data;
         self.storage = storage;
@@ -50,10 +52,12 @@ public class LoadWebDocumentRequest : Encodable, WordsApiModel {
         }
     }
     
+    // Parameters of loading.
     public func getData() -> LoadWebDocumentData {
         return self.data;
     }
     
+    // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }

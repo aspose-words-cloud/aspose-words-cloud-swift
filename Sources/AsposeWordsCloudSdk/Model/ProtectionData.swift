@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Container for the data about protection of the document.
 public class ProtectionData : Codable, WordsApiModel {
-        
-    // Gets or sets type of the protection.
+    
+    // Field of protectionType. Gets or sets type of the protection.      
     private var protectionType : String?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class ProtectionData : Codable, WordsApiModel {
             try container.encode(self.protectionType, forKey: .protectionType);
         }
     }
-        
+    
+    // Sets protectionType. Gets or sets type of the protection.  
     public func setProtectionType(protectionType : String?) {
         self.protectionType = protectionType;
     }
     
+    // Gets protectionType. Gets or sets type of the protection.  
     public func getProtectionType() -> String? {
         return self.protectionType;
     }

@@ -27,13 +27,16 @@
 
 import Foundation
 
+// Section element.
 public class HeaderFooter : HeaderFooterLink {
-        
-    // Gets or sets child nodes.
+    
+    // Field of childNodes. Gets or sets child nodes.      
     private var childNodes : [NodeLink]?;
-    // Gets or sets link to DrawingObjects resource.
+    
+    // Field of drawingObjects. Gets or sets link to DrawingObjects resource.      
     private var drawingObjects : LinkElement?;
-    // Gets or sets link to Paragraphs resource.
+    
+    // Field of paragraphs. Gets or sets link to Paragraphs resource.      
     private var paragraphs : LinkElement?;
         
     private enum CodingKeys: String, CodingKey {
@@ -68,25 +71,33 @@ public class HeaderFooter : HeaderFooterLink {
             try container.encode(self.paragraphs, forKey: .paragraphs);
         }
     }
-        
+    
+    // Sets childNodes. Gets or sets child nodes.  
     public func setChildNodes(childNodes : [NodeLink]?) {
         self.childNodes = childNodes;
     }
     
+    // Gets childNodes. Gets or sets child nodes.  
     public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }
+    
+    // Sets drawingObjects. Gets or sets link to DrawingObjects resource.  
     public func setDrawingObjects(drawingObjects : LinkElement?) {
         self.drawingObjects = drawingObjects;
     }
     
+    // Gets drawingObjects. Gets or sets link to DrawingObjects resource.  
     public func getDrawingObjects() -> LinkElement? {
         return self.drawingObjects;
     }
+    
+    // Sets paragraphs. Gets or sets link to Paragraphs resource.  
     public func setParagraphs(paragraphs : LinkElement?) {
         self.paragraphs = paragraphs;
     }
     
+    // Gets paragraphs. Gets or sets link to Paragraphs resource.  
     public func getParagraphs() -> LinkElement? {
         return self.paragraphs;
     }

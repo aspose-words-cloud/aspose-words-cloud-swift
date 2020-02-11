@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for getDocument operation.
 public class GetDocumentRequest : Encodable, WordsApiModel {
     private let documentName : String;
     private let folder : String?;
@@ -43,6 +44,7 @@ public class GetDocumentRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the getDocumentRequest class.
     public init(documentName : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.documentName = documentName;
         self.folder = folder;
@@ -68,22 +70,27 @@ public class GetDocumentRequest : Encodable, WordsApiModel {
         }
     }
     
+    // The document name.
     public func getDocumentName() -> String {
         return self.documentName;
     }
     
+    // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
     
+    // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
     
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
+    // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }

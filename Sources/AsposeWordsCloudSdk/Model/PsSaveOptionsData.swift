@@ -27,9 +27,10 @@
 
 import Foundation
 
+// container class for ps save options.
 public class PsSaveOptionsData : FixedPageSaveOptionsData {
-        
-    // Gets or sets determines whether the document should be saved using a booklet printing layout.
+    
+    // Field of useBookFoldPrintingSettings. Gets or sets determines whether the document should be saved using a booklet printing layout.      
     private var useBookFoldPrintingSettings : Bool?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class PsSaveOptionsData : FixedPageSaveOptionsData {
             try container.encode(self.useBookFoldPrintingSettings, forKey: .useBookFoldPrintingSettings);
         }
     }
-        
+    
+    // Sets useBookFoldPrintingSettings. Gets or sets determines whether the document should be saved using a booklet printing layout.  
     public func setUseBookFoldPrintingSettings(useBookFoldPrintingSettings : Bool?) {
         self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
     }
     
+    // Gets useBookFoldPrintingSettings. Gets or sets determines whether the document should be saved using a booklet printing layout.  
     public func getUseBookFoldPrintingSettings() -> Bool? {
         return self.useBookFoldPrintingSettings;
     }

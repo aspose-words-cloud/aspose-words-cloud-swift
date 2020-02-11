@@ -27,9 +27,10 @@
 
 import Foundation
 
+// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/paragraphs/{0}/formfields/{1}.
 public class FormFieldResponse : WordsResponse {
-        
-    // Gets or sets field information.
+    
+    // Field of formField. Gets or sets field information.      
     private var formField : FormField?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class FormFieldResponse : WordsResponse {
             try container.encode(self.formField, forKey: .formField);
         }
     }
-        
+    
+    // Sets formField. Gets or sets field information.  
     public func setFormField(formField : FormField?) {
         self.formField = formField;
     }
     
+    // Gets formField. Gets or sets field information.  
     public func getFormField() -> FormField? {
         return self.formField;
     }

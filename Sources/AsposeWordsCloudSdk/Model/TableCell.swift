@@ -27,9 +27,10 @@
 
 import Foundation
 
+// Table cell element.
 public class TableCell : NodeLink {
-        
-    // Gets or sets child nodes.
+    
+    // Field of childNodes. Gets or sets child nodes.      
     private var childNodes : [NodeLink]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class TableCell : NodeLink {
             try container.encode(self.childNodes, forKey: .childNodes);
         }
     }
-        
+    
+    // Sets childNodes. Gets or sets child nodes.  
     public func setChildNodes(childNodes : [NodeLink]?) {
         self.childNodes = childNodes;
     }
     
+    // Gets childNodes. Gets or sets child nodes.  
     public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }

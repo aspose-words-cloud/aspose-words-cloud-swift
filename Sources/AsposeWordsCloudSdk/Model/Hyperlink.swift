@@ -27,11 +27,13 @@
 
 import Foundation
 
+// Hyperlink element.
 public class Hyperlink : LinkElement {
-        
-    // Gets or sets hypelink&#39;s display text.
+    
+    // Field of displayText. Gets or sets hypelink's display text.      
     private var displayText : String?;
-    // Gets or sets value.
+    
+    // Field of value. Gets or sets value.      
     private var value : String?;
         
     private enum CodingKeys: String, CodingKey {
@@ -61,18 +63,23 @@ public class Hyperlink : LinkElement {
             try container.encode(self.value, forKey: .value);
         }
     }
-        
+    
+    // Sets displayText. Gets or sets hypelink's display text.  
     public func setDisplayText(displayText : String?) {
         self.displayText = displayText;
     }
     
+    // Gets displayText. Gets or sets hypelink's display text.  
     public func getDisplayText() -> String? {
         return self.displayText;
     }
+    
+    // Sets value. Gets or sets value.  
     public func setValue(value : String?) {
         self.value = value;
     }
     
+    // Gets value. Gets or sets value.  
     public func getValue() -> String? {
         return self.value;
     }

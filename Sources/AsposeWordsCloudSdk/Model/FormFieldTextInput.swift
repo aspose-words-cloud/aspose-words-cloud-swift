@@ -27,6 +27,7 @@
 
 import Foundation
 
+// FormField text input element.
 public class FormFieldTextInput : FormField {
     // Gets or sets the type of a text form field.
     public enum TextInputType : String, Codable
@@ -51,14 +52,17 @@ public class FormFieldTextInput : FormField {
         
     }
 
-        
-    // Gets or sets maximum length for the text field. Zero when the length is not limited.
+    
+    // Field of maxLength. Gets or sets maximum length for the text field. Zero when the length is not limited.      
     private var maxLength : Int?;
-    // Gets or sets the default string or a calculation expression of a text form field.
+    
+    // Field of textInputDefault. Gets or sets the default string or a calculation expression of a text form field.      
     private var textInputDefault : String?;
-    // Gets or sets returns or sets the text formatting for a text form field.
+    
+    // Field of textInputFormat. Gets or sets returns or sets the text formatting for a text form field.      
     private var textInputFormat : String?;
-    // Gets or sets the type of a text form field.
+    
+    // Field of textInputType. Gets or sets the type of a text form field.      
     private var textInputType : TextInputType?;
         
     private enum CodingKeys: String, CodingKey {
@@ -98,32 +102,43 @@ public class FormFieldTextInput : FormField {
             try container.encode(self.textInputType, forKey: .textInputType);
         }
     }
-        
+    
+    // Sets maxLength. Gets or sets maximum length for the text field. Zero when the length is not limited.  
     public func setMaxLength(maxLength : Int?) {
         self.maxLength = maxLength;
     }
     
+    // Gets maxLength. Gets or sets maximum length for the text field. Zero when the length is not limited.  
     public func getMaxLength() -> Int? {
         return self.maxLength;
     }
+    
+    // Sets textInputDefault. Gets or sets the default string or a calculation expression of a text form field.  
     public func setTextInputDefault(textInputDefault : String?) {
         self.textInputDefault = textInputDefault;
     }
     
+    // Gets textInputDefault. Gets or sets the default string or a calculation expression of a text form field.  
     public func getTextInputDefault() -> String? {
         return self.textInputDefault;
     }
+    
+    // Sets textInputFormat. Gets or sets returns or sets the text formatting for a text form field.  
     public func setTextInputFormat(textInputFormat : String?) {
         self.textInputFormat = textInputFormat;
     }
     
+    // Gets textInputFormat. Gets or sets returns or sets the text formatting for a text form field.  
     public func getTextInputFormat() -> String? {
         return self.textInputFormat;
     }
+    
+    // Sets textInputType. Gets or sets the type of a text form field.  
     public func setTextInputType(textInputType : TextInputType?) {
         self.textInputType = textInputType;
     }
     
+    // Gets textInputType. Gets or sets the type of a text form field.  
     public func getTextInputType() -> TextInputType? {
         return self.textInputType;
     }

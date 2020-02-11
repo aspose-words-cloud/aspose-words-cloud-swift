@@ -27,9 +27,10 @@
 
 import Foundation
 
+// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat.
 public class TableCellFormatResponse : WordsResponse {
-        
-    // Gets or sets table.
+    
+    // Field of cellFormat. Gets or sets table.      
     private var cellFormat : TableCellFormat?;
         
     private enum CodingKeys: String, CodingKey {
@@ -54,11 +55,13 @@ public class TableCellFormatResponse : WordsResponse {
             try container.encode(self.cellFormat, forKey: .cellFormat);
         }
     }
-        
+    
+    // Sets cellFormat. Gets or sets table.  
     public func setCellFormat(cellFormat : TableCellFormat?) {
         self.cellFormat = cellFormat;
     }
     
+    // Gets cellFormat. Gets or sets table.  
     public func getCellFormat() -> TableCellFormat? {
         return self.cellFormat;
     }

@@ -27,11 +27,13 @@
 
 import Foundation
 
+// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/search.
 public class SearchResponse : WordsResponse {
-        
-    // Gets or sets a regular expression pattern used to find matches.
+    
+    // Field of searchingPattern. Gets or sets a regular expression pattern used to find matches.      
     private var searchingPattern : String?;
-    // Gets or sets collection of search results.
+    
+    // Field of searchResults. Gets or sets collection of search results.      
     private var searchResults : SearchResultsCollection?;
         
     private enum CodingKeys: String, CodingKey {
@@ -61,18 +63,23 @@ public class SearchResponse : WordsResponse {
             try container.encode(self.searchResults, forKey: .searchResults);
         }
     }
-        
+    
+    // Sets searchingPattern. Gets or sets a regular expression pattern used to find matches.  
     public func setSearchingPattern(searchingPattern : String?) {
         self.searchingPattern = searchingPattern;
     }
     
+    // Gets searchingPattern. Gets or sets a regular expression pattern used to find matches.  
     public func getSearchingPattern() -> String? {
         return self.searchingPattern;
     }
+    
+    // Sets searchResults. Gets or sets collection of search results.  
     public func setSearchResults(searchResults : SearchResultsCollection?) {
         self.searchResults = searchResults;
     }
     
+    // Gets searchResults. Gets or sets collection of search results.  
     public func getSearchResults() -> SearchResultsCollection? {
         return self.searchResults;
     }

@@ -27,8 +27,8 @@
 
 import Foundation
 
+// Container class for gif save options.
 public class GifSaveOptionsData : ImageSaveOptionsData {
-        
         
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
@@ -45,5 +45,4 @@ public class GifSaveOptionsData : ImageSaveOptionsData {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
-        
 }

@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Request model for getBorder operation.
 public class GetBorderRequest : Encodable, WordsApiModel {
     private let name : String;
     private let nodePath : String;
@@ -47,6 +48,7 @@ public class GetBorderRequest : Encodable, WordsApiModel {
         case invalidCodingKey;
     }
     
+    // Initializes a new instance of the getBorderRequest class.
     public init(name : String, nodePath : String, borderType : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.nodePath = nodePath;
@@ -76,30 +78,37 @@ public class GetBorderRequest : Encodable, WordsApiModel {
         }
     }
     
+    // The document name.
     public func getName() -> String {
         return self.name;
     }
     
+    // Path to the node with border(node should be paragraph, cell or row).
     public func getNodePath() -> String {
         return self.nodePath;
     }
     
+    // Border type.
     public func getBorderType() -> String {
         return self.borderType;
     }
     
+    // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
     
+    // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
     
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
+    // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }

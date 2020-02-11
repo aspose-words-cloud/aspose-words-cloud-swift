@@ -27,11 +27,13 @@
 
 import Foundation
 
+// DTO for bookmark updating.
 public class BookmarkData : Codable, WordsApiModel {
-        
-    // Gets or sets the name of the bookmark.
+    
+    // Field of name. Gets or sets the name of the bookmark.      
     private var name : String?;
-    // Gets or sets the text enclosed in the bookmark.
+    
+    // Field of text. Gets or sets the text enclosed in the bookmark.      
     private var text : String?;
         
     private enum CodingKeys: String, CodingKey {
@@ -61,18 +63,23 @@ public class BookmarkData : Codable, WordsApiModel {
             try container.encode(self.text, forKey: .text);
         }
     }
-        
+    
+    // Sets name. Gets or sets the name of the bookmark.  
     public func setName(name : String?) {
         self.name = name;
     }
     
+    // Gets name. Gets or sets the name of the bookmark.  
     public func getName() -> String? {
         return self.name;
     }
+    
+    // Sets text. Gets or sets the text enclosed in the bookmark.  
     public func setText(text : String?) {
         self.text = text;
     }
     
+    // Gets text. Gets or sets the text enclosed in the bookmark.  
     public func getText() -> String? {
         return self.text;
     }

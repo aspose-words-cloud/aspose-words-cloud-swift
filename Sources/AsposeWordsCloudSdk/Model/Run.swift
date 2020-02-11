@@ -27,8 +27,8 @@
 
 import Foundation
 
+// Run element.
 public class Run : RunLink {
-        
         
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
@@ -45,5 +45,4 @@ public class Run : RunLink {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
-        
 }

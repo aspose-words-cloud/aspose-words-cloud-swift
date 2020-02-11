@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Represents a border of an object.
 public class Border : LinkElement {
     // Gets or sets the border type.             
     public enum BorderType : String, Codable
@@ -146,18 +147,23 @@ public class Border : LinkElement {
         
     }
 
-        
-    // Gets or sets the border type.             
+    
+    // Field of borderType. Gets or sets the border type.                   
     private var borderType : BorderType?;
-    // Gets or sets the border color.             
+    
+    // Field of color. Gets or sets the border color.                   
     private var color : XmlColor?;
-    // Gets or sets distance of the border from text or from the page edge in points.
+    
+    // Field of distanceFromText. Gets or sets distance of the border from text or from the page edge in points.      
     private var distanceFromText : Double?;
-    // Gets or sets the border style.
+    
+    // Field of lineStyle. Gets or sets the border style.      
     private var lineStyle : LineStyle?;
-    // Gets or sets the border width in points.
+    
+    // Field of lineWidth. Gets or sets the border width in points.      
     private var lineWidth : Double?;
-    // Gets or sets a value indicating whether the border has a shadow.
+    
+    // Field of shadow. Gets or sets a value indicating whether the border has a shadow.      
     private var shadow : Bool?;
         
     private enum CodingKeys: String, CodingKey {
@@ -207,46 +213,63 @@ public class Border : LinkElement {
             try container.encode(self.shadow, forKey: .shadow);
         }
     }
-        
+    
+    // Sets borderType. Gets or sets the border type.               
     public func setBorderType(borderType : BorderType?) {
         self.borderType = borderType;
     }
     
+    // Gets borderType. Gets or sets the border type.               
     public func getBorderType() -> BorderType? {
         return self.borderType;
     }
+    
+    // Sets color. Gets or sets the border color.               
     public func setColor(color : XmlColor?) {
         self.color = color;
     }
     
+    // Gets color. Gets or sets the border color.               
     public func getColor() -> XmlColor? {
         return self.color;
     }
+    
+    // Sets distanceFromText. Gets or sets distance of the border from text or from the page edge in points.  
     public func setDistanceFromText(distanceFromText : Double?) {
         self.distanceFromText = distanceFromText;
     }
     
+    // Gets distanceFromText. Gets or sets distance of the border from text or from the page edge in points.  
     public func getDistanceFromText() -> Double? {
         return self.distanceFromText;
     }
+    
+    // Sets lineStyle. Gets or sets the border style.  
     public func setLineStyle(lineStyle : LineStyle?) {
         self.lineStyle = lineStyle;
     }
     
+    // Gets lineStyle. Gets or sets the border style.  
     public func getLineStyle() -> LineStyle? {
         return self.lineStyle;
     }
+    
+    // Sets lineWidth. Gets or sets the border width in points.  
     public func setLineWidth(lineWidth : Double?) {
         self.lineWidth = lineWidth;
     }
     
+    // Gets lineWidth. Gets or sets the border width in points.  
     public func getLineWidth() -> Double? {
         return self.lineWidth;
     }
+    
+    // Sets shadow. Gets or sets a value indicating whether the border has a shadow.  
     public func setShadow(shadow : Bool?) {
         self.shadow = shadow;
     }
     
+    // Gets shadow. Gets or sets a value indicating whether the border has a shadow.  
     public func getShadow() -> Bool? {
         return self.shadow;
     }

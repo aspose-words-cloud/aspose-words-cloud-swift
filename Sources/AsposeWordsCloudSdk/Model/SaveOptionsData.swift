@@ -27,23 +27,31 @@
 
 import Foundation
 
+// base container class for save options data.
 public class SaveOptionsData : Codable, WordsApiModel {
-        
-    // Gets or sets format of save.
+    
+    // Field of saveFormat. Gets or sets format of save.      
     private var saveFormat : String?;
-    // Gets or sets name of destination file.
+    
+    // Field of fileName. Gets or sets name of destination file.      
     private var fileName : String?;
-    // Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }.
+    
+    // Field of dmlRenderingMode. Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }.      
     private var dmlRenderingMode : String?;
-    // Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }.
+    
+    // Field of dmlEffectsRenderingMode. Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }.      
     private var dmlEffectsRenderingMode : String?;
-    // Gets or sets controls zip output or not. Default value is false.
+    
+    // Field of zipOutput. Gets or sets controls zip output or not. Default value is false.      
     private var zipOutput : Bool?;
-    // Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
+    
+    // Field of updateLastSavedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.      
     private var updateLastSavedTimeProperty : Bool?;
-    // Gets or sets value determining whether content of  is updated before saving.
+    
+    // Field of updateSdtContent. Gets or sets value determining whether content of  is updated before saving.      
     private var updateSdtContent : Bool?;
-    // Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true
+    
+    // Field of updateFields. Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true      
     private var updateFields : Bool?;
         
     private enum CodingKeys: String, CodingKey {
@@ -103,60 +111,83 @@ public class SaveOptionsData : Codable, WordsApiModel {
             try container.encode(self.updateFields, forKey: .updateFields);
         }
     }
-        
+    
+    // Sets saveFormat. Gets or sets format of save.  
     public func setSaveFormat(saveFormat : String?) {
         self.saveFormat = saveFormat;
     }
     
+    // Gets saveFormat. Gets or sets format of save.  
     public func getSaveFormat() -> String? {
         return self.saveFormat;
     }
+    
+    // Sets fileName. Gets or sets name of destination file.  
     public func setFileName(fileName : String?) {
         self.fileName = fileName;
     }
     
+    // Gets fileName. Gets or sets name of destination file.  
     public func getFileName() -> String? {
         return self.fileName;
     }
+    
+    // Sets dmlRenderingMode. Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }.  
     public func setDmlRenderingMode(dmlRenderingMode : String?) {
         self.dmlRenderingMode = dmlRenderingMode;
     }
     
+    // Gets dmlRenderingMode. Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }.  
     public func getDmlRenderingMode() -> String? {
         return self.dmlRenderingMode;
     }
+    
+    // Sets dmlEffectsRenderingMode. Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }.  
     public func setDmlEffectsRenderingMode(dmlEffectsRenderingMode : String?) {
         self.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
     }
     
+    // Gets dmlEffectsRenderingMode. Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }.  
     public func getDmlEffectsRenderingMode() -> String? {
         return self.dmlEffectsRenderingMode;
     }
+    
+    // Sets zipOutput. Gets or sets controls zip output or not. Default value is false.  
     public func setZipOutput(zipOutput : Bool?) {
         self.zipOutput = zipOutput;
     }
     
+    // Gets zipOutput. Gets or sets controls zip output or not. Default value is false.  
     public func getZipOutput() -> Bool? {
         return self.zipOutput;
     }
+    
+    // Sets updateLastSavedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.  
     public func setUpdateLastSavedTimeProperty(updateLastSavedTimeProperty : Bool?) {
         self.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
     }
     
+    // Gets updateLastSavedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.  
     public func getUpdateLastSavedTimeProperty() -> Bool? {
         return self.updateLastSavedTimeProperty;
     }
+    
+    // Sets updateSdtContent. Gets or sets value determining whether content of  is updated before saving.  
     public func setUpdateSdtContent(updateSdtContent : Bool?) {
         self.updateSdtContent = updateSdtContent;
     }
     
+    // Gets updateSdtContent. Gets or sets value determining whether content of  is updated before saving.  
     public func getUpdateSdtContent() -> Bool? {
         return self.updateSdtContent;
     }
+    
+    // Sets updateFields. Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true  
     public func setUpdateFields(updateFields : Bool?) {
         self.updateFields = updateFields;
     }
     
+    // Gets updateFields. Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true  
     public func getUpdateFields() -> Bool? {
         return self.updateFields;
     }
