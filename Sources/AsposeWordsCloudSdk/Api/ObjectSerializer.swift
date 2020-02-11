@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Helper class for serialize or deserialize swift objects to string or binary format.
 class ObjectSerializer {
     private init() { }
     
@@ -45,20 +46,26 @@ class ObjectSerializer {
         }
     }
     
+    // Serialize given object to string
     public static func serializeToString<T : Encodable>(value : T) throws -> String {
         if (value is WordsApiModel) {
+            // Serialize to JSON when ApiModel object
             return String(decoding: try customEncoder.encode(value), as: UTF8.self);
         }
         if (value is URL) {
+            // Read file from URL as String (For local and remote files)
             return try String(contentsOf: value as! URL);
         }
         else {
+            // Stringify unknown type
             return String(describing: value);
         }
     }
     
+    // Serialize given object as binary data for using as request body
     public static func serializeBody<T : Encodable>(value: T) throws -> Data {
         if (value is String) {
+            // Make JSON string when String object.
             let result = "\"\(value)\"".data(using: .utf8);
             if (result == nil) {
                 throw WordsApiError.invalidTypeSerialization(typeName: String(describing: type(of: value)));
@@ -66,18 +73,23 @@ class ObjectSerializer {
             return result!;
         }
         else {
+            // For other types use default binary serializer
             return try serialize(value: value);
         }
     }
     
+    // Serialize given object as binary data
     public static func serialize<T : Encodable>(value: T) throws -> Data {
         if (value is WordsApiModel) {
+            // Serialize to JSON when ApiModel object
             return try customEncoder.encode(value);
         }
         if (value is URL) {
+            // Read file from URL as bytes (For local and remote files)
             return try Data(contentsOf: value as! URL);
         }
         else {
+             // Stringify unknown type and convert to binary
             let result = String(describing: value).data(using: .utf8);
             if (result == nil) {
                 throw WordsApiError.invalidTypeSerialization(typeName: String(describing: type(of: value)));
@@ -86,10 +98,12 @@ class ObjectSerializer {
         }
     }
     
+    // Create an instance of T, from JSON data
     public static func deserialize<T>(type: T.Type, from data: Data) throws -> T where T : Decodable {
         return try customDecoder.decode(type, from: data);
     }
     
+    // Configuration for DateTime serialization/deserialization
     private static let customIso8601: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'";
@@ -99,6 +113,7 @@ class ObjectSerializer {
         return formatter;
     }()
     
+    // Custom JSON encoder
     private static let customEncoder: JSONEncoder = {
         let encoder = JSONEncoder();
         encoder.dateEncodingStrategy = .formatted(customIso8601);
@@ -110,6 +125,7 @@ class ObjectSerializer {
         return encoder;
     }();
     
+    // Custom JSON decoder
     private static let customDecoder: JSONDecoder = {
         let decoder = JSONDecoder();
         decoder.dateDecodingStrategy = .formatted(customIso8601);

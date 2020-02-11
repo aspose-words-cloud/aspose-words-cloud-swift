@@ -27,6 +27,7 @@
 
 import Foundation
 
+// Represent struct for using as form param in request
 public struct RequestFormParam {
     private let name : String;
     private let body : Data;

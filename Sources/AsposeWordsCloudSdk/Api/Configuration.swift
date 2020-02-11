@@ -27,12 +27,21 @@
 
 import Foundation
 
+// Represents a set of configuration settings
 public class Configuration : Codable {
+    // Aspose Cloud API base URL
     private var baseUrl : String;
+    
+    // Aspose Cloud API app sid
     private var appSid: String;
+    
+    // Aspose Cloud API app key
     private var appKey: String;
+    
+    // Indicating whether debug mode
     private var debugMode: Bool?;
     
+    // Initialize new instance of Aspose Words configuration object with given parameters
     public init(appSid: String, appKey: String, baseUrl: String = "https://api.aspose.cloud", debugMode: Bool = false) {
         self.appSid = appSid;
         self.appKey = appKey;
@@ -40,34 +49,42 @@ public class Configuration : Codable {
         self.debugMode = debugMode;
     }
     
+    // Returns Aspose Cloud API base URL
     public func getBaseUrl() -> String {
         return self.baseUrl;
     }
     
+    // Returns Cloud API app sid
     public func getAppSid() -> String {
         return self.appSid;
     }
     
+    // Returns Aspose Cloud API app key
     public func getAppKey() -> String {
         return self.appKey;
     }
     
+    // Is debug mode enabled
     public func isDebugMode() -> Bool {
         return self.debugMode != nil ? self.debugMode! : false;
     }
     
+    // Returns general version of cloud api
     public func getApiVersion() -> String {
         return "v4.0";
     }
     
+    // Returns URL to Aspose Cloud API with remote API version
     public func getApiRootUrl() -> URL {
         return URL(string: self.getBaseUrl())!.appendingPathComponent(self.getApiVersion());
     }
     
+    // Returns SDK name for using in statistics headers
     public func getSdkName() -> String {
         return "swift sdk";
     }
     
+    // Returns SDK version for using in statistics headers
     public func getSdkVersion() -> String {
         return "19.10.0";
     }

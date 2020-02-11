@@ -27,19 +27,28 @@
 
 import Foundation
 
+// Utility class for executing and processing requests to Cloud API
 public class ApiInvoker {
+    // An object containing the configuration for executing API requests 
     private let configuration : Configuration;
+    
+    // Cached value of oauth2 authorization tokeт. 
+    // It is filled after the first call to the API. 
+    // Mutex is used to synchronize updates in a multi-threaded environment.
     private let mutex : NSLock;
     private var accessTokenCache : String?;
     
+    // Maximum size of printing body content in debug mode
     private let maxDebugPrintingContentSize = 1024 * 1024; // 1Mb
     
+    // Initialize ApiInvoker object with specific configuration
     public init(configuration : Configuration) {
         self.configuration = configuration;
         self.mutex = NSLock();
         self.accessTokenCache = nil;
     }
     
+    // Internal class for represent API response
     private class InvokeResponse {
         public var data : Data?;
         public var errorCode : Int;
@@ -50,10 +59,12 @@ public class ApiInvoker {
         }
     }
     
+    // Internal struct for represent oauth2 authorization response
     private struct AccessTokenResult : Decodable {
         public var access_token : String?;
     }
     
+    // Invoke request to the API with the specified set of arguments and execute callback after the request is completed
     public func invoke(
         url: URL,
         method: String,
@@ -63,15 +74,18 @@ public class ApiInvoker {
         contentType: String = "application/json",
         callback: @escaping (_ response: Data?, _ error: Error?) -> ()
     ) {
+        // Create URL request object
         var request = URLRequest(url: url);
         request.httpMethod = method;
 
+        // Fill headers
         if (headers != nil) {
             for (key, value) in headers! {
                 request.setValue(value, forHTTPHeaderField: key);
             }
         }
         
+        // Process the request body
         if (body != nil) {
             request.httpBody = body;
             request.setValue(contentType, forHTTPHeaderField: "Content-Type");
@@ -81,6 +95,7 @@ public class ApiInvoker {
                 request.httpBody = (formParams!)[0].getBody();
             }
             else {
+                // Generate body for multiform requests
                 var needsClrf = false;
                 var formBody = Data();
                 let boundaryPrefix = "Somthing";
@@ -100,18 +115,24 @@ public class ApiInvoker {
             }
         }
         
+        // Set content length header
         if (request.httpBody != nil) {
             request.setValue(String(request.httpBody!.count), forHTTPHeaderField: "Content-Length");
         }
         
+        // Request or get from cache authorization token
         invokeAuthToken(forceTokenRequest: false, callback: { accessToken, statusCode in
             if (statusCode == 200) {
+                // When authorization is completed - invoke API request
                 self.invokeRequest(urlRequest: &request, accessToken: accessToken, callback: { response in
                     if (response.errorCode == 400) {
+                        // Update request token when API request returns 400 error
                         self.invokeAuthToken(forceTokenRequest: true, callback: { accessToken, statusCode in
                             if (statusCode == 200) {
+                                // Retry API request with new authorization token
                                 self.invokeRequest(urlRequest: &request, accessToken: accessToken, callback: { response in
                                     if (response.errorCode == 200) {
+                                        // Api request success
                                         callback(response.data, nil);
                                     }
                                     else {
@@ -125,6 +146,7 @@ public class ApiInvoker {
                         });
                     }
                     else if (response.errorCode == 200) {
+                        // Api request success
                         callback(response.data, nil);
                     }
                     else {
@@ -138,14 +160,18 @@ public class ApiInvoker {
         });
     }
     
+    // Invokes prepared request to the API. Callback returns a response from the API call
     private func invokeRequest(urlRequest : inout URLRequest, accessToken : String?, callback : @escaping (_ response: InvokeResponse) -> ()) {
+        // Set access token to request headers
         if (accessToken != nil) {
             urlRequest.setValue(accessToken!, forHTTPHeaderField: "Authorization");
         }
         
+        // Set statistic headers
         urlRequest.setValue(self.configuration.getSdkName(), forHTTPHeaderField: "x-aspose-client");
         urlRequest.setValue(self.configuration.getSdkVersion(), forHTTPHeaderField: "x-aspose-client-version");
         
+        // Print request when debug mode is enabled
         if (configuration.isDebugMode()) {
             print("REQUEST BEGIN");
             if (urlRequest.url?.absoluteString != nil) {
@@ -172,6 +198,7 @@ public class ApiInvoker {
             print("REQUEST END");
         }
 
+        // Execute request
         let result = URLSession.shared.dataTask(with: urlRequest, completionHandler: { d, r, e in
             let rawResponse = r as? HTTPURLResponse;
             let invokeResponse = InvokeResponse(errorCode: 408);
@@ -185,6 +212,7 @@ public class ApiInvoker {
                 invokeResponse.errorCode = 400;
             }
             
+            // Print response when debug mode is enabled
             if (self.configuration.isDebugMode()) {
                 print("RESPONSE BEGIN");
                 print("\tSTATUS CODE: \(invokeResponse.errorCode)");
@@ -214,6 +242,7 @@ public class ApiInvoker {
         result.resume();
     }
     
+    // Requests authorization token from server. After the first call, the token is cached and the cached value is used for future calls.
     private func invokeAuthToken(forceTokenRequest: Bool, callback : @escaping (_ accessToken: String?, _ statusCode: Int) -> ()) {
         var accessToken : String? = nil;
         if (!forceTokenRequest) {
