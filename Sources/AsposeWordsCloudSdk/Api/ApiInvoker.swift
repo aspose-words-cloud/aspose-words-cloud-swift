@@ -41,6 +41,12 @@ public class ApiInvoker {
     // Maximum size of printing body content in debug mode
     private let maxDebugPrintingContentSize = 1024 * 1024; // 1Mb
     
+    // Status codes for HTTP request
+    private let httpStatusCodeOK = 200;
+    private let httpStatusCodeBadRequest = 400;
+    private let httpStatusCodeUnauthorized = 401;
+    private let httpStatusCodeTimeout = 408;
+    
     // Initialize ApiInvoker object with specific configuration
     public init(configuration : Configuration) {
         self.configuration = configuration;
@@ -122,16 +128,16 @@ public class ApiInvoker {
         
         // Request or get from cache authorization token
         invokeAuthToken(forceTokenRequest: false, callback: { accessToken, statusCode in
-            if (statusCode == 200) {
+            if (statusCode == httpStatusCodeOK) {
                 // When authorization is completed - invoke API request
                 self.invokeRequest(urlRequest: &request, accessToken: accessToken, callback: { response in
-                    if (response.errorCode == 400) {
-                        // Update request token when API request returns 400 error
+                    if (response.errorCode == httpStatusCodeUnauthorized) {
+                        // Update request token when API request returns 401 error
                         self.invokeAuthToken(forceTokenRequest: true, callback: { accessToken, statusCode in
-                            if (statusCode == 200) {
+                            if (statusCode == httpStatusCodeOK) {
                                 // Retry API request with new authorization token
                                 self.invokeRequest(urlRequest: &request, accessToken: accessToken, callback: { response in
-                                    if (response.errorCode == 200) {
+                                    if (response.errorCode == httpStatusCodeOK) {
                                         // Api request success
                                         callback(response.data, nil);
                                     }
@@ -145,7 +151,7 @@ public class ApiInvoker {
                             }
                         });
                     }
-                    else if (response.errorCode == 200) {
+                    else if (response.errorCode == httpStatusCodeOK) {
                         // Api request success
                         callback(response.data, nil);
                     }
@@ -201,7 +207,7 @@ public class ApiInvoker {
         // Execute request
         let result = URLSession.shared.dataTask(with: urlRequest, completionHandler: { d, r, e in
             let rawResponse = r as? HTTPURLResponse;
-            let invokeResponse = InvokeResponse(errorCode: 408);
+            let invokeResponse = InvokeResponse(errorCode: httpStatusCodeTimeout);
 
             invokeResponse.data = d;
             if (rawResponse != nil) {
@@ -209,7 +215,7 @@ public class ApiInvoker {
                 invokeResponse.errorMessage = rawResponse!.description;
             }
             else {
-                invokeResponse.errorCode = 400;
+                invokeResponse.errorCode = httpStatusCodeBadRequest;
             }
             
             // Print response when debug mode is enabled
@@ -261,7 +267,7 @@ public class ApiInvoker {
             request.httpBody = "grant_type=client_credentials&client_id=\(configuration.getAppSid())&client_secret=\(configuration.getAppKey())".data(using: .utf8);
             invokeRequest(urlRequest: &request, accessToken: nil, callback: { response in
                 var newAccessToken : String? = nil;
-                if (response.errorCode == 200) {
+                if (response.errorCode == httpStatusCodeOK) {
                     do {
                         let result = try ObjectSerializer.deserialize(type: AccessTokenResult.self, from: response.data!);
                         if (result.access_token != nil) {
@@ -280,7 +286,7 @@ public class ApiInvoker {
             });
         }
         else {
-            callback(accessToken, 200);
+            callback(accessToken, httpStatusCodeOK);
         }
     }
 }
