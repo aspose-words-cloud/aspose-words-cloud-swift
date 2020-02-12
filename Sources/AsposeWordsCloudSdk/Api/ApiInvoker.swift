@@ -128,16 +128,16 @@ public class ApiInvoker {
         
         // Request or get from cache authorization token
         invokeAuthToken(forceTokenRequest: false, callback: { accessToken, statusCode in
-            if (statusCode == httpStatusCodeOK) {
+            if (statusCode == self.httpStatusCodeOK) {
                 // When authorization is completed - invoke API request
                 self.invokeRequest(urlRequest: &request, accessToken: accessToken, callback: { response in
-                    if (response.errorCode == httpStatusCodeUnauthorized) {
+                    if (response.errorCode == self.httpStatusCodeUnauthorized) {
                         // Update request token when API request returns 401 error
                         self.invokeAuthToken(forceTokenRequest: true, callback: { accessToken, statusCode in
-                            if (statusCode == httpStatusCodeOK) {
+                            if (statusCode == self.httpStatusCodeOK) {
                                 // Retry API request with new authorization token
                                 self.invokeRequest(urlRequest: &request, accessToken: accessToken, callback: { response in
-                                    if (response.errorCode == httpStatusCodeOK) {
+                                    if (response.errorCode == self.httpStatusCodeOK) {
                                         // Api request success
                                         callback(response.data, nil);
                                     }
@@ -151,7 +151,7 @@ public class ApiInvoker {
                             }
                         });
                     }
-                    else if (response.errorCode == httpStatusCodeOK) {
+                    else if (response.errorCode == self.httpStatusCodeOK) {
                         // Api request success
                         callback(response.data, nil);
                     }
@@ -207,7 +207,7 @@ public class ApiInvoker {
         // Execute request
         let result = URLSession.shared.dataTask(with: urlRequest, completionHandler: { d, r, e in
             let rawResponse = r as? HTTPURLResponse;
-            let invokeResponse = InvokeResponse(errorCode: httpStatusCodeTimeout);
+            let invokeResponse = InvokeResponse(errorCode: self.httpStatusCodeTimeout);
 
             invokeResponse.data = d;
             if (rawResponse != nil) {
@@ -215,7 +215,7 @@ public class ApiInvoker {
                 invokeResponse.errorMessage = rawResponse!.description;
             }
             else {
-                invokeResponse.errorCode = httpStatusCodeBadRequest;
+                invokeResponse.errorCode = self.httpStatusCodeBadRequest;
             }
             
             // Print response when debug mode is enabled
@@ -267,7 +267,7 @@ public class ApiInvoker {
             request.httpBody = "grant_type=client_credentials&client_id=\(configuration.getAppSid())&client_secret=\(configuration.getAppKey())".data(using: .utf8);
             invokeRequest(urlRequest: &request, accessToken: nil, callback: { response in
                 var newAccessToken : String? = nil;
-                if (response.errorCode == httpStatusCodeOK) {
+                if (response.errorCode == self.httpStatusCodeOK) {
                     do {
                         let result = try ObjectSerializer.deserialize(type: AccessTokenResult.self, from: response.data!);
                         if (result.access_token != nil) {
@@ -286,7 +286,7 @@ public class ApiInvoker {
             });
         }
         else {
-            callback(accessToken, httpStatusCodeOK);
+            callback(accessToken, self.httpStatusCodeOK);
         }
     }
 }
