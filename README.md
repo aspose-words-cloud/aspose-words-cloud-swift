@@ -33,7 +33,7 @@ targets: [
     // Targets can depend on other targets in this package, and on products in packages which this package depends on.
     .target(
         name: "YourTargetName",
-        dependencies: ["AsposeWordsCloudSdk"]
+        dependencies: ["AsposeWordsCloud"]
     ),
 ]
 
@@ -44,7 +44,7 @@ targets: [
 ```swift
 
 import Foundation;
-import AsposeWordsCloudSdk;
+import AsposeWordsCloud;
 
 let config = Configuration(appSid: "YOUR_APP_SID", appKey: "YOUR_APP_KEY");
 let wordsApi = WordsAPI(configuration: config);
@@ -54,7 +54,7 @@ let response = try wordsApi.createDocument(request: request);
 
 ```
 
-[Test](Tests/AsposeWordsCloudSdkTests) contain various examples of using the SDK.
+[Test](Tests/AsposeWordsCloudTests) contain various examples of using the SDK.
 Please put your credentials into "Settings/servercreds.json" for run tests.
 
 ## Dependencies

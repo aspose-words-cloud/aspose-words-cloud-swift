@@ -1,5 +1,5 @@
 import XCTest
-@testable import AsposeWordsCloudSdk
+@testable import AsposeWordsCloud
 
 class DocumentProtectionTests: BaseTestContext {
     static var allTests = [

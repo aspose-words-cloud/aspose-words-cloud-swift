@@ -1,9 +1,9 @@
 import XCTest
 import SwiftTestReporter
-import AsposeWordsCloudSdkTests
+import AsposeWordsCloudTests
 
 _ = TestObserver();
 
 var tests = [XCTestCaseEntry]()
-tests += AsposeWordsCloudSdkTests.allTests()
+tests += AsposeWordsCloudTests.allTests()
 XCTMain(tests)
