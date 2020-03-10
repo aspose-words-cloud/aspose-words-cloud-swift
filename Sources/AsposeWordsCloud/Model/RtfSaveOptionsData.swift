@@ -38,11 +38,15 @@ public class RtfSaveOptionsData : SaveOptionsData {
     
     // Field of prettyFormat. Gets or sets specifies whether or not use pretty formats output.      
     private var prettyFormat : Bool?;
+    
+    // Field of saveImagesAsWmf. Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.      
+    private var saveImagesAsWmf : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case exportCompactSize;
         case exportImagesForOldReaders;
         case prettyFormat;
+        case saveImagesAsWmf;
         case invalidCodingKey;
     }
         
@@ -56,6 +60,7 @@ public class RtfSaveOptionsData : SaveOptionsData {
         self.exportCompactSize = try container.decodeIfPresent(Bool.self, forKey: .exportCompactSize);
         self.exportImagesForOldReaders = try container.decodeIfPresent(Bool.self, forKey: .exportImagesForOldReaders);
         self.prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat);
+        self.saveImagesAsWmf = try container.decodeIfPresent(Bool.self, forKey: .saveImagesAsWmf);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -69,6 +74,9 @@ public class RtfSaveOptionsData : SaveOptionsData {
         }
         if (self.prettyFormat != nil) {
             try container.encode(self.prettyFormat, forKey: .prettyFormat);
+        }
+        if (self.saveImagesAsWmf != nil) {
+            try container.encode(self.saveImagesAsWmf, forKey: .saveImagesAsWmf);
         }
     }
     
@@ -100,5 +108,15 @@ public class RtfSaveOptionsData : SaveOptionsData {
     // Gets prettyFormat. Gets or sets specifies whether or not use pretty formats output.  
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
+    }
+    
+    // Sets saveImagesAsWmf. Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.  
+    public func setSaveImagesAsWmf(saveImagesAsWmf : Bool?) {
+        self.saveImagesAsWmf = saveImagesAsWmf;
+    }
+    
+    // Gets saveImagesAsWmf. Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.  
+    public func getSaveImagesAsWmf() -> Bool? {
+        return self.saveImagesAsWmf;
     }
 }
