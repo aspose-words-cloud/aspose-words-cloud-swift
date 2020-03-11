@@ -27,7 +27,7 @@
 
 import Foundation
 
-// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/{nodePath}/fields.
+// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/fields.
 public class FieldsResponse : WordsResponse {
     
     // Field of fields. Gets or sets collection of fields.      

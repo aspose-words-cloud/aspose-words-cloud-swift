@@ -27,7 +27,7 @@
 
 import Foundation
 
-// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font.
+// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font.
 public class FontResponse : WordsResponse {
     
     // Field of font. Gets or sets font.      
