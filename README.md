@@ -46,8 +46,7 @@ targets: [
 import Foundation;
 import AsposeWordsCloud;
 
-let config = Configuration(appSid: "YOUR_APP_SID", appKey: "YOUR_APP_KEY");
-let wordsApi = WordsAPI(configuration: config);
+let wordsApi = WordsAPI(appSid: "YOUR_APP_SID", appKey: "YOUR_APP_KEY");
 let fileName = "TestCreateDocument.doc";
 let request = CreateDocumentRequest(fileName: fileName);
 let response = try wordsApi.createDocument(request: request);
