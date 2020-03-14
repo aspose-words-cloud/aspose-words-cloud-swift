@@ -78,6 +78,33 @@ class ObjectSerializer {
         }
     }
     
+    // Serialize file stream as binary data
+    public static func serializeFile(value: InputStream) throws -> Data {
+        var result = Data();
+        value.open();
+        defer {
+            value.close();
+        }
+        
+        let bufferSize = 1024;
+        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: bufferSize);
+        defer {
+            buffer.deallocate();
+        }
+        while (value.hasBytesAvailable) {
+            let read = value.read(buffer, maxLength: bufferSize);
+            if (read < 0) {
+                //Stream error occured
+                throw value.streamError!;
+            } else if (read == 0) {
+                //EOF
+                break;
+            }
+            result.append(buffer, count: read);
+        }
+        return result;
+    }
+    
     // Serialize given object as binary data
     public static func serialize<T : Encodable>(value: T) throws -> Data {
         if (value is WordsApiModel) {

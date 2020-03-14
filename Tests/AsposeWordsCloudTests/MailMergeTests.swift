@@ -26,7 +26,7 @@ class MailMergeTests: BaseTestContext {
             .appendingPathComponent(mailMergeFolder, isDirectory: true)
             .appendingPathComponent("SampleExecuteTemplateData.txt", isDirectory: false);
         
-        let request = ExecuteMailMergeOnlineRequest(template: file, data: data);
+        let request = ExecuteMailMergeOnlineRequest(template: InputStream(url: file)!, data: InputStream(url: data)!);
         let result = try super.getApi().executeMailMergeOnline(request: request);
         XCTAssert(result.count > 0, "Error occurred while executing mail merge");
     }
@@ -74,7 +74,7 @@ class MailMergeTests: BaseTestContext {
             .appendingPathComponent(mailMergeFolder, isDirectory: true)
             .appendingPathComponent("SampleExecuteTemplateData.txt", isDirectory: false);
         
-        let request = ExecuteMailMergeOnlineRequest(template: file, data: data);
+        let request = ExecuteMailMergeOnlineRequest(template: InputStream(url: file)!, data: InputStream(url: data)!);
         let result = try super.getApi().executeMailMergeOnline(request: request);
         XCTAssert(result.count > 0, "Error occurred while executing template");
     }
@@ -95,7 +95,7 @@ class MailMergeTests: BaseTestContext {
             .appendingPathComponent(mailMergeFolder, isDirectory: true)
             .appendingPathComponent("SampleExecuteTemplate.docx", isDirectory: false);
         
-        let request = GetDocumentFieldNamesOnlineRequest(template: file, useNonMergeFields: true);
+        let request = GetDocumentFieldNamesOnlineRequest(template: InputStream(url: file)!, useNonMergeFields: true);
         let actual = try super.getApi().getDocumentFieldNamesOnline(request: request);
         XCTAssert(actual.getFieldNames()?.getNames()?.count ?? 0 > 0);
     }

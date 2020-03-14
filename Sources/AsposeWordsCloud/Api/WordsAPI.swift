@@ -453,7 +453,7 @@ public class WordsAPI {
             
             
             var formParams : [RequestFormParam] = [];
-            formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serialize(value: request.getDocument())));
+            formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: request.getDocument())));
             
             apiInvoker.invoke(
                 url: urlBuilder.url!,
@@ -3226,8 +3226,8 @@ public class WordsAPI {
             
             
             var formParams : [RequestFormParam] = [];
-            formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serialize(value: request.getTemplate())));
-            formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: request.getData())));
+            formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: request.getTemplate())));
+            formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serializeFile(value: request.getData())));
             
             apiInvoker.invoke(
                 url: urlBuilder.url!,
@@ -4509,7 +4509,7 @@ public class WordsAPI {
             
             
             var formParams : [RequestFormParam] = [];
-            formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serialize(value: request.getTemplate())));
+            formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: request.getTemplate())));
             
             apiInvoker.invoke(
                 url: urlBuilder.url!,
@@ -8438,7 +8438,7 @@ public class WordsAPI {
             
             var formParams : [RequestFormParam] = [];
             formParams.append(RequestFormParam(name: "drawingObject", body: try ObjectSerializer.serialize(value: request.getDrawingObject())));
-            formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serialize(value: request.getImageFile())));
+            formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: request.getImageFile())));
             
             apiInvoker.invoke(
                 url: urlBuilder.url!,
@@ -8524,7 +8524,7 @@ public class WordsAPI {
             
             var formParams : [RequestFormParam] = [];
             formParams.append(RequestFormParam(name: "drawingObject", body: try ObjectSerializer.serialize(value: request.getDrawingObject())));
-            formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serialize(value: request.getImageFile())));
+            formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: request.getImageFile())));
             
             apiInvoker.invoke(
                 url: urlBuilder.url!,
@@ -9805,7 +9805,7 @@ public class WordsAPI {
             
             var formParams : [RequestFormParam] = [];
             if (request.getImageFile() != nil) {
-                formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serialize(value: request.getImageFile()!)));
+                formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: request.getImageFile()!)));
             }
             
             apiInvoker.invoke(
@@ -12004,7 +12004,7 @@ public class WordsAPI {
             
             var formParams : [RequestFormParam] = [];
             formParams.append(RequestFormParam(name: "drawingObject", body: try ObjectSerializer.serialize(value: request.getDrawingObject())));
-            formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serialize(value: request.getImageFile())));
+            formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: request.getImageFile())));
             
             apiInvoker.invoke(
                 url: urlBuilder.url!,
@@ -12091,7 +12091,7 @@ public class WordsAPI {
             
             var formParams : [RequestFormParam] = [];
             formParams.append(RequestFormParam(name: "drawingObject", body: try ObjectSerializer.serialize(value: request.getDrawingObject())));
-            formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serialize(value: request.getImageFile())));
+            formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: request.getImageFile())));
             
             apiInvoker.invoke(
                 url: urlBuilder.url!,
@@ -13336,7 +13336,7 @@ public class WordsAPI {
             
             
             var formParams : [RequestFormParam] = [];
-            formParams.append(RequestFormParam(name: "fileContent", body: try ObjectSerializer.serialize(value: request.getFileContent())));
+            formParams.append(RequestFormParam(name: "fileContent", body: try ObjectSerializer.serializeFile(value: request.getFileContent())));
             
             apiInvoker.invoke(
                 url: urlBuilder.url!,

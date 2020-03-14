@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getFilesList operation.
-public class GetFilesListRequest : Encodable, WordsApiModel {
+public class GetFilesListRequest {
     private let path : String;
     private let storageName : String?;
     
@@ -42,14 +42,6 @@ public class GetFilesListRequest : Encodable, WordsApiModel {
     public init(path : String, storageName : String? = nil) {
         self.path = path;
         self.storageName = storageName;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.path, forKey: .path);
-        if (self.storageName != nil) {
-            try container.encode(self.storageName, forKey: .storageName);
-        }
     }
     
     // Folder path e.g. /Folder1

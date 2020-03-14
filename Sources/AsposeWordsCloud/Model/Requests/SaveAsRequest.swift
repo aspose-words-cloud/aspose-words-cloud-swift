@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for saveAs operation.
-public class SaveAsRequest : Encodable, WordsApiModel {
+public class SaveAsRequest {
     private let name : String;
     private let saveOptionsData : SaveOptionsData;
     private let folder : String?;
@@ -57,27 +57,6 @@ public class SaveAsRequest : Encodable, WordsApiModel {
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.fontsLocation = fontsLocation;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.name, forKey: .name);
-        try container.encode(self.saveOptionsData, forKey: .saveOptionsData);
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
-        if (self.fontsLocation != nil) {
-            try container.encode(self.fontsLocation, forKey: .fontsLocation);
-        }
     }
     
     // The document name.

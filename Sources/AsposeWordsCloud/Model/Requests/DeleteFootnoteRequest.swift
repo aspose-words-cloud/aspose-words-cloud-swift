@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for deleteFootnote operation.
-public class DeleteFootnoteRequest : Encodable, WordsApiModel {
+public class DeleteFootnoteRequest {
     private let name : String;
     private let nodePath : String;
     private let index : Int;
@@ -66,34 +66,6 @@ public class DeleteFootnoteRequest : Encodable, WordsApiModel {
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.name, forKey: .name);
-        try container.encode(self.nodePath, forKey: .nodePath);
-        try container.encode(self.index, forKey: .index);
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
-        if (self.destFileName != nil) {
-            try container.encode(self.destFileName, forKey: .destFileName);
-        }
-        if (self.revisionAuthor != nil) {
-            try container.encode(self.revisionAuthor, forKey: .revisionAuthor);
-        }
-        if (self.revisionDateTime != nil) {
-            try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
-        }
     }
     
     // The document name.

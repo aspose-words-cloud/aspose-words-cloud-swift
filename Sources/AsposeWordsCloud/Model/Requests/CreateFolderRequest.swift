@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for createFolder operation.
-public class CreateFolderRequest : Encodable, WordsApiModel {
+public class CreateFolderRequest {
     private let path : String;
     private let storageName : String?;
     
@@ -42,14 +42,6 @@ public class CreateFolderRequest : Encodable, WordsApiModel {
     public init(path : String, storageName : String? = nil) {
         self.path = path;
         self.storageName = storageName;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.path, forKey: .path);
-        if (self.storageName != nil) {
-            try container.encode(self.storageName, forKey: .storageName);
-        }
     }
     
     // Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively

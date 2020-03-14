@@ -28,8 +28,8 @@
 import Foundation
 
 // Request model for convertDocument operation.
-public class ConvertDocumentRequest : Encodable, WordsApiModel {
-    private let document : URL;
+public class ConvertDocumentRequest {
+    private let document : InputStream;
     private let format : String;
     private let storage : String?;
     private let outPath : String?;
@@ -47,7 +47,7 @@ public class ConvertDocumentRequest : Encodable, WordsApiModel {
     }
     
     // Initializes a new instance of the convertDocumentRequest class.
-    public init(document : URL, format : String, storage : String? = nil, outPath : String? = nil, fileNameFieldValue : String? = nil, fontsLocation : String? = nil) {
+    public init(document : InputStream, format : String, storage : String? = nil, outPath : String? = nil, fileNameFieldValue : String? = nil, fontsLocation : String? = nil) {
         self.document = document;
         self.format = format;
         self.storage = storage;
@@ -55,27 +55,9 @@ public class ConvertDocumentRequest : Encodable, WordsApiModel {
         self.fileNameFieldValue = fileNameFieldValue;
         self.fontsLocation = fontsLocation;
     }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.document, forKey: .document);
-        try container.encode(self.format, forKey: .format);
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.outPath != nil) {
-            try container.encode(self.outPath, forKey: .outPath);
-        }
-        if (self.fileNameFieldValue != nil) {
-            try container.encode(self.fileNameFieldValue, forKey: .fileNameFieldValue);
-        }
-        if (self.fontsLocation != nil) {
-            try container.encode(self.fontsLocation, forKey: .fontsLocation);
-        }
-    }
     
     // Converting document
-    public func getDocument() -> URL {
+    public func getDocument() -> InputStream {
         return self.document;
     }
     

@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for insertField operation.
-public class InsertFieldRequest : Encodable, WordsApiModel {
+public class InsertFieldRequest {
     private let name : String;
     private let field : Field;
     private let nodePath : String;
@@ -69,37 +69,6 @@ public class InsertFieldRequest : Encodable, WordsApiModel {
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
         self.insertBeforeNode = insertBeforeNode;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.name, forKey: .name);
-        try container.encode(self.field, forKey: .field);
-        try container.encode(self.nodePath, forKey: .nodePath);
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
-        if (self.destFileName != nil) {
-            try container.encode(self.destFileName, forKey: .destFileName);
-        }
-        if (self.revisionAuthor != nil) {
-            try container.encode(self.revisionAuthor, forKey: .revisionAuthor);
-        }
-        if (self.revisionDateTime != nil) {
-            try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
-        }
-        if (self.insertBeforeNode != nil) {
-            try container.encode(self.insertBeforeNode, forKey: .insertBeforeNode);
-        }
     }
     
     // The document name.

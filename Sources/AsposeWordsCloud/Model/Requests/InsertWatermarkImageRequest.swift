@@ -28,9 +28,9 @@
 import Foundation
 
 // Request model for insertWatermarkImage operation.
-public class InsertWatermarkImageRequest : Encodable, WordsApiModel {
+public class InsertWatermarkImageRequest {
     private let name : String;
-    private let imageFile : URL?;
+    private let imageFile : InputStream?;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -57,7 +57,7 @@ public class InsertWatermarkImageRequest : Encodable, WordsApiModel {
     }
     
     // Initializes a new instance of the insertWatermarkImageRequest class.
-    public init(name : String, imageFile : URL? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, rotationAngle : Double? = nil, image : String? = nil) {
+    public init(name : String, imageFile : InputStream? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, rotationAngle : Double? = nil, image : String? = nil) {
         self.name = name;
         self.imageFile = imageFile;
         self.folder = folder;
@@ -70,41 +70,6 @@ public class InsertWatermarkImageRequest : Encodable, WordsApiModel {
         self.rotationAngle = rotationAngle;
         self.image = image;
     }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.name, forKey: .name);
-        if (self.imageFile != nil) {
-            try container.encode(self.imageFile, forKey: .imageFile);
-        }
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
-        if (self.destFileName != nil) {
-            try container.encode(self.destFileName, forKey: .destFileName);
-        }
-        if (self.revisionAuthor != nil) {
-            try container.encode(self.revisionAuthor, forKey: .revisionAuthor);
-        }
-        if (self.revisionDateTime != nil) {
-            try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
-        }
-        if (self.rotationAngle != nil) {
-            try container.encode(self.rotationAngle, forKey: .rotationAngle);
-        }
-        if (self.image != nil) {
-            try container.encode(self.image, forKey: .image);
-        }
-    }
     
     // The document name.
     public func getName() -> String {
@@ -112,7 +77,7 @@ public class InsertWatermarkImageRequest : Encodable, WordsApiModel {
     }
     
     // File with image
-    public func getImageFile() -> URL? {
+    public func getImageFile() -> InputStream? {
         return self.imageFile;
     }
     

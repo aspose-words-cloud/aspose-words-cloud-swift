@@ -28,9 +28,9 @@
 import Foundation
 
 // Request model for executeMailMergeOnline operation.
-public class ExecuteMailMergeOnlineRequest : Encodable, WordsApiModel {
-    private let template : URL;
-    private let data : URL;
+public class ExecuteMailMergeOnlineRequest {
+    private let template : InputStream;
+    private let data : InputStream;
     private let withRegions : Bool?;
     private let cleanup : String?;
     private let documentFileName : String?;
@@ -45,36 +45,21 @@ public class ExecuteMailMergeOnlineRequest : Encodable, WordsApiModel {
     }
     
     // Initializes a new instance of the executeMailMergeOnlineRequest class.
-    public init(template : URL, data : URL, withRegions : Bool? = nil, cleanup : String? = nil, documentFileName : String? = nil) {
+    public init(template : InputStream, data : InputStream, withRegions : Bool? = nil, cleanup : String? = nil, documentFileName : String? = nil) {
         self.template = template;
         self.data = data;
         self.withRegions = withRegions;
         self.cleanup = cleanup;
         self.documentFileName = documentFileName;
     }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.template, forKey: .template);
-        try container.encode(self.data, forKey: .data);
-        if (self.withRegions != nil) {
-            try container.encode(self.withRegions, forKey: .withRegions);
-        }
-        if (self.cleanup != nil) {
-            try container.encode(self.cleanup, forKey: .cleanup);
-        }
-        if (self.documentFileName != nil) {
-            try container.encode(self.documentFileName, forKey: .documentFileName);
-        }
-    }
     
     // File with template
-    public func getTemplate() -> URL {
+    public func getTemplate() -> InputStream {
         return self.template;
     }
     
     // File with mailmerge data
-    public func getData() -> URL {
+    public func getData() -> InputStream {
         return self.data;
     }
     

@@ -28,10 +28,10 @@
 import Foundation
 
 // Request model for insertDrawingObjectWithoutNodePath operation.
-public class InsertDrawingObjectWithoutNodePathRequest : Encodable, WordsApiModel {
+public class InsertDrawingObjectWithoutNodePathRequest {
     private let name : String;
     private let drawingObject : String;
-    private let imageFile : URL;
+    private let imageFile : InputStream;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -55,7 +55,7 @@ public class InsertDrawingObjectWithoutNodePathRequest : Encodable, WordsApiMode
     }
     
     // Initializes a new instance of the insertDrawingObjectWithoutNodePathRequest class.
-    public init(name : String, drawingObject : String, imageFile : URL, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, drawingObject : String, imageFile : InputStream, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.drawingObject = drawingObject;
         self.imageFile = imageFile;
@@ -66,34 +66,6 @@ public class InsertDrawingObjectWithoutNodePathRequest : Encodable, WordsApiMode
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.name, forKey: .name);
-        try container.encode(self.drawingObject, forKey: .drawingObject);
-        try container.encode(self.imageFile, forKey: .imageFile);
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
-        if (self.destFileName != nil) {
-            try container.encode(self.destFileName, forKey: .destFileName);
-        }
-        if (self.revisionAuthor != nil) {
-            try container.encode(self.revisionAuthor, forKey: .revisionAuthor);
-        }
-        if (self.revisionDateTime != nil) {
-            try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
-        }
     }
     
     // The document name.
@@ -107,7 +79,7 @@ public class InsertDrawingObjectWithoutNodePathRequest : Encodable, WordsApiMode
     }
     
     // File with image
-    public func getImageFile() -> URL {
+    public func getImageFile() -> InputStream {
         return self.imageFile;
     }
     

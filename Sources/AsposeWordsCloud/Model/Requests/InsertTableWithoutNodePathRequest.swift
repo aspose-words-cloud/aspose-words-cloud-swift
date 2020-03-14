@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for insertTableWithoutNodePath operation.
-public class InsertTableWithoutNodePathRequest : Encodable, WordsApiModel {
+public class InsertTableWithoutNodePathRequest {
     private let name : String;
     private let folder : String?;
     private let storage : String?;
@@ -63,35 +63,6 @@ public class InsertTableWithoutNodePathRequest : Encodable, WordsApiModel {
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
         self.table = table;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.name, forKey: .name);
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
-        if (self.destFileName != nil) {
-            try container.encode(self.destFileName, forKey: .destFileName);
-        }
-        if (self.revisionAuthor != nil) {
-            try container.encode(self.revisionAuthor, forKey: .revisionAuthor);
-        }
-        if (self.revisionDateTime != nil) {
-            try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
-        }
-        if (self.table != nil) {
-            try container.encode(self.table, forKey: .table);
-        }
     }
     
     // The document name.

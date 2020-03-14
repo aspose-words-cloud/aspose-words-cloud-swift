@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for moveFolder operation.
-public class MoveFolderRequest : Encodable, WordsApiModel {
+public class MoveFolderRequest {
     private let destPath : String;
     private let srcPath : String;
     private let srcStorageName : String?;
@@ -48,18 +48,6 @@ public class MoveFolderRequest : Encodable, WordsApiModel {
         self.srcPath = srcPath;
         self.srcStorageName = srcStorageName;
         self.destStorageName = destStorageName;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.destPath, forKey: .destPath);
-        try container.encode(self.srcPath, forKey: .srcPath);
-        if (self.srcStorageName != nil) {
-            try container.encode(self.srcStorageName, forKey: .srcStorageName);
-        }
-        if (self.destStorageName != nil) {
-            try container.encode(self.destStorageName, forKey: .destStorageName);
-        }
     }
     
     // Destination folder path to move to e.g '/dst'

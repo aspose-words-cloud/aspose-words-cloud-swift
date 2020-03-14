@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for executeMailMerge operation.
-public class ExecuteMailMergeRequest : Encodable, WordsApiModel {
+public class ExecuteMailMergeRequest {
     private let name : String;
     private let data : String?;
     private let folder : String?;
@@ -69,41 +69,6 @@ public class ExecuteMailMergeRequest : Encodable, WordsApiModel {
         self.cleanup = cleanup;
         self.useWholeParagraphAsRegion = useWholeParagraphAsRegion;
         self.destFileName = destFileName;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.name, forKey: .name);
-        if (self.data != nil) {
-            try container.encode(self.data, forKey: .data);
-        }
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
-        if (self.withRegions != nil) {
-            try container.encode(self.withRegions, forKey: .withRegions);
-        }
-        if (self.mailMergeDataFile != nil) {
-            try container.encode(self.mailMergeDataFile, forKey: .mailMergeDataFile);
-        }
-        if (self.cleanup != nil) {
-            try container.encode(self.cleanup, forKey: .cleanup);
-        }
-        if (self.useWholeParagraphAsRegion != nil) {
-            try container.encode(self.useWholeParagraphAsRegion, forKey: .useWholeParagraphAsRegion);
-        }
-        if (self.destFileName != nil) {
-            try container.encode(self.destFileName, forKey: .destFileName);
-        }
     }
     
     // The document name.

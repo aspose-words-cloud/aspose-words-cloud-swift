@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for deleteFolder operation.
-public class DeleteFolderRequest : Encodable, WordsApiModel {
+public class DeleteFolderRequest {
     private let path : String;
     private let storageName : String?;
     private let recursive : Bool?;
@@ -45,17 +45,6 @@ public class DeleteFolderRequest : Encodable, WordsApiModel {
         self.path = path;
         self.storageName = storageName;
         self.recursive = recursive;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.path, forKey: .path);
-        if (self.storageName != nil) {
-            try container.encode(self.storageName, forKey: .storageName);
-        }
-        if (self.recursive != nil) {
-            try container.encode(self.recursive, forKey: .recursive);
-        }
     }
     
     // Folder path e.g. /Folder1s

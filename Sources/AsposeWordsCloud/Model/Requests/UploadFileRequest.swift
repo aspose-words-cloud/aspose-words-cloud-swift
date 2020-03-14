@@ -28,8 +28,8 @@
 import Foundation
 
 // Request model for uploadFile operation.
-public class UploadFileRequest : Encodable, WordsApiModel {
-    private let fileContent : URL;
+public class UploadFileRequest {
+    private let fileContent : InputStream;
     private let path : String;
     private let storageName : String?;
     
@@ -41,23 +41,14 @@ public class UploadFileRequest : Encodable, WordsApiModel {
     }
     
     // Initializes a new instance of the uploadFileRequest class.
-    public init(fileContent : URL, path : String, storageName : String? = nil) {
+    public init(fileContent : InputStream, path : String, storageName : String? = nil) {
         self.fileContent = fileContent;
         self.path = path;
         self.storageName = storageName;
     }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.fileContent, forKey: .fileContent);
-        try container.encode(self.path, forKey: .path);
-        if (self.storageName != nil) {
-            try container.encode(self.storageName, forKey: .storageName);
-        }
-    }
     
     // File to upload
-    public func getFileContent() -> URL {
+    public func getFileContent() -> InputStream {
         return self.fileContent;
     }
     

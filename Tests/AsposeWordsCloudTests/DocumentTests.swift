@@ -310,7 +310,8 @@ class DocumentTests: BaseTestContext {
             .appendingPathComponent("ConvertDocument", isDirectory: true)
             .appendingPathComponent("test_uploadfile.docx", isDirectory: false);
 
-        let request = ConvertDocumentRequest(document: localPath, format: format);
+        let docStream = InputStream(url: localPath)!;
+        let request = ConvertDocumentRequest(document: docStream, format: format);
         let result = try super.getApi().convertDocument(request : request);
         XCTAssert(result.count > 0);
     }

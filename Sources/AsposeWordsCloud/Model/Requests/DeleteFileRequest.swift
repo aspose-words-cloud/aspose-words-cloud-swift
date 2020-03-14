@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for deleteFile operation.
-public class DeleteFileRequest : Encodable, WordsApiModel {
+public class DeleteFileRequest {
     private let path : String;
     private let storageName : String?;
     private let versionId : String?;
@@ -45,17 +45,6 @@ public class DeleteFileRequest : Encodable, WordsApiModel {
         self.path = path;
         self.storageName = storageName;
         self.versionId = versionId;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.path, forKey: .path);
-        if (self.storageName != nil) {
-            try container.encode(self.storageName, forKey: .storageName);
-        }
-        if (self.versionId != nil) {
-            try container.encode(self.versionId, forKey: .versionId);
-        }
     }
     
     // Path of the file including file name and extension e.g. /Folder1/file.ext

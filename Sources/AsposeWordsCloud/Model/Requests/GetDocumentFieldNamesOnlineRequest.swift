@@ -28,8 +28,8 @@
 import Foundation
 
 // Request model for getDocumentFieldNamesOnline operation.
-public class GetDocumentFieldNamesOnlineRequest : Encodable, WordsApiModel {
-    private let template : URL;
+public class GetDocumentFieldNamesOnlineRequest {
+    private let template : InputStream;
     private let useNonMergeFields : Bool?;
     
     private enum CodingKeys: String, CodingKey {
@@ -39,21 +39,13 @@ public class GetDocumentFieldNamesOnlineRequest : Encodable, WordsApiModel {
     }
     
     // Initializes a new instance of the getDocumentFieldNamesOnlineRequest class.
-    public init(template : URL, useNonMergeFields : Bool? = nil) {
+    public init(template : InputStream, useNonMergeFields : Bool? = nil) {
         self.template = template;
         self.useNonMergeFields = useNonMergeFields;
     }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.template, forKey: .template);
-        if (self.useNonMergeFields != nil) {
-            try container.encode(self.useNonMergeFields, forKey: .useNonMergeFields);
-        }
-    }
     
     // File with template
-    public func getTemplate() -> URL {
+    public func getTemplate() -> InputStream {
         return self.template;
     }
     
