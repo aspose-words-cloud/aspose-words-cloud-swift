@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getDocumentStatistics operation.
-public class GetDocumentStatisticsRequest : Encodable, WordsApiModel {
+public class GetDocumentStatisticsRequest {
     private let name : String;
     private let folder : String?;
     private let storage : String?;
@@ -60,32 +60,6 @@ public class GetDocumentStatisticsRequest : Encodable, WordsApiModel {
         self.includeComments = includeComments;
         self.includeFootnotes = includeFootnotes;
         self.includeTextInShapes = includeTextInShapes;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.name, forKey: .name);
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
-        if (self.includeComments != nil) {
-            try container.encode(self.includeComments, forKey: .includeComments);
-        }
-        if (self.includeFootnotes != nil) {
-            try container.encode(self.includeFootnotes, forKey: .includeFootnotes);
-        }
-        if (self.includeTextInShapes != nil) {
-            try container.encode(self.includeTextInShapes, forKey: .includeTextInShapes);
-        }
     }
     
     // The document name.

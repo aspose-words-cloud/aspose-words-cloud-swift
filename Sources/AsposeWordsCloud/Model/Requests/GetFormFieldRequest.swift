@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getFormField operation.
-public class GetFormFieldRequest : Encodable, WordsApiModel {
+public class GetFormFieldRequest {
     private let name : String;
     private let nodePath : String;
     private let index : Int;
@@ -57,25 +57,6 @@ public class GetFormFieldRequest : Encodable, WordsApiModel {
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.name, forKey: .name);
-        try container.encode(self.nodePath, forKey: .nodePath);
-        try container.encode(self.index, forKey: .index);
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
     }
     
     // The document name.

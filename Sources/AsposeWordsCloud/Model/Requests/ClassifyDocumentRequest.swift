@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for classifyDocument operation.
-public class ClassifyDocumentRequest : Encodable, WordsApiModel {
+public class ClassifyDocumentRequest {
     private let documentName : String;
     private let folder : String?;
     private let storage : String?;
@@ -57,29 +57,6 @@ public class ClassifyDocumentRequest : Encodable, WordsApiModel {
         self.password = password;
         self.bestClassesCount = bestClassesCount;
         self.taxonomy = taxonomy;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.documentName, forKey: .documentName);
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
-        if (self.bestClassesCount != nil) {
-            try container.encode(self.bestClassesCount, forKey: .bestClassesCount);
-        }
-        if (self.taxonomy != nil) {
-            try container.encode(self.taxonomy, forKey: .taxonomy);
-        }
     }
     
     // The document name.

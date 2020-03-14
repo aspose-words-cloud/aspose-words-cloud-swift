@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getSection operation.
-public class GetSectionRequest : Encodable, WordsApiModel {
+public class GetSectionRequest {
     private let name : String;
     private let sectionIndex : Int;
     private let folder : String?;
@@ -54,24 +54,6 @@ public class GetSectionRequest : Encodable, WordsApiModel {
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.name, forKey: .name);
-        try container.encode(self.sectionIndex, forKey: .sectionIndex);
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
     }
     
     // The document name.

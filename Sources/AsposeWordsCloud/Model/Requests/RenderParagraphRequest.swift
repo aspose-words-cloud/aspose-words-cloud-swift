@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for renderParagraph operation.
-public class RenderParagraphRequest : Encodable, WordsApiModel {
+public class RenderParagraphRequest {
     private let name : String;
     private let format : String;
     private let nodePath : String;
@@ -63,29 +63,6 @@ public class RenderParagraphRequest : Encodable, WordsApiModel {
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.fontsLocation = fontsLocation;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.name, forKey: .name);
-        try container.encode(self.format, forKey: .format);
-        try container.encode(self.nodePath, forKey: .nodePath);
-        try container.encode(self.index, forKey: .index);
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
-        if (self.fontsLocation != nil) {
-            try container.encode(self.fontsLocation, forKey: .fontsLocation);
-        }
     }
     
     // The document name.

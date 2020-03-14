@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for saveAsTiff operation.
-public class SaveAsTiffRequest : Encodable, WordsApiModel {
+public class SaveAsTiffRequest {
     private let name : String;
     private let saveOptions : TiffSaveOptionsData;
     private let folder : String?;
@@ -108,78 +108,6 @@ public class SaveAsTiffRequest : Encodable, WordsApiModel {
         self.tiffBinarizationMethod = tiffBinarizationMethod;
         self.zipOutput = zipOutput;
         self.fontsLocation = fontsLocation;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.name, forKey: .name);
-        try container.encode(self.saveOptions, forKey: .saveOptions);
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
-        if (self.useAntiAliasing != nil) {
-            try container.encode(self.useAntiAliasing, forKey: .useAntiAliasing);
-        }
-        if (self.useHighQualityRendering != nil) {
-            try container.encode(self.useHighQualityRendering, forKey: .useHighQualityRendering);
-        }
-        if (self.imageBrightness != nil) {
-            try container.encode(self.imageBrightness, forKey: .imageBrightness);
-        }
-        if (self.imageColorMode != nil) {
-            try container.encode(self.imageColorMode, forKey: .imageColorMode);
-        }
-        if (self.imageContrast != nil) {
-            try container.encode(self.imageContrast, forKey: .imageContrast);
-        }
-        if (self.numeralFormat != nil) {
-            try container.encode(self.numeralFormat, forKey: .numeralFormat);
-        }
-        if (self.pageCount != nil) {
-            try container.encode(self.pageCount, forKey: .pageCount);
-        }
-        if (self.pageIndex != nil) {
-            try container.encode(self.pageIndex, forKey: .pageIndex);
-        }
-        if (self.paperColor != nil) {
-            try container.encode(self.paperColor, forKey: .paperColor);
-        }
-        if (self.pixelFormat != nil) {
-            try container.encode(self.pixelFormat, forKey: .pixelFormat);
-        }
-        if (self.resolution != nil) {
-            try container.encode(self.resolution, forKey: .resolution);
-        }
-        if (self.scale != nil) {
-            try container.encode(self.scale, forKey: .scale);
-        }
-        if (self.tiffCompression != nil) {
-            try container.encode(self.tiffCompression, forKey: .tiffCompression);
-        }
-        if (self.dmlRenderingMode != nil) {
-            try container.encode(self.dmlRenderingMode, forKey: .dmlRenderingMode);
-        }
-        if (self.dmlEffectsRenderingMode != nil) {
-            try container.encode(self.dmlEffectsRenderingMode, forKey: .dmlEffectsRenderingMode);
-        }
-        if (self.tiffBinarizationMethod != nil) {
-            try container.encode(self.tiffBinarizationMethod, forKey: .tiffBinarizationMethod);
-        }
-        if (self.zipOutput != nil) {
-            try container.encode(self.zipOutput, forKey: .zipOutput);
-        }
-        if (self.fontsLocation != nil) {
-            try container.encode(self.fontsLocation, forKey: .fontsLocation);
-        }
     }
     
     // The document name.

@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for splitDocument operation.
-public class SplitDocumentRequest : Encodable, WordsApiModel {
+public class SplitDocumentRequest {
     private let name : String;
     private let folder : String?;
     private let storage : String?;
@@ -69,41 +69,6 @@ public class SplitDocumentRequest : Encodable, WordsApiModel {
         self.to = to;
         self.zipOutput = zipOutput;
         self.fontsLocation = fontsLocation;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.name, forKey: .name);
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
-        if (self.destFileName != nil) {
-            try container.encode(self.destFileName, forKey: .destFileName);
-        }
-        if (self.format != nil) {
-            try container.encode(self.format, forKey: .format);
-        }
-        if (self.from != nil) {
-            try container.encode(self.from, forKey: .from);
-        }
-        if (self.to != nil) {
-            try container.encode(self.to, forKey: .to);
-        }
-        if (self.zipOutput != nil) {
-            try container.encode(self.zipOutput, forKey: .zipOutput);
-        }
-        if (self.fontsLocation != nil) {
-            try container.encode(self.fontsLocation, forKey: .fontsLocation);
-        }
     }
     
     // Original document name.

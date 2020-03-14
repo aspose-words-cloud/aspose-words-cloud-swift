@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for deleteHeadersFooters operation.
-public class DeleteHeadersFootersRequest : Encodable, WordsApiModel {
+public class DeleteHeadersFootersRequest {
     private let name : String;
     private let sectionPath : String;
     private let folder : String?;
@@ -66,36 +66,6 @@ public class DeleteHeadersFootersRequest : Encodable, WordsApiModel {
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
         self.headersFootersTypes = headersFootersTypes;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.name, forKey: .name);
-        try container.encode(self.sectionPath, forKey: .sectionPath);
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
-        if (self.destFileName != nil) {
-            try container.encode(self.destFileName, forKey: .destFileName);
-        }
-        if (self.revisionAuthor != nil) {
-            try container.encode(self.revisionAuthor, forKey: .revisionAuthor);
-        }
-        if (self.revisionDateTime != nil) {
-            try container.encode(self.revisionDateTime, forKey: .revisionDateTime);
-        }
-        if (self.headersFootersTypes != nil) {
-            try container.encode(self.headersFootersTypes, forKey: .headersFootersTypes);
-        }
     }
     
     // The document name.

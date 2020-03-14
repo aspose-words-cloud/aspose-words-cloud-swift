@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for rejectAllRevisions operation.
-public class RejectAllRevisionsRequest : Encodable, WordsApiModel {
+public class RejectAllRevisionsRequest {
     private let name : String;
     private let folder : String?;
     private let storage : String?;
@@ -54,26 +54,6 @@ public class RejectAllRevisionsRequest : Encodable, WordsApiModel {
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.destFileName = destFileName;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.name, forKey: .name);
-        if (self.folder != nil) {
-            try container.encode(self.folder, forKey: .folder);
-        }
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
-        if (self.loadEncoding != nil) {
-            try container.encode(self.loadEncoding, forKey: .loadEncoding);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
-        if (self.destFileName != nil) {
-            try container.encode(self.destFileName, forKey: .destFileName);
-        }
     }
     
     // The document name.

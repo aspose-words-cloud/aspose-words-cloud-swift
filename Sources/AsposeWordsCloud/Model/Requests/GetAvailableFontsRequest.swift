@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getAvailableFonts operation.
-public class GetAvailableFontsRequest : Encodable, WordsApiModel {
+public class GetAvailableFontsRequest {
     private let fontsLocation : String?;
     
     private enum CodingKeys: String, CodingKey {
@@ -39,13 +39,6 @@ public class GetAvailableFontsRequest : Encodable, WordsApiModel {
     // Initializes a new instance of the getAvailableFontsRequest class.
     public init(fontsLocation : String? = nil) {
         self.fontsLocation = fontsLocation;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.fontsLocation != nil) {
-            try container.encode(self.fontsLocation, forKey: .fontsLocation);
-        }
     }
     
     // Folder in filestorage with custom fonts.

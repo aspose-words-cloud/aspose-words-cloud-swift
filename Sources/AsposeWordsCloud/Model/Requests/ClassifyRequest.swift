@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for classify operation.
-public class ClassifyRequest : Encodable, WordsApiModel {
+public class ClassifyRequest {
     private let text : String;
     private let bestClassesCount : String?;
     
@@ -42,14 +42,6 @@ public class ClassifyRequest : Encodable, WordsApiModel {
     public init(text : String, bestClassesCount : String? = nil) {
         self.text = text;
         self.bestClassesCount = bestClassesCount;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.text, forKey: .text);
-        if (self.bestClassesCount != nil) {
-            try container.encode(self.bestClassesCount, forKey: .bestClassesCount);
-        }
     }
     
     // Text to classify.

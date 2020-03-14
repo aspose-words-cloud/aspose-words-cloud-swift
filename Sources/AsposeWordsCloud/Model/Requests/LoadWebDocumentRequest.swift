@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for loadWebDocument operation.
-public class LoadWebDocumentRequest : Encodable, WordsApiModel {
+public class LoadWebDocumentRequest {
     private let data : LoadWebDocumentData;
     private let storage : String?;
     
@@ -42,14 +42,6 @@ public class LoadWebDocumentRequest : Encodable, WordsApiModel {
     public init(data : LoadWebDocumentData, storage : String? = nil) {
         self.data = data;
         self.storage = storage;
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        try container.encode(self.data, forKey: .data);
-        if (self.storage != nil) {
-            try container.encode(self.storage, forKey: .storage);
-        }
     }
     
     // Parameters of loading.
