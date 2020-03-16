@@ -75,8 +75,13 @@ public class Configuration : Codable {
     }
     
     // Returns URL to Aspose Cloud API with remote API version
-    public func getApiRootUrl() -> URL {
-        return URL(string: self.getBaseUrl())!.appendingPathComponent(self.getApiVersion());
+    public func getApiRootUrl() throws -> URL {
+        let url = URL(string: self.getBaseUrl());
+        if (url == nil) {
+            throw WordsApiError.badHostAddress(hostName: self.getBaseUrl());
+        }
+        
+        return url!.appendingPathComponent(self.getApiVersion());
     }
     
     // Returns SDK name for using in statistics headers
