@@ -11163,7 +11163,9 @@ public class WordsAPI {
                 }
             );
         }
-        
+        catch let error {
+            callback(error);
+        }
     }   
     
     // Sync representation of resetCache method
