@@ -34,113 +34,103 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
     { 
         // Enum value "sourceOver"
         case sourceOver = "SourceOver"
-        
+
         // Enum value "sourceCopy"
         case sourceCopy = "SourceCopy"
-        
     }
-
     // Gets or sets the rendering quality of composited images drawn to this Graphics.
     public enum CompositingQuality : String, Codable
     { 
         // Enum value "_default"
         case _default = "Default"
-        
+
         // Enum value "highSpeed"
         case highSpeed = "HighSpeed"
-        
+
         // Enum value "highQuality"
         case highQuality = "HighQuality"
-        
+
         // Enum value "gammaCorrected"
         case gammaCorrected = "GammaCorrected"
-        
+
         // Enum value "assumeLinear"
         case assumeLinear = "AssumeLinear"
-        
+
         // Enum value "invalid"
         case invalid = "Invalid"
-        
     }
-
     // Gets or sets the interpolation mode associated with this Graphics.
     public enum InterpolationMode : String, Codable
     { 
         // Enum value "_default"
         case _default = "Default"
-        
+
         // Enum value "low"
         case low = "Low"
-        
+
         // Enum value "high"
         case high = "High"
-        
+
         // Enum value "bilinear"
         case bilinear = "Bilinear"
-        
+
         // Enum value "bicubic"
         case bicubic = "Bicubic"
-        
+
         // Enum value "nearestNeighbor"
         case nearestNeighbor = "NearestNeighbor"
-        
+
         // Enum value "highQualityBilinear"
         case highQualityBilinear = "HighQualityBilinear"
-        
+
         // Enum value "highQualityBicubic"
         case highQualityBicubic = "HighQualityBicubic"
-        
+
         // Enum value "invalid"
         case invalid = "Invalid"
-        
     }
-
     // Gets or sets the rendering quality for this Graphics.
     public enum SmoothingMode : String, Codable
     { 
         // Enum value "_default"
         case _default = "Default"
-        
+
         // Enum value "highSpeed"
         case highSpeed = "HighSpeed"
-        
+
         // Enum value "highQuality"
         case highQuality = "HighQuality"
-        
+
         // Enum value "_none"
         case _none = "None"
-        
+
         // Enum value "antiAlias"
         case antiAlias = "AntiAlias"
-        
+
         // Enum value "invalid"
         case invalid = "Invalid"
-        
     }
-
     // Gets or sets the rendering mode for text associated with this Graphics.
     public enum TextRenderingHint : String, Codable
     { 
         // Enum value "systemDefault"
         case systemDefault = "SystemDefault"
-        
+
         // Enum value "singleBitPerPixelGridFit"
         case singleBitPerPixelGridFit = "SingleBitPerPixelGridFit"
-        
+
         // Enum value "singleBitPerPixel"
         case singleBitPerPixel = "SingleBitPerPixel"
-        
+
         // Enum value "antiAliasGridFit"
         case antiAliasGridFit = "AntiAliasGridFit"
-        
+
         // Enum value "antiAlias"
         case antiAlias = "AntiAlias"
-        
+
         // Enum value "clearTypeGridFit"
         case clearTypeGridFit = "ClearTypeGridFit"
-        
     }
-
     
     // Field of compositingMode. Gets or sets a value that specifies how composited images are drawn to this Graphics.      
     private var compositingMode : CompositingMode?;
@@ -154,7 +144,7 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
     // Field of smoothingMode. Gets or sets the rendering quality for this Graphics.      
     private var smoothingMode : SmoothingMode?;
     
-    // Field of stringFormat. Gets or sets text layout information (such as alignment, orientation and tab stops) display manipulations (such as ellipsis insertion and national digit substitution) and OpenType features.      
+    // Field of stringFormat.       
     private var stringFormat : StringFormatData?;
     
     // Field of textRenderingHint. Gets or sets the rendering mode for text associated with this Graphics.      
@@ -248,12 +238,12 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
         return self.smoothingMode;
     }
     
-    // Sets stringFormat. Gets or sets text layout information (such as alignment, orientation and tab stops) display manipulations (such as ellipsis insertion and national digit substitution) and OpenType features.  
+    // Sets stringFormat.   
     public func setStringFormat(stringFormat : StringFormatData?) {
         self.stringFormat = stringFormat;
     }
     
-    // Gets stringFormat. Gets or sets text layout information (such as alignment, orientation and tab stops) display manipulations (such as ellipsis insertion and national digit substitution) and OpenType features.  
+    // Gets stringFormat.   
     public func getStringFormat() -> StringFormatData? {
         return self.stringFormat;
     }

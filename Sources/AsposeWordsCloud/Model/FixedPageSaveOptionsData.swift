@@ -36,7 +36,7 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     // Field of jpegQuality. Gets or sets determines the quality of the JPEG images inside PDF document.      
     private var jpegQuality : Int?;
     
-    // Field of metafileRenderingOptions. Gets or sets allows to specify metafile rendering options.      
+    // Field of metafileRenderingOptions.       
     private var metafileRenderingOptions : MetafileRenderingOptionsData?;
     
     // Field of numeralFormat. Gets or sets indicates the symbol set that is used to represent numbers while rendering to fixed page formats.      
@@ -124,12 +124,12 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         return self.jpegQuality;
     }
     
-    // Sets metafileRenderingOptions. Gets or sets allows to specify metafile rendering options.  
+    // Sets metafileRenderingOptions.   
     public func setMetafileRenderingOptions(metafileRenderingOptions : MetafileRenderingOptionsData?) {
         self.metafileRenderingOptions = metafileRenderingOptions;
     }
     
-    // Gets metafileRenderingOptions. Gets or sets allows to specify metafile rendering options.  
+    // Gets metafileRenderingOptions.   
     public func getMetafileRenderingOptions() -> MetafileRenderingOptionsData? {
         return self.metafileRenderingOptions;
     }

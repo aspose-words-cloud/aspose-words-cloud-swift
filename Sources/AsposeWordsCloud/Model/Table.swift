@@ -30,7 +30,7 @@ import Foundation
 // Table element.
 public class Table : NodeLink {
     
-    // Field of tableProperties. Gets or sets table properties.      
+    // Field of tableProperties.       
     private var tableProperties : TableProperties?;
     
     // Field of tableRowList. Gets or sets collection of table's rows.      
@@ -64,12 +64,12 @@ public class Table : NodeLink {
         }
     }
     
-    // Sets tableProperties. Gets or sets table properties.  
+    // Sets tableProperties.   
     public func setTableProperties(tableProperties : TableProperties?) {
         self.tableProperties = tableProperties;
     }
     
-    // Gets tableProperties. Gets or sets table properties.  
+    // Gets tableProperties.   
     public func getTableProperties() -> TableProperties? {
         return self.tableProperties;
     }

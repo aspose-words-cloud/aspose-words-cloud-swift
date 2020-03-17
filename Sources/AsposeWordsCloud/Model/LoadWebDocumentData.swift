@@ -33,7 +33,7 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
     // Field of loadingDocumentUrl. Gets or sets web document url.      
     private var loadingDocumentUrl : String?;
     
-    // Field of saveOptions. Gets or sets save options.      
+    // Field of saveOptions.       
     private var saveOptions : SaveOptionsData?;
         
     private enum CodingKeys: String, CodingKey {
@@ -74,12 +74,12 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
         return self.loadingDocumentUrl;
     }
     
-    // Sets saveOptions. Gets or sets save options.  
+    // Sets saveOptions.   
     public func setSaveOptions(saveOptions : SaveOptionsData?) {
         self.saveOptions = saveOptions;
     }
     
-    // Gets saveOptions. Gets or sets save options.  
+    // Gets saveOptions.   
     public func getSaveOptions() -> SaveOptionsData? {
         return self.saveOptions;
     }

@@ -34,335 +34,319 @@ public class PageSetup : LinkElement {
     { 
         // Enum value "allPages"
         case allPages = "AllPages"
-        
+
         // Enum value "firstPage"
         case firstPage = "FirstPage"
-        
+
         // Enum value "otherPages"
         case otherPages = "OtherPages"
-        
     }
-
     // Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.             
     public enum BorderDistanceFrom : String, Codable
     { 
         // Enum value "text"
         case text = "Text"
-        
+
         // Enum value "pageEdge"
         case pageEdge = "PageEdge"
-        
     }
-
     // Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.             
     public enum LineNumberRestartMode : String, Codable
     { 
         // Enum value "restartPage"
         case restartPage = "RestartPage"
-        
+
         // Enum value "restartSection"
         case restartSection = "RestartSection"
-        
+
         // Enum value "continuous"
         case continuous = "Continuous"
-        
     }
-
     // Gets or sets returns or sets the orientation of the page.             
     public enum Orientation : String, Codable
     { 
         // Enum value "portrait"
         case portrait = "Portrait"
-        
+
         // Enum value "landscape"
         case landscape = "Landscape"
-        
     }
-
     // Gets or sets the page number format.             
     public enum PageNumberStyle : String, Codable
     { 
         // Enum value "arabic"
         case arabic = "Arabic"
-        
+
         // Enum value "uppercaseRoman"
         case uppercaseRoman = "UppercaseRoman"
-        
+
         // Enum value "lowercaseRoman"
         case lowercaseRoman = "LowercaseRoman"
-        
+
         // Enum value "uppercaseLetter"
         case uppercaseLetter = "UppercaseLetter"
-        
+
         // Enum value "lowercaseLetter"
         case lowercaseLetter = "LowercaseLetter"
-        
+
         // Enum value "ordinal"
         case ordinal = "Ordinal"
-        
+
         // Enum value "number"
         case number = "Number"
-        
+
         // Enum value "ordinalText"
         case ordinalText = "OrdinalText"
-        
+
         // Enum value "hex"
         case hex = "Hex"
-        
+
         // Enum value "chicagoManual"
         case chicagoManual = "ChicagoManual"
-        
+
         // Enum value "kanji"
         case kanji = "Kanji"
-        
+
         // Enum value "kanjiDigit"
         case kanjiDigit = "KanjiDigit"
-        
+
         // Enum value "aiueoHalfWidth"
         case aiueoHalfWidth = "AiueoHalfWidth"
-        
+
         // Enum value "irohaHalfWidth"
         case irohaHalfWidth = "IrohaHalfWidth"
-        
+
         // Enum value "arabicFullWidth"
         case arabicFullWidth = "ArabicFullWidth"
-        
+
         // Enum value "arabicHalfWidth"
         case arabicHalfWidth = "ArabicHalfWidth"
-        
+
         // Enum value "kanjiTraditional"
         case kanjiTraditional = "KanjiTraditional"
-        
+
         // Enum value "kanjiTraditional2"
         case kanjiTraditional2 = "KanjiTraditional2"
-        
+
         // Enum value "numberInCircle"
         case numberInCircle = "NumberInCircle"
-        
+
         // Enum value "decimalFullWidth"
         case decimalFullWidth = "DecimalFullWidth"
-        
+
         // Enum value "aiueo"
         case aiueo = "Aiueo"
-        
+
         // Enum value "iroha"
         case iroha = "Iroha"
-        
+
         // Enum value "leadingZero"
         case leadingZero = "LeadingZero"
-        
+
         // Enum value "bullet"
         case bullet = "Bullet"
-        
+
         // Enum value "ganada"
         case ganada = "Ganada"
-        
+
         // Enum value "chosung"
         case chosung = "Chosung"
-        
+
         // Enum value "gb1"
         case gb1 = "GB1"
-        
+
         // Enum value "gb2"
         case gb2 = "GB2"
-        
+
         // Enum value "gb3"
         case gb3 = "GB3"
-        
+
         // Enum value "gb4"
         case gb4 = "GB4"
-        
+
         // Enum value "zodiac1"
         case zodiac1 = "Zodiac1"
-        
+
         // Enum value "zodiac2"
         case zodiac2 = "Zodiac2"
-        
+
         // Enum value "zodiac3"
         case zodiac3 = "Zodiac3"
-        
+
         // Enum value "tradChinNum1"
         case tradChinNum1 = "TradChinNum1"
-        
+
         // Enum value "tradChinNum2"
         case tradChinNum2 = "TradChinNum2"
-        
+
         // Enum value "tradChinNum3"
         case tradChinNum3 = "TradChinNum3"
-        
+
         // Enum value "tradChinNum4"
         case tradChinNum4 = "TradChinNum4"
-        
+
         // Enum value "simpChinNum1"
         case simpChinNum1 = "SimpChinNum1"
-        
+
         // Enum value "simpChinNum2"
         case simpChinNum2 = "SimpChinNum2"
-        
+
         // Enum value "simpChinNum3"
         case simpChinNum3 = "SimpChinNum3"
-        
+
         // Enum value "simpChinNum4"
         case simpChinNum4 = "SimpChinNum4"
-        
+
         // Enum value "hanjaRead"
         case hanjaRead = "HanjaRead"
-        
+
         // Enum value "hanjaReadDigit"
         case hanjaReadDigit = "HanjaReadDigit"
-        
+
         // Enum value "hangul"
         case hangul = "Hangul"
-        
+
         // Enum value "hanja"
         case hanja = "Hanja"
-        
+
         // Enum value "hebrew1"
         case hebrew1 = "Hebrew1"
-        
+
         // Enum value "arabic1"
         case arabic1 = "Arabic1"
-        
+
         // Enum value "hebrew2"
         case hebrew2 = "Hebrew2"
-        
+
         // Enum value "arabic2"
         case arabic2 = "Arabic2"
-        
+
         // Enum value "hindiLetter1"
         case hindiLetter1 = "HindiLetter1"
-        
+
         // Enum value "hindiLetter2"
         case hindiLetter2 = "HindiLetter2"
-        
+
         // Enum value "hindiArabic"
         case hindiArabic = "HindiArabic"
-        
+
         // Enum value "hindiCardinalText"
         case hindiCardinalText = "HindiCardinalText"
-        
+
         // Enum value "thaiLetter"
         case thaiLetter = "ThaiLetter"
-        
+
         // Enum value "thaiArabic"
         case thaiArabic = "ThaiArabic"
-        
+
         // Enum value "thaiCardinalText"
         case thaiCardinalText = "ThaiCardinalText"
-        
+
         // Enum value "vietCardinalText"
         case vietCardinalText = "VietCardinalText"
-        
+
         // Enum value "numberInDash"
         case numberInDash = "NumberInDash"
-        
+
         // Enum value "lowercaseRussian"
         case lowercaseRussian = "LowercaseRussian"
-        
+
         // Enum value "uppercaseRussian"
         case uppercaseRussian = "UppercaseRussian"
-        
+
         // Enum value "_none"
         case _none = "None"
-        
+
         // Enum value "custom"
         case custom = "Custom"
-        
     }
-
     // Gets or sets returns or sets the paper size.             
     public enum PaperSize : String, Codable
     { 
         // Enum value "a3"
         case a3 = "A3"
-        
+
         // Enum value "a4"
         case a4 = "A4"
-        
+
         // Enum value "a5"
         case a5 = "A5"
-        
+
         // Enum value "b4"
         case b4 = "B4"
-        
+
         // Enum value "b5"
         case b5 = "B5"
-        
+
         // Enum value "executive"
         case executive = "Executive"
-        
+
         // Enum value "folio"
         case folio = "Folio"
-        
+
         // Enum value "ledger"
         case ledger = "Ledger"
-        
+
         // Enum value "legal"
         case legal = "Legal"
-        
+
         // Enum value "letter"
         case letter = "Letter"
-        
+
         // Enum value "envelopeDL"
         case envelopeDL = "EnvelopeDL"
-        
+
         // Enum value "quarto"
         case quarto = "Quarto"
-        
+
         // Enum value "statement"
         case statement = "Statement"
-        
+
         // Enum value "tabloid"
         case tabloid = "Tabloid"
-        
+
         // Enum value "paper10x14"
         case paper10x14 = "Paper10x14"
-        
+
         // Enum value "paper11x17"
         case paper11x17 = "Paper11x17"
-        
+
         // Enum value "custom"
         case custom = "Custom"
-        
     }
-
     // Gets or sets returns or sets the type of section break for the specified object.             
     public enum SectionStart : String, Codable
     { 
         // Enum value "continuous"
         case continuous = "Continuous"
-        
+
         // Enum value "newColumn"
         case newColumn = "NewColumn"
-        
+
         // Enum value "newPage"
         case newPage = "NewPage"
-        
+
         // Enum value "evenPage"
         case evenPage = "EvenPage"
-        
+
         // Enum value "oddPage"
         case oddPage = "OddPage"
-        
     }
-
     // Gets or sets returns or sets the vertical alignment of text on each page in a document or section.             
     public enum VerticalAlignment : String, Codable
     { 
         // Enum value "top"
         case top = "Top"
-        
+
         // Enum value "center"
         case center = "Center"
-        
+
         // Enum value "justify"
         case justify = "Justify"
-        
+
         // Enum value "bottom"
         case bottom = "Bottom"
-        
     }
-
     
     // Field of bidi. Gets or sets specifies that this section contains bidirectional (complex scripts) text.                   
     private var bidi : Bool?;
@@ -442,7 +426,7 @@ public class PageSetup : LinkElement {
     // Field of sectionStart. Gets or sets returns or sets the type of section break for the specified object.                   
     private var sectionStart : SectionStart?;
     
-    // Field of suppressEndnotes. Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes.                 Suppressed endnotes are printed before the endnotes in that section.                   
+    // Field of suppressEndnotes. Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.                   
     private var suppressEndnotes : Bool?;
     
     // Field of topMargin. Gets or sets returns or sets the distance (in points) between the top edge of the page and the top boundary of the body text.                   
@@ -874,12 +858,12 @@ public class PageSetup : LinkElement {
         return self.sectionStart;
     }
     
-    // Sets suppressEndnotes. Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes.                 Suppressed endnotes are printed before the endnotes in that section.               
+    // Sets suppressEndnotes. Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.               
     public func setSuppressEndnotes(suppressEndnotes : Bool?) {
         self.suppressEndnotes = suppressEndnotes;
     }
     
-    // Gets suppressEndnotes. Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes.                 Suppressed endnotes are printed before the endnotes in that section.               
+    // Gets suppressEndnotes. Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.               
     public func getSuppressEndnotes() -> Bool? {
         return self.suppressEndnotes;
     }

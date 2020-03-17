@@ -30,7 +30,7 @@ import Foundation
 // Response for \&quot;Replace text\&quot; action.
 public class ReplaceTextResponse : WordsResponse {
     
-    // Field of documentLink. Gets or sets link to the document.      
+    // Field of documentLink.       
     private var documentLink : FileLink?;
     
     // Field of matches. Gets or sets number of occurrences of the captured text in the document.      
@@ -64,12 +64,12 @@ public class ReplaceTextResponse : WordsResponse {
         }
     }
     
-    // Sets documentLink. Gets or sets link to the document.  
+    // Sets documentLink.   
     public func setDocumentLink(documentLink : FileLink?) {
         self.documentLink = documentLink;
     }
     
-    // Gets documentLink. Gets or sets link to the document.  
+    // Gets documentLink.   
     public func getDocumentLink() -> FileLink? {
         return self.documentLink;
     }

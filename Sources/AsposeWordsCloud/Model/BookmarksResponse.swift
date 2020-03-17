@@ -30,7 +30,7 @@ import Foundation
 // This response should be returned by the service when handling:  GET bookmarks.
 public class BookmarksResponse : WordsResponse {
     
-    // Field of bookmarks. Gets or sets bookmarks which are contained in document.      
+    // Field of bookmarks.       
     private var bookmarks : Bookmarks?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class BookmarksResponse : WordsResponse {
         }
     }
     
-    // Sets bookmarks. Gets or sets bookmarks which are contained in document.  
+    // Sets bookmarks.   
     public func setBookmarks(bookmarks : Bookmarks?) {
         self.bookmarks = bookmarks;
     }
     
-    // Gets bookmarks. Gets or sets bookmarks which are contained in document.  
+    // Gets bookmarks.   
     public func getBookmarks() -> Bookmarks? {
         return self.bookmarks;
     }

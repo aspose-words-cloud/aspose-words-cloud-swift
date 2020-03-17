@@ -34,124 +34,120 @@ public class Border : LinkElement {
     { 
         // Enum value "bottom"
         case bottom = "Bottom"
-        
+
         // Enum value "_left"
         case _left = "Left"
-        
+
         // Enum value "_right"
         case _right = "Right"
-        
+
         // Enum value "top"
         case top = "Top"
-        
+
         // Enum value "horizontal"
         case horizontal = "Horizontal"
-        
+
         // Enum value "vertical"
         case vertical = "Vertical"
-        
+
         // Enum value "diagonalDown"
         case diagonalDown = "DiagonalDown"
-        
+
         // Enum value "diagonalUp"
         case diagonalUp = "DiagonalUp"
-        
+
         // Enum value "_none"
         case _none = "None"
-        
     }
-
     // Gets or sets the border style.
     public enum LineStyle : String, Codable
     { 
         // Enum value "_none"
         case _none = "None"
-        
+
         // Enum value "single"
         case single = "Single"
-        
+
         // Enum value "thick"
         case thick = "Thick"
-        
+
         // Enum value "double"
         case double = "Double"
-        
+
         // Enum value "hairline"
         case hairline = "Hairline"
-        
+
         // Enum value "dot"
         case dot = "Dot"
-        
+
         // Enum value "dashLargeGap"
         case dashLargeGap = "DashLargeGap"
-        
+
         // Enum value "dotDash"
         case dotDash = "DotDash"
-        
+
         // Enum value "dotDotDash"
         case dotDotDash = "DotDotDash"
-        
+
         // Enum value "triple"
         case triple = "Triple"
-        
+
         // Enum value "thinThickSmallGap"
         case thinThickSmallGap = "ThinThickSmallGap"
-        
+
         // Enum value "thickThinSmallGap"
         case thickThinSmallGap = "ThickThinSmallGap"
-        
+
         // Enum value "thinThickThinSmallGap"
         case thinThickThinSmallGap = "ThinThickThinSmallGap"
-        
+
         // Enum value "thinThickMediumGap"
         case thinThickMediumGap = "ThinThickMediumGap"
-        
+
         // Enum value "thickThinMediumGap"
         case thickThinMediumGap = "ThickThinMediumGap"
-        
+
         // Enum value "thinThickThinMediumGap"
         case thinThickThinMediumGap = "ThinThickThinMediumGap"
-        
+
         // Enum value "thinThickLargeGap"
         case thinThickLargeGap = "ThinThickLargeGap"
-        
+
         // Enum value "thickThinLargeGap"
         case thickThinLargeGap = "ThickThinLargeGap"
-        
+
         // Enum value "thinThickThinLargeGap"
         case thinThickThinLargeGap = "ThinThickThinLargeGap"
-        
+
         // Enum value "wave"
         case wave = "Wave"
-        
+
         // Enum value "doubleWave"
         case doubleWave = "DoubleWave"
-        
+
         // Enum value "dashSmallGap"
         case dashSmallGap = "DashSmallGap"
-        
+
         // Enum value "dashDotStroker"
         case dashDotStroker = "DashDotStroker"
-        
+
         // Enum value "emboss3D"
         case emboss3D = "Emboss3D"
-        
+
         // Enum value "engrave3D"
         case engrave3D = "Engrave3D"
-        
+
         // Enum value "outset"
         case outset = "Outset"
-        
+
         // Enum value "inset"
         case inset = "Inset"
-        
     }
-
     
     // Field of borderType. Gets or sets the border type.                   
     private var borderType : BorderType?;
     
-    // Field of color. Gets or sets the border color.                   
+    // Field of color.       
     private var color : XmlColor?;
     
     // Field of distanceFromText. Gets or sets distance of the border from text or from the page edge in points.      
@@ -224,12 +220,12 @@ public class Border : LinkElement {
         return self.borderType;
     }
     
-    // Sets color. Gets or sets the border color.               
+    // Sets color.   
     public func setColor(color : XmlColor?) {
         self.color = color;
     }
     
-    // Gets color. Gets or sets the border color.               
+    // Gets color.   
     public func getColor() -> XmlColor? {
         return self.color;
     }

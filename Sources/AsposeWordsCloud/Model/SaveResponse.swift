@@ -30,7 +30,7 @@ import Foundation
 // Save response.
 public class SaveResponse : WordsResponse {
     
-    // Field of saveResult. Gets or sets save result.      
+    // Field of saveResult.       
     private var saveResult : SaveResult?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class SaveResponse : WordsResponse {
         }
     }
     
-    // Sets saveResult. Gets or sets save result.  
+    // Sets saveResult.   
     public func setSaveResult(saveResult : SaveResult?) {
         self.saveResult = saveResult;
     }
     
-    // Gets saveResult. Gets or sets save result.  
+    // Gets saveResult.   
     public func getSaveResult() -> SaveResult? {
         return self.saveResult;
     }

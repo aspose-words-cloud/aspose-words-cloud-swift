@@ -27,10 +27,10 @@
 
 import Foundation
 
-// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables.
+// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/tables.
 public class TableLinkCollectionResponse : WordsResponse {
     
-    // Field of tables. Gets or sets collection of tables.      
+    // Field of tables.       
     private var tables : TableLinkCollection?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class TableLinkCollectionResponse : WordsResponse {
         }
     }
     
-    // Sets tables. Gets or sets collection of tables.  
+    // Sets tables.   
     public func setTables(tables : TableLinkCollection?) {
         self.tables = tables;
     }
     
-    // Gets tables. Gets or sets collection of tables.  
+    // Gets tables.   
     public func getTables() -> TableLinkCollection? {
         return self.tables;
     }

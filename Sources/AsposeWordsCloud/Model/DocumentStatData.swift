@@ -39,7 +39,7 @@ public class DocumentStatData : Codable, WordsApiModel {
     // Field of pageCount. Gets or sets total count of pages in the document.      
     private var pageCount : Int?;
     
-    // Field of footnotesStatData. Gets or sets detailed statistics of footnotes.      
+    // Field of footnotesStatData.       
     private var footnotesStatData : FootnotesStatData?;
     
     // Field of pageStatData. Gets or sets detailed statistics of all pages.      
@@ -61,9 +61,9 @@ public class DocumentStatData : Codable, WordsApiModel {
     public required init(from decoder: Decoder) throws {
         
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.wordCount = try container.decode(Int.self, forKey: .wordCount);
-        self.paragraphCount = try container.decode(Int.self, forKey: .paragraphCount);
-        self.pageCount = try container.decode(Int.self, forKey: .pageCount);
+        self.wordCount = try container.decodeIfPresent(Int.self, forKey: .wordCount);
+        self.paragraphCount = try container.decodeIfPresent(Int.self, forKey: .paragraphCount);
+        self.pageCount = try container.decodeIfPresent(Int.self, forKey: .pageCount);
         self.footnotesStatData = try container.decodeIfPresent(FootnotesStatData.self, forKey: .footnotesStatData);
         self.pageStatData = try container.decodeIfPresent([PageStatData].self, forKey: .pageStatData);
     }
@@ -71,18 +71,15 @@ public class DocumentStatData : Codable, WordsApiModel {
     public func encode(to encoder: Encoder) throws {
         
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.wordCount == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "wordCount");
+        if (self.wordCount != nil) {
+            try container.encode(self.wordCount, forKey: .wordCount);
         }
-        try container.encode(self.wordCount, forKey: .wordCount);
-        if (self.paragraphCount == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "paragraphCount");
+        if (self.paragraphCount != nil) {
+            try container.encode(self.paragraphCount, forKey: .paragraphCount);
         }
-        try container.encode(self.paragraphCount, forKey: .paragraphCount);
-        if (self.pageCount == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "pageCount");
+        if (self.pageCount != nil) {
+            try container.encode(self.pageCount, forKey: .pageCount);
         }
-        try container.encode(self.pageCount, forKey: .pageCount);
         if (self.footnotesStatData != nil) {
             try container.encode(self.footnotesStatData, forKey: .footnotesStatData);
         }
@@ -92,41 +89,41 @@ public class DocumentStatData : Codable, WordsApiModel {
     }
     
     // Sets wordCount. Gets or sets total count of words in the document.  
-    public func setWordCount(wordCount : Int) {
+    public func setWordCount(wordCount : Int?) {
         self.wordCount = wordCount;
     }
     
     // Gets wordCount. Gets or sets total count of words in the document.  
-    public func getWordCount() -> Int {
-        return self.wordCount!;
+    public func getWordCount() -> Int? {
+        return self.wordCount;
     }
     
     // Sets paragraphCount. Gets or sets total count of paragraphs in the document.  
-    public func setParagraphCount(paragraphCount : Int) {
+    public func setParagraphCount(paragraphCount : Int?) {
         self.paragraphCount = paragraphCount;
     }
     
     // Gets paragraphCount. Gets or sets total count of paragraphs in the document.  
-    public func getParagraphCount() -> Int {
-        return self.paragraphCount!;
+    public func getParagraphCount() -> Int? {
+        return self.paragraphCount;
     }
     
     // Sets pageCount. Gets or sets total count of pages in the document.  
-    public func setPageCount(pageCount : Int) {
+    public func setPageCount(pageCount : Int?) {
         self.pageCount = pageCount;
     }
     
     // Gets pageCount. Gets or sets total count of pages in the document.  
-    public func getPageCount() -> Int {
-        return self.pageCount!;
+    public func getPageCount() -> Int? {
+        return self.pageCount;
     }
     
-    // Sets footnotesStatData. Gets or sets detailed statistics of footnotes.  
+    // Sets footnotesStatData.   
     public func setFootnotesStatData(footnotesStatData : FootnotesStatData?) {
         self.footnotesStatData = footnotesStatData;
     }
     
-    // Gets footnotesStatData. Gets or sets detailed statistics of footnotes.  
+    // Gets footnotesStatData.   
     public func getFootnotesStatData() -> FootnotesStatData? {
         return self.footnotesStatData;
     }

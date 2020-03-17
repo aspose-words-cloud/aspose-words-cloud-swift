@@ -30,7 +30,7 @@ import Foundation
 // Table row element.
 public class TableRow : NodeLink {
     
-    // Field of rowFormat. Gets or sets provides access to the formatting properties of the row.      
+    // Field of rowFormat.       
     private var rowFormat : TableRowFormat?;
     
     // Field of tableCellList. Gets or sets collection of table's rows.      
@@ -64,12 +64,12 @@ public class TableRow : NodeLink {
         }
     }
     
-    // Sets rowFormat. Gets or sets provides access to the formatting properties of the row.  
+    // Sets rowFormat.   
     public func setRowFormat(rowFormat : TableRowFormat?) {
         self.rowFormat = rowFormat;
     }
     
-    // Gets rowFormat. Gets or sets provides access to the formatting properties of the row.  
+    // Gets rowFormat.   
     public func getRowFormat() -> TableRowFormat? {
         return self.rowFormat;
     }

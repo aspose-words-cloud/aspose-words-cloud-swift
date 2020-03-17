@@ -37,7 +37,7 @@ public class InsertTableWithoutNodePathRequest {
     private let destFileName : String?;
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
-    private let table : TableInsert?;
+    private let table : TableInsert;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -53,7 +53,7 @@ public class InsertTableWithoutNodePathRequest {
     }
     
     // Initializes a new instance of the insertTableWithoutNodePathRequest class.
-    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, table : TableInsert? = nil) {
+    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, table : TableInsert) {
         self.name = name;
         self.folder = folder;
         self.storage = storage;
@@ -106,7 +106,7 @@ public class InsertTableWithoutNodePathRequest {
     }
     
     // Table parameters/.
-    public func getTable() -> TableInsert? {
+    public func getTable() -> TableInsert {
         return self.table;
     }
 }

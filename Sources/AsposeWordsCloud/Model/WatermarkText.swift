@@ -50,7 +50,7 @@ public class WatermarkText : Codable, WordsApiModel {
         
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
-        self.rotationAngle = try container.decode(Double.self, forKey: .rotationAngle);
+        self.rotationAngle = try container.decodeIfPresent(Double.self, forKey: .rotationAngle);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -59,10 +59,9 @@ public class WatermarkText : Codable, WordsApiModel {
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
         }
-        if (self.rotationAngle == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "rotationAngle");
+        if (self.rotationAngle != nil) {
+            try container.encode(self.rotationAngle, forKey: .rotationAngle);
         }
-        try container.encode(self.rotationAngle, forKey: .rotationAngle);
     }
     
     // Sets text. Gets or sets the watermark text.  
@@ -76,12 +75,12 @@ public class WatermarkText : Codable, WordsApiModel {
     }
     
     // Sets rotationAngle. Gets or sets the watermark rotation angle.  
-    public func setRotationAngle(rotationAngle : Double) {
+    public func setRotationAngle(rotationAngle : Double?) {
         self.rotationAngle = rotationAngle;
     }
     
     // Gets rotationAngle. Gets or sets the watermark rotation angle.  
-    public func getRotationAngle() -> Double {
-        return self.rotationAngle!;
+    public func getRotationAngle() -> Double? {
+        return self.rotationAngle;
     }
 }

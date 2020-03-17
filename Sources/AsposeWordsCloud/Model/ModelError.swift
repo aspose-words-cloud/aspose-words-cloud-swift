@@ -39,7 +39,7 @@ public class ModelError : Codable, WordsApiModel {
     // Field of _description. Description                   
     private var _description : String?;
     
-    // Field of innerError. Inner Error                   
+    // Field of innerError.       
     private var innerError : ErrorDetails?;
         
     private enum CodingKeys: String, CodingKey {
@@ -110,12 +110,12 @@ public class ModelError : Codable, WordsApiModel {
         return self._description;
     }
     
-    // Sets innerError. Inner Error               
+    // Sets innerError.   
     public func setInnerError(innerError : ErrorDetails?) {
         self.innerError = innerError;
     }
     
-    // Gets innerError. Inner Error               
+    // Gets innerError.   
     public func getInnerError() -> ErrorDetails? {
         return self.innerError;
     }

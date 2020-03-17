@@ -34,102 +34,96 @@ public class DrawingObject : DrawingObjectLink {
     { 
         // Enum value "margin"
         case margin = "Margin"
-        
+
         // Enum value "page"
         case page = "Page"
-        
+
         // Enum value "column"
         case column = "Column"
-        
+
         // Enum value "_default"
         case _default = "Default"
-        
+
         // Enum value "character"
         case character = "Character"
-        
+
         // Enum value "leftMargin"
         case leftMargin = "LeftMargin"
-        
+
         // Enum value "rightMargin"
         case rightMargin = "RightMargin"
-        
+
         // Enum value "insideMargin"
         case insideMargin = "InsideMargin"
-        
+
         // Enum value "outsideMargin"
         case outsideMargin = "OutsideMargin"
-        
     }
-
     // Gets or sets specifies where the distance to the image measured from.
     public enum RelativeVerticalPosition : String, Codable
     { 
         // Enum value "margin"
         case margin = "Margin"
-        
+
         // Enum value "tableDefault"
         case tableDefault = "TableDefault"
-        
+
         // Enum value "page"
         case page = "Page"
-        
+
         // Enum value "paragraph"
         case paragraph = "Paragraph"
-        
+
         // Enum value "textFrameDefault"
         case textFrameDefault = "TextFrameDefault"
-        
+
         // Enum value "line"
         case line = "Line"
-        
+
         // Enum value "topMargin"
         case topMargin = "TopMargin"
-        
+
         // Enum value "bottomMargin"
         case bottomMargin = "BottomMargin"
-        
+
         // Enum value "insideMargin"
         case insideMargin = "InsideMargin"
-        
+
         // Enum value "outsideMargin"
         case outsideMargin = "OutsideMargin"
-        
     }
-
     // Gets or sets specifies how to wrap text around the image.
     public enum WrapType : String, Codable
     { 
         // Enum value "inline"
         case inline = "Inline"
-        
+
         // Enum value "topBottom"
         case topBottom = "TopBottom"
-        
+
         // Enum value "square"
         case square = "Square"
-        
+
         // Enum value "_none"
         case _none = "None"
-        
+
         // Enum value "tight"
         case tight = "Tight"
-        
+
         // Enum value "through"
         case through = "Through"
-        
     }
-
     
     // Field of height. Gets or sets height of the drawing object in points.      
     private var height : Double?;
     
-    // Field of imageDataLink. Gets or sets link to image data. Can be null if shape does not have an image.      
+    // Field of imageDataLink.       
     private var imageDataLink : WordsApiLink?;
     
     // Field of _left. Gets or sets distance in points from the origin to the left side of the image.                   
     private var _left : Double?;
     
-    // Field of oleDataLink. Gets or sets link to ole object. Can be null if shape does not have ole data.      
+    // Field of oleDataLink.       
     private var oleDataLink : WordsApiLink?;
     
     // Field of relativeHorizontalPosition. Gets or sets specifies where the distance to the image is measured from.                   
@@ -138,7 +132,7 @@ public class DrawingObject : DrawingObjectLink {
     // Field of relativeVerticalPosition. Gets or sets specifies where the distance to the image measured from.      
     private var relativeVerticalPosition : RelativeVerticalPosition?;
     
-    // Field of renderLinks. Gets or sets a list of links that originate from this .      
+    // Field of renderLinks. Gets or sets a list of links that originate from this DrawingObjectDto.      
     private var renderLinks : [WordsApiLink]?;
     
     // Field of top. Gets or sets distance in points from the origin to the top side of the image.      
@@ -228,12 +222,12 @@ public class DrawingObject : DrawingObjectLink {
         return self.height;
     }
     
-    // Sets imageDataLink. Gets or sets link to image data. Can be null if shape does not have an image.  
+    // Sets imageDataLink.   
     public func setImageDataLink(imageDataLink : WordsApiLink?) {
         self.imageDataLink = imageDataLink;
     }
     
-    // Gets imageDataLink. Gets or sets link to image data. Can be null if shape does not have an image.  
+    // Gets imageDataLink.   
     public func getImageDataLink() -> WordsApiLink? {
         return self.imageDataLink;
     }
@@ -248,12 +242,12 @@ public class DrawingObject : DrawingObjectLink {
         return self._left;
     }
     
-    // Sets oleDataLink. Gets or sets link to ole object. Can be null if shape does not have ole data.  
+    // Sets oleDataLink.   
     public func setOleDataLink(oleDataLink : WordsApiLink?) {
         self.oleDataLink = oleDataLink;
     }
     
-    // Gets oleDataLink. Gets or sets link to ole object. Can be null if shape does not have ole data.  
+    // Gets oleDataLink.   
     public func getOleDataLink() -> WordsApiLink? {
         return self.oleDataLink;
     }
@@ -278,12 +272,12 @@ public class DrawingObject : DrawingObjectLink {
         return self.relativeVerticalPosition;
     }
     
-    // Sets renderLinks. Gets or sets a list of links that originate from this .  
+    // Sets renderLinks. Gets or sets a list of links that originate from this DrawingObjectDto.  
     public func setRenderLinks(renderLinks : [WordsApiLink]?) {
         self.renderLinks = renderLinks;
     }
     
-    // Gets renderLinks. Gets or sets a list of links that originate from this .  
+    // Gets renderLinks. Gets or sets a list of links that originate from this DrawingObjectDto.  
     public func getRenderLinks() -> [WordsApiLink]? {
         return self.renderLinks;
     }

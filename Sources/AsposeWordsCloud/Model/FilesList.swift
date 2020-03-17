@@ -30,7 +30,7 @@ import Foundation
 // Files list
 public class FilesList : Codable, WordsApiModel {
     
-    // Field of value. Files and folders contained by folder .      
+    // Field of value. Files and folders contained by folder StorageFile.      
     private var value : [StorageFile]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class FilesList : Codable, WordsApiModel {
         }
     }
     
-    // Sets value. Files and folders contained by folder .  
+    // Sets value. Files and folders contained by folder StorageFile.  
     public func setValue(value : [StorageFile]?) {
         self.value = value;
     }
     
-    // Gets value. Files and folders contained by folder .  
+    // Gets value. Files and folders contained by folder StorageFile.  
     public func getValue() -> [StorageFile]? {
         return self.value;
     }

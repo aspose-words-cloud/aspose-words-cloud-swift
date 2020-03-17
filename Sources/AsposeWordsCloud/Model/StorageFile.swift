@@ -36,7 +36,7 @@ public class StorageFile : Codable, WordsApiModel {
     // Field of isFolder. True if it is a folder.      
     private var isFolder : Bool?;
     
-    // Field of modifiedDate. File or folder last modified .      
+    // Field of modifiedDate. File or folder last modified DateTime.      
     private var modifiedDate : Date?;
     
     // Field of size. File or folder size.      
@@ -62,9 +62,9 @@ public class StorageFile : Codable, WordsApiModel {
         
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.name = try container.decodeIfPresent(String.self, forKey: .name);
-        self.isFolder = try container.decode(Bool.self, forKey: .isFolder);
+        self.isFolder = try container.decodeIfPresent(Bool.self, forKey: .isFolder);
         self.modifiedDate = try container.decodeIfPresent(Date.self, forKey: .modifiedDate);
-        self.size = try container.decode(Int64.self, forKey: .size);
+        self.size = try container.decodeIfPresent(Int64.self, forKey: .size);
         self.path = try container.decodeIfPresent(String.self, forKey: .path);
     }
 
@@ -74,17 +74,15 @@ public class StorageFile : Codable, WordsApiModel {
         if (self.name != nil) {
             try container.encode(self.name, forKey: .name);
         }
-        if (self.isFolder == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "isFolder");
+        if (self.isFolder != nil) {
+            try container.encode(self.isFolder, forKey: .isFolder);
         }
-        try container.encode(self.isFolder, forKey: .isFolder);
         if (self.modifiedDate != nil) {
             try container.encode(self.modifiedDate, forKey: .modifiedDate);
         }
-        if (self.size == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "size");
+        if (self.size != nil) {
+            try container.encode(self.size, forKey: .size);
         }
-        try container.encode(self.size, forKey: .size);
         if (self.path != nil) {
             try container.encode(self.path, forKey: .path);
         }
@@ -101,33 +99,33 @@ public class StorageFile : Codable, WordsApiModel {
     }
     
     // Sets isFolder. True if it is a folder.  
-    public func setIsFolder(isFolder : Bool) {
+    public func setIsFolder(isFolder : Bool?) {
         self.isFolder = isFolder;
     }
     
     // Gets isFolder. True if it is a folder.  
-    public func getIsFolder() -> Bool {
-        return self.isFolder!;
+    public func getIsFolder() -> Bool? {
+        return self.isFolder;
     }
     
-    // Sets modifiedDate. File or folder last modified .  
+    // Sets modifiedDate. File or folder last modified DateTime.  
     public func setModifiedDate(modifiedDate : Date?) {
         self.modifiedDate = modifiedDate;
     }
     
-    // Gets modifiedDate. File or folder last modified .  
+    // Gets modifiedDate. File or folder last modified DateTime.  
     public func getModifiedDate() -> Date? {
         return self.modifiedDate;
     }
     
     // Sets size. File or folder size.  
-    public func setSize(size : Int64) {
+    public func setSize(size : Int64?) {
         self.size = size;
     }
     
     // Gets size. File or folder size.  
-    public func getSize() -> Int64 {
-        return self.size!;
+    public func getSize() -> Int64? {
+        return self.size;
     }
     
     // Sets path. File or folder path.  

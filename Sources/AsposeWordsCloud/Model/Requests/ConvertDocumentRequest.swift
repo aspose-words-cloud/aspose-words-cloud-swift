@@ -76,7 +76,7 @@ public class ConvertDocumentRequest {
         return self.outPath;
     }
     
-    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, \"sourceFilename\" will be used instead. 
+    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead. 
     public func getFileNameFieldValue() -> String? {
         return self.fileNameFieldValue;
     }

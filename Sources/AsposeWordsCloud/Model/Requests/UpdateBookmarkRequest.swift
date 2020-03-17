@@ -73,7 +73,7 @@ public class UpdateBookmarkRequest {
         return self.name;
     }
     
-    // with new bookmark data.            
+    // BookmarkData with new bookmark data.
     public func getBookmarkData() -> BookmarkData {
         return self.bookmarkData;
     }

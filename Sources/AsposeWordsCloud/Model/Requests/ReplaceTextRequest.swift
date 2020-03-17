@@ -70,7 +70,7 @@ public class ReplaceTextRequest {
         return self.name;
     }
     
-    // with the replace operation settings.            
+    // ReplaceTextResponse with the replace operation settings.
     public func getReplaceText() -> ReplaceTextParameters {
         return self.replaceText;
     }

@@ -27,7 +27,7 @@
 
 import Foundation
 
-// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/range/{0}/{1}/.
+// This response should be returned by the service when handling: GET http://api.aspose.com/v4.0/words/Test.doc/range/{0}/{1}/.
 public class RangeTextResponse : WordsResponse {
     
     // Field of text. Gets or sets text from range.      

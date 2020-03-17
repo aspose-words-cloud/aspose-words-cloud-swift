@@ -32,7 +32,7 @@ public class SaveAsRangeRequest {
     private let name : String;
     private let rangeStartIdentifier : String;
     private let documentParameters : RangeDocument;
-    private let rangeEndIdentifier : String;
+    private let rangeEndIdentifier : String?;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -51,7 +51,7 @@ public class SaveAsRangeRequest {
     }
     
     // Initializes a new instance of the saveAsRangeRequest class.
-    public init(name : String, rangeStartIdentifier : String, documentParameters : RangeDocument, rangeEndIdentifier : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
+    public init(name : String, rangeStartIdentifier : String, documentParameters : RangeDocument, rangeEndIdentifier : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.rangeStartIdentifier = rangeStartIdentifier;
         self.documentParameters = documentParameters;
@@ -67,7 +67,7 @@ public class SaveAsRangeRequest {
         return self.name;
     }
     
-    // The range start identifier. Identifier is the value of the \"nodeId\" field, which every document node has, extended with the prefix \"id\". It looks like \"id0.0.7\". Also values like \"image5\" and \"table3\" can be used as an identifier for images and tables, where the number is an index of the image/table.
+    // The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
     public func getRangeStartIdentifier() -> String {
         return self.rangeStartIdentifier;
     }
@@ -78,7 +78,7 @@ public class SaveAsRangeRequest {
     }
     
     // The range end identifier.
-    public func getRangeEndIdentifier() -> String {
+    public func getRangeEndIdentifier() -> String? {
         return self.rangeEndIdentifier;
     }
     

@@ -30,7 +30,7 @@ import Foundation
 // Represents a position in the document tree.
 public class DocumentPosition : Codable, WordsApiModel {
     
-    // Field of node. Gets or sets link to  node.      
+    // Field of node.       
     private var node : NodeLink?;
     
     // Field of offset. Gets or sets offset into the node.      
@@ -64,12 +64,12 @@ public class DocumentPosition : Codable, WordsApiModel {
         }
     }
     
-    // Sets node. Gets or sets link to  node.  
+    // Sets node.   
     public func setNode(node : NodeLink?) {
         self.node = node;
     }
     
-    // Gets node. Gets or sets link to  node.  
+    // Gets node.   
     public func getNode() -> NodeLink? {
         return self.node;
     }

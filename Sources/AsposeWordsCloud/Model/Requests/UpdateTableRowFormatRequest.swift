@@ -39,7 +39,7 @@ public class UpdateTableRowFormatRequest {
     private let destFileName : String?;
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
-    private let format : TableRowFormat?;
+    private let format : TableRowFormat;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -57,7 +57,7 @@ public class UpdateTableRowFormatRequest {
     }
     
     // Initializes a new instance of the updateTableRowFormatRequest class.
-    public init(name : String, tablePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, format : TableRowFormat? = nil) {
+    public init(name : String, tablePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, format : TableRowFormat) {
         self.name = name;
         self.tablePath = tablePath;
         self.index = index;
@@ -122,7 +122,7 @@ public class UpdateTableRowFormatRequest {
     }
     
     // Table row format.
-    public func getFormat() -> TableRowFormat? {
+    public func getFormat() -> TableRowFormat {
         return self.format;
     }
 }

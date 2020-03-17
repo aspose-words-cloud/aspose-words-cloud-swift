@@ -48,7 +48,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of updateLastSavedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.      
     private var updateLastSavedTimeProperty : Bool?;
     
-    // Field of updateSdtContent. Gets or sets value determining whether content of  is updated before saving.      
+    // Field of updateSdtContent. Gets or sets value determining whether content of StructuredDocumentTag is updated before saving.      
     private var updateSdtContent : Bool?;
     
     // Field of updateFields. Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true      
@@ -172,12 +172,12 @@ public class SaveOptionsData : Codable, WordsApiModel {
         return self.updateLastSavedTimeProperty;
     }
     
-    // Sets updateSdtContent. Gets or sets value determining whether content of  is updated before saving.  
+    // Sets updateSdtContent. Gets or sets value determining whether content of StructuredDocumentTag is updated before saving.  
     public func setUpdateSdtContent(updateSdtContent : Bool?) {
         self.updateSdtContent = updateSdtContent;
     }
     
-    // Gets updateSdtContent. Gets or sets value determining whether content of  is updated before saving.  
+    // Gets updateSdtContent. Gets or sets value determining whether content of StructuredDocumentTag is updated before saving.  
     public func getUpdateSdtContent() -> Bool? {
         return self.updateSdtContent;
     }

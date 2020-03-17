@@ -34,40 +34,34 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     { 
         // Enum value "xhtml"
         case xhtml = "Xhtml"
-        
+
         // Enum value "html5"
         case html5 = "Html5"
-        
     }
-
     // Gets or sets specifies in what format metafiles are saved when exporting to HTML, MHTML, or EPUB. Default value is Aspose.Words.Saving.HtmlMetafileFormat.Png, meaning that metafiles are rendered to raster PNG images.  Metafiles are not natively displayed by HTML browsers. By default, Aspose.Words converts WMF and EMF images into PNG files when exporting to HTML.Other options are to convert metafiles to SVG images or to export them as is without conversion. Some image transforms, in particular image cropping, will not be applied to metafile images if they are exported to HTML without conversion.
     public enum MetafileFormat : String, Codable
     { 
         // Enum value "png"
         case png = "Png"
-        
+
         // Enum value "svg"
         case svg = "Svg"
-        
+
         // Enum value "emfOrWmf"
         case emfOrWmf = "EmfOrWmf"
-        
     }
-
     // Gets or sets controls how OfficeMath objects are exported to HTML, MHTML or EPUB.  Default value is HtmlOfficeMathOutputMode.Image.
     public enum OfficeMathOutputMode : String, Codable
     { 
         // Enum value "image"
         case image = "Image"
-        
+
         // Enum value "mathML"
         case mathML = "MathML"
-        
+
         // Enum value "text"
         case text = "Text"
-        
     }
-
     
     // Field of allowNegativeIndent. Gets or sets specifies whether negative left and right indents of paragraphs are allowed (not normalized).      
     private var allowNegativeIndent : Bool?;

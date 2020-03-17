@@ -27,7 +27,7 @@
 
 import Foundation
 
-// Child nodes of  or .
+// Child nodes of Story or InlineStory.
 public class StoryChildNodes : Codable, WordsApiModel {
     
     // Field of childNodes. Gets or sets child nodes.      

@@ -34,20 +34,18 @@ public class PreferredWidth : Codable, WordsApiModel {
     { 
         // Enum value "auto"
         case auto = "Auto"
-        
+
         // Enum value "percent"
         case percent = "Percent"
-        
+
         // Enum value "points"
         case points = "Points"
-        
     }
-
     
     // Field of type. Gets or sets the unit of measure used for this preferred width value.      
     private var type : ModelType?;
     
-    // Field of value. Gets or sets the preferred width value. The unit of measure is specified in the  property.      
+    // Field of value. Gets or sets the preferred width value. The unit of measure is specified in the Type property.      
     private var value : Double?;
         
     private enum CodingKeys: String, CodingKey {
@@ -63,38 +61,37 @@ public class PreferredWidth : Codable, WordsApiModel {
     public required init(from decoder: Decoder) throws {
         
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.type = try container.decode(ModelType.self, forKey: .type);
+        self.type = try container.decodeIfPresent(ModelType.self, forKey: .type);
         self.value = try container.decodeIfPresent(Double.self, forKey: .value);
     }
 
     public func encode(to encoder: Encoder) throws {
         
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.type == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "type");
+        if (self.type != nil) {
+            try container.encode(self.type, forKey: .type);
         }
-        try container.encode(self.type, forKey: .type);
         if (self.value != nil) {
             try container.encode(self.value, forKey: .value);
         }
     }
     
     // Sets type. Gets or sets the unit of measure used for this preferred width value.  
-    public func setType(type : ModelType) {
+    public func setType(type : ModelType?) {
         self.type = type;
     }
     
     // Gets type. Gets or sets the unit of measure used for this preferred width value.  
-    public func getType() -> ModelType {
-        return self.type!;
+    public func getType() -> ModelType? {
+        return self.type;
     }
     
-    // Sets value. Gets or sets the preferred width value. The unit of measure is specified in the  property.  
+    // Sets value. Gets or sets the preferred width value. The unit of measure is specified in the Type property.  
     public func setValue(value : Double?) {
         self.value = value;
     }
     
-    // Gets value. Gets or sets the preferred width value. The unit of measure is specified in the  property.  
+    // Gets value. Gets or sets the preferred width value. The unit of measure is specified in the Type property.  
     public func getValue() -> Double? {
         return self.value;
     }

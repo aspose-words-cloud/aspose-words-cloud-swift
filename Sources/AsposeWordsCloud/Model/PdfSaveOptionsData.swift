@@ -34,15 +34,13 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     { 
         // Enum value "_none"
         case _none = "None"
-        
+
         // Enum value "first"
         case first = "First"
-        
+
         // Enum value "all"
         case all = "All"
-        
     }
-
     
     // Field of compliance. Gets or sets specifies the PDF standards compliance level for output documents.      
     private var compliance : String?;
@@ -50,22 +48,22 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Field of createNoteHyperlinks. Gets or sets specifies whether to convert footnote/endnote references in main text story into active hyperlinks. When clicked the hyperlink will lead to the corresponding footnote/endnote. Default is false.      
     private var createNoteHyperlinks : Bool?;
     
-    // Field of customPropertiesExport. Gets or sets a value determining the way  are exported to PDF file. Default value is .      
+    // Field of customPropertiesExport. Gets or sets a value determining the way CustomDocumentProperties are exported to PDF file. Default value is None.      
     private var customPropertiesExport : String?;
     
-    // Field of digitalSignatureDetails. Gets or sets specifies the details for signing the output PDF document.      
+    // Field of digitalSignatureDetails.       
     private var digitalSignatureDetails : PdfDigitalSignatureDetailsData?;
     
     // Field of displayDocTitle. Gets or sets a flag specifying whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.      
     private var displayDocTitle : Bool?;
     
-    // Field of downsampleOptions. Gets or sets allows to specify downsample options.      
+    // Field of downsampleOptions.       
     private var downsampleOptions : DownsampleOptionsData?;
     
     // Field of embedFullFonts. Gets or sets controls how fonts are embedded into the resulting PDF documents.      
     private var embedFullFonts : Bool?;
     
-    // Field of encryptionDetails. Gets or sets specifies the details for encrypting the output PDF document.      
+    // Field of encryptionDetails.       
     private var encryptionDetails : PdfEncryptionDetailsData?;
     
     // Field of escapeUri. Gets or sets a flag specifying whether URI should be escaped before writing.                   
@@ -89,7 +87,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Field of openHyperlinksInNewWindow. Gets or sets determines whether hyperlinks in the output Pdf document are forced to be opened in a new window (or tab) of a browser.      
     private var openHyperlinksInNewWindow : Bool?;
     
-    // Field of outlineOptions. Gets or sets allows to specify outline options.      
+    // Field of outlineOptions.       
     private var outlineOptions : OutlineOptionsData?;
     
     // Field of pageMode. Gets or sets specifies how the PDF document should be displayed when opened in the PDF reader.      
@@ -274,22 +272,22 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.createNoteHyperlinks;
     }
     
-    // Sets customPropertiesExport. Gets or sets a value determining the way  are exported to PDF file. Default value is .  
+    // Sets customPropertiesExport. Gets or sets a value determining the way CustomDocumentProperties are exported to PDF file. Default value is None.  
     public func setCustomPropertiesExport(customPropertiesExport : String?) {
         self.customPropertiesExport = customPropertiesExport;
     }
     
-    // Gets customPropertiesExport. Gets or sets a value determining the way  are exported to PDF file. Default value is .  
+    // Gets customPropertiesExport. Gets or sets a value determining the way CustomDocumentProperties are exported to PDF file. Default value is None.  
     public func getCustomPropertiesExport() -> String? {
         return self.customPropertiesExport;
     }
     
-    // Sets digitalSignatureDetails. Gets or sets specifies the details for signing the output PDF document.  
+    // Sets digitalSignatureDetails.   
     public func setDigitalSignatureDetails(digitalSignatureDetails : PdfDigitalSignatureDetailsData?) {
         self.digitalSignatureDetails = digitalSignatureDetails;
     }
     
-    // Gets digitalSignatureDetails. Gets or sets specifies the details for signing the output PDF document.  
+    // Gets digitalSignatureDetails.   
     public func getDigitalSignatureDetails() -> PdfDigitalSignatureDetailsData? {
         return self.digitalSignatureDetails;
     }
@@ -304,12 +302,12 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.displayDocTitle;
     }
     
-    // Sets downsampleOptions. Gets or sets allows to specify downsample options.  
+    // Sets downsampleOptions.   
     public func setDownsampleOptions(downsampleOptions : DownsampleOptionsData?) {
         self.downsampleOptions = downsampleOptions;
     }
     
-    // Gets downsampleOptions. Gets or sets allows to specify downsample options.  
+    // Gets downsampleOptions.   
     public func getDownsampleOptions() -> DownsampleOptionsData? {
         return self.downsampleOptions;
     }
@@ -324,12 +322,12 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.embedFullFonts;
     }
     
-    // Sets encryptionDetails. Gets or sets specifies the details for encrypting the output PDF document.  
+    // Sets encryptionDetails.   
     public func setEncryptionDetails(encryptionDetails : PdfEncryptionDetailsData?) {
         self.encryptionDetails = encryptionDetails;
     }
     
-    // Gets encryptionDetails. Gets or sets specifies the details for encrypting the output PDF document.  
+    // Gets encryptionDetails.   
     public func getEncryptionDetails() -> PdfEncryptionDetailsData? {
         return self.encryptionDetails;
     }
@@ -404,12 +402,12 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.openHyperlinksInNewWindow;
     }
     
-    // Sets outlineOptions. Gets or sets allows to specify outline options.  
+    // Sets outlineOptions.   
     public func setOutlineOptions(outlineOptions : OutlineOptionsData?) {
         self.outlineOptions = outlineOptions;
     }
     
-    // Gets outlineOptions. Gets or sets allows to specify outline options.  
+    // Gets outlineOptions.   
     public func getOutlineOptions() -> OutlineOptionsData? {
         return self.outlineOptions;
     }
