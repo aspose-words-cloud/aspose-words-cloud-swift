@@ -29,13 +29,13 @@ import Foundation
 
 // Request model for saveAs operation.
 public class SaveAsRequest {
-    private let name : String;
-    private let saveOptionsData : SaveOptionsData;
-    private let folder : String?;
-    private let storage : String?;
-    private let loadEncoding : String?;
-    private let password : String?;
-    private let fontsLocation : String?;
+    private let name : ;
+    private let saveOptionsData : ;
+    private let folder : ?;
+    private let storage : ?;
+    private let loadEncoding : ?;
+    private let password : ?;
+    private let fontsLocation : ?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -49,7 +49,7 @@ public class SaveAsRequest {
     }
     
     // Initializes a new instance of the saveAsRequest class.
-    public init(name : String, saveOptionsData : SaveOptionsData, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
+    public init(name : , saveOptionsData : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil, fontsLocation : ? = nil) {
         self.name = name;
         self.saveOptionsData = saveOptionsData;
         self.folder = folder;
@@ -60,37 +60,37 @@ public class SaveAsRequest {
     }
     
     // The document name.
-    public func getName() -> String {
+    public func getName() ->  {
         return self.name;
     }
     
     // Save options.
-    public func getSaveOptionsData() -> SaveOptionsData {
+    public func getSaveOptionsData() ->  {
         return self.saveOptionsData;
     }
     
     // Original document folder.
-    public func getFolder() -> String? {
+    public func getFolder() -> ? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> String? {
+    public func getStorage() -> ? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
+    public func getLoadEncoding() -> ? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> String? {
+    public func getPassword() -> ? {
         return self.password;
     }
     
     // Folder in filestorage with custom fonts.
-    public func getFontsLocation() -> String? {
+    public func getFontsLocation() -> ? {
         return self.fontsLocation;
     }
 }

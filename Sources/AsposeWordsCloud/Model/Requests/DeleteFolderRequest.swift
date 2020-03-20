@@ -29,9 +29,9 @@ import Foundation
 
 // Request model for deleteFolder operation.
 public class DeleteFolderRequest {
-    private let path : String;
-    private let storageName : String?;
-    private let recursive : Bool?;
+    private let path : ;
+    private let storageName : ?;
+    private let recursive : ?;
     
     private enum CodingKeys: String, CodingKey {
         case path;
@@ -41,24 +41,24 @@ public class DeleteFolderRequest {
     }
     
     // Initializes a new instance of the deleteFolderRequest class.
-    public init(path : String, storageName : String? = nil, recursive : Bool? = nil) {
+    public init(path : , storageName : ? = nil, recursive : ? = nil) {
         self.path = path;
         self.storageName = storageName;
         self.recursive = recursive;
     }
     
     // Folder path e.g. /Folder1s
-    public func getPath() -> String {
+    public func getPath() ->  {
         return self.path;
     }
     
     // Storage name
-    public func getStorageName() -> String? {
+    public func getStorageName() -> ? {
         return self.storageName;
     }
     
     // Enable to delete folders, subfolders and files
-    public func getRecursive() -> Bool? {
+    public func getRecursive() -> ? {
         return self.recursive;
     }
 }

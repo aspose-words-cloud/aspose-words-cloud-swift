@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for getFilesList operation.
 public class GetFilesListRequest {
-    private let path : String;
-    private let storageName : String?;
+    private let path : ;
+    private let storageName : ?;
     
     private enum CodingKeys: String, CodingKey {
         case path;
@@ -39,18 +39,18 @@ public class GetFilesListRequest {
     }
     
     // Initializes a new instance of the getFilesListRequest class.
-    public init(path : String, storageName : String? = nil) {
+    public init(path : , storageName : ? = nil) {
         self.path = path;
         self.storageName = storageName;
     }
     
     // Folder path e.g. /Folder1
-    public func getPath() -> String {
+    public func getPath() ->  {
         return self.path;
     }
     
     // Storage name
-    public func getStorageName() -> String? {
+    public func getStorageName() -> ? {
         return self.storageName;
     }
 }

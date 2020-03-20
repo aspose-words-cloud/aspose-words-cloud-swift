@@ -29,13 +29,13 @@ import Foundation
 
 // Request model for getRangeText operation.
 public class GetRangeTextRequest {
-    private let name : String;
-    private let rangeStartIdentifier : String;
-    private let rangeEndIdentifier : String?;
-    private let folder : String?;
-    private let storage : String?;
-    private let loadEncoding : String?;
-    private let password : String?;
+    private let name : ;
+    private let rangeStartIdentifier : ;
+    private let rangeEndIdentifier : ?;
+    private let folder : ?;
+    private let storage : ?;
+    private let loadEncoding : ?;
+    private let password : ?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -49,7 +49,7 @@ public class GetRangeTextRequest {
     }
     
     // Initializes a new instance of the getRangeTextRequest class.
-    public init(name : String, rangeStartIdentifier : String, rangeEndIdentifier : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
+    public init(name : , rangeStartIdentifier : , rangeEndIdentifier : ? = nil, folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil) {
         self.name = name;
         self.rangeStartIdentifier = rangeStartIdentifier;
         self.rangeEndIdentifier = rangeEndIdentifier;
@@ -60,37 +60,37 @@ public class GetRangeTextRequest {
     }
     
     // The document.
-    public func getName() -> String {
+    public func getName() ->  {
         return self.name;
     }
     
     // The range start identifier. Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id". It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
-    public func getRangeStartIdentifier() -> String {
+    public func getRangeStartIdentifier() ->  {
         return self.rangeStartIdentifier;
     }
     
     // The range end identifier.
-    public func getRangeEndIdentifier() -> String? {
+    public func getRangeEndIdentifier() -> ? {
         return self.rangeEndIdentifier;
     }
     
     // Original document folder.
-    public func getFolder() -> String? {
+    public func getFolder() -> ? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> String? {
+    public func getStorage() -> ? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
+    public func getLoadEncoding() -> ? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> String? {
+    public func getPassword() -> ? {
         return self.password;
     }
 }

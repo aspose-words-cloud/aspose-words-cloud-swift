@@ -29,12 +29,12 @@ import Foundation
 
 // Request model for acceptAllRevisions operation.
 public class AcceptAllRevisionsRequest {
-    private let name : String;
-    private let folder : String?;
-    private let storage : String?;
-    private let loadEncoding : String?;
-    private let password : String?;
-    private let destFileName : String?;
+    private let name : ;
+    private let folder : ?;
+    private let storage : ?;
+    private let loadEncoding : ?;
+    private let password : ?;
+    private let destFileName : ?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -47,7 +47,7 @@ public class AcceptAllRevisionsRequest {
     }
     
     // Initializes a new instance of the acceptAllRevisionsRequest class.
-    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
+    public init(name : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil, destFileName : ? = nil) {
         self.name = name;
         self.folder = folder;
         self.storage = storage;
@@ -57,32 +57,32 @@ public class AcceptAllRevisionsRequest {
     }
     
     // The document name.
-    public func getName() -> String {
+    public func getName() ->  {
         return self.name;
     }
     
     // Original document folder.
-    public func getFolder() -> String? {
+    public func getFolder() -> ? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> String? {
+    public func getStorage() -> ? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
+    public func getLoadEncoding() -> ? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> String? {
+    public func getPassword() -> ? {
         return self.password;
     }
     
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-    public func getDestFileName() -> String? {
+    public func getDestFileName() -> ? {
         return self.destFileName;
     }
 }

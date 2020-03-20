@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for classify operation.
 public class ClassifyRequest {
-    private let text : String;
-    private let bestClassesCount : String?;
+    private let text : ;
+    private let bestClassesCount : ?;
     
     private enum CodingKeys: String, CodingKey {
         case text;
@@ -39,18 +39,18 @@ public class ClassifyRequest {
     }
     
     // Initializes a new instance of the classifyRequest class.
-    public init(text : String, bestClassesCount : String? = nil) {
+    public init(text : , bestClassesCount : ? = nil) {
         self.text = text;
         self.bestClassesCount = bestClassesCount;
     }
     
     // Text to classify.
-    public func getText() -> String {
+    public func getText() ->  {
         return self.text;
     }
     
     // Number of the best classes to return.
-    public func getBestClassesCount() -> String? {
+    public func getBestClassesCount() -> ? {
         return self.bestClassesCount;
     }
 }

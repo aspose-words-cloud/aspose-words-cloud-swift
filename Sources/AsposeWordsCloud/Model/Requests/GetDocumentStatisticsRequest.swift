@@ -29,14 +29,14 @@ import Foundation
 
 // Request model for getDocumentStatistics operation.
 public class GetDocumentStatisticsRequest {
-    private let name : String;
-    private let folder : String?;
-    private let storage : String?;
-    private let loadEncoding : String?;
-    private let password : String?;
-    private let includeComments : Bool?;
-    private let includeFootnotes : Bool?;
-    private let includeTextInShapes : Bool?;
+    private let name : ;
+    private let folder : ?;
+    private let storage : ?;
+    private let loadEncoding : ?;
+    private let password : ?;
+    private let includeComments : ?;
+    private let includeFootnotes : ?;
+    private let includeTextInShapes : ?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -51,7 +51,7 @@ public class GetDocumentStatisticsRequest {
     }
     
     // Initializes a new instance of the getDocumentStatisticsRequest class.
-    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, includeComments : Bool? = nil, includeFootnotes : Bool? = nil, includeTextInShapes : Bool? = nil) {
+    public init(name : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil, includeComments : ? = nil, includeFootnotes : ? = nil, includeTextInShapes : ? = nil) {
         self.name = name;
         self.folder = folder;
         self.storage = storage;
@@ -63,42 +63,42 @@ public class GetDocumentStatisticsRequest {
     }
     
     // The document name.
-    public func getName() -> String {
+    public func getName() ->  {
         return self.name;
     }
     
     // Original document folder.
-    public func getFolder() -> String? {
+    public func getFolder() -> ? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> String? {
+    public func getStorage() -> ? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
+    public func getLoadEncoding() -> ? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> String? {
+    public func getPassword() -> ? {
         return self.password;
     }
     
     // Support including/excluding comments from the WordCount. Default value is "false".
-    public func getIncludeComments() -> Bool? {
+    public func getIncludeComments() -> ? {
         return self.includeComments;
     }
     
     // Support including/excluding footnotes from the WordCount. Default value is "false".
-    public func getIncludeFootnotes() -> Bool? {
+    public func getIncludeFootnotes() -> ? {
         return self.includeFootnotes;
     }
     
     // Support including/excluding shape's text from the WordCount. Default value is "false".
-    public func getIncludeTextInShapes() -> Bool? {
+    public func getIncludeTextInShapes() -> ? {
         return self.includeTextInShapes;
     }
 }

@@ -29,13 +29,13 @@ import Foundation
 
 // Request model for getHeaderFooters operation.
 public class GetHeaderFootersRequest {
-    private let name : String;
-    private let sectionPath : String;
-    private let folder : String?;
-    private let storage : String?;
-    private let loadEncoding : String?;
-    private let password : String?;
-    private let filterByType : String?;
+    private let name : ;
+    private let sectionPath : ;
+    private let folder : ?;
+    private let storage : ?;
+    private let loadEncoding : ?;
+    private let password : ?;
+    private let filterByType : ?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -49,7 +49,7 @@ public class GetHeaderFootersRequest {
     }
     
     // Initializes a new instance of the getHeaderFootersRequest class.
-    public init(name : String, sectionPath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, filterByType : String? = nil) {
+    public init(name : , sectionPath : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil, filterByType : ? = nil) {
         self.name = name;
         self.sectionPath = sectionPath;
         self.folder = folder;
@@ -60,37 +60,37 @@ public class GetHeaderFootersRequest {
     }
     
     // The document name.
-    public func getName() -> String {
+    public func getName() ->  {
         return self.name;
     }
     
     // Path to parent section.
-    public func getSectionPath() -> String {
+    public func getSectionPath() ->  {
         return self.sectionPath;
     }
     
     // Original document folder.
-    public func getFolder() -> String? {
+    public func getFolder() -> ? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> String? {
+    public func getStorage() -> ? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
+    public func getLoadEncoding() -> ? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> String? {
+    public func getPassword() -> ? {
         return self.password;
     }
     
     // List of types of headers and footers.
-    public func getFilterByType() -> String? {
+    public func getFilterByType() -> ? {
         return self.filterByType;
     }
 }

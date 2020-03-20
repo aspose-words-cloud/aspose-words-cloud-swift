@@ -29,9 +29,9 @@ import Foundation
 
 // Request model for uploadFile operation.
 public class UploadFileRequest {
-    private let fileContent : InputStream;
-    private let path : String;
-    private let storageName : String?;
+    private let fileContent : ;
+    private let path : ;
+    private let storageName : ?;
     
     private enum CodingKeys: String, CodingKey {
         case fileContent;
@@ -41,24 +41,24 @@ public class UploadFileRequest {
     }
     
     // Initializes a new instance of the uploadFileRequest class.
-    public init(fileContent : InputStream, path : String, storageName : String? = nil) {
+    public init(fileContent : , path : , storageName : ? = nil) {
         self.fileContent = fileContent;
         self.path = path;
         self.storageName = storageName;
     }
     
     // File to upload
-    public func getFileContent() -> InputStream {
+    public func getFileContent() ->  {
         return self.fileContent;
     }
     
     // Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.
-    public func getPath() -> String {
+    public func getPath() ->  {
         return self.path;
     }
     
     // Storage name
-    public func getStorageName() -> String? {
+    public func getStorageName() -> ? {
         return self.storageName;
     }
 }

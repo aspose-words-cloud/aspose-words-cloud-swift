@@ -29,11 +29,11 @@ import Foundation
 
 // Request model for executeMailMergeOnline operation.
 public class ExecuteMailMergeOnlineRequest {
-    private let template : InputStream;
-    private let data : InputStream;
-    private let withRegions : Bool?;
-    private let cleanup : String?;
-    private let documentFileName : String?;
+    private let template : ;
+    private let data : ;
+    private let withRegions : ?;
+    private let cleanup : ?;
+    private let documentFileName : ?;
     
     private enum CodingKeys: String, CodingKey {
         case template;
@@ -45,7 +45,7 @@ public class ExecuteMailMergeOnlineRequest {
     }
     
     // Initializes a new instance of the executeMailMergeOnlineRequest class.
-    public init(template : InputStream, data : InputStream, withRegions : Bool? = nil, cleanup : String? = nil, documentFileName : String? = nil) {
+    public init(template : , data : , withRegions : ? = nil, cleanup : ? = nil, documentFileName : ? = nil) {
         self.template = template;
         self.data = data;
         self.withRegions = withRegions;
@@ -54,27 +54,27 @@ public class ExecuteMailMergeOnlineRequest {
     }
     
     // File with template
-    public func getTemplate() -> InputStream {
+    public func getTemplate() ->  {
         return self.template;
     }
     
     // File with mailmerge data
-    public func getData() -> InputStream {
+    public func getData() ->  {
         return self.data;
     }
     
     // With regions flag.
-    public func getWithRegions() -> Bool? {
+    public func getWithRegions() -> ? {
         return self.withRegions;
     }
     
     // Clean up options.
-    public func getCleanup() -> String? {
+    public func getCleanup() -> ? {
         return self.cleanup;
     }
     
     // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, "template" will be used instead. 
-    public func getDocumentFileName() -> String? {
+    public func getDocumentFileName() -> ? {
         return self.documentFileName;
     }
 }

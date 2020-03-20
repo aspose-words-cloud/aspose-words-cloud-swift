@@ -29,13 +29,13 @@ import Foundation
 
 // Request model for getRun operation.
 public class GetRunRequest {
-    private let name : String;
-    private let paragraphPath : String;
-    private let index : Int;
-    private let folder : String?;
-    private let storage : String?;
-    private let loadEncoding : String?;
-    private let password : String?;
+    private let name : ;
+    private let paragraphPath : ;
+    private let index : ;
+    private let folder : ?;
+    private let storage : ?;
+    private let loadEncoding : ?;
+    private let password : ?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -49,7 +49,7 @@ public class GetRunRequest {
     }
     
     // Initializes a new instance of the getRunRequest class.
-    public init(name : String, paragraphPath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
+    public init(name : , paragraphPath : , index : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil) {
         self.name = name;
         self.paragraphPath = paragraphPath;
         self.index = index;
@@ -60,37 +60,37 @@ public class GetRunRequest {
     }
     
     // The document name.
-    public func getName() -> String {
+    public func getName() ->  {
         return self.name;
     }
     
     // Path to parent paragraph.
-    public func getParagraphPath() -> String {
+    public func getParagraphPath() ->  {
         return self.paragraphPath;
     }
     
     // Object index.
-    public func getIndex() -> Int {
+    public func getIndex() ->  {
         return self.index;
     }
     
     // Original document folder.
-    public func getFolder() -> String? {
+    public func getFolder() -> ? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> String? {
+    public func getStorage() -> ? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
+    public func getLoadEncoding() -> ? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> String? {
+    public func getPassword() -> ? {
         return self.password;
     }
 }

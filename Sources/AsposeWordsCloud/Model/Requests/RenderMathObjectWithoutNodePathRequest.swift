@@ -29,14 +29,14 @@ import Foundation
 
 // Request model for renderMathObjectWithoutNodePath operation.
 public class RenderMathObjectWithoutNodePathRequest {
-    private let name : String;
-    private let format : String;
-    private let index : Int;
-    private let folder : String?;
-    private let storage : String?;
-    private let loadEncoding : String?;
-    private let password : String?;
-    private let fontsLocation : String?;
+    private let name : ;
+    private let format : ;
+    private let index : ;
+    private let folder : ?;
+    private let storage : ?;
+    private let loadEncoding : ?;
+    private let password : ?;
+    private let fontsLocation : ?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -51,7 +51,7 @@ public class RenderMathObjectWithoutNodePathRequest {
     }
     
     // Initializes a new instance of the renderMathObjectWithoutNodePathRequest class.
-    public init(name : String, format : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
+    public init(name : , format : , index : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil, fontsLocation : ? = nil) {
         self.name = name;
         self.format = format;
         self.index = index;
@@ -63,42 +63,42 @@ public class RenderMathObjectWithoutNodePathRequest {
     }
     
     // The document name.
-    public func getName() -> String {
+    public func getName() ->  {
         return self.name;
     }
     
     // The destination format.
-    public func getFormat() -> String {
+    public func getFormat() ->  {
         return self.format;
     }
     
     // Object index.
-    public func getIndex() -> Int {
+    public func getIndex() ->  {
         return self.index;
     }
     
     // Original document folder.
-    public func getFolder() -> String? {
+    public func getFolder() -> ? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> String? {
+    public func getStorage() -> ? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
+    public func getLoadEncoding() -> ? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> String? {
+    public func getPassword() -> ? {
         return self.password;
     }
     
     // Folder in filestorage with custom fonts.
-    public func getFontsLocation() -> String? {
+    public func getFontsLocation() -> ? {
         return self.fontsLocation;
     }
 }

@@ -29,16 +29,16 @@ import Foundation
 
 // Request model for deleteHeaderFooter operation.
 public class DeleteHeaderFooterRequest {
-    private let name : String;
-    private let sectionPath : String;
-    private let index : Int;
-    private let folder : String?;
-    private let storage : String?;
-    private let loadEncoding : String?;
-    private let password : String?;
-    private let destFileName : String?;
-    private let revisionAuthor : String?;
-    private let revisionDateTime : String?;
+    private let name : ;
+    private let sectionPath : ;
+    private let index : ;
+    private let folder : ?;
+    private let storage : ?;
+    private let loadEncoding : ?;
+    private let password : ?;
+    private let destFileName : ?;
+    private let revisionAuthor : ?;
+    private let revisionDateTime : ?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -55,7 +55,7 @@ public class DeleteHeaderFooterRequest {
     }
     
     // Initializes a new instance of the deleteHeaderFooterRequest class.
-    public init(name : String, sectionPath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : , sectionPath : , index : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil, destFileName : ? = nil, revisionAuthor : ? = nil, revisionDateTime : ? = nil) {
         self.name = name;
         self.sectionPath = sectionPath;
         self.index = index;
@@ -69,52 +69,52 @@ public class DeleteHeaderFooterRequest {
     }
     
     // The document name.
-    public func getName() -> String {
+    public func getName() ->  {
         return self.name;
     }
     
     // Path to parent section.
-    public func getSectionPath() -> String {
+    public func getSectionPath() ->  {
         return self.sectionPath;
     }
     
     // Object index.
-    public func getIndex() -> Int {
+    public func getIndex() ->  {
         return self.index;
     }
     
     // Original document folder.
-    public func getFolder() -> String? {
+    public func getFolder() -> ? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> String? {
+    public func getStorage() -> ? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
+    public func getLoadEncoding() -> ? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> String? {
+    public func getPassword() -> ? {
         return self.password;
     }
     
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-    public func getDestFileName() -> String? {
+    public func getDestFileName() -> ? {
         return self.destFileName;
     }
     
     // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-    public func getRevisionAuthor() -> String? {
+    public func getRevisionAuthor() -> ? {
         return self.revisionAuthor;
     }
     
     // The date and time to use for revisions.
-    public func getRevisionDateTime() -> String? {
+    public func getRevisionDateTime() -> ? {
         return self.revisionDateTime;
     }
 }

@@ -29,20 +29,21 @@ import Foundation
 
 // Request model for updateTableCellFormat operation.
 public class UpdateTableCellFormatRequest {
-    private let name : String;
-    private let tableRowPath : String;
-    private let index : Int;
-    private let folder : String?;
-    private let storage : String?;
-    private let loadEncoding : String?;
-    private let password : String?;
-    private let destFileName : String?;
-    private let revisionAuthor : String?;
-    private let revisionDateTime : String?;
-    private let format : TableCellFormat;
+    private let name : ;
+    private let format : ;
+    private let tableRowPath : ;
+    private let index : ;
+    private let folder : ?;
+    private let storage : ?;
+    private let loadEncoding : ?;
+    private let password : ?;
+    private let destFileName : ?;
+    private let revisionAuthor : ?;
+    private let revisionDateTime : ?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
+        case format;
         case tableRowPath;
         case index;
         case folder;
@@ -52,13 +53,13 @@ public class UpdateTableCellFormatRequest {
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
-        case format;
         case invalidCodingKey;
     }
     
     // Initializes a new instance of the updateTableCellFormatRequest class.
-    public init(name : String, tableRowPath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, format : TableCellFormat) {
+    public init(name : , format : , tableRowPath : , index : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil, destFileName : ? = nil, revisionAuthor : ? = nil, revisionDateTime : ? = nil) {
         self.name = name;
+        self.format = format;
         self.tableRowPath = tableRowPath;
         self.index = index;
         self.folder = folder;
@@ -68,61 +69,60 @@ public class UpdateTableCellFormatRequest {
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
-        self.format = format;
     }
     
     // The document name.
-    public func getName() -> String {
+    public func getName() ->  {
         return self.name;
     }
     
+    // The properties.
+    public func getFormat() ->  {
+        return self.format;
+    }
+    
     // Path to table row.
-    public func getTableRowPath() -> String {
+    public func getTableRowPath() ->  {
         return self.tableRowPath;
     }
     
     // Object index.
-    public func getIndex() -> Int {
+    public func getIndex() ->  {
         return self.index;
     }
     
     // Original document folder.
-    public func getFolder() -> String? {
+    public func getFolder() -> ? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> String? {
+    public func getStorage() -> ? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
+    public func getLoadEncoding() -> ? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> String? {
+    public func getPassword() -> ? {
         return self.password;
     }
     
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-    public func getDestFileName() -> String? {
+    public func getDestFileName() -> ? {
         return self.destFileName;
     }
     
     // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-    public func getRevisionAuthor() -> String? {
+    public func getRevisionAuthor() -> ? {
         return self.revisionAuthor;
     }
     
     // The date and time to use for revisions.
-    public func getRevisionDateTime() -> String? {
+    public func getRevisionDateTime() -> ? {
         return self.revisionDateTime;
-    }
-    
-    // The properties.
-    public func getFormat() -> TableCellFormat {
-        return self.format;
     }
 }

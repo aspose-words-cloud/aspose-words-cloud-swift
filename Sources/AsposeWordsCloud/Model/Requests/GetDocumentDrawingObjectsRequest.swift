@@ -29,12 +29,12 @@ import Foundation
 
 // Request model for getDocumentDrawingObjects operation.
 public class GetDocumentDrawingObjectsRequest {
-    private let name : String;
-    private let nodePath : String;
-    private let folder : String?;
-    private let storage : String?;
-    private let loadEncoding : String?;
-    private let password : String?;
+    private let name : ;
+    private let nodePath : ;
+    private let folder : ?;
+    private let storage : ?;
+    private let loadEncoding : ?;
+    private let password : ?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -47,7 +47,7 @@ public class GetDocumentDrawingObjectsRequest {
     }
     
     // Initializes a new instance of the getDocumentDrawingObjectsRequest class.
-    public init(name : String, nodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
+    public init(name : , nodePath : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil) {
         self.name = name;
         self.nodePath = nodePath;
         self.folder = folder;
@@ -57,32 +57,32 @@ public class GetDocumentDrawingObjectsRequest {
     }
     
     // The document name.
-    public func getName() -> String {
+    public func getName() ->  {
         return self.name;
     }
     
     // Path to the node, which contains collection of drawing objects.
-    public func getNodePath() -> String {
+    public func getNodePath() ->  {
         return self.nodePath;
     }
     
     // Original document folder.
-    public func getFolder() -> String? {
+    public func getFolder() -> ? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> String? {
+    public func getStorage() -> ? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
+    public func getLoadEncoding() -> ? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> String? {
+    public func getPassword() -> ? {
         return self.password;
     }
 }

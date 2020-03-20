@@ -29,10 +29,10 @@ import Foundation
 
 // Request model for copyFolder operation.
 public class CopyFolderRequest {
-    private let destPath : String;
-    private let srcPath : String;
-    private let srcStorageName : String?;
-    private let destStorageName : String?;
+    private let destPath : ;
+    private let srcPath : ;
+    private let srcStorageName : ?;
+    private let destStorageName : ?;
     
     private enum CodingKeys: String, CodingKey {
         case destPath;
@@ -43,7 +43,7 @@ public class CopyFolderRequest {
     }
     
     // Initializes a new instance of the copyFolderRequest class.
-    public init(destPath : String, srcPath : String, srcStorageName : String? = nil, destStorageName : String? = nil) {
+    public init(destPath : , srcPath : , srcStorageName : ? = nil, destStorageName : ? = nil) {
         self.destPath = destPath;
         self.srcPath = srcPath;
         self.srcStorageName = srcStorageName;
@@ -51,22 +51,22 @@ public class CopyFolderRequest {
     }
     
     // Destination folder path e.g. '/dst'
-    public func getDestPath() -> String {
+    public func getDestPath() ->  {
         return self.destPath;
     }
     
     // Source folder path e.g. /Folder1
-    public func getSrcPath() -> String {
+    public func getSrcPath() ->  {
         return self.srcPath;
     }
     
     // Source storage name
-    public func getSrcStorageName() -> String? {
+    public func getSrcStorageName() -> ? {
         return self.srcStorageName;
     }
     
     // Destination storage name
-    public func getDestStorageName() -> String? {
+    public func getDestStorageName() -> ? {
         return self.destStorageName;
     }
 }

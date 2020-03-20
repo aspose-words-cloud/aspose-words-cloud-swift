@@ -29,12 +29,12 @@ import Foundation
 
 // Request model for search operation.
 public class SearchRequest {
-    private let name : String;
-    private let pattern : String;
-    private let folder : String?;
-    private let storage : String?;
-    private let loadEncoding : String?;
-    private let password : String?;
+    private let name : ;
+    private let pattern : ;
+    private let folder : ?;
+    private let storage : ?;
+    private let loadEncoding : ?;
+    private let password : ?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -47,7 +47,7 @@ public class SearchRequest {
     }
     
     // Initializes a new instance of the searchRequest class.
-    public init(name : String, pattern : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
+    public init(name : , pattern : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil) {
         self.name = name;
         self.pattern = pattern;
         self.folder = folder;
@@ -57,32 +57,32 @@ public class SearchRequest {
     }
     
     // The document name.
-    public func getName() -> String {
+    public func getName() ->  {
         return self.name;
     }
     
     // The regular expression used to find matches.
-    public func getPattern() -> String {
+    public func getPattern() ->  {
         return self.pattern;
     }
     
     // Original document folder.
-    public func getFolder() -> String? {
+    public func getFolder() -> ? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> String? {
+    public func getStorage() -> ? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
+    public func getLoadEncoding() -> ? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> String? {
+    public func getPassword() -> ? {
         return self.password;
     }
 }

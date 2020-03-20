@@ -29,13 +29,13 @@ import Foundation
 
 // Request model for getBorder operation.
 public class GetBorderRequest {
-    private let name : String;
-    private let nodePath : String;
-    private let borderType : String;
-    private let folder : String?;
-    private let storage : String?;
-    private let loadEncoding : String?;
-    private let password : String?;
+    private let name : ;
+    private let nodePath : ;
+    private let borderType : ;
+    private let folder : ?;
+    private let storage : ?;
+    private let loadEncoding : ?;
+    private let password : ?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -49,7 +49,7 @@ public class GetBorderRequest {
     }
     
     // Initializes a new instance of the getBorderRequest class.
-    public init(name : String, nodePath : String, borderType : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
+    public init(name : , nodePath : , borderType : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil) {
         self.name = name;
         self.nodePath = nodePath;
         self.borderType = borderType;
@@ -60,37 +60,37 @@ public class GetBorderRequest {
     }
     
     // The document name.
-    public func getName() -> String {
+    public func getName() ->  {
         return self.name;
     }
     
     // Path to the node with border(node should be paragraph, cell or row).
-    public func getNodePath() -> String {
+    public func getNodePath() ->  {
         return self.nodePath;
     }
     
     // Border type.
-    public func getBorderType() -> String {
+    public func getBorderType() ->  {
         return self.borderType;
     }
     
     // Original document folder.
-    public func getFolder() -> String? {
+    public func getFolder() -> ? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> String? {
+    public func getStorage() -> ? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
+    public func getLoadEncoding() -> ? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> String? {
+    public func getPassword() -> ? {
         return self.password;
     }
 }

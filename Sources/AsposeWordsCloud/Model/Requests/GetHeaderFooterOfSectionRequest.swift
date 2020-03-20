@@ -29,14 +29,14 @@ import Foundation
 
 // Request model for getHeaderFooterOfSection operation.
 public class GetHeaderFooterOfSectionRequest {
-    private let name : String;
-    private let headerFooterIndex : Int;
-    private let sectionIndex : Int;
-    private let folder : String?;
-    private let storage : String?;
-    private let loadEncoding : String?;
-    private let password : String?;
-    private let filterByType : String?;
+    private let name : ;
+    private let headerFooterIndex : ;
+    private let sectionIndex : ;
+    private let folder : ?;
+    private let storage : ?;
+    private let loadEncoding : ?;
+    private let password : ?;
+    private let filterByType : ?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -51,7 +51,7 @@ public class GetHeaderFooterOfSectionRequest {
     }
     
     // Initializes a new instance of the getHeaderFooterOfSectionRequest class.
-    public init(name : String, headerFooterIndex : Int, sectionIndex : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, filterByType : String? = nil) {
+    public init(name : , headerFooterIndex : , sectionIndex : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil, filterByType : ? = nil) {
         self.name = name;
         self.headerFooterIndex = headerFooterIndex;
         self.sectionIndex = sectionIndex;
@@ -63,42 +63,42 @@ public class GetHeaderFooterOfSectionRequest {
     }
     
     // The document name.
-    public func getName() -> String {
+    public func getName() ->  {
         return self.name;
     }
     
     // Header/footer index.
-    public func getHeaderFooterIndex() -> Int {
+    public func getHeaderFooterIndex() ->  {
         return self.headerFooterIndex;
     }
     
     // Section index.
-    public func getSectionIndex() -> Int {
+    public func getSectionIndex() ->  {
         return self.sectionIndex;
     }
     
     // Original document folder.
-    public func getFolder() -> String? {
+    public func getFolder() -> ? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> String? {
+    public func getStorage() -> ? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
+    public func getLoadEncoding() -> ? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> String? {
+    public func getPassword() -> ? {
         return self.password;
     }
     
     // List of types of headers and footers.
-    public func getFilterByType() -> String? {
+    public func getFilterByType() -> ? {
         return self.filterByType;
     }
 }

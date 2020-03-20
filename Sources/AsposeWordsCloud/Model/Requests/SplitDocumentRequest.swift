@@ -29,17 +29,17 @@ import Foundation
 
 // Request model for splitDocument operation.
 public class SplitDocumentRequest {
-    private let name : String;
-    private let folder : String?;
-    private let storage : String?;
-    private let loadEncoding : String?;
-    private let password : String?;
-    private let destFileName : String?;
-    private let format : String?;
-    private let from : Int?;
-    private let to : Int?;
-    private let zipOutput : Bool?;
-    private let fontsLocation : String?;
+    private let name : ;
+    private let folder : ?;
+    private let storage : ?;
+    private let loadEncoding : ?;
+    private let password : ?;
+    private let destFileName : ?;
+    private let format : ?;
+    private let from : ?;
+    private let to : ?;
+    private let zipOutput : ?;
+    private let fontsLocation : ?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -57,7 +57,7 @@ public class SplitDocumentRequest {
     }
     
     // Initializes a new instance of the splitDocumentRequest class.
-    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, format : String? = nil, from : Int? = nil, to : Int? = nil, zipOutput : Bool? = nil, fontsLocation : String? = nil) {
+    public init(name : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil, destFileName : ? = nil, format : ? = nil, from : ? = nil, to : ? = nil, zipOutput : ? = nil, fontsLocation : ? = nil) {
         self.name = name;
         self.folder = folder;
         self.storage = storage;
@@ -72,57 +72,57 @@ public class SplitDocumentRequest {
     }
     
     // Original document name.
-    public func getName() -> String {
+    public func getName() ->  {
         return self.name;
     }
     
     // Original document folder.
-    public func getFolder() -> String? {
+    public func getFolder() -> ? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> String? {
+    public func getStorage() -> ? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
+    public func getLoadEncoding() -> ? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> String? {
+    public func getPassword() -> ? {
         return self.password;
     }
     
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-    public func getDestFileName() -> String? {
+    public func getDestFileName() -> ? {
         return self.destFileName;
     }
     
     // Format to split.
-    public func getFormat() -> String? {
+    public func getFormat() -> ? {
         return self.format;
     }
     
     // Start page.
-    public func getFrom() -> Int? {
+    public func getFrom() -> ? {
         return self.from;
     }
     
     // End page.
-    public func getTo() -> Int? {
+    public func getTo() -> ? {
         return self.to;
     }
     
     // ZipOutput or not.
-    public func getZipOutput() -> Bool? {
+    public func getZipOutput() -> ? {
         return self.zipOutput;
     }
     
     // Folder in filestorage with custom fonts.
-    public func getFontsLocation() -> String? {
+    public func getFontsLocation() -> ? {
         return self.fontsLocation;
     }
 }
