@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for createFolder operation.
 public class CreateFolderRequest {
-    private let path : ;
-    private let storageName : ?;
+    private let path : String;
+    private let storageName : String?;
     
     private enum CodingKeys: String, CodingKey {
         case path;
@@ -39,18 +39,18 @@ public class CreateFolderRequest {
     }
     
     // Initializes a new instance of the createFolderRequest class.
-    public init(path : , storageName : ? = nil) {
+    public init(path : String, storageName : String? = nil) {
         self.path = path;
         self.storageName = storageName;
     }
     
     // Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively
-    public func getPath() ->  {
+    public func getPath() -> String {
         return self.path;
     }
     
     // Storage name
-    public func getStorageName() -> ? {
+    public func getStorageName() -> String? {
         return self.storageName;
     }
 }

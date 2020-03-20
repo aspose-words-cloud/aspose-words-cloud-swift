@@ -29,10 +29,10 @@ import Foundation
 
 // Request model for moveFolder operation.
 public class MoveFolderRequest {
-    private let destPath : ;
-    private let srcPath : ;
-    private let srcStorageName : ?;
-    private let destStorageName : ?;
+    private let destPath : String;
+    private let srcPath : String;
+    private let srcStorageName : String?;
+    private let destStorageName : String?;
     
     private enum CodingKeys: String, CodingKey {
         case destPath;
@@ -43,7 +43,7 @@ public class MoveFolderRequest {
     }
     
     // Initializes a new instance of the moveFolderRequest class.
-    public init(destPath : , srcPath : , srcStorageName : ? = nil, destStorageName : ? = nil) {
+    public init(destPath : String, srcPath : String, srcStorageName : String? = nil, destStorageName : String? = nil) {
         self.destPath = destPath;
         self.srcPath = srcPath;
         self.srcStorageName = srcStorageName;
@@ -51,22 +51,22 @@ public class MoveFolderRequest {
     }
     
     // Destination folder path to move to e.g '/dst'
-    public func getDestPath() ->  {
+    public func getDestPath() -> String {
         return self.destPath;
     }
     
     // Source folder path e.g. /Folder1
-    public func getSrcPath() ->  {
+    public func getSrcPath() -> String {
         return self.srcPath;
     }
     
     // Source storage name
-    public func getSrcStorageName() -> ? {
+    public func getSrcStorageName() -> String? {
         return self.srcStorageName;
     }
     
     // Destination storage name
-    public func getDestStorageName() -> ? {
+    public func getDestStorageName() -> String? {
         return self.destStorageName;
     }
 }

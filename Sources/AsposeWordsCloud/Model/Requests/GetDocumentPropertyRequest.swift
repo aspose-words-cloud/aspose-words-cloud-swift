@@ -29,12 +29,12 @@ import Foundation
 
 // Request model for getDocumentProperty operation.
 public class GetDocumentPropertyRequest {
-    private let name : ;
-    private let propertyName : ;
-    private let folder : ?;
-    private let storage : ?;
-    private let loadEncoding : ?;
-    private let password : ?;
+    private let name : String;
+    private let propertyName : String;
+    private let folder : String?;
+    private let storage : String?;
+    private let loadEncoding : String?;
+    private let password : String?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -47,7 +47,7 @@ public class GetDocumentPropertyRequest {
     }
     
     // Initializes a new instance of the getDocumentPropertyRequest class.
-    public init(name : , propertyName : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil) {
+    public init(name : String, propertyName : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.propertyName = propertyName;
         self.folder = folder;
@@ -57,32 +57,32 @@ public class GetDocumentPropertyRequest {
     }
     
     // The document name.
-    public func getName() ->  {
+    public func getName() -> String {
         return self.name;
     }
     
     // The property name.
-    public func getPropertyName() ->  {
+    public func getPropertyName() -> String {
         return self.propertyName;
     }
     
     // Original document folder.
-    public func getFolder() -> ? {
+    public func getFolder() -> String? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> ? {
+    public func getStorage() -> String? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> ? {
+    public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> ? {
+    public func getPassword() -> String? {
         return self.password;
     }
 }

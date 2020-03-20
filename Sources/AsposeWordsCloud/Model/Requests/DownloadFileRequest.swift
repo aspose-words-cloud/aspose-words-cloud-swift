@@ -29,9 +29,9 @@ import Foundation
 
 // Request model for downloadFile operation.
 public class DownloadFileRequest {
-    private let path : ;
-    private let storageName : ?;
-    private let versionId : ?;
+    private let path : String;
+    private let storageName : String?;
+    private let versionId : String?;
     
     private enum CodingKeys: String, CodingKey {
         case path;
@@ -41,24 +41,24 @@ public class DownloadFileRequest {
     }
     
     // Initializes a new instance of the downloadFileRequest class.
-    public init(path : , storageName : ? = nil, versionId : ? = nil) {
+    public init(path : String, storageName : String? = nil, versionId : String? = nil) {
         self.path = path;
         self.storageName = storageName;
         self.versionId = versionId;
     }
     
     // Path of the file including the file name and extension e.g. /folder1/file.ext
-    public func getPath() ->  {
+    public func getPath() -> String {
         return self.path;
     }
     
     // Storage name
-    public func getStorageName() -> ? {
+    public func getStorageName() -> String? {
         return self.storageName;
     }
     
     // File version ID to download
-    public func getVersionId() -> ? {
+    public func getVersionId() -> String? {
         return self.versionId;
     }
 }

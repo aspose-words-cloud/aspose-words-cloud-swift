@@ -29,12 +29,12 @@ import Foundation
 
 // Request model for getBookmarkByName operation.
 public class GetBookmarkByNameRequest {
-    private let name : ;
-    private let bookmarkName : ;
-    private let folder : ?;
-    private let storage : ?;
-    private let loadEncoding : ?;
-    private let password : ?;
+    private let name : String;
+    private let bookmarkName : String;
+    private let folder : String?;
+    private let storage : String?;
+    private let loadEncoding : String?;
+    private let password : String?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -47,7 +47,7 @@ public class GetBookmarkByNameRequest {
     }
     
     // Initializes a new instance of the getBookmarkByNameRequest class.
-    public init(name : , bookmarkName : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil) {
+    public init(name : String, bookmarkName : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.bookmarkName = bookmarkName;
         self.folder = folder;
@@ -57,32 +57,32 @@ public class GetBookmarkByNameRequest {
     }
     
     // The document name.
-    public func getName() ->  {
+    public func getName() -> String {
         return self.name;
     }
     
     // The bookmark name.
-    public func getBookmarkName() ->  {
+    public func getBookmarkName() -> String {
         return self.bookmarkName;
     }
     
     // Original document folder.
-    public func getFolder() -> ? {
+    public func getFolder() -> String? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> ? {
+    public func getStorage() -> String? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> ? {
+    public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> ? {
+    public func getPassword() -> String? {
         return self.password;
     }
 }

@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for getDocumentFieldNamesOnline operation.
 public class GetDocumentFieldNamesOnlineRequest {
-    private let template : ;
-    private let useNonMergeFields : ?;
+    private let template : InputStream;
+    private let useNonMergeFields : Bool?;
     
     private enum CodingKeys: String, CodingKey {
         case template;
@@ -39,18 +39,18 @@ public class GetDocumentFieldNamesOnlineRequest {
     }
     
     // Initializes a new instance of the getDocumentFieldNamesOnlineRequest class.
-    public init(template : , useNonMergeFields : ? = nil) {
+    public init(template : InputStream, useNonMergeFields : Bool? = nil) {
         self.template = template;
         self.useNonMergeFields = useNonMergeFields;
     }
     
     // File with template
-    public func getTemplate() ->  {
+    public func getTemplate() -> InputStream {
         return self.template;
     }
     
     // Use non merge fields or not.
-    public func getUseNonMergeFields() -> ? {
+    public func getUseNonMergeFields() -> Bool? {
         return self.useNonMergeFields;
     }
 }

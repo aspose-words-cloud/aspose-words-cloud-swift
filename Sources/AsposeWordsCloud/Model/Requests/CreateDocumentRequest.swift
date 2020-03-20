@@ -29,9 +29,9 @@ import Foundation
 
 // Request model for createDocument operation.
 public class CreateDocumentRequest {
-    private let storage : ?;
-    private let fileName : ?;
-    private let folder : ?;
+    private let storage : String?;
+    private let fileName : String?;
+    private let folder : String?;
     
     private enum CodingKeys: String, CodingKey {
         case storage;
@@ -41,24 +41,24 @@ public class CreateDocumentRequest {
     }
     
     // Initializes a new instance of the createDocumentRequest class.
-    public init(storage : ? = nil, fileName : ? = nil, folder : ? = nil) {
+    public init(storage : String? = nil, fileName : String? = nil, folder : String? = nil) {
         self.storage = storage;
         self.fileName = fileName;
         self.folder = folder;
     }
     
     // Original document storage.
-    public func getStorage() -> ? {
+    public func getStorage() -> String? {
         return self.storage;
     }
     
     // The document name.
-    public func getFileName() -> ? {
+    public func getFileName() -> String? {
         return self.fileName;
     }
     
     // The document folder.
-    public func getFolder() -> ? {
+    public func getFolder() -> String? {
         return self.folder;
     }
 }

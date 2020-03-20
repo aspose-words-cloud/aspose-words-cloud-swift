@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for loadWebDocument operation.
 public class LoadWebDocumentRequest {
-    private let data : ;
-    private let storage : ?;
+    private let data : LoadWebDocumentData;
+    private let storage : String?;
     
     private enum CodingKeys: String, CodingKey {
         case data;
@@ -39,18 +39,18 @@ public class LoadWebDocumentRequest {
     }
     
     // Initializes a new instance of the loadWebDocumentRequest class.
-    public init(data : , storage : ? = nil) {
+    public init(data : LoadWebDocumentData, storage : String? = nil) {
         self.data = data;
         self.storage = storage;
     }
     
     // Parameters of loading.
-    public func getData() ->  {
+    public func getData() -> LoadWebDocumentData {
         return self.data;
     }
     
     // Original document storage.
-    public func getStorage() -> ? {
+    public func getStorage() -> String? {
         return self.storage;
     }
 }

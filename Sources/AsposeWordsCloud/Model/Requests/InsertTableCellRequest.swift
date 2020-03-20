@@ -29,20 +29,19 @@ import Foundation
 
 // Request model for insertTableCell operation.
 public class InsertTableCellRequest {
-    private let name : ;
-    private let cell : ;
-    private let tableRowPath : ;
-    private let folder : ?;
-    private let storage : ?;
-    private let loadEncoding : ?;
-    private let password : ?;
-    private let destFileName : ?;
-    private let revisionAuthor : ?;
-    private let revisionDateTime : ?;
+    private let name : String;
+    private let tableRowPath : String;
+    private let folder : String?;
+    private let storage : String?;
+    private let loadEncoding : String?;
+    private let password : String?;
+    private let destFileName : String?;
+    private let revisionAuthor : String?;
+    private let revisionDateTime : String?;
+    private let cell : TableCellInsert;
     
     private enum CodingKeys: String, CodingKey {
         case name;
-        case cell;
         case tableRowPath;
         case folder;
         case storage;
@@ -51,13 +50,13 @@ public class InsertTableCellRequest {
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
+        case cell;
         case invalidCodingKey;
     }
     
     // Initializes a new instance of the insertTableCellRequest class.
-    public init(name : , cell : , tableRowPath : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil, destFileName : ? = nil, revisionAuthor : ? = nil, revisionDateTime : ? = nil) {
+    public init(name : String, tableRowPath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, cell : TableCellInsert) {
         self.name = name;
-        self.cell = cell;
         self.tableRowPath = tableRowPath;
         self.folder = folder;
         self.storage = storage;
@@ -66,55 +65,56 @@ public class InsertTableCellRequest {
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
+        self.cell = cell;
     }
     
     // The document name.
-    public func getName() ->  {
+    public func getName() -> String {
         return self.name;
     }
     
-    // Table cell parameters/.
-    public func getCell() ->  {
-        return self.cell;
-    }
-    
     // Path to table row.
-    public func getTableRowPath() ->  {
+    public func getTableRowPath() -> String {
         return self.tableRowPath;
     }
     
     // Original document folder.
-    public func getFolder() -> ? {
+    public func getFolder() -> String? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> ? {
+    public func getStorage() -> String? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> ? {
+    public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> ? {
+    public func getPassword() -> String? {
         return self.password;
     }
     
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-    public func getDestFileName() -> ? {
+    public func getDestFileName() -> String? {
         return self.destFileName;
     }
     
     // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-    public func getRevisionAuthor() -> ? {
+    public func getRevisionAuthor() -> String? {
         return self.revisionAuthor;
     }
     
     // The date and time to use for revisions.
-    public func getRevisionDateTime() -> ? {
+    public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
+    }
+    
+    // Table cell parameters/.
+    public func getCell() -> TableCellInsert {
+        return self.cell;
     }
 }

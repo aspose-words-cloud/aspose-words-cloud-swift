@@ -29,13 +29,13 @@ import Foundation
 
 // Request model for protectDocument operation.
 public class ProtectDocumentRequest {
-    private let name : ;
-    private let protectionRequest : ;
-    private let folder : ?;
-    private let storage : ?;
-    private let loadEncoding : ?;
-    private let password : ?;
-    private let destFileName : ?;
+    private let name : String;
+    private let protectionRequest : ProtectionRequest;
+    private let folder : String?;
+    private let storage : String?;
+    private let loadEncoding : String?;
+    private let password : String?;
+    private let destFileName : String?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -49,7 +49,7 @@ public class ProtectDocumentRequest {
     }
     
     // Initializes a new instance of the protectDocumentRequest class.
-    public init(name : , protectionRequest : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil, destFileName : ? = nil) {
+    public init(name : String, protectionRequest : ProtectionRequest, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
         self.protectionRequest = protectionRequest;
         self.folder = folder;
@@ -60,37 +60,37 @@ public class ProtectDocumentRequest {
     }
     
     // The document name.
-    public func getName() ->  {
+    public func getName() -> String {
         return self.name;
     }
     
     // ProtectionRequest with protection settings.
-    public func getProtectionRequest() ->  {
+    public func getProtectionRequest() -> ProtectionRequest {
         return self.protectionRequest;
     }
     
     // Original document folder.
-    public func getFolder() -> ? {
+    public func getFolder() -> String? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> ? {
+    public func getStorage() -> String? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> ? {
+    public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> ? {
+    public func getPassword() -> String? {
         return self.password;
     }
     
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-    public func getDestFileName() -> ? {
+    public func getDestFileName() -> String? {
         return self.destFileName;
     }
 }

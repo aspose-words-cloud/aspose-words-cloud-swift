@@ -29,12 +29,12 @@ import Foundation
 
 // Request model for convertDocument operation.
 public class ConvertDocumentRequest {
-    private let document : ;
-    private let format : ;
-    private let storage : ?;
-    private let outPath : ?;
-    private let fileNameFieldValue : ?;
-    private let fontsLocation : ?;
+    private let document : InputStream;
+    private let format : String;
+    private let storage : String?;
+    private let outPath : String?;
+    private let fileNameFieldValue : String?;
+    private let fontsLocation : String?;
     
     private enum CodingKeys: String, CodingKey {
         case document;
@@ -47,7 +47,7 @@ public class ConvertDocumentRequest {
     }
     
     // Initializes a new instance of the convertDocumentRequest class.
-    public init(document : , format : , storage : ? = nil, outPath : ? = nil, fileNameFieldValue : ? = nil, fontsLocation : ? = nil) {
+    public init(document : InputStream, format : String, storage : String? = nil, outPath : String? = nil, fileNameFieldValue : String? = nil, fontsLocation : String? = nil) {
         self.document = document;
         self.format = format;
         self.storage = storage;
@@ -57,32 +57,32 @@ public class ConvertDocumentRequest {
     }
     
     // Converting document
-    public func getDocument() ->  {
+    public func getDocument() -> InputStream {
         return self.document;
     }
     
     // Format to convert.
-    public func getFormat() ->  {
+    public func getFormat() -> String {
         return self.format;
     }
     
     // Original document storage.
-    public func getStorage() -> ? {
+    public func getStorage() -> String? {
         return self.storage;
     }
     
     // Path for saving operation result to the local storage.
-    public func getOutPath() -> ? {
+    public func getOutPath() -> String? {
         return self.outPath;
     }
     
     // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead. 
-    public func getFileNameFieldValue() -> ? {
+    public func getFileNameFieldValue() -> String? {
         return self.fileNameFieldValue;
     }
     
     // Folder in filestorage with custom fonts.
-    public func getFontsLocation() -> ? {
+    public func getFontsLocation() -> String? {
         return self.fontsLocation;
     }
 }

@@ -29,16 +29,16 @@ import Foundation
 
 // Request model for insertHeaderFooter operation.
 public class InsertHeaderFooterRequest {
-    private let name : ;
-    private let headerFooterType : ;
-    private let sectionPath : ;
-    private let folder : ?;
-    private let storage : ?;
-    private let loadEncoding : ?;
-    private let password : ?;
-    private let destFileName : ?;
-    private let revisionAuthor : ?;
-    private let revisionDateTime : ?;
+    private let name : String;
+    private let headerFooterType : String;
+    private let sectionPath : String;
+    private let folder : String?;
+    private let storage : String?;
+    private let loadEncoding : String?;
+    private let password : String?;
+    private let destFileName : String?;
+    private let revisionAuthor : String?;
+    private let revisionDateTime : String?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -55,7 +55,7 @@ public class InsertHeaderFooterRequest {
     }
     
     // Initializes a new instance of the insertHeaderFooterRequest class.
-    public init(name : , headerFooterType : , sectionPath : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil, destFileName : ? = nil, revisionAuthor : ? = nil, revisionDateTime : ? = nil) {
+    public init(name : String, headerFooterType : String, sectionPath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.headerFooterType = headerFooterType;
         self.sectionPath = sectionPath;
@@ -69,52 +69,52 @@ public class InsertHeaderFooterRequest {
     }
     
     // The document name.
-    public func getName() ->  {
+    public func getName() -> String {
         return self.name;
     }
     
     // Type of header/footer.
-    public func getHeaderFooterType() ->  {
+    public func getHeaderFooterType() -> String {
         return self.headerFooterType;
     }
     
     // Path to parent section.
-    public func getSectionPath() ->  {
+    public func getSectionPath() -> String {
         return self.sectionPath;
     }
     
     // Original document folder.
-    public func getFolder() -> ? {
+    public func getFolder() -> String? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> ? {
+    public func getStorage() -> String? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> ? {
+    public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> ? {
+    public func getPassword() -> String? {
         return self.password;
     }
     
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-    public func getDestFileName() -> ? {
+    public func getDestFileName() -> String? {
         return self.destFileName;
     }
     
     // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-    public func getRevisionAuthor() -> ? {
+    public func getRevisionAuthor() -> String? {
         return self.revisionAuthor;
     }
     
     // The date and time to use for revisions.
-    public func getRevisionDateTime() -> ? {
+    public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
     }
 }

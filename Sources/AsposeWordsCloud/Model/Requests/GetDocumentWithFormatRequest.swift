@@ -29,14 +29,14 @@ import Foundation
 
 // Request model for getDocumentWithFormat operation.
 public class GetDocumentWithFormatRequest {
-    private let name : ;
-    private let format : ;
-    private let folder : ?;
-    private let storage : ?;
-    private let loadEncoding : ?;
-    private let password : ?;
-    private let outPath : ?;
-    private let fontsLocation : ?;
+    private let name : String;
+    private let format : String;
+    private let folder : String?;
+    private let storage : String?;
+    private let loadEncoding : String?;
+    private let password : String?;
+    private let outPath : String?;
+    private let fontsLocation : String?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -51,7 +51,7 @@ public class GetDocumentWithFormatRequest {
     }
     
     // Initializes a new instance of the getDocumentWithFormatRequest class.
-    public init(name : , format : , folder : ? = nil, storage : ? = nil, loadEncoding : ? = nil, password : ? = nil, outPath : ? = nil, fontsLocation : ? = nil) {
+    public init(name : String, format : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, outPath : String? = nil, fontsLocation : String? = nil) {
         self.name = name;
         self.format = format;
         self.folder = folder;
@@ -63,42 +63,42 @@ public class GetDocumentWithFormatRequest {
     }
     
     // The document name.
-    public func getName() ->  {
+    public func getName() -> String {
         return self.name;
     }
     
     // The destination format.
-    public func getFormat() ->  {
+    public func getFormat() -> String {
         return self.format;
     }
     
     // Original document folder.
-    public func getFolder() -> ? {
+    public func getFolder() -> String? {
         return self.folder;
     }
     
     // Original document storage.
-    public func getStorage() -> ? {
+    public func getStorage() -> String? {
         return self.storage;
     }
     
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> ? {
+    public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
     
     // Password for opening an encrypted document.
-    public func getPassword() -> ? {
+    public func getPassword() -> String? {
         return self.password;
     }
     
     // Path to save the result.
-    public func getOutPath() -> ? {
+    public func getOutPath() -> String? {
         return self.outPath;
     }
     
     // Folder in filestorage with custom fonts.
-    public func getFontsLocation() -> ? {
+    public func getFontsLocation() -> String? {
         return self.fontsLocation;
     }
 }
