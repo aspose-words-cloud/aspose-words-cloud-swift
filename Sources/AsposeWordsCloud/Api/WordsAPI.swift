@@ -39,7 +39,7 @@ public class WordsAPI {
     }
     
     // Initializes a new instance of the WordsAPI class based on AppSid and AppKey.
-    public init(appSid: String, appKey: String) {
+    public init(appSid: String, appKey: String) {        
         self.configuration = Configuration(appSid: appSid, appKey: appKey);
         self.apiInvoker = ApiInvoker(configuration: configuration);
     }
