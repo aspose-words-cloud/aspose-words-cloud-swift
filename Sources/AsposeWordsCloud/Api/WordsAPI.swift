@@ -40,6 +40,14 @@ public class WordsAPI {
     
     // Initializes a new instance of the WordsAPI class based on AppSid and AppKey.
     public init(appSid: String, appKey: String) {
+        if (appSid.isEmpty) {
+            throw WordsApiError.requiredArgumentError(argumentName: "appSid");
+        }
+        
+        if (appKey.isEmpty) {
+            throw WordsApiError.requiredArgumentError(argumentName: "appKey");
+        }
+        
         self.configuration = Configuration(appSid: appSid, appKey: appKey);
         self.apiInvoker = ApiInvoker(configuration: configuration);
     }
