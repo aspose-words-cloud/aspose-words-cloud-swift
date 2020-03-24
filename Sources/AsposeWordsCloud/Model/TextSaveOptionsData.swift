@@ -34,15 +34,13 @@ public class TextSaveOptionsData : SaveOptionsData {
     { 
         // Enum value "_none"
         case _none = "None"
-        
+
         // Enum value "primaryOnly"
         case primaryOnly = "PrimaryOnly"
-        
+
         // Enum value "allAtEnd"
         case allAtEnd = "AllAtEnd"
-        
     }
-
     
     // Field of addBidiMarks. Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.      
     private var addBidiMarks : Bool?;

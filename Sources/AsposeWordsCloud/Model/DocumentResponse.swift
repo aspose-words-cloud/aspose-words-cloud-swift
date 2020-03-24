@@ -30,7 +30,7 @@ import Foundation
 // Represents the response with document description.
 public class DocumentResponse : WordsResponse {
     
-    // Field of document. Gets or sets document description.      
+    // Field of document.       
     private var document : Document?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class DocumentResponse : WordsResponse {
         }
     }
     
-    // Sets document. Gets or sets document description.  
+    // Sets document.   
     public func setDocument(document : Document?) {
         self.document = document;
     }
     
-    // Gets document. Gets or sets document description.  
+    // Gets document.   
     public func getDocument() -> Document? {
         return self.document;
     }

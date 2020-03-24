@@ -30,7 +30,7 @@ import Foundation
 // This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}.
 public class SectionResponse : WordsResponse {
     
-    // Field of section. Gets or sets section.      
+    // Field of section.       
     private var section : Section?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class SectionResponse : WordsResponse {
         }
     }
     
-    // Sets section. Gets or sets section.  
+    // Sets section.   
     public func setSection(section : Section?) {
         self.section = section;
     }
     
-    // Gets section. Gets or sets section.  
+    // Gets section.   
     public func getSection() -> Section? {
         return self.section;
     }

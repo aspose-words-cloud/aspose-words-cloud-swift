@@ -33,16 +33,16 @@ public class Section : LinkElement {
     // Field of childNodes. Gets or sets child nodes.      
     private var childNodes : [NodeLink]?;
     
-    // Field of headerFooters. Gets or sets link to HeaderFooters resource.      
+    // Field of headerFooters.       
     private var headerFooters : LinkElement?;
     
-    // Field of pageSetup. Gets or sets link to PageSetup resource.      
+    // Field of pageSetup.       
     private var pageSetup : LinkElement?;
     
-    // Field of paragraphs. Gets or sets link to Paragraphs resource.      
+    // Field of paragraphs.       
     private var paragraphs : LinkElement?;
     
-    // Field of tables. Gets or sets link to Tables resource.      
+    // Field of tables.       
     private var tables : LinkElement?;
         
     private enum CodingKeys: String, CodingKey {
@@ -98,42 +98,42 @@ public class Section : LinkElement {
         return self.childNodes;
     }
     
-    // Sets headerFooters. Gets or sets link to HeaderFooters resource.  
+    // Sets headerFooters.   
     public func setHeaderFooters(headerFooters : LinkElement?) {
         self.headerFooters = headerFooters;
     }
     
-    // Gets headerFooters. Gets or sets link to HeaderFooters resource.  
+    // Gets headerFooters.   
     public func getHeaderFooters() -> LinkElement? {
         return self.headerFooters;
     }
     
-    // Sets pageSetup. Gets or sets link to PageSetup resource.  
+    // Sets pageSetup.   
     public func setPageSetup(pageSetup : LinkElement?) {
         self.pageSetup = pageSetup;
     }
     
-    // Gets pageSetup. Gets or sets link to PageSetup resource.  
+    // Gets pageSetup.   
     public func getPageSetup() -> LinkElement? {
         return self.pageSetup;
     }
     
-    // Sets paragraphs. Gets or sets link to Paragraphs resource.  
+    // Sets paragraphs.   
     public func setParagraphs(paragraphs : LinkElement?) {
         self.paragraphs = paragraphs;
     }
     
-    // Gets paragraphs. Gets or sets link to Paragraphs resource.  
+    // Gets paragraphs.   
     public func getParagraphs() -> LinkElement? {
         return self.paragraphs;
     }
     
-    // Sets tables. Gets or sets link to Tables resource.  
+    // Sets tables.   
     public func setTables(tables : LinkElement?) {
         self.tables = tables;
     }
     
-    // Gets tables. Gets or sets link to Tables resource.  
+    // Gets tables.   
     public func getTables() -> LinkElement? {
         return self.tables;
     }

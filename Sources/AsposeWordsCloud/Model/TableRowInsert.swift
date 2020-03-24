@@ -50,7 +50,7 @@ public class TableRowInsert : Codable, WordsApiModel {
         
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.insertAfter = try container.decodeIfPresent(Int.self, forKey: .insertAfter);
-        self.columnsCount = try container.decode(Int.self, forKey: .columnsCount);
+        self.columnsCount = try container.decodeIfPresent(Int.self, forKey: .columnsCount);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -59,10 +59,9 @@ public class TableRowInsert : Codable, WordsApiModel {
         if (self.insertAfter != nil) {
             try container.encode(self.insertAfter, forKey: .insertAfter);
         }
-        if (self.columnsCount == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "columnsCount");
+        if (self.columnsCount != nil) {
+            try container.encode(self.columnsCount, forKey: .columnsCount);
         }
-        try container.encode(self.columnsCount, forKey: .columnsCount);
     }
     
     // Sets insertAfter. Gets or sets table row will be inserted after row with specified 0-based index.  
@@ -76,12 +75,12 @@ public class TableRowInsert : Codable, WordsApiModel {
     }
     
     // Sets columnsCount. Gets or sets count of columns. Default is 1.  
-    public func setColumnsCount(columnsCount : Int) {
+    public func setColumnsCount(columnsCount : Int?) {
         self.columnsCount = columnsCount;
     }
     
     // Gets columnsCount. Gets or sets count of columns. Default is 1.  
-    public func getColumnsCount() -> Int {
-        return self.columnsCount!;
+    public func getColumnsCount() -> Int? {
+        return self.columnsCount;
     }
 }

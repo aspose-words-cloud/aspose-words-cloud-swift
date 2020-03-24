@@ -33,10 +33,10 @@ public class HeaderFooter : HeaderFooterLink {
     // Field of childNodes. Gets or sets child nodes.      
     private var childNodes : [NodeLink]?;
     
-    // Field of drawingObjects. Gets or sets link to DrawingObjects resource.      
+    // Field of drawingObjects.       
     private var drawingObjects : LinkElement?;
     
-    // Field of paragraphs. Gets or sets link to Paragraphs resource.      
+    // Field of paragraphs.       
     private var paragraphs : LinkElement?;
         
     private enum CodingKeys: String, CodingKey {
@@ -82,22 +82,22 @@ public class HeaderFooter : HeaderFooterLink {
         return self.childNodes;
     }
     
-    // Sets drawingObjects. Gets or sets link to DrawingObjects resource.  
+    // Sets drawingObjects.   
     public func setDrawingObjects(drawingObjects : LinkElement?) {
         self.drawingObjects = drawingObjects;
     }
     
-    // Gets drawingObjects. Gets or sets link to DrawingObjects resource.  
+    // Gets drawingObjects.   
     public func getDrawingObjects() -> LinkElement? {
         return self.drawingObjects;
     }
     
-    // Sets paragraphs. Gets or sets link to Paragraphs resource.  
+    // Sets paragraphs.   
     public func setParagraphs(paragraphs : LinkElement?) {
         self.paragraphs = paragraphs;
     }
     
-    // Gets paragraphs. Gets or sets link to Paragraphs resource.  
+    // Gets paragraphs.   
     public func getParagraphs() -> LinkElement? {
         return self.paragraphs;
     }

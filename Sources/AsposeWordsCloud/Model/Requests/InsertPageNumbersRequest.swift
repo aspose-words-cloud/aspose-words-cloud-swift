@@ -70,7 +70,7 @@ public class InsertPageNumbersRequest {
         return self.name;
     }
     
-    // with the page numbers settings.
+    // PageNumber with the page numbers settings.
     public func getPageNumber() -> PageNumber {
         return self.pageNumber;
     }

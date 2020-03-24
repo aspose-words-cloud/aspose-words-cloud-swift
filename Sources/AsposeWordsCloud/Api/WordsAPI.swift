@@ -7041,7 +7041,9 @@ public class WordsAPI {
             var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
             rawPath = rawPath.replacingOccurrences(of: "{rangeStartIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeStartIdentifier()));
-            rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()));
+            if (request.getRangeEndIdentifier() != nil) {
+                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
+            }
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -10283,7 +10285,9 @@ public class WordsAPI {
             var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
             rawPath = rawPath.replacingOccurrences(of: "{rangeStartIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeStartIdentifier()));
-            rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()));
+            if (request.getRangeEndIdentifier() != nil) {
+                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
+            }
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -11070,7 +11074,9 @@ public class WordsAPI {
             var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
             rawPath = rawPath.replacingOccurrences(of: "{rangeStartIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeStartIdentifier()));
-            rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()));
+            if (request.getRangeEndIdentifier() != nil) {
+                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
+            }
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -11272,7 +11278,9 @@ public class WordsAPI {
             var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
             rawPath = rawPath.replacingOccurrences(of: "{rangeStartIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeStartIdentifier()));
-            rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()));
+            if (request.getRangeEndIdentifier() != nil) {
+                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
+            }
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;

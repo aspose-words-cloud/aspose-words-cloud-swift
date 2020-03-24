@@ -27,7 +27,7 @@
 
 import Foundation
 
-// Utility class for  serialization.
+// Utility class for Color serialization.
 public class XmlColor : Codable, WordsApiModel {
     
     // Field of web. Gets or sets hTML string color representation.      

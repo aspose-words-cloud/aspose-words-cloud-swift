@@ -81,7 +81,7 @@ public class GetDocumentFieldNamesRequest {
         return self.password;
     }
     
-    // If true, result includes \"mustache\" field names.
+    // If true, result includes "mustache" field names.
     public func getUseNonMergeFields() -> Bool? {
         return self.useNonMergeFields;
     }

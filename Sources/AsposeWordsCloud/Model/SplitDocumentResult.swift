@@ -30,13 +30,13 @@ import Foundation
 // Result of splitting document.
 public class SplitDocumentResult : Codable, WordsApiModel {
     
-    // Field of sourceDocument. Gets or sets linkt to the source document.      
+    // Field of sourceDocument.       
     private var sourceDocument : FileLink?;
     
     // Field of pages. Gets or sets array of pages.      
     private var pages : [FileLink]?;
     
-    // Field of zippedPages. Gets or sets link to the file archive with pages.      
+    // Field of zippedPages.       
     private var zippedPages : FileLink?;
         
     private enum CodingKeys: String, CodingKey {
@@ -72,12 +72,12 @@ public class SplitDocumentResult : Codable, WordsApiModel {
         }
     }
     
-    // Sets sourceDocument. Gets or sets linkt to the source document.  
+    // Sets sourceDocument.   
     public func setSourceDocument(sourceDocument : FileLink?) {
         self.sourceDocument = sourceDocument;
     }
     
-    // Gets sourceDocument. Gets or sets linkt to the source document.  
+    // Gets sourceDocument.   
     public func getSourceDocument() -> FileLink? {
         return self.sourceDocument;
     }
@@ -92,12 +92,12 @@ public class SplitDocumentResult : Codable, WordsApiModel {
         return self.pages;
     }
     
-    // Sets zippedPages. Gets or sets link to the file archive with pages.  
+    // Sets zippedPages.   
     public func setZippedPages(zippedPages : FileLink?) {
         self.zippedPages = zippedPages;
     }
     
-    // Gets zippedPages. Gets or sets link to the file archive with pages.  
+    // Gets zippedPages.   
     public func getZippedPages() -> FileLink? {
         return self.zippedPages;
     }

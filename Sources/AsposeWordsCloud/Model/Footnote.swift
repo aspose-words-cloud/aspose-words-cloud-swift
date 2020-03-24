@@ -34,23 +34,21 @@ public class Footnote : FootnoteLink {
     { 
         // Enum value "footnote"
         case footnote = "Footnote"
-        
+
         // Enum value "endnote"
         case endnote = "Endnote"
-        
     }
-
     
-    // Field of content. Gets or sets content of footnote.      
+    // Field of content.       
     private var content : StoryChildNodes?;
     
     // Field of footnoteType. Gets or sets returns a value that specifies whether this is a footnote or endnote.      
     private var footnoteType : FootnoteType?;
     
-    // Field of position. Gets or sets link to comment range start node.      
+    // Field of position.       
     private var position : DocumentPosition?;
     
-    // Field of referenceMark. Gets or sets /sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.      
+    // Field of referenceMark. Gets or sets /sets custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.      
     private var referenceMark : String?;
     
     // Field of text. Gets or sets this is a convenience property that allows to easily get or set text of the footnote.      
@@ -99,12 +97,12 @@ public class Footnote : FootnoteLink {
         }
     }
     
-    // Sets content. Gets or sets content of footnote.  
+    // Sets content.   
     public func setContent(content : StoryChildNodes?) {
         self.content = content;
     }
     
-    // Gets content. Gets or sets content of footnote.  
+    // Gets content.   
     public func getContent() -> StoryChildNodes? {
         return self.content;
     }
@@ -119,22 +117,22 @@ public class Footnote : FootnoteLink {
         return self.footnoteType;
     }
     
-    // Sets position. Gets or sets link to comment range start node.  
+    // Sets position.   
     public func setPosition(position : DocumentPosition?) {
         self.position = position;
     }
     
-    // Gets position. Gets or sets link to comment range start node.  
+    // Gets position.   
     public func getPosition() -> DocumentPosition? {
         return self.position;
     }
     
-    // Sets referenceMark. Gets or sets /sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.  
+    // Sets referenceMark. Gets or sets /sets custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.  
     public func setReferenceMark(referenceMark : String?) {
         self.referenceMark = referenceMark;
     }
     
-    // Gets referenceMark. Gets or sets /sets custom reference mark to be used for this footnote. Default value is , meaning auto-numbered footnotes are used.  
+    // Gets referenceMark. Gets or sets /sets custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.  
     public func getReferenceMark() -> String? {
         return self.referenceMark;
     }

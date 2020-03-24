@@ -34,98 +34,88 @@ public class StringFormatData : Codable, WordsApiModel {
     { 
         // Enum value "near"
         case near = "Near"
-        
+
         // Enum value "center"
         case center = "Center"
-        
+
         // Enum value "far"
         case far = "Far"
-        
     }
-
     // Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
     public enum FormatFlags : String, Codable
     { 
         // Enum value "directionRightToLeft"
         case directionRightToLeft = "DirectionRightToLeft"
-        
+
         // Enum value "directionVertical"
         case directionVertical = "DirectionVertical"
-        
+
         // Enum value "fitBlackBox"
         case fitBlackBox = "FitBlackBox"
-        
+
         // Enum value "displayFormatControl"
         case displayFormatControl = "DisplayFormatControl"
-        
+
         // Enum value "noFontFallback"
         case noFontFallback = "NoFontFallback"
-        
+
         // Enum value "measureTrailingSpaces"
         case measureTrailingSpaces = "MeasureTrailingSpaces"
-        
+
         // Enum value "noWrap"
         case noWrap = "NoWrap"
-        
+
         // Enum value "lineLimit"
         case lineLimit = "LineLimit"
-        
+
         // Enum value "noClip"
         case noClip = "NoClip"
-        
     }
-
     // Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.
     public enum HotkeyPrefix : String, Codable
     { 
         // Enum value "_none"
         case _none = "None"
-        
+
         // Enum value "show"
         case show = "Show"
-        
+
         // Enum value "hide"
         case hide = "Hide"
-        
     }
-
     // Gets or sets the vertical alignment of the string.
     public enum LineAlignment : String, Codable
     { 
         // Enum value "near"
         case near = "Near"
-        
+
         // Enum value "center"
         case center = "Center"
-        
+
         // Enum value "far"
         case far = "Far"
-        
     }
-
     // Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.
     public enum Trimming : String, Codable
     { 
         // Enum value "_none"
         case _none = "None"
-        
+
         // Enum value "character"
         case character = "Character"
-        
+
         // Enum value "word"
         case word = "Word"
-        
+
         // Enum value "ellipsisCharacter"
         case ellipsisCharacter = "EllipsisCharacter"
-        
+
         // Enum value "ellipsisWord"
         case ellipsisWord = "EllipsisWord"
-        
+
         // Enum value "ellipsisPath"
         case ellipsisPath = "EllipsisPath"
-        
     }
-
     
     // Field of alignment. Gets or sets horizontal alignment of the string.      
     private var alignment : Alignment?;

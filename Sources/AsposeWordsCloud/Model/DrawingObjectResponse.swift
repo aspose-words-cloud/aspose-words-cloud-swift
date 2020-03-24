@@ -30,7 +30,7 @@ import Foundation
 // Response for \&quot;drawingObjects/n\&quot; resource.
 public class DrawingObjectResponse : WordsResponse {
     
-    // Field of drawingObject. Gets or sets drawing object.      
+    // Field of drawingObject.       
     private var drawingObject : DrawingObject?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class DrawingObjectResponse : WordsResponse {
         }
     }
     
-    // Sets drawingObject. Gets or sets drawing object.  
+    // Sets drawingObject.   
     public func setDrawingObject(drawingObject : DrawingObject?) {
         self.drawingObject = drawingObject;
     }
     
-    // Gets drawingObject. Gets or sets drawing object.  
+    // Gets drawingObject.   
     public func getDrawingObject() -> DrawingObject? {
         return self.drawingObject;
     }

@@ -30,7 +30,7 @@ import Foundation
 // This response should be returned by the service when handling:  GET /drawingObjects.
 public class DrawingObjectsResponse : WordsResponse {
     
-    // Field of drawingObjects. Gets or sets collection of drawing objects.      
+    // Field of drawingObjects.       
     private var drawingObjects : DrawingObjectCollection?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class DrawingObjectsResponse : WordsResponse {
         }
     }
     
-    // Sets drawingObjects. Gets or sets collection of drawing objects.  
+    // Sets drawingObjects.   
     public func setDrawingObjects(drawingObjects : DrawingObjectCollection?) {
         self.drawingObjects = drawingObjects;
     }
     
-    // Gets drawingObjects. Gets or sets collection of drawing objects.  
+    // Gets drawingObjects.   
     public func getDrawingObjects() -> DrawingObjectCollection? {
         return self.drawingObjects;
     }

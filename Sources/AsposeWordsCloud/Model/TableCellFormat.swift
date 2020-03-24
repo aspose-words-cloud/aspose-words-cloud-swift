@@ -34,66 +34,58 @@ public class TableCellFormat : LinkElement {
     { 
         // Enum value "_none"
         case _none = "None"
-        
+
         // Enum value "first"
         case first = "First"
-        
+
         // Enum value "previous"
         case previous = "Previous"
-        
     }
-
     // Gets or sets returns or sets the orientation of text in a table cell.
     public enum Orientation : String, Codable
     { 
         // Enum value "horizontal"
         case horizontal = "Horizontal"
-        
+
         // Enum value "downward"
         case downward = "Downward"
-        
+
         // Enum value "upward"
         case upward = "Upward"
-        
+
         // Enum value "horizontalRotatedFarEast"
         case horizontalRotatedFarEast = "HorizontalRotatedFarEast"
-        
+
         // Enum value "verticalFarEast"
         case verticalFarEast = "VerticalFarEast"
-        
+
         // Enum value "verticalRotatedFarEast"
         case verticalRotatedFarEast = "VerticalRotatedFarEast"
-        
     }
-
     // Gets or sets returns or sets the vertical alignment of text in the cell.
     public enum VerticalAlignment : String, Codable
     { 
         // Enum value "top"
         case top = "Top"
-        
+
         // Enum value "center"
         case center = "Center"
-        
+
         // Enum value "bottom"
         case bottom = "Bottom"
-        
     }
-
     // Gets or sets specifies how the cell is merged with other cells vertically.
     public enum VerticalMerge : String, Codable
     { 
         // Enum value "_none"
         case _none = "None"
-        
+
         // Enum value "first"
         case first = "First"
-        
+
         // Enum value "previous"
         case previous = "Previous"
-        
     }
-
     
     // Field of bottomPadding. Gets or sets returns or sets the amount of space (in points) to add below the contents of cell.      
     private var bottomPadding : Double?;
@@ -110,7 +102,7 @@ public class TableCellFormat : LinkElement {
     // Field of orientation. Gets or sets returns or sets the orientation of text in a table cell.      
     private var orientation : Orientation?;
     
-    // Field of preferredWidth. Gets or sets returns or sets the preferred width of the cell.      
+    // Field of preferredWidth.       
     private var preferredWidth : PreferredWidth?;
     
     // Field of rightPadding. Gets or sets returns or sets the amount of space (in points) to add to the right of the contents of cell.      
@@ -259,12 +251,12 @@ public class TableCellFormat : LinkElement {
         return self.orientation;
     }
     
-    // Sets preferredWidth. Gets or sets returns or sets the preferred width of the cell.  
+    // Sets preferredWidth.   
     public func setPreferredWidth(preferredWidth : PreferredWidth?) {
         self.preferredWidth = preferredWidth;
     }
     
-    // Gets preferredWidth. Gets or sets returns or sets the preferred width of the cell.  
+    // Gets preferredWidth.   
     public func getPreferredWidth() -> PreferredWidth? {
         return self.preferredWidth;
     }

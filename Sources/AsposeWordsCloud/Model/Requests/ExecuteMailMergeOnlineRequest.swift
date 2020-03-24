@@ -73,7 +73,7 @@ public class ExecuteMailMergeOnlineRequest {
         return self.cleanup;
     }
     
-    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, \"template\" will be used instead. 
+    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not setted, "template" will be used instead. 
     public func getDocumentFileName() -> String? {
         return self.documentFileName;
     }

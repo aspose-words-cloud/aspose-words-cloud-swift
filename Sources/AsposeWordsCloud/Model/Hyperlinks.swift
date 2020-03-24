@@ -27,10 +27,10 @@
 
 import Foundation
 
-// Collection of .
+// Collection of Hyperlink.
 public class Hyperlinks : LinkElement {
     
-    // Field of hyperlinkList. Gets or sets array of .      
+    // Field of hyperlinkList. Gets or sets array of Hyperlink.      
     private var hyperlinkList : [Hyperlink]?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class Hyperlinks : LinkElement {
         }
     }
     
-    // Sets hyperlinkList. Gets or sets array of .  
+    // Sets hyperlinkList. Gets or sets array of Hyperlink.  
     public func setHyperlinkList(hyperlinkList : [Hyperlink]?) {
         self.hyperlinkList = hyperlinkList;
     }
     
-    // Gets hyperlinkList. Gets or sets array of .  
+    // Gets hyperlinkList. Gets or sets array of Hyperlink.  
     public func getHyperlinkList() -> [Hyperlink]? {
         return self.hyperlinkList;
     }

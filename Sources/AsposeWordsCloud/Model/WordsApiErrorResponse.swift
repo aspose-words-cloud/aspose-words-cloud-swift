@@ -30,7 +30,7 @@ import Foundation
 // Response for Api error.
 public class WordsApiErrorResponse : WordsResponse {
     
-    // Field of error. Gets or sets error.      
+    // Field of error.       
     private var error : ApiError?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class WordsApiErrorResponse : WordsResponse {
         }
     }
     
-    // Sets error. Gets or sets error.  
+    // Sets error.   
     public func setError(error : ApiError?) {
         self.error = error;
     }
     
-    // Gets error. Gets or sets error.  
+    // Gets error.   
     public func getError() -> ApiError? {
         return self.error;
     }

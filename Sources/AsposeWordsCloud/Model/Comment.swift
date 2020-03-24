@@ -33,7 +33,7 @@ public class Comment : CommentLink {
     // Field of author. Gets or sets returns or sets the author name for a comment.      
     private var author : String?;
     
-    // Field of content. Gets or sets content of comment.      
+    // Field of content.       
     private var content : StoryChildNodes?;
     
     // Field of dateTime. Gets or sets the date and time that the comment was made.      
@@ -42,10 +42,10 @@ public class Comment : CommentLink {
     // Field of initial. Gets or sets returns or sets the initials of the user associated with a specific comment.      
     private var initial : String?;
     
-    // Field of rangeEnd. Gets or sets link to comment range end node.      
+    // Field of rangeEnd.       
     private var rangeEnd : DocumentPosition?;
     
-    // Field of rangeStart. Gets or sets link to comment range start node.      
+    // Field of rangeStart.       
     private var rangeStart : DocumentPosition?;
     
     // Field of text. Gets or sets this is a convenience property that allows to easily get or set text of the comment.      
@@ -114,12 +114,12 @@ public class Comment : CommentLink {
         return self.author;
     }
     
-    // Sets content. Gets or sets content of comment.  
+    // Sets content.   
     public func setContent(content : StoryChildNodes?) {
         self.content = content;
     }
     
-    // Gets content. Gets or sets content of comment.  
+    // Gets content.   
     public func getContent() -> StoryChildNodes? {
         return self.content;
     }
@@ -144,22 +144,22 @@ public class Comment : CommentLink {
         return self.initial;
     }
     
-    // Sets rangeEnd. Gets or sets link to comment range end node.  
+    // Sets rangeEnd.   
     public func setRangeEnd(rangeEnd : DocumentPosition?) {
         self.rangeEnd = rangeEnd;
     }
     
-    // Gets rangeEnd. Gets or sets link to comment range end node.  
+    // Gets rangeEnd.   
     public func getRangeEnd() -> DocumentPosition? {
         return self.rangeEnd;
     }
     
-    // Sets rangeStart. Gets or sets link to comment range start node.  
+    // Sets rangeStart.   
     public func setRangeStart(rangeStart : DocumentPosition?) {
         self.rangeStart = rangeStart;
     }
     
-    // Gets rangeStart. Gets or sets link to comment range start node.  
+    // Gets rangeStart.   
     public func getRangeStart() -> DocumentPosition? {
         return self.rangeStart;
     }

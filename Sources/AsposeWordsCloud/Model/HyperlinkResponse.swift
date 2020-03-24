@@ -30,7 +30,7 @@ import Foundation
 // This response should be returned by the service when handling:  GET /{name}/hyperlinks/{hyperlinkIndex} .
 public class HyperlinkResponse : WordsResponse {
     
-    // Field of hyperlink. Gets or sets hyperlink.      
+    // Field of hyperlink.       
     private var hyperlink : Hyperlink?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class HyperlinkResponse : WordsResponse {
         }
     }
     
-    // Sets hyperlink. Gets or sets hyperlink.  
+    // Sets hyperlink.   
     public func setHyperlink(hyperlink : Hyperlink?) {
         self.hyperlink = hyperlink;
     }
     
-    // Gets hyperlink. Gets or sets hyperlink.  
+    // Gets hyperlink.   
     public func getHyperlink() -> Hyperlink? {
         return self.hyperlink;
     }

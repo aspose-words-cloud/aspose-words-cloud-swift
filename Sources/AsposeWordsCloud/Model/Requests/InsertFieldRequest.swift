@@ -121,7 +121,7 @@ public class InsertFieldRequest {
         return self.revisionDateTime;
     }
     
-    // Field will be inserted before node with id=\"nodeId\".
+    // Field will be inserted before node with id="nodeId".
     public func getInsertBeforeNode() -> String? {
         return self.insertBeforeNode;
     }

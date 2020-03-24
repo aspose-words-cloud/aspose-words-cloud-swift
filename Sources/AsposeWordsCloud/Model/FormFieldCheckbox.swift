@@ -30,7 +30,7 @@ import Foundation
 // FormField checkbox element.
 public class FormFieldCheckbox : FormField {
     
-    // Field of checkBoxSize. Gets or sets the size of the checkbox in points. Has effect only when  is true.      
+    // Field of checkBoxSize. Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.      
     private var checkBoxSize : Double?;
     
     // Field of checked. Gets or sets the checked status of the check box form field.      
@@ -72,12 +72,12 @@ public class FormFieldCheckbox : FormField {
         }
     }
     
-    // Sets checkBoxSize. Gets or sets the size of the checkbox in points. Has effect only when  is true.  
+    // Sets checkBoxSize. Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.  
     public func setCheckBoxSize(checkBoxSize : Double?) {
         self.checkBoxSize = checkBoxSize;
     }
     
-    // Gets checkBoxSize. Gets or sets the size of the checkbox in points. Has effect only when  is true.  
+    // Gets checkBoxSize. Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.  
     public func getCheckBoxSize() -> Double? {
         return self.checkBoxSize;
     }

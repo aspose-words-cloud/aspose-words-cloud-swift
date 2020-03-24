@@ -59,8 +59,8 @@ public class PageNumber : Codable, WordsApiModel {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.format = try container.decodeIfPresent(String.self, forKey: .format);
         self.alignment = try container.decodeIfPresent(String.self, forKey: .alignment);
-        self.isTop = try container.decode(Bool.self, forKey: .isTop);
-        self.setPageNumberOnFirstPage = try container.decode(Bool.self, forKey: .setPageNumberOnFirstPage);
+        self.isTop = try container.decodeIfPresent(Bool.self, forKey: .isTop);
+        self.setPageNumberOnFirstPage = try container.decodeIfPresent(Bool.self, forKey: .setPageNumberOnFirstPage);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -72,14 +72,12 @@ public class PageNumber : Codable, WordsApiModel {
         if (self.alignment != nil) {
             try container.encode(self.alignment, forKey: .alignment);
         }
-        if (self.isTop == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "isTop");
+        if (self.isTop != nil) {
+            try container.encode(self.isTop, forKey: .isTop);
         }
-        try container.encode(self.isTop, forKey: .isTop);
-        if (self.setPageNumberOnFirstPage == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "setPageNumberOnFirstPage");
+        if (self.setPageNumberOnFirstPage != nil) {
+            try container.encode(self.setPageNumberOnFirstPage, forKey: .setPageNumberOnFirstPage);
         }
-        try container.encode(self.setPageNumberOnFirstPage, forKey: .setPageNumberOnFirstPage);
     }
     
     // Sets format. Gets or sets page number format, e.g. \"{PAGE} of {NUMPAGES}\".  
@@ -103,22 +101,22 @@ public class PageNumber : Codable, WordsApiModel {
     }
     
     // Sets isTop. Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.  
-    public func setIsTop(isTop : Bool) {
+    public func setIsTop(isTop : Bool?) {
         self.isTop = isTop;
     }
     
     // Gets isTop. Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.  
-    public func getIsTop() -> Bool {
-        return self.isTop!;
+    public func getIsTop() -> Bool? {
+        return self.isTop;
     }
     
     // Sets setPageNumberOnFirstPage. Gets or sets a value indicating whether if true the page number is added on first page too.  
-    public func setSetPageNumberOnFirstPage(setPageNumberOnFirstPage : Bool) {
+    public func setSetPageNumberOnFirstPage(setPageNumberOnFirstPage : Bool?) {
         self.setPageNumberOnFirstPage = setPageNumberOnFirstPage;
     }
     
     // Gets setPageNumberOnFirstPage. Gets or sets a value indicating whether if true the page number is added on first page too.  
-    public func getSetPageNumberOnFirstPage() -> Bool {
-        return self.setPageNumberOnFirstPage!;
+    public func getSetPageNumberOnFirstPage() -> Bool? {
+        return self.setPageNumberOnFirstPage;
     }
 }

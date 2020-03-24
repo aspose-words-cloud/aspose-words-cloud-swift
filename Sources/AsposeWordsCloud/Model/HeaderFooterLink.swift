@@ -34,24 +34,22 @@ public class HeaderFooterLink : LinkElement {
     { 
         // Enum value "headerEven"
         case headerEven = "HeaderEven"
-        
+
         // Enum value "headerPrimary"
         case headerPrimary = "HeaderPrimary"
-        
+
         // Enum value "footerEven"
         case footerEven = "FooterEven"
-        
+
         // Enum value "footerPrimary"
         case footerPrimary = "FooterPrimary"
-        
+
         // Enum value "headerFirst"
         case headerFirst = "HeaderFirst"
-        
+
         // Enum value "footerFirst"
         case footerFirst = "FooterFirst"
-        
     }
-
     
     // Field of type. Gets or sets paragraph's text.      
     private var type : ModelType?;

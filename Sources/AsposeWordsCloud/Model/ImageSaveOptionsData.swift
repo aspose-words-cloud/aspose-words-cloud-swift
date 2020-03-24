@@ -30,7 +30,7 @@ import Foundation
 // Container abstract class for image save options.
 public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     
-    // Field of graphicsQualityOptions. Gets or sets allows to specify additional System.Drawing.Graphics quality options.      
+    // Field of graphicsQualityOptions.       
     private var graphicsQualityOptions : GraphicsQualityOptionsData?;
     
     // Field of horizontalResolution. Gets or sets the horizontal resolution for the generated images, in dots per inch.  This property has effect only when saving to raster image formats. The default value is 96.      
@@ -152,12 +152,12 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
     
-    // Sets graphicsQualityOptions. Gets or sets allows to specify additional System.Drawing.Graphics quality options.  
+    // Sets graphicsQualityOptions.   
     public func setGraphicsQualityOptions(graphicsQualityOptions : GraphicsQualityOptionsData?) {
         self.graphicsQualityOptions = graphicsQualityOptions;
     }
     
-    // Gets graphicsQualityOptions. Gets or sets allows to specify additional System.Drawing.Graphics quality options.  
+    // Gets graphicsQualityOptions.   
     public func getGraphicsQualityOptions() -> GraphicsQualityOptionsData? {
         return self.graphicsQualityOptions;
     }

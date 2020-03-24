@@ -34,12 +34,10 @@ public class OdtSaveOptionsData : SaveOptionsData {
     { 
         // Enum value "centimeters"
         case centimeters = "Centimeters"
-        
+
         // Enum value "inches"
         case inches = "Inches"
-        
     }
-
     
     // Field of isStrictSchema11. Gets or sets specifies whether export should correspond to ODT specification 1.1 strictly.      
     private var isStrictSchema11 : Bool?;

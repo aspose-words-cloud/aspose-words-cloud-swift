@@ -30,7 +30,7 @@ import Foundation
 // This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/{paragraphPath}/runs.
 public class RunsResponse : WordsResponse {
     
-    // Field of runs. Gets or sets collection of runs.      
+    // Field of runs.       
     private var runs : Runs?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class RunsResponse : WordsResponse {
         }
     }
     
-    // Sets runs. Gets or sets collection of runs.  
+    // Sets runs.   
     public func setRuns(runs : Runs?) {
         self.runs = runs;
     }
     
-    // Gets runs. Gets or sets collection of runs.  
+    // Gets runs.   
     public func getRuns() -> Runs? {
         return self.runs;
     }
