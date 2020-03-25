@@ -23,7 +23,8 @@ node('words-linux') {
                 
                     stage('tests'){
                         try{
-                            sh "Scripts/runTests.sh"
+                            sh "chmod +x ./Scripts/runTests.sh"
+                            sh "./Scripts/runTests.sh"
                         } finally{
                             junit 'tests.xml'
                         }
