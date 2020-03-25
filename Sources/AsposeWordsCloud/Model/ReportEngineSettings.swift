@@ -41,27 +41,12 @@ public class ReportEngineSettings : Codable, WordsApiModel {
         // Enum value "csv"
         case csv = "Csv"
     }
-    // Gets or sets type of options to build report.
-    public enum ReportBuildOptions : String, Codable
-    { 
-        // Enum value "_none"
-        case _none = "None"
-
-        // Enum value "allowMissingMembers"
-        case allowMissingMembers = "AllowMissingMembers"
-
-        // Enum value "removeEmptyParagraphs"
-        case removeEmptyParagraphs = "RemoveEmptyParagraphs"
-
-        // Enum value "inlineErrorMessages"
-        case inlineErrorMessages = "InlineErrorMessages"
-    }
     
     // Field of dataSourceType. Gets or sets type of datasource.      
     private var dataSourceType : DataSourceType?;
     
     // Field of reportBuildOptions. Gets or sets type of options to build report.      
-    private var reportBuildOptions : ReportBuildOptions?;
+    private var reportBuildOptions : [ReportBuildOptions]?;
     
     // Field of dataSourceName. Gets or sets a name to reference the data source object in the template.      
     private var dataSourceName : String?;
@@ -85,7 +70,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
         
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.dataSourceType = try container.decodeIfPresent(DataSourceType.self, forKey: .dataSourceType);
-        self.reportBuildOptions = try container.decodeIfPresent(ReportBuildOptions.self, forKey: .reportBuildOptions);
+        self.reportBuildOptions = try container.decodeIfPresent([ReportBuildOptions].self, forKey: .reportBuildOptions);
         self.dataSourceName = try container.decodeIfPresent(String.self, forKey: .dataSourceName);
         self.csvDataLoadOptions = try container.decodeIfPresent(CsvDataLoadOptions.self, forKey: .csvDataLoadOptions);
     }
@@ -118,12 +103,12 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     }
     
     // Sets reportBuildOptions. Gets or sets type of options to build report.  
-    public func setReportBuildOptions(reportBuildOptions : ReportBuildOptions?) {
+    public func setReportBuildOptions(reportBuildOptions : [ReportBuildOptions]?) {
         self.reportBuildOptions = reportBuildOptions;
     }
     
     // Gets reportBuildOptions. Gets or sets type of options to build report.  
-    public func getReportBuildOptions() -> ReportBuildOptions? {
+    public func getReportBuildOptions() -> [ReportBuildOptions]? {
         return self.reportBuildOptions;
     }
     
