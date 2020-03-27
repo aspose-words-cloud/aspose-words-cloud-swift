@@ -30,7 +30,7 @@ import Foundation
 // Request model for insertFieldWithoutNodePath operation.
 public class InsertFieldWithoutNodePathRequest {
     private let name : String;
-    private let field : Field;
+    private let field : FieldInsert;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -55,7 +55,7 @@ public class InsertFieldWithoutNodePathRequest {
     }
     
     // Initializes a new instance of the insertFieldWithoutNodePathRequest class.
-    public init(name : String, field : Field, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
+    public init(name : String, field : FieldInsert, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
         self.name = name;
         self.field = field;
         self.folder = folder;
@@ -74,7 +74,7 @@ public class InsertFieldWithoutNodePathRequest {
     }
     
     // Field data.
-    public func getField() -> Field {
+    public func getField() -> FieldInsert {
         return self.field;
     }
     

@@ -30,7 +30,7 @@ import Foundation
 // Request model for insertFootnoteWithoutNodePath operation.
 public class InsertFootnoteWithoutNodePathRequest {
     private let name : String;
-    private let footnoteDto : Footnote;
+    private let footnoteDto : FootnoteInsert;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -53,7 +53,7 @@ public class InsertFootnoteWithoutNodePathRequest {
     }
     
     // Initializes a new instance of the insertFootnoteWithoutNodePathRequest class.
-    public init(name : String, footnoteDto : Footnote, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, footnoteDto : FootnoteInsert, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.footnoteDto = footnoteDto;
         self.folder = folder;
@@ -71,7 +71,7 @@ public class InsertFootnoteWithoutNodePathRequest {
     }
     
     // Footnote data.
-    public func getFootnoteDto() -> Footnote {
+    public func getFootnoteDto() -> FootnoteInsert {
         return self.footnoteDto;
     }
     
