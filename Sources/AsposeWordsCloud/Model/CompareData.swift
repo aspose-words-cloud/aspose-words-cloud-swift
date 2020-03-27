@@ -38,11 +38,15 @@ public class CompareData : Codable, WordsApiModel {
     
     // Field of dateTime. Gets or sets the date and time to use for revisions.                   
     private var dateTime : Date?;
+    
+    // Field of compareOptions.       
+    private var compareOptions : CompareOptions?;
         
     private enum CodingKeys: String, CodingKey {
         case comparingWithDocument;
         case author;
         case dateTime;
+        case compareOptions;
         case invalidCodingKey;
     }
         
@@ -56,6 +60,7 @@ public class CompareData : Codable, WordsApiModel {
         self.comparingWithDocument = try container.decodeIfPresent(String.self, forKey: .comparingWithDocument);
         self.author = try container.decodeIfPresent(String.self, forKey: .author);
         self.dateTime = try container.decodeIfPresent(Date.self, forKey: .dateTime);
+        self.compareOptions = try container.decodeIfPresent(CompareOptions.self, forKey: .compareOptions);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -69,6 +74,9 @@ public class CompareData : Codable, WordsApiModel {
         }
         if (self.dateTime != nil) {
             try container.encode(self.dateTime, forKey: .dateTime);
+        }
+        if (self.compareOptions != nil) {
+            try container.encode(self.compareOptions, forKey: .compareOptions);
         }
     }
     
@@ -100,5 +108,15 @@ public class CompareData : Codable, WordsApiModel {
     // Gets dateTime. Gets or sets the date and time to use for revisions.               
     public func getDateTime() -> Date? {
         return self.dateTime;
+    }
+    
+    // Sets compareOptions.   
+    public func setCompareOptions(compareOptions : CompareOptions?) {
+        self.compareOptions = compareOptions;
+    }
+    
+    // Gets compareOptions.   
+    public func getCompareOptions() -> CompareOptions? {
+        return self.compareOptions;
     }
 }
