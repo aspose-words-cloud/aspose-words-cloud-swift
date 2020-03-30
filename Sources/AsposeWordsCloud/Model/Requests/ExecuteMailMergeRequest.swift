@@ -116,7 +116,7 @@ public class ExecuteMailMergeRequest {
         return self.cleanup;
     }
     
-    // Gets or sets a value indicating whether paragraph with TableStart or             TableEnd field should be fully included into mail merge region or particular range between TableStart and TableEnd fields.             The default value is true.
+    // Gets or sets a value indicating whether paragraph with TableStart or.             TableEnd field should be fully included into mail merge region or particular range between TableStart and TableEnd fields.             The default value is true.
     public func getUseWholeParagraphAsRegion() -> Bool? {
         return self.useWholeParagraphAsRegion;
     }

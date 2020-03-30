@@ -426,7 +426,7 @@ public class WordsAPI {
     }
     
     // Async representation of convertDocument method
-    // Converts document from the request&#39;s content to the specified format .       
+    // Converts document from the request&#39;s content to the specified format.       
     public func convertDocument(request : ConvertDocumentRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/convert";
@@ -472,7 +472,7 @@ public class WordsAPI {
     }   
     
     // Sync representation of convertDocument method
-    // Converts document from the request&#39;s content to the specified format .     
+    // Converts document from the request&#39;s content to the specified format.     
     public func convertDocument(request : ConvertDocumentRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : Data? = nil;
@@ -11562,6 +11562,7 @@ public class WordsAPI {
             
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
+            queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: request.getFormat())));
             if (request.getFolder() != nil) {
                 queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
             }
@@ -11576,9 +11577,6 @@ public class WordsAPI {
             }
             if (request.getDestFileName() != nil) {
                 queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-            if (request.getFormat() != nil) {
-                queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: request.getFormat()!)));
             }
             if (request.getFrom() != nil) {
                 queryItems.append(URLQueryItem(name: "from", value: try ObjectSerializer.serializeToString(value: request.getFrom()!)));

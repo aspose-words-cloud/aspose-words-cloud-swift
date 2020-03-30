@@ -30,12 +30,12 @@ import Foundation
 // Request model for splitDocument operation.
 public class SplitDocumentRequest {
     private let name : String;
+    private let format : String;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
     private let destFileName : String?;
-    private let format : String?;
     private let from : Int?;
     private let to : Int?;
     private let zipOutput : Bool?;
@@ -43,12 +43,12 @@ public class SplitDocumentRequest {
     
     private enum CodingKeys: String, CodingKey {
         case name;
+        case format;
         case folder;
         case storage;
         case loadEncoding;
         case password;
         case destFileName;
-        case format;
         case from;
         case to;
         case zipOutput;
@@ -57,14 +57,14 @@ public class SplitDocumentRequest {
     }
     
     // Initializes a new instance of the splitDocumentRequest class.
-    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, format : String? = nil, from : Int? = nil, to : Int? = nil, zipOutput : Bool? = nil, fontsLocation : String? = nil) {
+    public init(name : String, format : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, from : Int? = nil, to : Int? = nil, zipOutput : Bool? = nil, fontsLocation : String? = nil) {
         self.name = name;
+        self.format = format;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.destFileName = destFileName;
-        self.format = format;
         self.from = from;
         self.to = to;
         self.zipOutput = zipOutput;
@@ -74,6 +74,11 @@ public class SplitDocumentRequest {
     // Original document name.
     public func getName() -> String {
         return self.name;
+    }
+    
+    // Format to split.
+    public func getFormat() -> String {
+        return self.format;
     }
     
     // Original document folder.
@@ -99,11 +104,6 @@ public class SplitDocumentRequest {
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
     public func getDestFileName() -> String? {
         return self.destFileName;
-    }
-    
-    // Format to split.
-    public func getFormat() -> String? {
-        return self.format;
     }
     
     // Start page.
