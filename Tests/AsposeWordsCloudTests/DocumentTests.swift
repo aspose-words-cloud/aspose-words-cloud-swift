@@ -478,7 +478,7 @@ class DocumentTests: BaseTestContext {
         
         try super.uploadFile(fileContent: localPath, path: fullName);
 
-        let request = SplitDocumentRequest(name: remoteName, folder: remoteDir, destFileName: destFileName, format: format, from: from, to: to);
+        let request = SplitDocumentRequest(name: remoteName, format: format, folder: remoteDir, destFileName: destFileName, from: from, to: to);
         let response = try super.getApi().splitDocument(request : request);
         XCTAssert(response.getSplitResult() != nil);
     }
