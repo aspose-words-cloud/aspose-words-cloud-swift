@@ -156,7 +156,7 @@ class DocumentTests: BaseTestContext {
         let documentPosition = DocumentPosition();
         documentPosition.setNode(node: nodeLink);
         documentPosition.setOffset(offset: 0);
-        let body = Comment();
+        let body = CommentInsert();
         body.setRangeStart(rangeStart: documentPosition);
         body.setRangeEnd(rangeEnd: documentPosition);
         body.setInitial(initial: "IA");
@@ -185,7 +185,7 @@ class DocumentTests: BaseTestContext {
         let documentPosition = DocumentPosition();
         documentPosition.setNode(node: nodeLink);
         documentPosition.setOffset(offset: 0);
-        let body = Comment();
+        let body = CommentUpdate();
         body.setRangeStart(rangeStart: documentPosition);
         body.setRangeEnd(rangeEnd: documentPosition);
         body.setInitial(initial: "IA");

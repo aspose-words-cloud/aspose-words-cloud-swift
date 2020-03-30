@@ -56,8 +56,7 @@ class DocumentPropertiesTests: BaseTestContext {
         let propertyName = "AsposeAuthor";
         let destFileName = (super.getRemoteTestOut() + "/" + remoteName);
         
-        let body = DocumentProperty()
-        body.setName(name: "Author");
+        let body = DocumentPropertyCreateOrUpdate()
         body.setValue(value: "Imran Anwar");
         
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);

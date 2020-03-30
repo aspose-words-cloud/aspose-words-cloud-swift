@@ -31,7 +31,7 @@ import Foundation
 public class CreateOrUpdateDocumentPropertyRequest {
     private let name : String;
     private let propertyName : String;
-    private let property : DocumentProperty;
+    private let property : DocumentPropertyCreateOrUpdate;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -55,7 +55,7 @@ public class CreateOrUpdateDocumentPropertyRequest {
     }
     
     // Initializes a new instance of the createOrUpdateDocumentPropertyRequest class.
-    public init(name : String, propertyName : String, property : DocumentProperty, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, propertyName : String, property : DocumentPropertyCreateOrUpdate, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.propertyName = propertyName;
         self.property = property;
@@ -79,7 +79,7 @@ public class CreateOrUpdateDocumentPropertyRequest {
     }
     
     // The property with new value.
-    public func getProperty() -> DocumentProperty {
+    public func getProperty() -> DocumentPropertyCreateOrUpdate {
         return self.property;
     }
     

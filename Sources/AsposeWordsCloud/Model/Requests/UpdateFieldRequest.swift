@@ -30,7 +30,7 @@ import Foundation
 // Request model for updateField operation.
 public class UpdateFieldRequest {
     private let name : String;
-    private let field : Field;
+    private let field : FieldUpdate;
     private let nodePath : String;
     private let index : Int;
     private let folder : String?;
@@ -57,7 +57,7 @@ public class UpdateFieldRequest {
     }
     
     // Initializes a new instance of the updateFieldRequest class.
-    public init(name : String, field : Field, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, field : FieldUpdate, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.field = field;
         self.nodePath = nodePath;
@@ -77,7 +77,7 @@ public class UpdateFieldRequest {
     }
     
     // Field data.
-    public func getField() -> Field {
+    public func getField() -> FieldUpdate {
         return self.field;
     }
     

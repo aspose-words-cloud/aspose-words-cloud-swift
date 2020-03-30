@@ -31,7 +31,7 @@ import Foundation
 public class InsertRunRequest {
     private let name : String;
     private let paragraphPath : String;
-    private let run : Run;
+    private let run : RunInsert;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -57,7 +57,7 @@ public class InsertRunRequest {
     }
     
     // Initializes a new instance of the insertRunRequest class.
-    public init(name : String, paragraphPath : String, run : Run, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
+    public init(name : String, paragraphPath : String, run : RunInsert, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
         self.name = name;
         self.paragraphPath = paragraphPath;
         self.run = run;
@@ -82,7 +82,7 @@ public class InsertRunRequest {
     }
     
     // Run data.
-    public func getRun() -> Run {
+    public func getRun() -> RunInsert {
         return self.run;
     }
     

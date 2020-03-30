@@ -25,8 +25,8 @@ class FootnoteTests: BaseTestContext {
         let localName = "Footnote.doc";
         let remoteName = "TestInsertFootnote.docx";
         let fullName = (getRemoteDataFolder(action: "InsertFootnote") + "/" + remoteName);
-        let footNote = Footnote();
-        footNote.setFootnoteType(footnoteType: Footnote.FootnoteType.endnote);
+        let footNote = FootnoteInsert();
+        footNote.setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote);
         footNote.setText(text: "test endnote");
     
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
@@ -41,8 +41,8 @@ class FootnoteTests: BaseTestContext {
         let remoteName = "TestInsertFootnoteWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "InsertFootnoteWithoutNodePath") + "/" + remoteName);
         
-        let footNote = Footnote();
-        footNote.setFootnoteType(footnoteType: Footnote.FootnoteType.endnote);
+        let footNote = FootnoteInsert();
+        footNote.setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote);
         footNote.setText(text: "test endnote");
         
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
@@ -125,7 +125,7 @@ class FootnoteTests: BaseTestContext {
         let remoteName = "TestUpdateFootnote.docx";
         let fullName = (getRemoteDataFolder(action: "UpdateFootnote") + "/" + remoteName);
         let index = 0;
-        let footnote = Footnote();
+        let footnote = FootnoteUpdate();
         footnote.setText(text: "text is here");
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = UpdateFootnoteRequest(name: remoteName, footnoteDto: footnote, nodePath: "", index: index, folder: getRemoteDataFolder(action: "UpdateFootnote"));
@@ -139,7 +139,7 @@ class FootnoteTests: BaseTestContext {
         let remoteName = "TestUpdateFootnoteWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "UpdateFootnoteWithoutNodePath") + "/" + remoteName);
         let index = 0;
-        let footnote = Footnote();
+        let footnote = FootnoteUpdate();
         footnote.setText(text: "text is here");
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = UpdateFootnoteWithoutNodePathRequest(name: remoteName, footnoteDto: footnote, index: index, folder: getRemoteDataFolder(action: "UpdateFootnoteWithoutNodePath"));
