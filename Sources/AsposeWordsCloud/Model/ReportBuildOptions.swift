@@ -28,21 +28,17 @@
 import Foundation
 
 // Specifies options controlling behavior of ReportingEngine while building a report.
-public class ReportBuildOptions : Codable, WordsApiModel {
-        
-    private enum CodingKeys: String, CodingKey {
-        case invalidCodingKey;
-    }
-        
-    public init() {
-        
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        
-    }
+public enum ReportBuildOptions : String, Codable
+{ 
+    // Enum value "_none"
+    case _none = "None"
 
-    public func encode(to encoder: Encoder) throws {
-        
-    }
+    // Enum value "allowMissingMembers"
+    case allowMissingMembers = "AllowMissingMembers"
+
+    // Enum value "removeEmptyParagraphs"
+    case removeEmptyParagraphs = "RemoveEmptyParagraphs"
+
+    // Enum value "inlineErrorMessages"
+    case inlineErrorMessages = "InlineErrorMessages"
 }
