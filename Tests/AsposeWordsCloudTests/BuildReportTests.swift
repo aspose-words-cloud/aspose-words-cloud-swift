@@ -26,6 +26,7 @@ class BuildReportTests: BaseTestContext {
     
         let settings = ReportEngineSettings();
         settings.setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json);
+        settings.setDataSourceName(dataSourceName: "persons");
         
         let request = BuildReportOnlineRequest(template: InputStream(url: filePath)!, data: try String(contentsOf: dataPath), reportEngineSettings: settings);
         let result = try super.getApi().buildReportOnline(request: request);
