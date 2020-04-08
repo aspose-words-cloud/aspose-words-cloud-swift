@@ -26,7 +26,7 @@ Add link to this repository as dependency to your Package.swift:
 
 dependencies: [
     // Dependencies declare other packages that this package depends on.
-    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "20.3"),
+    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "20.4"),
 ],
 targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
