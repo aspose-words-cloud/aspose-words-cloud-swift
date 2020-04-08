@@ -50,7 +50,7 @@ public class BookmarksOutlineLevelData : Codable, WordsApiModel {
         
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.name = try container.decodeIfPresent(String.self, forKey: .name);
-        self.bookmarksOutlineLevel = try container.decode(Int.self, forKey: .bookmarksOutlineLevel);
+        self.bookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .bookmarksOutlineLevel);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -59,10 +59,9 @@ public class BookmarksOutlineLevelData : Codable, WordsApiModel {
         if (self.name != nil) {
             try container.encode(self.name, forKey: .name);
         }
-        if (self.bookmarksOutlineLevel == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "bookmarksOutlineLevel");
+        if (self.bookmarksOutlineLevel != nil) {
+            try container.encode(self.bookmarksOutlineLevel, forKey: .bookmarksOutlineLevel);
         }
-        try container.encode(self.bookmarksOutlineLevel, forKey: .bookmarksOutlineLevel);
     }
     
     // Sets name. Gets or sets specify the bookmark's name.  
@@ -76,12 +75,12 @@ public class BookmarksOutlineLevelData : Codable, WordsApiModel {
     }
     
     // Sets bookmarksOutlineLevel. Gets or sets specify the bookmark's level.  
-    public func setBookmarksOutlineLevel(bookmarksOutlineLevel : Int) {
+    public func setBookmarksOutlineLevel(bookmarksOutlineLevel : Int?) {
         self.bookmarksOutlineLevel = bookmarksOutlineLevel;
     }
     
     // Gets bookmarksOutlineLevel. Gets or sets specify the bookmark's level.  
-    public func getBookmarksOutlineLevel() -> Int {
-        return self.bookmarksOutlineLevel!;
+    public func getBookmarksOutlineLevel() -> Int? {
+        return self.bookmarksOutlineLevel;
     }
 }

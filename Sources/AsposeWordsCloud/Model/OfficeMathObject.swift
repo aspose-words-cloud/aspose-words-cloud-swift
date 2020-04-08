@@ -34,132 +34,126 @@ public class OfficeMathObject : OfficeMathLink {
     { 
         // Enum value "display"
         case display = "Display"
-        
+
         // Enum value "inline"
         case inline = "Inline"
-        
     }
-
     // Gets or sets /sets Office Math justification.
     public enum Justification : String, Codable
     { 
         // Enum value "centerGroup"
         case centerGroup = "CenterGroup"
-        
+
         // Enum value "_default"
         case _default = "Default"
-        
+
         // Enum value "center"
         case center = "Center"
-        
+
         // Enum value "_left"
         case _left = "Left"
-        
+
         // Enum value "_right"
         case _right = "Right"
-        
+
         // Enum value "inline"
         case inline = "Inline"
-        
     }
-
     // Gets or sets type Aspose.Words.Math.OfficeMath.MathObjectType of this Office Math object.
     public enum MathObjectType : String, Codable
     { 
         // Enum value "omath"
         case omath = "OMath"
-        
+
         // Enum value "omathpara"
         case omathpara = "OMathPara"
-        
+
         // Enum value "accent"
         case accent = "Accent"
-        
+
         // Enum value "bar"
         case bar = "Bar"
-        
+
         // Enum value "borderBox"
         case borderBox = "BorderBox"
-        
+
         // Enum value "box"
         case box = "Box"
-        
+
         // Enum value "delimiter"
         case delimiter = "Delimiter"
-        
+
         // Enum value "degree"
         case degree = "Degree"
-        
+
         // Enum value "argument"
         case argument = "Argument"
-        
+
         // Enum value "array"
         case array = "Array"
-        
+
         // Enum value "fraction"
         case fraction = "Fraction"
-        
+
         // Enum value "denominator"
         case denominator = "Denominator"
-        
+
         // Enum value "numerator"
         case numerator = "Numerator"
-        
+
         // Enum value "function"
         case function = "Function"
-        
+
         // Enum value "functionName"
         case functionName = "FunctionName"
-        
+
         // Enum value "groupCharacter"
         case groupCharacter = "GroupCharacter"
-        
+
         // Enum value "limit"
         case limit = "Limit"
-        
+
         // Enum value "lowerLimit"
         case lowerLimit = "LowerLimit"
-        
+
         // Enum value "upperLimit"
         case upperLimit = "UpperLimit"
-        
+
         // Enum value "matrix"
         case matrix = "Matrix"
-        
+
         // Enum value "matrixRow"
         case matrixRow = "MatrixRow"
-        
+
         // Enum value "nary"
         case nary = "NAry"
-        
+
         // Enum value "phantom"
         case phantom = "Phantom"
-        
+
         // Enum value "radical"
         case radical = "Radical"
-        
+
         // Enum value "subscriptPart"
         case subscriptPart = "SubscriptPart"
-        
+
         // Enum value "superscriptPart"
         case superscriptPart = "SuperscriptPart"
-        
+
         // Enum value "preSubSuperscript"
         case preSubSuperscript = "PreSubSuperscript"
-        
+
         // Enum value "_subscript"
         case _subscript = "Subscript"
-        
+
         // Enum value "subSuperscript"
         case subSuperscript = "SubSuperscript"
-        
+
         // Enum value "supercript"
         case supercript = "Supercript"
-        
     }
-
     
-    // Field of content. Gets or sets content of footnote.      
+    // Field of content.       
     private var content : StoryChildNodes?;
     
     // Field of displayType. Gets or sets /sets Office Math display format type which represents whether an equation is displayed inline with the text or displayed on its own line.      
@@ -209,12 +203,12 @@ public class OfficeMathObject : OfficeMathLink {
         }
     }
     
-    // Sets content. Gets or sets content of footnote.  
+    // Sets content.   
     public func setContent(content : StoryChildNodes?) {
         self.content = content;
     }
     
-    // Gets content. Gets or sets content of footnote.  
+    // Gets content.   
     public func getContent() -> StoryChildNodes? {
         return self.content;
     }

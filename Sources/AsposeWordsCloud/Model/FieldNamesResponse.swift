@@ -30,7 +30,7 @@ import Foundation
 // This response should be returned by the service when handling:  GET /{name}/mailMergeFieldNames.
 public class FieldNamesResponse : WordsResponse {
     
-    // Field of fieldNames. Gets or sets collection of mail merge fields.      
+    // Field of fieldNames.       
     private var fieldNames : FieldNames?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class FieldNamesResponse : WordsResponse {
         }
     }
     
-    // Sets fieldNames. Gets or sets collection of mail merge fields.  
+    // Sets fieldNames.   
     public func setFieldNames(fieldNames : FieldNames?) {
         self.fieldNames = fieldNames;
     }
     
-    // Gets fieldNames. Gets or sets collection of mail merge fields.  
+    // Gets fieldNames.   
     public func getFieldNames() -> FieldNames? {
         return self.fieldNames;
     }

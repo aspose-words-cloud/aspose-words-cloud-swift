@@ -68,6 +68,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     
     // Field of showPageBorder. Gets or sets specifies whether border around pages should be shown.      
     private var showPageBorder : Bool?;
+    
+    // Field of useTargetMachineFonts. Gets or sets flag indicates whether fonts from target machine must be used to display the document. If this flag is set to true, Aspose.Words.Saving.HtmlFixedSaveOptions.FontFormat and Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedFonts properties do not have effect, also Aspose.Words.Saving.HtmlFixedSaveOptions.ResourceSavingCallback is not fired for fonts. Default is false.      
+    private var useTargetMachineFonts : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case cssClassNamesPrefix;
@@ -83,6 +86,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         case resourcesFolderAlias;
         case saveFontFaceCssSeparately;
         case showPageBorder;
+        case useTargetMachineFonts;
         case invalidCodingKey;
     }
         
@@ -106,6 +110,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         self.resourcesFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourcesFolderAlias);
         self.saveFontFaceCssSeparately = try container.decodeIfPresent(Bool.self, forKey: .saveFontFaceCssSeparately);
         self.showPageBorder = try container.decodeIfPresent(Bool.self, forKey: .showPageBorder);
+        self.useTargetMachineFonts = try container.decodeIfPresent(Bool.self, forKey: .useTargetMachineFonts);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -149,6 +154,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         }
         if (self.showPageBorder != nil) {
             try container.encode(self.showPageBorder, forKey: .showPageBorder);
+        }
+        if (self.useTargetMachineFonts != nil) {
+            try container.encode(self.useTargetMachineFonts, forKey: .useTargetMachineFonts);
         }
     }
     
@@ -280,5 +288,15 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Gets showPageBorder. Gets or sets specifies whether border around pages should be shown.  
     public func getShowPageBorder() -> Bool? {
         return self.showPageBorder;
+    }
+    
+    // Sets useTargetMachineFonts. Gets or sets flag indicates whether fonts from target machine must be used to display the document. If this flag is set to true, Aspose.Words.Saving.HtmlFixedSaveOptions.FontFormat and Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedFonts properties do not have effect, also Aspose.Words.Saving.HtmlFixedSaveOptions.ResourceSavingCallback is not fired for fonts. Default is false.  
+    public func setUseTargetMachineFonts(useTargetMachineFonts : Bool?) {
+        self.useTargetMachineFonts = useTargetMachineFonts;
+    }
+    
+    // Gets useTargetMachineFonts. Gets or sets flag indicates whether fonts from target machine must be used to display the document. If this flag is set to true, Aspose.Words.Saving.HtmlFixedSaveOptions.FontFormat and Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedFonts properties do not have effect, also Aspose.Words.Saving.HtmlFixedSaveOptions.ResourceSavingCallback is not fired for fonts. Default is false.  
+    public func getUseTargetMachineFonts() -> Bool? {
+        return self.useTargetMachineFonts;
     }
 }

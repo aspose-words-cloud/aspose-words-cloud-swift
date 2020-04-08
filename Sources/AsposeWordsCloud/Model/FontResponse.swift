@@ -30,7 +30,7 @@ import Foundation
 // This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font.
 public class FontResponse : WordsResponse {
     
-    // Field of font. Gets or sets font.      
+    // Field of font.       
     private var font : Font?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class FontResponse : WordsResponse {
         }
     }
     
-    // Sets font. Gets or sets font.  
+    // Sets font.   
     public func setFont(font : Font?) {
         self.font = font;
     }
     
-    // Gets font. Gets or sets font.  
+    // Gets font.   
     public func getFont() -> Font? {
         return self.font;
     }

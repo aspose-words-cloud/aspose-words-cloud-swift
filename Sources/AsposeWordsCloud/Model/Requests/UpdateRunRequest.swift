@@ -30,7 +30,7 @@ import Foundation
 // Request model for updateRun operation.
 public class UpdateRunRequest {
     private let name : String;
-    private let run : Run;
+    private let run : RunUpdate;
     private let paragraphPath : String;
     private let index : Int;
     private let folder : String?;
@@ -57,7 +57,7 @@ public class UpdateRunRequest {
     }
     
     // Initializes a new instance of the updateRunRequest class.
-    public init(name : String, run : Run, paragraphPath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, run : RunUpdate, paragraphPath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.run = run;
         self.paragraphPath = paragraphPath;
@@ -77,7 +77,7 @@ public class UpdateRunRequest {
     }
     
     // Run data.
-    public func getRun() -> Run {
+    public func getRun() -> RunUpdate {
         return self.run;
     }
     

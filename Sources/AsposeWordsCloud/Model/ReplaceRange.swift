@@ -34,12 +34,10 @@ public class ReplaceRange : Codable, WordsApiModel {
     { 
         // Enum value "text"
         case text = "Text"
-        
+
         // Enum value "html"
         case html = "Html"
-        
     }
-
     
     // Field of text. Gets or sets range's text.      
     private var text : String?;

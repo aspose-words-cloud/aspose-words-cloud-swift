@@ -6,9 +6,13 @@ class StorageTests: BaseTestContext {
         ("testUploadFile", testUploadFile),
         ("testCopyFile", testCopyFile),
         ("testMoveFile", testMoveFile),
+        ("testDeleteFile", testDeleteFile),
         ("testCreateFolder", testCreateFolder),
         ("testDeleteFolder", testDeleteFolder),
-        ("tesGetFileList", tesGetFileList),
+        ("testMoveFolder", testMoveFolder),
+        ("testCopyFolder", testCopyFolder),
+        ("testGetFileList", testGetFileList),
+        ("testInitApi", testInitApi),
     ];
 
     func getRemoteDataFolder(action : String) -> String {
@@ -63,7 +67,20 @@ class StorageTests: BaseTestContext {
         try super.getApi().createFolder(request: request);
     }
     
-
+    func testDeleteFile() throws {
+        let localName = "test_multi_pages.docx";
+        let remotePath = (getRemoteDataFolder(action: "UploadFile") + "/" + "TestUploadFile.docx");
+        let localPath = self.getLocalTestDataFolder()
+            .appendingPathComponent("Common", isDirectory: true)
+            .appendingPathComponent(localName, isDirectory: false);
+        
+        let request = UploadFileRequest(fileContent: InputStream(url: localPath)!, path: remotePath);
+        _ = try super.getApi().uploadFile(request: request);
+        
+        let requestDel = DeleteFileRequest(path: remotePath);
+        try super.getApi().deleteFile(request: requestDel);
+    }
+    
     func testDeleteFolder() throws {
         // Arrange
         let folderPath = "\(getRemoteDataFolder(action: "CreateFolder"))/TestCreateFolder\(UUID().uuidString)";
@@ -73,10 +90,35 @@ class StorageTests: BaseTestContext {
         try super.getApi().deleteFolder(request: request);
     }
     
-
-    func tesGetFileList() throws {
+    func testMoveFolder() throws {
+        // Arrange
+        let request1 = CreateFolderRequest(path: "\(getRemoteDataFolder(action: "MoveFolder"))/TestCreateFolder1\(UUID().uuidString)");
+        try super.getApi().createFolder(request: request1);
+        
+        let request2 = MoveFolderRequest(destPath: "\(getRemoteDataFolder(action: "MoveFolder"))/TestCreateFolder2\(UUID().uuidString)", srcPath: request1.getPath());
+        // Act
+        try super.getApi().moveFolder(request: request2);
+    }
+    
+    func testCopyFolder() throws {
+        // Arrange
+        let request1 = CreateFolderRequest(path: "\(getRemoteDataFolder(action: "CopyFolder"))/TestCreateFolder1\(UUID().uuidString)");
+        try super.getApi().createFolder(request: request1);
+        
+        let request2 = CopyFolderRequest(destPath: "\(getRemoteDataFolder(action: "CopyFolder"))/TestCreateFolder2\(UUID().uuidString)", srcPath: request1.getPath());
+        // Act
+        try super.getApi().copyFolder(request: request2);
+    }
+    
+    func testGetFileList() throws {
         // Act && Assert
         let result = try super.getApi().getFilesList(request: GetFilesListRequest(path: super.getRemoteTestDataFolder()));
         XCTAssert(result.getValue()?.count ?? 0 > 0);
+    }
+    
+    func testInitApi() throws {
+        let newApi = WordsAPI(appSid: "", appKey: "");
+        let req = CreateDocumentRequest(storage: nil, fileName: "tmp.doc", folder: nil);
+        XCTAssertThrowsError(try newApi.createDocument(request: req));
     }
 }

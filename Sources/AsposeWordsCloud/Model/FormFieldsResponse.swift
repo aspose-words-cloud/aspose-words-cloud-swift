@@ -30,7 +30,7 @@ import Foundation
 // This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/formfields.
 public class FormFieldsResponse : WordsResponse {
     
-    // Field of formFields. Gets or sets collection of form fields.      
+    // Field of formFields.       
     private var formFields : FormFieldCollection?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class FormFieldsResponse : WordsResponse {
         }
     }
     
-    // Sets formFields. Gets or sets collection of form fields.  
+    // Sets formFields.   
     public func setFormFields(formFields : FormFieldCollection?) {
         self.formFields = formFields;
     }
     
-    // Gets formFields. Gets or sets collection of form fields.  
+    // Gets formFields.   
     public func getFormFields() -> FormFieldCollection? {
         return self.formFields;
     }

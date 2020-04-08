@@ -33,7 +33,7 @@ public class SearchResponse : WordsResponse {
     // Field of searchingPattern. Gets or sets a regular expression pattern used to find matches.      
     private var searchingPattern : String?;
     
-    // Field of searchResults. Gets or sets collection of search results.      
+    // Field of searchResults.       
     private var searchResults : SearchResultsCollection?;
         
     private enum CodingKeys: String, CodingKey {
@@ -74,12 +74,12 @@ public class SearchResponse : WordsResponse {
         return self.searchingPattern;
     }
     
-    // Sets searchResults. Gets or sets collection of search results.  
+    // Sets searchResults.   
     public func setSearchResults(searchResults : SearchResultsCollection?) {
         self.searchResults = searchResults;
     }
     
-    // Gets searchResults. Gets or sets collection of search results.  
+    // Gets searchResults.   
     public func getSearchResults() -> SearchResultsCollection? {
         return self.searchResults;
     }

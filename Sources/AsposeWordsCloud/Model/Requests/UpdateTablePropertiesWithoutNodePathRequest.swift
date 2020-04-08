@@ -38,7 +38,7 @@ public class UpdateTablePropertiesWithoutNodePathRequest {
     private let destFileName : String?;
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
-    private let properties : TableProperties?;
+    private let properties : TableProperties;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -55,7 +55,7 @@ public class UpdateTablePropertiesWithoutNodePathRequest {
     }
     
     // Initializes a new instance of the updateTablePropertiesWithoutNodePathRequest class.
-    public init(name : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, properties : TableProperties? = nil) {
+    public init(name : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, properties : TableProperties) {
         self.name = name;
         self.index = index;
         self.folder = folder;
@@ -114,7 +114,7 @@ public class UpdateTablePropertiesWithoutNodePathRequest {
     }
     
     // The properties.
-    public func getProperties() -> TableProperties? {
+    public func getProperties() -> TableProperties {
         return self.properties;
     }
 }

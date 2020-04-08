@@ -30,7 +30,7 @@ import Foundation
 // This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}.
 public class ParagraphResponse : WordsResponse {
     
-    // Field of paragraph. Gets or sets paragraph.      
+    // Field of paragraph.       
     private var paragraph : Paragraph?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class ParagraphResponse : WordsResponse {
         }
     }
     
-    // Sets paragraph. Gets or sets paragraph.  
+    // Sets paragraph.   
     public func setParagraph(paragraph : Paragraph?) {
         self.paragraph = paragraph;
     }
     
-    // Gets paragraph. Gets or sets paragraph.  
+    // Gets paragraph.   
     public func getParagraph() -> Paragraph? {
         return self.paragraph;
     }

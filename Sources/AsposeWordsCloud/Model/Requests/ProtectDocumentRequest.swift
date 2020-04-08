@@ -64,7 +64,7 @@ public class ProtectDocumentRequest {
         return self.name;
     }
     
-    // with protection settings.            
+    // ProtectionRequest with protection settings.
     public func getProtectionRequest() -> ProtectionRequest {
         return self.protectionRequest;
     }

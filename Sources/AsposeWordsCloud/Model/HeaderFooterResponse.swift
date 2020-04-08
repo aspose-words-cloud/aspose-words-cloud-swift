@@ -30,7 +30,7 @@ import Foundation
 // This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/headersfooters/{0}.
 public class HeaderFooterResponse : WordsResponse {
     
-    // Field of headerFooter. Gets or sets headerFooter.      
+    // Field of headerFooter.       
     private var headerFooter : HeaderFooter?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class HeaderFooterResponse : WordsResponse {
         }
     }
     
-    // Sets headerFooter. Gets or sets headerFooter.  
+    // Sets headerFooter.   
     public func setHeaderFooter(headerFooter : HeaderFooter?) {
         self.headerFooter = headerFooter;
     }
     
-    // Gets headerFooter. Gets or sets headerFooter.  
+    // Gets headerFooter.   
     public func getHeaderFooter() -> HeaderFooter? {
         return self.headerFooter;
     }

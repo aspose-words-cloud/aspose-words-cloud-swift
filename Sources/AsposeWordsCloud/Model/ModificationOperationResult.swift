@@ -30,10 +30,10 @@ import Foundation
 // result of the operation which modifies the original document and saves the result.
 public class ModificationOperationResult : Codable, WordsApiModel {
     
-    // Field of source. Gets or sets link to the source document (source for the modification operation).      
+    // Field of source.       
     private var source : FileLink?;
     
-    // Field of dest. Gets or sets link to the dest document (result of the modification operation).      
+    // Field of dest.       
     private var dest : FileLink?;
         
     private enum CodingKeys: String, CodingKey {
@@ -64,22 +64,22 @@ public class ModificationOperationResult : Codable, WordsApiModel {
         }
     }
     
-    // Sets source. Gets or sets link to the source document (source for the modification operation).  
+    // Sets source.   
     public func setSource(source : FileLink?) {
         self.source = source;
     }
     
-    // Gets source. Gets or sets link to the source document (source for the modification operation).  
+    // Gets source.   
     public func getSource() -> FileLink? {
         return self.source;
     }
     
-    // Sets dest. Gets or sets link to the dest document (result of the modification operation).  
+    // Sets dest.   
     public func setDest(dest : FileLink?) {
         self.dest = dest;
     }
     
-    // Gets dest. Gets or sets link to the dest document (result of the modification operation).  
+    // Gets dest.   
     public func getDest() -> FileLink? {
         return self.dest;
     }

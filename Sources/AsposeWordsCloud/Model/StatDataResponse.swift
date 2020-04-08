@@ -30,10 +30,10 @@ import Foundation
 // Response for the request of the document&#39;s statistical data.
 public class StatDataResponse : WordsResponse {
     
-    // Field of documentLink. Gets or sets link to the document.      
+    // Field of documentLink.       
     private var documentLink : FileLink?;
     
-    // Field of statData. Gets or sets statistical data of the document.      
+    // Field of statData.       
     private var statData : DocumentStatData?;
         
     private enum CodingKeys: String, CodingKey {
@@ -64,22 +64,22 @@ public class StatDataResponse : WordsResponse {
         }
     }
     
-    // Sets documentLink. Gets or sets link to the document.  
+    // Sets documentLink.   
     public func setDocumentLink(documentLink : FileLink?) {
         self.documentLink = documentLink;
     }
     
-    // Gets documentLink. Gets or sets link to the document.  
+    // Gets documentLink.   
     public func getDocumentLink() -> FileLink? {
         return self.documentLink;
     }
     
-    // Sets statData. Gets or sets statistical data of the document.  
+    // Sets statData.   
     public func setStatData(statData : DocumentStatData?) {
         self.statData = statData;
     }
     
-    // Gets statData. Gets or sets statistical data of the document.  
+    // Gets statData.   
     public func getStatData() -> DocumentStatData? {
         return self.statData;
     }

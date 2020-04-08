@@ -19,7 +19,7 @@ class RunTests: BaseTestContext {
         let remoteName = "TestUpdateRun.docx";
         let fullName = (getRemoteDataFolder(action: "UpdateRun") + "/" + remoteName);
         
-        let run = Run();
+        let run = RunUpdate();
         run.setText(text: "run with text");
         
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
@@ -34,7 +34,7 @@ class RunTests: BaseTestContext {
         let remoteName = "TestInsertRun.docx";
         let fullName = (getRemoteDataFolder(action: "InsertRun") + "/" + remoteName);
         
-        let run = Run();
+        let run = RunInsert();
         run.setText(text: "run with text");
         
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(runFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);

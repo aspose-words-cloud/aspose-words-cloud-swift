@@ -50,7 +50,7 @@ public class ErrorDetails : Codable, WordsApiModel {
         
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.requestId = try container.decodeIfPresent(String.self, forKey: .requestId);
-        self.errorDateTime = try container.decode(Date.self, forKey: .errorDateTime);
+        self.errorDateTime = try container.decodeIfPresent(Date.self, forKey: .errorDateTime);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -59,10 +59,9 @@ public class ErrorDetails : Codable, WordsApiModel {
         if (self.requestId != nil) {
             try container.encode(self.requestId, forKey: .requestId);
         }
-        if (self.errorDateTime == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "errorDateTime");
+        if (self.errorDateTime != nil) {
+            try container.encode(self.errorDateTime, forKey: .errorDateTime);
         }
-        try container.encode(self.errorDateTime, forKey: .errorDateTime);
     }
     
     // Sets requestId. The request id.  
@@ -76,12 +75,12 @@ public class ErrorDetails : Codable, WordsApiModel {
     }
     
     // Sets errorDateTime. Error datetime.  
-    public func setErrorDateTime(errorDateTime : Date) {
+    public func setErrorDateTime(errorDateTime : Date?) {
         self.errorDateTime = errorDateTime;
     }
     
     // Gets errorDateTime. Error datetime.  
-    public func getErrorDateTime() -> Date {
-        return self.errorDateTime!;
+    public func getErrorDateTime() -> Date? {
+        return self.errorDateTime;
     }
 }

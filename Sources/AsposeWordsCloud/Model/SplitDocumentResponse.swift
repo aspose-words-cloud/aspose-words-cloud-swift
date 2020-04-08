@@ -30,7 +30,7 @@ import Foundation
 // This response should be returned by the service when handling:  POST /{name}/split .
 public class SplitDocumentResponse : WordsResponse {
     
-    // Field of splitResult. Gets or sets resylt of splitting document.      
+    // Field of splitResult.       
     private var splitResult : SplitDocumentResult?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class SplitDocumentResponse : WordsResponse {
         }
     }
     
-    // Sets splitResult. Gets or sets resylt of splitting document.  
+    // Sets splitResult.   
     public func setSplitResult(splitResult : SplitDocumentResult?) {
         self.splitResult = splitResult;
     }
     
-    // Gets splitResult. Gets or sets resylt of splitting document.  
+    // Gets splitResult.   
     public func getSplitResult() -> SplitDocumentResult? {
         return self.splitResult;
     }

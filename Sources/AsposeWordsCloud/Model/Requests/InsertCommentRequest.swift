@@ -30,7 +30,7 @@ import Foundation
 // Request model for insertComment operation.
 public class InsertCommentRequest {
     private let name : String;
-    private let comment : Comment;
+    private let comment : CommentInsert;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -53,7 +53,7 @@ public class InsertCommentRequest {
     }
     
     // Initializes a new instance of the insertCommentRequest class.
-    public init(name : String, comment : Comment, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, comment : CommentInsert, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.comment = comment;
         self.folder = folder;
@@ -71,7 +71,7 @@ public class InsertCommentRequest {
     }
     
     // The comment data.
-    public func getComment() -> Comment {
+    public func getComment() -> CommentInsert {
         return self.comment;
     }
     

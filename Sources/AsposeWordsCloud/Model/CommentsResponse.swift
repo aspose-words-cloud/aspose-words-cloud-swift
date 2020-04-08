@@ -30,7 +30,7 @@ import Foundation
 // This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/comments.
 public class CommentsResponse : WordsResponse {
     
-    // Field of comments. Gets or sets collection of comments.      
+    // Field of comments.       
     private var comments : CommentsCollection?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class CommentsResponse : WordsResponse {
         }
     }
     
-    // Sets comments. Gets or sets collection of comments.  
+    // Sets comments.   
     public func setComments(comments : CommentsCollection?) {
         self.comments = comments;
     }
     
-    // Gets comments. Gets or sets collection of comments.  
+    // Gets comments.   
     public func getComments() -> CommentsCollection? {
         return self.comments;
     }

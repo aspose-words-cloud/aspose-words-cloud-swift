@@ -30,7 +30,7 @@ import Foundation
 // This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat.
 public class TableCellFormatResponse : WordsResponse {
     
-    // Field of cellFormat. Gets or sets table.      
+    // Field of cellFormat.       
     private var cellFormat : TableCellFormat?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class TableCellFormatResponse : WordsResponse {
         }
     }
     
-    // Sets cellFormat. Gets or sets table.  
+    // Sets cellFormat.   
     public func setCellFormat(cellFormat : TableCellFormat?) {
         self.cellFormat = cellFormat;
     }
     
-    // Gets cellFormat. Gets or sets table.  
+    // Gets cellFormat.   
     public func getCellFormat() -> TableCellFormat? {
         return self.cellFormat;
     }

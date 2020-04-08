@@ -42,7 +42,7 @@ public class ApiError : Codable, WordsApiModel {
     // Field of dateTime. Gets or sets server datetime.      
     private var dateTime : Date?;
     
-    // Field of innerError. Gets or sets inner error.      
+    // Field of innerError.       
     private var innerError : ApiError?;
         
     private enum CodingKeys: String, CodingKey {
@@ -128,12 +128,12 @@ public class ApiError : Codable, WordsApiModel {
         return self.dateTime;
     }
     
-    // Sets innerError. Gets or sets inner error.  
+    // Sets innerError.   
     public func setInnerError(innerError : ApiError?) {
         self.innerError = innerError;
     }
     
-    // Gets innerError. Gets or sets inner error.  
+    // Gets innerError.   
     public func getInnerError() -> ApiError? {
         return self.innerError;
     }

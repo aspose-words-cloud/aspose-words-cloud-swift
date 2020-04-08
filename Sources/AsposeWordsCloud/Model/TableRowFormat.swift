@@ -34,15 +34,13 @@ public class TableRowFormat : LinkElement {
     { 
         // Enum value "atLeast"
         case atLeast = "AtLeast"
-        
+
         // Enum value "exactly"
         case exactly = "Exactly"
-        
+
         // Enum value "auto"
         case auto = "Auto"
-        
     }
-
     
     // Field of allowBreakAcrossPages. Gets or sets true if the text in a table row is allowed to split across a page break.      
     private var allowBreakAcrossPages : Bool?;

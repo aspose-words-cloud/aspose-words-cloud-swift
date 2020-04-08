@@ -90,10 +90,8 @@ class FieldTests: BaseTestContext {
         let remoteName = "TestInsertField.docx";
         let fullName = (getRemoteDataFolder(action: "InsertField") + "/" + remoteName);
         
-        let body = Field();
-        body.setResult(result: "3");
+        let body = FieldInsert();
         body.setFieldCode(fieldCode: "{ NUMPAGES }");
-        body.setNodeId(nodeId: "0.0.3");
         
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.textFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = InsertFieldRequest(name: remoteName, field: body, nodePath: "sections/0/paragraphs/0", folder: getRemoteDataFolder(action: "InsertField"));
@@ -106,10 +104,8 @@ class FieldTests: BaseTestContext {
         let remoteName = "TestInsertFieldWithoutNodePath.docx";
         let fullName = (getRemoteDataFolder(action: "InsertFieldWithoutNodePath") + "/" + remoteName);
         
-        let body = Field();
-        body.setResult(result: "3");
+        let body = FieldInsert();
         body.setFieldCode(fieldCode: "{ NUMPAGES }");
-        body.setNodeId(nodeId: "0.0.3");
         
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.textFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = InsertFieldWithoutNodePathRequest(name: remoteName, field: body, folder: getRemoteDataFolder(action: "InsertFieldWithoutNodePath"));
@@ -125,10 +121,8 @@ class FieldTests: BaseTestContext {
         let fieldIndex = 0;
         let destFileName = (super.getRemoteTestOut() + "/" + remoteName);
         
-        let body = Field();
-        body.setResult(result: "3");
+        let body = FieldUpdate();
         body.setFieldCode(fieldCode: "{ NUMPAGES }");
-        body.setNodeId(nodeId: "0.0.3");
         
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(FieldTests.fieldFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = UpdateFieldRequest(name: remoteName, field: body, nodePath: "sections/0/paragraphs/0", index: fieldIndex, folder: getRemoteDataFolder(action: "UpdateField"), destFileName: destFileName);

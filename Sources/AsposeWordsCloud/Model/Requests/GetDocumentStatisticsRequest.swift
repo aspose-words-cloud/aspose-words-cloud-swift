@@ -87,17 +87,17 @@ public class GetDocumentStatisticsRequest {
         return self.password;
     }
     
-    // Support including/excluding comments from the WordCount. Default value is \"false\".
+    // Support including/excluding comments from the WordCount. Default value is "false".
     public func getIncludeComments() -> Bool? {
         return self.includeComments;
     }
     
-    // Support including/excluding footnotes from the WordCount. Default value is \"false\".
+    // Support including/excluding footnotes from the WordCount. Default value is "false".
     public func getIncludeFootnotes() -> Bool? {
         return self.includeFootnotes;
     }
     
-    // Support including/excluding shape's text from the WordCount. Default value is \"false\".
+    // Support including/excluding shape's text from the WordCount. Default value is "false".
     public func getIncludeTextInShapes() -> Bool? {
         return self.includeTextInShapes;
     }

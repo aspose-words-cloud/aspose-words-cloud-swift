@@ -70,7 +70,7 @@ public class InsertWatermarkTextRequest {
         return self.name;
     }
     
-    // with the watermark data.            
+    // WatermarkText with the watermark data.             
     public func getWatermarkText() -> WatermarkText {
         return self.watermarkText;
     }

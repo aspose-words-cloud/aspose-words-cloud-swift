@@ -36,7 +36,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     // Field of headingsOutlineLevels. Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.      
     private var headingsOutlineLevels : Int?;
     
-    // Field of outlineOptions. Gets or sets allows to specify outline options.      
+    // Field of outlineOptions.       
     private var outlineOptions : OutlineOptionsData?;
     
     // Field of useBookFoldPrintingSettings. Gets or sets determines whether the document should be saved using a booklet printing layout.      
@@ -100,12 +100,12 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         return self.headingsOutlineLevels;
     }
     
-    // Sets outlineOptions. Gets or sets allows to specify outline options.  
+    // Sets outlineOptions.   
     public func setOutlineOptions(outlineOptions : OutlineOptionsData?) {
         self.outlineOptions = outlineOptions;
     }
     
-    // Gets outlineOptions. Gets or sets allows to specify outline options.  
+    // Gets outlineOptions.   
     public func getOutlineOptions() -> OutlineOptionsData? {
         return self.outlineOptions;
     }

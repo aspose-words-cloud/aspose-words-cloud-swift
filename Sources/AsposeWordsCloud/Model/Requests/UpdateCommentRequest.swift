@@ -31,7 +31,7 @@ import Foundation
 public class UpdateCommentRequest {
     private let name : String;
     private let commentIndex : Int;
-    private let comment : Comment;
+    private let comment : CommentUpdate;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -55,7 +55,7 @@ public class UpdateCommentRequest {
     }
     
     // Initializes a new instance of the updateCommentRequest class.
-    public init(name : String, commentIndex : Int, comment : Comment, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, commentIndex : Int, comment : CommentUpdate, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.commentIndex = commentIndex;
         self.comment = comment;
@@ -79,7 +79,7 @@ public class UpdateCommentRequest {
     }
     
     // The comment data.
-    public func getComment() -> Comment {
+    public func getComment() -> CommentUpdate {
         return self.comment;
     }
     

@@ -49,40 +49,38 @@ public class FootnotesStatData : Codable, WordsApiModel {
     public required init(from decoder: Decoder) throws {
         
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.wordCount = try container.decode(Int.self, forKey: .wordCount);
-        self.paragraphCount = try container.decode(Int.self, forKey: .paragraphCount);
+        self.wordCount = try container.decodeIfPresent(Int.self, forKey: .wordCount);
+        self.paragraphCount = try container.decodeIfPresent(Int.self, forKey: .paragraphCount);
     }
 
     public func encode(to encoder: Encoder) throws {
         
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.wordCount == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "wordCount");
+        if (self.wordCount != nil) {
+            try container.encode(self.wordCount, forKey: .wordCount);
         }
-        try container.encode(self.wordCount, forKey: .wordCount);
-        if (self.paragraphCount == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "paragraphCount");
+        if (self.paragraphCount != nil) {
+            try container.encode(self.paragraphCount, forKey: .paragraphCount);
         }
-        try container.encode(self.paragraphCount, forKey: .paragraphCount);
     }
     
     // Sets wordCount. Gets or sets total count of words in footnotes.  
-    public func setWordCount(wordCount : Int) {
+    public func setWordCount(wordCount : Int?) {
         self.wordCount = wordCount;
     }
     
     // Gets wordCount. Gets or sets total count of words in footnotes.  
-    public func getWordCount() -> Int {
-        return self.wordCount!;
+    public func getWordCount() -> Int? {
+        return self.wordCount;
     }
     
     // Sets paragraphCount. Gets or sets total count of paragraphs in footnotes.  
-    public func setParagraphCount(paragraphCount : Int) {
+    public func setParagraphCount(paragraphCount : Int?) {
         self.paragraphCount = paragraphCount;
     }
     
     // Gets paragraphCount. Gets or sets total count of paragraphs in footnotes.  
-    public func getParagraphCount() -> Int {
-        return self.paragraphCount!;
+    public func getParagraphCount() -> Int? {
+        return self.paragraphCount;
     }
 }

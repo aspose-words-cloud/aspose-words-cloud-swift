@@ -30,7 +30,7 @@ import Foundation
 // Request model for insertField operation.
 public class InsertFieldRequest {
     private let name : String;
-    private let field : Field;
+    private let field : FieldInsert;
     private let nodePath : String;
     private let folder : String?;
     private let storage : String?;
@@ -57,7 +57,7 @@ public class InsertFieldRequest {
     }
     
     // Initializes a new instance of the insertFieldRequest class.
-    public init(name : String, field : Field, nodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
+    public init(name : String, field : FieldInsert, nodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
         self.name = name;
         self.field = field;
         self.nodePath = nodePath;
@@ -77,7 +77,7 @@ public class InsertFieldRequest {
     }
     
     // Field data.
-    public func getField() -> Field {
+    public func getField() -> FieldInsert {
         return self.field;
     }
     
@@ -121,7 +121,7 @@ public class InsertFieldRequest {
         return self.revisionDateTime;
     }
     
-    // Field will be inserted before node with id=\"nodeId\".
+    // Field will be inserted before node with id="nodeId".
     public func getInsertBeforeNode() -> String? {
         return self.insertBeforeNode;
     }

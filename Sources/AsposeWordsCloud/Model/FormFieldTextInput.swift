@@ -34,24 +34,22 @@ public class FormFieldTextInput : FormField {
     { 
         // Enum value "regular"
         case regular = "Regular"
-        
+
         // Enum value "number"
         case number = "Number"
-        
+
         // Enum value "date"
         case date = "Date"
-        
+
         // Enum value "currentDate"
         case currentDate = "CurrentDate"
-        
+
         // Enum value "currentTime"
         case currentTime = "CurrentTime"
-        
+
         // Enum value "calculated"
         case calculated = "Calculated"
-        
     }
-
     
     // Field of maxLength. Gets or sets maximum length for the text field. Zero when the length is not limited.      
     private var maxLength : Int?;

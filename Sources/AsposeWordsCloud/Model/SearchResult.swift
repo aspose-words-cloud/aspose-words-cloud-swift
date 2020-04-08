@@ -30,10 +30,10 @@ import Foundation
 // Result of search operation.
 public class SearchResult : Codable, WordsApiModel {
     
-    // Field of rangeStart. Gets or sets link to result range start node.      
+    // Field of rangeStart.       
     private var rangeStart : DocumentPosition?;
     
-    // Field of rangeEnd. Gets or sets link to result range end node.      
+    // Field of rangeEnd.       
     private var rangeEnd : DocumentPosition?;
         
     private enum CodingKeys: String, CodingKey {
@@ -64,22 +64,22 @@ public class SearchResult : Codable, WordsApiModel {
         }
     }
     
-    // Sets rangeStart. Gets or sets link to result range start node.  
+    // Sets rangeStart.   
     public func setRangeStart(rangeStart : DocumentPosition?) {
         self.rangeStart = rangeStart;
     }
     
-    // Gets rangeStart. Gets or sets link to result range start node.  
+    // Gets rangeStart.   
     public func getRangeStart() -> DocumentPosition? {
         return self.rangeStart;
     }
     
-    // Sets rangeEnd. Gets or sets link to result range end node.  
+    // Sets rangeEnd.   
     public func setRangeEnd(rangeEnd : DocumentPosition?) {
         self.rangeEnd = rangeEnd;
     }
     
-    // Gets rangeEnd. Gets or sets link to result range end node.  
+    // Gets rangeEnd.   
     public func getRangeEnd() -> DocumentPosition? {
         return self.rangeEnd;
     }

@@ -30,7 +30,7 @@ import Foundation
 // This response should be returned by the service when handling:  GET documentProperties/{propertyName}.
 public class DocumentPropertyResponse : WordsResponse {
     
-    // Field of documentProperty. Gets or sets document property.      
+    // Field of documentProperty.       
     private var documentProperty : DocumentProperty?;
         
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +56,12 @@ public class DocumentPropertyResponse : WordsResponse {
         }
     }
     
-    // Sets documentProperty. Gets or sets document property.  
+    // Sets documentProperty.   
     public func setDocumentProperty(documentProperty : DocumentProperty?) {
         self.documentProperty = documentProperty;
     }
     
-    // Gets documentProperty. Gets or sets document property.  
+    // Gets documentProperty.   
     public func getDocumentProperty() -> DocumentProperty? {
         return self.documentProperty;
     }

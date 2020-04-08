@@ -39,7 +39,7 @@ public class UpdateTableCellFormatRequest {
     private let destFileName : String?;
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
-    private let format : TableCellFormat?;
+    private let format : TableCellFormat;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -57,7 +57,7 @@ public class UpdateTableCellFormatRequest {
     }
     
     // Initializes a new instance of the updateTableCellFormatRequest class.
-    public init(name : String, tableRowPath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, format : TableCellFormat? = nil) {
+    public init(name : String, tableRowPath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, format : TableCellFormat) {
         self.name = name;
         self.tableRowPath = tableRowPath;
         self.index = index;
@@ -122,7 +122,7 @@ public class UpdateTableCellFormatRequest {
     }
     
     // The properties.
-    public func getFormat() -> TableCellFormat? {
+    public func getFormat() -> TableCellFormat {
         return self.format;
     }
 }

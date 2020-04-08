@@ -64,7 +64,7 @@ public class CompareDocumentRequest {
         return self.name;
     }
     
-    // with a document to compare.            
+    // CompareData with a document to compare.
     public func getCompareData() -> CompareData {
         return self.compareData;
     }

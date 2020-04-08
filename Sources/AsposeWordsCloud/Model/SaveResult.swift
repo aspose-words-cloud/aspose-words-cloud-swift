@@ -30,10 +30,10 @@ import Foundation
 // Result of saving.
 public class SaveResult : Codable, WordsApiModel {
     
-    // Field of sourceDocument. Gets or sets link to source document.      
+    // Field of sourceDocument.       
     private var sourceDocument : FileLink?;
     
-    // Field of destDocument. Gets or sets link to destination document.      
+    // Field of destDocument.       
     private var destDocument : FileLink?;
     
     // Field of additionalItems. Gets or sets links to additional items (css, images etc).      
@@ -72,22 +72,22 @@ public class SaveResult : Codable, WordsApiModel {
         }
     }
     
-    // Sets sourceDocument. Gets or sets link to source document.  
+    // Sets sourceDocument.   
     public func setSourceDocument(sourceDocument : FileLink?) {
         self.sourceDocument = sourceDocument;
     }
     
-    // Gets sourceDocument. Gets or sets link to source document.  
+    // Gets sourceDocument.   
     public func getSourceDocument() -> FileLink? {
         return self.sourceDocument;
     }
     
-    // Sets destDocument. Gets or sets link to destination document.  
+    // Sets destDocument.   
     public func setDestDocument(destDocument : FileLink?) {
         self.destDocument = destDocument;
     }
     
-    // Gets destDocument. Gets or sets link to destination document.  
+    // Gets destDocument.   
     public func getDestDocument() -> FileLink? {
         return self.destDocument;
     }

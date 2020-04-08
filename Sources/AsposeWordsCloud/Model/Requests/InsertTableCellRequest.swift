@@ -38,7 +38,7 @@ public class InsertTableCellRequest {
     private let destFileName : String?;
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
-    private let cell : TableCellInsert?;
+    private let cell : TableCellInsert;
     
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -55,7 +55,7 @@ public class InsertTableCellRequest {
     }
     
     // Initializes a new instance of the insertTableCellRequest class.
-    public init(name : String, tableRowPath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, cell : TableCellInsert? = nil) {
+    public init(name : String, tableRowPath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, cell : TableCellInsert) {
         self.name = name;
         self.tableRowPath = tableRowPath;
         self.folder = folder;
@@ -114,7 +114,7 @@ public class InsertTableCellRequest {
     }
     
     // Table cell parameters/.
-    public func getCell() -> TableCellInsert? {
+    public func getCell() -> TableCellInsert {
         return self.cell;
     }
 }

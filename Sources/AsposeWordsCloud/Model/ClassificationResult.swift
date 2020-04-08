@@ -50,7 +50,7 @@ public class ClassificationResult : Codable, WordsApiModel {
         
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.className = try container.decodeIfPresent(String.self, forKey: .className);
-        self.classProbability = try container.decode(Double.self, forKey: .classProbability);
+        self.classProbability = try container.decodeIfPresent(Double.self, forKey: .classProbability);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -59,10 +59,9 @@ public class ClassificationResult : Codable, WordsApiModel {
         if (self.className != nil) {
             try container.encode(self.className, forKey: .className);
         }
-        if (self.classProbability == nil) {
-            throw WordsApiError.requiredArgumentError(argumentName: "classProbability");
+        if (self.classProbability != nil) {
+            try container.encode(self.classProbability, forKey: .classProbability);
         }
-        try container.encode(self.classProbability, forKey: .classProbability);
     }
     
     // Sets className. Gets or sets the name of the class.  
@@ -76,12 +75,12 @@ public class ClassificationResult : Codable, WordsApiModel {
     }
     
     // Sets classProbability. Gets or sets the probability of class.  
-    public func setClassProbability(classProbability : Double) {
+    public func setClassProbability(classProbability : Double?) {
         self.classProbability = classProbability;
     }
     
     // Gets classProbability. Gets or sets the probability of class.  
-    public func getClassProbability() -> Double {
-        return self.classProbability!;
+    public func getClassProbability() -> Double? {
+        return self.classProbability;
     }
 }

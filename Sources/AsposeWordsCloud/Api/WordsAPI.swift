@@ -39,7 +39,7 @@ public class WordsAPI {
     }
     
     // Initializes a new instance of the WordsAPI class based on AppSid and AppKey.
-    public init(appSid: String, appKey: String) {
+    public init(appSid: String, appKey: String) {        
         self.configuration = Configuration(appSid: appSid, appKey: appKey);
         self.apiInvoker = ApiInvoker(configuration: configuration);
     }
@@ -426,7 +426,7 @@ public class WordsAPI {
     }
     
     // Async representation of convertDocument method
-    // Converts document from the request&#39;s content to the specified format .       
+    // Converts document from the request&#39;s content to the specified format.       
     public func convertDocument(request : ConvertDocumentRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/convert";
@@ -472,7 +472,7 @@ public class WordsAPI {
     }   
     
     // Sync representation of convertDocument method
-    // Converts document from the request&#39;s content to the specified format .     
+    // Converts document from the request&#39;s content to the specified format.     
     public func convertDocument(request : ConvertDocumentRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : Data? = nil;
@@ -7041,7 +7041,9 @@ public class WordsAPI {
             var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
             rawPath = rawPath.replacingOccurrences(of: "{rangeStartIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeStartIdentifier()));
-            rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()));
+            if (request.getRangeEndIdentifier() != nil) {
+                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
+            }
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -10283,7 +10285,9 @@ public class WordsAPI {
             var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
             rawPath = rawPath.replacingOccurrences(of: "{rangeStartIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeStartIdentifier()));
-            rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()));
+            if (request.getRangeEndIdentifier() != nil) {
+                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
+            }
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -11070,7 +11074,9 @@ public class WordsAPI {
             var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
             rawPath = rawPath.replacingOccurrences(of: "{rangeStartIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeStartIdentifier()));
-            rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()));
+            if (request.getRangeEndIdentifier() != nil) {
+                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
+            }
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -11272,7 +11278,9 @@ public class WordsAPI {
             var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
             rawPath = rawPath.replacingOccurrences(of: "{rangeStartIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeStartIdentifier()));
-            rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()));
+            if (request.getRangeEndIdentifier() != nil) {
+                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
+            }
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -11554,6 +11562,7 @@ public class WordsAPI {
             
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
+            queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: request.getFormat())));
             if (request.getFolder() != nil) {
                 queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
             }
@@ -11568,9 +11577,6 @@ public class WordsAPI {
             }
             if (request.getDestFileName() != nil) {
                 queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-            if (request.getFormat() != nil) {
-                queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: request.getFormat()!)));
             }
             if (request.getFrom() != nil) {
                 queryItems.append(URLQueryItem(name: "from", value: try ObjectSerializer.serializeToString(value: request.getFrom()!)));
