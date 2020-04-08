@@ -29,15 +29,6 @@ import Foundation
 
 // base container class for save options data.
 public class SaveOptionsData : Codable, WordsApiModel {
-    // Gets or sets a value determining how 3D effects are rendered.
-    public enum Dml3DEffectsRenderingMode : String, Codable
-    { 
-        // Enum value "basic"
-        case basic = "Basic"
-
-        // Enum value "advanced"
-        case advanced = "Advanced"
-    }
     
     // Field of saveFormat. Gets or sets format of save.      
     private var saveFormat : String?;
@@ -62,12 +53,6 @@ public class SaveOptionsData : Codable, WordsApiModel {
     
     // Field of updateFields. Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true      
     private var updateFields : Bool?;
-    
-    // Field of dml3DEffectsRenderingMode. Gets or sets a value determining how 3D effects are rendered.      
-    private var dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?;
-    
-    // Field of updateLastPrintedProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.      
-    private var updateLastPrintedProperty : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case saveFormat;
@@ -78,8 +63,6 @@ public class SaveOptionsData : Codable, WordsApiModel {
         case updateLastSavedTimeProperty;
         case updateSdtContent;
         case updateFields;
-        case dml3DEffectsRenderingMode;
-        case updateLastPrintedProperty;
         case invalidCodingKey;
     }
         
@@ -98,8 +81,6 @@ public class SaveOptionsData : Codable, WordsApiModel {
         self.updateLastSavedTimeProperty = try container.decodeIfPresent(Bool.self, forKey: .updateLastSavedTimeProperty);
         self.updateSdtContent = try container.decodeIfPresent(Bool.self, forKey: .updateSdtContent);
         self.updateFields = try container.decodeIfPresent(Bool.self, forKey: .updateFields);
-        self.dml3DEffectsRenderingMode = try container.decodeIfPresent(Dml3DEffectsRenderingMode.self, forKey: .dml3DEffectsRenderingMode);
-        self.updateLastPrintedProperty = try container.decodeIfPresent(Bool.self, forKey: .updateLastPrintedProperty);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -128,12 +109,6 @@ public class SaveOptionsData : Codable, WordsApiModel {
         }
         if (self.updateFields != nil) {
             try container.encode(self.updateFields, forKey: .updateFields);
-        }
-        if (self.dml3DEffectsRenderingMode != nil) {
-            try container.encode(self.dml3DEffectsRenderingMode, forKey: .dml3DEffectsRenderingMode);
-        }
-        if (self.updateLastPrintedProperty != nil) {
-            try container.encode(self.updateLastPrintedProperty, forKey: .updateLastPrintedProperty);
         }
     }
     
@@ -215,25 +190,5 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Gets updateFields. Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true  
     public func getUpdateFields() -> Bool? {
         return self.updateFields;
-    }
-    
-    // Sets dml3DEffectsRenderingMode. Gets or sets a value determining how 3D effects are rendered.  
-    public func setDml3DEffectsRenderingMode(dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?) {
-        self.dml3DEffectsRenderingMode = dml3DEffectsRenderingMode;
-    }
-    
-    // Gets dml3DEffectsRenderingMode. Gets or sets a value determining how 3D effects are rendered.  
-    public func getDml3DEffectsRenderingMode() -> Dml3DEffectsRenderingMode? {
-        return self.dml3DEffectsRenderingMode;
-    }
-    
-    // Sets updateLastPrintedProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.  
-    public func setUpdateLastPrintedProperty(updateLastPrintedProperty : Bool?) {
-        self.updateLastPrintedProperty = updateLastPrintedProperty;
-    }
-    
-    // Gets updateLastPrintedProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.  
-    public func getUpdateLastPrintedProperty() -> Bool? {
-        return self.updateLastPrintedProperty;
     }
 }

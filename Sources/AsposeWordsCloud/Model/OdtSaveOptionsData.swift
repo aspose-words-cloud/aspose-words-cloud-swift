@@ -45,16 +45,12 @@ public class OdtSaveOptionsData : SaveOptionsData {
     // Field of measureUnit. Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.      
     private var measureUnit : MeasureUnit?;
     
-    // Field of password. Gets or sets a password to encrypt document.      
-    private var password : String?;
-    
     // Field of prettyFormat. Gets or sets specifies whether or not use pretty formats output.      
     private var prettyFormat : Bool?;
         
     private enum CodingKeys: String, CodingKey {
         case isStrictSchema11;
         case measureUnit;
-        case password;
         case prettyFormat;
         case invalidCodingKey;
     }
@@ -68,7 +64,6 @@ public class OdtSaveOptionsData : SaveOptionsData {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.isStrictSchema11 = try container.decodeIfPresent(Bool.self, forKey: .isStrictSchema11);
         self.measureUnit = try container.decodeIfPresent(MeasureUnit.self, forKey: .measureUnit);
-        self.password = try container.decodeIfPresent(String.self, forKey: .password);
         self.prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat);
     }
 
@@ -80,9 +75,6 @@ public class OdtSaveOptionsData : SaveOptionsData {
         }
         if (self.measureUnit != nil) {
             try container.encode(self.measureUnit, forKey: .measureUnit);
-        }
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
         }
         if (self.prettyFormat != nil) {
             try container.encode(self.prettyFormat, forKey: .prettyFormat);
@@ -107,16 +99,6 @@ public class OdtSaveOptionsData : SaveOptionsData {
     // Gets measureUnit. Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.  
     public func getMeasureUnit() -> MeasureUnit? {
         return self.measureUnit;
-    }
-    
-    // Sets password. Gets or sets a password to encrypt document.  
-    public func setPassword(password : String?) {
-        self.password = password;
-    }
-    
-    // Gets password. Gets or sets a password to encrypt document.  
-    public func getPassword() -> String? {
-        return self.password;
     }
     
     // Sets prettyFormat. Gets or sets specifies whether or not use pretty formats output.  

@@ -84,9 +84,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Field of imageCompression. Gets or sets specifies compression type to be used for all images in the document.      
     private var imageCompression : String?;
     
-    // Field of interpolateImages. Gets or sets a flag indicating whether image interpolation shall be performed by a conforming reader. When false is specified, the flag is not written to the output document and the default behaviour of reader is used instead.      
-    private var interpolateImages : Bool?;
-    
     // Field of openHyperlinksInNewWindow. Gets or sets determines whether hyperlinks in the output Pdf document are forced to be opened in a new window (or tab) of a browser.      
     private var openHyperlinksInNewWindow : Bool?;
     
@@ -132,7 +129,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         case headerFooterBookmarksExportMode;
         case imageColorSpaceExportMode;
         case imageCompression;
-        case interpolateImages;
         case openHyperlinksInNewWindow;
         case outlineOptions;
         case pageMode;
@@ -167,7 +163,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         self.headerFooterBookmarksExportMode = try container.decodeIfPresent(HeaderFooterBookmarksExportMode.self, forKey: .headerFooterBookmarksExportMode);
         self.imageColorSpaceExportMode = try container.decodeIfPresent(String.self, forKey: .imageColorSpaceExportMode);
         self.imageCompression = try container.decodeIfPresent(String.self, forKey: .imageCompression);
-        self.interpolateImages = try container.decodeIfPresent(Bool.self, forKey: .interpolateImages);
         self.openHyperlinksInNewWindow = try container.decodeIfPresent(Bool.self, forKey: .openHyperlinksInNewWindow);
         self.outlineOptions = try container.decodeIfPresent(OutlineOptionsData.self, forKey: .outlineOptions);
         self.pageMode = try container.decodeIfPresent(String.self, forKey: .pageMode);
@@ -224,9 +219,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
         if (self.imageCompression != nil) {
             try container.encode(self.imageCompression, forKey: .imageCompression);
-        }
-        if (self.interpolateImages != nil) {
-            try container.encode(self.interpolateImages, forKey: .interpolateImages);
         }
         if (self.openHyperlinksInNewWindow != nil) {
             try container.encode(self.openHyperlinksInNewWindow, forKey: .openHyperlinksInNewWindow);
@@ -398,16 +390,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Gets imageCompression. Gets or sets specifies compression type to be used for all images in the document.  
     public func getImageCompression() -> String? {
         return self.imageCompression;
-    }
-    
-    // Sets interpolateImages. Gets or sets a flag indicating whether image interpolation shall be performed by a conforming reader. When false is specified, the flag is not written to the output document and the default behaviour of reader is used instead.  
-    public func setInterpolateImages(interpolateImages : Bool?) {
-        self.interpolateImages = interpolateImages;
-    }
-    
-    // Gets interpolateImages. Gets or sets a flag indicating whether image interpolation shall be performed by a conforming reader. When false is specified, the flag is not written to the output document and the default behaviour of reader is used instead.  
-    public func getInterpolateImages() -> Bool? {
-        return self.interpolateImages;
     }
     
     // Sets openHyperlinksInNewWindow. Gets or sets determines whether hyperlinks in the output Pdf document are forced to be opened in a new window (or tab) of a browser.  
