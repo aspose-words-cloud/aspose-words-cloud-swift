@@ -21,7 +21,7 @@ class ListsTests: BaseTestContext {
         let remoteName = localName;
         let fullName = (getRemoteDataFolder(action: "TestGetLists") + "/" + remoteName);
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetListsRequest(name: remoteName);
+        let request = GetListsRequest(name: remoteName, folder: getRemoteDataFolder(action: "TestGetLists"));
         _ = try super.getApi().getLists(request: request);
     }
     
@@ -29,7 +29,7 @@ class ListsTests: BaseTestContext {
         let remoteName = localName;
         let fullName = (getRemoteDataFolder(action: "TestGetList") + "/" + remoteName);
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetListRequest(name: remoteName, listId: 1);
+        let request = GetListRequest(name: remoteName, listId: 1, folder: getRemoteDataFolder(action: "TestGetList"));
         _ = try super.getApi().getList(request: request);
     }
     
@@ -41,7 +41,7 @@ class ListsTests: BaseTestContext {
         let data = ListUpdate();
         data.setIsRestartAtEachSection(isRestartAtEachSection: true);
         
-        let request = UpdateListRequest(name: remoteName, listUpdate: data, listId: 1);
+        let request = UpdateListRequest(name: remoteName, listUpdate: data, listId: 1, folder: getRemoteDataFolder(action: "TestUpdateList"));
         _ = try super.getApi().updateList(request: request);
     }
     
@@ -53,7 +53,7 @@ class ListsTests: BaseTestContext {
         let data = ListLevelUpdate();
         data.setAlignment(alignment: ListLevelUpdate.Alignment._right);
         
-        let request = UpdateListLevelRequest(name: remoteName, listUpdate: data, listId: 1, listLevel: 1);
+        let request = UpdateListLevelRequest(name: remoteName, listUpdate: data, listId: 1, listLevel: 1, folder: getRemoteDataFolder(action: "TestUpdateListLevel"));
         _ = try super.getApi().updateListLevel(request: request);
     }
     
@@ -65,7 +65,7 @@ class ListsTests: BaseTestContext {
         let data = ListInsert();
         data.setTemplate(template: ListInsert.Template.outlineLegal);
         
-        let request = InsertListRequest(name: remoteName, listInsert: data);
+        let request = InsertListRequest(name: remoteName, listInsert: data, folder: getRemoteDataFolder(action: "TestInsertList"));
         _ = try super.getApi().insertList(request: request);
     }
 }
