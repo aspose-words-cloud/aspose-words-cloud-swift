@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="Lists.swift">
+ * <copyright company="Aspose" file="ListLevels.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,14 +27,14 @@
 
 import Foundation
 
-// Represents an array of document lists.
-public class Lists : Codable, WordsApiModel {
+// Represents a single document list.
+public class ListLevels : Codable, WordsApiModel {
     
-    // Field of listInfo. Gets or sets array of document lists.      
-    private var listInfo : [ListInfo]?;
+    // Field of listLevel. Gets or sets the collection of list levels for this list.      
+    private var listLevel : [ListLevel]?;
         
     private enum CodingKeys: String, CodingKey {
-        case listInfo;
+        case listLevel;
         case invalidCodingKey;
     }
         
@@ -45,24 +45,24 @@ public class Lists : Codable, WordsApiModel {
     public required init(from decoder: Decoder) throws {
         
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.listInfo = try container.decodeIfPresent([ListInfo].self, forKey: .listInfo);
+        self.listLevel = try container.decodeIfPresent([ListLevel].self, forKey: .listLevel);
     }
 
     public func encode(to encoder: Encoder) throws {
         
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.listInfo != nil) {
-            try container.encode(self.listInfo, forKey: .listInfo);
+        if (self.listLevel != nil) {
+            try container.encode(self.listLevel, forKey: .listLevel);
         }
     }
     
-    // Sets listInfo. Gets or sets array of document lists.  
-    public func setListInfo(listInfo : [ListInfo]?) {
-        self.listInfo = listInfo;
+    // Sets listLevel. Gets or sets the collection of list levels for this list.  
+    public func setListLevel(listLevel : [ListLevel]?) {
+        self.listLevel = listLevel;
     }
     
-    // Gets listInfo. Gets or sets array of document lists.  
-    public func getListInfo() -> [ListInfo]? {
-        return self.listInfo;
+    // Gets listLevel. Gets or sets the collection of list levels for this list.  
+    public func getListLevel() -> [ListLevel]? {
+        return self.listLevel;
     }
 }

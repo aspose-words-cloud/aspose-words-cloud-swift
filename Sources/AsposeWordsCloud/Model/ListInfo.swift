@@ -48,8 +48,8 @@ public class ListInfo : Codable, WordsApiModel {
     // Field of style.       
     private var style : Style?;
     
-    // Field of listLevels. Gets or sets the collection of list levels for this list.      
-    private var listLevels : [ListLevel]?;
+    // Field of listLevels.       
+    private var listLevels : ListLevels?;
         
     private enum CodingKeys: String, CodingKey {
         case listId;
@@ -75,7 +75,7 @@ public class ListInfo : Codable, WordsApiModel {
         self.isListStyleDefinition = try container.decodeIfPresent(Bool.self, forKey: .isListStyleDefinition);
         self.isListStyleReference = try container.decodeIfPresent(Bool.self, forKey: .isListStyleReference);
         self.style = try container.decodeIfPresent(Style.self, forKey: .style);
-        self.listLevels = try container.decodeIfPresent([ListLevel].self, forKey: .listLevels);
+        self.listLevels = try container.decodeIfPresent(ListLevels.self, forKey: .listLevels);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -164,13 +164,13 @@ public class ListInfo : Codable, WordsApiModel {
         return self.style;
     }
     
-    // Sets listLevels. Gets or sets the collection of list levels for this list.  
-    public func setListLevels(listLevels : [ListLevel]?) {
+    // Sets listLevels.   
+    public func setListLevels(listLevels : ListLevels?) {
         self.listLevels = listLevels;
     }
     
-    // Gets listLevels. Gets or sets the collection of list levels for this list.  
-    public func getListLevels() -> [ListLevel]? {
+    // Gets listLevels.   
+    public func getListLevels() -> ListLevels? {
         return self.listLevels;
     }
 }
