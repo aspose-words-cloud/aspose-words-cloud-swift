@@ -2584,6 +2584,91 @@ public class WordsAPI {
         
     }
     
+    // Async representation of deleteParagraphListFormat method
+    // Delete paragraph list format, returns updated list format properties.       
+    public func deleteParagraphListFormat(request : DeleteParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (request.getRevisionAuthor() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
+            }
+            if (request.getRevisionDateTime() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "DELETE",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : ParagraphListFormatResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphListFormatResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of deleteParagraphListFormat method
+    // Delete paragraph list format, returns updated list format properties.     
+    public func deleteParagraphListFormat(request : DeleteParagraphListFormatRequest) throws -> ParagraphListFormatResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : ParagraphListFormatResponse? = nil;
+        var responseError : Error? = nil;
+        self.deleteParagraphListFormat(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
     // Async representation of deleteParagraphWithoutNodePath method
     // Removes paragraph from section.       
     public func deleteParagraphWithoutNodePath(request : DeleteParagraphWithoutNodePathRequest, callback : @escaping (_ error : Error?) -> ()) {
@@ -7084,6 +7169,157 @@ public class WordsAPI {
         var responseObject : ParagraphFormatResponse? = nil;
         var responseError : Error? = nil;
         self.getParagraphFormatWithoutNodePath(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of getParagraphListFormat method
+    // Represents list format for a paragraph.       
+    public func getParagraphListFormat(request : GetParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "GET",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : ParagraphListFormatResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphListFormatResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of getParagraphListFormat method
+    // Represents list format for a paragraph.     
+    public func getParagraphListFormat(request : GetParagraphListFormatRequest) throws -> ParagraphListFormatResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : ParagraphListFormatResponse? = nil;
+        var responseError : Error? = nil;
+        self.getParagraphListFormat(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of getParagraphListFormatWithoutNodePath method
+    // Represents list format for a paragraph.       
+    public func getParagraphListFormatWithoutNodePath(request : GetParagraphListFormatWithoutNodePathRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/paragraphs/{index}/listFormat";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "GET",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : ParagraphListFormatResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphListFormatResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of getParagraphListFormatWithoutNodePath method
+    // Represents list format for a paragraph.     
+    public func getParagraphListFormatWithoutNodePath(request : GetParagraphListFormatWithoutNodePathRequest) throws -> ParagraphListFormatResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : ParagraphListFormatResponse? = nil;
+        var responseError : Error? = nil;
+        self.getParagraphListFormatWithoutNodePath(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();
@@ -13258,6 +13494,91 @@ public class WordsAPI {
         var responseObject : ParagraphFormatResponse? = nil;
         var responseError : Error? = nil;
         self.updateParagraphFormat(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of updateParagraphListFormat method
+    // Updates paragraph list format properties, returns updated list format properties.       
+    public func updateParagraphListFormat(request : UpdateParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (request.getRevisionAuthor() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
+            }
+            if (request.getRevisionDateTime() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "PUT",
+                body: try ObjectSerializer.serializeBody(value: request.getDto()),
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : ParagraphListFormatResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphListFormatResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of updateParagraphListFormat method
+    // Updates paragraph list format properties, returns updated list format properties.     
+    public func updateParagraphListFormat(request : UpdateParagraphListFormatRequest) throws -> ParagraphListFormatResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : ParagraphListFormatResponse? = nil;
+        var responseError : Error? = nil;
+        self.updateParagraphListFormat(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();

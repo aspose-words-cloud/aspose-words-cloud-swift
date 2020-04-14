@@ -20,6 +20,10 @@ class ParagraphTests: BaseTestContext {
         ("testUpdateParagraphFormat", testUpdateParagraphFormat),
         ("testDeleteParagraph", testDeleteParagraph),
         ("testDeleteParagraphWithoutNodePath", testDeleteParagraphWithoutNodePath),
+        ("testGetParagraphListFormat", testGetParagraphListFormat),
+        ("testGetParagraphListFormatWithoutNodePath", testGetParagraphListFormatWithoutNodePath),
+        ("testUpdateParagraphListFormat", testUpdateParagraphListFormat),
+        ("testDeleteParagraphListFormat", testDeleteParagraphListFormat),
     ];
 
     func getRemoteDataFolder(action : String) -> String {
@@ -27,6 +31,7 @@ class ParagraphTests: BaseTestContext {
     }
 
     private static let fieldFolder = "DocumentElements/Fields";
+    private static let listFolder = "DocumentElements/ParagraphListFormat";
     
     func testGetDocumentParagraphByIndex() throws {
         let localName = "test_multi_pages.docx";
@@ -235,5 +240,43 @@ class ParagraphTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = DeleteParagraphWithoutNodePathRequest(name: remoteName, index: 0, folder: getRemoteDataFolder(action: "DeleteParagraphWithoutNodePath"));
         try super.getApi().deleteParagraphWithoutNodePath(request: request);
+    }
+    
+    func testGetParagraphListFormat() throws {
+        let localName = "ParagraphGetListFormat.doc";
+        let fullName = (getRemoteDataFolder(action: "GetParagraphListFormat") + "/" + localName);
+        let index = 0;
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(ParagraphTests.listFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = GetParagraphListFormatRequest(name: localName, nodePath: "", index: index, folder: getRemoteDataFolder(action: "GetParagraphListFormat"));
+        _ = try super.getApi().getParagraphListFormat(request: request);
+    }
+    
+    func testGetParagraphListFormatWithoutNodePath() throws {
+        let localName = "ParagraphGetListFormat.doc";
+        let fullName = (getRemoteDataFolder(action: "GetParagraphListFormatWithoutNodePath") + "/" + localName);
+        let index = 0;
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(ParagraphTests.listFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = GetParagraphListFormatWithoutNodePathRequest(name: localName, index: index, folder: getRemoteDataFolder(action: "GetParagraphListFormatWithoutNodePath"));
+        _ = try super.getApi().getParagraphListFormatWithoutNodePath(request: request);
+    }
+    
+    func testUpdateParagraphListFormat() throws {
+        let localName = "ParagraphUpdateListFormat.doc";
+        let fullName = (getRemoteDataFolder(action: "UpdateParagraphListFormat") + "/" + localName);
+        let index = 0;
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(ParagraphTests.listFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let dto = ListFormatUpdate();
+        dto.setListId(listId: 2);
+        let request = UpdateParagraphListFormatRequest(name: localName, dto: dto, nodePath: "", index: index, folder: getRemoteDataFolder(action: "UpdateParagraphListFormat"));
+        _ = try super.getApi().updateParagraphListFormat(request: request);
+    }
+    
+    func testDeleteParagraphListFormat() throws {
+        let localName = "ParagraphDeleteListFormat.doc";
+        let fullName = (getRemoteDataFolder(action: "DeleteParagraphListFormat") + "/" + localName);
+        let index = 0;
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(ParagraphTests.listFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = DeleteParagraphListFormatRequest(name: localName, nodePath: "", index: index, folder: getRemoteDataFolder(action: "DeleteParagraphListFormat"));
+        _ = try super.getApi().deleteParagraphListFormat(request: request);
     }
 }
