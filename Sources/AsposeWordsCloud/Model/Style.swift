@@ -27,23 +27,8 @@
 
 import Foundation
 
-// Represents a single document list.
-public class Style : Codable, WordsApiModel {
-    // Gets or sets the style type (paragraph or character).
-    public enum ModelType : String, Codable
-    { 
-        // Enum value "paragraph"
-        case paragraph = "Paragraph"
-
-        // Enum value "character"
-        case character = "Character"
-
-        // Enum value "table"
-        case table = "Table"
-
-        // Enum value "list"
-        case list = "List"
-    }
+// Represents a single document style.
+public class Style : LinkElement {
     // Gets or sets the locale independent style identifier for a built-in style.
     public enum StyleIdentifier : String, Codable
     { 
@@ -1166,18 +1151,36 @@ public class Style : Codable, WordsApiModel {
         // Enum value "_nil"
         case _nil = "Nil"
     }
+    // Gets or sets the style type (paragraph or character).
+    public enum ModelType : String, Codable
+    { 
+        // Enum value "paragraph"
+        case paragraph = "Paragraph"
+
+        // Enum value "character"
+        case character = "Character"
+
+        // Enum value "table"
+        case table = "Table"
+
+        // Enum value "list"
+        case list = "List"
+    }
     
-    // Field of font.       
-    private var font : Font?;
+    // Field of aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.      
+    private var aliases : [String]?;
+    
+    // Field of baseStyleName. Gets or sets /sets the name of the style this style is based on.      
+    private var baseStyleName : String?;
     
     // Field of builtIn. Gets or sets a value indicating whether true if this style is one of the built-in styles in MS Word.      
     private var builtIn : Bool?;
     
-    // Field of nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.      
-    private var nextParagraphStyleName : String?;
+    // Field of font.       
+    private var font : Font?;
     
-    // Field of baseStyleName. Gets or sets /sets the name of the style this style is based on.      
-    private var baseStyleName : String?;
+    // Field of isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.      
+    private var isHeading : Bool?;
     
     // Field of isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.      
     private var isQuickStyle : Bool?;
@@ -1185,70 +1188,70 @@ public class Style : Codable, WordsApiModel {
     // Field of linkedStyleName. Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.      
     private var linkedStyleName : String?;
     
-    // Field of type. Gets or sets the style type (paragraph or character).      
-    private var type : ModelType?;
+    // Field of name. Gets or sets the name of the style.      
+    private var name : String?;
     
-    // Field of isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.      
-    private var isHeading : Bool?;
-    
-    // Field of aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.      
-    private var aliases : [String]?;
+    // Field of nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.      
+    private var nextParagraphStyleName : String?;
     
     // Field of styleIdentifier. Gets or sets the locale independent style identifier for a built-in style.      
     private var styleIdentifier : StyleIdentifier?;
     
-    // Field of name. Gets or sets the name of the style.      
-    private var name : String?;
+    // Field of type. Gets or sets the style type (paragraph or character).      
+    private var type : ModelType?;
         
     private enum CodingKeys: String, CodingKey {
-        case font;
-        case builtIn;
-        case nextParagraphStyleName;
+        case aliases;
         case baseStyleName;
+        case builtIn;
+        case font;
+        case isHeading;
         case isQuickStyle;
         case linkedStyleName;
-        case type;
-        case isHeading;
-        case aliases;
-        case styleIdentifier;
         case name;
+        case nextParagraphStyleName;
+        case styleIdentifier;
+        case type;
         case invalidCodingKey;
     }
         
-    public init() {
-        
+    public override init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
-        
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.font = try container.decodeIfPresent(Font.self, forKey: .font);
-        self.builtIn = try container.decodeIfPresent(Bool.self, forKey: .builtIn);
-        self.nextParagraphStyleName = try container.decodeIfPresent(String.self, forKey: .nextParagraphStyleName);
+        self.aliases = try container.decodeIfPresent([String].self, forKey: .aliases);
         self.baseStyleName = try container.decodeIfPresent(String.self, forKey: .baseStyleName);
+        self.builtIn = try container.decodeIfPresent(Bool.self, forKey: .builtIn);
+        self.font = try container.decodeIfPresent(Font.self, forKey: .font);
+        self.isHeading = try container.decodeIfPresent(Bool.self, forKey: .isHeading);
         self.isQuickStyle = try container.decodeIfPresent(Bool.self, forKey: .isQuickStyle);
         self.linkedStyleName = try container.decodeIfPresent(String.self, forKey: .linkedStyleName);
-        self.type = try container.decodeIfPresent(ModelType.self, forKey: .type);
-        self.isHeading = try container.decodeIfPresent(Bool.self, forKey: .isHeading);
-        self.aliases = try container.decodeIfPresent([String].self, forKey: .aliases);
-        self.styleIdentifier = try container.decodeIfPresent(StyleIdentifier.self, forKey: .styleIdentifier);
         self.name = try container.decodeIfPresent(String.self, forKey: .name);
+        self.nextParagraphStyleName = try container.decodeIfPresent(String.self, forKey: .nextParagraphStyleName);
+        self.styleIdentifier = try container.decodeIfPresent(StyleIdentifier.self, forKey: .styleIdentifier);
+        self.type = try container.decodeIfPresent(ModelType.self, forKey: .type);
     }
 
-    public func encode(to encoder: Encoder) throws {
-        
+    public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.font != nil) {
-            try container.encode(self.font, forKey: .font);
+        if (self.aliases != nil) {
+            try container.encode(self.aliases, forKey: .aliases);
+        }
+        if (self.baseStyleName != nil) {
+            try container.encode(self.baseStyleName, forKey: .baseStyleName);
         }
         if (self.builtIn != nil) {
             try container.encode(self.builtIn, forKey: .builtIn);
         }
-        if (self.nextParagraphStyleName != nil) {
-            try container.encode(self.nextParagraphStyleName, forKey: .nextParagraphStyleName);
+        if (self.font != nil) {
+            try container.encode(self.font, forKey: .font);
         }
-        if (self.baseStyleName != nil) {
-            try container.encode(self.baseStyleName, forKey: .baseStyleName);
+        if (self.isHeading != nil) {
+            try container.encode(self.isHeading, forKey: .isHeading);
         }
         if (self.isQuickStyle != nil) {
             try container.encode(self.isQuickStyle, forKey: .isQuickStyle);
@@ -1256,31 +1259,38 @@ public class Style : Codable, WordsApiModel {
         if (self.linkedStyleName != nil) {
             try container.encode(self.linkedStyleName, forKey: .linkedStyleName);
         }
-        if (self.type != nil) {
-            try container.encode(self.type, forKey: .type);
+        if (self.name != nil) {
+            try container.encode(self.name, forKey: .name);
         }
-        if (self.isHeading != nil) {
-            try container.encode(self.isHeading, forKey: .isHeading);
-        }
-        if (self.aliases != nil) {
-            try container.encode(self.aliases, forKey: .aliases);
+        if (self.nextParagraphStyleName != nil) {
+            try container.encode(self.nextParagraphStyleName, forKey: .nextParagraphStyleName);
         }
         if (self.styleIdentifier != nil) {
             try container.encode(self.styleIdentifier, forKey: .styleIdentifier);
         }
-        if (self.name != nil) {
-            try container.encode(self.name, forKey: .name);
+        if (self.type != nil) {
+            try container.encode(self.type, forKey: .type);
         }
     }
     
-    // Sets font.   
-    public func setFont(font : Font?) {
-        self.font = font;
+    // Sets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.  
+    public func setAliases(aliases : [String]?) {
+        self.aliases = aliases;
     }
     
-    // Gets font.   
-    public func getFont() -> Font? {
-        return self.font;
+    // Gets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.  
+    public func getAliases() -> [String]? {
+        return self.aliases;
+    }
+    
+    // Sets baseStyleName. Gets or sets /sets the name of the style this style is based on.  
+    public func setBaseStyleName(baseStyleName : String?) {
+        self.baseStyleName = baseStyleName;
+    }
+    
+    // Gets baseStyleName. Gets or sets /sets the name of the style this style is based on.  
+    public func getBaseStyleName() -> String? {
+        return self.baseStyleName;
     }
     
     // Sets builtIn. Gets or sets a value indicating whether true if this style is one of the built-in styles in MS Word.  
@@ -1293,24 +1303,24 @@ public class Style : Codable, WordsApiModel {
         return self.builtIn;
     }
     
-    // Sets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.  
-    public func setNextParagraphStyleName(nextParagraphStyleName : String?) {
-        self.nextParagraphStyleName = nextParagraphStyleName;
+    // Sets font.   
+    public func setFont(font : Font?) {
+        self.font = font;
     }
     
-    // Gets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.  
-    public func getNextParagraphStyleName() -> String? {
-        return self.nextParagraphStyleName;
+    // Gets font.   
+    public func getFont() -> Font? {
+        return self.font;
     }
     
-    // Sets baseStyleName. Gets or sets /sets the name of the style this style is based on.  
-    public func setBaseStyleName(baseStyleName : String?) {
-        self.baseStyleName = baseStyleName;
+    // Sets isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.  
+    public func setIsHeading(isHeading : Bool?) {
+        self.isHeading = isHeading;
     }
     
-    // Gets baseStyleName. Gets or sets /sets the name of the style this style is based on.  
-    public func getBaseStyleName() -> String? {
-        return self.baseStyleName;
+    // Gets isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.  
+    public func getIsHeading() -> Bool? {
+        return self.isHeading;
     }
     
     // Sets isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.  
@@ -1333,34 +1343,24 @@ public class Style : Codable, WordsApiModel {
         return self.linkedStyleName;
     }
     
-    // Sets type. Gets or sets the style type (paragraph or character).  
-    public func setType(type : ModelType?) {
-        self.type = type;
+    // Sets name. Gets or sets the name of the style.  
+    public func setName(name : String?) {
+        self.name = name;
     }
     
-    // Gets type. Gets or sets the style type (paragraph or character).  
-    public func getType() -> ModelType? {
-        return self.type;
+    // Gets name. Gets or sets the name of the style.  
+    public func getName() -> String? {
+        return self.name;
     }
     
-    // Sets isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.  
-    public func setIsHeading(isHeading : Bool?) {
-        self.isHeading = isHeading;
+    // Sets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.  
+    public func setNextParagraphStyleName(nextParagraphStyleName : String?) {
+        self.nextParagraphStyleName = nextParagraphStyleName;
     }
     
-    // Gets isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.  
-    public func getIsHeading() -> Bool? {
-        return self.isHeading;
-    }
-    
-    // Sets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.  
-    public func setAliases(aliases : [String]?) {
-        self.aliases = aliases;
-    }
-    
-    // Gets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.  
-    public func getAliases() -> [String]? {
-        return self.aliases;
+    // Gets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.  
+    public func getNextParagraphStyleName() -> String? {
+        return self.nextParagraphStyleName;
     }
     
     // Sets styleIdentifier. Gets or sets the locale independent style identifier for a built-in style.  
@@ -1373,13 +1373,13 @@ public class Style : Codable, WordsApiModel {
         return self.styleIdentifier;
     }
     
-    // Sets name. Gets or sets the name of the style.  
-    public func setName(name : String?) {
-        self.name = name;
+    // Sets type. Gets or sets the style type (paragraph or character).  
+    public func setType(type : ModelType?) {
+        self.type = type;
     }
     
-    // Gets name. Gets or sets the name of the style.  
-    public func getName() -> String? {
-        return self.name;
+    // Gets type. Gets or sets the style type (paragraph or character).  
+    public func getType() -> ModelType? {
+        return self.type;
     }
 }
