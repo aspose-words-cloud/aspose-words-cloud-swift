@@ -28,7 +28,7 @@
 import Foundation
 
 // Represents an array of document lists.
-public class Lists : Codable, WordsApiModel {
+public class Lists : LinkElement {
     
     // Field of listInfo. Gets or sets array of document lists.      
     private var listInfo : [ListInfo]?;
@@ -38,18 +38,18 @@ public class Lists : Codable, WordsApiModel {
         case invalidCodingKey;
     }
         
-    public init() {
-        
+    public override init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
-        
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.listInfo = try container.decodeIfPresent([ListInfo].self, forKey: .listInfo);
     }
 
-    public func encode(to encoder: Encoder) throws {
-        
+    public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.listInfo != nil) {
             try container.encode(self.listInfo, forKey: .listInfo);

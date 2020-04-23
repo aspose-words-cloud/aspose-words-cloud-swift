@@ -13656,7 +13656,7 @@ public class WordsAPI {
     // Updates list level in document list, returns updated list.       
     public func updateListLevel(request : UpdateListLevelRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/lists/{listId}/{listLevel}";
+            var rawPath = "/words/{name}/lists/{listId}/listLevels/{listLevel}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
             rawPath = rawPath.replacingOccurrences(of: "{listId}", with: try ObjectSerializer.serializeToString(value: request.getListId()));
             rawPath = rawPath.replacingOccurrences(of: "{listLevel}", with: try ObjectSerializer.serializeToString(value: request.getListLevel()));

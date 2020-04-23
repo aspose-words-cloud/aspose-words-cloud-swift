@@ -28,16 +28,7 @@
 import Foundation
 
 // Represents a single document list.
-public class ListInfo : Codable, WordsApiModel {
-    
-    // Field of listId. Gets or sets the unique identifier of the list.      
-    private var listId : Int?;
-    
-    // Field of isMultiLevel. Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.      
-    private var isMultiLevel : Bool?;
-    
-    // Field of isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.      
-    private var isRestartAtEachSection : Bool?;
+public class ListInfo : LinkElement {
     
     // Field of isListStyleDefinition. Gets or sets a value indicating whether returns true if this list is a definition of a list style.      
     private var isListStyleDefinition : Bool?;
@@ -45,44 +36,56 @@ public class ListInfo : Codable, WordsApiModel {
     // Field of isListStyleReference. Gets or sets a value indicating whether returns true if this list is a reference to a list style.      
     private var isListStyleReference : Bool?;
     
-    // Field of style.       
-    private var style : Style?;
+    // Field of isMultiLevel. Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.      
+    private var isMultiLevel : Bool?;
+    
+    // Field of isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.      
+    private var isRestartAtEachSection : Bool?;
+    
+    // Field of listId. Gets or sets the unique identifier of the list.      
+    private var listId : Int?;
     
     // Field of listLevels.       
     private var listLevels : ListLevels?;
+    
+    // Field of style.       
+    private var style : Style?;
         
     private enum CodingKeys: String, CodingKey {
-        case listId;
-        case isMultiLevel;
-        case isRestartAtEachSection;
         case isListStyleDefinition;
         case isListStyleReference;
-        case style;
+        case isMultiLevel;
+        case isRestartAtEachSection;
+        case listId;
         case listLevels;
+        case style;
         case invalidCodingKey;
     }
         
-    public init() {
-        
+    public override init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
-        
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.listId = try container.decodeIfPresent(Int.self, forKey: .listId);
-        self.isMultiLevel = try container.decodeIfPresent(Bool.self, forKey: .isMultiLevel);
-        self.isRestartAtEachSection = try container.decodeIfPresent(Bool.self, forKey: .isRestartAtEachSection);
         self.isListStyleDefinition = try container.decodeIfPresent(Bool.self, forKey: .isListStyleDefinition);
         self.isListStyleReference = try container.decodeIfPresent(Bool.self, forKey: .isListStyleReference);
-        self.style = try container.decodeIfPresent(Style.self, forKey: .style);
+        self.isMultiLevel = try container.decodeIfPresent(Bool.self, forKey: .isMultiLevel);
+        self.isRestartAtEachSection = try container.decodeIfPresent(Bool.self, forKey: .isRestartAtEachSection);
+        self.listId = try container.decodeIfPresent(Int.self, forKey: .listId);
         self.listLevels = try container.decodeIfPresent(ListLevels.self, forKey: .listLevels);
+        self.style = try container.decodeIfPresent(Style.self, forKey: .style);
     }
 
-    public func encode(to encoder: Encoder) throws {
-        
+    public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.listId != nil) {
-            try container.encode(self.listId, forKey: .listId);
+        if (self.isListStyleDefinition != nil) {
+            try container.encode(self.isListStyleDefinition, forKey: .isListStyleDefinition);
+        }
+        if (self.isListStyleReference != nil) {
+            try container.encode(self.isListStyleReference, forKey: .isListStyleReference);
         }
         if (self.isMultiLevel != nil) {
             try container.encode(self.isMultiLevel, forKey: .isMultiLevel);
@@ -90,48 +93,15 @@ public class ListInfo : Codable, WordsApiModel {
         if (self.isRestartAtEachSection != nil) {
             try container.encode(self.isRestartAtEachSection, forKey: .isRestartAtEachSection);
         }
-        if (self.isListStyleDefinition != nil) {
-            try container.encode(self.isListStyleDefinition, forKey: .isListStyleDefinition);
-        }
-        if (self.isListStyleReference != nil) {
-            try container.encode(self.isListStyleReference, forKey: .isListStyleReference);
-        }
-        if (self.style != nil) {
-            try container.encode(self.style, forKey: .style);
+        if (self.listId != nil) {
+            try container.encode(self.listId, forKey: .listId);
         }
         if (self.listLevels != nil) {
             try container.encode(self.listLevels, forKey: .listLevels);
         }
-    }
-    
-    // Sets listId. Gets or sets the unique identifier of the list.  
-    public func setListId(listId : Int?) {
-        self.listId = listId;
-    }
-    
-    // Gets listId. Gets or sets the unique identifier of the list.  
-    public func getListId() -> Int? {
-        return self.listId;
-    }
-    
-    // Sets isMultiLevel. Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.  
-    public func setIsMultiLevel(isMultiLevel : Bool?) {
-        self.isMultiLevel = isMultiLevel;
-    }
-    
-    // Gets isMultiLevel. Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.  
-    public func getIsMultiLevel() -> Bool? {
-        return self.isMultiLevel;
-    }
-    
-    // Sets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.  
-    public func setIsRestartAtEachSection(isRestartAtEachSection : Bool?) {
-        self.isRestartAtEachSection = isRestartAtEachSection;
-    }
-    
-    // Gets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.  
-    public func getIsRestartAtEachSection() -> Bool? {
-        return self.isRestartAtEachSection;
+        if (self.style != nil) {
+            try container.encode(self.style, forKey: .style);
+        }
     }
     
     // Sets isListStyleDefinition. Gets or sets a value indicating whether returns true if this list is a definition of a list style.  
@@ -154,14 +124,34 @@ public class ListInfo : Codable, WordsApiModel {
         return self.isListStyleReference;
     }
     
-    // Sets style.   
-    public func setStyle(style : Style?) {
-        self.style = style;
+    // Sets isMultiLevel. Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.  
+    public func setIsMultiLevel(isMultiLevel : Bool?) {
+        self.isMultiLevel = isMultiLevel;
     }
     
-    // Gets style.   
-    public func getStyle() -> Style? {
-        return self.style;
+    // Gets isMultiLevel. Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.  
+    public func getIsMultiLevel() -> Bool? {
+        return self.isMultiLevel;
+    }
+    
+    // Sets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.  
+    public func setIsRestartAtEachSection(isRestartAtEachSection : Bool?) {
+        self.isRestartAtEachSection = isRestartAtEachSection;
+    }
+    
+    // Gets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.  
+    public func getIsRestartAtEachSection() -> Bool? {
+        return self.isRestartAtEachSection;
+    }
+    
+    // Sets listId. Gets or sets the unique identifier of the list.  
+    public func setListId(listId : Int?) {
+        self.listId = listId;
+    }
+    
+    // Gets listId. Gets or sets the unique identifier of the list.  
+    public func getListId() -> Int? {
+        return self.listId;
     }
     
     // Sets listLevels.   
@@ -172,5 +162,15 @@ public class ListInfo : Codable, WordsApiModel {
     // Gets listLevels.   
     public func getListLevels() -> ListLevels? {
         return self.listLevels;
+    }
+    
+    // Sets style.   
+    public func setStyle(style : Style?) {
+        self.style = style;
+    }
+    
+    // Gets style.   
+    public func getStyle() -> Style? {
+        return self.style;
     }
 }

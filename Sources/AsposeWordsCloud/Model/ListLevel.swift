@@ -28,7 +28,19 @@
 import Foundation
 
 // Represents a document list levels.
-public class ListLevel : Codable, WordsApiModel {
+public class ListLevel : LinkElement {
+    // Gets or sets the justification of the actual number of the list item.
+    public enum Alignment : String, Codable
+    { 
+        // Enum value "_left"
+        case _left = "Left"
+
+        // Enum value "center"
+        case center = "Center"
+
+        // Enum value "_right"
+        case _right = "Right"
+    }
     // Gets or sets returns or sets the number style for this list level.
     public enum NumberStyle : String, Codable
     { 
@@ -218,18 +230,6 @@ public class ListLevel : Codable, WordsApiModel {
         // Enum value "custom"
         case custom = "Custom"
     }
-    // Gets or sets the justification of the actual number of the list item.
-    public enum Alignment : String, Codable
-    { 
-        // Enum value "_left"
-        case _left = "Left"
-
-        // Enum value "center"
-        case center = "Center"
-
-        // Enum value "_right"
-        case _right = "Right"
-    }
     // Gets or sets returns or sets the character inserted after the number for the list level.
     public enum TrailingCharacter : String, Codable
     { 
@@ -243,148 +243,118 @@ public class ListLevel : Codable, WordsApiModel {
         case nothing = "Nothing"
     }
     
-    // Field of startAt. Gets or sets returns or sets the starting number for this list level.      
-    private var startAt : Int?;
-    
-    // Field of numberStyle. Gets or sets returns or sets the number style for this list level.      
-    private var numberStyle : NumberStyle?;
-    
-    // Field of numberFormat. Gets or sets returns or sets the number format for the list level.      
-    private var numberFormat : String?;
-    
     // Field of alignment. Gets or sets the justification of the actual number of the list item.      
     private var alignment : Alignment?;
-    
-    // Field of isLegal. Gets or sets a value indicating whether true if the level turns all inherited numbers to Arabic, false if it preserves their number style.      
-    private var isLegal : Bool?;
-    
-    // Field of restartAfterLevel. Gets or sets or returns the list level that must appear before the specified list level restarts numbering.      
-    private var restartAfterLevel : Int?;
-    
-    // Field of trailingCharacter. Gets or sets returns or sets the character inserted after the number for the list level.      
-    private var trailingCharacter : TrailingCharacter?;
     
     // Field of font.       
     private var font : Font?;
     
-    // Field of tabPosition. Gets or sets returns or sets the tab position (in points) for the list level.      
-    private var tabPosition : Double?;
+    // Field of isLegal. Gets or sets a value indicating whether true if the level turns all inherited numbers to Arabic, false if it preserves their number style.      
+    private var isLegal : Bool?;
+    
+    // Field of linkedStyle.       
+    private var linkedStyle : Style?;
+    
+    // Field of numberFormat. Gets or sets returns or sets the number format for the list level.      
+    private var numberFormat : String?;
     
     // Field of numberPosition. Gets or sets returns or sets the position (in points) of the number or bullet for the list level.      
     private var numberPosition : Double?;
     
+    // Field of numberStyle. Gets or sets returns or sets the number style for this list level.      
+    private var numberStyle : NumberStyle?;
+    
+    // Field of restartAfterLevel. Gets or sets or returns the list level that must appear before the specified list level restarts numbering.      
+    private var restartAfterLevel : Int?;
+    
+    // Field of startAt. Gets or sets returns or sets the starting number for this list level.      
+    private var startAt : Int?;
+    
+    // Field of tabPosition. Gets or sets returns or sets the tab position (in points) for the list level.      
+    private var tabPosition : Double?;
+    
     // Field of textPosition. Gets or sets returns or sets the position (in points) for the second line of wrapping text for the list level.      
     private var textPosition : Double?;
     
-    // Field of linkedStyle.       
-    private var linkedStyle : Style?;
+    // Field of trailingCharacter. Gets or sets returns or sets the character inserted after the number for the list level.      
+    private var trailingCharacter : TrailingCharacter?;
         
     private enum CodingKeys: String, CodingKey {
-        case startAt;
-        case numberStyle;
-        case numberFormat;
         case alignment;
-        case isLegal;
-        case restartAfterLevel;
-        case trailingCharacter;
         case font;
-        case tabPosition;
-        case numberPosition;
-        case textPosition;
+        case isLegal;
         case linkedStyle;
+        case numberFormat;
+        case numberPosition;
+        case numberStyle;
+        case restartAfterLevel;
+        case startAt;
+        case tabPosition;
+        case textPosition;
+        case trailingCharacter;
         case invalidCodingKey;
     }
         
-    public init() {
-        
+    public override init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
-        
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.startAt = try container.decodeIfPresent(Int.self, forKey: .startAt);
-        self.numberStyle = try container.decodeIfPresent(NumberStyle.self, forKey: .numberStyle);
-        self.numberFormat = try container.decodeIfPresent(String.self, forKey: .numberFormat);
         self.alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment);
-        self.isLegal = try container.decodeIfPresent(Bool.self, forKey: .isLegal);
-        self.restartAfterLevel = try container.decodeIfPresent(Int.self, forKey: .restartAfterLevel);
-        self.trailingCharacter = try container.decodeIfPresent(TrailingCharacter.self, forKey: .trailingCharacter);
         self.font = try container.decodeIfPresent(Font.self, forKey: .font);
-        self.tabPosition = try container.decodeIfPresent(Double.self, forKey: .tabPosition);
-        self.numberPosition = try container.decodeIfPresent(Double.self, forKey: .numberPosition);
-        self.textPosition = try container.decodeIfPresent(Double.self, forKey: .textPosition);
+        self.isLegal = try container.decodeIfPresent(Bool.self, forKey: .isLegal);
         self.linkedStyle = try container.decodeIfPresent(Style.self, forKey: .linkedStyle);
+        self.numberFormat = try container.decodeIfPresent(String.self, forKey: .numberFormat);
+        self.numberPosition = try container.decodeIfPresent(Double.self, forKey: .numberPosition);
+        self.numberStyle = try container.decodeIfPresent(NumberStyle.self, forKey: .numberStyle);
+        self.restartAfterLevel = try container.decodeIfPresent(Int.self, forKey: .restartAfterLevel);
+        self.startAt = try container.decodeIfPresent(Int.self, forKey: .startAt);
+        self.tabPosition = try container.decodeIfPresent(Double.self, forKey: .tabPosition);
+        self.textPosition = try container.decodeIfPresent(Double.self, forKey: .textPosition);
+        self.trailingCharacter = try container.decodeIfPresent(TrailingCharacter.self, forKey: .trailingCharacter);
     }
 
-    public func encode(to encoder: Encoder) throws {
-        
+    public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.startAt != nil) {
-            try container.encode(self.startAt, forKey: .startAt);
-        }
-        if (self.numberStyle != nil) {
-            try container.encode(self.numberStyle, forKey: .numberStyle);
-        }
-        if (self.numberFormat != nil) {
-            try container.encode(self.numberFormat, forKey: .numberFormat);
-        }
         if (self.alignment != nil) {
             try container.encode(self.alignment, forKey: .alignment);
-        }
-        if (self.isLegal != nil) {
-            try container.encode(self.isLegal, forKey: .isLegal);
-        }
-        if (self.restartAfterLevel != nil) {
-            try container.encode(self.restartAfterLevel, forKey: .restartAfterLevel);
-        }
-        if (self.trailingCharacter != nil) {
-            try container.encode(self.trailingCharacter, forKey: .trailingCharacter);
         }
         if (self.font != nil) {
             try container.encode(self.font, forKey: .font);
         }
-        if (self.tabPosition != nil) {
-            try container.encode(self.tabPosition, forKey: .tabPosition);
-        }
-        if (self.numberPosition != nil) {
-            try container.encode(self.numberPosition, forKey: .numberPosition);
-        }
-        if (self.textPosition != nil) {
-            try container.encode(self.textPosition, forKey: .textPosition);
+        if (self.isLegal != nil) {
+            try container.encode(self.isLegal, forKey: .isLegal);
         }
         if (self.linkedStyle != nil) {
             try container.encode(self.linkedStyle, forKey: .linkedStyle);
         }
-    }
-    
-    // Sets startAt. Gets or sets returns or sets the starting number for this list level.  
-    public func setStartAt(startAt : Int?) {
-        self.startAt = startAt;
-    }
-    
-    // Gets startAt. Gets or sets returns or sets the starting number for this list level.  
-    public func getStartAt() -> Int? {
-        return self.startAt;
-    }
-    
-    // Sets numberStyle. Gets or sets returns or sets the number style for this list level.  
-    public func setNumberStyle(numberStyle : NumberStyle?) {
-        self.numberStyle = numberStyle;
-    }
-    
-    // Gets numberStyle. Gets or sets returns or sets the number style for this list level.  
-    public func getNumberStyle() -> NumberStyle? {
-        return self.numberStyle;
-    }
-    
-    // Sets numberFormat. Gets or sets returns or sets the number format for the list level.  
-    public func setNumberFormat(numberFormat : String?) {
-        self.numberFormat = numberFormat;
-    }
-    
-    // Gets numberFormat. Gets or sets returns or sets the number format for the list level.  
-    public func getNumberFormat() -> String? {
-        return self.numberFormat;
+        if (self.numberFormat != nil) {
+            try container.encode(self.numberFormat, forKey: .numberFormat);
+        }
+        if (self.numberPosition != nil) {
+            try container.encode(self.numberPosition, forKey: .numberPosition);
+        }
+        if (self.numberStyle != nil) {
+            try container.encode(self.numberStyle, forKey: .numberStyle);
+        }
+        if (self.restartAfterLevel != nil) {
+            try container.encode(self.restartAfterLevel, forKey: .restartAfterLevel);
+        }
+        if (self.startAt != nil) {
+            try container.encode(self.startAt, forKey: .startAt);
+        }
+        if (self.tabPosition != nil) {
+            try container.encode(self.tabPosition, forKey: .tabPosition);
+        }
+        if (self.textPosition != nil) {
+            try container.encode(self.textPosition, forKey: .textPosition);
+        }
+        if (self.trailingCharacter != nil) {
+            try container.encode(self.trailingCharacter, forKey: .trailingCharacter);
+        }
     }
     
     // Sets alignment. Gets or sets the justification of the actual number of the list item.  
@@ -397,36 +367,6 @@ public class ListLevel : Codable, WordsApiModel {
         return self.alignment;
     }
     
-    // Sets isLegal. Gets or sets a value indicating whether true if the level turns all inherited numbers to Arabic, false if it preserves their number style.  
-    public func setIsLegal(isLegal : Bool?) {
-        self.isLegal = isLegal;
-    }
-    
-    // Gets isLegal. Gets or sets a value indicating whether true if the level turns all inherited numbers to Arabic, false if it preserves their number style.  
-    public func getIsLegal() -> Bool? {
-        return self.isLegal;
-    }
-    
-    // Sets restartAfterLevel. Gets or sets or returns the list level that must appear before the specified list level restarts numbering.  
-    public func setRestartAfterLevel(restartAfterLevel : Int?) {
-        self.restartAfterLevel = restartAfterLevel;
-    }
-    
-    // Gets restartAfterLevel. Gets or sets or returns the list level that must appear before the specified list level restarts numbering.  
-    public func getRestartAfterLevel() -> Int? {
-        return self.restartAfterLevel;
-    }
-    
-    // Sets trailingCharacter. Gets or sets returns or sets the character inserted after the number for the list level.  
-    public func setTrailingCharacter(trailingCharacter : TrailingCharacter?) {
-        self.trailingCharacter = trailingCharacter;
-    }
-    
-    // Gets trailingCharacter. Gets or sets returns or sets the character inserted after the number for the list level.  
-    public func getTrailingCharacter() -> TrailingCharacter? {
-        return self.trailingCharacter;
-    }
-    
     // Sets font.   
     public func setFont(font : Font?) {
         self.font = font;
@@ -437,14 +377,34 @@ public class ListLevel : Codable, WordsApiModel {
         return self.font;
     }
     
-    // Sets tabPosition. Gets or sets returns or sets the tab position (in points) for the list level.  
-    public func setTabPosition(tabPosition : Double?) {
-        self.tabPosition = tabPosition;
+    // Sets isLegal. Gets or sets a value indicating whether true if the level turns all inherited numbers to Arabic, false if it preserves their number style.  
+    public func setIsLegal(isLegal : Bool?) {
+        self.isLegal = isLegal;
     }
     
-    // Gets tabPosition. Gets or sets returns or sets the tab position (in points) for the list level.  
-    public func getTabPosition() -> Double? {
-        return self.tabPosition;
+    // Gets isLegal. Gets or sets a value indicating whether true if the level turns all inherited numbers to Arabic, false if it preserves their number style.  
+    public func getIsLegal() -> Bool? {
+        return self.isLegal;
+    }
+    
+    // Sets linkedStyle.   
+    public func setLinkedStyle(linkedStyle : Style?) {
+        self.linkedStyle = linkedStyle;
+    }
+    
+    // Gets linkedStyle.   
+    public func getLinkedStyle() -> Style? {
+        return self.linkedStyle;
+    }
+    
+    // Sets numberFormat. Gets or sets returns or sets the number format for the list level.  
+    public func setNumberFormat(numberFormat : String?) {
+        self.numberFormat = numberFormat;
+    }
+    
+    // Gets numberFormat. Gets or sets returns or sets the number format for the list level.  
+    public func getNumberFormat() -> String? {
+        return self.numberFormat;
     }
     
     // Sets numberPosition. Gets or sets returns or sets the position (in points) of the number or bullet for the list level.  
@@ -457,6 +417,46 @@ public class ListLevel : Codable, WordsApiModel {
         return self.numberPosition;
     }
     
+    // Sets numberStyle. Gets or sets returns or sets the number style for this list level.  
+    public func setNumberStyle(numberStyle : NumberStyle?) {
+        self.numberStyle = numberStyle;
+    }
+    
+    // Gets numberStyle. Gets or sets returns or sets the number style for this list level.  
+    public func getNumberStyle() -> NumberStyle? {
+        return self.numberStyle;
+    }
+    
+    // Sets restartAfterLevel. Gets or sets or returns the list level that must appear before the specified list level restarts numbering.  
+    public func setRestartAfterLevel(restartAfterLevel : Int?) {
+        self.restartAfterLevel = restartAfterLevel;
+    }
+    
+    // Gets restartAfterLevel. Gets or sets or returns the list level that must appear before the specified list level restarts numbering.  
+    public func getRestartAfterLevel() -> Int? {
+        return self.restartAfterLevel;
+    }
+    
+    // Sets startAt. Gets or sets returns or sets the starting number for this list level.  
+    public func setStartAt(startAt : Int?) {
+        self.startAt = startAt;
+    }
+    
+    // Gets startAt. Gets or sets returns or sets the starting number for this list level.  
+    public func getStartAt() -> Int? {
+        return self.startAt;
+    }
+    
+    // Sets tabPosition. Gets or sets returns or sets the tab position (in points) for the list level.  
+    public func setTabPosition(tabPosition : Double?) {
+        self.tabPosition = tabPosition;
+    }
+    
+    // Gets tabPosition. Gets or sets returns or sets the tab position (in points) for the list level.  
+    public func getTabPosition() -> Double? {
+        return self.tabPosition;
+    }
+    
     // Sets textPosition. Gets or sets returns or sets the position (in points) for the second line of wrapping text for the list level.  
     public func setTextPosition(textPosition : Double?) {
         self.textPosition = textPosition;
@@ -467,13 +467,13 @@ public class ListLevel : Codable, WordsApiModel {
         return self.textPosition;
     }
     
-    // Sets linkedStyle.   
-    public func setLinkedStyle(linkedStyle : Style?) {
-        self.linkedStyle = linkedStyle;
+    // Sets trailingCharacter. Gets or sets returns or sets the character inserted after the number for the list level.  
+    public func setTrailingCharacter(trailingCharacter : TrailingCharacter?) {
+        self.trailingCharacter = trailingCharacter;
     }
     
-    // Gets linkedStyle.   
-    public func getLinkedStyle() -> Style? {
-        return self.linkedStyle;
+    // Gets trailingCharacter. Gets or sets returns or sets the character inserted after the number for the list level.  
+    public func getTrailingCharacter() -> TrailingCharacter? {
+        return self.trailingCharacter;
     }
 }

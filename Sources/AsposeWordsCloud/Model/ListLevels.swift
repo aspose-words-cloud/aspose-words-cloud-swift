@@ -28,7 +28,7 @@
 import Foundation
 
 // Represents a single document list.
-public class ListLevels : Codable, WordsApiModel {
+public class ListLevels : LinkElement {
     
     // Field of listLevel. Gets or sets the collection of list levels for this list.      
     private var listLevel : [ListLevel]?;
@@ -38,18 +38,18 @@ public class ListLevels : Codable, WordsApiModel {
         case invalidCodingKey;
     }
         
-    public init() {
-        
+    public override init() {
+        super.init();
     }
     
     public required init(from decoder: Decoder) throws {
-        
+        try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.listLevel = try container.decodeIfPresent([ListLevel].self, forKey: .listLevel);
     }
 
-    public func encode(to encoder: Encoder) throws {
-        
+    public override func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.listLevel != nil) {
             try container.encode(self.listLevel, forKey: .listLevel);
