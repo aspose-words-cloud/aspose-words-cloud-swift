@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ApplyStyleToDocmentElementRequest.swift">
+ * <copyright company="Aspose" file="ApplyStyleToDocumentElementRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,8 +27,8 @@
 
 import Foundation
 
-// Request model for applyStyleToDocmentElement operation.
-public class ApplyStyleToDocmentElementRequest {
+// Request model for applyStyleToDocumentElement operation.
+public class ApplyStyleToDocumentElementRequest {
     private let name : String;
     private let styleApply : StyleApply;
     private let styledNodePath : String;
@@ -54,7 +54,7 @@ public class ApplyStyleToDocmentElementRequest {
         case invalidCodingKey;
     }
     
-    // Initializes a new instance of the applyStyleToDocmentElementRequest class.
+    // Initializes a new instance of the applyStyleToDocumentElementRequest class.
     public init(name : String, styleApply : StyleApply, styledNodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.styleApply = styleApply;

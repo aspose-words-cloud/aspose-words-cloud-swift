@@ -204,9 +204,9 @@ public class WordsAPI {
         return responseObject!;
     }
     
-    // Async representation of applyStyleToDocmentElement method
+    // Async representation of applyStyleToDocumentElement method
     // Apply style to document node.       
-    public func applyStyleToDocmentElement(request : ApplyStyleToDocmentElementRequest, callback : @escaping (_ response : WordsResponse?, _ error : Error?) -> ()) {
+    public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest, callback : @escaping (_ response : WordsResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{styledNodePath}/style";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
@@ -268,13 +268,13 @@ public class WordsAPI {
         }
     }   
     
-    // Sync representation of applyStyleToDocmentElement method
+    // Sync representation of applyStyleToDocumentElement method
     // Apply style to document node.     
-    public func applyStyleToDocmentElement(request : ApplyStyleToDocmentElementRequest) throws -> WordsResponse {
+    public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest) throws -> WordsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : WordsResponse? = nil;
         var responseError : Error? = nil;
-        self.applyStyleToDocmentElement(request : request, callback: { response, error in
+        self.applyStyleToDocumentElement(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();
