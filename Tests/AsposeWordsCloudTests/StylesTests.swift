@@ -8,6 +8,8 @@ class StylesTests: BaseTestContext {
         ("testUpdateStyle", testUpdateStyle),
         ("testInsertStyle", testInsertStyle),
         ("testCopyStyle", testCopyStyle),
+        ("testGetStyleFromDocumentElement", testGetStyleFromDocumentElement),
+        ("testApplyStyleToDocumentElement", testApplyStyleToDocumentElement),
     ];
 
     func getRemoteDataFolder(action : String) -> String {
@@ -68,5 +70,25 @@ class StylesTests: BaseTestContext {
         
         let request = CopyStyleRequest(name: remoteName, styleCopy: data, folder: getRemoteDataFolder(action: "TestCopyStyle"));
         _ = try super.getApi().copyStyle(request: request);
+    }
+    
+    func testGetStyleFromDocumentElement() throws {
+        let remoteName = localName;
+        let fullName = (getRemoteDataFolder(action: "TestGetStyleFromDocumentElement") + "/" + remoteName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = GetStyleFromDocumentElementRequest(name: remoteName, styledNodePath: "paragraphs/1/paragraphFormat", folder: getRemoteDataFolder(action: "TestGetStyleFromDocumentElement"));
+        _ = try super.getApi().getStyleFromDocumentElement(request: request);
+    }
+    
+    func testApplyStyleToDocumentElement() throws {
+        let remoteName = localName;
+        let fullName = (getRemoteDataFolder(action: "TestApplyStyleToDocumentElement") + "/" + remoteName);
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        
+        let data = StyleApply();
+        data.setStyleName(styleName: "Heading 1");
+        
+        let request = ApplyStyleToDocumentElementRequest(name: remoteName, styleApply: data, styledNodePath: "paragraphs/1/paragraphFormat", folder: getRemoteDataFolder(action: "TestApplyStyleToDocumentElement"));
+        _ = try super.getApi().applyStyleToDocumentElement(request: request);
     }
 }
