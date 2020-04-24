@@ -204,6 +204,90 @@ public class WordsAPI {
         return responseObject!;
     }
     
+    // Async representation of applyStyleToDocumentElement method
+    // Apply style to document node.       
+    public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest, callback : @escaping (_ response : WordsResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{styledNodePath}/style";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{styledNodePath}", with: try ObjectSerializer.serializeToString(value: request.getStyledNodePath()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (request.getRevisionAuthor() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
+            }
+            if (request.getRevisionDateTime() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "PUT",
+                body: try ObjectSerializer.serializeBody(value: request.getStyleApply()),
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : WordsResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: WordsResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of applyStyleToDocumentElement method
+    // Apply style to document node.     
+    public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest) throws -> WordsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : WordsResponse? = nil;
+        var responseError : Error? = nil;
+        self.applyStyleToDocumentElement(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
     // Async representation of buildReport method
     // Executes document \&quot;build report\&quot; operation.       
     public func buildReport(request : BuildReportRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
@@ -8231,6 +8315,81 @@ public class WordsAPI {
         var responseObject : StyleResponse? = nil;
         var responseError : Error? = nil;
         self.getStyle(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of getStyleFromDocumentElement method
+    // Gets style from document node.       
+    public func getStyleFromDocumentElement(request : GetStyleFromDocumentElementRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{styledNodePath}/style";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{styledNodePath}", with: try ObjectSerializer.serializeToString(value: request.getStyledNodePath()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "GET",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : StyleResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: StyleResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of getStyleFromDocumentElement method
+    // Gets style from document node.     
+    public func getStyleFromDocumentElement(request : GetStyleFromDocumentElementRequest) throws -> StyleResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : StyleResponse? = nil;
+        var responseError : Error? = nil;
+        self.getStyleFromDocumentElement(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();
