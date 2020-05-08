@@ -205,7 +205,7 @@ public class WordsAPI {
     }
     
     // Async representation of applyStyleToDocumentElement method
-    // Apply a style to the document node.       
+    // Apply a style to the document node. Supported node types: ParagraphFormat, List, ListLevel, Table.       
     public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest, callback : @escaping (_ response : WordsResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{styledNodePath}/style";
@@ -269,7 +269,7 @@ public class WordsAPI {
     }   
     
     // Sync representation of applyStyleToDocumentElement method
-    // Apply a style to the document node.     
+    // Apply a style to the document node. Supported node types: ParagraphFormat, List, ListLevel, Table.     
     public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest) throws -> WordsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : WordsResponse? = nil;
@@ -8329,7 +8329,7 @@ public class WordsAPI {
     }
     
     // Async representation of getStyleFromDocumentElement method
-    // Gets a style from the document node.       
+    // Gets a style from the document node. Supported node types: ParagraphFormat, List, ListLevel, Table.       
     public func getStyleFromDocumentElement(request : GetStyleFromDocumentElementRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{styledNodePath}/style";
@@ -8384,7 +8384,7 @@ public class WordsAPI {
     }   
     
     // Sync representation of getStyleFromDocumentElement method
-    // Gets a style from the document node.     
+    // Gets a style from the document node. Supported node types: ParagraphFormat, List, ListLevel, Table.     
     public func getStyleFromDocumentElement(request : GetStyleFromDocumentElementRequest) throws -> StyleResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : StyleResponse? = nil;
