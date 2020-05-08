@@ -205,7 +205,7 @@ public class WordsAPI {
     }
     
     // Async representation of applyStyleToDocumentElement method
-    // Apply style to document node.       
+    // Apply a style to the document node.       
     public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest, callback : @escaping (_ response : WordsResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{styledNodePath}/style";
@@ -269,7 +269,7 @@ public class WordsAPI {
     }   
     
     // Sync representation of applyStyleToDocumentElement method
-    // Apply style to document node.     
+    // Apply a style to the document node.     
     public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest) throws -> WordsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : WordsResponse? = nil;
@@ -835,7 +835,7 @@ public class WordsAPI {
     }
     
     // Async representation of copyStyle method
-    // Copy and insert new style to document, returns copied style.       
+    // Copy and insert a new style to the document, returns an copied style.       
     public func copyStyle(request : CopyStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/styles/copy";
@@ -898,7 +898,7 @@ public class WordsAPI {
     }   
     
     // Sync representation of copyStyle method
-    // Copy and insert new style to document, returns copied style.     
+    // Copy and insert a new style to the document, returns an copied style.     
     public func copyStyle(request : CopyStyleRequest) throws -> StyleResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : StyleResponse? = nil;
@@ -8329,7 +8329,7 @@ public class WordsAPI {
     }
     
     // Async representation of getStyleFromDocumentElement method
-    // Gets style from document node.       
+    // Gets a style from the document node.       
     public func getStyleFromDocumentElement(request : GetStyleFromDocumentElementRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{styledNodePath}/style";
@@ -8384,7 +8384,7 @@ public class WordsAPI {
     }   
     
     // Sync representation of getStyleFromDocumentElement method
-    // Gets style from document node.     
+    // Gets a style from the document node.     
     public func getStyleFromDocumentElement(request : GetStyleFromDocumentElementRequest) throws -> StyleResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : StyleResponse? = nil;
@@ -8404,7 +8404,7 @@ public class WordsAPI {
     }
     
     // Async representation of getStyles method
-    // Returns a list of styles that are contained in the document.       
+    // Returns a list of styles contained in the document.       
     public func getStyles(request : GetStylesRequest, callback : @escaping (_ response : StylesResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/styles";
@@ -8458,7 +8458,7 @@ public class WordsAPI {
     }   
     
     // Sync representation of getStyles method
-    // Returns a list of styles that are contained in the document.     
+    // Returns a list of styles contained in the document.     
     public func getStyles(request : GetStylesRequest) throws -> StylesResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : StylesResponse? = nil;
@@ -10426,7 +10426,7 @@ public class WordsAPI {
     }
     
     // Async representation of insertStyle method
-    // Adds style to document, returns added style.       
+    // Adds a style to the document, returns an added style.       
     public func insertStyle(request : InsertStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/styles/insert";
@@ -10489,7 +10489,7 @@ public class WordsAPI {
     }   
     
     // Sync representation of insertStyle method
-    // Adds style to document, returns added style.     
+    // Adds a style to the document, returns an added style.     
     public func insertStyle(request : InsertStyleRequest) throws -> StyleResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : StyleResponse? = nil;
@@ -14321,7 +14321,7 @@ public class WordsAPI {
     }
     
     // Async representation of updateStyle method
-    // Updates style properties, returns updated style.       
+    // Updates a style properties, returns an updated style.       
     public func updateStyle(request : UpdateStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/styles/{styleName}/update";
@@ -14385,7 +14385,7 @@ public class WordsAPI {
     }   
     
     // Sync representation of updateStyle method
-    // Updates style properties, returns updated style.     
+    // Updates a style properties, returns an updated style.     
     public func updateStyle(request : UpdateStyleRequest) throws -> StyleResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : StyleResponse? = nil;

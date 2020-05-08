@@ -30,11 +30,11 @@ import Foundation
 // Represents an array of styles list.
 public class Styles : LinkElement {
     
-    // Field of style. Gets or sets array of document styles.      
-    private var style : [Style]?;
+    // Field of styleList. Gets or sets array of document styles.      
+    private var styleList : [Style]?;
         
     private enum CodingKeys: String, CodingKey {
-        case style;
+        case styleList;
         case invalidCodingKey;
     }
         
@@ -45,24 +45,24 @@ public class Styles : LinkElement {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.style = try container.decodeIfPresent([Style].self, forKey: .style);
+        self.styleList = try container.decodeIfPresent([Style].self, forKey: .styleList);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.style != nil) {
-            try container.encode(self.style, forKey: .style);
+        if (self.styleList != nil) {
+            try container.encode(self.styleList, forKey: .styleList);
         }
     }
     
-    // Sets style. Gets or sets array of document styles.  
-    public func setStyle(style : [Style]?) {
-        self.style = style;
+    // Sets styleList. Gets or sets array of document styles.  
+    public func setStyleList(styleList : [Style]?) {
+        self.styleList = styleList;
     }
     
-    // Gets style. Gets or sets array of document styles.  
-    public func getStyle() -> [Style]? {
-        return self.style;
+    // Gets styleList. Gets or sets array of document styles.  
+    public func getStyleList() -> [Style]? {
+        return self.styleList;
     }
 }
