@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="DeleteTabStopRequest.swift">
+ * <copyright company="Aspose" file="DeleteAllParagraphTabStopsRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,11 +27,10 @@
 
 import Foundation
 
-// Request model for deleteTabStop operation.
-public class DeleteTabStopRequest {
+// Request model for deleteAllParagraphTabStops operation.
+public class DeleteAllParagraphTabStopsRequest {
     private let name : String;
     private let nodePath : String;
-    private let position : Double;
     private let index : Int;
     private let folder : String?;
     private let storage : String?;
@@ -42,7 +41,6 @@ public class DeleteTabStopRequest {
     private enum CodingKeys: String, CodingKey {
         case name;
         case nodePath;
-        case position;
         case index;
         case folder;
         case storage;
@@ -52,11 +50,10 @@ public class DeleteTabStopRequest {
         case invalidCodingKey;
     }
     
-    // Initializes a new instance of the deleteTabStopRequest class.
-    public init(name : String, nodePath : String, position : Double, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
+    // Initializes a new instance of the deleteAllParagraphTabStopsRequest class.
+    public init(name : String, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
         self.nodePath = nodePath;
-        self.position = position;
         self.index = index;
         self.folder = folder;
         self.storage = storage;
@@ -73,11 +70,6 @@ public class DeleteTabStopRequest {
     // Path to the node which contains paragraph.
     public func getNodePath() -> String {
         return self.nodePath;
-    }
-    
-    // a tab stop position to remove.
-    public func getPosition() -> Double {
-        return self.position;
     }
     
     // Object index.

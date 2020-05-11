@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="DeleteTabStopsRequest.swift">
+ * <copyright company="Aspose" file="InsertOrUpdateParagraphTabStopRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,10 +27,11 @@
 
 import Foundation
 
-// Request model for deleteTabStops operation.
-public class DeleteTabStopsRequest {
+// Request model for insertOrUpdateParagraphTabStop operation.
+public class InsertOrUpdateParagraphTabStopRequest {
     private let name : String;
     private let nodePath : String;
+    private let dto : TabStopInsert;
     private let index : Int;
     private let folder : String?;
     private let storage : String?;
@@ -41,6 +42,7 @@ public class DeleteTabStopsRequest {
     private enum CodingKeys: String, CodingKey {
         case name;
         case nodePath;
+        case dto;
         case index;
         case folder;
         case storage;
@@ -50,10 +52,11 @@ public class DeleteTabStopsRequest {
         case invalidCodingKey;
     }
     
-    // Initializes a new instance of the deleteTabStopsRequest class.
-    public init(name : String, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
+    // Initializes a new instance of the insertOrUpdateParagraphTabStopRequest class.
+    public init(name : String, nodePath : String, dto : TabStopInsert, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
         self.nodePath = nodePath;
+        self.dto = dto;
         self.index = index;
         self.folder = folder;
         self.storage = storage;
@@ -70,6 +73,11 @@ public class DeleteTabStopsRequest {
     // Path to the node which contains paragraph.
     public func getNodePath() -> String {
         return self.nodePath;
+    }
+    
+    // Paragraph tab stop.
+    public func getDto() -> TabStopInsert {
+        return self.dto;
     }
     
     // Object index.
