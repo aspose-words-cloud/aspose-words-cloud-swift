@@ -24,6 +24,10 @@ class ParagraphTests: BaseTestContext {
         ("testGetParagraphListFormatWithoutNodePath", testGetParagraphListFormatWithoutNodePath),
         ("testUpdateParagraphListFormat", testUpdateParagraphListFormat),
         ("testDeleteParagraphListFormat", testDeleteParagraphListFormat),
+        ("testGetParagraphTabStops", testGetParagraphTabStops),	
+        ("testInsertOrUpdateParagraphTabStop", testInsertOrUpdateParagraphTabStop),
+        ("testDeleteAllParagraphTabStops", testDeleteAllParagraphTabStops),	
+        ("testDeleteParagraphTabStop", testDeleteParagraphTabStop),		
     ];
 
     func getRemoteDataFolder(action : String) -> String {
@@ -32,6 +36,7 @@ class ParagraphTests: BaseTestContext {
 
     private static let fieldFolder = "DocumentElements/Fields";
     private static let listFolder = "DocumentElements/ParagraphListFormat";
+	private static let tabStopFolder = "DocumentElements/Paragraphs";
     
     func testGetDocumentParagraphByIndex() throws {
         let localName = "test_multi_pages.docx";
@@ -278,5 +283,45 @@ class ParagraphTests: BaseTestContext {
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(ParagraphTests.listFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = DeleteParagraphListFormatRequest(name: localName, nodePath: "", index: index, folder: getRemoteDataFolder(action: "DeleteParagraphListFormat"));
         _ = try super.getApi().deleteParagraphListFormat(request: request);
+    }
+	
+    func testGetParagraphTabStops() throws {
+        let localName = "ParagraphTabStops.doc";
+        let fullName = (getRemoteDataFolder(action: "GetParagraphTabStops") + "/" + localName);
+        let index = 0;
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(ParagraphTests.tabStopFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = GetParagraphTabStopsRequest(name: localName, index: index, folder: getRemoteDataFolder(action: "GetParagraphTabStops"));
+        _ = try super.getApi().getParagraphTabStops(request: request);
+    }
+	
+    func testInsertOrUpdateParagraphTabStop() throws {
+        let localName = "ParagraphTabStops.doc";
+        let fullName = (getRemoteDataFolder(action: "GetParagraphTabStops") + "/" + localName);
+        let index = 0;
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(ParagraphTests.tabStopFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+		let dto = TabStopInsert();
+		dto.setAlignment(TabStopBase._right);
+		dto.setLeader(TabStopBase._none);
+		dto.setPosition(72);
+        let request = InsertOrUpdateParagraphTabStopRequest(name: localName, dto, index: index, folder: getRemoteDataFolder(action: "GetParagraphTabStops"));
+        _ = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
+    }
+	
+    func testDeleteAllParagraphTabStops() throws {
+        let localName = "ParagraphTabStops.doc";
+        let fullName = (getRemoteDataFolder(action: "GetParagraphTabStops") + "/" + localName);
+        let index = 0;
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(ParagraphTests.tabStopFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = DeleteAllParagraphTabStopsRequest(name: localName, index: index, folder: getRemoteDataFolder(action: "GetParagraphTabStops"));
+        _ = try super.getApi().deleteAllParagraphTabStops(request: request);
+    }
+	
+    func testDeleteParagraphTabStop() throws {
+        let localName = "ParagraphTabStops.doc";
+        let fullName = (getRemoteDataFolder(action: "GetParagraphTabStops") + "/" + localName);
+        let index = 0;
+        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(ParagraphTests.tabStopFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
+        let request = DeleteParagraphTabStopRequest(name: localName, 72, index: index, folder: getRemoteDataFolder(action: "GetParagraphTabStops"));
+        _ = try super.getApi().deleteParagraphTabStop(request: request);
     }
 }
