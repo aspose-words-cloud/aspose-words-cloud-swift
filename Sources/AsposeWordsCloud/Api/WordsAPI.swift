@@ -3059,6 +3059,165 @@ public class WordsAPI {
         
     }
     
+    // Async representation of deleteTabStop method
+    // Remove the i-th tab stop.       
+    public func deleteTabStop(request : DeleteTabStopRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstop";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            queryItems.append(URLQueryItem(name: "position", value: try ObjectSerializer.serializeToString(value: request.getPosition())));
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "DELETE",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : TabStopsResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: TabStopsResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of deleteTabStop method
+    // Remove the i-th tab stop.     
+    public func deleteTabStop(request : DeleteTabStopRequest) throws -> TabStopsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : TabStopsResponse? = nil;
+        var responseError : Error? = nil;
+        self.deleteTabStop(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of deleteTabStops method
+    // Remove all tab stops.       
+    public func deleteTabStops(request : DeleteTabStopsRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "DELETE",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : TabStopsResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: TabStopsResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of deleteTabStops method
+    // Remove all tab stops.     
+    public func deleteTabStops(request : DeleteTabStopsRequest) throws -> TabStopsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : TabStopsResponse? = nil;
+        var responseError : Error? = nil;
+        self.deleteTabStops(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
     // Async representation of deleteTable method
     // Deletes a table.       
     public func deleteTable(request : DeleteTableRequest, callback : @escaping (_ error : Error?) -> ()) {
@@ -7500,6 +7659,82 @@ public class WordsAPI {
         return responseObject!;
     }
     
+    // Async representation of getParagraphTabStops method
+    // Get all tab stops for the paragraph.       
+    public func getParagraphTabStops(request : GetParagraphTabStopsRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "GET",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : TabStopsResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: TabStopsResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of getParagraphTabStops method
+    // Get all tab stops for the paragraph.     
+    public func getParagraphTabStops(request : GetParagraphTabStopsRequest) throws -> TabStopsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : TabStopsResponse? = nil;
+        var responseError : Error? = nil;
+        self.getParagraphTabStops(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
     // Async representation of getParagraphWithoutNodePath method
     // This resource represents one of the paragraphs contained in the document.       
     public func getParagraphWithoutNodePath(request : GetParagraphWithoutNodePathRequest, callback : @escaping (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
@@ -10155,6 +10390,85 @@ public class WordsAPI {
         var responseObject : ListResponse? = nil;
         var responseError : Error? = nil;
         self.insertList(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of insertOrUpdateTabStop method
+    // Insert or resplace tab stop if a tab stop with the position exists.       
+    public func insertOrUpdateTabStop(request : InsertOrUpdateTabStopRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "POST",
+                body: try ObjectSerializer.serializeBody(value: request.getDto()),
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : TabStopsResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: TabStopsResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of insertOrUpdateTabStop method
+    // Insert or resplace tab stop if a tab stop with the position exists.     
+    public func insertOrUpdateTabStop(request : InsertOrUpdateTabStopRequest) throws -> TabStopsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : TabStopsResponse? = nil;
+        var responseError : Error? = nil;
+        self.insertOrUpdateTabStop(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();

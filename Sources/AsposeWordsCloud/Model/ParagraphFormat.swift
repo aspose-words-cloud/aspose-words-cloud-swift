@@ -1290,6 +1290,9 @@ public class ParagraphFormat : LinkElement {
     // Field of rightIndent. Gets or sets the value (in points) that represents the right indent for paragraph.                   
     private var rightIndent : Double?;
     
+    // Field of shading.       
+    private var shading : Shading?;
+    
     // Field of spaceAfter. Gets or sets the amount of spacing (in points) after the paragraph.                   
     private var spaceAfter : Double?;
     
@@ -1335,6 +1338,7 @@ public class ParagraphFormat : LinkElement {
         case outlineLevel;
         case pageBreakBefore;
         case rightIndent;
+        case shading;
         case spaceAfter;
         case spaceAfterAuto;
         case spaceBefore;
@@ -1371,6 +1375,7 @@ public class ParagraphFormat : LinkElement {
         self.outlineLevel = try container.decodeIfPresent(OutlineLevel.self, forKey: .outlineLevel);
         self.pageBreakBefore = try container.decodeIfPresent(Bool.self, forKey: .pageBreakBefore);
         self.rightIndent = try container.decodeIfPresent(Double.self, forKey: .rightIndent);
+        self.shading = try container.decodeIfPresent(Shading.self, forKey: .shading);
         self.spaceAfter = try container.decodeIfPresent(Double.self, forKey: .spaceAfter);
         self.spaceAfterAuto = try container.decodeIfPresent(Bool.self, forKey: .spaceAfterAuto);
         self.spaceBefore = try container.decodeIfPresent(Double.self, forKey: .spaceBefore);
@@ -1435,6 +1440,9 @@ public class ParagraphFormat : LinkElement {
         }
         if (self.rightIndent != nil) {
             try container.encode(self.rightIndent, forKey: .rightIndent);
+        }
+        if (self.shading != nil) {
+            try container.encode(self.shading, forKey: .shading);
         }
         if (self.spaceAfter != nil) {
             try container.encode(self.spaceAfter, forKey: .spaceAfter);
@@ -1633,6 +1641,16 @@ public class ParagraphFormat : LinkElement {
     // Gets rightIndent. Gets or sets the value (in points) that represents the right indent for paragraph.               
     public func getRightIndent() -> Double? {
         return self.rightIndent;
+    }
+    
+    // Sets shading.   
+    public func setShading(shading : Shading?) {
+        self.shading = shading;
+    }
+    
+    // Gets shading.   
+    public func getShading() -> Shading? {
+        return self.shading;
     }
     
     // Sets spaceAfter. Gets or sets the amount of spacing (in points) after the paragraph.               
