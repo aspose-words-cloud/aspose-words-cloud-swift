@@ -71,7 +71,7 @@ public class ExecuteMailMergeRequest {
         self.destFileName = destFileName;
     }
     
-    // The document name.
+    // The template name.
     public func getName() -> String {
         return self.name;
     }

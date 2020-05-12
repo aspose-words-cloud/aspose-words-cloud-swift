@@ -56,7 +56,7 @@ public class GetDocumentFieldNamesRequest {
         self.useNonMergeFields = useNonMergeFields;
     }
     
-    // The document name.
+    // The template name.
     public func getName() -> String {
         return self.name;
     }
