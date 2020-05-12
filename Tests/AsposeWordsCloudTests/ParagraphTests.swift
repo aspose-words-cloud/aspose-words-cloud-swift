@@ -300,9 +300,9 @@ class ParagraphTests: BaseTestContext {
         let index = 0;
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(ParagraphTests.tabStopFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
 		let dto = TabStopInsert();
-		dto.setAlignment(TabStopBase.Alignment._right);
-		dto.setLeader(TabStopBase.Leader._none);
-		dto.setPosition(72);
+		dto.setAlignment(aligment: TabStopBase.Alignment._right);
+		dto.setLeader(leader: TabStopBase.Leader._none);
+		dto.setPosition(position: 72);
         let request = InsertOrUpdateParagraphTabStopRequest(name: localName,nodePath: "", dto: dto, index: index, folder: getRemoteDataFolder(action: "GetParagraphTabStops"));
         _ = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
     }
