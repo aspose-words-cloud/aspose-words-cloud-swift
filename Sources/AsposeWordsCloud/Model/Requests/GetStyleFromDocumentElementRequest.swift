@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="GetDocumentFieldNamesRequest.swift">
+ * <copyright company="Aspose" file="GetStyleFromDocumentElementRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,38 +27,43 @@
 
 import Foundation
 
-// Request model for getDocumentFieldNames operation.
-public class GetDocumentFieldNamesRequest {
+// Request model for getStyleFromDocumentElement operation.
+public class GetStyleFromDocumentElementRequest {
     private let name : String;
+    private let styledNodePath : String;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
-    private let useNonMergeFields : Bool?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
+        case styledNodePath;
         case folder;
         case storage;
         case loadEncoding;
         case password;
-        case useNonMergeFields;
         case invalidCodingKey;
     }
     
-    // Initializes a new instance of the getDocumentFieldNamesRequest class.
-    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, useNonMergeFields : Bool? = nil) {
+    // Initializes a new instance of the getStyleFromDocumentElementRequest class.
+    public init(name : String, styledNodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
+        self.styledNodePath = styledNodePath;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
-        self.useNonMergeFields = useNonMergeFields;
     }
     
-    // The template name.
+    // The document name.
     public func getName() -> String {
         return self.name;
+    }
+    
+    // The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
+    public func getStyledNodePath() -> String {
+        return self.styledNodePath;
     }
     
     // Original document folder.
@@ -79,10 +84,5 @@ public class GetDocumentFieldNamesRequest {
     // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
-    }
-    
-    // If true, result includes "mustache" field names.
-    public func getUseNonMergeFields() -> Bool? {
-        return self.useNonMergeFields;
     }
 }

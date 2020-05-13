@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ParagraphFormat.swift">
+ * <copyright company="Aspose" file="Style.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,96 +27,9 @@
 
 import Foundation
 
-// Paragraph format element.             
-public class ParagraphFormat : LinkElement {
-    // Gets or sets text alignment for the paragraph.             
-    public enum Alignment : String, Codable
-    { 
-        // Enum value "_left"
-        case _left = "Left"
-
-        // Enum value "center"
-        case center = "Center"
-
-        // Enum value "_right"
-        case _right = "Right"
-
-        // Enum value "justify"
-        case justify = "Justify"
-
-        // Enum value "distributed"
-        case distributed = "Distributed"
-
-        // Enum value "arabicMediumKashida"
-        case arabicMediumKashida = "ArabicMediumKashida"
-
-        // Enum value "arabicHighKashida"
-        case arabicHighKashida = "ArabicHighKashida"
-
-        // Enum value "arabicLowKashida"
-        case arabicLowKashida = "ArabicLowKashida"
-
-        // Enum value "thaiDistributed"
-        case thaiDistributed = "ThaiDistributed"
-    }
-    // Gets or sets the position for a drop cap text.             
-    public enum DropCapPosition : String, Codable
-    { 
-        // Enum value "_none"
-        case _none = "None"
-
-        // Enum value "normal"
-        case normal = "Normal"
-
-        // Enum value "margin"
-        case margin = "Margin"
-    }
-    // Gets or sets the line spacing for the paragraph.             
-    public enum LineSpacingRule : String, Codable
-    { 
-        // Enum value "atLeast"
-        case atLeast = "AtLeast"
-
-        // Enum value "exactly"
-        case exactly = "Exactly"
-
-        // Enum value "multiple"
-        case multiple = "Multiple"
-    }
-    // Gets or sets specifies the outline level of the paragraph in the document.             
-    public enum OutlineLevel : String, Codable
-    { 
-        // Enum value "level1"
-        case level1 = "Level1"
-
-        // Enum value "level2"
-        case level2 = "Level2"
-
-        // Enum value "level3"
-        case level3 = "Level3"
-
-        // Enum value "level4"
-        case level4 = "Level4"
-
-        // Enum value "level5"
-        case level5 = "Level5"
-
-        // Enum value "level6"
-        case level6 = "Level6"
-
-        // Enum value "level7"
-        case level7 = "Level7"
-
-        // Enum value "level8"
-        case level8 = "Level8"
-
-        // Enum value "level9"
-        case level9 = "Level9"
-
-        // Enum value "bodyText"
-        case bodyText = "BodyText"
-    }
-    // Gets or sets the locale independent style identifier of the paragraph style applied to this formatting.             
+// Represents a single document style.
+public class Style : LinkElement {
+    // Gets or sets the locale independent style identifier for a built-in style.
     public enum StyleIdentifier : String, Codable
     { 
         // Enum value "normal"
@@ -1238,116 +1151,67 @@ public class ParagraphFormat : LinkElement {
         // Enum value "_nil"
         case _nil = "Nil"
     }
+    // Gets or sets the style type (paragraph or character).
+    public enum ModelType : String, Codable
+    { 
+        // Enum value "paragraph"
+        case paragraph = "Paragraph"
+
+        // Enum value "character"
+        case character = "Character"
+
+        // Enum value "table"
+        case table = "Table"
+
+        // Enum value "list"
+        case list = "List"
+    }
     
-    // Field of addSpaceBetweenFarEastAndAlpha. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.                   
-    private var addSpaceBetweenFarEastAndAlpha : Bool?;
+    // Field of aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.      
+    private var aliases : [String]?;
     
-    // Field of addSpaceBetweenFarEastAndDigit. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.                   
-    private var addSpaceBetweenFarEastAndDigit : Bool?;
+    // Field of baseStyleName. Gets or sets /sets the name of the style this style is based on.      
+    private var baseStyleName : String?;
     
-    // Field of alignment. Gets or sets text alignment for the paragraph.                   
-    private var alignment : Alignment?;
+    // Field of builtIn. Gets or sets a value indicating whether true if this style is one of the built-in styles in MS Word.      
+    private var builtIn : Bool?;
     
-    // Field of bidi. Gets or sets whether this is a right-to-left paragraph.                   
-    private var bidi : Bool?;
+    // Field of font.       
+    private var font : Font?;
     
-    // Field of dropCapPosition. Gets or sets the position for a drop cap text.                   
-    private var dropCapPosition : DropCapPosition?;
+    // Field of isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.      
+    private var isHeading : Bool?;
     
-    // Field of firstLineIndent. Gets or sets the value (in points) for a first line or hanging indent. Use a positive value to set a first-line indent, and use a negative value to set a hanging indent.                   
-    private var firstLineIndent : Double?;
+    // Field of isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.      
+    private var isQuickStyle : Bool?;
     
-    // Field of isListItem. Gets or sets True when the paragraph is an item in a bulleted or numbered list.      
-    private var isListItem : Bool?;
+    // Field of linkedStyleName. Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.      
+    private var linkedStyleName : String?;
     
-    // Field of keepTogether. Gets or sets true if all lines in the paragraph are to remain on the same page.                   
-    private var keepTogether : Bool?;
+    // Field of name. Gets or sets the name of the style.      
+    private var name : String?;
     
-    // Field of keepWithNext. Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.                   
-    private var keepWithNext : Bool?;
+    // Field of nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.      
+    private var nextParagraphStyleName : String?;
     
-    // Field of leftIndent. Gets or sets the value (in points) that represents the left indent for paragraph.                   
-    private var leftIndent : Double?;
-    
-    // Field of lineSpacing. Gets or sets the line spacing (in points) for the paragraph.                   
-    private var lineSpacing : Double?;
-    
-    // Field of lineSpacingRule. Gets or sets the line spacing for the paragraph.                   
-    private var lineSpacingRule : LineSpacingRule?;
-    
-    // Field of linesToDrop. Gets or sets the number of lines of the paragraph text used to calculate the drop cap height.                   
-    private var linesToDrop : Int?;
-    
-    // Field of noSpaceBetweenParagraphsOfSameStyle. Gets or sets when true, SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.                   
-    private var noSpaceBetweenParagraphsOfSameStyle : Bool?;
-    
-    // Field of outlineLevel. Gets or sets specifies the outline level of the paragraph in the document.                   
-    private var outlineLevel : OutlineLevel?;
-    
-    // Field of pageBreakBefore. Gets or sets true if a page break is forced before the paragraph.                   
-    private var pageBreakBefore : Bool?;
-    
-    // Field of rightIndent. Gets or sets the value (in points) that represents the right indent for paragraph.                   
-    private var rightIndent : Double?;
-    
-    // Field of shading.       
-    private var shading : Shading?;
-    
-    // Field of spaceAfter. Gets or sets the amount of spacing (in points) after the paragraph.                   
-    private var spaceAfter : Double?;
-    
-    // Field of spaceAfterAuto. Gets or sets true if the amount of spacing after the paragraph is set automatically.                   
-    private var spaceAfterAuto : Bool?;
-    
-    // Field of spaceBefore. Gets or sets the amount of spacing (in points) before the paragraph.                   
-    private var spaceBefore : Double?;
-    
-    // Field of spaceBeforeAuto. Gets or sets true if the amount of spacing before the paragraph is set automatically.                   
-    private var spaceBeforeAuto : Bool?;
-    
-    // Field of styleIdentifier. Gets or sets the locale independent style identifier of the paragraph style applied to this formatting.                   
+    // Field of styleIdentifier. Gets or sets the locale independent style identifier for a built-in style.      
     private var styleIdentifier : StyleIdentifier?;
     
-    // Field of styleName. Gets or sets the name of the paragraph style applied to this formatting.                   
-    private var styleName : String?;
-    
-    // Field of suppressAutoHyphens. Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.                   
-    private var suppressAutoHyphens : Bool?;
-    
-    // Field of suppressLineNumbers. Gets or sets specifies whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.                   
-    private var suppressLineNumbers : Bool?;
-    
-    // Field of widowControl. Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.                   
-    private var widowControl : Bool?;
+    // Field of type. Gets or sets the style type (paragraph or character).      
+    private var type : ModelType?;
         
     private enum CodingKeys: String, CodingKey {
-        case addSpaceBetweenFarEastAndAlpha;
-        case addSpaceBetweenFarEastAndDigit;
-        case alignment;
-        case bidi;
-        case dropCapPosition;
-        case firstLineIndent;
-        case isListItem;
-        case keepTogether;
-        case keepWithNext;
-        case leftIndent;
-        case lineSpacing;
-        case lineSpacingRule;
-        case linesToDrop;
-        case noSpaceBetweenParagraphsOfSameStyle;
-        case outlineLevel;
-        case pageBreakBefore;
-        case rightIndent;
-        case shading;
-        case spaceAfter;
-        case spaceAfterAuto;
-        case spaceBefore;
-        case spaceBeforeAuto;
+        case aliases;
+        case baseStyleName;
+        case builtIn;
+        case font;
+        case isHeading;
+        case isQuickStyle;
+        case linkedStyleName;
+        case name;
+        case nextParagraphStyleName;
         case styleIdentifier;
-        case styleName;
-        case suppressAutoHyphens;
-        case suppressLineNumbers;
-        case widowControl;
+        case type;
         case invalidCodingKey;
     }
         
@@ -1358,388 +1222,164 @@ public class ParagraphFormat : LinkElement {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.addSpaceBetweenFarEastAndAlpha = try container.decodeIfPresent(Bool.self, forKey: .addSpaceBetweenFarEastAndAlpha);
-        self.addSpaceBetweenFarEastAndDigit = try container.decodeIfPresent(Bool.self, forKey: .addSpaceBetweenFarEastAndDigit);
-        self.alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment);
-        self.bidi = try container.decodeIfPresent(Bool.self, forKey: .bidi);
-        self.dropCapPosition = try container.decodeIfPresent(DropCapPosition.self, forKey: .dropCapPosition);
-        self.firstLineIndent = try container.decodeIfPresent(Double.self, forKey: .firstLineIndent);
-        self.isListItem = try container.decodeIfPresent(Bool.self, forKey: .isListItem);
-        self.keepTogether = try container.decodeIfPresent(Bool.self, forKey: .keepTogether);
-        self.keepWithNext = try container.decodeIfPresent(Bool.self, forKey: .keepWithNext);
-        self.leftIndent = try container.decodeIfPresent(Double.self, forKey: .leftIndent);
-        self.lineSpacing = try container.decodeIfPresent(Double.self, forKey: .lineSpacing);
-        self.lineSpacingRule = try container.decodeIfPresent(LineSpacingRule.self, forKey: .lineSpacingRule);
-        self.linesToDrop = try container.decodeIfPresent(Int.self, forKey: .linesToDrop);
-        self.noSpaceBetweenParagraphsOfSameStyle = try container.decodeIfPresent(Bool.self, forKey: .noSpaceBetweenParagraphsOfSameStyle);
-        self.outlineLevel = try container.decodeIfPresent(OutlineLevel.self, forKey: .outlineLevel);
-        self.pageBreakBefore = try container.decodeIfPresent(Bool.self, forKey: .pageBreakBefore);
-        self.rightIndent = try container.decodeIfPresent(Double.self, forKey: .rightIndent);
-        self.shading = try container.decodeIfPresent(Shading.self, forKey: .shading);
-        self.spaceAfter = try container.decodeIfPresent(Double.self, forKey: .spaceAfter);
-        self.spaceAfterAuto = try container.decodeIfPresent(Bool.self, forKey: .spaceAfterAuto);
-        self.spaceBefore = try container.decodeIfPresent(Double.self, forKey: .spaceBefore);
-        self.spaceBeforeAuto = try container.decodeIfPresent(Bool.self, forKey: .spaceBeforeAuto);
+        self.aliases = try container.decodeIfPresent([String].self, forKey: .aliases);
+        self.baseStyleName = try container.decodeIfPresent(String.self, forKey: .baseStyleName);
+        self.builtIn = try container.decodeIfPresent(Bool.self, forKey: .builtIn);
+        self.font = try container.decodeIfPresent(Font.self, forKey: .font);
+        self.isHeading = try container.decodeIfPresent(Bool.self, forKey: .isHeading);
+        self.isQuickStyle = try container.decodeIfPresent(Bool.self, forKey: .isQuickStyle);
+        self.linkedStyleName = try container.decodeIfPresent(String.self, forKey: .linkedStyleName);
+        self.name = try container.decodeIfPresent(String.self, forKey: .name);
+        self.nextParagraphStyleName = try container.decodeIfPresent(String.self, forKey: .nextParagraphStyleName);
         self.styleIdentifier = try container.decodeIfPresent(StyleIdentifier.self, forKey: .styleIdentifier);
-        self.styleName = try container.decodeIfPresent(String.self, forKey: .styleName);
-        self.suppressAutoHyphens = try container.decodeIfPresent(Bool.self, forKey: .suppressAutoHyphens);
-        self.suppressLineNumbers = try container.decodeIfPresent(Bool.self, forKey: .suppressLineNumbers);
-        self.widowControl = try container.decodeIfPresent(Bool.self, forKey: .widowControl);
+        self.type = try container.decodeIfPresent(ModelType.self, forKey: .type);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.addSpaceBetweenFarEastAndAlpha != nil) {
-            try container.encode(self.addSpaceBetweenFarEastAndAlpha, forKey: .addSpaceBetweenFarEastAndAlpha);
+        if (self.aliases != nil) {
+            try container.encode(self.aliases, forKey: .aliases);
         }
-        if (self.addSpaceBetweenFarEastAndDigit != nil) {
-            try container.encode(self.addSpaceBetweenFarEastAndDigit, forKey: .addSpaceBetweenFarEastAndDigit);
+        if (self.baseStyleName != nil) {
+            try container.encode(self.baseStyleName, forKey: .baseStyleName);
         }
-        if (self.alignment != nil) {
-            try container.encode(self.alignment, forKey: .alignment);
+        if (self.builtIn != nil) {
+            try container.encode(self.builtIn, forKey: .builtIn);
         }
-        if (self.bidi != nil) {
-            try container.encode(self.bidi, forKey: .bidi);
+        if (self.font != nil) {
+            try container.encode(self.font, forKey: .font);
         }
-        if (self.dropCapPosition != nil) {
-            try container.encode(self.dropCapPosition, forKey: .dropCapPosition);
+        if (self.isHeading != nil) {
+            try container.encode(self.isHeading, forKey: .isHeading);
         }
-        if (self.firstLineIndent != nil) {
-            try container.encode(self.firstLineIndent, forKey: .firstLineIndent);
+        if (self.isQuickStyle != nil) {
+            try container.encode(self.isQuickStyle, forKey: .isQuickStyle);
         }
-        if (self.isListItem != nil) {
-            try container.encode(self.isListItem, forKey: .isListItem);
+        if (self.linkedStyleName != nil) {
+            try container.encode(self.linkedStyleName, forKey: .linkedStyleName);
         }
-        if (self.keepTogether != nil) {
-            try container.encode(self.keepTogether, forKey: .keepTogether);
+        if (self.name != nil) {
+            try container.encode(self.name, forKey: .name);
         }
-        if (self.keepWithNext != nil) {
-            try container.encode(self.keepWithNext, forKey: .keepWithNext);
-        }
-        if (self.leftIndent != nil) {
-            try container.encode(self.leftIndent, forKey: .leftIndent);
-        }
-        if (self.lineSpacing != nil) {
-            try container.encode(self.lineSpacing, forKey: .lineSpacing);
-        }
-        if (self.lineSpacingRule != nil) {
-            try container.encode(self.lineSpacingRule, forKey: .lineSpacingRule);
-        }
-        if (self.linesToDrop != nil) {
-            try container.encode(self.linesToDrop, forKey: .linesToDrop);
-        }
-        if (self.noSpaceBetweenParagraphsOfSameStyle != nil) {
-            try container.encode(self.noSpaceBetweenParagraphsOfSameStyle, forKey: .noSpaceBetweenParagraphsOfSameStyle);
-        }
-        if (self.outlineLevel != nil) {
-            try container.encode(self.outlineLevel, forKey: .outlineLevel);
-        }
-        if (self.pageBreakBefore != nil) {
-            try container.encode(self.pageBreakBefore, forKey: .pageBreakBefore);
-        }
-        if (self.rightIndent != nil) {
-            try container.encode(self.rightIndent, forKey: .rightIndent);
-        }
-        if (self.shading != nil) {
-            try container.encode(self.shading, forKey: .shading);
-        }
-        if (self.spaceAfter != nil) {
-            try container.encode(self.spaceAfter, forKey: .spaceAfter);
-        }
-        if (self.spaceAfterAuto != nil) {
-            try container.encode(self.spaceAfterAuto, forKey: .spaceAfterAuto);
-        }
-        if (self.spaceBefore != nil) {
-            try container.encode(self.spaceBefore, forKey: .spaceBefore);
-        }
-        if (self.spaceBeforeAuto != nil) {
-            try container.encode(self.spaceBeforeAuto, forKey: .spaceBeforeAuto);
+        if (self.nextParagraphStyleName != nil) {
+            try container.encode(self.nextParagraphStyleName, forKey: .nextParagraphStyleName);
         }
         if (self.styleIdentifier != nil) {
             try container.encode(self.styleIdentifier, forKey: .styleIdentifier);
         }
-        if (self.styleName != nil) {
-            try container.encode(self.styleName, forKey: .styleName);
-        }
-        if (self.suppressAutoHyphens != nil) {
-            try container.encode(self.suppressAutoHyphens, forKey: .suppressAutoHyphens);
-        }
-        if (self.suppressLineNumbers != nil) {
-            try container.encode(self.suppressLineNumbers, forKey: .suppressLineNumbers);
-        }
-        if (self.widowControl != nil) {
-            try container.encode(self.widowControl, forKey: .widowControl);
+        if (self.type != nil) {
+            try container.encode(self.type, forKey: .type);
         }
     }
     
-    // Sets addSpaceBetweenFarEastAndAlpha. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.               
-    public func setAddSpaceBetweenFarEastAndAlpha(addSpaceBetweenFarEastAndAlpha : Bool?) {
-        self.addSpaceBetweenFarEastAndAlpha = addSpaceBetweenFarEastAndAlpha;
+    // Sets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.  
+    public func setAliases(aliases : [String]?) {
+        self.aliases = aliases;
     }
     
-    // Gets addSpaceBetweenFarEastAndAlpha. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.               
-    public func getAddSpaceBetweenFarEastAndAlpha() -> Bool? {
-        return self.addSpaceBetweenFarEastAndAlpha;
+    // Gets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.  
+    public func getAliases() -> [String]? {
+        return self.aliases;
     }
     
-    // Sets addSpaceBetweenFarEastAndDigit. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.               
-    public func setAddSpaceBetweenFarEastAndDigit(addSpaceBetweenFarEastAndDigit : Bool?) {
-        self.addSpaceBetweenFarEastAndDigit = addSpaceBetweenFarEastAndDigit;
+    // Sets baseStyleName. Gets or sets /sets the name of the style this style is based on.  
+    public func setBaseStyleName(baseStyleName : String?) {
+        self.baseStyleName = baseStyleName;
     }
     
-    // Gets addSpaceBetweenFarEastAndDigit. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.               
-    public func getAddSpaceBetweenFarEastAndDigit() -> Bool? {
-        return self.addSpaceBetweenFarEastAndDigit;
+    // Gets baseStyleName. Gets or sets /sets the name of the style this style is based on.  
+    public func getBaseStyleName() -> String? {
+        return self.baseStyleName;
     }
     
-    // Sets alignment. Gets or sets text alignment for the paragraph.               
-    public func setAlignment(alignment : Alignment?) {
-        self.alignment = alignment;
+    // Sets builtIn. Gets or sets a value indicating whether true if this style is one of the built-in styles in MS Word.  
+    public func setBuiltIn(builtIn : Bool?) {
+        self.builtIn = builtIn;
     }
     
-    // Gets alignment. Gets or sets text alignment for the paragraph.               
-    public func getAlignment() -> Alignment? {
-        return self.alignment;
+    // Gets builtIn. Gets or sets a value indicating whether true if this style is one of the built-in styles in MS Word.  
+    public func getBuiltIn() -> Bool? {
+        return self.builtIn;
     }
     
-    // Sets bidi. Gets or sets whether this is a right-to-left paragraph.               
-    public func setBidi(bidi : Bool?) {
-        self.bidi = bidi;
+    // Sets font.   
+    public func setFont(font : Font?) {
+        self.font = font;
     }
     
-    // Gets bidi. Gets or sets whether this is a right-to-left paragraph.               
-    public func getBidi() -> Bool? {
-        return self.bidi;
+    // Gets font.   
+    public func getFont() -> Font? {
+        return self.font;
     }
     
-    // Sets dropCapPosition. Gets or sets the position for a drop cap text.               
-    public func setDropCapPosition(dropCapPosition : DropCapPosition?) {
-        self.dropCapPosition = dropCapPosition;
+    // Sets isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.  
+    public func setIsHeading(isHeading : Bool?) {
+        self.isHeading = isHeading;
     }
     
-    // Gets dropCapPosition. Gets or sets the position for a drop cap text.               
-    public func getDropCapPosition() -> DropCapPosition? {
-        return self.dropCapPosition;
+    // Gets isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.  
+    public func getIsHeading() -> Bool? {
+        return self.isHeading;
     }
     
-    // Sets firstLineIndent. Gets or sets the value (in points) for a first line or hanging indent. Use a positive value to set a first-line indent, and use a negative value to set a hanging indent.               
-    public func setFirstLineIndent(firstLineIndent : Double?) {
-        self.firstLineIndent = firstLineIndent;
+    // Sets isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.  
+    public func setIsQuickStyle(isQuickStyle : Bool?) {
+        self.isQuickStyle = isQuickStyle;
     }
     
-    // Gets firstLineIndent. Gets or sets the value (in points) for a first line or hanging indent. Use a positive value to set a first-line indent, and use a negative value to set a hanging indent.               
-    public func getFirstLineIndent() -> Double? {
-        return self.firstLineIndent;
+    // Gets isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.  
+    public func getIsQuickStyle() -> Bool? {
+        return self.isQuickStyle;
     }
     
-    // Sets isListItem. Gets or sets True when the paragraph is an item in a bulleted or numbered list.  
-    public func setIsListItem(isListItem : Bool?) {
-        self.isListItem = isListItem;
+    // Sets linkedStyleName. Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.  
+    public func setLinkedStyleName(linkedStyleName : String?) {
+        self.linkedStyleName = linkedStyleName;
     }
     
-    // Gets isListItem. Gets or sets True when the paragraph is an item in a bulleted or numbered list.  
-    public func getIsListItem() -> Bool? {
-        return self.isListItem;
+    // Gets linkedStyleName. Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.  
+    public func getLinkedStyleName() -> String? {
+        return self.linkedStyleName;
     }
     
-    // Sets keepTogether. Gets or sets true if all lines in the paragraph are to remain on the same page.               
-    public func setKeepTogether(keepTogether : Bool?) {
-        self.keepTogether = keepTogether;
+    // Sets name. Gets or sets the name of the style.  
+    public func setName(name : String?) {
+        self.name = name;
     }
     
-    // Gets keepTogether. Gets or sets true if all lines in the paragraph are to remain on the same page.               
-    public func getKeepTogether() -> Bool? {
-        return self.keepTogether;
+    // Gets name. Gets or sets the name of the style.  
+    public func getName() -> String? {
+        return self.name;
     }
     
-    // Sets keepWithNext. Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.               
-    public func setKeepWithNext(keepWithNext : Bool?) {
-        self.keepWithNext = keepWithNext;
+    // Sets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.  
+    public func setNextParagraphStyleName(nextParagraphStyleName : String?) {
+        self.nextParagraphStyleName = nextParagraphStyleName;
     }
     
-    // Gets keepWithNext. Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.               
-    public func getKeepWithNext() -> Bool? {
-        return self.keepWithNext;
+    // Gets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.  
+    public func getNextParagraphStyleName() -> String? {
+        return self.nextParagraphStyleName;
     }
     
-    // Sets leftIndent. Gets or sets the value (in points) that represents the left indent for paragraph.               
-    public func setLeftIndent(leftIndent : Double?) {
-        self.leftIndent = leftIndent;
-    }
-    
-    // Gets leftIndent. Gets or sets the value (in points) that represents the left indent for paragraph.               
-    public func getLeftIndent() -> Double? {
-        return self.leftIndent;
-    }
-    
-    // Sets lineSpacing. Gets or sets the line spacing (in points) for the paragraph.               
-    public func setLineSpacing(lineSpacing : Double?) {
-        self.lineSpacing = lineSpacing;
-    }
-    
-    // Gets lineSpacing. Gets or sets the line spacing (in points) for the paragraph.               
-    public func getLineSpacing() -> Double? {
-        return self.lineSpacing;
-    }
-    
-    // Sets lineSpacingRule. Gets or sets the line spacing for the paragraph.               
-    public func setLineSpacingRule(lineSpacingRule : LineSpacingRule?) {
-        self.lineSpacingRule = lineSpacingRule;
-    }
-    
-    // Gets lineSpacingRule. Gets or sets the line spacing for the paragraph.               
-    public func getLineSpacingRule() -> LineSpacingRule? {
-        return self.lineSpacingRule;
-    }
-    
-    // Sets linesToDrop. Gets or sets the number of lines of the paragraph text used to calculate the drop cap height.               
-    public func setLinesToDrop(linesToDrop : Int?) {
-        self.linesToDrop = linesToDrop;
-    }
-    
-    // Gets linesToDrop. Gets or sets the number of lines of the paragraph text used to calculate the drop cap height.               
-    public func getLinesToDrop() -> Int? {
-        return self.linesToDrop;
-    }
-    
-    // Sets noSpaceBetweenParagraphsOfSameStyle. Gets or sets when true, SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.               
-    public func setNoSpaceBetweenParagraphsOfSameStyle(noSpaceBetweenParagraphsOfSameStyle : Bool?) {
-        self.noSpaceBetweenParagraphsOfSameStyle = noSpaceBetweenParagraphsOfSameStyle;
-    }
-    
-    // Gets noSpaceBetweenParagraphsOfSameStyle. Gets or sets when true, SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.               
-    public func getNoSpaceBetweenParagraphsOfSameStyle() -> Bool? {
-        return self.noSpaceBetweenParagraphsOfSameStyle;
-    }
-    
-    // Sets outlineLevel. Gets or sets specifies the outline level of the paragraph in the document.               
-    public func setOutlineLevel(outlineLevel : OutlineLevel?) {
-        self.outlineLevel = outlineLevel;
-    }
-    
-    // Gets outlineLevel. Gets or sets specifies the outline level of the paragraph in the document.               
-    public func getOutlineLevel() -> OutlineLevel? {
-        return self.outlineLevel;
-    }
-    
-    // Sets pageBreakBefore. Gets or sets true if a page break is forced before the paragraph.               
-    public func setPageBreakBefore(pageBreakBefore : Bool?) {
-        self.pageBreakBefore = pageBreakBefore;
-    }
-    
-    // Gets pageBreakBefore. Gets or sets true if a page break is forced before the paragraph.               
-    public func getPageBreakBefore() -> Bool? {
-        return self.pageBreakBefore;
-    }
-    
-    // Sets rightIndent. Gets or sets the value (in points) that represents the right indent for paragraph.               
-    public func setRightIndent(rightIndent : Double?) {
-        self.rightIndent = rightIndent;
-    }
-    
-    // Gets rightIndent. Gets or sets the value (in points) that represents the right indent for paragraph.               
-    public func getRightIndent() -> Double? {
-        return self.rightIndent;
-    }
-    
-    // Sets shading.   
-    public func setShading(shading : Shading?) {
-        self.shading = shading;
-    }
-    
-    // Gets shading.   
-    public func getShading() -> Shading? {
-        return self.shading;
-    }
-    
-    // Sets spaceAfter. Gets or sets the amount of spacing (in points) after the paragraph.               
-    public func setSpaceAfter(spaceAfter : Double?) {
-        self.spaceAfter = spaceAfter;
-    }
-    
-    // Gets spaceAfter. Gets or sets the amount of spacing (in points) after the paragraph.               
-    public func getSpaceAfter() -> Double? {
-        return self.spaceAfter;
-    }
-    
-    // Sets spaceAfterAuto. Gets or sets true if the amount of spacing after the paragraph is set automatically.               
-    public func setSpaceAfterAuto(spaceAfterAuto : Bool?) {
-        self.spaceAfterAuto = spaceAfterAuto;
-    }
-    
-    // Gets spaceAfterAuto. Gets or sets true if the amount of spacing after the paragraph is set automatically.               
-    public func getSpaceAfterAuto() -> Bool? {
-        return self.spaceAfterAuto;
-    }
-    
-    // Sets spaceBefore. Gets or sets the amount of spacing (in points) before the paragraph.               
-    public func setSpaceBefore(spaceBefore : Double?) {
-        self.spaceBefore = spaceBefore;
-    }
-    
-    // Gets spaceBefore. Gets or sets the amount of spacing (in points) before the paragraph.               
-    public func getSpaceBefore() -> Double? {
-        return self.spaceBefore;
-    }
-    
-    // Sets spaceBeforeAuto. Gets or sets true if the amount of spacing before the paragraph is set automatically.               
-    public func setSpaceBeforeAuto(spaceBeforeAuto : Bool?) {
-        self.spaceBeforeAuto = spaceBeforeAuto;
-    }
-    
-    // Gets spaceBeforeAuto. Gets or sets true if the amount of spacing before the paragraph is set automatically.               
-    public func getSpaceBeforeAuto() -> Bool? {
-        return self.spaceBeforeAuto;
-    }
-    
-    // Sets styleIdentifier. Gets or sets the locale independent style identifier of the paragraph style applied to this formatting.               
+    // Sets styleIdentifier. Gets or sets the locale independent style identifier for a built-in style.  
     public func setStyleIdentifier(styleIdentifier : StyleIdentifier?) {
         self.styleIdentifier = styleIdentifier;
     }
     
-    // Gets styleIdentifier. Gets or sets the locale independent style identifier of the paragraph style applied to this formatting.               
+    // Gets styleIdentifier. Gets or sets the locale independent style identifier for a built-in style.  
     public func getStyleIdentifier() -> StyleIdentifier? {
         return self.styleIdentifier;
     }
     
-    // Sets styleName. Gets or sets the name of the paragraph style applied to this formatting.               
-    public func setStyleName(styleName : String?) {
-        self.styleName = styleName;
+    // Sets type. Gets or sets the style type (paragraph or character).  
+    public func setType(type : ModelType?) {
+        self.type = type;
     }
     
-    // Gets styleName. Gets or sets the name of the paragraph style applied to this formatting.               
-    public func getStyleName() -> String? {
-        return self.styleName;
-    }
-    
-    // Sets suppressAutoHyphens. Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.               
-    public func setSuppressAutoHyphens(suppressAutoHyphens : Bool?) {
-        self.suppressAutoHyphens = suppressAutoHyphens;
-    }
-    
-    // Gets suppressAutoHyphens. Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.               
-    public func getSuppressAutoHyphens() -> Bool? {
-        return self.suppressAutoHyphens;
-    }
-    
-    // Sets suppressLineNumbers. Gets or sets specifies whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.               
-    public func setSuppressLineNumbers(suppressLineNumbers : Bool?) {
-        self.suppressLineNumbers = suppressLineNumbers;
-    }
-    
-    // Gets suppressLineNumbers. Gets or sets specifies whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.               
-    public func getSuppressLineNumbers() -> Bool? {
-        return self.suppressLineNumbers;
-    }
-    
-    // Sets widowControl. Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.               
-    public func setWidowControl(widowControl : Bool?) {
-        self.widowControl = widowControl;
-    }
-    
-    // Gets widowControl. Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.               
-    public func getWidowControl() -> Bool? {
-        return self.widowControl;
+    // Gets type. Gets or sets the style type (paragraph or character).  
+    public func getType() -> ModelType? {
+        return self.type;
     }
 }

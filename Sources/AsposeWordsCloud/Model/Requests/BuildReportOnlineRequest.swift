@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ExecuteMailMergeOnlineRequest.swift">
+ * <copyright company="Aspose" file="BuildReportOnlineRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,29 +27,26 @@
 
 import Foundation
 
-// Request model for executeMailMergeOnline operation.
-public class ExecuteMailMergeOnlineRequest {
+// Request model for buildReportOnline operation.
+public class BuildReportOnlineRequest {
     private let template : InputStream;
-    private let data : InputStream;
-    private let withRegions : Bool?;
-    private let cleanup : String?;
+    private let data : String;
+    private let reportEngineSettings : ReportEngineSettings;
     private let documentFileName : String?;
     
     private enum CodingKeys: String, CodingKey {
         case template;
         case data;
-        case withRegions;
-        case cleanup;
+        case reportEngineSettings;
         case documentFileName;
         case invalidCodingKey;
     }
     
-    // Initializes a new instance of the executeMailMergeOnlineRequest class.
-    public init(template : InputStream, data : InputStream, withRegions : Bool? = nil, cleanup : String? = nil, documentFileName : String? = nil) {
+    // Initializes a new instance of the buildReportOnlineRequest class.
+    public init(template : InputStream, data : String, reportEngineSettings : ReportEngineSettings, documentFileName : String? = nil) {
         self.template = template;
         self.data = data;
-        self.withRegions = withRegions;
-        self.cleanup = cleanup;
+        self.reportEngineSettings = reportEngineSettings;
         self.documentFileName = documentFileName;
     }
     
@@ -58,22 +55,17 @@ public class ExecuteMailMergeOnlineRequest {
         return self.template;
     }
     
-    // File with mailmerge data
-    public func getData() -> InputStream {
+    // A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv
+    public func getData() -> String {
         return self.data;
     }
     
-    // With regions flag.
-    public func getWithRegions() -> Bool? {
-        return self.withRegions;
+    // An object providing a settings of report engine.
+    public func getReportEngineSettings() -> ReportEngineSettings {
+        return self.reportEngineSettings;
     }
     
-    // Clean up options.
-    public func getCleanup() -> String? {
-        return self.cleanup;
-    }
-    
-    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead. 
     public func getDocumentFileName() -> String? {
         return self.documentFileName;
     }

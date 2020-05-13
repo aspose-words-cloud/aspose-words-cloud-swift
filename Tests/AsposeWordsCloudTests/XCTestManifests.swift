@@ -3,6 +3,7 @@ import XCTest
 #if !os(macOS)
 public func allTests() -> [XCTestCaseEntry] {
     return [
+        testCase(BuildReportTests.allTests),
         testCase(BookmarkTests.allTests),
         testCase(DocumentTests.allTests),
         testCase(DocumentPropertiesTests.allTests),
@@ -25,6 +26,8 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(TableTests.allTests),
         testCase(TextTests.allTests),
         testCase(WatermarkTests.allTests),
+        testCase(ListsTests.allTests),
+        testCase(StylesTests.allTests),
     ]
 }
 #endif

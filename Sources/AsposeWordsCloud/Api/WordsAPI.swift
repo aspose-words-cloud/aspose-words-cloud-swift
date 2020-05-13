@@ -204,6 +204,228 @@ public class WordsAPI {
         return responseObject!;
     }
     
+    // Async representation of applyStyleToDocumentElement method
+    // Apply a style to the document node.       
+    public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest, callback : @escaping (_ response : WordsResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{styledNodePath}/style";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{styledNodePath}", with: try ObjectSerializer.serializeToString(value: request.getStyledNodePath()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (request.getRevisionAuthor() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
+            }
+            if (request.getRevisionDateTime() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "PUT",
+                body: try ObjectSerializer.serializeBody(value: request.getStyleApply()),
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : WordsResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: WordsResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of applyStyleToDocumentElement method
+    // Apply a style to the document node.     
+    public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest) throws -> WordsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : WordsResponse? = nil;
+        var responseError : Error? = nil;
+        self.applyStyleToDocumentElement(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of buildReport method
+    // Executes document \&quot;build report\&quot; operation.       
+    public func buildReport(request : BuildReportRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/buildReport";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            var formParams : [RequestFormParam] = [];
+            formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: request.getData())));
+            formParams.append(RequestFormParam(name: "reportEngineSettings", body: try ObjectSerializer.serialize(value: request.getReportEngineSettings())));
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "PUT",
+                body: nil,
+                headers: nil,
+                formParams: formParams,
+                callback: { response, error in
+                    var responseObject : DocumentResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: DocumentResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of buildReport method
+    // Executes document \&quot;build report\&quot; operation.     
+    public func buildReport(request : BuildReportRequest) throws -> DocumentResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : DocumentResponse? = nil;
+        var responseError : Error? = nil;
+        self.buildReport(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of buildReportOnline method
+    // Executes document \&quot;build report\&quot; online operation.       
+    public func buildReportOnline(request : BuildReportOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+        do {
+            let rawPath = "/words/buildReport";
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getDocumentFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "documentFileName", value: try ObjectSerializer.serializeToString(value: request.getDocumentFileName()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            var formParams : [RequestFormParam] = [];
+            formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: request.getTemplate())));
+            formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: request.getData())));
+            formParams.append(RequestFormParam(name: "reportEngineSettings", body: try ObjectSerializer.serialize(value: request.getReportEngineSettings())));
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "PUT",
+                body: nil,
+                headers: nil,
+                formParams: formParams,
+                callback: { response, error in
+                    callback(response, error);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of buildReportOnline method
+    // Executes document \&quot;build report\&quot; online operation.     
+    public func buildReportOnline(request : BuildReportOnlineRequest) throws -> Data {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : Data? = nil;
+        var responseError : Error? = nil;
+        self.buildReportOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
     // Async representation of classify method
     // Classifies raw text.       
     public func classify(request : ClassifyRequest, callback : @escaping (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
@@ -612,6 +834,89 @@ public class WordsAPI {
         
     }
     
+    // Async representation of copyStyle method
+    // Copy and insert a new style to the document, returns a copied style.       
+    public func copyStyle(request : CopyStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/styles/copy";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (request.getRevisionAuthor() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
+            }
+            if (request.getRevisionDateTime() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "POST",
+                body: try ObjectSerializer.serializeBody(value: request.getStyleCopy()),
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : StyleResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: StyleResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of copyStyle method
+    // Copy and insert a new style to the document, returns a copied style.     
+    public func copyStyle(request : CopyStyleRequest) throws -> StyleResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : StyleResponse? = nil;
+        var responseError : Error? = nil;
+        self.copyStyle(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
     // Async representation of createDocument method
     // Creates new document. Document is created with format which is recognized from file extensions. Supported extensions: \&quot;.doc\&quot;, \&quot;.docx\&quot;, \&quot;.docm\&quot;, \&quot;.dot\&quot;, \&quot;.dotm\&quot;, \&quot;.dotx\&quot;, \&quot;.flatopc\&quot;, \&quot;.fopc\&quot;, \&quot;.flatopc_macro\&quot;, \&quot;.fopc_macro\&quot;, \&quot;.flatopc_template\&quot;, \&quot;.fopc_template\&quot;, \&quot;.flatopc_template_macro\&quot;, \&quot;.fopc_template_macro\&quot;, \&quot;.wordml\&quot;, \&quot;.wml\&quot;, \&quot;.rtf\&quot;.       
     public func createDocument(request : CreateDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
@@ -808,6 +1113,85 @@ public class WordsAPI {
         var responseObject : DocumentPropertyResponse? = nil;
         var responseError : Error? = nil;
         self.createOrUpdateDocumentProperty(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of deleteAllParagraphTabStops method
+    // Remove all tab stops.       
+    public func deleteAllParagraphTabStops(request : DeleteAllParagraphTabStopsRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "DELETE",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : TabStopsResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: TabStopsResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of deleteAllParagraphTabStops method
+    // Remove all tab stops.     
+    public func deleteAllParagraphTabStops(request : DeleteAllParagraphTabStopsRequest) throws -> TabStopsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : TabStopsResponse? = nil;
+        var responseError : Error? = nil;
+        self.deleteAllParagraphTabStops(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();
@@ -2444,6 +2828,171 @@ public class WordsAPI {
             throw responseError!;
         }
         
+    }
+    
+    // Async representation of deleteParagraphListFormat method
+    // Delete paragraph list format, returns updated list format properties.       
+    public func deleteParagraphListFormat(request : DeleteParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (request.getRevisionAuthor() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
+            }
+            if (request.getRevisionDateTime() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "DELETE",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : ParagraphListFormatResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphListFormatResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of deleteParagraphListFormat method
+    // Delete paragraph list format, returns updated list format properties.     
+    public func deleteParagraphListFormat(request : DeleteParagraphListFormatRequest) throws -> ParagraphListFormatResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : ParagraphListFormatResponse? = nil;
+        var responseError : Error? = nil;
+        self.deleteParagraphListFormat(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of deleteParagraphTabStop method
+    // Remove the i-th tab stop.       
+    public func deleteParagraphTabStop(request : DeleteParagraphTabStopRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstop";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            queryItems.append(URLQueryItem(name: "position", value: try ObjectSerializer.serializeToString(value: request.getPosition())));
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "DELETE",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : TabStopsResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: TabStopsResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of deleteParagraphTabStop method
+    // Remove the i-th tab stop.     
+    public func deleteParagraphTabStop(request : DeleteParagraphTabStopRequest) throws -> TabStopsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : TabStopsResponse? = nil;
+        var responseError : Error? = nil;
+        self.deleteParagraphTabStop(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
     }
     
     // Async representation of deleteParagraphWithoutNodePath method
@@ -6283,6 +6832,155 @@ public class WordsAPI {
         return responseObject!;
     }
     
+    // Async representation of getList method
+    // This resource represents one of the lists contained in the document.       
+    public func getList(request : GetListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/lists/{listId}";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{listId}", with: try ObjectSerializer.serializeToString(value: request.getListId()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "GET",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : ListResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: ListResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of getList method
+    // This resource represents one of the lists contained in the document.     
+    public func getList(request : GetListRequest) throws -> ListResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : ListResponse? = nil;
+        var responseError : Error? = nil;
+        self.getList(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of getLists method
+    // Returns a list of lists that are contained in the document.       
+    public func getLists(request : GetListsRequest, callback : @escaping (_ response : ListsResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/lists";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "GET",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : ListsResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: ListsResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of getLists method
+    // Returns a list of lists that are contained in the document.     
+    public func getLists(request : GetListsRequest) throws -> ListsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : ListsResponse? = nil;
+        var responseError : Error? = nil;
+        self.getLists(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
     // Async representation of getOfficeMathObject method
     // Reads OfficeMath object by index.       
     public func getOfficeMathObject(request : GetOfficeMathObjectRequest, callback : @escaping (_ response : OfficeMathObjectResponse?, _ error : Error?) -> ()) {
@@ -6797,6 +7495,233 @@ public class WordsAPI {
         var responseObject : ParagraphFormatResponse? = nil;
         var responseError : Error? = nil;
         self.getParagraphFormatWithoutNodePath(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of getParagraphListFormat method
+    // Represents list format for a paragraph.       
+    public func getParagraphListFormat(request : GetParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "GET",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : ParagraphListFormatResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphListFormatResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of getParagraphListFormat method
+    // Represents list format for a paragraph.     
+    public func getParagraphListFormat(request : GetParagraphListFormatRequest) throws -> ParagraphListFormatResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : ParagraphListFormatResponse? = nil;
+        var responseError : Error? = nil;
+        self.getParagraphListFormat(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of getParagraphListFormatWithoutNodePath method
+    // Represents list format for a paragraph.       
+    public func getParagraphListFormatWithoutNodePath(request : GetParagraphListFormatWithoutNodePathRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/paragraphs/{index}/listFormat";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "GET",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : ParagraphListFormatResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphListFormatResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of getParagraphListFormatWithoutNodePath method
+    // Represents list format for a paragraph.     
+    public func getParagraphListFormatWithoutNodePath(request : GetParagraphListFormatWithoutNodePathRequest) throws -> ParagraphListFormatResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : ParagraphListFormatResponse? = nil;
+        var responseError : Error? = nil;
+        self.getParagraphListFormatWithoutNodePath(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of getParagraphTabStops method
+    // Get all tab stops for the paragraph.       
+    public func getParagraphTabStops(request : GetParagraphTabStopsRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "GET",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : TabStopsResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: TabStopsResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of getParagraphTabStops method
+    // Get all tab stops for the paragraph.     
+    public func getParagraphTabStops(request : GetParagraphTabStopsRequest) throws -> TabStopsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : TabStopsResponse? = nil;
+        var responseError : Error? = nil;
+        self.getParagraphTabStops(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();
@@ -7550,6 +8475,230 @@ public class WordsAPI {
         var responseObject : SectionLinkCollectionResponse? = nil;
         var responseError : Error? = nil;
         self.getSections(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of getStyle method
+    // This resource represents one of the styles contained in the document.       
+    public func getStyle(request : GetStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/styles/{styleName}";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{styleName}", with: try ObjectSerializer.serializeToString(value: request.getStyleName()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "GET",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : StyleResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: StyleResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of getStyle method
+    // This resource represents one of the styles contained in the document.     
+    public func getStyle(request : GetStyleRequest) throws -> StyleResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : StyleResponse? = nil;
+        var responseError : Error? = nil;
+        self.getStyle(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of getStyleFromDocumentElement method
+    // Gets a style from the document node.       
+    public func getStyleFromDocumentElement(request : GetStyleFromDocumentElementRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{styledNodePath}/style";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{styledNodePath}", with: try ObjectSerializer.serializeToString(value: request.getStyledNodePath()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "GET",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : StyleResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: StyleResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of getStyleFromDocumentElement method
+    // Gets a style from the document node.     
+    public func getStyleFromDocumentElement(request : GetStyleFromDocumentElementRequest) throws -> StyleResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : StyleResponse? = nil;
+        var responseError : Error? = nil;
+        self.getStyleFromDocumentElement(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of getStyles method
+    // Returns a list of styles contained in the document.       
+    public func getStyles(request : GetStylesRequest, callback : @escaping (_ response : StylesResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/styles";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "GET",
+                body: nil,
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : StylesResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: StylesResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of getStyles method
+    // Returns a list of styles contained in the document.     
+    public func getStyles(request : GetStylesRequest) throws -> StylesResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : StylesResponse? = nil;
+        var responseError : Error? = nil;
+        self.getStyles(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();
@@ -9171,6 +10320,168 @@ public class WordsAPI {
         return responseObject!;
     }
     
+    // Async representation of insertList method
+    // Adds list to document, returns added list&#39;s data.       
+    public func insertList(request : InsertListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/lists";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (request.getRevisionAuthor() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
+            }
+            if (request.getRevisionDateTime() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "POST",
+                body: try ObjectSerializer.serializeBody(value: request.getListInsert()),
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : ListResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: ListResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of insertList method
+    // Adds list to document, returns added list&#39;s data.     
+    public func insertList(request : InsertListRequest) throws -> ListResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : ListResponse? = nil;
+        var responseError : Error? = nil;
+        self.insertList(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of insertOrUpdateParagraphTabStop method
+    // Insert or resplace tab stop if a tab stop with the position exists.       
+    public func insertOrUpdateParagraphTabStop(request : InsertOrUpdateParagraphTabStopRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "POST",
+                body: try ObjectSerializer.serializeBody(value: request.getDto()),
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : TabStopsResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: TabStopsResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of insertOrUpdateParagraphTabStop method
+    // Insert or resplace tab stop if a tab stop with the position exists.     
+    public func insertOrUpdateParagraphTabStop(request : InsertOrUpdateParagraphTabStopRequest) throws -> TabStopsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : TabStopsResponse? = nil;
+        var responseError : Error? = nil;
+        self.insertOrUpdateParagraphTabStop(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
     // Async representation of insertPageNumbers method
     // Inserts document page numbers.       
     public func insertPageNumbers(request : InsertPageNumbersRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
@@ -9415,6 +10726,89 @@ public class WordsAPI {
         var responseObject : RunResponse? = nil;
         var responseError : Error? = nil;
         self.insertRun(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of insertStyle method
+    // Adds a style to the document, returns an added style.       
+    public func insertStyle(request : InsertStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/styles/insert";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (request.getRevisionAuthor() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
+            }
+            if (request.getRevisionDateTime() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "POST",
+                body: try ObjectSerializer.serializeBody(value: request.getStyleInsert()),
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : StyleResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: StyleResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of insertStyle method
+    // Adds a style to the document, returns an added style.     
+    public func insertStyle(request : InsertStyleRequest) throws -> StyleResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : StyleResponse? = nil;
+        var responseError : Error? = nil;
+        self.insertStyle(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();
@@ -12647,6 +14041,175 @@ public class WordsAPI {
         return responseObject!;
     }
     
+    // Async representation of updateList method
+    // Updates list properties, returns updated list.       
+    public func updateList(request : UpdateListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/lists/{listId}";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{listId}", with: try ObjectSerializer.serializeToString(value: request.getListId()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (request.getRevisionAuthor() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
+            }
+            if (request.getRevisionDateTime() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "PUT",
+                body: try ObjectSerializer.serializeBody(value: request.getListUpdate()),
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : ListResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: ListResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of updateList method
+    // Updates list properties, returns updated list.     
+    public func updateList(request : UpdateListRequest) throws -> ListResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : ListResponse? = nil;
+        var responseError : Error? = nil;
+        self.updateList(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of updateListLevel method
+    // Updates list level in document list, returns updated list.       
+    public func updateListLevel(request : UpdateListLevelRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/lists/{listId}/listLevels/{listLevel}";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{listId}", with: try ObjectSerializer.serializeToString(value: request.getListId()));
+            rawPath = rawPath.replacingOccurrences(of: "{listLevel}", with: try ObjectSerializer.serializeToString(value: request.getListLevel()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (request.getRevisionAuthor() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
+            }
+            if (request.getRevisionDateTime() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "PUT",
+                body: try ObjectSerializer.serializeBody(value: request.getListUpdate()),
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : ListResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: ListResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of updateListLevel method
+    // Updates list level in document list, returns updated list.     
+    public func updateListLevel(request : UpdateListLevelRequest) throws -> ListResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : ListResponse? = nil;
+        var responseError : Error? = nil;
+        self.updateListLevel(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
     // Async representation of updateParagraphFormat method
     // Updates paragraph format properties, returns updated format properties.       
     public func updateParagraphFormat(request : UpdateParagraphFormatRequest, callback : @escaping (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
@@ -12719,6 +14282,91 @@ public class WordsAPI {
         var responseObject : ParagraphFormatResponse? = nil;
         var responseError : Error? = nil;
         self.updateParagraphFormat(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of updateParagraphListFormat method
+    // Updates paragraph list format properties, returns updated list format properties.       
+    public func updateParagraphListFormat(request : UpdateParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (request.getRevisionAuthor() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
+            }
+            if (request.getRevisionDateTime() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "PUT",
+                body: try ObjectSerializer.serializeBody(value: request.getDto()),
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : ParagraphListFormatResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: ParagraphListFormatResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of updateParagraphListFormat method
+    // Updates paragraph list format properties, returns updated list format properties.     
+    public func updateParagraphListFormat(request : UpdateParagraphListFormatRequest) throws -> ParagraphListFormatResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : ParagraphListFormatResponse? = nil;
+        var responseError : Error? = nil;
+        self.updateParagraphListFormat(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();
@@ -12973,6 +14621,90 @@ public class WordsAPI {
         var responseObject : SectionPageSetupResponse? = nil;
         var responseError : Error? = nil;
         self.updateSectionPageSetup(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+                
+        _ = semaphore.wait();
+        
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+    
+    // Async representation of updateStyle method
+    // Updates style properties, returns an updated style.       
+    public func updateStyle(request : UpdateStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
+        do {
+            var rawPath = "/words/{name}/styles/{styleName}/update";
+            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+            rawPath = rawPath.replacingOccurrences(of: "{styleName}", with: try ObjectSerializer.serializeToString(value: request.getStyleName()));
+            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+            
+            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            if (request.getFolder() != nil) {
+                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+            }
+            if (request.getStorage() != nil) {
+                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+            }
+            if (request.getLoadEncoding() != nil) {
+                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+            }
+            if (request.getPassword() != nil) {
+                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+            }
+            if (request.getDestFileName() != nil) {
+                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+            }
+            if (request.getRevisionAuthor() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
+            }
+            if (request.getRevisionDateTime() != nil) {
+                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
+            }
+            if (queryItems.count > 0) {
+                urlBuilder.queryItems = queryItems;
+            }
+            
+            
+            
+            apiInvoker.invoke(
+                url: urlBuilder.url!,
+                method: "PUT",
+                body: try ObjectSerializer.serializeBody(value: request.getStyleUpdate()),
+                headers: nil,
+                formParams: nil,
+                callback: { response, error in
+                    var responseObject : StyleResponse? = nil;
+                    var responseError = error;
+                    if (responseError == nil) {
+                        do {
+                            responseObject = try ObjectSerializer.deserialize(type: StyleResponse.self, from: response!);
+                        }
+                        catch let deserializeError {
+                            responseError = deserializeError;
+                        }
+                    }
+                    callback(responseObject, responseError);
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }   
+    
+    // Sync representation of updateStyle method
+    // Updates style properties, returns an updated style.     
+    public func updateStyle(request : UpdateStyleRequest) throws -> StyleResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : StyleResponse? = nil;
+        var responseError : Error? = nil;
+        self.updateStyle(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();

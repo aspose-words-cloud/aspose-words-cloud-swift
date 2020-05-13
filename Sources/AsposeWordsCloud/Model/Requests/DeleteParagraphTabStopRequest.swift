@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="GetDocumentFieldNamesRequest.swift">
+ * <copyright company="Aspose" file="DeleteParagraphTabStopRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,38 +27,62 @@
 
 import Foundation
 
-// Request model for getDocumentFieldNames operation.
-public class GetDocumentFieldNamesRequest {
+// Request model for deleteParagraphTabStop operation.
+public class DeleteParagraphTabStopRequest {
     private let name : String;
+    private let nodePath : String;
+    private let position : Double;
+    private let index : Int;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
-    private let useNonMergeFields : Bool?;
+    private let destFileName : String?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
+        case nodePath;
+        case position;
+        case index;
         case folder;
         case storage;
         case loadEncoding;
         case password;
-        case useNonMergeFields;
+        case destFileName;
         case invalidCodingKey;
     }
     
-    // Initializes a new instance of the getDocumentFieldNamesRequest class.
-    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, useNonMergeFields : Bool? = nil) {
+    // Initializes a new instance of the deleteParagraphTabStopRequest class.
+    public init(name : String, nodePath : String, position : Double, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
+        self.nodePath = nodePath;
+        self.position = position;
+        self.index = index;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
-        self.useNonMergeFields = useNonMergeFields;
+        self.destFileName = destFileName;
     }
     
-    // The template name.
+    // The document name.
     public func getName() -> String {
         return self.name;
+    }
+    
+    // Path to the node which contains paragraph.
+    public func getNodePath() -> String {
+        return self.nodePath;
+    }
+    
+    // a tab stop position to remove.
+    public func getPosition() -> Double {
+        return self.position;
+    }
+    
+    // Object index.
+    public func getIndex() -> Int {
+        return self.index;
     }
     
     // Original document folder.
@@ -81,8 +105,8 @@ public class GetDocumentFieldNamesRequest {
         return self.password;
     }
     
-    // If true, result includes "mustache" field names.
-    public func getUseNonMergeFields() -> Bool? {
-        return self.useNonMergeFields;
+    // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+    public func getDestFileName() -> String? {
+        return self.destFileName;
     }
 }

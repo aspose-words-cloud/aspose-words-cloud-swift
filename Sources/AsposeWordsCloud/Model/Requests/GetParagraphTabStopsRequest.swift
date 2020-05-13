@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="GetDocumentFieldNamesRequest.swift">
+ * <copyright company="Aspose" file="GetParagraphTabStopsRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,38 +27,51 @@
 
 import Foundation
 
-// Request model for getDocumentFieldNames operation.
-public class GetDocumentFieldNamesRequest {
+// Request model for getParagraphTabStops operation.
+public class GetParagraphTabStopsRequest {
     private let name : String;
+    private let nodePath : String;
+    private let index : Int;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
-    private let useNonMergeFields : Bool?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
+        case nodePath;
+        case index;
         case folder;
         case storage;
         case loadEncoding;
         case password;
-        case useNonMergeFields;
         case invalidCodingKey;
     }
     
-    // Initializes a new instance of the getDocumentFieldNamesRequest class.
-    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, useNonMergeFields : Bool? = nil) {
+    // Initializes a new instance of the getParagraphTabStopsRequest class.
+    public init(name : String, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
+        self.nodePath = nodePath;
+        self.index = index;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
-        self.useNonMergeFields = useNonMergeFields;
     }
     
-    // The template name.
+    // The document name.
     public func getName() -> String {
         return self.name;
+    }
+    
+    // Path to the node which contains paragraph.
+    public func getNodePath() -> String {
+        return self.nodePath;
+    }
+    
+    // Object index.
+    public func getIndex() -> Int {
+        return self.index;
     }
     
     // Original document folder.
@@ -79,10 +92,5 @@ public class GetDocumentFieldNamesRequest {
     // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
-    }
-    
-    // If true, result includes "mustache" field names.
-    public func getUseNonMergeFields() -> Bool? {
-        return self.useNonMergeFields;
     }
 }
