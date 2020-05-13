@@ -205,7 +205,7 @@ public class WordsAPI {
     }
     
     // Async representation of applyStyleToDocumentElement method
-    // Apply a style to the document node.       
+    // Apply a style to the document node. Supported node types: ParagraphFormat, List, ListLevel, Table.       
     public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest, callback : @escaping (_ response : WordsResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{styledNodePath}/style";
@@ -269,7 +269,7 @@ public class WordsAPI {
     }   
     
     // Sync representation of applyStyleToDocumentElement method
-    // Apply a style to the document node.     
+    // Apply a style to the document node. Supported node types: ParagraphFormat, List, ListLevel, Table.     
     public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest) throws -> WordsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : WordsResponse? = nil;
@@ -835,7 +835,7 @@ public class WordsAPI {
     }
     
     // Async representation of copyStyle method
-    // Copy and insert a new style to the document, returns a copied style.       
+    // Copy and insert a new style to the document, returns an copied style.       
     public func copyStyle(request : CopyStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/styles/copy";
@@ -898,7 +898,7 @@ public class WordsAPI {
     }   
     
     // Sync representation of copyStyle method
-    // Copy and insert a new style to the document, returns a copied style.     
+    // Copy and insert a new style to the document, returns an copied style.     
     public func copyStyle(request : CopyStyleRequest) throws -> StyleResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : StyleResponse? = nil;
@@ -8564,7 +8564,7 @@ public class WordsAPI {
     }
     
     // Async representation of getStyleFromDocumentElement method
-    // Gets a style from the document node.       
+    // Gets a style from the document node. Supported node types: ParagraphFormat, List, ListLevel, Table.       
     public func getStyleFromDocumentElement(request : GetStyleFromDocumentElementRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/{styledNodePath}/style";
@@ -8619,7 +8619,7 @@ public class WordsAPI {
     }   
     
     // Sync representation of getStyleFromDocumentElement method
-    // Gets a style from the document node.     
+    // Gets a style from the document node. Supported node types: ParagraphFormat, List, ListLevel, Table.     
     public func getStyleFromDocumentElement(request : GetStyleFromDocumentElementRequest) throws -> StyleResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : StyleResponse? = nil;
@@ -14635,7 +14635,7 @@ public class WordsAPI {
     }
     
     // Async representation of updateStyle method
-    // Updates style properties, returns an updated style.       
+    // Updates a style properties, returns an updated style.       
     public func updateStyle(request : UpdateStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             var rawPath = "/words/{name}/styles/{styleName}/update";
@@ -14699,7 +14699,7 @@ public class WordsAPI {
     }   
     
     // Sync representation of updateStyle method
-    // Updates style properties, returns an updated style.     
+    // Updates a style properties, returns an updated style.     
     public func updateStyle(request : UpdateStyleRequest) throws -> StyleResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : StyleResponse? = nil;
