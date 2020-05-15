@@ -78,7 +78,7 @@ public class ApplyStyleToDocumentElementRequest {
         return self.styleApply;
     }
     
-    // The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
+    // Path to the node of IStyledDocumentElement.
     public func getStyledNodePath() -> String {
         return self.styledNodePath;
     }
