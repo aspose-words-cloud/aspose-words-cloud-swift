@@ -30,8 +30,8 @@ import Foundation
 // This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/styles.
 public class StylesResponse : WordsResponse {
     
-    // Field of styles.       
-    private var styles : Styles?;
+    // Field of styles. Gets or sets styles which are contained in document.      
+    private var styles : [Style]?;
         
     private enum CodingKeys: String, CodingKey {
         case styles;
@@ -45,7 +45,7 @@ public class StylesResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.styles = try container.decodeIfPresent(Styles.self, forKey: .styles);
+        self.styles = try container.decodeIfPresent([Style].self, forKey: .styles);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -56,13 +56,13 @@ public class StylesResponse : WordsResponse {
         }
     }
     
-    // Sets styles.   
-    public func setStyles(styles : Styles?) {
+    // Sets styles. Gets or sets styles which are contained in document.  
+    public func setStyles(styles : [Style]?) {
         self.styles = styles;
     }
     
-    // Gets styles.   
-    public func getStyles() -> Styles? {
+    // Gets styles. Gets or sets styles which are contained in document.  
+    public func getStyles() -> [Style]? {
         return self.styles;
     }
 }
