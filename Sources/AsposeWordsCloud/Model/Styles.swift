@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="StylesResponse.swift">
+ * <copyright company="Aspose" file="Styles.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,14 +27,14 @@
 
 import Foundation
 
-// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/styles.
-public class StylesResponse : WordsResponse {
+// Represents an array of styles list.
+public class Styles : LinkElement {
     
-    // Field of styles.       
-    private var styles : Styles?;
+    // Field of styleList. Gets or sets array of document styles.      
+    private var styleList : [Style]?;
         
     private enum CodingKeys: String, CodingKey {
-        case styles;
+        case styleList;
         case invalidCodingKey;
     }
         
@@ -45,24 +45,24 @@ public class StylesResponse : WordsResponse {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.styles = try container.decodeIfPresent(Styles.self, forKey: .styles);
+        self.styleList = try container.decodeIfPresent([Style].self, forKey: .styleList);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.styles != nil) {
-            try container.encode(self.styles, forKey: .styles);
+        if (self.styleList != nil) {
+            try container.encode(self.styleList, forKey: .styleList);
         }
     }
     
-    // Sets styles.   
-    public func setStyles(styles : Styles?) {
-        self.styles = styles;
+    // Sets styleList. Gets or sets array of document styles.  
+    public func setStyleList(styleList : [Style]?) {
+        self.styleList = styleList;
     }
     
-    // Gets styles.   
-    public func getStyles() -> Styles? {
-        return self.styles;
+    // Gets styleList. Gets or sets array of document styles.  
+    public func getStyleList() -> [Style]? {
+        return self.styleList;
     }
 }
