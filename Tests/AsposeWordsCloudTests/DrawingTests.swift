@@ -151,7 +151,8 @@ class DrawingTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "") + "/" + remoteName);
         let image = "aspose-cloud.png";
         let file = self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(image, isDirectory: false);
-        let request = InsertDrawingObjectRequest(name: remoteName, drawingObject: "{\"Left\": 0}", imageFile: InputStream(url: file)!, nodePath: "", folder: getRemoteDataFolder(action: ""));
+        let drawingObject = DrawingObjectInsert();
+        let request = InsertDrawingObjectRequest(name: remoteName, drawingObject: drawingObject, imageFile: InputStream(url: file)!, nodePath: "", folder: getRemoteDataFolder(action: ""));
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let actual = try super.getApi().insertDrawingObject(request: request);
         XCTAssert(actual.getDrawingObject() != nil);
@@ -164,7 +165,8 @@ class DrawingTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "InsetDrawingObjectWithoutNodePath") + "/" + remoteName);
         let image = "aspose-cloud.png";
         let file = self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(image, isDirectory: false);
-        let request = InsertDrawingObjectWithoutNodePathRequest(name: remoteName, drawingObject: "{\"Left\": 0}", imageFile: InputStream(url: file)!, folder: getRemoteDataFolder(action: "InsetDrawingObjectWithoutNodePath"));
+        let drawingObject = DrawingObjectInsert();
+        let request = InsertDrawingObjectWithoutNodePathRequest(name: remoteName, drawingObject: drawingObject, imageFile: InputStream(url: file)!, folder: getRemoteDataFolder(action: "InsetDrawingObjectWithoutNodePath"));
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let actual = try super.getApi().insertDrawingObjectWithoutNodePath(request: request);
         XCTAssert(actual.getDrawingObject() != nil);
@@ -199,7 +201,8 @@ class DrawingTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "UpdateDrawingObject") + "/" + remoteName);
         let image = "aspose-cloud.png";
         let file = self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(image, isDirectory: false);
-        let request = UpdateDrawingObjectRequest(name: remoteName, drawingObject: "{\"Left\": 0}", imageFile: InputStream(url: file)!, nodePath: "", index: 0, folder: getRemoteDataFolder(action: "UpdateDrawingObject"));
+        let drawingObject = DrawingObjectUpdate();
+        let request = UpdateDrawingObjectRequest(name: remoteName, drawingObject: drawingObject, imageFile: InputStream(url: file)!, nodePath: "", index: 0, folder: getRemoteDataFolder(action: "UpdateDrawingObject"));
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let actual = try super.getApi().updateDrawingObject(request: request);
         XCTAssert(actual.getDrawingObject() != nil);
@@ -212,7 +215,8 @@ class DrawingTests: BaseTestContext {
         let fullName = (getRemoteDataFolder(action: "UpdateDrawingObjectWithoutNodePath") + "/" + remoteName);
         let image = "aspose-cloud.png";
         let file = self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(image, isDirectory: false);
-        let request = UpdateDrawingObjectWithoutNodePathRequest(name: remoteName, drawingObject: "{\"Left\": 0}", imageFile: InputStream(url: file)!, index: 0, folder: getRemoteDataFolder(action: "UpdateDrawingObjectWithoutNodePath"));
+        let drawingObject = DrawingObjectUpdate();
+        let request = UpdateDrawingObjectWithoutNodePathRequest(name: remoteName, drawingObject: drawingObject, imageFile: InputStream(url: file)!, index: 0, folder: getRemoteDataFolder(action: "UpdateDrawingObjectWithoutNodePath"));
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let actual = try super.getApi().updateDrawingObjectWithoutNodePath(request: request);
         XCTAssert(actual.getDrawingObject() != nil);
