@@ -30,7 +30,7 @@ import Foundation
 // Request model for insertDrawingObject operation.
 public class InsertDrawingObjectRequest {
     private let name : String;
-    private let drawingObject : String;
+    private let drawingObject : DrawingObjectInsert;
     private let imageFile : InputStream;
     private let nodePath : String;
     private let folder : String?;
@@ -57,7 +57,7 @@ public class InsertDrawingObjectRequest {
     }
     
     // Initializes a new instance of the insertDrawingObjectRequest class.
-    public init(name : String, drawingObject : String, imageFile : InputStream, nodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, drawingObject : DrawingObjectInsert, imageFile : InputStream, nodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.drawingObject = drawingObject;
         self.imageFile = imageFile;
@@ -76,8 +76,8 @@ public class InsertDrawingObjectRequest {
         return self.name;
     }
     
-    // Drawing object parameters
-    public func getDrawingObject() -> String {
+    // Drawing object parameters.
+    public func getDrawingObject() -> DrawingObjectInsert {
         return self.drawingObject;
     }
     
