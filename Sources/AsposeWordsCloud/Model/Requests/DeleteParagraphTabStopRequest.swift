@@ -30,8 +30,8 @@ import Foundation
 // Request model for deleteParagraphTabStop operation.
 public class DeleteParagraphTabStopRequest {
     private let name : String;
-    private let nodePath : String;
     private let position : Double;
+    private let nodePath : String;
     private let index : Int;
     private let folder : String?;
     private let storage : String?;
@@ -41,8 +41,8 @@ public class DeleteParagraphTabStopRequest {
     
     private enum CodingKeys: String, CodingKey {
         case name;
-        case nodePath;
         case position;
+        case nodePath;
         case index;
         case folder;
         case storage;
@@ -53,10 +53,10 @@ public class DeleteParagraphTabStopRequest {
     }
     
     // Initializes a new instance of the deleteParagraphTabStopRequest class.
-    public init(name : String, nodePath : String, position : Double, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
+    public init(name : String, position : Double, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
-        self.nodePath = nodePath;
         self.position = position;
+        self.nodePath = nodePath;
         self.index = index;
         self.folder = folder;
         self.storage = storage;
@@ -70,14 +70,14 @@ public class DeleteParagraphTabStopRequest {
         return self.name;
     }
     
-    // Path to the node which contains paragraph.
-    public func getNodePath() -> String {
-        return self.nodePath;
-    }
-    
     // a tab stop position to remove.
     public func getPosition() -> Double {
         return self.position;
+    }
+    
+    // Path to the node which contains paragraph.
+    public func getNodePath() -> String {
+        return self.nodePath;
     }
     
     // Object index.

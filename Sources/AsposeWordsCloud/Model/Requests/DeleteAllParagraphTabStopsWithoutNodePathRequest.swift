@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="InsertOrUpdateParagraphTabStopRequest.swift">
+ * <copyright company="Aspose" file="DeleteAllParagraphTabStopsWithoutNodePathRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,11 +27,9 @@
 
 import Foundation
 
-// Request model for insertOrUpdateParagraphTabStop operation.
-public class InsertOrUpdateParagraphTabStopRequest {
+// Request model for deleteAllParagraphTabStopsWithoutNodePath operation.
+public class DeleteAllParagraphTabStopsWithoutNodePathRequest {
     private let name : String;
-    private let dto : TabStopInsert;
-    private let nodePath : String;
     private let index : Int;
     private let folder : String?;
     private let storage : String?;
@@ -41,8 +39,6 @@ public class InsertOrUpdateParagraphTabStopRequest {
     
     private enum CodingKeys: String, CodingKey {
         case name;
-        case dto;
-        case nodePath;
         case index;
         case folder;
         case storage;
@@ -52,11 +48,9 @@ public class InsertOrUpdateParagraphTabStopRequest {
         case invalidCodingKey;
     }
     
-    // Initializes a new instance of the insertOrUpdateParagraphTabStopRequest class.
-    public init(name : String, dto : TabStopInsert, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
+    // Initializes a new instance of the deleteAllParagraphTabStopsWithoutNodePathRequest class.
+    public init(name : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
-        self.dto = dto;
-        self.nodePath = nodePath;
         self.index = index;
         self.folder = folder;
         self.storage = storage;
@@ -68,16 +62,6 @@ public class InsertOrUpdateParagraphTabStopRequest {
     // The document name.
     public func getName() -> String {
         return self.name;
-    }
-    
-    // Paragraph tab stop.
-    public func getDto() -> TabStopInsert {
-        return self.dto;
-    }
-    
-    // Path to the node which contains paragraph.
-    public func getNodePath() -> String {
-        return self.nodePath;
     }
     
     // Object index.
