@@ -29,9 +29,27 @@ import Foundation
 
 // container class for docx/docm/dotx/dotm/flatopc save options.
 public class OoxmlSaveOptionsData : SaveOptionsData {
+    // Gets or sets compression level.
+    public enum CompressionLevel : String, Codable
+    { 
+        // Enum value "normal"
+        case normal = "Normal"
+
+        // Enum value "maximum"
+        case maximum = "Maximum"
+
+        // Enum value "fast"
+        case fast = "Fast"
+
+        // Enum value "superFast"
+        case superFast = "SuperFast"
+    }
     
     // Field of compliance. Gets or sets specifies the OOXML version for the output document.      
     private var compliance : String?;
+    
+    // Field of compressionLevel. Gets or sets compression level.      
+    private var compressionLevel : CompressionLevel?;
     
     // Field of password. Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.      
     private var password : String?;
@@ -41,6 +59,7 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
         
     private enum CodingKeys: String, CodingKey {
         case compliance;
+        case compressionLevel;
         case password;
         case prettyFormat;
         case invalidCodingKey;
@@ -54,6 +73,7 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.compliance = try container.decodeIfPresent(String.self, forKey: .compliance);
+        self.compressionLevel = try container.decodeIfPresent(CompressionLevel.self, forKey: .compressionLevel);
         self.password = try container.decodeIfPresent(String.self, forKey: .password);
         self.prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat);
     }
@@ -63,6 +83,9 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.compliance != nil) {
             try container.encode(self.compliance, forKey: .compliance);
+        }
+        if (self.compressionLevel != nil) {
+            try container.encode(self.compressionLevel, forKey: .compressionLevel);
         }
         if (self.password != nil) {
             try container.encode(self.password, forKey: .password);
@@ -80,6 +103,16 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     // Gets compliance. Gets or sets specifies the OOXML version for the output document.  
     public func getCompliance() -> String? {
         return self.compliance;
+    }
+    
+    // Sets compressionLevel. Gets or sets compression level.  
+    public func setCompressionLevel(compressionLevel : CompressionLevel?) {
+        self.compressionLevel = compressionLevel;
+    }
+    
+    // Gets compressionLevel. Gets or sets compression level.  
+    public func getCompressionLevel() -> CompressionLevel? {
+        return self.compressionLevel;
     }
     
     // Sets password. Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.  
