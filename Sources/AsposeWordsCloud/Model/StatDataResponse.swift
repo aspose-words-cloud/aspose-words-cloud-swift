@@ -27,25 +27,24 @@
 
 import Foundation
 
-// Response for the request of the document&#39;s statistical data.
+// Response for the request of the document's statistical data.
 public class StatDataResponse : WordsResponse {
-    
-    // Field of documentLink.       
+    // Field of documentLink. Response for the request of the document's statistical data.
     private var documentLink : FileLink?;
-    
-    // Field of statData.       
+
+    // Field of statData. Response for the request of the document's statistical data.
     private var statData : DocumentStatData?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case documentLink;
         case statData;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -63,23 +62,23 @@ public class StatDataResponse : WordsResponse {
             try container.encode(self.statData, forKey: .statData);
         }
     }
-    
-    // Sets documentLink.   
+
+    // Sets documentLink. Gets or sets link to the document.
     public func setDocumentLink(documentLink : FileLink?) {
         self.documentLink = documentLink;
     }
-    
-    // Gets documentLink.   
+
+    // Gets documentLink. Gets or sets link to the document.
     public func getDocumentLink() -> FileLink? {
         return self.documentLink;
     }
-    
-    // Sets statData.   
+
+    // Sets statData. Gets or sets statistical data of the document.
     public func setStatData(statData : DocumentStatData?) {
         self.statData = statData;
     }
-    
-    // Gets statData.   
+
+    // Gets statData. Gets or sets statistical data of the document.
     public func getStatData() -> DocumentStatData? {
         return self.statData;
     }

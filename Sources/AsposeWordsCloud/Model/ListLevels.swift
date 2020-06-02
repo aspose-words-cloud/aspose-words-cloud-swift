@@ -29,19 +29,18 @@ import Foundation
 
 // Represents a single document list.
 public class ListLevels : LinkElement {
-    
-    // Field of listLevel. Gets or sets the collection of list levels for this list.      
+    // Field of listLevel. Represents a single document list.
     private var listLevel : [ListLevel]?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case listLevel;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class ListLevels : LinkElement {
             try container.encode(self.listLevel, forKey: .listLevel);
         }
     }
-    
-    // Sets listLevel. Gets or sets the collection of list levels for this list.  
+
+    // Sets listLevel. Gets or sets the collection of list levels for this list.
     public func setListLevel(listLevel : [ListLevel]?) {
         self.listLevel = listLevel;
     }
-    
-    // Gets listLevel. Gets or sets the collection of list levels for this list.  
+
+    // Gets listLevel. Gets or sets the collection of list levels for this list.
     public func getListLevel() -> [ListLevel]? {
         return self.listLevel;
     }

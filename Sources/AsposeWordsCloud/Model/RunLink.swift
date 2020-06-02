@@ -29,19 +29,18 @@ import Foundation
 
 // Run link element.
 public class RunLink : NodeLink {
-    
-    // Field of text. Gets or sets run's text.      
+    // Field of text. Run link element.
     private var text : String?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case text;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class RunLink : NodeLink {
             try container.encode(self.text, forKey: .text);
         }
     }
-    
-    // Sets text. Gets or sets run's text.  
+
+    // Sets text. Gets or sets run's text.
     public func setText(text : String?) {
         self.text = text;
     }
-    
-    // Gets text. Gets or sets run's text.  
+
+    // Gets text. Gets or sets run's text.
     public func getText() -> String? {
         return self.text;
     }

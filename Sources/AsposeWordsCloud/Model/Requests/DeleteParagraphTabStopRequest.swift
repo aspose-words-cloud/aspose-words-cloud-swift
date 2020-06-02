@@ -30,19 +30,19 @@ import Foundation
 // Request model for deleteParagraphTabStop operation.
 public class DeleteParagraphTabStopRequest {
     private let name : String;
-    private let position : Double;
     private let nodePath : String;
+    private let position : Double;
     private let index : Int;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
     private let destFileName : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case name;
-        case position;
         case nodePath;
+        case position;
         case index;
         case folder;
         case storage;
@@ -51,12 +51,12 @@ public class DeleteParagraphTabStopRequest {
         case destFileName;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the deleteParagraphTabStopRequest class.
-    public init(name : String, position : Double, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
+
+    // Initializes a new instance of the DeleteParagraphTabStopRequest class.
+    public init(name : String, nodePath : String, position : Double, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
-        self.position = position;
         self.nodePath = nodePath;
+        self.position = position;
         self.index = index;
         self.folder = folder;
         self.storage = storage;
@@ -64,47 +64,47 @@ public class DeleteParagraphTabStopRequest {
         self.password = password;
         self.destFileName = destFileName;
     }
-    
+
     // The document name.
     public func getName() -> String {
         return self.name;
     }
-    
-    // a tab stop position to remove.
-    public func getPosition() -> Double {
-        return self.position;
-    }
-    
+
     // Path to the node which contains paragraph.
     public func getNodePath() -> String {
         return self.nodePath;
     }
-    
+
+    // a tab stop position to remove.
+    public func getPosition() -> Double {
+        return self.position;
+    }
+
     // Object index.
     public func getIndex() -> Int {
         return self.index;
     }
-    
+
     // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
-    
+
     // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
-    
+
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
-    
+
     // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }
-    
+
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
     public func getDestFileName() -> String? {
         return self.destFileName;

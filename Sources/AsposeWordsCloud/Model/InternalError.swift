@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ModelError.swift">
+ * <copyright company="Aspose" file="InternalError.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,96 +27,92 @@
 
 import Foundation
 
-// Error
-public class ModelError : Codable, WordsApiModel {
-    
-    // Field of code. Code                   
+// Error.
+public class InternalError : Codable, WordsApiModel {
+    // Field of code. Error.
     private var code : String?;
-    
-    // Field of message. Message                   
-    private var message : String?;
-    
-    // Field of _description. Description                   
-    private var _description : String?;
-    
-    // Field of innerError.       
+
+    // Field of description. Error.
+    private var description : String?;
+
+    // Field of innerError. Error.
     private var innerError : ErrorDetails?;
-        
+
+    // Field of message. Error.
+    private var message : String?;
+
     private enum CodingKeys: String, CodingKey {
         case code;
-        case message;
-        case _description;
+        case description;
         case innerError;
+        case message;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.code = try container.decodeIfPresent(String.self, forKey: .code);
-        self.message = try container.decodeIfPresent(String.self, forKey: .message);
-        self._description = try container.decodeIfPresent(String.self, forKey: ._description);
+        self.description = try container.decodeIfPresent(String.self, forKey: .description);
         self.innerError = try container.decodeIfPresent(ErrorDetails.self, forKey: .innerError);
+        self.message = try container.decodeIfPresent(String.self, forKey: .message);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.code != nil) {
             try container.encode(self.code, forKey: .code);
         }
-        if (self.message != nil) {
-            try container.encode(self.message, forKey: .message);
-        }
-        if (self._description != nil) {
-            try container.encode(self._description, forKey: ._description);
+        if (self.description != nil) {
+            try container.encode(self.description, forKey: .description);
         }
         if (self.innerError != nil) {
             try container.encode(self.innerError, forKey: .innerError);
         }
+        if (self.message != nil) {
+            try container.encode(self.message, forKey: .message);
+        }
     }
-    
-    // Sets code. Code               
+
+    // Sets code. Code.
     public func setCode(code : String?) {
         self.code = code;
     }
-    
-    // Gets code. Code               
+
+    // Gets code. Code.
     public func getCode() -> String? {
         return self.code;
     }
-    
-    // Sets message. Message               
-    public func setMessage(message : String?) {
-        self.message = message;
+
+    // Sets description. Description.
+    public func setDescription(description : String?) {
+        self.description = description;
     }
-    
-    // Gets message. Message               
-    public func getMessage() -> String? {
-        return self.message;
-    }
-    
-    // Sets _description. Description               
-    public func setDescription(_description : String?) {
-        self._description = _description;
-    }
-    
-    // Gets _description. Description               
+
+    // Gets description. Description.
     public func getDescription() -> String? {
-        return self._description;
+        return self.description;
     }
-    
-    // Sets innerError.   
+
+    // Sets innerError. Inner Error.
     public func setInnerError(innerError : ErrorDetails?) {
         self.innerError = innerError;
     }
-    
-    // Gets innerError.   
+
+    // Gets innerError. Inner Error.
     public func getInnerError() -> ErrorDetails? {
         return self.innerError;
+    }
+
+    // Sets message. Message.
+    public func setMessage(message : String?) {
+        self.message = message;
+    }
+
+    // Gets message. Message.
+    public func getMessage() -> String? {
+        return self.message;
     }
 }

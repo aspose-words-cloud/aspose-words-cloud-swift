@@ -29,58 +29,54 @@ import Foundation
 
 // Utility class for Color serialization.
 public class XmlColor : Codable, WordsApiModel {
-    
-    // Field of web. Gets or sets hTML string color representation.      
-    private var web : String?;
-    
-    // Field of alpha. Gets or sets alpha component of color structure.      
+    // Field of alpha. Utility class for Color serialization.
     private var alpha : Int?;
-        
+
+    // Field of web. Utility class for Color serialization.
+    private var web : String?;
+
     private enum CodingKeys: String, CodingKey {
-        case web;
         case alpha;
+        case web;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.web = try container.decodeIfPresent(String.self, forKey: .web);
         self.alpha = try container.decodeIfPresent(Int.self, forKey: .alpha);
+        self.web = try container.decodeIfPresent(String.self, forKey: .web);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.web != nil) {
-            try container.encode(self.web, forKey: .web);
-        }
         if (self.alpha != nil) {
             try container.encode(self.alpha, forKey: .alpha);
         }
+        if (self.web != nil) {
+            try container.encode(self.web, forKey: .web);
+        }
     }
-    
-    // Sets web. Gets or sets hTML string color representation.  
-    public func setWeb(web : String?) {
-        self.web = web;
-    }
-    
-    // Gets web. Gets or sets hTML string color representation.  
-    public func getWeb() -> String? {
-        return self.web;
-    }
-    
-    // Sets alpha. Gets or sets alpha component of color structure.  
+
+    // Sets alpha. Gets or sets alpha component of color structure.
     public func setAlpha(alpha : Int?) {
         self.alpha = alpha;
     }
-    
-    // Gets alpha. Gets or sets alpha component of color structure.  
+
+    // Gets alpha. Gets or sets alpha component of color structure.
     public func getAlpha() -> Int? {
         return self.alpha;
+    }
+
+    // Sets web. Gets or sets hTML string color representation.
+    public func setWeb(web : String?) {
+        self.web = web;
+    }
+
+    // Gets web. Gets or sets hTML string color representation.
+    public func getWeb() -> String? {
+        return self.web;
     }
 }

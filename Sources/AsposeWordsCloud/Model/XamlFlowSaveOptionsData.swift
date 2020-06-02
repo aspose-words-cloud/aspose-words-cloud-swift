@@ -29,23 +29,22 @@ import Foundation
 
 // container class for xaml flow save options.
 public class XamlFlowSaveOptionsData : SaveOptionsData {
-    
-    // Field of imagesFolder. Gets or sets specifies the physical folder where images are saved when exporting.      
+    // Field of imagesFolder. container class for xaml flow save options.
     private var imagesFolder : String?;
-    
-    // Field of imagesFolderAlias. Gets or sets specifies the name of the folder used to construct image URIs.      
+
+    // Field of imagesFolderAlias. container class for xaml flow save options.
     private var imagesFolderAlias : String?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case imagesFolder;
         case imagesFolderAlias;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -63,23 +62,23 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
             try container.encode(self.imagesFolderAlias, forKey: .imagesFolderAlias);
         }
     }
-    
-    // Sets imagesFolder. Gets or sets specifies the physical folder where images are saved when exporting.  
+
+    // Sets imagesFolder. Gets or sets specifies the physical folder where images are saved when exporting.
     public func setImagesFolder(imagesFolder : String?) {
         self.imagesFolder = imagesFolder;
     }
-    
-    // Gets imagesFolder. Gets or sets specifies the physical folder where images are saved when exporting.  
+
+    // Gets imagesFolder. Gets or sets specifies the physical folder where images are saved when exporting.
     public func getImagesFolder() -> String? {
         return self.imagesFolder;
     }
-    
-    // Sets imagesFolderAlias. Gets or sets specifies the name of the folder used to construct image URIs.  
+
+    // Sets imagesFolderAlias. Gets or sets specifies the name of the folder used to construct image URIs.
     public func setImagesFolderAlias(imagesFolderAlias : String?) {
         self.imagesFolderAlias = imagesFolderAlias;
     }
-    
-    // Gets imagesFolderAlias. Gets or sets specifies the name of the folder used to construct image URIs.  
+
+    // Gets imagesFolderAlias. Gets or sets specifies the name of the folder used to construct image URIs.
     public func getImagesFolderAlias() -> String? {
         return self.imagesFolderAlias;
     }

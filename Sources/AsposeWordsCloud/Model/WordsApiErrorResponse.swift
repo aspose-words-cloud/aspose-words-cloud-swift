@@ -29,19 +29,18 @@ import Foundation
 
 // Response for Api error.
 public class WordsApiErrorResponse : WordsResponse {
-    
-    // Field of error.       
+    // Field of error. Response for Api error.
     private var error : ApiError?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case error;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class WordsApiErrorResponse : WordsResponse {
             try container.encode(self.error, forKey: .error);
         }
     }
-    
-    // Sets error.   
+
+    // Sets error. Gets or sets error.
     public func setError(error : ApiError?) {
         self.error = error;
     }
-    
-    // Gets error.   
+
+    // Gets error. Gets or sets error.
     public func getError() -> ApiError? {
         return self.error;
     }

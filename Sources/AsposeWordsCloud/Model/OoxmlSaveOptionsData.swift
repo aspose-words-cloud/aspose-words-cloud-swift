@@ -29,51 +29,30 @@ import Foundation
 
 // container class for docx/docm/dotx/dotm/flatopc save options.
 public class OoxmlSaveOptionsData : SaveOptionsData {
-    // Gets or sets compression level.
-    public enum CompressionLevel : String, Codable
-    { 
-        // Enum value "normal"
-        case normal = "Normal"
-
-        // Enum value "maximum"
-        case maximum = "Maximum"
-
-        // Enum value "fast"
-        case fast = "Fast"
-
-        // Enum value "superFast"
-        case superFast = "SuperFast"
-    }
-    
-    // Field of compliance. Gets or sets specifies the OOXML version for the output document.      
+    // Field of compliance. container class for docx/docm/dotx/dotm/flatopc save options.
     private var compliance : String?;
-    
-    // Field of compressionLevel. Gets or sets compression level.      
-    private var compressionLevel : CompressionLevel?;
-    
-    // Field of password. Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.      
+
+    // Field of password. container class for docx/docm/dotx/dotm/flatopc save options.
     private var password : String?;
-    
-    // Field of prettyFormat. Gets or sets specifies whether or not use pretty formats output.      
+
+    // Field of prettyFormat. container class for docx/docm/dotx/dotm/flatopc save options.
     private var prettyFormat : Bool?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case compliance;
-        case compressionLevel;
         case password;
         case prettyFormat;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.compliance = try container.decodeIfPresent(String.self, forKey: .compliance);
-        self.compressionLevel = try container.decodeIfPresent(CompressionLevel.self, forKey: .compressionLevel);
         self.password = try container.decodeIfPresent(String.self, forKey: .password);
         self.prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat);
     }
@@ -84,9 +63,6 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
         if (self.compliance != nil) {
             try container.encode(self.compliance, forKey: .compliance);
         }
-        if (self.compressionLevel != nil) {
-            try container.encode(self.compressionLevel, forKey: .compressionLevel);
-        }
         if (self.password != nil) {
             try container.encode(self.password, forKey: .password);
         }
@@ -94,43 +70,33 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
             try container.encode(self.prettyFormat, forKey: .prettyFormat);
         }
     }
-    
-    // Sets compliance. Gets or sets specifies the OOXML version for the output document.  
+
+    // Sets compliance. Gets or sets specifies the OOXML version for the output document.
     public func setCompliance(compliance : String?) {
         self.compliance = compliance;
     }
-    
-    // Gets compliance. Gets or sets specifies the OOXML version for the output document.  
+
+    // Gets compliance. Gets or sets specifies the OOXML version for the output document.
     public func getCompliance() -> String? {
         return self.compliance;
     }
-    
-    // Sets compressionLevel. Gets or sets compression level.  
-    public func setCompressionLevel(compressionLevel : CompressionLevel?) {
-        self.compressionLevel = compressionLevel;
-    }
-    
-    // Gets compressionLevel. Gets or sets compression level.  
-    public func getCompressionLevel() -> CompressionLevel? {
-        return self.compressionLevel;
-    }
-    
-    // Sets password. Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.  
+
+    // Sets password. Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.
     public func setPassword(password : String?) {
         self.password = password;
     }
-    
-    // Gets password. Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.  
+
+    // Gets password. Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.
     public func getPassword() -> String? {
         return self.password;
     }
-    
-    // Sets prettyFormat. Gets or sets specifies whether or not use pretty formats output.  
+
+    // Sets prettyFormat. Gets or sets specifies whether or not use pretty formats output.
     public func setPrettyFormat(prettyFormat : Bool?) {
         self.prettyFormat = prettyFormat;
     }
-    
-    // Gets prettyFormat. Gets or sets specifies whether or not use pretty formats output.  
+
+    // Gets prettyFormat. Gets or sets specifies whether or not use pretty formats output.
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }

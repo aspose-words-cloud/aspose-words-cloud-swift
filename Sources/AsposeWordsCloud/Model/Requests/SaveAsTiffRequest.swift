@@ -53,7 +53,7 @@ public class SaveAsTiffRequest {
     private let tiffBinarizationMethod : String?;
     private let zipOutput : Bool?;
     private let fontsLocation : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case name;
         case saveOptions;
@@ -81,8 +81,8 @@ public class SaveAsTiffRequest {
         case fontsLocation;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the saveAsTiffRequest class.
+
+    // Initializes a new instance of the SaveAsTiffRequest class.
     public init(name : String, saveOptions : TiffSaveOptionsData, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, useAntiAliasing : Bool? = nil, useHighQualityRendering : Bool? = nil, imageBrightness : Double? = nil, imageColorMode : String? = nil, imageContrast : Double? = nil, numeralFormat : String? = nil, pageCount : Int? = nil, pageIndex : Int? = nil, paperColor : String? = nil, pixelFormat : String? = nil, resolution : Double? = nil, scale : Double? = nil, tiffCompression : String? = nil, dmlRenderingMode : String? = nil, dmlEffectsRenderingMode : String? = nil, tiffBinarizationMethod : String? = nil, zipOutput : Bool? = nil, fontsLocation : String? = nil) {
         self.name = name;
         self.saveOptions = saveOptions;
@@ -109,122 +109,122 @@ public class SaveAsTiffRequest {
         self.zipOutput = zipOutput;
         self.fontsLocation = fontsLocation;
     }
-    
+
     // The document name.
     public func getName() -> String {
         return self.name;
     }
-    
+
     // Tiff save options.
     public func getSaveOptions() -> TiffSaveOptionsData {
         return self.saveOptions;
     }
-    
+
     // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
-    
+
     // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
-    
+
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
-    
+
     // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }
-    
+
     // Use antialiasing flag.
     public func getUseAntiAliasing() -> Bool? {
         return self.useAntiAliasing;
     }
-    
+
     // Use high quality flag.
     public func getUseHighQualityRendering() -> Bool? {
         return self.useHighQualityRendering;
     }
-    
+
     // Brightness for the generated images.
     public func getImageBrightness() -> Double? {
         return self.imageBrightness;
     }
-    
+
     // Color mode for the generated images.
     public func getImageColorMode() -> String? {
         return self.imageColorMode;
     }
-    
+
     // The contrast for the generated images.
     public func getImageContrast() -> Double? {
         return self.imageContrast;
     }
-    
+
     // The images numeral format.
     public func getNumeralFormat() -> String? {
         return self.numeralFormat;
     }
-    
+
     // Number of pages to render.
     public func getPageCount() -> Int? {
         return self.pageCount;
     }
-    
+
     // Page index to start rendering.
     public func getPageIndex() -> Int? {
         return self.pageIndex;
     }
-    
+
     // Background image color.
     public func getPaperColor() -> String? {
         return self.paperColor;
     }
-    
+
     // The pixel format of generated images.
     public func getPixelFormat() -> String? {
         return self.pixelFormat;
     }
-    
+
     // The resolution of generated images.
     public func getResolution() -> Double? {
         return self.resolution;
     }
-    
+
     // Zoom factor for generated images.
     public func getScale() -> Double? {
         return self.scale;
     }
-    
+
     // The compression tipe.
     public func getTiffCompression() -> String? {
         return self.tiffCompression;
     }
-    
+
     // Optional, default is Fallback.
     public func getDmlRenderingMode() -> String? {
         return self.dmlRenderingMode;
     }
-    
+
     // Optional, default is Simplified.
     public func getDmlEffectsRenderingMode() -> String? {
         return self.dmlEffectsRenderingMode;
     }
-    
+
     // Optional, Tiff binarization method, possible values are: FloydSteinbergDithering, Threshold.
     public func getTiffBinarizationMethod() -> String? {
         return self.tiffBinarizationMethod;
     }
-    
+
     // Optional. A value determining zip output or not.
     public func getZipOutput() -> Bool? {
         return self.zipOutput;
     }
-    
+
     // Folder in filestorage with custom fonts.
     public func getFontsLocation() -> String? {
         return self.fontsLocation;

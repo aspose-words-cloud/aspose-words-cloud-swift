@@ -29,19 +29,18 @@ import Foundation
 
 // Represents DTO for collection of runs.
 public class Runs : LinkElement {
-    
-    // Field of list. Gets or sets collection of fields.      
+    // Field of list. Represents DTO for collection of runs.
     private var list : [Run]?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case list;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class Runs : LinkElement {
             try container.encode(self.list, forKey: .list);
         }
     }
-    
-    // Sets list. Gets or sets collection of fields.  
+
+    // Sets list. Gets or sets collection of fields.
     public func setList(list : [Run]?) {
         self.list = list;
     }
-    
-    // Gets list. Gets or sets collection of fields.  
+
+    // Gets list. Gets or sets collection of fields.
     public func getList() -> [Run]? {
         return self.list;
     }

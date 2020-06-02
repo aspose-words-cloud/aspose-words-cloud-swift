@@ -29,58 +29,54 @@ import Foundation
 
 // Result of search operation.
 public class SearchResult : Codable, WordsApiModel {
-    
-    // Field of rangeStart.       
-    private var rangeStart : DocumentPosition?;
-    
-    // Field of rangeEnd.       
+    // Field of rangeEnd. Result of search operation.
     private var rangeEnd : DocumentPosition?;
-        
+
+    // Field of rangeStart. Result of search operation.
+    private var rangeStart : DocumentPosition?;
+
     private enum CodingKeys: String, CodingKey {
-        case rangeStart;
         case rangeEnd;
+        case rangeStart;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.rangeStart = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeStart);
         self.rangeEnd = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeEnd);
+        self.rangeStart = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeStart);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.rangeStart != nil) {
-            try container.encode(self.rangeStart, forKey: .rangeStart);
-        }
         if (self.rangeEnd != nil) {
             try container.encode(self.rangeEnd, forKey: .rangeEnd);
         }
+        if (self.rangeStart != nil) {
+            try container.encode(self.rangeStart, forKey: .rangeStart);
+        }
     }
-    
-    // Sets rangeStart.   
-    public func setRangeStart(rangeStart : DocumentPosition?) {
-        self.rangeStart = rangeStart;
-    }
-    
-    // Gets rangeStart.   
-    public func getRangeStart() -> DocumentPosition? {
-        return self.rangeStart;
-    }
-    
-    // Sets rangeEnd.   
+
+    // Sets rangeEnd. Gets or sets link to result range end node.
     public func setRangeEnd(rangeEnd : DocumentPosition?) {
         self.rangeEnd = rangeEnd;
     }
-    
-    // Gets rangeEnd.   
+
+    // Gets rangeEnd. Gets or sets link to result range end node.
     public func getRangeEnd() -> DocumentPosition? {
         return self.rangeEnd;
+    }
+
+    // Sets rangeStart. Gets or sets link to result range start node.
+    public func setRangeStart(rangeStart : DocumentPosition?) {
+        self.rangeStart = rangeStart;
+    }
+
+    // Gets rangeStart. Gets or sets link to result range start node.
+    public func getRangeStart() -> DocumentPosition? {
+        return self.rangeStart;
     }
 }

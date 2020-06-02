@@ -31,25 +31,25 @@ import Foundation
 public class GetFilesListRequest {
     private let path : String;
     private let storageName : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case path;
         case storageName;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the getFilesListRequest class.
+
+    // Initializes a new instance of the GetFilesListRequest class.
     public init(path : String, storageName : String? = nil) {
         self.path = path;
         self.storageName = storageName;
     }
-    
-    // Folder path e.g. /Folder1
+
+    // Folder path e.g. /Folder1.
     public func getPath() -> String {
         return self.path;
     }
-    
-    // Storage name
+
+    // Storage name.
     public func getStorageName() -> String? {
         return self.storageName;
     }

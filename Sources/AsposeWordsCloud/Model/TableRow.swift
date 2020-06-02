@@ -29,23 +29,22 @@ import Foundation
 
 // Table row element.
 public class TableRow : NodeLink {
-    
-    // Field of rowFormat.       
+    // Field of rowFormat. Table row element.
     private var rowFormat : TableRowFormat?;
-    
-    // Field of tableCellList. Gets or sets collection of table's rows.      
+
+    // Field of tableCellList. Table row element.
     private var tableCellList : [TableCell]?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case rowFormat;
         case tableCellList;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -63,23 +62,23 @@ public class TableRow : NodeLink {
             try container.encode(self.tableCellList, forKey: .tableCellList);
         }
     }
-    
-    // Sets rowFormat.   
+
+    // Sets rowFormat. Gets or sets provides access to the formatting properties of the row.
     public func setRowFormat(rowFormat : TableRowFormat?) {
         self.rowFormat = rowFormat;
     }
-    
-    // Gets rowFormat.   
+
+    // Gets rowFormat. Gets or sets provides access to the formatting properties of the row.
     public func getRowFormat() -> TableRowFormat? {
         return self.rowFormat;
     }
-    
-    // Sets tableCellList. Gets or sets collection of table's rows.  
+
+    // Sets tableCellList. Gets or sets collection of table's rows.
     public func setTableCellList(tableCellList : [TableCell]?) {
         self.tableCellList = tableCellList;
     }
-    
-    // Gets tableCellList. Gets or sets collection of table's rows.  
+
+    // Gets tableCellList. Gets or sets collection of table's rows.
     public func getTableCellList() -> [TableCell]? {
         return self.tableCellList;
     }

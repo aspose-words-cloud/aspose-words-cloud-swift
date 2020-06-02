@@ -29,19 +29,18 @@ import Foundation
 
 // Collection of borders.
 public class BordersCollection : LinkElement {
-    
-    // Field of list. Gets or sets collection of comments.      
+    // Field of list. Collection of borders.
     private var list : [Border]?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case list;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class BordersCollection : LinkElement {
             try container.encode(self.list, forKey: .list);
         }
     }
-    
-    // Sets list. Gets or sets collection of comments.  
+
+    // Sets list. Gets or sets collection of comments.
     public func setList(list : [Border]?) {
         self.list = list;
     }
-    
-    // Gets list. Gets or sets collection of comments.  
+
+    // Gets list. Gets or sets collection of comments.
     public func getList() -> [Border]? {
         return self.list;
     }

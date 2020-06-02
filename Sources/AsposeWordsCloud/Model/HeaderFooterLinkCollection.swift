@@ -29,19 +29,18 @@ import Foundation
 
 // Collection of links to header/footers.
 public class HeaderFooterLinkCollection : LinkElement {
-    
-    // Field of list. Gets or sets collection of section's links.      
+    // Field of list. Collection of links to header/footers.
     private var list : [HeaderFooterLink]?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case list;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class HeaderFooterLinkCollection : LinkElement {
             try container.encode(self.list, forKey: .list);
         }
     }
-    
-    // Sets list. Gets or sets collection of section's links.  
+
+    // Sets list. Gets or sets collection of section's links.
     public func setList(list : [HeaderFooterLink]?) {
         self.list = list;
     }
-    
-    // Gets list. Gets or sets collection of section's links.  
+
+    // Gets list. Gets or sets collection of section's links.
     public func getList() -> [HeaderFooterLink]? {
         return self.list;
     }

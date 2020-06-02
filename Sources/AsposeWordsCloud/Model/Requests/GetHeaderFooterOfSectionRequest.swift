@@ -37,7 +37,7 @@ public class GetHeaderFooterOfSectionRequest {
     private let loadEncoding : String?;
     private let password : String?;
     private let filterByType : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case name;
         case headerFooterIndex;
@@ -49,8 +49,8 @@ public class GetHeaderFooterOfSectionRequest {
         case filterByType;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the getHeaderFooterOfSectionRequest class.
+
+    // Initializes a new instance of the GetHeaderFooterOfSectionRequest class.
     public init(name : String, headerFooterIndex : Int, sectionIndex : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, filterByType : String? = nil) {
         self.name = name;
         self.headerFooterIndex = headerFooterIndex;
@@ -61,42 +61,42 @@ public class GetHeaderFooterOfSectionRequest {
         self.password = password;
         self.filterByType = filterByType;
     }
-    
+
     // The document name.
     public func getName() -> String {
         return self.name;
     }
-    
+
     // Header/footer index.
     public func getHeaderFooterIndex() -> Int {
         return self.headerFooterIndex;
     }
-    
+
     // Section index.
     public func getSectionIndex() -> Int {
         return self.sectionIndex;
     }
-    
+
     // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
-    
+
     // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
-    
+
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
-    
+
     // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }
-    
+
     // List of types of headers and footers.
     public func getFilterByType() -> String? {
         return self.filterByType;

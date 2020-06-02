@@ -29,28 +29,27 @@ import Foundation
 
 // Comment.
 public class Comment : CommentLink {
-    
-    // Field of author. Gets or sets returns or sets the author name for a comment.      
+    // Field of author. Comment.
     private var author : String?;
-    
-    // Field of content.       
+
+    // Field of content. Comment.
     private var content : StoryChildNodes?;
-    
-    // Field of dateTime. Gets or sets the date and time that the comment was made.      
+
+    // Field of dateTime. Comment.
     private var dateTime : Date?;
-    
-    // Field of initial. Gets or sets returns or sets the initials of the user associated with a specific comment.      
+
+    // Field of initial. Comment.
     private var initial : String?;
-    
-    // Field of rangeEnd.       
+
+    // Field of rangeEnd. Comment.
     private var rangeEnd : DocumentPosition?;
-    
-    // Field of rangeStart.       
+
+    // Field of rangeStart. Comment.
     private var rangeStart : DocumentPosition?;
-    
-    // Field of text. Gets or sets this is a convenience property that allows to easily get or set text of the comment.      
+
+    // Field of text. Comment.
     private var text : String?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case author;
         case content;
@@ -61,11 +60,11 @@ public class Comment : CommentLink {
         case text;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -103,73 +102,73 @@ public class Comment : CommentLink {
             try container.encode(self.text, forKey: .text);
         }
     }
-    
-    // Sets author. Gets or sets returns or sets the author name for a comment.  
+
+    // Sets author. Gets or sets returns or sets the author name for a comment.
     public func setAuthor(author : String?) {
         self.author = author;
     }
-    
-    // Gets author. Gets or sets returns or sets the author name for a comment.  
+
+    // Gets author. Gets or sets returns or sets the author name for a comment.
     public func getAuthor() -> String? {
         return self.author;
     }
-    
-    // Sets content.   
+
+    // Sets content. Gets or sets content of comment.
     public func setContent(content : StoryChildNodes?) {
         self.content = content;
     }
-    
-    // Gets content.   
+
+    // Gets content. Gets or sets content of comment.
     public func getContent() -> StoryChildNodes? {
         return self.content;
     }
-    
-    // Sets dateTime. Gets or sets the date and time that the comment was made.  
+
+    // Sets dateTime. Gets or sets the date and time that the comment was made.
     public func setDateTime(dateTime : Date?) {
         self.dateTime = dateTime;
     }
-    
-    // Gets dateTime. Gets or sets the date and time that the comment was made.  
+
+    // Gets dateTime. Gets or sets the date and time that the comment was made.
     public func getDateTime() -> Date? {
         return self.dateTime;
     }
-    
-    // Sets initial. Gets or sets returns or sets the initials of the user associated with a specific comment.  
+
+    // Sets initial. Gets or sets returns or sets the initials of the user associated with a specific comment.
     public func setInitial(initial : String?) {
         self.initial = initial;
     }
-    
-    // Gets initial. Gets or sets returns or sets the initials of the user associated with a specific comment.  
+
+    // Gets initial. Gets or sets returns or sets the initials of the user associated with a specific comment.
     public func getInitial() -> String? {
         return self.initial;
     }
-    
-    // Sets rangeEnd.   
+
+    // Sets rangeEnd. Gets or sets link to comment range end node.
     public func setRangeEnd(rangeEnd : DocumentPosition?) {
         self.rangeEnd = rangeEnd;
     }
-    
-    // Gets rangeEnd.   
+
+    // Gets rangeEnd. Gets or sets link to comment range end node.
     public func getRangeEnd() -> DocumentPosition? {
         return self.rangeEnd;
     }
-    
-    // Sets rangeStart.   
+
+    // Sets rangeStart. Gets or sets link to comment range start node.
     public func setRangeStart(rangeStart : DocumentPosition?) {
         self.rangeStart = rangeStart;
     }
-    
-    // Gets rangeStart.   
+
+    // Gets rangeStart. Gets or sets link to comment range start node.
     public func getRangeStart() -> DocumentPosition? {
         return self.rangeStart;
     }
-    
-    // Sets text. Gets or sets this is a convenience property that allows to easily get or set text of the comment.  
+
+    // Sets text. Gets or sets this is a convenience property that allows to easily get or set text of the comment.
     public func setText(text : String?) {
         self.text = text;
     }
-    
-    // Gets text. Gets or sets this is a convenience property that allows to easily get or set text of the comment.  
+
+    // Gets text. Gets or sets this is a convenience property that allows to easily get or set text of the comment.
     public func getText() -> String? {
         return self.text;
     }

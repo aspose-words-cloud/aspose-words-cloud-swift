@@ -29,19 +29,18 @@ import Foundation
 
 // This response should be returned by the service when handling:  GET /{name}/hyperlinks .
 public class HyperlinksResponse : WordsResponse {
-    
-    // Field of hyperlinks.       
+    // Field of hyperlinks. This response should be returned by the service when handling:  GET /{name}/hyperlinks .
     private var hyperlinks : Hyperlinks?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case hyperlinks;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class HyperlinksResponse : WordsResponse {
             try container.encode(self.hyperlinks, forKey: .hyperlinks);
         }
     }
-    
-    // Sets hyperlinks.   
+
+    // Sets hyperlinks. Gets or sets collection of hyperlinks.
     public func setHyperlinks(hyperlinks : Hyperlinks?) {
         self.hyperlinks = hyperlinks;
     }
-    
-    // Gets hyperlinks.   
+
+    // Gets hyperlinks. Gets or sets collection of hyperlinks.
     public func getHyperlinks() -> Hyperlinks? {
         return self.hyperlinks;
     }

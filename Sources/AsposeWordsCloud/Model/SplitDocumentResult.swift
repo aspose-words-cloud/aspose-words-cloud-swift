@@ -29,75 +29,71 @@ import Foundation
 
 // Result of splitting document.
 public class SplitDocumentResult : Codable, WordsApiModel {
-    
-    // Field of sourceDocument.       
-    private var sourceDocument : FileLink?;
-    
-    // Field of pages. Gets or sets array of pages.      
+    // Field of pages. Result of splitting document.
     private var pages : [FileLink]?;
-    
-    // Field of zippedPages.       
+
+    // Field of sourceDocument. Result of splitting document.
+    private var sourceDocument : FileLink?;
+
+    // Field of zippedPages. Result of splitting document.
     private var zippedPages : FileLink?;
-        
+
     private enum CodingKeys: String, CodingKey {
-        case sourceDocument;
         case pages;
+        case sourceDocument;
         case zippedPages;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.sourceDocument = try container.decodeIfPresent(FileLink.self, forKey: .sourceDocument);
         self.pages = try container.decodeIfPresent([FileLink].self, forKey: .pages);
+        self.sourceDocument = try container.decodeIfPresent(FileLink.self, forKey: .sourceDocument);
         self.zippedPages = try container.decodeIfPresent(FileLink.self, forKey: .zippedPages);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.sourceDocument != nil) {
-            try container.encode(self.sourceDocument, forKey: .sourceDocument);
-        }
         if (self.pages != nil) {
             try container.encode(self.pages, forKey: .pages);
+        }
+        if (self.sourceDocument != nil) {
+            try container.encode(self.sourceDocument, forKey: .sourceDocument);
         }
         if (self.zippedPages != nil) {
             try container.encode(self.zippedPages, forKey: .zippedPages);
         }
     }
-    
-    // Sets sourceDocument.   
-    public func setSourceDocument(sourceDocument : FileLink?) {
-        self.sourceDocument = sourceDocument;
-    }
-    
-    // Gets sourceDocument.   
-    public func getSourceDocument() -> FileLink? {
-        return self.sourceDocument;
-    }
-    
-    // Sets pages. Gets or sets array of pages.  
+
+    // Sets pages. Gets or sets array of pages.
     public func setPages(pages : [FileLink]?) {
         self.pages = pages;
     }
-    
-    // Gets pages. Gets or sets array of pages.  
+
+    // Gets pages. Gets or sets array of pages.
     public func getPages() -> [FileLink]? {
         return self.pages;
     }
-    
-    // Sets zippedPages.   
+
+    // Sets sourceDocument. Gets or sets linkt to the source document.
+    public func setSourceDocument(sourceDocument : FileLink?) {
+        self.sourceDocument = sourceDocument;
+    }
+
+    // Gets sourceDocument. Gets or sets linkt to the source document.
+    public func getSourceDocument() -> FileLink? {
+        return self.sourceDocument;
+    }
+
+    // Sets zippedPages. Gets or sets link to the file archive with pages.
     public func setZippedPages(zippedPages : FileLink?) {
         self.zippedPages = zippedPages;
     }
-    
-    // Gets zippedPages.   
+
+    // Gets zippedPages. Gets or sets link to the file archive with pages.
     public func getZippedPages() -> FileLink? {
         return self.zippedPages;
     }

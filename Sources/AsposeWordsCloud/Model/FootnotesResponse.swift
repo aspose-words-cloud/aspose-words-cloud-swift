@@ -27,21 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/footnotes.
+// This response should be returned by the service when handling:
+// GET https://api.aspose.cloud/v4.0/words/Test.doc/footnotes.
 public class FootnotesResponse : WordsResponse {
-    
-    // Field of footnotes.       
+    // Field of footnotes. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/footnotes.
     private var footnotes : FootnoteCollection?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case footnotes;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +55,13 @@ public class FootnotesResponse : WordsResponse {
             try container.encode(self.footnotes, forKey: .footnotes);
         }
     }
-    
-    // Sets footnotes.   
+
+    // Sets footnotes. Gets or sets collection of footnotes.
     public func setFootnotes(footnotes : FootnoteCollection?) {
         self.footnotes = footnotes;
     }
-    
-    // Gets footnotes.   
+
+    // Gets footnotes. Gets or sets collection of footnotes.
     public func getFootnotes() -> FootnoteCollection? {
         return self.footnotes;
     }

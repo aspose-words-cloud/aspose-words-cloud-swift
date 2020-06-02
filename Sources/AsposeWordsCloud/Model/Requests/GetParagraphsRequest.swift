@@ -35,7 +35,7 @@ public class GetParagraphsRequest {
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case name;
         case nodePath;
@@ -45,8 +45,8 @@ public class GetParagraphsRequest {
         case password;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the getParagraphsRequest class.
+
+    // Initializes a new instance of the GetParagraphsRequest class.
     public init(name : String, nodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.nodePath = nodePath;
@@ -55,32 +55,32 @@ public class GetParagraphsRequest {
         self.loadEncoding = loadEncoding;
         self.password = password;
     }
-    
+
     // The document name.
     public func getName() -> String {
         return self.name;
     }
-    
+
     // Path to the node which contains paragraphs.
     public func getNodePath() -> String {
         return self.nodePath;
     }
-    
+
     // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
-    
+
     // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
-    
+
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
-    
+
     // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;

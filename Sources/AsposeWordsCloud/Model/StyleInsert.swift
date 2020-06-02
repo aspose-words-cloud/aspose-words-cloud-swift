@@ -31,7 +31,7 @@ import Foundation
 public class StyleInsert : Codable, WordsApiModel {
     // Gets or sets the StyleType value that specifies the type of the style to create.
     public enum StyleType : String, Codable
-    { 
+    {
         // Enum value "paragraph"
         case paragraph = "Paragraph"
 
@@ -44,32 +44,29 @@ public class StyleInsert : Codable, WordsApiModel {
         // Enum value "list"
         case list = "List"
     }
-    
-    // Field of styleName. Gets or sets the case sensitive name of the style to create.      
+
+    // Field of styleName. Represents a single document style to insert.
     private var styleName : String?;
-    
-    // Field of styleType. Gets or sets the StyleType value that specifies the type of the style to create.      
+
+    // Field of styleType. Represents a single document style to insert.
     private var styleType : StyleType?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case styleName;
         case styleType;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.styleName = try container.decodeIfPresent(String.self, forKey: .styleName);
         self.styleType = try container.decodeIfPresent(StyleType.self, forKey: .styleType);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.styleName != nil) {
             try container.encode(self.styleName, forKey: .styleName);
@@ -78,23 +75,23 @@ public class StyleInsert : Codable, WordsApiModel {
             try container.encode(self.styleType, forKey: .styleType);
         }
     }
-    
-    // Sets styleName. Gets or sets the case sensitive name of the style to create.  
+
+    // Sets styleName. Gets or sets the case sensitive name of the style to create.
     public func setStyleName(styleName : String?) {
         self.styleName = styleName;
     }
-    
-    // Gets styleName. Gets or sets the case sensitive name of the style to create.  
+
+    // Gets styleName. Gets or sets the case sensitive name of the style to create.
     public func getStyleName() -> String? {
         return self.styleName;
     }
-    
-    // Sets styleType. Gets or sets the StyleType value that specifies the type of the style to create.  
+
+    // Sets styleType. Gets or sets the StyleType value that specifies the type of the style to create.
     public func setStyleType(styleType : StyleType?) {
         self.styleType = styleType;
     }
-    
-    // Gets styleType. Gets or sets the StyleType value that specifies the type of the style to create.  
+
+    // Gets styleType. Gets or sets the StyleType value that specifies the type of the style to create.
     public func getStyleType() -> StyleType? {
         return self.styleType;
     }
