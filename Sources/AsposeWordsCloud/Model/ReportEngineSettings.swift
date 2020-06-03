@@ -52,7 +52,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     private var dataSourceType : DataSourceType?;
 
     // Field of reportBuildOptions. Report engine settings.
-    private var reportBuildOptions : [ReportBuildOptions]?;
+    private var reportBuildOptions : [String]?;
 
     private enum CodingKeys: String, CodingKey {
         case csvDataLoadOptions;
@@ -70,7 +70,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
         self.csvDataLoadOptions = try container.decodeIfPresent(CsvDataLoadOptions.self, forKey: .csvDataLoadOptions);
         self.dataSourceName = try container.decodeIfPresent(String.self, forKey: .dataSourceName);
         self.dataSourceType = try container.decodeIfPresent(DataSourceType.self, forKey: .dataSourceType);
-        self.reportBuildOptions = try container.decodeIfPresent([ReportBuildOptions].self, forKey: .reportBuildOptions);
+        self.reportBuildOptions = try container.decodeIfPresent([String].self, forKey: .reportBuildOptions);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -120,12 +120,12 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     }
 
     // Sets reportBuildOptions. Gets or sets type of options to build report.
-    public func setReportBuildOptions(reportBuildOptions : [ReportBuildOptions]?) {
+    public func setReportBuildOptions(reportBuildOptions : [String]?) {
         self.reportBuildOptions = reportBuildOptions;
     }
 
     // Gets reportBuildOptions. Gets or sets type of options to build report.
-    public func getReportBuildOptions() -> [ReportBuildOptions]? {
+    public func getReportBuildOptions() -> [String]? {
         return self.reportBuildOptions;
     }
 }
