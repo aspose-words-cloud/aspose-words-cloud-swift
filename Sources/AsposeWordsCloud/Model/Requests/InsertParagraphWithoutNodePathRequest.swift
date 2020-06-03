@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="InsertDrawingObjectRequest.swift">
+ * <copyright company="Aspose" file="InsertParagraphWithoutNodePathRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,12 +27,10 @@
 
 import Foundation
 
-// Request model for insertDrawingObject operation.
-public class InsertDrawingObjectRequest {
+// Request model for insertParagraphWithoutNodePath operation.
+public class InsertParagraphWithoutNodePathRequest {
     private let name : String;
-    private let drawingObject : DrawingObjectInsert;
-    private let imageFile : InputStream;
-    private let nodePath : String;
+    private let paragraph : ParagraphInsert;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -40,12 +38,11 @@ public class InsertDrawingObjectRequest {
     private let destFileName : String?;
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
+    private let insertBeforeNode : String?;
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case drawingObject;
-        case imageFile;
-        case nodePath;
+        case paragraph;
         case folder;
         case storage;
         case loadEncoding;
@@ -53,15 +50,14 @@ public class InsertDrawingObjectRequest {
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
+        case insertBeforeNode;
         case invalidCodingKey;
     }
 
-    // Initializes a new instance of the InsertDrawingObjectRequest class.
-    public init(name : String, drawingObject : DrawingObjectInsert, imageFile : InputStream, nodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    // Initializes a new instance of the InsertParagraphWithoutNodePathRequest class.
+    public init(name : String, paragraph : ParagraphInsert, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
         self.name = name;
-        self.drawingObject = drawingObject;
-        self.imageFile = imageFile;
-        self.nodePath = nodePath;
+        self.paragraph = paragraph;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -69,6 +65,7 @@ public class InsertDrawingObjectRequest {
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
+        self.insertBeforeNode = insertBeforeNode;
     }
 
     // The document name.
@@ -76,19 +73,9 @@ public class InsertDrawingObjectRequest {
         return self.name;
     }
 
-    // Drawing object parameters.
-    public func getDrawingObject() -> DrawingObjectInsert {
-        return self.drawingObject;
-    }
-
-    // File with image.
-    public func getImageFile() -> InputStream {
-        return self.imageFile;
-    }
-
-    // Path to the node, which contains collection of drawing objects.
-    public func getNodePath() -> String {
-        return self.nodePath;
+    // Paragraph data.
+    public func getParagraph() -> ParagraphInsert {
+        return self.paragraph;
     }
 
     // Original document folder.
@@ -124,5 +111,10 @@ public class InsertDrawingObjectRequest {
     // The date and time to use for revisions.
     public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
+    }
+
+    // Paragraph will be inserted before node with index.
+    public func getInsertBeforeNode() -> String? {
+        return self.insertBeforeNode;
     }
 }

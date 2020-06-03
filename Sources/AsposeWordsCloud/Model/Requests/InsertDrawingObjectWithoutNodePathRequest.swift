@@ -30,7 +30,7 @@ import Foundation
 // Request model for insertDrawingObjectWithoutNodePath operation.
 public class InsertDrawingObjectWithoutNodePathRequest {
     private let name : String;
-    private let drawingObject : String;
+    private let drawingObject : DrawingObjectInsert;
     private let imageFile : InputStream;
     private let folder : String?;
     private let storage : String?;
@@ -55,7 +55,7 @@ public class InsertDrawingObjectWithoutNodePathRequest {
     }
 
     // Initializes a new instance of the InsertDrawingObjectWithoutNodePathRequest class.
-    public init(name : String, drawingObject : String, imageFile : InputStream, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, drawingObject : DrawingObjectInsert, imageFile : InputStream, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.drawingObject = drawingObject;
         self.imageFile = imageFile;
@@ -74,7 +74,7 @@ public class InsertDrawingObjectWithoutNodePathRequest {
     }
 
     // Drawing object parameters.
-    public func getDrawingObject() -> String {
+    public func getDrawingObject() -> DrawingObjectInsert {
         return self.drawingObject;
     }
 

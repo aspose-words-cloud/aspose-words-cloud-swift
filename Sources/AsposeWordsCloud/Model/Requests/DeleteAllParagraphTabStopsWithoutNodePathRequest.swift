@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="InsertDrawingObjectRequest.swift">
+ * <copyright company="Aspose" file="DeleteAllParagraphTabStopsWithoutNodePathRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,48 +27,36 @@
 
 import Foundation
 
-// Request model for insertDrawingObject operation.
-public class InsertDrawingObjectRequest {
+// Request model for deleteAllParagraphTabStopsWithoutNodePath operation.
+public class DeleteAllParagraphTabStopsWithoutNodePathRequest {
     private let name : String;
-    private let drawingObject : DrawingObjectInsert;
-    private let imageFile : InputStream;
-    private let nodePath : String;
+    private let index : Int;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
     private let destFileName : String?;
-    private let revisionAuthor : String?;
-    private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case drawingObject;
-        case imageFile;
-        case nodePath;
+        case index;
         case folder;
         case storage;
         case loadEncoding;
         case password;
         case destFileName;
-        case revisionAuthor;
-        case revisionDateTime;
         case invalidCodingKey;
     }
 
-    // Initializes a new instance of the InsertDrawingObjectRequest class.
-    public init(name : String, drawingObject : DrawingObjectInsert, imageFile : InputStream, nodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    // Initializes a new instance of the DeleteAllParagraphTabStopsWithoutNodePathRequest class.
+    public init(name : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
-        self.drawingObject = drawingObject;
-        self.imageFile = imageFile;
-        self.nodePath = nodePath;
+        self.index = index;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.destFileName = destFileName;
-        self.revisionAuthor = revisionAuthor;
-        self.revisionDateTime = revisionDateTime;
     }
 
     // The document name.
@@ -76,19 +64,9 @@ public class InsertDrawingObjectRequest {
         return self.name;
     }
 
-    // Drawing object parameters.
-    public func getDrawingObject() -> DrawingObjectInsert {
-        return self.drawingObject;
-    }
-
-    // File with image.
-    public func getImageFile() -> InputStream {
-        return self.imageFile;
-    }
-
-    // Path to the node, which contains collection of drawing objects.
-    public func getNodePath() -> String {
-        return self.nodePath;
+    // Object index.
+    public func getIndex() -> Int {
+        return self.index;
     }
 
     // Original document folder.
@@ -114,15 +92,5 @@ public class InsertDrawingObjectRequest {
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
     public func getDestFileName() -> String? {
         return self.destFileName;
-    }
-
-    // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-    public func getRevisionAuthor() -> String? {
-        return self.revisionAuthor;
-    }
-
-    // The date and time to use for revisions.
-    public func getRevisionDateTime() -> String? {
-        return self.revisionDateTime;
     }
 }

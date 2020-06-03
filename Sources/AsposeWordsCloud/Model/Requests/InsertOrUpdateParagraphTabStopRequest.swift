@@ -30,8 +30,8 @@ import Foundation
 // Request model for insertOrUpdateParagraphTabStop operation.
 public class InsertOrUpdateParagraphTabStopRequest {
     private let name : String;
-    private let nodePath : String;
     private let dto : TabStopInsert;
+    private let nodePath : String;
     private let index : Int;
     private let folder : String?;
     private let storage : String?;
@@ -41,8 +41,8 @@ public class InsertOrUpdateParagraphTabStopRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case nodePath;
         case dto;
+        case nodePath;
         case index;
         case folder;
         case storage;
@@ -53,10 +53,10 @@ public class InsertOrUpdateParagraphTabStopRequest {
     }
 
     // Initializes a new instance of the InsertOrUpdateParagraphTabStopRequest class.
-    public init(name : String, nodePath : String, dto : TabStopInsert, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
+    public init(name : String, dto : TabStopInsert, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
-        self.nodePath = nodePath;
         self.dto = dto;
+        self.nodePath = nodePath;
         self.index = index;
         self.folder = folder;
         self.storage = storage;
@@ -70,14 +70,14 @@ public class InsertOrUpdateParagraphTabStopRequest {
         return self.name;
     }
 
-    // Path to the node which contains paragraph.
-    public func getNodePath() -> String {
-        return self.nodePath;
-    }
-
     // Paragraph tab stop.
     public func getDto() -> TabStopInsert {
         return self.dto;
+    }
+
+    // Path to the node which contains paragraph.
+    public func getNodePath() -> String {
+        return self.nodePath;
     }
 
     // Object index.

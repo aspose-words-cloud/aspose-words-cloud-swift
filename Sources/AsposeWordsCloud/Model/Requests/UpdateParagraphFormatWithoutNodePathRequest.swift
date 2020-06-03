@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="InsertDrawingObjectRequest.swift">
+ * <copyright company="Aspose" file="UpdateParagraphFormatWithoutNodePathRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,12 +27,11 @@
 
 import Foundation
 
-// Request model for insertDrawingObject operation.
-public class InsertDrawingObjectRequest {
+// Request model for updateParagraphFormatWithoutNodePath operation.
+public class UpdateParagraphFormatWithoutNodePathRequest {
     private let name : String;
-    private let drawingObject : DrawingObjectInsert;
-    private let imageFile : InputStream;
-    private let nodePath : String;
+    private let dto : ParagraphFormat;
+    private let index : Int;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -43,9 +42,8 @@ public class InsertDrawingObjectRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case drawingObject;
-        case imageFile;
-        case nodePath;
+        case dto;
+        case index;
         case folder;
         case storage;
         case loadEncoding;
@@ -56,12 +54,11 @@ public class InsertDrawingObjectRequest {
         case invalidCodingKey;
     }
 
-    // Initializes a new instance of the InsertDrawingObjectRequest class.
-    public init(name : String, drawingObject : DrawingObjectInsert, imageFile : InputStream, nodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    // Initializes a new instance of the UpdateParagraphFormatWithoutNodePathRequest class.
+    public init(name : String, dto : ParagraphFormat, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.drawingObject = drawingObject;
-        self.imageFile = imageFile;
-        self.nodePath = nodePath;
+        self.dto = dto;
+        self.index = index;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -76,19 +73,14 @@ public class InsertDrawingObjectRequest {
         return self.name;
     }
 
-    // Drawing object parameters.
-    public func getDrawingObject() -> DrawingObjectInsert {
-        return self.drawingObject;
+    // Paragraph format object.
+    public func getDto() -> ParagraphFormat {
+        return self.dto;
     }
 
-    // File with image.
-    public func getImageFile() -> InputStream {
-        return self.imageFile;
-    }
-
-    // Path to the node, which contains collection of drawing objects.
-    public func getNodePath() -> String {
-        return self.nodePath;
+    // Object index.
+    public func getIndex() -> Int {
+        return self.index;
     }
 
     // Original document folder.
