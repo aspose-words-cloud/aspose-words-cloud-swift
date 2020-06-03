@@ -29,4 +29,60 @@ import Foundation
 
 // Request model for search operation.
 public class SearchRequest {
+    private let name : String;
+    private let pattern : String;
+    private let folder : String?;
+    private let storage : String?;
+    private let loadEncoding : String?;
+    private let password : String?;
+
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case pattern;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case invalidCodingKey;
+    }
+
+    // Initializes a new instance of the SearchRequest class.
+    public init(name : String, pattern : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
+        self.name = name;
+        self.pattern = pattern;
+        self.folder = folder;
+        self.storage = storage;
+        self.loadEncoding = loadEncoding;
+        self.password = password;
+    }
+
+    // The document name.
+    public func getName() -> String {
+        return self.name;
+    }
+
+    // The regular expression used to find matches.
+    public func getPattern() -> String {
+        return self.pattern;
+    }
+
+    // Original document folder.
+    public func getFolder() -> String? {
+        return self.folder;
+    }
+
+    // Original document storage.
+    public func getStorage() -> String? {
+        return self.storage;
+    }
+
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password for opening an encrypted document.
+    public func getPassword() -> String? {
+        return self.password;
+    }
 }

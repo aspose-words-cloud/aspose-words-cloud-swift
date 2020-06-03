@@ -29,23 +29,22 @@ import Foundation
 
 // Hyperlink element.
 public class Hyperlink : LinkElement {
-    
-    // Field of displayText. Gets or sets hypelink's display text.      
+    // Field of displayText. Hyperlink element.
     private var displayText : String?;
-    
-    // Field of value. Gets or sets value.      
+
+    // Field of value. Hyperlink element.
     private var value : String?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case displayText;
         case value;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -63,23 +62,23 @@ public class Hyperlink : LinkElement {
             try container.encode(self.value, forKey: .value);
         }
     }
-    
-    // Sets displayText. Gets or sets hypelink's display text.  
+
+    // Sets displayText. Gets or sets hypelink's display text.
     public func setDisplayText(displayText : String?) {
         self.displayText = displayText;
     }
-    
-    // Gets displayText. Gets or sets hypelink's display text.  
+
+    // Gets displayText. Gets or sets hypelink's display text.
     public func getDisplayText() -> String? {
         return self.displayText;
     }
-    
-    // Sets value. Gets or sets value.  
+
+    // Sets value. Gets or sets value.
     public func setValue(value : String?) {
         self.value = value;
     }
-    
-    // Gets value. Gets or sets value.  
+
+    // Gets value. Gets or sets value.
     public func getValue() -> String? {
         return self.value;
     }

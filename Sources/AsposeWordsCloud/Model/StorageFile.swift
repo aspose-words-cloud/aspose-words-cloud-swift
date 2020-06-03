@@ -27,114 +27,110 @@
 
 import Foundation
 
-// File or folder information
+// File or folder information.
 public class StorageFile : Codable, WordsApiModel {
-    
-    // Field of name. File or folder name.      
-    private var name : String?;
-    
-    // Field of isFolder. True if it is a folder.      
+    // Field of isFolder. File or folder information.
     private var isFolder : Bool?;
-    
-    // Field of modifiedDate. File or folder last modified DateTime.      
+
+    // Field of modifiedDate. File or folder information.
     private var modifiedDate : Date?;
-    
-    // Field of size. File or folder size.      
-    private var size : Int64?;
-    
-    // Field of path. File or folder path.      
+
+    // Field of name. File or folder information.
+    private var name : String?;
+
+    // Field of path. File or folder information.
     private var path : String?;
-        
+
+    // Field of size. File or folder information.
+    private var size : Int?;
+
     private enum CodingKeys: String, CodingKey {
-        case name;
         case isFolder;
         case modifiedDate;
-        case size;
+        case name;
         case path;
+        case size;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.name = try container.decodeIfPresent(String.self, forKey: .name);
         self.isFolder = try container.decodeIfPresent(Bool.self, forKey: .isFolder);
         self.modifiedDate = try container.decodeIfPresent(Date.self, forKey: .modifiedDate);
-        self.size = try container.decodeIfPresent(Int64.self, forKey: .size);
+        self.name = try container.decodeIfPresent(String.self, forKey: .name);
         self.path = try container.decodeIfPresent(String.self, forKey: .path);
+        self.size = try container.decodeIfPresent(Int.self, forKey: .size);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.name != nil) {
-            try container.encode(self.name, forKey: .name);
-        }
         if (self.isFolder != nil) {
             try container.encode(self.isFolder, forKey: .isFolder);
         }
         if (self.modifiedDate != nil) {
             try container.encode(self.modifiedDate, forKey: .modifiedDate);
         }
-        if (self.size != nil) {
-            try container.encode(self.size, forKey: .size);
+        if (self.name != nil) {
+            try container.encode(self.name, forKey: .name);
         }
         if (self.path != nil) {
             try container.encode(self.path, forKey: .path);
         }
+        if (self.size != nil) {
+            try container.encode(self.size, forKey: .size);
+        }
     }
-    
-    // Sets name. File or folder name.  
-    public func setName(name : String?) {
-        self.name = name;
-    }
-    
-    // Gets name. File or folder name.  
-    public func getName() -> String? {
-        return self.name;
-    }
-    
-    // Sets isFolder. True if it is a folder.  
+
+    // Sets isFolder. True if it is a folder.
     public func setIsFolder(isFolder : Bool?) {
         self.isFolder = isFolder;
     }
-    
-    // Gets isFolder. True if it is a folder.  
+
+    // Gets isFolder. True if it is a folder.
     public func getIsFolder() -> Bool? {
         return self.isFolder;
     }
-    
-    // Sets modifiedDate. File or folder last modified DateTime.  
+
+    // Sets modifiedDate. File or folder last modified DateTime.
     public func setModifiedDate(modifiedDate : Date?) {
         self.modifiedDate = modifiedDate;
     }
-    
-    // Gets modifiedDate. File or folder last modified DateTime.  
+
+    // Gets modifiedDate. File or folder last modified DateTime.
     public func getModifiedDate() -> Date? {
         return self.modifiedDate;
     }
-    
-    // Sets size. File or folder size.  
-    public func setSize(size : Int64?) {
-        self.size = size;
+
+    // Sets name. File or folder name.
+    public func setName(name : String?) {
+        self.name = name;
     }
-    
-    // Gets size. File or folder size.  
-    public func getSize() -> Int64? {
-        return self.size;
+
+    // Gets name. File or folder name.
+    public func getName() -> String? {
+        return self.name;
     }
-    
-    // Sets path. File or folder path.  
+
+    // Sets path. File or folder path.
     public func setPath(path : String?) {
         self.path = path;
     }
-    
-    // Gets path. File or folder path.  
+
+    // Gets path. File or folder path.
     public func getPath() -> String? {
         return self.path;
+    }
+
+    // Sets size. File or folder size.
+    public func setSize(size : Int?) {
+        self.size = size;
+    }
+
+    // Gets size. File or folder size.
+    public func getSize() -> Int? {
+        return self.size;
     }
 }

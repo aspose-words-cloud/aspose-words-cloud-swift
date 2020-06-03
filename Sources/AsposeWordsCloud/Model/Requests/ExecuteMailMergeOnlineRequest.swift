@@ -29,4 +29,52 @@ import Foundation
 
 // Request model for executeMailMergeOnline operation.
 public class ExecuteMailMergeOnlineRequest {
+    private let template : InputStream;
+    private let data : InputStream;
+    private let withRegions : Bool?;
+    private let cleanup : String?;
+    private let documentFileName : String?;
+
+    private enum CodingKeys: String, CodingKey {
+        case template;
+        case data;
+        case withRegions;
+        case cleanup;
+        case documentFileName;
+        case invalidCodingKey;
+    }
+
+    // Initializes a new instance of the ExecuteMailMergeOnlineRequest class.
+    public init(template : InputStream, data : InputStream, withRegions : Bool? = nil, cleanup : String? = nil, documentFileName : String? = nil) {
+        self.template = template;
+        self.data = data;
+        self.withRegions = withRegions;
+        self.cleanup = cleanup;
+        self.documentFileName = documentFileName;
+    }
+
+    // File with template.
+    public func getTemplate() -> InputStream {
+        return self.template;
+    }
+
+    // File with mailmerge data.
+    public func getData() -> InputStream {
+        return self.data;
+    }
+
+    // With regions flag.
+    public func getWithRegions() -> Bool? {
+        return self.withRegions;
+    }
+
+    // Clean up options.
+    public func getCleanup() -> String? {
+        return self.cleanup;
+    }
+
+    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+    public func getDocumentFileName() -> String? {
+        return self.documentFileName;
+    }
 }

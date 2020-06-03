@@ -27,11 +27,11 @@
 
 import Foundation
 
-// Represents the page setup properties of a section.             
+// Represents the page setup properties of a section.
 public class PageSetup : LinkElement {
-    // Gets or sets specifies which pages the page border is printed on.             
+    // Gets or sets specifies which pages the page border is printed on.
     public enum BorderAppliesTo : String, Codable
-    { 
+    {
         // Enum value "allPages"
         case allPages = "AllPages"
 
@@ -41,18 +41,22 @@ public class PageSetup : LinkElement {
         // Enum value "otherPages"
         case otherPages = "OtherPages"
     }
-    // Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.             
+
+    // Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from
+    // the text it surrounds.
     public enum BorderDistanceFrom : String, Codable
-    { 
+    {
         // Enum value "text"
         case text = "Text"
 
         // Enum value "pageEdge"
         case pageEdge = "PageEdge"
     }
-    // Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.             
+
+    // Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new
+    // page or section or runs continuously.
     public enum LineNumberRestartMode : String, Codable
-    { 
+    {
         // Enum value "restartPage"
         case restartPage = "RestartPage"
 
@@ -62,18 +66,20 @@ public class PageSetup : LinkElement {
         // Enum value "continuous"
         case continuous = "Continuous"
     }
-    // Gets or sets returns or sets the orientation of the page.             
+
+    // Gets or sets returns or sets the orientation of the page.
     public enum Orientation : String, Codable
-    { 
+    {
         // Enum value "portrait"
         case portrait = "Portrait"
 
         // Enum value "landscape"
         case landscape = "Landscape"
     }
-    // Gets or sets the page number format.             
+
+    // Gets or sets the page number format.
     public enum PageNumberStyle : String, Codable
-    { 
+    {
         // Enum value "arabic"
         case arabic = "Arabic"
 
@@ -152,17 +158,17 @@ public class PageSetup : LinkElement {
         // Enum value "chosung"
         case chosung = "Chosung"
 
-        // Enum value "gb1"
-        case gb1 = "GB1"
+        // Enum value "gB1"
+        case gB1 = "GB1"
 
-        // Enum value "gb2"
-        case gb2 = "GB2"
+        // Enum value "gB2"
+        case gB2 = "GB2"
 
-        // Enum value "gb3"
-        case gb3 = "GB3"
+        // Enum value "gB3"
+        case gB3 = "GB3"
 
-        // Enum value "gb4"
-        case gb4 = "GB4"
+        // Enum value "gB4"
+        case gB4 = "GB4"
 
         // Enum value "zodiac1"
         case zodiac1 = "Zodiac1"
@@ -260,9 +266,10 @@ public class PageSetup : LinkElement {
         // Enum value "custom"
         case custom = "Custom"
     }
-    // Gets or sets returns or sets the paper size.             
+
+    // Gets or sets returns or sets the paper size.
     public enum PaperSize : String, Codable
-    { 
+    {
         // Enum value "a3"
         case a3 = "A3"
 
@@ -314,9 +321,10 @@ public class PageSetup : LinkElement {
         // Enum value "custom"
         case custom = "Custom"
     }
-    // Gets or sets returns or sets the type of section break for the specified object.             
+
+    // Gets or sets returns or sets the type of section break for the specified object.
     public enum SectionStart : String, Codable
-    { 
+    {
         // Enum value "continuous"
         case continuous = "Continuous"
 
@@ -332,9 +340,10 @@ public class PageSetup : LinkElement {
         // Enum value "oddPage"
         case oddPage = "OddPage"
     }
-    // Gets or sets returns or sets the vertical alignment of text on each page in a document or section.             
+
+    // Gets or sets returns or sets the vertical alignment of text on each page in a document or section.
     public enum VerticalAlignment : String, Codable
-    { 
+    {
         // Enum value "top"
         case top = "Top"
 
@@ -347,94 +356,94 @@ public class PageSetup : LinkElement {
         // Enum value "bottom"
         case bottom = "Bottom"
     }
-    
-    // Field of bidi. Gets or sets specifies that this section contains bidirectional (complex scripts) text.                   
+
+    // Field of bidi. Represents the page setup properties of a section.
     private var bidi : Bool?;
-    
-    // Field of borderAlwaysInFront. Gets or sets specifies where the page border is positioned relative to intersecting texts and objects.                   
+
+    // Field of borderAlwaysInFront. Represents the page setup properties of a section.
     private var borderAlwaysInFront : Bool?;
-    
-    // Field of borderAppliesTo. Gets or sets specifies which pages the page border is printed on.                   
+
+    // Field of borderAppliesTo. Represents the page setup properties of a section.
     private var borderAppliesTo : BorderAppliesTo?;
-    
-    // Field of borderDistanceFrom. Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.                   
+
+    // Field of borderDistanceFrom. Represents the page setup properties of a section.
     private var borderDistanceFrom : BorderDistanceFrom?;
-    
-    // Field of bottomMargin. Gets or sets returns or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.                   
+
+    // Field of bottomMargin. Represents the page setup properties of a section.
     private var bottomMargin : Double?;
-    
-    // Field of differentFirstPageHeaderFooter. Gets or sets true if a different header or footer is used on the first page.                   
+
+    // Field of differentFirstPageHeaderFooter. Represents the page setup properties of a section.
     private var differentFirstPageHeaderFooter : Bool?;
-    
-    // Field of firstPageTray. Gets or sets the paper tray (bin) to use for the first page of a section. The value is implementation (printer) specific.                   
+
+    // Field of firstPageTray. Represents the page setup properties of a section.
     private var firstPageTray : Int?;
-    
-    // Field of footerDistance. Gets or sets returns or sets the distance (in points) between the footer and the bottom of the page.                   
+
+    // Field of footerDistance. Represents the page setup properties of a section.
     private var footerDistance : Double?;
-    
-    // Field of gutter. Gets or sets the amount of extra space added to the margin for document binding.                   
+
+    // Field of gutter. Represents the page setup properties of a section.
     private var gutter : Double?;
-    
-    // Field of headerDistance. Gets or sets returns or sets the distance (in points) between the header and the top of the page.                   
+
+    // Field of headerDistance. Represents the page setup properties of a section.
     private var headerDistance : Double?;
-    
-    // Field of leftMargin. Gets or sets returns or sets the distance (in points) between the left edge of the page and the left boundary of the body text.                   
+
+    // Field of leftMargin. Represents the page setup properties of a section.
     private var leftMargin : Double?;
-    
-    // Field of lineNumberCountBy. Gets or sets returns or sets the numeric increment for line numbers.                   
+
+    // Field of lineNumberCountBy. Represents the page setup properties of a section.
     private var lineNumberCountBy : Int?;
-    
-    // Field of lineNumberDistanceFromText. Gets or sets distance between the right edge of line numbers and the left edge of the document.                   
+
+    // Field of lineNumberDistanceFromText. Represents the page setup properties of a section.
     private var lineNumberDistanceFromText : Double?;
-    
-    // Field of lineNumberRestartMode. Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.                   
+
+    // Field of lineNumberRestartMode. Represents the page setup properties of a section.
     private var lineNumberRestartMode : LineNumberRestartMode?;
-    
-    // Field of lineStartingNumber. Gets or sets the starting line number.                   
+
+    // Field of lineStartingNumber. Represents the page setup properties of a section.
     private var lineStartingNumber : Int?;
-    
-    // Field of orientation. Gets or sets returns or sets the orientation of the page.                   
+
+    // Field of orientation. Represents the page setup properties of a section.
     private var orientation : Orientation?;
-    
-    // Field of otherPagesTray. Gets or sets the paper tray (bin) to be used for all but the first page of a section. The value is implementation (printer) specific.                   
+
+    // Field of otherPagesTray. Represents the page setup properties of a section.
     private var otherPagesTray : Int?;
-    
-    // Field of pageHeight. Gets or sets returns or sets the height of the page in points.                   
+
+    // Field of pageHeight. Represents the page setup properties of a section.
     private var pageHeight : Double?;
-    
-    // Field of pageNumberStyle. Gets or sets the page number format.                   
+
+    // Field of pageNumberStyle. Represents the page setup properties of a section.
     private var pageNumberStyle : PageNumberStyle?;
-    
-    // Field of pageStartingNumber. Gets or sets the starting page number of the section.                   
+
+    // Field of pageStartingNumber. Represents the page setup properties of a section.
     private var pageStartingNumber : Int?;
-    
-    // Field of pageWidth. Gets or sets returns or sets the width of the page in points.                   
+
+    // Field of pageWidth. Represents the page setup properties of a section.
     private var pageWidth : Double?;
-    
-    // Field of paperSize. Gets or sets returns or sets the paper size.                   
+
+    // Field of paperSize. Represents the page setup properties of a section.
     private var paperSize : PaperSize?;
-    
-    // Field of restartPageNumbering. Gets or sets true if page numbering restarts at the beginning of the section.                   
+
+    // Field of restartPageNumbering. Represents the page setup properties of a section.
     private var restartPageNumbering : Bool?;
-    
-    // Field of rightMargin. Gets or sets returns or sets the distance (in points) between the right edge of the page and the right boundary of the body text.                   
+
+    // Field of rightMargin. Represents the page setup properties of a section.
     private var rightMargin : Double?;
-    
-    // Field of rtlGutter. Gets or sets whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.                   
+
+    // Field of rtlGutter. Represents the page setup properties of a section.
     private var rtlGutter : Bool?;
-    
-    // Field of sectionStart. Gets or sets returns or sets the type of section break for the specified object.                   
+
+    // Field of sectionStart. Represents the page setup properties of a section.
     private var sectionStart : SectionStart?;
-    
-    // Field of suppressEndnotes. Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.                   
+
+    // Field of suppressEndnotes. Represents the page setup properties of a section.
     private var suppressEndnotes : Bool?;
-    
-    // Field of topMargin. Gets or sets returns or sets the distance (in points) between the top edge of the page and the top boundary of the body text.                   
+
+    // Field of topMargin. Represents the page setup properties of a section.
     private var topMargin : Double?;
-    
-    // Field of verticalAlignment. Gets or sets returns or sets the vertical alignment of text on each page in a document or section.                   
+
+    // Field of verticalAlignment. Represents the page setup properties of a section.
     private var verticalAlignment : VerticalAlignment?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case bidi;
         case borderAlwaysInFront;
@@ -467,11 +476,11 @@ public class PageSetup : LinkElement {
         case verticalAlignment;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -597,293 +606,293 @@ public class PageSetup : LinkElement {
             try container.encode(self.verticalAlignment, forKey: .verticalAlignment);
         }
     }
-    
-    // Sets bidi. Gets or sets specifies that this section contains bidirectional (complex scripts) text.               
+
+    // Sets bidi. Gets or sets specifies that this section contains bidirectional (complex scripts) text.
     public func setBidi(bidi : Bool?) {
         self.bidi = bidi;
     }
-    
-    // Gets bidi. Gets or sets specifies that this section contains bidirectional (complex scripts) text.               
+
+    // Gets bidi. Gets or sets specifies that this section contains bidirectional (complex scripts) text.
     public func getBidi() -> Bool? {
         return self.bidi;
     }
-    
-    // Sets borderAlwaysInFront. Gets or sets specifies where the page border is positioned relative to intersecting texts and objects.               
+
+    // Sets borderAlwaysInFront. Gets or sets specifies where the page border is positioned relative to intersecting texts and objects.
     public func setBorderAlwaysInFront(borderAlwaysInFront : Bool?) {
         self.borderAlwaysInFront = borderAlwaysInFront;
     }
-    
-    // Gets borderAlwaysInFront. Gets or sets specifies where the page border is positioned relative to intersecting texts and objects.               
+
+    // Gets borderAlwaysInFront. Gets or sets specifies where the page border is positioned relative to intersecting texts and objects.
     public func getBorderAlwaysInFront() -> Bool? {
         return self.borderAlwaysInFront;
     }
-    
-    // Sets borderAppliesTo. Gets or sets specifies which pages the page border is printed on.               
+
+    // Sets borderAppliesTo. Gets or sets specifies which pages the page border is printed on.
     public func setBorderAppliesTo(borderAppliesTo : BorderAppliesTo?) {
         self.borderAppliesTo = borderAppliesTo;
     }
-    
-    // Gets borderAppliesTo. Gets or sets specifies which pages the page border is printed on.               
+
+    // Gets borderAppliesTo. Gets or sets specifies which pages the page border is printed on.
     public func getBorderAppliesTo() -> BorderAppliesTo? {
         return self.borderAppliesTo;
     }
-    
-    // Sets borderDistanceFrom. Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.               
+
+    // Sets borderDistanceFrom. Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.
     public func setBorderDistanceFrom(borderDistanceFrom : BorderDistanceFrom?) {
         self.borderDistanceFrom = borderDistanceFrom;
     }
-    
-    // Gets borderDistanceFrom. Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.               
+
+    // Gets borderDistanceFrom. Gets or sets a value that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.
     public func getBorderDistanceFrom() -> BorderDistanceFrom? {
         return self.borderDistanceFrom;
     }
-    
-    // Sets bottomMargin. Gets or sets returns or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.               
+
+    // Sets bottomMargin. Gets or sets returns or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.
     public func setBottomMargin(bottomMargin : Double?) {
         self.bottomMargin = bottomMargin;
     }
-    
-    // Gets bottomMargin. Gets or sets returns or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.               
+
+    // Gets bottomMargin. Gets or sets returns or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.
     public func getBottomMargin() -> Double? {
         return self.bottomMargin;
     }
-    
-    // Sets differentFirstPageHeaderFooter. Gets or sets true if a different header or footer is used on the first page.               
+
+    // Sets differentFirstPageHeaderFooter. Gets or sets true if a different header or footer is used on the first page.
     public func setDifferentFirstPageHeaderFooter(differentFirstPageHeaderFooter : Bool?) {
         self.differentFirstPageHeaderFooter = differentFirstPageHeaderFooter;
     }
-    
-    // Gets differentFirstPageHeaderFooter. Gets or sets true if a different header or footer is used on the first page.               
+
+    // Gets differentFirstPageHeaderFooter. Gets or sets true if a different header or footer is used on the first page.
     public func getDifferentFirstPageHeaderFooter() -> Bool? {
         return self.differentFirstPageHeaderFooter;
     }
-    
-    // Sets firstPageTray. Gets or sets the paper tray (bin) to use for the first page of a section. The value is implementation (printer) specific.               
+
+    // Sets firstPageTray. Gets or sets the paper tray (bin) to use for the first page of a section. The value is implementation (printer) specific.
     public func setFirstPageTray(firstPageTray : Int?) {
         self.firstPageTray = firstPageTray;
     }
-    
-    // Gets firstPageTray. Gets or sets the paper tray (bin) to use for the first page of a section. The value is implementation (printer) specific.               
+
+    // Gets firstPageTray. Gets or sets the paper tray (bin) to use for the first page of a section. The value is implementation (printer) specific.
     public func getFirstPageTray() -> Int? {
         return self.firstPageTray;
     }
-    
-    // Sets footerDistance. Gets or sets returns or sets the distance (in points) between the footer and the bottom of the page.               
+
+    // Sets footerDistance. Gets or sets returns or sets the distance (in points) between the footer and the bottom of the page.
     public func setFooterDistance(footerDistance : Double?) {
         self.footerDistance = footerDistance;
     }
-    
-    // Gets footerDistance. Gets or sets returns or sets the distance (in points) between the footer and the bottom of the page.               
+
+    // Gets footerDistance. Gets or sets returns or sets the distance (in points) between the footer and the bottom of the page.
     public func getFooterDistance() -> Double? {
         return self.footerDistance;
     }
-    
-    // Sets gutter. Gets or sets the amount of extra space added to the margin for document binding.               
+
+    // Sets gutter. Gets or sets the amount of extra space added to the margin for document binding.
     public func setGutter(gutter : Double?) {
         self.gutter = gutter;
     }
-    
-    // Gets gutter. Gets or sets the amount of extra space added to the margin for document binding.               
+
+    // Gets gutter. Gets or sets the amount of extra space added to the margin for document binding.
     public func getGutter() -> Double? {
         return self.gutter;
     }
-    
-    // Sets headerDistance. Gets or sets returns or sets the distance (in points) between the header and the top of the page.               
+
+    // Sets headerDistance. Gets or sets returns or sets the distance (in points) between the header and the top of the page.
     public func setHeaderDistance(headerDistance : Double?) {
         self.headerDistance = headerDistance;
     }
-    
-    // Gets headerDistance. Gets or sets returns or sets the distance (in points) between the header and the top of the page.               
+
+    // Gets headerDistance. Gets or sets returns or sets the distance (in points) between the header and the top of the page.
     public func getHeaderDistance() -> Double? {
         return self.headerDistance;
     }
-    
-    // Sets leftMargin. Gets or sets returns or sets the distance (in points) between the left edge of the page and the left boundary of the body text.               
+
+    // Sets leftMargin. Gets or sets returns or sets the distance (in points) between the left edge of the page and the left boundary of the body text.
     public func setLeftMargin(leftMargin : Double?) {
         self.leftMargin = leftMargin;
     }
-    
-    // Gets leftMargin. Gets or sets returns or sets the distance (in points) between the left edge of the page and the left boundary of the body text.               
+
+    // Gets leftMargin. Gets or sets returns or sets the distance (in points) between the left edge of the page and the left boundary of the body text.
     public func getLeftMargin() -> Double? {
         return self.leftMargin;
     }
-    
-    // Sets lineNumberCountBy. Gets or sets returns or sets the numeric increment for line numbers.               
+
+    // Sets lineNumberCountBy. Gets or sets returns or sets the numeric increment for line numbers.
     public func setLineNumberCountBy(lineNumberCountBy : Int?) {
         self.lineNumberCountBy = lineNumberCountBy;
     }
-    
-    // Gets lineNumberCountBy. Gets or sets returns or sets the numeric increment for line numbers.               
+
+    // Gets lineNumberCountBy. Gets or sets returns or sets the numeric increment for line numbers.
     public func getLineNumberCountBy() -> Int? {
         return self.lineNumberCountBy;
     }
-    
-    // Sets lineNumberDistanceFromText. Gets or sets distance between the right edge of line numbers and the left edge of the document.               
+
+    // Sets lineNumberDistanceFromText. Gets or sets distance between the right edge of line numbers and the left edge of the document.
     public func setLineNumberDistanceFromText(lineNumberDistanceFromText : Double?) {
         self.lineNumberDistanceFromText = lineNumberDistanceFromText;
     }
-    
-    // Gets lineNumberDistanceFromText. Gets or sets distance between the right edge of line numbers and the left edge of the document.               
+
+    // Gets lineNumberDistanceFromText. Gets or sets distance between the right edge of line numbers and the left edge of the document.
     public func getLineNumberDistanceFromText() -> Double? {
         return self.lineNumberDistanceFromText;
     }
-    
-    // Sets lineNumberRestartMode. Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.               
+
+    // Sets lineNumberRestartMode. Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.
     public func setLineNumberRestartMode(lineNumberRestartMode : LineNumberRestartMode?) {
         self.lineNumberRestartMode = lineNumberRestartMode;
     }
-    
-    // Gets lineNumberRestartMode. Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.               
+
+    // Gets lineNumberRestartMode. Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.
     public func getLineNumberRestartMode() -> LineNumberRestartMode? {
         return self.lineNumberRestartMode;
     }
-    
-    // Sets lineStartingNumber. Gets or sets the starting line number.               
+
+    // Sets lineStartingNumber. Gets or sets the starting line number.
     public func setLineStartingNumber(lineStartingNumber : Int?) {
         self.lineStartingNumber = lineStartingNumber;
     }
-    
-    // Gets lineStartingNumber. Gets or sets the starting line number.               
+
+    // Gets lineStartingNumber. Gets or sets the starting line number.
     public func getLineStartingNumber() -> Int? {
         return self.lineStartingNumber;
     }
-    
-    // Sets orientation. Gets or sets returns or sets the orientation of the page.               
+
+    // Sets orientation. Gets or sets returns or sets the orientation of the page.
     public func setOrientation(orientation : Orientation?) {
         self.orientation = orientation;
     }
-    
-    // Gets orientation. Gets or sets returns or sets the orientation of the page.               
+
+    // Gets orientation. Gets or sets returns or sets the orientation of the page.
     public func getOrientation() -> Orientation? {
         return self.orientation;
     }
-    
-    // Sets otherPagesTray. Gets or sets the paper tray (bin) to be used for all but the first page of a section. The value is implementation (printer) specific.               
+
+    // Sets otherPagesTray. Gets or sets the paper tray (bin) to be used for all but the first page of a section. The value is implementation (printer) specific.
     public func setOtherPagesTray(otherPagesTray : Int?) {
         self.otherPagesTray = otherPagesTray;
     }
-    
-    // Gets otherPagesTray. Gets or sets the paper tray (bin) to be used for all but the first page of a section. The value is implementation (printer) specific.               
+
+    // Gets otherPagesTray. Gets or sets the paper tray (bin) to be used for all but the first page of a section. The value is implementation (printer) specific.
     public func getOtherPagesTray() -> Int? {
         return self.otherPagesTray;
     }
-    
-    // Sets pageHeight. Gets or sets returns or sets the height of the page in points.               
+
+    // Sets pageHeight. Gets or sets returns or sets the height of the page in points.
     public func setPageHeight(pageHeight : Double?) {
         self.pageHeight = pageHeight;
     }
-    
-    // Gets pageHeight. Gets or sets returns or sets the height of the page in points.               
+
+    // Gets pageHeight. Gets or sets returns or sets the height of the page in points.
     public func getPageHeight() -> Double? {
         return self.pageHeight;
     }
-    
-    // Sets pageNumberStyle. Gets or sets the page number format.               
+
+    // Sets pageNumberStyle. Gets or sets the page number format.
     public func setPageNumberStyle(pageNumberStyle : PageNumberStyle?) {
         self.pageNumberStyle = pageNumberStyle;
     }
-    
-    // Gets pageNumberStyle. Gets or sets the page number format.               
+
+    // Gets pageNumberStyle. Gets or sets the page number format.
     public func getPageNumberStyle() -> PageNumberStyle? {
         return self.pageNumberStyle;
     }
-    
-    // Sets pageStartingNumber. Gets or sets the starting page number of the section.               
+
+    // Sets pageStartingNumber. Gets or sets the starting page number of the section.
     public func setPageStartingNumber(pageStartingNumber : Int?) {
         self.pageStartingNumber = pageStartingNumber;
     }
-    
-    // Gets pageStartingNumber. Gets or sets the starting page number of the section.               
+
+    // Gets pageStartingNumber. Gets or sets the starting page number of the section.
     public func getPageStartingNumber() -> Int? {
         return self.pageStartingNumber;
     }
-    
-    // Sets pageWidth. Gets or sets returns or sets the width of the page in points.               
+
+    // Sets pageWidth. Gets or sets returns or sets the width of the page in points.
     public func setPageWidth(pageWidth : Double?) {
         self.pageWidth = pageWidth;
     }
-    
-    // Gets pageWidth. Gets or sets returns or sets the width of the page in points.               
+
+    // Gets pageWidth. Gets or sets returns or sets the width of the page in points.
     public func getPageWidth() -> Double? {
         return self.pageWidth;
     }
-    
-    // Sets paperSize. Gets or sets returns or sets the paper size.               
+
+    // Sets paperSize. Gets or sets returns or sets the paper size.
     public func setPaperSize(paperSize : PaperSize?) {
         self.paperSize = paperSize;
     }
-    
-    // Gets paperSize. Gets or sets returns or sets the paper size.               
+
+    // Gets paperSize. Gets or sets returns or sets the paper size.
     public func getPaperSize() -> PaperSize? {
         return self.paperSize;
     }
-    
-    // Sets restartPageNumbering. Gets or sets true if page numbering restarts at the beginning of the section.               
+
+    // Sets restartPageNumbering. Gets or sets true if page numbering restarts at the beginning of the section.
     public func setRestartPageNumbering(restartPageNumbering : Bool?) {
         self.restartPageNumbering = restartPageNumbering;
     }
-    
-    // Gets restartPageNumbering. Gets or sets true if page numbering restarts at the beginning of the section.               
+
+    // Gets restartPageNumbering. Gets or sets true if page numbering restarts at the beginning of the section.
     public func getRestartPageNumbering() -> Bool? {
         return self.restartPageNumbering;
     }
-    
-    // Sets rightMargin. Gets or sets returns or sets the distance (in points) between the right edge of the page and the right boundary of the body text.               
+
+    // Sets rightMargin. Gets or sets returns or sets the distance (in points) between the right edge of the page and the right boundary of the body text.
     public func setRightMargin(rightMargin : Double?) {
         self.rightMargin = rightMargin;
     }
-    
-    // Gets rightMargin. Gets or sets returns or sets the distance (in points) between the right edge of the page and the right boundary of the body text.               
+
+    // Gets rightMargin. Gets or sets returns or sets the distance (in points) between the right edge of the page and the right boundary of the body text.
     public func getRightMargin() -> Double? {
         return self.rightMargin;
     }
-    
-    // Sets rtlGutter. Gets or sets whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.               
+
+    // Sets rtlGutter. Gets or sets whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.
     public func setRtlGutter(rtlGutter : Bool?) {
         self.rtlGutter = rtlGutter;
     }
-    
-    // Gets rtlGutter. Gets or sets whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.               
+
+    // Gets rtlGutter. Gets or sets whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.
     public func getRtlGutter() -> Bool? {
         return self.rtlGutter;
     }
-    
-    // Sets sectionStart. Gets or sets returns or sets the type of section break for the specified object.               
+
+    // Sets sectionStart. Gets or sets returns or sets the type of section break for the specified object.
     public func setSectionStart(sectionStart : SectionStart?) {
         self.sectionStart = sectionStart;
     }
-    
-    // Gets sectionStart. Gets or sets returns or sets the type of section break for the specified object.               
+
+    // Gets sectionStart. Gets or sets returns or sets the type of section break for the specified object.
     public func getSectionStart() -> SectionStart? {
         return self.sectionStart;
     }
-    
-    // Sets suppressEndnotes. Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.               
+
+    // Sets suppressEndnotes. Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.
     public func setSuppressEndnotes(suppressEndnotes : Bool?) {
         self.suppressEndnotes = suppressEndnotes;
     }
-    
-    // Gets suppressEndnotes. Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.               
+
+    // Gets suppressEndnotes. Gets or sets true if endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.
     public func getSuppressEndnotes() -> Bool? {
         return self.suppressEndnotes;
     }
-    
-    // Sets topMargin. Gets or sets returns or sets the distance (in points) between the top edge of the page and the top boundary of the body text.               
+
+    // Sets topMargin. Gets or sets returns or sets the distance (in points) between the top edge of the page and the top boundary of the body text.
     public func setTopMargin(topMargin : Double?) {
         self.topMargin = topMargin;
     }
-    
-    // Gets topMargin. Gets or sets returns or sets the distance (in points) between the top edge of the page and the top boundary of the body text.               
+
+    // Gets topMargin. Gets or sets returns or sets the distance (in points) between the top edge of the page and the top boundary of the body text.
     public func getTopMargin() -> Double? {
         return self.topMargin;
     }
-    
-    // Sets verticalAlignment. Gets or sets returns or sets the vertical alignment of text on each page in a document or section.               
+
+    // Sets verticalAlignment. Gets or sets returns or sets the vertical alignment of text on each page in a document or section.
     public func setVerticalAlignment(verticalAlignment : VerticalAlignment?) {
         self.verticalAlignment = verticalAlignment;
     }
-    
-    // Gets verticalAlignment. Gets or sets returns or sets the vertical alignment of text on each page in a document or section.               
+
+    // Gets verticalAlignment. Gets or sets returns or sets the vertical alignment of text on each page in a document or section.
     public func getVerticalAlignment() -> VerticalAlignment? {
         return self.verticalAlignment;
     }

@@ -31,7 +31,7 @@ import Foundation
 public class Style : LinkElement {
     // Gets or sets the locale independent style identifier for a built-in style.
     public enum StyleIdentifier : String, Codable
-    { 
+    {
         // Enum value "normal"
         case normal = "Normal"
 
@@ -1151,9 +1151,10 @@ public class Style : LinkElement {
         // Enum value "_nil"
         case _nil = "Nil"
     }
+
     // Gets or sets the style type (paragraph or character).
     public enum ModelType : String, Codable
-    { 
+    {
         // Enum value "paragraph"
         case paragraph = "Paragraph"
 
@@ -1166,40 +1167,40 @@ public class Style : LinkElement {
         // Enum value "list"
         case list = "List"
     }
-    
-    // Field of aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.      
+
+    // Field of aliases. Represents a single document style.
     private var aliases : [String]?;
-    
-    // Field of baseStyleName. Gets or sets /sets the name of the style this style is based on.      
+
+    // Field of baseStyleName. Represents a single document style.
     private var baseStyleName : String?;
-    
-    // Field of builtIn. Gets or sets a value indicating whether true if this style is one of the built-in styles in MS Word.      
+
+    // Field of builtIn. Represents a single document style.
     private var builtIn : Bool?;
-    
-    // Field of font.       
+
+    // Field of font. Represents a single document style.
     private var font : Font?;
-    
-    // Field of isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.      
+
+    // Field of isHeading. Represents a single document style.
     private var isHeading : Bool?;
-    
-    // Field of isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.      
+
+    // Field of isQuickStyle. Represents a single document style.
     private var isQuickStyle : Bool?;
-    
-    // Field of linkedStyleName. Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.      
+
+    // Field of linkedStyleName. Represents a single document style.
     private var linkedStyleName : String?;
-    
-    // Field of name. Gets or sets the name of the style.      
+
+    // Field of name. Represents a single document style.
     private var name : String?;
-    
-    // Field of nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.      
+
+    // Field of nextParagraphStyleName. Represents a single document style.
     private var nextParagraphStyleName : String?;
-    
-    // Field of styleIdentifier. Gets or sets the locale independent style identifier for a built-in style.      
+
+    // Field of styleIdentifier. Represents a single document style.
     private var styleIdentifier : StyleIdentifier?;
-    
-    // Field of type. Gets or sets the style type (paragraph or character).      
+
+    // Field of type. Represents a single document style.
     private var type : ModelType?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case aliases;
         case baseStyleName;
@@ -1214,11 +1215,11 @@ public class Style : LinkElement {
         case type;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -1272,113 +1273,113 @@ public class Style : LinkElement {
             try container.encode(self.type, forKey: .type);
         }
     }
-    
-    // Sets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.  
+
+    // Sets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
     public func setAliases(aliases : [String]?) {
         self.aliases = aliases;
     }
-    
-    // Gets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.  
+
+    // Gets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
     public func getAliases() -> [String]? {
         return self.aliases;
     }
-    
-    // Sets baseStyleName. Gets or sets /sets the name of the style this style is based on.  
+
+    // Sets baseStyleName. Gets or sets /sets the name of the style this style is based on.
     public func setBaseStyleName(baseStyleName : String?) {
         self.baseStyleName = baseStyleName;
     }
-    
-    // Gets baseStyleName. Gets or sets /sets the name of the style this style is based on.  
+
+    // Gets baseStyleName. Gets or sets /sets the name of the style this style is based on.
     public func getBaseStyleName() -> String? {
         return self.baseStyleName;
     }
-    
-    // Sets builtIn. Gets or sets a value indicating whether true if this style is one of the built-in styles in MS Word.  
+
+    // Sets builtIn. Gets or sets a value indicating whether true if this style is one of the built-in styles in MS Word.
     public func setBuiltIn(builtIn : Bool?) {
         self.builtIn = builtIn;
     }
-    
-    // Gets builtIn. Gets or sets a value indicating whether true if this style is one of the built-in styles in MS Word.  
+
+    // Gets builtIn. Gets or sets a value indicating whether true if this style is one of the built-in styles in MS Word.
     public func getBuiltIn() -> Bool? {
         return self.builtIn;
     }
-    
-    // Sets font.   
+
+    // Sets font. Gets or sets the character formatting of the style.
     public func setFont(font : Font?) {
         self.font = font;
     }
-    
-    // Gets font.   
+
+    // Gets font. Gets or sets the character formatting of the style.
     public func getFont() -> Font? {
         return self.font;
     }
-    
-    // Sets isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.  
+
+    // Sets isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.
     public func setIsHeading(isHeading : Bool?) {
         self.isHeading = isHeading;
     }
-    
-    // Gets isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.  
+
+    // Gets isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.
     public func getIsHeading() -> Bool? {
         return self.isHeading;
     }
-    
-    // Sets isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.  
+
+    // Sets isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.
     public func setIsQuickStyle(isQuickStyle : Bool?) {
         self.isQuickStyle = isQuickStyle;
     }
-    
-    // Gets isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.  
+
+    // Gets isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.
     public func getIsQuickStyle() -> Bool? {
         return self.isQuickStyle;
     }
-    
-    // Sets linkedStyleName. Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.  
+
+    // Sets linkedStyleName. Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.
     public func setLinkedStyleName(linkedStyleName : String?) {
         self.linkedStyleName = linkedStyleName;
     }
-    
-    // Gets linkedStyleName. Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.  
+
+    // Gets linkedStyleName. Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.
     public func getLinkedStyleName() -> String? {
         return self.linkedStyleName;
     }
-    
-    // Sets name. Gets or sets the name of the style.  
+
+    // Sets name. Gets or sets the name of the style.
     public func setName(name : String?) {
         self.name = name;
     }
-    
-    // Gets name. Gets or sets the name of the style.  
+
+    // Gets name. Gets or sets the name of the style.
     public func getName() -> String? {
         return self.name;
     }
-    
-    // Sets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.  
+
+    // Sets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
     public func setNextParagraphStyleName(nextParagraphStyleName : String?) {
         self.nextParagraphStyleName = nextParagraphStyleName;
     }
-    
-    // Gets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.  
+
+    // Gets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
     public func getNextParagraphStyleName() -> String? {
         return self.nextParagraphStyleName;
     }
-    
-    // Sets styleIdentifier. Gets or sets the locale independent style identifier for a built-in style.  
+
+    // Sets styleIdentifier. Gets or sets the locale independent style identifier for a built-in style.
     public func setStyleIdentifier(styleIdentifier : StyleIdentifier?) {
         self.styleIdentifier = styleIdentifier;
     }
-    
-    // Gets styleIdentifier. Gets or sets the locale independent style identifier for a built-in style.  
+
+    // Gets styleIdentifier. Gets or sets the locale independent style identifier for a built-in style.
     public func getStyleIdentifier() -> StyleIdentifier? {
         return self.styleIdentifier;
     }
-    
-    // Sets type. Gets or sets the style type (paragraph or character).  
+
+    // Sets type. Gets or sets the style type (paragraph or character).
     public func setType(type : ModelType?) {
         self.type = type;
     }
-    
-    // Gets type. Gets or sets the style type (paragraph or character).  
+
+    // Gets type. Gets or sets the style type (paragraph or character).
     public func getType() -> ModelType? {
         return self.type;
     }

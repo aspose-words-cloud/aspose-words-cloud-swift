@@ -29,7 +29,7 @@ import Foundation
 
 // Specifies options controlling behavior of ReportingEngine while building a report.
 public enum ReportBuildOptions : String, Codable
-{ 
+{
     // Enum value "_none"
     case _none = "None"
 

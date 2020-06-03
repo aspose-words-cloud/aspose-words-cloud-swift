@@ -29,28 +29,27 @@ import Foundation
 
 // Represents a single document list.
 public class ListInfo : LinkElement {
-    
-    // Field of isListStyleDefinition. Gets or sets a value indicating whether returns true if this list is a definition of a list style.      
+    // Field of isListStyleDefinition. Represents a single document list.
     private var isListStyleDefinition : Bool?;
-    
-    // Field of isListStyleReference. Gets or sets a value indicating whether returns true if this list is a reference to a list style.      
+
+    // Field of isListStyleReference. Represents a single document list.
     private var isListStyleReference : Bool?;
-    
-    // Field of isMultiLevel. Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.      
+
+    // Field of isMultiLevel. Represents a single document list.
     private var isMultiLevel : Bool?;
-    
-    // Field of isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.      
+
+    // Field of isRestartAtEachSection. Represents a single document list.
     private var isRestartAtEachSection : Bool?;
-    
-    // Field of listId. Gets or sets the unique identifier of the list.      
+
+    // Field of listId. Represents a single document list.
     private var listId : Int?;
-    
-    // Field of listLevels.       
+
+    // Field of listLevels. Represents a single document list.
     private var listLevels : ListLevels?;
-    
-    // Field of style.       
+
+    // Field of style. Represents a single document list.
     private var style : Style?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case isListStyleDefinition;
         case isListStyleReference;
@@ -61,11 +60,11 @@ public class ListInfo : LinkElement {
         case style;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -103,73 +102,73 @@ public class ListInfo : LinkElement {
             try container.encode(self.style, forKey: .style);
         }
     }
-    
-    // Sets isListStyleDefinition. Gets or sets a value indicating whether returns true if this list is a definition of a list style.  
+
+    // Sets isListStyleDefinition. Gets or sets a value indicating whether returns true if this list is a definition of a list style.
     public func setIsListStyleDefinition(isListStyleDefinition : Bool?) {
         self.isListStyleDefinition = isListStyleDefinition;
     }
-    
-    // Gets isListStyleDefinition. Gets or sets a value indicating whether returns true if this list is a definition of a list style.  
+
+    // Gets isListStyleDefinition. Gets or sets a value indicating whether returns true if this list is a definition of a list style.
     public func getIsListStyleDefinition() -> Bool? {
         return self.isListStyleDefinition;
     }
-    
-    // Sets isListStyleReference. Gets or sets a value indicating whether returns true if this list is a reference to a list style.  
+
+    // Sets isListStyleReference. Gets or sets a value indicating whether returns true if this list is a reference to a list style.
     public func setIsListStyleReference(isListStyleReference : Bool?) {
         self.isListStyleReference = isListStyleReference;
     }
-    
-    // Gets isListStyleReference. Gets or sets a value indicating whether returns true if this list is a reference to a list style.  
+
+    // Gets isListStyleReference. Gets or sets a value indicating whether returns true if this list is a reference to a list style.
     public func getIsListStyleReference() -> Bool? {
         return self.isListStyleReference;
     }
-    
-    // Sets isMultiLevel. Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.  
+
+    // Sets isMultiLevel. Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.
     public func setIsMultiLevel(isMultiLevel : Bool?) {
         self.isMultiLevel = isMultiLevel;
     }
-    
-    // Gets isMultiLevel. Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.  
+
+    // Gets isMultiLevel. Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.
     public func getIsMultiLevel() -> Bool? {
         return self.isMultiLevel;
     }
-    
-    // Sets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.  
+
+    // Sets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
     public func setIsRestartAtEachSection(isRestartAtEachSection : Bool?) {
         self.isRestartAtEachSection = isRestartAtEachSection;
     }
-    
-    // Gets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.  
+
+    // Gets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
     public func getIsRestartAtEachSection() -> Bool? {
         return self.isRestartAtEachSection;
     }
-    
-    // Sets listId. Gets or sets the unique identifier of the list.  
+
+    // Sets listId. Gets or sets the unique identifier of the list.
     public func setListId(listId : Int?) {
         self.listId = listId;
     }
-    
-    // Gets listId. Gets or sets the unique identifier of the list.  
+
+    // Gets listId. Gets or sets the unique identifier of the list.
     public func getListId() -> Int? {
         return self.listId;
     }
-    
-    // Sets listLevels.   
+
+    // Sets listLevels. Gets or sets the collection of list levels for this list.
     public func setListLevels(listLevels : ListLevels?) {
         self.listLevels = listLevels;
     }
-    
-    // Gets listLevels.   
+
+    // Gets listLevels. Gets or sets the collection of list levels for this list.
     public func getListLevels() -> ListLevels? {
         return self.listLevels;
     }
-    
-    // Sets style.   
+
+    // Sets style. Gets or sets the list style that this list references or defines.
     public func setStyle(style : Style?) {
         self.style = style;
     }
-    
-    // Gets style.   
+
+    // Gets style. Gets or sets the list style that this list references or defines.
     public func getStyle() -> Style? {
         return self.style;
     }

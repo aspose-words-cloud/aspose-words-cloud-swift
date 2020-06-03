@@ -31,7 +31,7 @@ import Foundation
 public class TableRowFormat : LinkElement {
     // Gets or sets the rule for determining the height of the table row.
     public enum HeightRule : String, Codable
-    { 
+    {
         // Enum value "atLeast"
         case atLeast = "AtLeast"
 
@@ -41,19 +41,19 @@ public class TableRowFormat : LinkElement {
         // Enum value "auto"
         case auto = "Auto"
     }
-    
-    // Field of allowBreakAcrossPages. Gets or sets true if the text in a table row is allowed to split across a page break.      
+
+    // Field of allowBreakAcrossPages. Represents all formatting for a table row.
     private var allowBreakAcrossPages : Bool?;
-    
-    // Field of headingFormat. Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.      
+
+    // Field of headingFormat. Represents all formatting for a table row.
     private var headingFormat : Bool?;
-    
-    // Field of height. Gets or sets the height of the table row in points.      
+
+    // Field of height. Represents all formatting for a table row.
     private var height : Double?;
-    
-    // Field of heightRule. Gets or sets the rule for determining the height of the table row.      
+
+    // Field of heightRule. Represents all formatting for a table row.
     private var heightRule : HeightRule?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case allowBreakAcrossPages;
         case headingFormat;
@@ -61,11 +61,11 @@ public class TableRowFormat : LinkElement {
         case heightRule;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -91,43 +91,43 @@ public class TableRowFormat : LinkElement {
             try container.encode(self.heightRule, forKey: .heightRule);
         }
     }
-    
-    // Sets allowBreakAcrossPages. Gets or sets true if the text in a table row is allowed to split across a page break.  
+
+    // Sets allowBreakAcrossPages. Gets or sets true if the text in a table row is allowed to split across a page break.
     public func setAllowBreakAcrossPages(allowBreakAcrossPages : Bool?) {
         self.allowBreakAcrossPages = allowBreakAcrossPages;
     }
-    
-    // Gets allowBreakAcrossPages. Gets or sets true if the text in a table row is allowed to split across a page break.  
+
+    // Gets allowBreakAcrossPages. Gets or sets true if the text in a table row is allowed to split across a page break.
     public func getAllowBreakAcrossPages() -> Bool? {
         return self.allowBreakAcrossPages;
     }
-    
-    // Sets headingFormat. Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.  
+
+    // Sets headingFormat. Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.
     public func setHeadingFormat(headingFormat : Bool?) {
         self.headingFormat = headingFormat;
     }
-    
-    // Gets headingFormat. Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.  
+
+    // Gets headingFormat. Gets or sets true if the row is repeated as a table heading on every page when the table spans more than one page.
     public func getHeadingFormat() -> Bool? {
         return self.headingFormat;
     }
-    
-    // Sets height. Gets or sets the height of the table row in points.  
+
+    // Sets height. Gets or sets the height of the table row in points.
     public func setHeight(height : Double?) {
         self.height = height;
     }
-    
-    // Gets height. Gets or sets the height of the table row in points.  
+
+    // Gets height. Gets or sets the height of the table row in points.
     public func getHeight() -> Double? {
         return self.height;
     }
-    
-    // Sets heightRule. Gets or sets the rule for determining the height of the table row.  
+
+    // Sets heightRule. Gets or sets the rule for determining the height of the table row.
     public func setHeightRule(heightRule : HeightRule?) {
         self.heightRule = heightRule;
     }
-    
-    // Gets heightRule. Gets or sets the rule for determining the height of the table row.  
+
+    // Gets heightRule. Gets or sets the rule for determining the height of the table row.
     public func getHeightRule() -> HeightRule? {
         return self.heightRule;
     }

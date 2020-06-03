@@ -29,4 +29,36 @@ import Foundation
 
 // Request model for deleteFile operation.
 public class DeleteFileRequest {
+    private let path : String;
+    private let storageName : String?;
+    private let versionId : String?;
+
+    private enum CodingKeys: String, CodingKey {
+        case path;
+        case storageName;
+        case versionId;
+        case invalidCodingKey;
+    }
+
+    // Initializes a new instance of the DeleteFileRequest class.
+    public init(path : String, storageName : String? = nil, versionId : String? = nil) {
+        self.path = path;
+        self.storageName = storageName;
+        self.versionId = versionId;
+    }
+
+    // Path of the file including file name and extension e.g. /Folder1/file.ext.
+    public func getPath() -> String {
+        return self.path;
+    }
+
+    // Storage name.
+    public func getStorageName() -> String? {
+        return self.storageName;
+    }
+
+    // File version ID to delete.
+    public func getVersionId() -> String? {
+        return self.versionId;
+    }
 }

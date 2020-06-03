@@ -29,19 +29,18 @@ import Foundation
 
 // Collection of comments.
 public class CommentsCollection : LinkElement {
-    
-    // Field of commentList. Gets or sets collection of comments.      
+    // Field of commentList. Collection of comments.
     private var commentList : [Comment]?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case commentList;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class CommentsCollection : LinkElement {
             try container.encode(self.commentList, forKey: .commentList);
         }
     }
-    
-    // Sets commentList. Gets or sets collection of comments.  
+
+    // Sets commentList. Gets or sets collection of comments.
     public func setCommentList(commentList : [Comment]?) {
         self.commentList = commentList;
     }
-    
-    // Gets commentList. Gets or sets collection of comments.  
+
+    // Gets commentList. Gets or sets collection of comments.
     public func getCommentList() -> [Comment]? {
         return self.commentList;
     }

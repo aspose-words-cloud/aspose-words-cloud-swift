@@ -27,21 +27,20 @@
 
 import Foundation
 
-// Paragraph format tab stop.             
+// Paragraph format tab stop.
 public class TabStop : TabStopBase {
-    
-    // Field of isClear. Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.      
+    // Field of isClear. Paragraph format tab stop.
     private var isClear : Bool?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case isClear;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class TabStop : TabStopBase {
             try container.encode(self.isClear, forKey: .isClear);
         }
     }
-    
-    // Sets isClear. Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.  
+
+    // Sets isClear. Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.
     public func setIsClear(isClear : Bool?) {
         self.isClear = isClear;
     }
-    
-    // Gets isClear. Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.  
+
+    // Gets isClear. Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.
     public func getIsClear() -> Bool? {
         return self.isClear;
     }

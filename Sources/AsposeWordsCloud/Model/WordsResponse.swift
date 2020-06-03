@@ -29,39 +29,35 @@ import Foundation
 
 // Base class for all responses.
 public class WordsResponse : Codable, WordsApiModel {
-    
-    // Field of requestId. Gets or sets request Id.      
+    // Field of requestId. Base class for all responses.
     private var requestId : String?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case requestId;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.requestId = try container.decodeIfPresent(String.self, forKey: .requestId);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.requestId != nil) {
             try container.encode(self.requestId, forKey: .requestId);
         }
     }
-    
-    // Sets requestId. Gets or sets request Id.  
+
+    // Sets requestId. Gets or sets request Id.
     public func setRequestId(requestId : String?) {
         self.requestId = requestId;
     }
-    
-    // Gets requestId. Gets or sets request Id.  
+
+    // Gets requestId. Gets or sets request Id.
     public func getRequestId() -> String? {
         return self.requestId;
     }

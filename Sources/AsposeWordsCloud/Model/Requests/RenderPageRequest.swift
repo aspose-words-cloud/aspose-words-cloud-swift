@@ -29,4 +29,76 @@ import Foundation
 
 // Request model for renderPage operation.
 public class RenderPageRequest {
+    private let name : String;
+    private let pageIndex : Int;
+    private let format : String;
+    private let folder : String?;
+    private let storage : String?;
+    private let loadEncoding : String?;
+    private let password : String?;
+    private let fontsLocation : String?;
+
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case pageIndex;
+        case format;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case fontsLocation;
+        case invalidCodingKey;
+    }
+
+    // Initializes a new instance of the RenderPageRequest class.
+    public init(name : String, pageIndex : Int, format : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
+        self.name = name;
+        self.pageIndex = pageIndex;
+        self.format = format;
+        self.folder = folder;
+        self.storage = storage;
+        self.loadEncoding = loadEncoding;
+        self.password = password;
+        self.fontsLocation = fontsLocation;
+    }
+
+    // The document name.
+    public func getName() -> String {
+        return self.name;
+    }
+
+    // Comment index.
+    public func getPageIndex() -> Int {
+        return self.pageIndex;
+    }
+
+    // The destination format.
+    public func getFormat() -> String {
+        return self.format;
+    }
+
+    // Original document folder.
+    public func getFolder() -> String? {
+        return self.folder;
+    }
+
+    // Original document storage.
+    public func getStorage() -> String? {
+        return self.storage;
+    }
+
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password for opening an encrypted document.
+    public func getPassword() -> String? {
+        return self.password;
+    }
+
+    // Folder in filestorage with custom fonts.
+    public func getFontsLocation() -> String? {
+        return self.fontsLocation;
+    }
 }

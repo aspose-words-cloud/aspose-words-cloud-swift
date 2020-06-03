@@ -29,15 +29,14 @@ import Foundation
 
 // OfficeMath object link element.
 public class OfficeMathLink : NodeLink {
-        
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
     }
@@ -45,4 +44,5 @@ public class OfficeMathLink : NodeLink {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
+
 }

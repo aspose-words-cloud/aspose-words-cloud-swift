@@ -29,39 +29,35 @@ import Foundation
 
 // Child nodes of Story or InlineStory.
 public class StoryChildNodes : Codable, WordsApiModel {
-    
-    // Field of childNodes. Gets or sets child nodes.      
+    // Field of childNodes. Child nodes of Story or InlineStory.
     private var childNodes : [NodeLink]?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case childNodes;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.childNodes = try container.decodeIfPresent([NodeLink].self, forKey: .childNodes);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.childNodes != nil) {
             try container.encode(self.childNodes, forKey: .childNodes);
         }
     }
-    
-    // Sets childNodes. Gets or sets child nodes.  
+
+    // Sets childNodes. Gets or sets child nodes.
     public func setChildNodes(childNodes : [NodeLink]?) {
         self.childNodes = childNodes;
     }
-    
-    // Gets childNodes. Gets or sets child nodes.  
+
+    // Gets childNodes. Gets or sets child nodes.
     public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }

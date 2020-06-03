@@ -29,23 +29,22 @@ import Foundation
 
 // Table element.
 public class Table : NodeLink {
-    
-    // Field of tableProperties.       
+    // Field of tableProperties. Table element.
     private var tableProperties : TableProperties?;
-    
-    // Field of tableRowList. Gets or sets collection of table's rows.      
+
+    // Field of tableRowList. Table element.
     private var tableRowList : [TableRow]?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case tableProperties;
         case tableRowList;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -63,23 +62,23 @@ public class Table : NodeLink {
             try container.encode(self.tableRowList, forKey: .tableRowList);
         }
     }
-    
-    // Sets tableProperties.   
+
+    // Sets tableProperties. Gets or sets table properties.
     public func setTableProperties(tableProperties : TableProperties?) {
         self.tableProperties = tableProperties;
     }
-    
-    // Gets tableProperties.   
+
+    // Gets tableProperties. Gets or sets table properties.
     public func getTableProperties() -> TableProperties? {
         return self.tableProperties;
     }
-    
-    // Sets tableRowList. Gets or sets collection of table's rows.  
+
+    // Sets tableRowList. Gets or sets collection of table's rows.
     public func setTableRowList(tableRowList : [TableRow]?) {
         self.tableRowList = tableRowList;
     }
-    
-    // Gets tableRowList. Gets or sets collection of table's rows.  
+
+    // Gets tableRowList. Gets or sets collection of table's rows.
     public func getTableRowList() -> [TableRow]? {
         return self.tableRowList;
     }

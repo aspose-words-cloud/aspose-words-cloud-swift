@@ -29,4 +29,92 @@ import Foundation
 
 // Request model for updateBookmark operation.
 public class UpdateBookmarkRequest {
+    private let name : String;
+    private let bookmarkData : BookmarkData;
+    private let bookmarkName : String;
+    private let folder : String?;
+    private let storage : String?;
+    private let loadEncoding : String?;
+    private let password : String?;
+    private let destFileName : String?;
+    private let revisionAuthor : String?;
+    private let revisionDateTime : String?;
+
+    private enum CodingKeys: String, CodingKey {
+        case name;
+        case bookmarkData;
+        case bookmarkName;
+        case folder;
+        case storage;
+        case loadEncoding;
+        case password;
+        case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
+        case invalidCodingKey;
+    }
+
+    // Initializes a new instance of the UpdateBookmarkRequest class.
+    public init(name : String, bookmarkData : BookmarkData, bookmarkName : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+        self.name = name;
+        self.bookmarkData = bookmarkData;
+        self.bookmarkName = bookmarkName;
+        self.folder = folder;
+        self.storage = storage;
+        self.loadEncoding = loadEncoding;
+        self.password = password;
+        self.destFileName = destFileName;
+        self.revisionAuthor = revisionAuthor;
+        self.revisionDateTime = revisionDateTime;
+    }
+
+    // The document name.
+    public func getName() -> String {
+        return self.name;
+    }
+
+    // BookmarkData with new bookmark data.
+    public func getBookmarkData() -> BookmarkData {
+        return self.bookmarkData;
+    }
+
+    // The bookmark name.
+    public func getBookmarkName() -> String {
+        return self.bookmarkName;
+    }
+
+    // Original document folder.
+    public func getFolder() -> String? {
+        return self.folder;
+    }
+
+    // Original document storage.
+    public func getStorage() -> String? {
+        return self.storage;
+    }
+
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password for opening an encrypted document.
+    public func getPassword() -> String? {
+        return self.password;
+    }
+
+    // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+    public func getDestFileName() -> String? {
+        return self.destFileName;
+    }
+
+    // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+    public func getRevisionAuthor() -> String? {
+        return self.revisionAuthor;
+    }
+
+    // The date and time to use for revisions.
+    public func getRevisionDateTime() -> String? {
+        return self.revisionDateTime;
+    }
 }

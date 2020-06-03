@@ -27,21 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops.
+// This response should be returned by the service when handling:
+// GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops.
 public class TabStopsResponse : WordsResponse {
-    
-    // Field of tabStops. Gets or sets represents a tab stop.      
+    // Field of tabStops. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops.
     private var tabStops : [TabStop]?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case tabStops;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +55,13 @@ public class TabStopsResponse : WordsResponse {
             try container.encode(self.tabStops, forKey: .tabStops);
         }
     }
-    
-    // Sets tabStops. Gets or sets represents a tab stop.  
+
+    // Sets tabStops. Gets or sets represents a tab stop.
     public func setTabStops(tabStops : [TabStop]?) {
         self.tabStops = tabStops;
     }
-    
-    // Gets tabStops. Gets or sets represents a tab stop.  
+
+    // Gets tabStops. Gets or sets represents a tab stop.
     public func getTabStops() -> [TabStop]? {
         return self.tabStops;
     }

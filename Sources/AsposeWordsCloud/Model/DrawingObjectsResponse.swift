@@ -29,19 +29,18 @@ import Foundation
 
 // This response should be returned by the service when handling:  GET /drawingObjects.
 public class DrawingObjectsResponse : WordsResponse {
-    
-    // Field of drawingObjects.       
+    // Field of drawingObjects. This response should be returned by the service when handling:  GET /drawingObjects.
     private var drawingObjects : DrawingObjectCollection?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case drawingObjects;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class DrawingObjectsResponse : WordsResponse {
             try container.encode(self.drawingObjects, forKey: .drawingObjects);
         }
     }
-    
-    // Sets drawingObjects.   
+
+    // Sets drawingObjects. Gets or sets collection of drawing objects.
     public func setDrawingObjects(drawingObjects : DrawingObjectCollection?) {
         self.drawingObjects = drawingObjects;
     }
-    
-    // Gets drawingObjects.   
+
+    // Gets drawingObjects. Gets or sets collection of drawing objects.
     public func getDrawingObjects() -> DrawingObjectCollection? {
         return self.drawingObjects;
     }

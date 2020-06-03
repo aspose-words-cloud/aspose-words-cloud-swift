@@ -29,19 +29,18 @@ import Foundation
 
 // This response should be returned by the service when handling:  GET /{name}/mailMergeFieldNames.
 public class FieldNamesResponse : WordsResponse {
-    
-    // Field of fieldNames.       
+    // Field of fieldNames. This response should be returned by the service when handling:  GET /{name}/mailMergeFieldNames.
     private var fieldNames : FieldNames?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case fieldNames;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class FieldNamesResponse : WordsResponse {
             try container.encode(self.fieldNames, forKey: .fieldNames);
         }
     }
-    
-    // Sets fieldNames.   
+
+    // Sets fieldNames. Gets or sets collection of mail merge fields.
     public func setFieldNames(fieldNames : FieldNames?) {
         self.fieldNames = fieldNames;
     }
-    
-    // Gets fieldNames.   
+
+    // Gets fieldNames. Gets or sets collection of mail merge fields.
     public func getFieldNames() -> FieldNames? {
         return self.fieldNames;
     }

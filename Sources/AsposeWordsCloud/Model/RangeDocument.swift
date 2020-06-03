@@ -29,39 +29,35 @@ import Foundation
 
 // Range element.
 public class RangeDocument : Codable, WordsApiModel {
-    
-    // Field of documentName. Gets or sets name for new document.      
+    // Field of documentName. Range element.
     private var documentName : String?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case documentName;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.documentName = try container.decodeIfPresent(String.self, forKey: .documentName);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.documentName != nil) {
             try container.encode(self.documentName, forKey: .documentName);
         }
     }
-    
-    // Sets documentName. Gets or sets name for new document.  
+
+    // Sets documentName. Gets or sets name for new document.
     public func setDocumentName(documentName : String?) {
         self.documentName = documentName;
     }
-    
-    // Gets documentName. Gets or sets name for new document.  
+
+    // Gets documentName. Gets or sets name for new document.
     public func getDocumentName() -> String? {
         return self.documentName;
     }

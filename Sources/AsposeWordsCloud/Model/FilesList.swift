@@ -27,41 +27,37 @@
 
 import Foundation
 
-// Files list
+// Files list.
 public class FilesList : Codable, WordsApiModel {
-    
-    // Field of value. Files and folders contained by folder StorageFile.      
+    // Field of value. Files list.
     private var value : [StorageFile]?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case value;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.value = try container.decodeIfPresent([StorageFile].self, forKey: .value);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.value != nil) {
             try container.encode(self.value, forKey: .value);
         }
     }
-    
-    // Sets value. Files and folders contained by folder StorageFile.  
+
+    // Sets value. Files and folders contained by folder StorageFile.
     public func setValue(value : [StorageFile]?) {
         self.value = value;
     }
-    
-    // Gets value. Files and folders contained by folder StorageFile.  
+
+    // Gets value. Files and folders contained by folder StorageFile.
     public func getValue() -> [StorageFile]? {
         return self.value;
     }

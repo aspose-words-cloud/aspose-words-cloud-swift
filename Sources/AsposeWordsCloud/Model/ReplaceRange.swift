@@ -29,41 +29,38 @@ import Foundation
 
 // Range element.
 public class ReplaceRange : Codable, WordsApiModel {
-    // Gets or sets range&#39;s text type.
+    // Gets or sets range's text type.
     public enum TextType : String, Codable
-    { 
+    {
         // Enum value "text"
         case text = "Text"
 
         // Enum value "html"
         case html = "Html"
     }
-    
-    // Field of text. Gets or sets range's text.      
+
+    // Field of text. Range element.
     private var text : String?;
-    
-    // Field of textType. Gets or sets range's text type.      
+
+    // Field of textType. Range element.
     private var textType : TextType?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case text;
         case textType;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
         self.textType = try container.decodeIfPresent(TextType.self, forKey: .textType);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
@@ -72,23 +69,23 @@ public class ReplaceRange : Codable, WordsApiModel {
             try container.encode(self.textType, forKey: .textType);
         }
     }
-    
-    // Sets text. Gets or sets range's text.  
+
+    // Sets text. Gets or sets range's text.
     public func setText(text : String?) {
         self.text = text;
     }
-    
-    // Gets text. Gets or sets range's text.  
+
+    // Gets text. Gets or sets range's text.
     public func getText() -> String? {
         return self.text;
     }
-    
-    // Sets textType. Gets or sets range's text type.  
+
+    // Sets textType. Gets or sets range's text type.
     public func setTextType(textType : TextType?) {
         self.textType = textType;
     }
-    
-    // Gets textType. Gets or sets range's text type.  
+
+    // Gets textType. Gets or sets range's text type.
     public func getTextType() -> TextType? {
         return self.textType;
     }
