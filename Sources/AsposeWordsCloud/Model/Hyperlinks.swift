@@ -29,18 +29,19 @@ import Foundation
 
 // Collection of Hyperlink.
 public class Hyperlinks : LinkElement {
-    // Field of hyperlinkList. Collection of Hyperlink.
+    
+    // Field of hyperlinkList. Gets or sets array of Hyperlink.      
     private var hyperlinkList : [Hyperlink]?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case hyperlinkList;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class Hyperlinks : LinkElement {
             try container.encode(self.hyperlinkList, forKey: .hyperlinkList);
         }
     }
-
-    // Sets hyperlinkList. Gets or sets array of Hyperlink.
+    
+    // Sets hyperlinkList. Gets or sets array of Hyperlink.  
     public func setHyperlinkList(hyperlinkList : [Hyperlink]?) {
         self.hyperlinkList = hyperlinkList;
     }
-
-    // Gets hyperlinkList. Gets or sets array of Hyperlink.
+    
+    // Gets hyperlinkList. Gets or sets array of Hyperlink.  
     public func getHyperlinkList() -> [Hyperlink]? {
         return self.hyperlinkList;
     }

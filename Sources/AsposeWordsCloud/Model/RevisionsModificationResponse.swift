@@ -29,18 +29,19 @@ import Foundation
 
 // response of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
 public class RevisionsModificationResponse : WordsResponse {
-    // Field of result. response of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
+    
+    // Field of result.       
     private var result : ModificationOperationResult?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case result;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class RevisionsModificationResponse : WordsResponse {
             try container.encode(self.result, forKey: .result);
         }
     }
-
-    // Sets result. Gets or sets result of the modification operations for the revisions collection.
+    
+    // Sets result.   
     public func setResult(result : ModificationOperationResult?) {
         self.result = result;
     }
-
-    // Gets result. Gets or sets result of the modification operations for the revisions collection.
+    
+    // Gets result.   
     public func getResult() -> ModificationOperationResult? {
         return self.result;
     }

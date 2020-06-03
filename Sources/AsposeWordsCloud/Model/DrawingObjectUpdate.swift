@@ -29,9 +29,9 @@ import Foundation
 
 // Drawing object element for update.
 public class DrawingObjectUpdate : Codable, WordsApiModel {
-    // Gets or sets specifies where the distance to the image is measured from.
+    // Gets or sets specifies where the distance to the image is measured from.             
     public enum RelativeHorizontalPosition : String, Codable
-    {
+    { 
         // Enum value "margin"
         case margin = "Margin"
 
@@ -59,10 +59,9 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
         // Enum value "outsideMargin"
         case outsideMargin = "OutsideMargin"
     }
-
     // Gets or sets specifies where the distance to the image measured from.
     public enum RelativeVerticalPosition : String, Codable
-    {
+    { 
         // Enum value "margin"
         case margin = "Margin"
 
@@ -93,10 +92,9 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
         // Enum value "outsideMargin"
         case outsideMargin = "OutsideMargin"
     }
-
     // Gets or sets specifies how to wrap text around the image.
     public enum WrapType : String, Codable
-    {
+    { 
         // Enum value "inline"
         case inline = "Inline"
 
@@ -115,63 +113,63 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
         // Enum value "through"
         case through = "Through"
     }
-
-    // Field of height. Drawing object element for update.
-    private var height : Double?;
-
-    // Field of _left. Drawing object element for update.
-    private var _left : Double?;
-
-    // Field of relativeHorizontalPosition. Drawing object element for update.
+    
+    // Field of relativeHorizontalPosition. Gets or sets specifies where the distance to the image is measured from.                   
     private var relativeHorizontalPosition : RelativeHorizontalPosition?;
-
-    // Field of relativeVerticalPosition. Drawing object element for update.
+    
+    // Field of _left. Gets or sets distance in points from the origin to the left side of the image.                   
+    private var _left : Double?;
+    
+    // Field of relativeVerticalPosition. Gets or sets specifies where the distance to the image measured from.      
     private var relativeVerticalPosition : RelativeVerticalPosition?;
-
-    // Field of top. Drawing object element for update.
+    
+    // Field of top. Gets or sets distance in points from the origin to the top side of the image.      
     private var top : Double?;
-
-    // Field of width. Drawing object element for update.
+    
+    // Field of width. Gets or sets width of the drawing objects in points.      
     private var width : Double?;
-
-    // Field of wrapType. Drawing object element for update.
+    
+    // Field of height. Gets or sets height of the drawing object in points.      
+    private var height : Double?;
+    
+    // Field of wrapType. Gets or sets specifies how to wrap text around the image.      
     private var wrapType : WrapType?;
-
+        
     private enum CodingKeys: String, CodingKey {
-        case height;
-        case _left;
         case relativeHorizontalPosition;
+        case _left;
         case relativeVerticalPosition;
         case top;
         case width;
+        case height;
         case wrapType;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.height = try container.decodeIfPresent(Double.self, forKey: .height);
-        self._left = try container.decodeIfPresent(Double.self, forKey: ._left);
         self.relativeHorizontalPosition = try container.decodeIfPresent(RelativeHorizontalPosition.self, forKey: .relativeHorizontalPosition);
+        self._left = try container.decodeIfPresent(Double.self, forKey: ._left);
         self.relativeVerticalPosition = try container.decodeIfPresent(RelativeVerticalPosition.self, forKey: .relativeVerticalPosition);
         self.top = try container.decodeIfPresent(Double.self, forKey: .top);
         self.width = try container.decodeIfPresent(Double.self, forKey: .width);
+        self.height = try container.decodeIfPresent(Double.self, forKey: .height);
         self.wrapType = try container.decodeIfPresent(WrapType.self, forKey: .wrapType);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.height != nil) {
-            try container.encode(self.height, forKey: .height);
+        if (self.relativeHorizontalPosition != nil) {
+            try container.encode(self.relativeHorizontalPosition, forKey: .relativeHorizontalPosition);
         }
         if (self._left != nil) {
             try container.encode(self._left, forKey: ._left);
-        }
-        if (self.relativeHorizontalPosition != nil) {
-            try container.encode(self.relativeHorizontalPosition, forKey: .relativeHorizontalPosition);
         }
         if (self.relativeVerticalPosition != nil) {
             try container.encode(self.relativeVerticalPosition, forKey: .relativeVerticalPosition);
@@ -182,77 +180,80 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
         if (self.width != nil) {
             try container.encode(self.width, forKey: .width);
         }
+        if (self.height != nil) {
+            try container.encode(self.height, forKey: .height);
+        }
         if (self.wrapType != nil) {
             try container.encode(self.wrapType, forKey: .wrapType);
         }
     }
-
-    // Sets height. Gets or sets height of the drawing object in points.
-    public func setHeight(height : Double?) {
-        self.height = height;
-    }
-
-    // Gets height. Gets or sets height of the drawing object in points.
-    public func getHeight() -> Double? {
-        return self.height;
-    }
-
-    // Sets _left. Gets or sets distance in points from the origin to the left side of the image.
-    public func setLeft(_left : Double?) {
-        self._left = _left;
-    }
-
-    // Gets _left. Gets or sets distance in points from the origin to the left side of the image.
-    public func getLeft() -> Double? {
-        return self._left;
-    }
-
-    // Sets relativeHorizontalPosition. Gets or sets specifies where the distance to the image is measured from.
+    
+    // Sets relativeHorizontalPosition. Gets or sets specifies where the distance to the image is measured from.               
     public func setRelativeHorizontalPosition(relativeHorizontalPosition : RelativeHorizontalPosition?) {
         self.relativeHorizontalPosition = relativeHorizontalPosition;
     }
-
-    // Gets relativeHorizontalPosition. Gets or sets specifies where the distance to the image is measured from.
+    
+    // Gets relativeHorizontalPosition. Gets or sets specifies where the distance to the image is measured from.               
     public func getRelativeHorizontalPosition() -> RelativeHorizontalPosition? {
         return self.relativeHorizontalPosition;
     }
-
-    // Sets relativeVerticalPosition. Gets or sets specifies where the distance to the image measured from.
+    
+    // Sets _left. Gets or sets distance in points from the origin to the left side of the image.               
+    public func setLeft(_left : Double?) {
+        self._left = _left;
+    }
+    
+    // Gets _left. Gets or sets distance in points from the origin to the left side of the image.               
+    public func getLeft() -> Double? {
+        return self._left;
+    }
+    
+    // Sets relativeVerticalPosition. Gets or sets specifies where the distance to the image measured from.  
     public func setRelativeVerticalPosition(relativeVerticalPosition : RelativeVerticalPosition?) {
         self.relativeVerticalPosition = relativeVerticalPosition;
     }
-
-    // Gets relativeVerticalPosition. Gets or sets specifies where the distance to the image measured from.
+    
+    // Gets relativeVerticalPosition. Gets or sets specifies where the distance to the image measured from.  
     public func getRelativeVerticalPosition() -> RelativeVerticalPosition? {
         return self.relativeVerticalPosition;
     }
-
-    // Sets top. Gets or sets distance in points from the origin to the top side of the image.
+    
+    // Sets top. Gets or sets distance in points from the origin to the top side of the image.  
     public func setTop(top : Double?) {
         self.top = top;
     }
-
-    // Gets top. Gets or sets distance in points from the origin to the top side of the image.
+    
+    // Gets top. Gets or sets distance in points from the origin to the top side of the image.  
     public func getTop() -> Double? {
         return self.top;
     }
-
-    // Sets width. Gets or sets width of the drawing objects in points.
+    
+    // Sets width. Gets or sets width of the drawing objects in points.  
     public func setWidth(width : Double?) {
         self.width = width;
     }
-
-    // Gets width. Gets or sets width of the drawing objects in points.
+    
+    // Gets width. Gets or sets width of the drawing objects in points.  
     public func getWidth() -> Double? {
         return self.width;
     }
-
-    // Sets wrapType. Gets or sets specifies how to wrap text around the image.
+    
+    // Sets height. Gets or sets height of the drawing object in points.  
+    public func setHeight(height : Double?) {
+        self.height = height;
+    }
+    
+    // Gets height. Gets or sets height of the drawing object in points.  
+    public func getHeight() -> Double? {
+        return self.height;
+    }
+    
+    // Sets wrapType. Gets or sets specifies how to wrap text around the image.  
     public func setWrapType(wrapType : WrapType?) {
         self.wrapType = wrapType;
     }
-
-    // Gets wrapType. Gets or sets specifies how to wrap text around the image.
+    
+    // Gets wrapType. Gets or sets specifies how to wrap text around the image.  
     public func getWrapType() -> WrapType? {
         return self.wrapType;
     }

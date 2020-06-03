@@ -27,28 +27,29 @@
 
 import Foundation
 
-// Paragraph list format element.
+// Paragraph list format element.             
 public class ListFormat : LinkElement {
-    // Field of isListItem. Paragraph list format element.
+    
+    // Field of isListItem. Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.      
     private var isListItem : Bool?;
-
-    // Field of listId. Paragraph list format element.
+    
+    // Field of listId. Gets or sets the list id of this paragraph.      
     private var listId : Int?;
-
-    // Field of listLevelNumber. Paragraph list format element.
+    
+    // Field of listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.      
     private var listLevelNumber : Int?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case isListItem;
         case listId;
         case listLevelNumber;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -70,33 +71,33 @@ public class ListFormat : LinkElement {
             try container.encode(self.listLevelNumber, forKey: .listLevelNumber);
         }
     }
-
-    // Sets isListItem. Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
+    
+    // Sets isListItem. Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.  
     public func setIsListItem(isListItem : Bool?) {
         self.isListItem = isListItem;
     }
-
-    // Gets isListItem. Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
+    
+    // Gets isListItem. Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.  
     public func getIsListItem() -> Bool? {
         return self.isListItem;
     }
-
-    // Sets listId. Gets or sets the list id of this paragraph.
+    
+    // Sets listId. Gets or sets the list id of this paragraph.  
     public func setListId(listId : Int?) {
         self.listId = listId;
     }
-
-    // Gets listId. Gets or sets the list id of this paragraph.
+    
+    // Gets listId. Gets or sets the list id of this paragraph.  
     public func getListId() -> Int? {
         return self.listId;
     }
-
-    // Sets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
+    
+    // Sets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.  
     public func setListLevelNumber(listLevelNumber : Int?) {
         self.listLevelNumber = listLevelNumber;
     }
-
-    // Gets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
+    
+    // Gets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.  
     public func getListLevelNumber() -> Int? {
         return self.listLevelNumber;
     }

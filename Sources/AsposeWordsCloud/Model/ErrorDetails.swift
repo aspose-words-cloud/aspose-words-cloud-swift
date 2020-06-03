@@ -27,56 +27,60 @@
 
 import Foundation
 
-// The error details.
+// The error details
 public class ErrorDetails : Codable, WordsApiModel {
-    // Field of errorDateTime. The error details.
-    private var errorDateTime : Date?;
-
-    // Field of requestId. The error details.
+    
+    // Field of requestId. The request id.      
     private var requestId : String?;
-
+    
+    // Field of errorDateTime. Error datetime.      
+    private var errorDateTime : Date?;
+        
     private enum CodingKeys: String, CodingKey {
-        case errorDateTime;
         case requestId;
+        case errorDateTime;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.errorDateTime = try container.decodeIfPresent(Date.self, forKey: .errorDateTime);
         self.requestId = try container.decodeIfPresent(String.self, forKey: .requestId);
+        self.errorDateTime = try container.decodeIfPresent(Date.self, forKey: .errorDateTime);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.errorDateTime != nil) {
-            try container.encode(self.errorDateTime, forKey: .errorDateTime);
-        }
         if (self.requestId != nil) {
             try container.encode(self.requestId, forKey: .requestId);
         }
+        if (self.errorDateTime != nil) {
+            try container.encode(self.errorDateTime, forKey: .errorDateTime);
+        }
     }
-
-    // Sets errorDateTime. Error datetime.
-    public func setErrorDateTime(errorDateTime : Date?) {
-        self.errorDateTime = errorDateTime;
-    }
-
-    // Gets errorDateTime. Error datetime.
-    public func getErrorDateTime() -> Date? {
-        return self.errorDateTime;
-    }
-
-    // Sets requestId. The request id.
+    
+    // Sets requestId. The request id.  
     public func setRequestId(requestId : String?) {
         self.requestId = requestId;
     }
-
-    // Gets requestId. The request id.
+    
+    // Gets requestId. The request id.  
     public func getRequestId() -> String? {
         return self.requestId;
+    }
+    
+    // Sets errorDateTime. Error datetime.  
+    public func setErrorDateTime(errorDateTime : Date?) {
+        self.errorDateTime = errorDateTime;
+    }
+    
+    // Gets errorDateTime. Error datetime.  
+    public func getErrorDateTime() -> Date? {
+        return self.errorDateTime;
     }
 }

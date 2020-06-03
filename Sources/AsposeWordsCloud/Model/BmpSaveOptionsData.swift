@@ -29,14 +29,15 @@ import Foundation
 
 // Container class for bmp save options.
 public class BmpSaveOptionsData : ImageSaveOptionsData {
+        
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
     }
@@ -44,5 +45,4 @@ public class BmpSaveOptionsData : ImageSaveOptionsData {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
-
 }

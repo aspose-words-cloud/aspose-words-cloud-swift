@@ -27,21 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/range/{0}/{1}/.
+// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/range/{0}/{1}/.
 public class RangeTextResponse : WordsResponse {
-    // Field of text. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/range/{0}/{1}/.
+    
+    // Field of text. Gets or sets text from range.      
     private var text : String?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case text;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +55,13 @@ public class RangeTextResponse : WordsResponse {
             try container.encode(self.text, forKey: .text);
         }
     }
-
-    // Sets text. Gets or sets text from range.
+    
+    // Sets text. Gets or sets text from range.  
     public func setText(text : String?) {
         self.text = text;
     }
-
-    // Gets text. Gets or sets text from range.
+    
+    // Gets text. Gets or sets text from range.  
     public func getText() -> String? {
         return self.text;
     }

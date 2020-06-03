@@ -29,26 +29,27 @@ import Foundation
 
 // The list of fonts, available for document processing.
 public class AvailableFontsResponse : WordsResponse {
-    // Field of additionalFonts. The list of fonts, available for document processing.
+    
+    // Field of additionalFonts. Gets or sets the list of addititional fonts, provided by aspose team.      
     private var additionalFonts : [FontInfo]?;
-
-    // Field of customFonts. The list of fonts, available for document processing.
+    
+    // Field of customFonts. Gets or sets custom user fonts (from user file storage). To use them, you should specify \"fontsLocation\" parameter in any request.      
     private var customFonts : [FontInfo]?;
-
-    // Field of systemFonts. The list of fonts, available for document processing.
+    
+    // Field of systemFonts. Gets or sets the list of system fonts, availiable on the server.      
     private var systemFonts : [FontInfo]?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case additionalFonts;
         case customFonts;
         case systemFonts;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -70,33 +71,33 @@ public class AvailableFontsResponse : WordsResponse {
             try container.encode(self.systemFonts, forKey: .systemFonts);
         }
     }
-
-    // Sets additionalFonts. Gets or sets the list of addititional fonts, provided by aspose team.
+    
+    // Sets additionalFonts. Gets or sets the list of addititional fonts, provided by aspose team.  
     public func setAdditionalFonts(additionalFonts : [FontInfo]?) {
         self.additionalFonts = additionalFonts;
     }
-
-    // Gets additionalFonts. Gets or sets the list of addititional fonts, provided by aspose team.
+    
+    // Gets additionalFonts. Gets or sets the list of addititional fonts, provided by aspose team.  
     public func getAdditionalFonts() -> [FontInfo]? {
         return self.additionalFonts;
     }
-
-    // Sets customFonts. Gets or sets custom user fonts (from user file storage). To use them, you should specify "fontsLocation" parameter in any request.
+    
+    // Sets customFonts. Gets or sets custom user fonts (from user file storage). To use them, you should specify \"fontsLocation\" parameter in any request.  
     public func setCustomFonts(customFonts : [FontInfo]?) {
         self.customFonts = customFonts;
     }
-
-    // Gets customFonts. Gets or sets custom user fonts (from user file storage). To use them, you should specify "fontsLocation" parameter in any request.
+    
+    // Gets customFonts. Gets or sets custom user fonts (from user file storage). To use them, you should specify \"fontsLocation\" parameter in any request.  
     public func getCustomFonts() -> [FontInfo]? {
         return self.customFonts;
     }
-
-    // Sets systemFonts. Gets or sets the list of system fonts, availiable on the server.
+    
+    // Sets systemFonts. Gets or sets the list of system fonts, availiable on the server.  
     public func setSystemFonts(systemFonts : [FontInfo]?) {
         self.systemFonts = systemFonts;
     }
-
-    // Gets systemFonts. Gets or sets the list of system fonts, availiable on the server.
+    
+    // Gets systemFonts. Gets or sets the list of system fonts, availiable on the server.  
     public func getSystemFonts() -> [FontInfo]? {
         return self.systemFonts;
     }

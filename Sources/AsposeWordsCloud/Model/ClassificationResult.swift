@@ -29,28 +29,32 @@ import Foundation
 
 // Represents a single classification result.
 public class ClassificationResult : Codable, WordsApiModel {
-    // Field of className. Represents a single classification result.
+    
+    // Field of className. Gets or sets the name of the class.      
     private var className : String?;
-
-    // Field of classProbability. Represents a single classification result.
+    
+    // Field of classProbability. Gets or sets the probability of class.      
     private var classProbability : Double?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case className;
         case classProbability;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.className = try container.decodeIfPresent(String.self, forKey: .className);
         self.classProbability = try container.decodeIfPresent(Double.self, forKey: .classProbability);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.className != nil) {
             try container.encode(self.className, forKey: .className);
@@ -59,23 +63,23 @@ public class ClassificationResult : Codable, WordsApiModel {
             try container.encode(self.classProbability, forKey: .classProbability);
         }
     }
-
-    // Sets className. Gets or sets the name of the class.
+    
+    // Sets className. Gets or sets the name of the class.  
     public func setClassName(className : String?) {
         self.className = className;
     }
-
-    // Gets className. Gets or sets the name of the class.
+    
+    // Gets className. Gets or sets the name of the class.  
     public func getClassName() -> String? {
         return self.className;
     }
-
-    // Sets classProbability. Gets or sets the probability of class.
+    
+    // Sets classProbability. Gets or sets the probability of class.  
     public func setClassProbability(classProbability : Double?) {
         self.classProbability = classProbability;
     }
-
-    // Gets classProbability. Gets or sets the probability of class.
+    
+    // Gets classProbability. Gets or sets the probability of class.  
     public func getClassProbability() -> Double? {
         return self.classProbability;
     }

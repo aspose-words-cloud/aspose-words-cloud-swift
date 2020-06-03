@@ -29,90 +29,94 @@ import Foundation
 
 // Container class for compare documents.
 public class CompareData : Codable, WordsApiModel {
-    // Field of author. Container class for compare documents.
-    private var author : String?;
-
-    // Field of compareOptions. Container class for compare documents.
-    private var compareOptions : CompareOptions?;
-
-    // Field of comparingWithDocument. Container class for compare documents.
+    
+    // Field of comparingWithDocument. Gets or sets path to document to compare at the server.      
     private var comparingWithDocument : String?;
-
-    // Field of dateTime. Container class for compare documents.
+    
+    // Field of author. Gets or sets initials of the author to use for revisions.      
+    private var author : String?;
+    
+    // Field of dateTime. Gets or sets the date and time to use for revisions.                   
     private var dateTime : Date?;
-
+    
+    // Field of compareOptions.       
+    private var compareOptions : CompareOptions?;
+        
     private enum CodingKeys: String, CodingKey {
-        case author;
-        case compareOptions;
         case comparingWithDocument;
+        case author;
         case dateTime;
+        case compareOptions;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.author = try container.decodeIfPresent(String.self, forKey: .author);
-        self.compareOptions = try container.decodeIfPresent(CompareOptions.self, forKey: .compareOptions);
         self.comparingWithDocument = try container.decodeIfPresent(String.self, forKey: .comparingWithDocument);
+        self.author = try container.decodeIfPresent(String.self, forKey: .author);
         self.dateTime = try container.decodeIfPresent(Date.self, forKey: .dateTime);
+        self.compareOptions = try container.decodeIfPresent(CompareOptions.self, forKey: .compareOptions);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.author != nil) {
-            try container.encode(self.author, forKey: .author);
-        }
-        if (self.compareOptions != nil) {
-            try container.encode(self.compareOptions, forKey: .compareOptions);
-        }
         if (self.comparingWithDocument != nil) {
             try container.encode(self.comparingWithDocument, forKey: .comparingWithDocument);
+        }
+        if (self.author != nil) {
+            try container.encode(self.author, forKey: .author);
         }
         if (self.dateTime != nil) {
             try container.encode(self.dateTime, forKey: .dateTime);
         }
+        if (self.compareOptions != nil) {
+            try container.encode(self.compareOptions, forKey: .compareOptions);
+        }
     }
-
-    // Sets author. Gets or sets initials of the author to use for revisions.
-    public func setAuthor(author : String?) {
-        self.author = author;
-    }
-
-    // Gets author. Gets or sets initials of the author to use for revisions.
-    public func getAuthor() -> String? {
-        return self.author;
-    }
-
-    // Sets compareOptions. Gets or sets the compare options.
-    public func setCompareOptions(compareOptions : CompareOptions?) {
-        self.compareOptions = compareOptions;
-    }
-
-    // Gets compareOptions. Gets or sets the compare options.
-    public func getCompareOptions() -> CompareOptions? {
-        return self.compareOptions;
-    }
-
-    // Sets comparingWithDocument. Gets or sets path to document to compare at the server.
+    
+    // Sets comparingWithDocument. Gets or sets path to document to compare at the server.  
     public func setComparingWithDocument(comparingWithDocument : String?) {
         self.comparingWithDocument = comparingWithDocument;
     }
-
-    // Gets comparingWithDocument. Gets or sets path to document to compare at the server.
+    
+    // Gets comparingWithDocument. Gets or sets path to document to compare at the server.  
     public func getComparingWithDocument() -> String? {
         return self.comparingWithDocument;
     }
-
-    // Sets dateTime. Gets or sets the date and time to use for revisions.
+    
+    // Sets author. Gets or sets initials of the author to use for revisions.  
+    public func setAuthor(author : String?) {
+        self.author = author;
+    }
+    
+    // Gets author. Gets or sets initials of the author to use for revisions.  
+    public func getAuthor() -> String? {
+        return self.author;
+    }
+    
+    // Sets dateTime. Gets or sets the date and time to use for revisions.               
     public func setDateTime(dateTime : Date?) {
         self.dateTime = dateTime;
     }
-
-    // Gets dateTime. Gets or sets the date and time to use for revisions.
+    
+    // Gets dateTime. Gets or sets the date and time to use for revisions.               
     public func getDateTime() -> Date? {
         return self.dateTime;
+    }
+    
+    // Sets compareOptions.   
+    public func setCompareOptions(compareOptions : CompareOptions?) {
+        self.compareOptions = compareOptions;
+    }
+    
+    // Gets compareOptions.   
+    public func getCompareOptions() -> CompareOptions? {
+        return self.compareOptions;
     }
 }

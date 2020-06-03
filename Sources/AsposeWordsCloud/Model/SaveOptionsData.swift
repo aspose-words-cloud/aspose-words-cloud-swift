@@ -31,97 +31,94 @@ import Foundation
 public class SaveOptionsData : Codable, WordsApiModel {
     // Gets or sets a value determining how 3D effects are rendered.
     public enum Dml3DEffectsRenderingMode : String, Codable
-    {
+    { 
         // Enum value "basic"
         case basic = "Basic"
 
         // Enum value "advanced"
         case advanced = "Advanced"
     }
-
-    // Field of dml3DEffectsRenderingMode. base container class for save options data.
-    private var dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?;
-
-    // Field of dmlEffectsRenderingMode. base container class for save options data.
-    private var dmlEffectsRenderingMode : String?;
-
-    // Field of dmlRenderingMode. base container class for save options data.
-    private var dmlRenderingMode : String?;
-
-    // Field of fileName. base container class for save options data.
-    private var fileName : String?;
-
-    // Field of saveFormat. base container class for save options data.
+    
+    // Field of saveFormat. Gets or sets format of save.      
     private var saveFormat : String?;
-
-    // Field of updateFields. base container class for save options data.
-    private var updateFields : Bool?;
-
-    // Field of updateLastPrintedProperty. base container class for save options data.
-    private var updateLastPrintedProperty : Bool?;
-
-    // Field of updateLastSavedTimeProperty. base container class for save options data.
-    private var updateLastSavedTimeProperty : Bool?;
-
-    // Field of updateSdtContent. base container class for save options data.
-    private var updateSdtContent : Bool?;
-
-    // Field of zipOutput. base container class for save options data.
+    
+    // Field of fileName. Gets or sets name of destination file.      
+    private var fileName : String?;
+    
+    // Field of dmlRenderingMode. Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }.      
+    private var dmlRenderingMode : String?;
+    
+    // Field of dmlEffectsRenderingMode. Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }.      
+    private var dmlEffectsRenderingMode : String?;
+    
+    // Field of zipOutput. Gets or sets controls zip output or not. Default value is false.      
     private var zipOutput : Bool?;
-
+    
+    // Field of updateLastSavedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.      
+    private var updateLastSavedTimeProperty : Bool?;
+    
+    // Field of updateSdtContent. Gets or sets value determining whether content of StructuredDocumentTag is updated before saving.      
+    private var updateSdtContent : Bool?;
+    
+    // Field of updateFields. Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true      
+    private var updateFields : Bool?;
+    
+    // Field of dml3DEffectsRenderingMode. Gets or sets a value determining how 3D effects are rendered.      
+    private var dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?;
+    
+    // Field of updateLastPrintedProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.      
+    private var updateLastPrintedProperty : Bool?;
+        
     private enum CodingKeys: String, CodingKey {
-        case dml3DEffectsRenderingMode;
-        case dmlEffectsRenderingMode;
-        case dmlRenderingMode;
-        case fileName;
         case saveFormat;
-        case updateFields;
-        case updateLastPrintedProperty;
+        case fileName;
+        case dmlRenderingMode;
+        case dmlEffectsRenderingMode;
+        case zipOutput;
         case updateLastSavedTimeProperty;
         case updateSdtContent;
-        case zipOutput;
+        case updateFields;
+        case dml3DEffectsRenderingMode;
+        case updateLastPrintedProperty;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.dml3DEffectsRenderingMode = try container.decodeIfPresent(Dml3DEffectsRenderingMode.self, forKey: .dml3DEffectsRenderingMode);
-        self.dmlEffectsRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlEffectsRenderingMode);
-        self.dmlRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlRenderingMode);
-        self.fileName = try container.decodeIfPresent(String.self, forKey: .fileName);
         self.saveFormat = try container.decodeIfPresent(String.self, forKey: .saveFormat);
-        self.updateFields = try container.decodeIfPresent(Bool.self, forKey: .updateFields);
-        self.updateLastPrintedProperty = try container.decodeIfPresent(Bool.self, forKey: .updateLastPrintedProperty);
+        self.fileName = try container.decodeIfPresent(String.self, forKey: .fileName);
+        self.dmlRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlRenderingMode);
+        self.dmlEffectsRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlEffectsRenderingMode);
+        self.zipOutput = try container.decodeIfPresent(Bool.self, forKey: .zipOutput);
         self.updateLastSavedTimeProperty = try container.decodeIfPresent(Bool.self, forKey: .updateLastSavedTimeProperty);
         self.updateSdtContent = try container.decodeIfPresent(Bool.self, forKey: .updateSdtContent);
-        self.zipOutput = try container.decodeIfPresent(Bool.self, forKey: .zipOutput);
+        self.updateFields = try container.decodeIfPresent(Bool.self, forKey: .updateFields);
+        self.dml3DEffectsRenderingMode = try container.decodeIfPresent(Dml3DEffectsRenderingMode.self, forKey: .dml3DEffectsRenderingMode);
+        self.updateLastPrintedProperty = try container.decodeIfPresent(Bool.self, forKey: .updateLastPrintedProperty);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.dml3DEffectsRenderingMode != nil) {
-            try container.encode(self.dml3DEffectsRenderingMode, forKey: .dml3DEffectsRenderingMode);
-        }
-        if (self.dmlEffectsRenderingMode != nil) {
-            try container.encode(self.dmlEffectsRenderingMode, forKey: .dmlEffectsRenderingMode);
-        }
-        if (self.dmlRenderingMode != nil) {
-            try container.encode(self.dmlRenderingMode, forKey: .dmlRenderingMode);
+        if (self.saveFormat != nil) {
+            try container.encode(self.saveFormat, forKey: .saveFormat);
         }
         if (self.fileName != nil) {
             try container.encode(self.fileName, forKey: .fileName);
         }
-        if (self.saveFormat != nil) {
-            try container.encode(self.saveFormat, forKey: .saveFormat);
+        if (self.dmlRenderingMode != nil) {
+            try container.encode(self.dmlRenderingMode, forKey: .dmlRenderingMode);
         }
-        if (self.updateFields != nil) {
-            try container.encode(self.updateFields, forKey: .updateFields);
+        if (self.dmlEffectsRenderingMode != nil) {
+            try container.encode(self.dmlEffectsRenderingMode, forKey: .dmlEffectsRenderingMode);
         }
-        if (self.updateLastPrintedProperty != nil) {
-            try container.encode(self.updateLastPrintedProperty, forKey: .updateLastPrintedProperty);
+        if (self.zipOutput != nil) {
+            try container.encode(self.zipOutput, forKey: .zipOutput);
         }
         if (self.updateLastSavedTimeProperty != nil) {
             try container.encode(self.updateLastSavedTimeProperty, forKey: .updateLastSavedTimeProperty);
@@ -129,108 +126,114 @@ public class SaveOptionsData : Codable, WordsApiModel {
         if (self.updateSdtContent != nil) {
             try container.encode(self.updateSdtContent, forKey: .updateSdtContent);
         }
-        if (self.zipOutput != nil) {
-            try container.encode(self.zipOutput, forKey: .zipOutput);
+        if (self.updateFields != nil) {
+            try container.encode(self.updateFields, forKey: .updateFields);
+        }
+        if (self.dml3DEffectsRenderingMode != nil) {
+            try container.encode(self.dml3DEffectsRenderingMode, forKey: .dml3DEffectsRenderingMode);
+        }
+        if (self.updateLastPrintedProperty != nil) {
+            try container.encode(self.updateLastPrintedProperty, forKey: .updateLastPrintedProperty);
         }
     }
-
-    // Sets dml3DEffectsRenderingMode. Gets or sets a value determining how 3D effects are rendered.
-    public func setDml3DEffectsRenderingMode(dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?) {
-        self.dml3DEffectsRenderingMode = dml3DEffectsRenderingMode;
-    }
-
-    // Gets dml3DEffectsRenderingMode. Gets or sets a value determining how 3D effects are rendered.
-    public func getDml3DEffectsRenderingMode() -> Dml3DEffectsRenderingMode? {
-        return self.dml3DEffectsRenderingMode;
-    }
-
-    // Sets dmlEffectsRenderingMode. Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }.
-    public func setDmlEffectsRenderingMode(dmlEffectsRenderingMode : String?) {
-        self.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
-    }
-
-    // Gets dmlEffectsRenderingMode. Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }.
-    public func getDmlEffectsRenderingMode() -> String? {
-        return self.dmlEffectsRenderingMode;
-    }
-
-    // Sets dmlRenderingMode. Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }.
-    public func setDmlRenderingMode(dmlRenderingMode : String?) {
-        self.dmlRenderingMode = dmlRenderingMode;
-    }
-
-    // Gets dmlRenderingMode. Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }.
-    public func getDmlRenderingMode() -> String? {
-        return self.dmlRenderingMode;
-    }
-
-    // Sets fileName. Gets or sets name of destination file.
-    public func setFileName(fileName : String?) {
-        self.fileName = fileName;
-    }
-
-    // Gets fileName. Gets or sets name of destination file.
-    public func getFileName() -> String? {
-        return self.fileName;
-    }
-
-    // Sets saveFormat. Gets or sets format of save.
+    
+    // Sets saveFormat. Gets or sets format of save.  
     public func setSaveFormat(saveFormat : String?) {
         self.saveFormat = saveFormat;
     }
-
-    // Gets saveFormat. Gets or sets format of save.
+    
+    // Gets saveFormat. Gets or sets format of save.  
     public func getSaveFormat() -> String? {
         return self.saveFormat;
     }
-
-    // Sets updateFields. Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true.
-    public func setUpdateFields(updateFields : Bool?) {
-        self.updateFields = updateFields;
+    
+    // Sets fileName. Gets or sets name of destination file.  
+    public func setFileName(fileName : String?) {
+        self.fileName = fileName;
     }
-
-    // Gets updateFields. Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true.
-    public func getUpdateFields() -> Bool? {
-        return self.updateFields;
+    
+    // Gets fileName. Gets or sets name of destination file.  
+    public func getFileName() -> String? {
+        return self.fileName;
     }
-
-    // Sets updateLastPrintedProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.
-    public func setUpdateLastPrintedProperty(updateLastPrintedProperty : Bool?) {
-        self.updateLastPrintedProperty = updateLastPrintedProperty;
+    
+    // Sets dmlRenderingMode. Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }.  
+    public func setDmlRenderingMode(dmlRenderingMode : String?) {
+        self.dmlRenderingMode = dmlRenderingMode;
     }
-
-    // Gets updateLastPrintedProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.
-    public func getUpdateLastPrintedProperty() -> Bool? {
-        return self.updateLastPrintedProperty;
+    
+    // Gets dmlRenderingMode. Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }.  
+    public func getDmlRenderingMode() -> String? {
+        return self.dmlRenderingMode;
     }
-
-    // Sets updateLastSavedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
-    public func setUpdateLastSavedTimeProperty(updateLastSavedTimeProperty : Bool?) {
-        self.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
+    
+    // Sets dmlEffectsRenderingMode. Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }.  
+    public func setDmlEffectsRenderingMode(dmlEffectsRenderingMode : String?) {
+        self.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
     }
-
-    // Gets updateLastSavedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
-    public func getUpdateLastSavedTimeProperty() -> Bool? {
-        return self.updateLastSavedTimeProperty;
+    
+    // Gets dmlEffectsRenderingMode. Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }.  
+    public func getDmlEffectsRenderingMode() -> String? {
+        return self.dmlEffectsRenderingMode;
     }
-
-    // Sets updateSdtContent. Gets or sets value determining whether content of StructuredDocumentTag is updated before saving.
-    public func setUpdateSdtContent(updateSdtContent : Bool?) {
-        self.updateSdtContent = updateSdtContent;
-    }
-
-    // Gets updateSdtContent. Gets or sets value determining whether content of StructuredDocumentTag is updated before saving.
-    public func getUpdateSdtContent() -> Bool? {
-        return self.updateSdtContent;
-    }
-
-    // Sets zipOutput. Gets or sets controls zip output or not. Default value is false.
+    
+    // Sets zipOutput. Gets or sets controls zip output or not. Default value is false.  
     public func setZipOutput(zipOutput : Bool?) {
         self.zipOutput = zipOutput;
     }
-
-    // Gets zipOutput. Gets or sets controls zip output or not. Default value is false.
+    
+    // Gets zipOutput. Gets or sets controls zip output or not. Default value is false.  
     public func getZipOutput() -> Bool? {
         return self.zipOutput;
+    }
+    
+    // Sets updateLastSavedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.  
+    public func setUpdateLastSavedTimeProperty(updateLastSavedTimeProperty : Bool?) {
+        self.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
+    }
+    
+    // Gets updateLastSavedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.  
+    public func getUpdateLastSavedTimeProperty() -> Bool? {
+        return self.updateLastSavedTimeProperty;
+    }
+    
+    // Sets updateSdtContent. Gets or sets value determining whether content of StructuredDocumentTag is updated before saving.  
+    public func setUpdateSdtContent(updateSdtContent : Bool?) {
+        self.updateSdtContent = updateSdtContent;
+    }
+    
+    // Gets updateSdtContent. Gets or sets value determining whether content of StructuredDocumentTag is updated before saving.  
+    public func getUpdateSdtContent() -> Bool? {
+        return self.updateSdtContent;
+    }
+    
+    // Sets updateFields. Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true  
+    public func setUpdateFields(updateFields : Bool?) {
+        self.updateFields = updateFields;
+    }
+    
+    // Gets updateFields. Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true  
+    public func getUpdateFields() -> Bool? {
+        return self.updateFields;
+    }
+    
+    // Sets dml3DEffectsRenderingMode. Gets or sets a value determining how 3D effects are rendered.  
+    public func setDml3DEffectsRenderingMode(dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?) {
+        self.dml3DEffectsRenderingMode = dml3DEffectsRenderingMode;
+    }
+    
+    // Gets dml3DEffectsRenderingMode. Gets or sets a value determining how 3D effects are rendered.  
+    public func getDml3DEffectsRenderingMode() -> Dml3DEffectsRenderingMode? {
+        return self.dml3DEffectsRenderingMode;
+    }
+    
+    // Sets updateLastPrintedProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.  
+    public func setUpdateLastPrintedProperty(updateLastPrintedProperty : Bool?) {
+        self.updateLastPrintedProperty = updateLastPrintedProperty;
+    }
+    
+    // Gets updateLastPrintedProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.  
+    public func getUpdateLastPrintedProperty() -> Bool? {
+        return self.updateLastPrintedProperty;
     }
 }

@@ -27,21 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/OfficeMathObjects.
+// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/OfficeMathObjects.
 public class OfficeMathObjectsResponse : WordsResponse {
-    // Field of officeMathObjects. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/OfficeMathObjects.
+    
+    // Field of officeMathObjects.       
     private var officeMathObjects : OfficeMathObjectsCollection?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case officeMathObjects;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +55,13 @@ public class OfficeMathObjectsResponse : WordsResponse {
             try container.encode(self.officeMathObjects, forKey: .officeMathObjects);
         }
     }
-
-    // Sets officeMathObjects. Gets or sets collection of OfficeMath objects.
+    
+    // Sets officeMathObjects.   
     public func setOfficeMathObjects(officeMathObjects : OfficeMathObjectsCollection?) {
         self.officeMathObjects = officeMathObjects;
     }
-
-    // Gets officeMathObjects. Gets or sets collection of OfficeMath objects.
+    
+    // Gets officeMathObjects.   
     public func getOfficeMathObjects() -> OfficeMathObjectsCollection? {
         return self.officeMathObjects;
     }

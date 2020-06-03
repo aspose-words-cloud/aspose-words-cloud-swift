@@ -29,54 +29,58 @@ import Foundation
 
 // Table row element.
 public class TableRowInsert : Codable, WordsApiModel {
-    // Field of columnsCount. Table row element.
-    private var columnsCount : Int?;
-
-    // Field of insertAfter. Table row element.
+    
+    // Field of insertAfter. Gets or sets table row will be inserted after row with specified 0-based index.      
     private var insertAfter : Int?;
-
+    
+    // Field of columnsCount. Gets or sets count of columns. Default is 1.      
+    private var columnsCount : Int?;
+        
     private enum CodingKeys: String, CodingKey {
-        case columnsCount;
         case insertAfter;
+        case columnsCount;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.columnsCount = try container.decodeIfPresent(Int.self, forKey: .columnsCount);
         self.insertAfter = try container.decodeIfPresent(Int.self, forKey: .insertAfter);
+        self.columnsCount = try container.decodeIfPresent(Int.self, forKey: .columnsCount);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.columnsCount != nil) {
-            try container.encode(self.columnsCount, forKey: .columnsCount);
-        }
         if (self.insertAfter != nil) {
             try container.encode(self.insertAfter, forKey: .insertAfter);
         }
+        if (self.columnsCount != nil) {
+            try container.encode(self.columnsCount, forKey: .columnsCount);
+        }
     }
-
-    // Sets columnsCount. Gets or sets count of columns. Default is 1.
-    public func setColumnsCount(columnsCount : Int?) {
-        self.columnsCount = columnsCount;
-    }
-
-    // Gets columnsCount. Gets or sets count of columns. Default is 1.
-    public func getColumnsCount() -> Int? {
-        return self.columnsCount;
-    }
-
-    // Sets insertAfter. Gets or sets table row will be inserted after row with specified 0-based index.
+    
+    // Sets insertAfter. Gets or sets table row will be inserted after row with specified 0-based index.  
     public func setInsertAfter(insertAfter : Int?) {
         self.insertAfter = insertAfter;
     }
-
-    // Gets insertAfter. Gets or sets table row will be inserted after row with specified 0-based index.
+    
+    // Gets insertAfter. Gets or sets table row will be inserted after row with specified 0-based index.  
     public func getInsertAfter() -> Int? {
         return self.insertAfter;
+    }
+    
+    // Sets columnsCount. Gets or sets count of columns. Default is 1.  
+    public func setColumnsCount(columnsCount : Int?) {
+        self.columnsCount = columnsCount;
+    }
+    
+    // Gets columnsCount. Gets or sets count of columns. Default is 1.  
+    public func getColumnsCount() -> Int? {
+        return self.columnsCount;
     }
 }

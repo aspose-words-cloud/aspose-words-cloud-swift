@@ -31,7 +31,7 @@ import Foundation
 public class TabStopBase : Codable, WordsApiModel {
     // Gets or sets the alignment of text at this tab stop.
     public enum Alignment : String, Codable
-    {
+    { 
         // Enum value "_left"
         case _left = "Left"
 
@@ -53,10 +53,9 @@ public class TabStopBase : Codable, WordsApiModel {
         // Enum value "clear"
         case clear = "Clear"
     }
-
     // Gets or sets the type of the leader line displayed under the tab character.
     public enum Leader : String, Codable
-    {
+    { 
         // Enum value "_none"
         case _none = "None"
 
@@ -75,27 +74,29 @@ public class TabStopBase : Codable, WordsApiModel {
         // Enum value "middleDot"
         case middleDot = "MiddleDot"
     }
-
-    // Field of alignment. Base class for paragraph format tab stop DTO.
+    
+    // Field of alignment. Gets or sets the alignment of text at this tab stop.      
     private var alignment : Alignment?;
-
-    // Field of leader. Base class for paragraph format tab stop DTO.
+    
+    // Field of leader. Gets or sets the type of the leader line displayed under the tab character.      
     private var leader : Leader?;
-
-    // Field of position. Base class for paragraph format tab stop DTO.
+    
+    // Field of position. Gets or sets the position of the tab stop in points.      
     private var position : Double?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case alignment;
         case leader;
         case position;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.alignment = try container.decodeIfPresent(Alignment.self, forKey: .alignment);
         self.leader = try container.decodeIfPresent(Leader.self, forKey: .leader);
@@ -103,6 +104,7 @@ public class TabStopBase : Codable, WordsApiModel {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.alignment != nil) {
             try container.encode(self.alignment, forKey: .alignment);
@@ -114,33 +116,33 @@ public class TabStopBase : Codable, WordsApiModel {
             try container.encode(self.position, forKey: .position);
         }
     }
-
-    // Sets alignment. Gets or sets the alignment of text at this tab stop.
+    
+    // Sets alignment. Gets or sets the alignment of text at this tab stop.  
     public func setAlignment(alignment : Alignment?) {
         self.alignment = alignment;
     }
-
-    // Gets alignment. Gets or sets the alignment of text at this tab stop.
+    
+    // Gets alignment. Gets or sets the alignment of text at this tab stop.  
     public func getAlignment() -> Alignment? {
         return self.alignment;
     }
-
-    // Sets leader. Gets or sets the type of the leader line displayed under the tab character.
+    
+    // Sets leader. Gets or sets the type of the leader line displayed under the tab character.  
     public func setLeader(leader : Leader?) {
         self.leader = leader;
     }
-
-    // Gets leader. Gets or sets the type of the leader line displayed under the tab character.
+    
+    // Gets leader. Gets or sets the type of the leader line displayed under the tab character.  
     public func getLeader() -> Leader? {
         return self.leader;
     }
-
-    // Sets position. Gets or sets the position of the tab stop in points.
+    
+    // Sets position. Gets or sets the position of the tab stop in points.  
     public func setPosition(position : Double?) {
         self.position = position;
     }
-
-    // Gets position. Gets or sets the position of the tab stop in points.
+    
+    // Gets position. Gets or sets the position of the tab stop in points.  
     public func getPosition() -> Double? {
         return self.position;
     }

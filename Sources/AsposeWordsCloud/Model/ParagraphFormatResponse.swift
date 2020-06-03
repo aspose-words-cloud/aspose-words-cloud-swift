@@ -27,21 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/format.
+// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/format.
 public class ParagraphFormatResponse : WordsResponse {
-    // Field of paragraphFormat. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/format.
+    
+    // Field of paragraphFormat.       
     private var paragraphFormat : ParagraphFormat?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case paragraphFormat;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +55,13 @@ public class ParagraphFormatResponse : WordsResponse {
             try container.encode(self.paragraphFormat, forKey: .paragraphFormat);
         }
     }
-
-    // Sets paragraphFormat. Gets or sets represents all the formatting for a paragraph.
+    
+    // Sets paragraphFormat.   
     public func setParagraphFormat(paragraphFormat : ParagraphFormat?) {
         self.paragraphFormat = paragraphFormat;
     }
-
-    // Gets paragraphFormat. Gets or sets represents all the formatting for a paragraph.
+    
+    // Gets paragraphFormat.   
     public func getParagraphFormat() -> ParagraphFormat? {
         return self.paragraphFormat;
     }

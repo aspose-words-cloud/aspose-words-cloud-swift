@@ -29,18 +29,19 @@ import Foundation
 
 // Container class for mhtml save options.
 public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
-    // Field of exportCidUrlsForMhtmlResources. Container class for mhtml save options.
+    
+    // Field of exportCidUrlsForMhtmlResources. Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. Default value is false.                   
     private var exportCidUrlsForMhtmlResources : Bool?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case exportCidUrlsForMhtmlResources;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
             try container.encode(self.exportCidUrlsForMhtmlResources, forKey: .exportCidUrlsForMhtmlResources);
         }
     }
-
-    // Sets exportCidUrlsForMhtmlResources. Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. Default value is false.
+    
+    // Sets exportCidUrlsForMhtmlResources. Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. Default value is false.               
     public func setExportCidUrlsForMhtmlResources(exportCidUrlsForMhtmlResources : Bool?) {
         self.exportCidUrlsForMhtmlResources = exportCidUrlsForMhtmlResources;
     }
-
-    // Gets exportCidUrlsForMhtmlResources. Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. Default value is false.
+    
+    // Gets exportCidUrlsForMhtmlResources. Gets or sets specifies whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. Default value is false.               
     public func getExportCidUrlsForMhtmlResources() -> Bool? {
         return self.exportCidUrlsForMhtmlResources;
     }

@@ -27,21 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/lists.
+// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/lists.
 public class ListsResponse : WordsResponse {
-    // Field of lists. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/lists.
+    
+    // Field of lists.       
     private var lists : Lists?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case lists;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +55,13 @@ public class ListsResponse : WordsResponse {
             try container.encode(self.lists, forKey: .lists);
         }
     }
-
-    // Sets lists. Gets or sets lists which are contained in document.
+    
+    // Sets lists.   
     public func setLists(lists : Lists?) {
         self.lists = lists;
     }
-
-    // Gets lists. Gets or sets lists which are contained in document.
+    
+    // Gets lists.   
     public func getLists() -> Lists? {
         return self.lists;
     }

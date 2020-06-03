@@ -29,18 +29,19 @@ import Foundation
 
 // Collection of search results.
 public class SearchResultsCollection : LinkElement {
-    // Field of resultsList. Collection of search results.
+    
+    // Field of resultsList. Gets or sets collection of comments.      
     private var resultsList : [SearchResult]?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case resultsList;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class SearchResultsCollection : LinkElement {
             try container.encode(self.resultsList, forKey: .resultsList);
         }
     }
-
-    // Sets resultsList. Gets or sets collection of comments.
+    
+    // Sets resultsList. Gets or sets collection of comments.  
     public func setResultsList(resultsList : [SearchResult]?) {
         self.resultsList = resultsList;
     }
-
-    // Gets resultsList. Gets or sets collection of comments.
+    
+    // Gets resultsList. Gets or sets collection of comments.  
     public func getResultsList() -> [SearchResult]? {
         return self.resultsList;
     }

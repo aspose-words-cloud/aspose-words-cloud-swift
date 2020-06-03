@@ -29,35 +29,39 @@ import Foundation
 
 // Table cell element.
 public class TableCellInsert : Codable, WordsApiModel {
-    // Field of insertAfter. Table cell element.
+    
+    // Field of insertAfter. Gets or sets table cell will be inserted after cell with specified 0-based index.      
     private var insertAfter : Int?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case insertAfter;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.insertAfter = try container.decodeIfPresent(Int.self, forKey: .insertAfter);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.insertAfter != nil) {
             try container.encode(self.insertAfter, forKey: .insertAfter);
         }
     }
-
-    // Sets insertAfter. Gets or sets table cell will be inserted after cell with specified 0-based index.
+    
+    // Sets insertAfter. Gets or sets table cell will be inserted after cell with specified 0-based index.  
     public func setInsertAfter(insertAfter : Int?) {
         self.insertAfter = insertAfter;
     }
-
-    // Gets insertAfter. Gets or sets table cell will be inserted after cell with specified 0-based index.
+    
+    // Gets insertAfter. Gets or sets table cell will be inserted after cell with specified 0-based index.  
     public func getInsertAfter() -> Int? {
         return self.insertAfter;
     }

@@ -27,56 +27,60 @@
 
 import Foundation
 
-// Paragraph list format element for update.
+// Paragraph list format element for update.             
 public class ListFormatUpdate : Codable, WordsApiModel {
-    // Field of listId. Paragraph list format element for update.
-    private var listId : Int?;
-
-    // Field of listLevelNumber. Paragraph list format element for update.
+    
+    // Field of listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.      
     private var listLevelNumber : Int?;
-
+    
+    // Field of listId. Gets or sets the list id of this paragraph.      
+    private var listId : Int?;
+        
     private enum CodingKeys: String, CodingKey {
-        case listId;
         case listLevelNumber;
+        case listId;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.listId = try container.decodeIfPresent(Int.self, forKey: .listId);
         self.listLevelNumber = try container.decodeIfPresent(Int.self, forKey: .listLevelNumber);
+        self.listId = try container.decodeIfPresent(Int.self, forKey: .listId);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.listId != nil) {
-            try container.encode(self.listId, forKey: .listId);
-        }
         if (self.listLevelNumber != nil) {
             try container.encode(self.listLevelNumber, forKey: .listLevelNumber);
         }
+        if (self.listId != nil) {
+            try container.encode(self.listId, forKey: .listId);
+        }
     }
-
-    // Sets listId. Gets or sets the list id of this paragraph.
-    public func setListId(listId : Int?) {
-        self.listId = listId;
-    }
-
-    // Gets listId. Gets or sets the list id of this paragraph.
-    public func getListId() -> Int? {
-        return self.listId;
-    }
-
-    // Sets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
+    
+    // Sets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.  
     public func setListLevelNumber(listLevelNumber : Int?) {
         self.listLevelNumber = listLevelNumber;
     }
-
-    // Gets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
+    
+    // Gets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.  
     public func getListLevelNumber() -> Int? {
         return self.listLevelNumber;
+    }
+    
+    // Sets listId. Gets or sets the list id of this paragraph.  
+    public func setListId(listId : Int?) {
+        self.listId = listId;
+    }
+    
+    // Gets listId. Gets or sets the list id of this paragraph.  
+    public func getListId() -> Int? {
+        return self.listId;
     }
 }

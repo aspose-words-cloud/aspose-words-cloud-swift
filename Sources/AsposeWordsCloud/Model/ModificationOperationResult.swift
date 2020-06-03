@@ -29,54 +29,58 @@ import Foundation
 
 // result of the operation which modifies the original document and saves the result.
 public class ModificationOperationResult : Codable, WordsApiModel {
-    // Field of dest. result of the operation which modifies the original document and saves the result.
-    private var dest : FileLink?;
-
-    // Field of source. result of the operation which modifies the original document and saves the result.
+    
+    // Field of source.       
     private var source : FileLink?;
-
+    
+    // Field of dest.       
+    private var dest : FileLink?;
+        
     private enum CodingKeys: String, CodingKey {
-        case dest;
         case source;
+        case dest;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.dest = try container.decodeIfPresent(FileLink.self, forKey: .dest);
         self.source = try container.decodeIfPresent(FileLink.self, forKey: .source);
+        self.dest = try container.decodeIfPresent(FileLink.self, forKey: .dest);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.dest != nil) {
-            try container.encode(self.dest, forKey: .dest);
-        }
         if (self.source != nil) {
             try container.encode(self.source, forKey: .source);
         }
+        if (self.dest != nil) {
+            try container.encode(self.dest, forKey: .dest);
+        }
     }
-
-    // Sets dest. Gets or sets link to the dest document (result of the modification operation).
-    public func setDest(dest : FileLink?) {
-        self.dest = dest;
-    }
-
-    // Gets dest. Gets or sets link to the dest document (result of the modification operation).
-    public func getDest() -> FileLink? {
-        return self.dest;
-    }
-
-    // Sets source. Gets or sets link to the source document (source for the modification operation).
+    
+    // Sets source.   
     public func setSource(source : FileLink?) {
         self.source = source;
     }
-
-    // Gets source. Gets or sets link to the source document (source for the modification operation).
+    
+    // Gets source.   
     public func getSource() -> FileLink? {
         return self.source;
+    }
+    
+    // Sets dest.   
+    public func setDest(dest : FileLink?) {
+        self.dest = dest;
+    }
+    
+    // Gets dest.   
+    public func getDest() -> FileLink? {
+        return self.dest;
     }
 }

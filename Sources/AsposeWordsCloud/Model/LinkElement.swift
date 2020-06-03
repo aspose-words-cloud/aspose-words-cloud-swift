@@ -29,35 +29,39 @@ import Foundation
 
 // Reference to document.
 public class LinkElement : Codable, WordsApiModel {
-    // Field of link. Reference to document.
+    
+    // Field of link.       
     private var link : WordsApiLink?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case link;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.link = try container.decodeIfPresent(WordsApiLink.self, forKey: .link);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.link != nil) {
             try container.encode(self.link, forKey: .link);
         }
     }
-
-    // Sets link. Gets or sets link to the document.
+    
+    // Sets link.   
     public func setLink(link : WordsApiLink?) {
         self.link = link;
     }
-
-    // Gets link. Gets or sets link to the document.
+    
+    // Gets link.   
     public func getLink() -> WordsApiLink? {
         return self.link;
     }

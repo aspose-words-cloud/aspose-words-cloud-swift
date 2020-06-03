@@ -29,22 +29,23 @@ import Foundation
 
 // Field.
 public class Field : FieldLink {
-    // Field of localeId. Field.
+    
+    // Field of localeId. Gets or sets LCID of the field.      
     private var localeId : String?;
-
-    // Field of result. Field.
+    
+    // Field of result. Gets or sets field result.      
     private var result : String?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case localeId;
         case result;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -62,23 +63,23 @@ public class Field : FieldLink {
             try container.encode(self.result, forKey: .result);
         }
     }
-
-    // Sets localeId. Gets or sets LCID of the field.
+    
+    // Sets localeId. Gets or sets LCID of the field.  
     public func setLocaleId(localeId : String?) {
         self.localeId = localeId;
     }
-
-    // Gets localeId. Gets or sets LCID of the field.
+    
+    // Gets localeId. Gets or sets LCID of the field.  
     public func getLocaleId() -> String? {
         return self.localeId;
     }
-
-    // Sets result. Gets or sets field result.
+    
+    // Sets result. Gets or sets field result.  
     public func setResult(result : String?) {
         self.result = result;
     }
-
-    // Gets result. Gets or sets field result.
+    
+    // Gets result. Gets or sets field result.  
     public func getResult() -> String? {
         return self.result;
     }

@@ -29,18 +29,19 @@ import Foundation
 
 // This response should be returned by the service when handling:  GET /documentProperties.
 public class DocumentPropertiesResponse : WordsResponse {
-    // Field of documentProperties. This response should be returned by the service when handling:  GET /documentProperties.
+    
+    // Field of documentProperties.       
     private var documentProperties : DocumentProperties?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case documentProperties;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class DocumentPropertiesResponse : WordsResponse {
             try container.encode(self.documentProperties, forKey: .documentProperties);
         }
     }
-
-    // Sets documentProperties. Gets or sets collection of document properties.
+    
+    // Sets documentProperties.   
     public func setDocumentProperties(documentProperties : DocumentProperties?) {
         self.documentProperties = documentProperties;
     }
-
-    // Gets documentProperties. Gets or sets collection of document properties.
+    
+    // Gets documentProperties.   
     public func getDocumentProperties() -> DocumentProperties? {
         return self.documentProperties;
     }

@@ -29,18 +29,19 @@ import Foundation
 
 // Collection of OfficeMath objects.
 public class OfficeMathObjectsCollection : LinkElement {
-    // Field of list. Collection of OfficeMath objects.
+    
+    // Field of list. Gets or sets collection of OfficeMath objects.      
     private var list : [OfficeMathObject]?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case list;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class OfficeMathObjectsCollection : LinkElement {
             try container.encode(self.list, forKey: .list);
         }
     }
-
-    // Sets list. Gets or sets collection of OfficeMath objects.
+    
+    // Sets list. Gets or sets collection of OfficeMath objects.  
     public func setList(list : [OfficeMathObject]?) {
         self.list = list;
     }
-
-    // Gets list. Gets or sets collection of OfficeMath objects.
+    
+    // Gets list. Gets or sets collection of OfficeMath objects.  
     public func getList() -> [OfficeMathObject]? {
         return self.list;
     }

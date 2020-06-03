@@ -29,35 +29,39 @@ import Foundation
 
 // Run element.
 public class RunBase : Codable, WordsApiModel {
-    // Field of text. Run element.
+    
+    // Field of text. Gets or sets run's text.      
     private var text : String?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case text;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.text != nil) {
             try container.encode(self.text, forKey: .text);
         }
     }
-
-    // Sets text. Gets or sets run's text.
+    
+    // Sets text. Gets or sets run's text.  
     public func setText(text : String?) {
         self.text = text;
     }
-
-    // Gets text. Gets or sets run's text.
+    
+    // Gets text. Gets or sets run's text.  
     public func getText() -> String? {
         return self.text;
     }

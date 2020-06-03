@@ -29,54 +29,58 @@ import Foundation
 
 // container class for individual bookmarks outline level.
 public class BookmarksOutlineLevelData : Codable, WordsApiModel {
-    // Field of bookmarksOutlineLevel. container class for individual bookmarks outline level.
-    private var bookmarksOutlineLevel : Int?;
-
-    // Field of name. container class for individual bookmarks outline level.
+    
+    // Field of name. Gets or sets specify the bookmark's name.      
     private var name : String?;
-
+    
+    // Field of bookmarksOutlineLevel. Gets or sets specify the bookmark's level.      
+    private var bookmarksOutlineLevel : Int?;
+        
     private enum CodingKeys: String, CodingKey {
-        case bookmarksOutlineLevel;
         case name;
+        case bookmarksOutlineLevel;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.bookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .bookmarksOutlineLevel);
         self.name = try container.decodeIfPresent(String.self, forKey: .name);
+        self.bookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .bookmarksOutlineLevel);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.bookmarksOutlineLevel != nil) {
-            try container.encode(self.bookmarksOutlineLevel, forKey: .bookmarksOutlineLevel);
-        }
         if (self.name != nil) {
             try container.encode(self.name, forKey: .name);
         }
+        if (self.bookmarksOutlineLevel != nil) {
+            try container.encode(self.bookmarksOutlineLevel, forKey: .bookmarksOutlineLevel);
+        }
     }
-
-    // Sets bookmarksOutlineLevel. Gets or sets specify the bookmark's level.
-    public func setBookmarksOutlineLevel(bookmarksOutlineLevel : Int?) {
-        self.bookmarksOutlineLevel = bookmarksOutlineLevel;
-    }
-
-    // Gets bookmarksOutlineLevel. Gets or sets specify the bookmark's level.
-    public func getBookmarksOutlineLevel() -> Int? {
-        return self.bookmarksOutlineLevel;
-    }
-
-    // Sets name. Gets or sets specify the bookmark's name.
+    
+    // Sets name. Gets or sets specify the bookmark's name.  
     public func setName(name : String?) {
         self.name = name;
     }
-
-    // Gets name. Gets or sets specify the bookmark's name.
+    
+    // Gets name. Gets or sets specify the bookmark's name.  
     public func getName() -> String? {
         return self.name;
+    }
+    
+    // Sets bookmarksOutlineLevel. Gets or sets specify the bookmark's level.  
+    public func setBookmarksOutlineLevel(bookmarksOutlineLevel : Int?) {
+        self.bookmarksOutlineLevel = bookmarksOutlineLevel;
+    }
+    
+    // Gets bookmarksOutlineLevel. Gets or sets specify the bookmark's level.  
+    public func getBookmarksOutlineLevel() -> Int? {
+        return self.bookmarksOutlineLevel;
     }
 }

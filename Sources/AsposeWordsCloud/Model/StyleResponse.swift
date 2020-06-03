@@ -27,21 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/styles/{0}.
+// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/styles/{0}.
 public class StyleResponse : WordsResponse {
-    // Field of style. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/styles/{0}.
+    
+    // Field of style.       
     private var style : Style?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case style;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +55,13 @@ public class StyleResponse : WordsResponse {
             try container.encode(self.style, forKey: .style);
         }
     }
-
-    // Sets style. Gets or sets style which are contained in document.
+    
+    // Sets style.   
     public func setStyle(style : Style?) {
         self.style = style;
     }
-
-    // Gets style. Gets or sets style which are contained in document.
+    
+    // Gets style.   
     public func getStyle() -> Style? {
         return self.style;
     }

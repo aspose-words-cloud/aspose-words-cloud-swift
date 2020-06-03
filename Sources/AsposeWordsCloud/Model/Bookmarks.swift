@@ -29,18 +29,19 @@ import Foundation
 
 // Represents an array of bookmarks.
 public class Bookmarks : LinkElement {
-    // Field of bookmarkList. Represents an array of bookmarks.
+    
+    // Field of bookmarkList. Gets or sets array of bookmarks.      
     private var bookmarkList : [Bookmark]?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case bookmarkList;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class Bookmarks : LinkElement {
             try container.encode(self.bookmarkList, forKey: .bookmarkList);
         }
     }
-
-    // Sets bookmarkList. Gets or sets array of bookmarks.
+    
+    // Sets bookmarkList. Gets or sets array of bookmarks.  
     public func setBookmarkList(bookmarkList : [Bookmark]?) {
         self.bookmarkList = bookmarkList;
     }
-
-    // Gets bookmarkList. Gets or sets array of bookmarks.
+    
+    // Gets bookmarkList. Gets or sets array of bookmarks.  
     public func getBookmarkList() -> [Bookmark]? {
         return self.bookmarkList;
     }

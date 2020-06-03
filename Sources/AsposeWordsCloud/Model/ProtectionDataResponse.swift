@@ -29,22 +29,23 @@ import Foundation
 
 // Response for the request of data about protection.
 public class ProtectionDataResponse : WordsResponse {
-    // Field of documentLink. Response for the request of data about protection.
+    
+    // Field of documentLink.       
     private var documentLink : FileLink?;
-
-    // Field of protectionData. Response for the request of data about protection.
+    
+    // Field of protectionData.       
     private var protectionData : ProtectionData?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case documentLink;
         case protectionData;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -62,23 +63,23 @@ public class ProtectionDataResponse : WordsResponse {
             try container.encode(self.protectionData, forKey: .protectionData);
         }
     }
-
-    // Sets documentLink. Gets or sets link to the document.
+    
+    // Sets documentLink.   
     public func setDocumentLink(documentLink : FileLink?) {
         self.documentLink = documentLink;
     }
-
-    // Gets documentLink. Gets or sets link to the document.
+    
+    // Gets documentLink.   
     public func getDocumentLink() -> FileLink? {
         return self.documentLink;
     }
-
-    // Sets protectionData. Gets or sets protection's data of the document.
+    
+    // Sets protectionData.   
     public func setProtectionData(protectionData : ProtectionData?) {
         self.protectionData = protectionData;
     }
-
-    // Gets protectionData. Gets or sets protection's data of the document.
+    
+    // Gets protectionData.   
     public func getProtectionData() -> ProtectionData? {
         return self.protectionData;
     }

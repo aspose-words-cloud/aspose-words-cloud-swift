@@ -27,20 +27,21 @@
 
 import Foundation
 
-// Response for "drawingObjects/n" resource.
+// Response for \&quot;drawingObjects/n\&quot; resource.
 public class DrawingObjectResponse : WordsResponse {
-    // Field of drawingObject. Response for "drawingObjects/n" resource.
+    
+    // Field of drawingObject.       
     private var drawingObject : DrawingObject?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case drawingObject;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class DrawingObjectResponse : WordsResponse {
             try container.encode(self.drawingObject, forKey: .drawingObject);
         }
     }
-
-    // Sets drawingObject. Gets or sets drawing object.
+    
+    // Sets drawingObject.   
     public func setDrawingObject(drawingObject : DrawingObject?) {
         self.drawingObject = drawingObject;
     }
-
-    // Gets drawingObject. Gets or sets drawing object.
+    
+    // Gets drawingObject.   
     public func getDrawingObject() -> DrawingObject? {
         return self.drawingObject;
     }

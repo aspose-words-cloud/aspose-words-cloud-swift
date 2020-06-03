@@ -29,18 +29,19 @@ import Foundation
 
 // container class for wml save options.
 public class WordMLSaveOptionsData : SaveOptionsData {
-    // Field of prettyFormat. container class for wml save options.
+    
+    // Field of prettyFormat. Gets or sets specifies whether or not use pretty formats output.      
     private var prettyFormat : Bool?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case prettyFormat;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class WordMLSaveOptionsData : SaveOptionsData {
             try container.encode(self.prettyFormat, forKey: .prettyFormat);
         }
     }
-
-    // Sets prettyFormat. Gets or sets specifies whether or not use pretty formats output.
+    
+    // Sets prettyFormat. Gets or sets specifies whether or not use pretty formats output.  
     public func setPrettyFormat(prettyFormat : Bool?) {
         self.prettyFormat = prettyFormat;
     }
-
-    // Gets prettyFormat. Gets or sets specifies whether or not use pretty formats output.
+    
+    // Gets prettyFormat. Gets or sets specifies whether or not use pretty formats output.  
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }

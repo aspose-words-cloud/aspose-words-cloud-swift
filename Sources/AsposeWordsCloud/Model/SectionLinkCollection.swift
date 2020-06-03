@@ -29,18 +29,19 @@ import Foundation
 
 // Collection of links to sections.
 public class SectionLinkCollection : LinkElement {
-    // Field of sectionLinkList. Collection of links to sections.
+    
+    // Field of sectionLinkList. Gets or sets collection of section's links.      
     private var sectionLinkList : [SectionLink]?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case sectionLinkList;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class SectionLinkCollection : LinkElement {
             try container.encode(self.sectionLinkList, forKey: .sectionLinkList);
         }
     }
-
-    // Sets sectionLinkList. Gets or sets collection of section's links.
+    
+    // Sets sectionLinkList. Gets or sets collection of section's links.  
     public func setSectionLinkList(sectionLinkList : [SectionLink]?) {
         self.sectionLinkList = sectionLinkList;
     }
-
-    // Gets sectionLinkList. Gets or sets collection of section's links.
+    
+    // Gets sectionLinkList. Gets or sets collection of section's links.  
     public func getSectionLinkList() -> [SectionLink]? {
         return self.sectionLinkList;
     }

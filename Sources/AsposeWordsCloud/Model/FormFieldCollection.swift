@@ -29,18 +29,19 @@ import Foundation
 
 // Represents DTO for collection of formfields.
 public class FormFieldCollection : LinkElement {
-    // Field of list. Represents DTO for collection of formfields.
+    
+    // Field of list. Gets or sets collection of formfields.      
     private var list : [FormField]?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case list;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class FormFieldCollection : LinkElement {
             try container.encode(self.list, forKey: .list);
         }
     }
-
-    // Sets list. Gets or sets collection of formfields.
+    
+    // Sets list. Gets or sets collection of formfields.  
     public func setList(list : [FormField]?) {
         self.list = list;
     }
-
-    // Gets list. Gets or sets collection of formfields.
+    
+    // Gets list. Gets or sets collection of formfields.  
     public func getList() -> [FormField]? {
         return self.list;
     }

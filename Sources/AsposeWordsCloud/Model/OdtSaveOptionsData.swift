@@ -29,29 +29,28 @@ import Foundation
 
 // container class for odt/ott save options.
 public class OdtSaveOptionsData : SaveOptionsData {
-    // Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.
-    // Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
+    // Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
     public enum MeasureUnit : String, Codable
-    {
+    { 
         // Enum value "centimeters"
         case centimeters = "Centimeters"
 
         // Enum value "inches"
         case inches = "Inches"
     }
-
-    // Field of isStrictSchema11. container class for odt/ott save options.
+    
+    // Field of isStrictSchema11. Gets or sets specifies whether export should correspond to ODT specification 1.1 strictly.      
     private var isStrictSchema11 : Bool?;
-
-    // Field of measureUnit. container class for odt/ott save options.
+    
+    // Field of measureUnit. Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.      
     private var measureUnit : MeasureUnit?;
-
-    // Field of password. container class for odt/ott save options.
+    
+    // Field of password. Gets or sets a password to encrypt document.      
     private var password : String?;
-
-    // Field of prettyFormat. container class for odt/ott save options.
+    
+    // Field of prettyFormat. Gets or sets specifies whether or not use pretty formats output.      
     private var prettyFormat : Bool?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case isStrictSchema11;
         case measureUnit;
@@ -59,11 +58,11 @@ public class OdtSaveOptionsData : SaveOptionsData {
         case prettyFormat;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -89,43 +88,43 @@ public class OdtSaveOptionsData : SaveOptionsData {
             try container.encode(self.prettyFormat, forKey: .prettyFormat);
         }
     }
-
-    // Sets isStrictSchema11. Gets or sets specifies whether export should correspond to ODT specification 1.1 strictly.
+    
+    // Sets isStrictSchema11. Gets or sets specifies whether export should correspond to ODT specification 1.1 strictly.  
     public func setIsStrictSchema11(isStrictSchema11 : Bool?) {
         self.isStrictSchema11 = isStrictSchema11;
     }
-
-    // Gets isStrictSchema11. Gets or sets specifies whether export should correspond to ODT specification 1.1 strictly.
+    
+    // Gets isStrictSchema11. Gets or sets specifies whether export should correspond to ODT specification 1.1 strictly.  
     public func getIsStrictSchema11() -> Bool? {
         return self.isStrictSchema11;
     }
-
-    // Sets measureUnit. Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters. Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
+    
+    // Sets measureUnit. Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.  
     public func setMeasureUnit(measureUnit : MeasureUnit?) {
         self.measureUnit = measureUnit;
     }
-
-    // Gets measureUnit. Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters. Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
+    
+    // Gets measureUnit. Gets or sets allows to specify units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters.  Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.  
     public func getMeasureUnit() -> MeasureUnit? {
         return self.measureUnit;
     }
-
-    // Sets password. Gets or sets a password to encrypt document.
+    
+    // Sets password. Gets or sets a password to encrypt document.  
     public func setPassword(password : String?) {
         self.password = password;
     }
-
-    // Gets password. Gets or sets a password to encrypt document.
+    
+    // Gets password. Gets or sets a password to encrypt document.  
     public func getPassword() -> String? {
         return self.password;
     }
-
-    // Sets prettyFormat. Gets or sets specifies whether or not use pretty formats output.
+    
+    // Sets prettyFormat. Gets or sets specifies whether or not use pretty formats output.  
     public func setPrettyFormat(prettyFormat : Bool?) {
         self.prettyFormat = prettyFormat;
     }
-
-    // Gets prettyFormat. Gets or sets specifies whether or not use pretty formats output.
+    
+    // Gets prettyFormat. Gets or sets specifies whether or not use pretty formats output.  
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }

@@ -31,17 +31,16 @@ import Foundation
 public class GraphicsQualityOptionsData : Codable, WordsApiModel {
     // Gets or sets a value that specifies how composited images are drawn to this Graphics.
     public enum CompositingMode : String, Codable
-    {
+    { 
         // Enum value "sourceOver"
         case sourceOver = "SourceOver"
 
         // Enum value "sourceCopy"
         case sourceCopy = "SourceCopy"
     }
-
     // Gets or sets the rendering quality of composited images drawn to this Graphics.
     public enum CompositingQuality : String, Codable
-    {
+    { 
         // Enum value "_default"
         case _default = "Default"
 
@@ -60,10 +59,9 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
         // Enum value "invalid"
         case invalid = "Invalid"
     }
-
     // Gets or sets the interpolation mode associated with this Graphics.
     public enum InterpolationMode : String, Codable
-    {
+    { 
         // Enum value "_default"
         case _default = "Default"
 
@@ -91,10 +89,9 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
         // Enum value "invalid"
         case invalid = "Invalid"
     }
-
     // Gets or sets the rendering quality for this Graphics.
     public enum SmoothingMode : String, Codable
-    {
+    { 
         // Enum value "_default"
         case _default = "Default"
 
@@ -113,10 +110,9 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
         // Enum value "invalid"
         case invalid = "Invalid"
     }
-
     // Gets or sets the rendering mode for text associated with this Graphics.
     public enum TextRenderingHint : String, Codable
-    {
+    { 
         // Enum value "systemDefault"
         case systemDefault = "SystemDefault"
 
@@ -135,25 +131,25 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
         // Enum value "clearTypeGridFit"
         case clearTypeGridFit = "ClearTypeGridFit"
     }
-
-    // Field of compositingMode. Allows to specify additional System.Drawing.Graphics quality options.
+    
+    // Field of compositingMode. Gets or sets a value that specifies how composited images are drawn to this Graphics.      
     private var compositingMode : CompositingMode?;
-
-    // Field of compositingQuality. Allows to specify additional System.Drawing.Graphics quality options.
+    
+    // Field of compositingQuality. Gets or sets the rendering quality of composited images drawn to this Graphics.      
     private var compositingQuality : CompositingQuality?;
-
-    // Field of interpolationMode. Allows to specify additional System.Drawing.Graphics quality options.
+    
+    // Field of interpolationMode. Gets or sets the interpolation mode associated with this Graphics.      
     private var interpolationMode : InterpolationMode?;
-
-    // Field of smoothingMode. Allows to specify additional System.Drawing.Graphics quality options.
+    
+    // Field of smoothingMode. Gets or sets the rendering quality for this Graphics.      
     private var smoothingMode : SmoothingMode?;
-
-    // Field of stringFormat. Allows to specify additional System.Drawing.Graphics quality options.
+    
+    // Field of stringFormat.       
     private var stringFormat : StringFormatData?;
-
-    // Field of textRenderingHint. Allows to specify additional System.Drawing.Graphics quality options.
+    
+    // Field of textRenderingHint. Gets or sets the rendering mode for text associated with this Graphics.      
     private var textRenderingHint : TextRenderingHint?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case compositingMode;
         case compositingQuality;
@@ -163,11 +159,13 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
         case textRenderingHint;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.compositingMode = try container.decodeIfPresent(CompositingMode.self, forKey: .compositingMode);
         self.compositingQuality = try container.decodeIfPresent(CompositingQuality.self, forKey: .compositingQuality);
@@ -178,6 +176,7 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.compositingMode != nil) {
             try container.encode(self.compositingMode, forKey: .compositingMode);
@@ -198,63 +197,63 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
             try container.encode(self.textRenderingHint, forKey: .textRenderingHint);
         }
     }
-
-    // Sets compositingMode. Gets or sets a value that specifies how composited images are drawn to this Graphics.
+    
+    // Sets compositingMode. Gets or sets a value that specifies how composited images are drawn to this Graphics.  
     public func setCompositingMode(compositingMode : CompositingMode?) {
         self.compositingMode = compositingMode;
     }
-
-    // Gets compositingMode. Gets or sets a value that specifies how composited images are drawn to this Graphics.
+    
+    // Gets compositingMode. Gets or sets a value that specifies how composited images are drawn to this Graphics.  
     public func getCompositingMode() -> CompositingMode? {
         return self.compositingMode;
     }
-
-    // Sets compositingQuality. Gets or sets the rendering quality of composited images drawn to this Graphics.
+    
+    // Sets compositingQuality. Gets or sets the rendering quality of composited images drawn to this Graphics.  
     public func setCompositingQuality(compositingQuality : CompositingQuality?) {
         self.compositingQuality = compositingQuality;
     }
-
-    // Gets compositingQuality. Gets or sets the rendering quality of composited images drawn to this Graphics.
+    
+    // Gets compositingQuality. Gets or sets the rendering quality of composited images drawn to this Graphics.  
     public func getCompositingQuality() -> CompositingQuality? {
         return self.compositingQuality;
     }
-
-    // Sets interpolationMode. Gets or sets the interpolation mode associated with this Graphics.
+    
+    // Sets interpolationMode. Gets or sets the interpolation mode associated with this Graphics.  
     public func setInterpolationMode(interpolationMode : InterpolationMode?) {
         self.interpolationMode = interpolationMode;
     }
-
-    // Gets interpolationMode. Gets or sets the interpolation mode associated with this Graphics.
+    
+    // Gets interpolationMode. Gets or sets the interpolation mode associated with this Graphics.  
     public func getInterpolationMode() -> InterpolationMode? {
         return self.interpolationMode;
     }
-
-    // Sets smoothingMode. Gets or sets the rendering quality for this Graphics.
+    
+    // Sets smoothingMode. Gets or sets the rendering quality for this Graphics.  
     public func setSmoothingMode(smoothingMode : SmoothingMode?) {
         self.smoothingMode = smoothingMode;
     }
-
-    // Gets smoothingMode. Gets or sets the rendering quality for this Graphics.
+    
+    // Gets smoothingMode. Gets or sets the rendering quality for this Graphics.  
     public func getSmoothingMode() -> SmoothingMode? {
         return self.smoothingMode;
     }
-
-    // Sets stringFormat. Gets or sets text layout information (such as alignment, orientation and tab stops) display manipulations (such as ellipsis insertion and national digit substitution) and OpenType features.
+    
+    // Sets stringFormat.   
     public func setStringFormat(stringFormat : StringFormatData?) {
         self.stringFormat = stringFormat;
     }
-
-    // Gets stringFormat. Gets or sets text layout information (such as alignment, orientation and tab stops) display manipulations (such as ellipsis insertion and national digit substitution) and OpenType features.
+    
+    // Gets stringFormat.   
     public func getStringFormat() -> StringFormatData? {
         return self.stringFormat;
     }
-
-    // Sets textRenderingHint. Gets or sets the rendering mode for text associated with this Graphics.
+    
+    // Sets textRenderingHint. Gets or sets the rendering mode for text associated with this Graphics.  
     public func setTextRenderingHint(textRenderingHint : TextRenderingHint?) {
         self.textRenderingHint = textRenderingHint;
     }
-
-    // Gets textRenderingHint. Gets or sets the rendering mode for text associated with this Graphics.
+    
+    // Gets textRenderingHint. Gets or sets the rendering mode for text associated with this Graphics.  
     public func getTextRenderingHint() -> TextRenderingHint? {
         return self.textRenderingHint;
     }

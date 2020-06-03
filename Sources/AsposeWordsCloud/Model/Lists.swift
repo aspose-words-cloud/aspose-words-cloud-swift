@@ -29,18 +29,19 @@ import Foundation
 
 // Represents an array of document lists.
 public class Lists : LinkElement {
-    // Field of listInfo. Represents an array of document lists.
+    
+    // Field of listInfo. Gets or sets array of document lists.      
     private var listInfo : [ListInfo]?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case listInfo;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class Lists : LinkElement {
             try container.encode(self.listInfo, forKey: .listInfo);
         }
     }
-
-    // Sets listInfo. Gets or sets array of document lists.
+    
+    // Sets listInfo. Gets or sets array of document lists.  
     public func setListInfo(listInfo : [ListInfo]?) {
         self.listInfo = listInfo;
     }
-
-    // Gets listInfo. Gets or sets array of document lists.
+    
+    // Gets listInfo. Gets or sets array of document lists.  
     public func getListInfo() -> [ListInfo]? {
         return self.listInfo;
     }

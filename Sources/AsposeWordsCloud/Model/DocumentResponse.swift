@@ -29,18 +29,19 @@ import Foundation
 
 // Represents the response with document description.
 public class DocumentResponse : WordsResponse {
-    // Field of document. Represents the response with document description.
+    
+    // Field of document.       
     private var document : Document?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case document;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class DocumentResponse : WordsResponse {
             try container.encode(self.document, forKey: .document);
         }
     }
-
-    // Sets document. Gets or sets document description.
+    
+    // Sets document.   
     public func setDocument(document : Document?) {
         self.document = document;
     }
-
-    // Gets document. Gets or sets document description.
+    
+    // Gets document.   
     public func getDocument() -> Document? {
         return self.document;
     }

@@ -29,10 +29,9 @@ import Foundation
 
 // Container class for text save options.
 public class TextSaveOptionsData : SaveOptionsData {
-    // Gets or sets specifies whether to output headers and footers when exporting in plain text format.
-    // default value is TxtExportHeadersFootersMode.PrimaryOnly.
+    // Gets or sets specifies whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.
     public enum ExportHeadersFootersMode : String, Codable
-    {
+    { 
         // Enum value "_none"
         case _none = "None"
 
@@ -42,28 +41,28 @@ public class TextSaveOptionsData : SaveOptionsData {
         // Enum value "allAtEnd"
         case allAtEnd = "AllAtEnd"
     }
-
-    // Field of addBidiMarks. Container class for text save options.
+    
+    // Field of addBidiMarks. Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.      
     private var addBidiMarks : Bool?;
-
-    // Field of encoding. Container class for text save options.
+    
+    // Field of encoding. Gets or sets specifies the encoding to use when exporting in plain text format.      
     private var encoding : String?;
-
-    // Field of exportHeadersFootersMode. Container class for text save options.
+    
+    // Field of exportHeadersFootersMode. Gets or sets specifies whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.      
     private var exportHeadersFootersMode : ExportHeadersFootersMode?;
-
-    // Field of forcePageBreaks. Container class for text save options.
+    
+    // Field of forcePageBreaks. Gets or sets allows to specify whether the page breaks should be preserved during export. The default value is false.      
     private var forcePageBreaks : Bool?;
-
-    // Field of paragraphBreak. Container class for text save options.
+    
+    // Field of paragraphBreak. Gets or sets specifies the string to use as a paragraph break when exporting in plain text format.      
     private var paragraphBreak : String?;
-
-    // Field of preserveTableLayout. Container class for text save options.
+    
+    // Field of preserveTableLayout. Gets or sets specifies whether the program should attempt to preserve layout of tables when saving in the plain text format.      
     private var preserveTableLayout : Bool?;
-
-    // Field of simplifyListLabels. Container class for text save options.
+    
+    // Field of simplifyListLabels. Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.      
     private var simplifyListLabels : Bool?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case addBidiMarks;
         case encoding;
@@ -74,11 +73,11 @@ public class TextSaveOptionsData : SaveOptionsData {
         case simplifyListLabels;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -116,73 +115,73 @@ public class TextSaveOptionsData : SaveOptionsData {
             try container.encode(self.simplifyListLabels, forKey: .simplifyListLabels);
         }
     }
-
-    // Sets addBidiMarks. Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.
+    
+    // Sets addBidiMarks. Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.  
     public func setAddBidiMarks(addBidiMarks : Bool?) {
         self.addBidiMarks = addBidiMarks;
     }
-
-    // Gets addBidiMarks. Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.
+    
+    // Gets addBidiMarks. Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.  
     public func getAddBidiMarks() -> Bool? {
         return self.addBidiMarks;
     }
-
-    // Sets encoding. Gets or sets specifies the encoding to use when exporting in plain text format.
+    
+    // Sets encoding. Gets or sets specifies the encoding to use when exporting in plain text format.  
     public func setEncoding(encoding : String?) {
         self.encoding = encoding;
     }
-
-    // Gets encoding. Gets or sets specifies the encoding to use when exporting in plain text format.
+    
+    // Gets encoding. Gets or sets specifies the encoding to use when exporting in plain text format.  
     public func getEncoding() -> String? {
         return self.encoding;
     }
-
-    // Sets exportHeadersFootersMode. Gets or sets specifies whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.
+    
+    // Sets exportHeadersFootersMode. Gets or sets specifies whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.  
     public func setExportHeadersFootersMode(exportHeadersFootersMode : ExportHeadersFootersMode?) {
         self.exportHeadersFootersMode = exportHeadersFootersMode;
     }
-
-    // Gets exportHeadersFootersMode. Gets or sets specifies whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.
+    
+    // Gets exportHeadersFootersMode. Gets or sets specifies whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.  
     public func getExportHeadersFootersMode() -> ExportHeadersFootersMode? {
         return self.exportHeadersFootersMode;
     }
-
-    // Sets forcePageBreaks. Gets or sets allows to specify whether the page breaks should be preserved during export. The default value is false.
+    
+    // Sets forcePageBreaks. Gets or sets allows to specify whether the page breaks should be preserved during export. The default value is false.  
     public func setForcePageBreaks(forcePageBreaks : Bool?) {
         self.forcePageBreaks = forcePageBreaks;
     }
-
-    // Gets forcePageBreaks. Gets or sets allows to specify whether the page breaks should be preserved during export. The default value is false.
+    
+    // Gets forcePageBreaks. Gets or sets allows to specify whether the page breaks should be preserved during export. The default value is false.  
     public func getForcePageBreaks() -> Bool? {
         return self.forcePageBreaks;
     }
-
-    // Sets paragraphBreak. Gets or sets specifies the string to use as a paragraph break when exporting in plain text format.
+    
+    // Sets paragraphBreak. Gets or sets specifies the string to use as a paragraph break when exporting in plain text format.  
     public func setParagraphBreak(paragraphBreak : String?) {
         self.paragraphBreak = paragraphBreak;
     }
-
-    // Gets paragraphBreak. Gets or sets specifies the string to use as a paragraph break when exporting in plain text format.
+    
+    // Gets paragraphBreak. Gets or sets specifies the string to use as a paragraph break when exporting in plain text format.  
     public func getParagraphBreak() -> String? {
         return self.paragraphBreak;
     }
-
-    // Sets preserveTableLayout. Gets or sets specifies whether the program should attempt to preserve layout of tables when saving in the plain text format.
+    
+    // Sets preserveTableLayout. Gets or sets specifies whether the program should attempt to preserve layout of tables when saving in the plain text format.  
     public func setPreserveTableLayout(preserveTableLayout : Bool?) {
         self.preserveTableLayout = preserveTableLayout;
     }
-
-    // Gets preserveTableLayout. Gets or sets specifies whether the program should attempt to preserve layout of tables when saving in the plain text format.
+    
+    // Gets preserveTableLayout. Gets or sets specifies whether the program should attempt to preserve layout of tables when saving in the plain text format.  
     public func getPreserveTableLayout() -> Bool? {
         return self.preserveTableLayout;
     }
-
-    // Sets simplifyListLabels. Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
+    
+    // Sets simplifyListLabels. Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.  
     public func setSimplifyListLabels(simplifyListLabels : Bool?) {
         self.simplifyListLabels = simplifyListLabels;
     }
-
-    // Gets simplifyListLabels. Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
+    
+    // Gets simplifyListLabels. Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.  
     public func getSimplifyListLabels() -> Bool? {
         return self.simplifyListLabels;
     }

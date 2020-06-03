@@ -27,56 +27,60 @@
 
 import Foundation
 
-// File upload result.
+// File upload result
 public class FilesUploadResult : Codable, WordsApiModel {
-    // Field of errors. File upload result.
-    private var errors : [InternalError]?;
-
-    // Field of uploaded. File upload result.
+    
+    // Field of uploaded. List of uploaded file names      
     private var uploaded : [String]?;
-
+    
+    // Field of errors. List of errors.      
+    private var errors : [ModelError]?;
+        
     private enum CodingKeys: String, CodingKey {
-        case errors;
         case uploaded;
+        case errors;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.errors = try container.decodeIfPresent([InternalError].self, forKey: .errors);
         self.uploaded = try container.decodeIfPresent([String].self, forKey: .uploaded);
+        self.errors = try container.decodeIfPresent([ModelError].self, forKey: .errors);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.errors != nil) {
-            try container.encode(self.errors, forKey: .errors);
-        }
         if (self.uploaded != nil) {
             try container.encode(self.uploaded, forKey: .uploaded);
         }
+        if (self.errors != nil) {
+            try container.encode(self.errors, forKey: .errors);
+        }
     }
-
-    // Sets errors. List of errors.
-    public func setErrors(errors : [InternalError]?) {
-        self.errors = errors;
-    }
-
-    // Gets errors. List of errors.
-    public func getErrors() -> [InternalError]? {
-        return self.errors;
-    }
-
-    // Sets uploaded. List of uploaded file names.
+    
+    // Sets uploaded. List of uploaded file names  
     public func setUploaded(uploaded : [String]?) {
         self.uploaded = uploaded;
     }
-
-    // Gets uploaded. List of uploaded file names.
+    
+    // Gets uploaded. List of uploaded file names  
     public func getUploaded() -> [String]? {
         return self.uploaded;
+    }
+    
+    // Sets errors. List of errors.  
+    public func setErrors(errors : [ModelError]?) {
+        self.errors = errors;
+    }
+    
+    // Gets errors. List of errors.  
+    public func getErrors() -> [ModelError]? {
+        return self.errors;
     }
 }

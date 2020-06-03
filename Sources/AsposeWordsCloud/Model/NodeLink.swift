@@ -29,18 +29,19 @@ import Foundation
 
 // Reference to node.
 public class NodeLink : LinkElement {
-    // Field of nodeId. Reference to node.
+    
+    // Field of nodeId. Gets or sets node id.      
     private var nodeId : String?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case nodeId;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class NodeLink : LinkElement {
             try container.encode(self.nodeId, forKey: .nodeId);
         }
     }
-
-    // Sets nodeId. Gets or sets node id.
+    
+    // Sets nodeId. Gets or sets node id.  
     public func setNodeId(nodeId : String?) {
         self.nodeId = nodeId;
     }
-
-    // Gets nodeId. Gets or sets node id.
+    
+    // Gets nodeId. Gets or sets node id.  
     public func getNodeId() -> String? {
         return self.nodeId;
     }

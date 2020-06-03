@@ -29,18 +29,19 @@ import Foundation
 
 // Represents drawing objects collection DTO.
 public class DrawingObjectCollection : LinkElement {
-    // Field of list. Represents drawing objects collection DTO.
+    
+    // Field of list. Gets or sets collection of DrawingObjects links.      
     private var list : [LinkElement]?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case list;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class DrawingObjectCollection : LinkElement {
             try container.encode(self.list, forKey: .list);
         }
     }
-
-    // Sets list. Gets or sets collection of DrawingObjects links.
+    
+    // Sets list. Gets or sets collection of DrawingObjects links.  
     public func setList(list : [LinkElement]?) {
         self.list = list;
     }
-
-    // Gets list. Gets or sets collection of DrawingObjects links.
+    
+    // Gets list. Gets or sets collection of DrawingObjects links.  
     public func getList() -> [LinkElement]? {
         return self.list;
     }

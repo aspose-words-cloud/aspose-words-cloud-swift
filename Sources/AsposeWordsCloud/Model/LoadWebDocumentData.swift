@@ -29,28 +29,32 @@ import Foundation
 
 // Contains data for load web document.
 public class LoadWebDocumentData : Codable, WordsApiModel {
-    // Field of loadingDocumentUrl. Contains data for load web document.
+    
+    // Field of loadingDocumentUrl. Gets or sets web document url.      
     private var loadingDocumentUrl : String?;
-
-    // Field of saveOptions. Contains data for load web document.
+    
+    // Field of saveOptions.       
     private var saveOptions : SaveOptionsData?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case loadingDocumentUrl;
         case saveOptions;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.loadingDocumentUrl = try container.decodeIfPresent(String.self, forKey: .loadingDocumentUrl);
         self.saveOptions = try container.decodeIfPresent(SaveOptionsData.self, forKey: .saveOptions);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.loadingDocumentUrl != nil) {
             try container.encode(self.loadingDocumentUrl, forKey: .loadingDocumentUrl);
@@ -59,23 +63,23 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
             try container.encode(self.saveOptions, forKey: .saveOptions);
         }
     }
-
-    // Sets loadingDocumentUrl. Gets or sets web document url.
+    
+    // Sets loadingDocumentUrl. Gets or sets web document url.  
     public func setLoadingDocumentUrl(loadingDocumentUrl : String?) {
         self.loadingDocumentUrl = loadingDocumentUrl;
     }
-
-    // Gets loadingDocumentUrl. Gets or sets web document url.
+    
+    // Gets loadingDocumentUrl. Gets or sets web document url.  
     public func getLoadingDocumentUrl() -> String? {
         return self.loadingDocumentUrl;
     }
-
-    // Sets saveOptions. Gets or sets save options.
+    
+    // Sets saveOptions.   
     public func setSaveOptions(saveOptions : SaveOptionsData?) {
         self.saveOptions = saveOptions;
     }
-
-    // Gets saveOptions. Gets or sets save options.
+    
+    // Gets saveOptions.   
     public func getSaveOptions() -> SaveOptionsData? {
         return self.saveOptions;
     }

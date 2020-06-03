@@ -29,14 +29,15 @@ import Foundation
 
 // Words document property DTO for create or update.
 public class DocumentPropertyCreateOrUpdate : DocumentPropertyBase {
+        
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
     }
@@ -44,5 +45,4 @@ public class DocumentPropertyCreateOrUpdate : DocumentPropertyBase {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
-
 }

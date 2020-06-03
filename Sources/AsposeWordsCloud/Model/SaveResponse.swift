@@ -29,18 +29,19 @@ import Foundation
 
 // Save response.
 public class SaveResponse : WordsResponse {
-    // Field of saveResult. Save response.
+    
+    // Field of saveResult.       
     private var saveResult : SaveResult?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case saveResult;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class SaveResponse : WordsResponse {
             try container.encode(self.saveResult, forKey: .saveResult);
         }
     }
-
-    // Sets saveResult. Gets or sets save result.
+    
+    // Sets saveResult.   
     public func setSaveResult(saveResult : SaveResult?) {
         self.saveResult = saveResult;
     }
-
-    // Gets saveResult. Gets or sets save result.
+    
+    // Gets saveResult.   
     public func getSaveResult() -> SaveResult? {
         return self.saveResult;
     }

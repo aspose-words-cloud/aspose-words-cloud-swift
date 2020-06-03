@@ -29,35 +29,39 @@ import Foundation
 
 // Update document properties if document list.
 public class ListUpdate : Codable, WordsApiModel {
-    // Field of isRestartAtEachSection. Update document properties if document list.
+    
+    // Field of isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.      
     private var isRestartAtEachSection : Bool?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case isRestartAtEachSection;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.isRestartAtEachSection = try container.decodeIfPresent(Bool.self, forKey: .isRestartAtEachSection);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.isRestartAtEachSection != nil) {
             try container.encode(self.isRestartAtEachSection, forKey: .isRestartAtEachSection);
         }
     }
-
-    // Sets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+    
+    // Sets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.  
     public func setIsRestartAtEachSection(isRestartAtEachSection : Bool?) {
         self.isRestartAtEachSection = isRestartAtEachSection;
     }
-
-    // Gets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+    
+    // Gets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.  
     public func getIsRestartAtEachSection() -> Bool? {
         return self.isRestartAtEachSection;
     }

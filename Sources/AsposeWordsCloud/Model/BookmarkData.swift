@@ -29,28 +29,32 @@ import Foundation
 
 // DTO for bookmark updating.
 public class BookmarkData : Codable, WordsApiModel {
-    // Field of name. DTO for bookmark updating.
+    
+    // Field of name. Gets or sets the name of the bookmark.      
     private var name : String?;
-
-    // Field of text. DTO for bookmark updating.
+    
+    // Field of text. Gets or sets the text enclosed in the bookmark.      
     private var text : String?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case name;
         case text;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.name = try container.decodeIfPresent(String.self, forKey: .name);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.name != nil) {
             try container.encode(self.name, forKey: .name);
@@ -59,23 +63,23 @@ public class BookmarkData : Codable, WordsApiModel {
             try container.encode(self.text, forKey: .text);
         }
     }
-
-    // Sets name. Gets or sets the name of the bookmark.
+    
+    // Sets name. Gets or sets the name of the bookmark.  
     public func setName(name : String?) {
         self.name = name;
     }
-
-    // Gets name. Gets or sets the name of the bookmark.
+    
+    // Gets name. Gets or sets the name of the bookmark.  
     public func getName() -> String? {
         return self.name;
     }
-
-    // Sets text. Gets or sets the text enclosed in the bookmark.
+    
+    // Sets text. Gets or sets the text enclosed in the bookmark.  
     public func setText(text : String?) {
         self.text = text;
     }
-
-    // Gets text. Gets or sets the text enclosed in the bookmark.
+    
+    // Gets text. Gets or sets the text enclosed in the bookmark.  
     public func getText() -> String? {
         return self.text;
     }

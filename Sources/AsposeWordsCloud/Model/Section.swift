@@ -29,21 +29,22 @@ import Foundation
 
 // Section element.
 public class Section : LinkElement {
-    // Field of childNodes. Section element.
+    
+    // Field of childNodes. Gets or sets child nodes.      
     private var childNodes : [NodeLink]?;
-
-    // Field of headerFooters. Section element.
+    
+    // Field of headerFooters.       
     private var headerFooters : LinkElement?;
-
-    // Field of pageSetup. Section element.
+    
+    // Field of pageSetup.       
     private var pageSetup : LinkElement?;
-
-    // Field of paragraphs. Section element.
+    
+    // Field of paragraphs.       
     private var paragraphs : LinkElement?;
-
-    // Field of tables. Section element.
+    
+    // Field of tables.       
     private var tables : LinkElement?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case childNodes;
         case headerFooters;
@@ -52,11 +53,11 @@ public class Section : LinkElement {
         case tables;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -86,53 +87,53 @@ public class Section : LinkElement {
             try container.encode(self.tables, forKey: .tables);
         }
     }
-
-    // Sets childNodes. Gets or sets child nodes.
+    
+    // Sets childNodes. Gets or sets child nodes.  
     public func setChildNodes(childNodes : [NodeLink]?) {
         self.childNodes = childNodes;
     }
-
-    // Gets childNodes. Gets or sets child nodes.
+    
+    // Gets childNodes. Gets or sets child nodes.  
     public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }
-
-    // Sets headerFooters. Gets or sets link to HeaderFooters resource.
+    
+    // Sets headerFooters.   
     public func setHeaderFooters(headerFooters : LinkElement?) {
         self.headerFooters = headerFooters;
     }
-
-    // Gets headerFooters. Gets or sets link to HeaderFooters resource.
+    
+    // Gets headerFooters.   
     public func getHeaderFooters() -> LinkElement? {
         return self.headerFooters;
     }
-
-    // Sets pageSetup. Gets or sets link to PageSetup resource.
+    
+    // Sets pageSetup.   
     public func setPageSetup(pageSetup : LinkElement?) {
         self.pageSetup = pageSetup;
     }
-
-    // Gets pageSetup. Gets or sets link to PageSetup resource.
+    
+    // Gets pageSetup.   
     public func getPageSetup() -> LinkElement? {
         return self.pageSetup;
     }
-
-    // Sets paragraphs. Gets or sets link to Paragraphs resource.
+    
+    // Sets paragraphs.   
     public func setParagraphs(paragraphs : LinkElement?) {
         self.paragraphs = paragraphs;
     }
-
-    // Gets paragraphs. Gets or sets link to Paragraphs resource.
+    
+    // Gets paragraphs.   
     public func getParagraphs() -> LinkElement? {
         return self.paragraphs;
     }
-
-    // Sets tables. Gets or sets link to Tables resource.
+    
+    // Sets tables.   
     public func setTables(tables : LinkElement?) {
         self.tables = tables;
     }
-
-    // Gets tables. Gets or sets link to Tables resource.
+    
+    // Gets tables.   
     public func getTables() -> LinkElement? {
         return self.tables;
     }

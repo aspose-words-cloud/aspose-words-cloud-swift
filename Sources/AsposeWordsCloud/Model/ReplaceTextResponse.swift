@@ -27,24 +27,25 @@
 
 import Foundation
 
-// Response for "Replace text" action.
+// Response for \&quot;Replace text\&quot; action.
 public class ReplaceTextResponse : WordsResponse {
-    // Field of documentLink. Response for "Replace text" action.
+    
+    // Field of documentLink.       
     private var documentLink : FileLink?;
-
-    // Field of matches. Response for "Replace text" action.
+    
+    // Field of matches. Gets or sets number of occurrences of the captured text in the document.      
     private var matches : Int?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case documentLink;
         case matches;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -62,23 +63,23 @@ public class ReplaceTextResponse : WordsResponse {
             try container.encode(self.matches, forKey: .matches);
         }
     }
-
-    // Sets documentLink. Gets or sets link to the document.
+    
+    // Sets documentLink.   
     public func setDocumentLink(documentLink : FileLink?) {
         self.documentLink = documentLink;
     }
-
-    // Gets documentLink. Gets or sets link to the document.
+    
+    // Gets documentLink.   
     public func getDocumentLink() -> FileLink? {
         return self.documentLink;
     }
-
-    // Sets matches. Gets or sets number of occurrences of the captured text in the document.
+    
+    // Sets matches. Gets or sets number of occurrences of the captured text in the document.  
     public func setMatches(matches : Int?) {
         self.matches = matches;
     }
-
-    // Gets matches. Gets or sets number of occurrences of the captured text in the document.
+    
+    // Gets matches. Gets or sets number of occurrences of the captured text in the document.  
     public func getMatches() -> Int? {
         return self.matches;
     }

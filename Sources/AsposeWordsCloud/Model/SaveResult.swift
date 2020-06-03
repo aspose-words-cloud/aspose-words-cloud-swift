@@ -29,72 +29,76 @@ import Foundation
 
 // Result of saving.
 public class SaveResult : Codable, WordsApiModel {
-    // Field of additionalItems. Result of saving.
-    private var additionalItems : [FileLink]?;
-
-    // Field of destDocument. Result of saving.
-    private var destDocument : FileLink?;
-
-    // Field of sourceDocument. Result of saving.
+    
+    // Field of sourceDocument.       
     private var sourceDocument : FileLink?;
-
+    
+    // Field of destDocument.       
+    private var destDocument : FileLink?;
+    
+    // Field of additionalItems. Gets or sets links to additional items (css, images etc).      
+    private var additionalItems : [FileLink]?;
+        
     private enum CodingKeys: String, CodingKey {
-        case additionalItems;
-        case destDocument;
         case sourceDocument;
+        case destDocument;
+        case additionalItems;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.additionalItems = try container.decodeIfPresent([FileLink].self, forKey: .additionalItems);
-        self.destDocument = try container.decodeIfPresent(FileLink.self, forKey: .destDocument);
         self.sourceDocument = try container.decodeIfPresent(FileLink.self, forKey: .sourceDocument);
+        self.destDocument = try container.decodeIfPresent(FileLink.self, forKey: .destDocument);
+        self.additionalItems = try container.decodeIfPresent([FileLink].self, forKey: .additionalItems);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.additionalItems != nil) {
-            try container.encode(self.additionalItems, forKey: .additionalItems);
+        if (self.sourceDocument != nil) {
+            try container.encode(self.sourceDocument, forKey: .sourceDocument);
         }
         if (self.destDocument != nil) {
             try container.encode(self.destDocument, forKey: .destDocument);
         }
-        if (self.sourceDocument != nil) {
-            try container.encode(self.sourceDocument, forKey: .sourceDocument);
+        if (self.additionalItems != nil) {
+            try container.encode(self.additionalItems, forKey: .additionalItems);
         }
     }
-
-    // Sets additionalItems. Gets or sets links to additional items (css, images etc).
-    public func setAdditionalItems(additionalItems : [FileLink]?) {
-        self.additionalItems = additionalItems;
-    }
-
-    // Gets additionalItems. Gets or sets links to additional items (css, images etc).
-    public func getAdditionalItems() -> [FileLink]? {
-        return self.additionalItems;
-    }
-
-    // Sets destDocument. Gets or sets link to destination document.
-    public func setDestDocument(destDocument : FileLink?) {
-        self.destDocument = destDocument;
-    }
-
-    // Gets destDocument. Gets or sets link to destination document.
-    public func getDestDocument() -> FileLink? {
-        return self.destDocument;
-    }
-
-    // Sets sourceDocument. Gets or sets link to source document.
+    
+    // Sets sourceDocument.   
     public func setSourceDocument(sourceDocument : FileLink?) {
         self.sourceDocument = sourceDocument;
     }
-
-    // Gets sourceDocument. Gets or sets link to source document.
+    
+    // Gets sourceDocument.   
     public func getSourceDocument() -> FileLink? {
         return self.sourceDocument;
+    }
+    
+    // Sets destDocument.   
+    public func setDestDocument(destDocument : FileLink?) {
+        self.destDocument = destDocument;
+    }
+    
+    // Gets destDocument.   
+    public func getDestDocument() -> FileLink? {
+        return self.destDocument;
+    }
+    
+    // Sets additionalItems. Gets or sets links to additional items (css, images etc).  
+    public func setAdditionalItems(additionalItems : [FileLink]?) {
+        self.additionalItems = additionalItems;
+    }
+    
+    // Gets additionalItems. Gets or sets links to additional items (css, images etc).  
+    public func getAdditionalItems() -> [FileLink]? {
+        return self.additionalItems;
     }
 }

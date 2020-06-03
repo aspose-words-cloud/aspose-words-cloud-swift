@@ -29,18 +29,19 @@ import Foundation
 
 // container class for rtf save options.
 public class RtfSaveOptionsData : SaveOptionsData {
-    // Field of exportCompactSize. container class for rtf save options.
+    
+    // Field of exportCompactSize. Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.      
     private var exportCompactSize : Bool?;
-
-    // Field of exportImagesForOldReaders. container class for rtf save options.
+    
+    // Field of exportImagesForOldReaders. Gets or sets specifies whether the keywords for \"old readers\" are written to RTF or not.      
     private var exportImagesForOldReaders : Bool?;
-
-    // Field of prettyFormat. container class for rtf save options.
+    
+    // Field of prettyFormat. Gets or sets specifies whether or not use pretty formats output.      
     private var prettyFormat : Bool?;
-
-    // Field of saveImagesAsWmf. container class for rtf save options.
+    
+    // Field of saveImagesAsWmf. Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.      
     private var saveImagesAsWmf : Bool?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case exportCompactSize;
         case exportImagesForOldReaders;
@@ -48,11 +49,11 @@ public class RtfSaveOptionsData : SaveOptionsData {
         case saveImagesAsWmf;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -78,43 +79,43 @@ public class RtfSaveOptionsData : SaveOptionsData {
             try container.encode(self.saveImagesAsWmf, forKey: .saveImagesAsWmf);
         }
     }
-
-    // Sets exportCompactSize. Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
+    
+    // Sets exportCompactSize. Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.  
     public func setExportCompactSize(exportCompactSize : Bool?) {
         self.exportCompactSize = exportCompactSize;
     }
-
-    // Gets exportCompactSize. Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.
+    
+    // Gets exportCompactSize. Gets or sets allows to make output RTF documents smaller in size, but if they contain RTL (right-to-left) text, it will not be displayed correctly.  
     public func getExportCompactSize() -> Bool? {
         return self.exportCompactSize;
     }
-
-    // Sets exportImagesForOldReaders. Gets or sets specifies whether the keywords for "old readers" are written to RTF or not.
+    
+    // Sets exportImagesForOldReaders. Gets or sets specifies whether the keywords for \"old readers\" are written to RTF or not.  
     public func setExportImagesForOldReaders(exportImagesForOldReaders : Bool?) {
         self.exportImagesForOldReaders = exportImagesForOldReaders;
     }
-
-    // Gets exportImagesForOldReaders. Gets or sets specifies whether the keywords for "old readers" are written to RTF or not.
+    
+    // Gets exportImagesForOldReaders. Gets or sets specifies whether the keywords for \"old readers\" are written to RTF or not.  
     public func getExportImagesForOldReaders() -> Bool? {
         return self.exportImagesForOldReaders;
     }
-
-    // Sets prettyFormat. Gets or sets specifies whether or not use pretty formats output.
+    
+    // Sets prettyFormat. Gets or sets specifies whether or not use pretty formats output.  
     public func setPrettyFormat(prettyFormat : Bool?) {
         self.prettyFormat = prettyFormat;
     }
-
-    // Gets prettyFormat. Gets or sets specifies whether or not use pretty formats output.
+    
+    // Gets prettyFormat. Gets or sets specifies whether or not use pretty formats output.  
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }
-
-    // Sets saveImagesAsWmf. Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.
+    
+    // Sets saveImagesAsWmf. Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.  
     public func setSaveImagesAsWmf(saveImagesAsWmf : Bool?) {
         self.saveImagesAsWmf = saveImagesAsWmf;
     }
-
-    // Gets saveImagesAsWmf. Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.
+    
+    // Gets saveImagesAsWmf. Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.  
     public func getSaveImagesAsWmf() -> Bool? {
         return self.saveImagesAsWmf;
     }

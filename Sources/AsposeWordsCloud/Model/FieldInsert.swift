@@ -29,14 +29,15 @@ import Foundation
 
 // Field for insert.
 public class FieldInsert : FieldBase {
+        
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
     }
@@ -44,5 +45,4 @@ public class FieldInsert : FieldBase {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
-
 }

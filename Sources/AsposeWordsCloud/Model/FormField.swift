@@ -29,33 +29,34 @@ import Foundation
 
 // FromField.
 public class FormField : NodeLink {
-    // Field of calculateOnExit. FromField.
+    
+    // Field of calculateOnExit. Gets or sets true if references to the specified form field are automatically updated whenever the field is exited.      
     private var calculateOnExit : Bool?;
-
-    // Field of enabled. FromField.
+    
+    // Field of enabled. Gets or sets true if a form field is enabled.      
     private var enabled : Bool?;
-
-    // Field of entryMacro. FromField.
+    
+    // Field of entryMacro. Gets or sets returns or sets an entry macro name for the form field.      
     private var entryMacro : String?;
-
-    // Field of exitMacro. FromField.
+    
+    // Field of exitMacro. Gets or sets returns or sets an exit macro name for the form field.      
     private var exitMacro : String?;
-
-    // Field of helpText. FromField.
+    
+    // Field of helpText. Gets or sets returns or sets the text that's displayed in a message box when the form field has the focus and the user presses F1.      
     private var helpText : String?;
-
-    // Field of name. FromField.
+    
+    // Field of name. Gets or sets the form field name.      
     private var name : String?;
-
-    // Field of ownHelp. FromField.
+    
+    // Field of ownHelp. Gets or sets specifies the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.      
     private var ownHelp : Bool?;
-
-    // Field of ownStatus. FromField.
+    
+    // Field of ownStatus. Gets or sets specifies the source of the text that's displayed in the status bar when a form field has the focus.      
     private var ownStatus : Bool?;
-
-    // Field of statusText. FromField.
+    
+    // Field of statusText. Gets or sets returns or sets the text that's displayed in the status bar when a form field has the focus.      
     private var statusText : String?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case calculateOnExit;
         case enabled;
@@ -68,11 +69,11 @@ public class FormField : NodeLink {
         case statusText;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -118,93 +119,93 @@ public class FormField : NodeLink {
             try container.encode(self.statusText, forKey: .statusText);
         }
     }
-
-    // Sets calculateOnExit. Gets or sets true if references to the specified form field are automatically updated whenever the field is exited.
+    
+    // Sets calculateOnExit. Gets or sets true if references to the specified form field are automatically updated whenever the field is exited.  
     public func setCalculateOnExit(calculateOnExit : Bool?) {
         self.calculateOnExit = calculateOnExit;
     }
-
-    // Gets calculateOnExit. Gets or sets true if references to the specified form field are automatically updated whenever the field is exited.
+    
+    // Gets calculateOnExit. Gets or sets true if references to the specified form field are automatically updated whenever the field is exited.  
     public func getCalculateOnExit() -> Bool? {
         return self.calculateOnExit;
     }
-
-    // Sets enabled. Gets or sets true if a form field is enabled.
+    
+    // Sets enabled. Gets or sets true if a form field is enabled.  
     public func setEnabled(enabled : Bool?) {
         self.enabled = enabled;
     }
-
-    // Gets enabled. Gets or sets true if a form field is enabled.
+    
+    // Gets enabled. Gets or sets true if a form field is enabled.  
     public func getEnabled() -> Bool? {
         return self.enabled;
     }
-
-    // Sets entryMacro. Gets or sets returns or sets an entry macro name for the form field.
+    
+    // Sets entryMacro. Gets or sets returns or sets an entry macro name for the form field.  
     public func setEntryMacro(entryMacro : String?) {
         self.entryMacro = entryMacro;
     }
-
-    // Gets entryMacro. Gets or sets returns or sets an entry macro name for the form field.
+    
+    // Gets entryMacro. Gets or sets returns or sets an entry macro name for the form field.  
     public func getEntryMacro() -> String? {
         return self.entryMacro;
     }
-
-    // Sets exitMacro. Gets or sets returns or sets an exit macro name for the form field.
+    
+    // Sets exitMacro. Gets or sets returns or sets an exit macro name for the form field.  
     public func setExitMacro(exitMacro : String?) {
         self.exitMacro = exitMacro;
     }
-
-    // Gets exitMacro. Gets or sets returns or sets an exit macro name for the form field.
+    
+    // Gets exitMacro. Gets or sets returns or sets an exit macro name for the form field.  
     public func getExitMacro() -> String? {
         return self.exitMacro;
     }
-
-    // Sets helpText. Gets or sets returns or sets the text that's displayed in a message box when the form field has the focus and the user presses F1.
+    
+    // Sets helpText. Gets or sets returns or sets the text that's displayed in a message box when the form field has the focus and the user presses F1.  
     public func setHelpText(helpText : String?) {
         self.helpText = helpText;
     }
-
-    // Gets helpText. Gets or sets returns or sets the text that's displayed in a message box when the form field has the focus and the user presses F1.
+    
+    // Gets helpText. Gets or sets returns or sets the text that's displayed in a message box when the form field has the focus and the user presses F1.  
     public func getHelpText() -> String? {
         return self.helpText;
     }
-
-    // Sets name. Gets or sets the form field name.
+    
+    // Sets name. Gets or sets the form field name.  
     public func setName(name : String?) {
         self.name = name;
     }
-
-    // Gets name. Gets or sets the form field name.
+    
+    // Gets name. Gets or sets the form field name.  
     public func getName() -> String? {
         return self.name;
     }
-
-    // Sets ownHelp. Gets or sets specifies the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
+    
+    // Sets ownHelp. Gets or sets specifies the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.  
     public func setOwnHelp(ownHelp : Bool?) {
         self.ownHelp = ownHelp;
     }
-
-    // Gets ownHelp. Gets or sets specifies the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
+    
+    // Gets ownHelp. Gets or sets specifies the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.  
     public func getOwnHelp() -> Bool? {
         return self.ownHelp;
     }
-
-    // Sets ownStatus. Gets or sets specifies the source of the text that's displayed in the status bar when a form field has the focus.
+    
+    // Sets ownStatus. Gets or sets specifies the source of the text that's displayed in the status bar when a form field has the focus.  
     public func setOwnStatus(ownStatus : Bool?) {
         self.ownStatus = ownStatus;
     }
-
-    // Gets ownStatus. Gets or sets specifies the source of the text that's displayed in the status bar when a form field has the focus.
+    
+    // Gets ownStatus. Gets or sets specifies the source of the text that's displayed in the status bar when a form field has the focus.  
     public func getOwnStatus() -> Bool? {
         return self.ownStatus;
     }
-
-    // Sets statusText. Gets or sets returns or sets the text that's displayed in the status bar when a form field has the focus.
+    
+    // Sets statusText. Gets or sets returns or sets the text that's displayed in the status bar when a form field has the focus.  
     public func setStatusText(statusText : String?) {
         self.statusText = statusText;
     }
-
-    // Gets statusText. Gets or sets returns or sets the text that's displayed in the status bar when a form field has the focus.
+    
+    // Gets statusText. Gets or sets returns or sets the text that's displayed in the status bar when a form field has the focus.  
     public func getStatusText() -> String? {
         return self.statusText;
     }

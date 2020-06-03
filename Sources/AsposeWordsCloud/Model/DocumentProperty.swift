@@ -29,26 +29,27 @@ import Foundation
 
 // Words document property DTO.
 public class DocumentProperty : LinkElement {
-    // Field of builtIn. Words document property DTO.
+    
+    // Field of builtIn. Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.      
     private var builtIn : Bool?;
-
-    // Field of name. Words document property DTO.
+    
+    // Field of name. Gets or sets name of the document property.      
     private var name : String?;
-
-    // Field of value. Words document property DTO.
+    
+    // Field of value. Gets or sets string value of the document property.      
     private var value : String?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case builtIn;
         case name;
         case value;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -70,33 +71,33 @@ public class DocumentProperty : LinkElement {
             try container.encode(self.value, forKey: .value);
         }
     }
-
-    // Sets builtIn. Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.
+    
+    // Sets builtIn. Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.  
     public func setBuiltIn(builtIn : Bool?) {
         self.builtIn = builtIn;
     }
-
-    // Gets builtIn. Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.
+    
+    // Gets builtIn. Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.  
     public func getBuiltIn() -> Bool? {
         return self.builtIn;
     }
-
-    // Sets name. Gets or sets name of the document property.
+    
+    // Sets name. Gets or sets name of the document property.  
     public func setName(name : String?) {
         self.name = name;
     }
-
-    // Gets name. Gets or sets name of the document property.
+    
+    // Gets name. Gets or sets name of the document property.  
     public func getName() -> String? {
         return self.name;
     }
-
-    // Sets value. Gets or sets string value of the document property.
+    
+    // Sets value. Gets or sets string value of the document property.  
     public func setValue(value : String?) {
         self.value = value;
     }
-
-    // Gets value. Gets or sets string value of the document property.
+    
+    // Gets value. Gets or sets string value of the document property.  
     public func getValue() -> String? {
         return self.value;
     }

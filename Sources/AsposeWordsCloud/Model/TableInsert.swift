@@ -29,71 +29,75 @@ import Foundation
 
 // Table element.
 public class TableInsert : Codable, WordsApiModel {
-    // Field of columnsCount. Table element.
-    private var columnsCount : Int?;
-
-    // Field of position. Table element.
+    
+    // Field of position.       
     private var position : DocumentPosition?;
-
-    // Field of rowsCount. Table element.
+    
+    // Field of columnsCount. Gets or sets count of columns. Default is 2.      
+    private var columnsCount : Int?;
+    
+    // Field of rowsCount. Gets or sets count of rows. Default is 2.      
     private var rowsCount : Int?;
-
+        
     private enum CodingKeys: String, CodingKey {
-        case columnsCount;
         case position;
+        case columnsCount;
         case rowsCount;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.columnsCount = try container.decodeIfPresent(Int.self, forKey: .columnsCount);
         self.position = try container.decodeIfPresent(DocumentPosition.self, forKey: .position);
+        self.columnsCount = try container.decodeIfPresent(Int.self, forKey: .columnsCount);
         self.rowsCount = try container.decodeIfPresent(Int.self, forKey: .rowsCount);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.columnsCount != nil) {
-            try container.encode(self.columnsCount, forKey: .columnsCount);
-        }
         if (self.position != nil) {
             try container.encode(self.position, forKey: .position);
+        }
+        if (self.columnsCount != nil) {
+            try container.encode(self.columnsCount, forKey: .columnsCount);
         }
         if (self.rowsCount != nil) {
             try container.encode(self.rowsCount, forKey: .rowsCount);
         }
     }
-
-    // Sets columnsCount. Gets or sets count of columns. Default is 2.
-    public func setColumnsCount(columnsCount : Int?) {
-        self.columnsCount = columnsCount;
-    }
-
-    // Gets columnsCount. Gets or sets count of columns. Default is 2.
-    public func getColumnsCount() -> Int? {
-        return self.columnsCount;
-    }
-
-    // Sets position. Gets or sets table will be inserted before specified position.
+    
+    // Sets position.   
     public func setPosition(position : DocumentPosition?) {
         self.position = position;
     }
-
-    // Gets position. Gets or sets table will be inserted before specified position.
+    
+    // Gets position.   
     public func getPosition() -> DocumentPosition? {
         return self.position;
     }
-
-    // Sets rowsCount. Gets or sets count of rows. Default is 2.
+    
+    // Sets columnsCount. Gets or sets count of columns. Default is 2.  
+    public func setColumnsCount(columnsCount : Int?) {
+        self.columnsCount = columnsCount;
+    }
+    
+    // Gets columnsCount. Gets or sets count of columns. Default is 2.  
+    public func getColumnsCount() -> Int? {
+        return self.columnsCount;
+    }
+    
+    // Sets rowsCount. Gets or sets count of rows. Default is 2.  
     public func setRowsCount(rowsCount : Int?) {
         self.rowsCount = rowsCount;
     }
-
-    // Gets rowsCount. Gets or sets count of rows. Default is 2.
+    
+    // Gets rowsCount. Gets or sets count of rows. Default is 2.  
     public func getRowsCount() -> Int? {
         return self.rowsCount;
     }

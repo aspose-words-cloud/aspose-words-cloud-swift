@@ -31,7 +31,7 @@ import Foundation
 public class ListInsert : Codable, WordsApiModel {
     // Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
     public enum Template : String, Codable
-    {
+    { 
         // Enum value "bulletDefault"
         case bulletDefault = "BulletDefault"
 
@@ -98,36 +98,39 @@ public class ListInsert : Codable, WordsApiModel {
         // Enum value "outlineHeadingsChapter"
         case outlineHeadingsChapter = "OutlineHeadingsChapter"
     }
-
-    // Field of template. Insert document to document list.
+    
+    // Field of template. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.      
     private var template : Template?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case template;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.template = try container.decodeIfPresent(Template.self, forKey: .template);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.template != nil) {
             try container.encode(self.template, forKey: .template);
         }
     }
-
-    // Sets template. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+    
+    // Sets template. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.  
     public func setTemplate(template : Template?) {
         self.template = template;
     }
-
-    // Gets template. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+    
+    // Gets template. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.  
     public func getTemplate() -> Template? {
         return self.template;
     }

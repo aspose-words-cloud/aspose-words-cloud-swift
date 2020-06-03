@@ -29,35 +29,39 @@ import Foundation
 
 // Container for the data about protection of the document.
 public class ProtectionData : Codable, WordsApiModel {
-    // Field of protectionType. Container for the data about protection of the document.
+    
+    // Field of protectionType. Gets or sets type of the protection.      
     private var protectionType : String?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case protectionType;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.protectionType = try container.decodeIfPresent(String.self, forKey: .protectionType);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.protectionType != nil) {
             try container.encode(self.protectionType, forKey: .protectionType);
         }
     }
-
-    // Sets protectionType. Gets or sets type of the protection.
+    
+    // Sets protectionType. Gets or sets type of the protection.  
     public func setProtectionType(protectionType : String?) {
         self.protectionType = protectionType;
     }
-
-    // Gets protectionType. Gets or sets type of the protection.
+    
+    // Gets protectionType. Gets or sets type of the protection.  
     public func getProtectionType() -> String? {
         return self.protectionType;
     }

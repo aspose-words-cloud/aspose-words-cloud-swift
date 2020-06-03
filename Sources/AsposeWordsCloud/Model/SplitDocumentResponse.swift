@@ -29,18 +29,19 @@ import Foundation
 
 // This response should be returned by the service when handling:  POST /{name}/split .
 public class SplitDocumentResponse : WordsResponse {
-    // Field of splitResult. This response should be returned by the service when handling:  POST /{name}/split .
+    
+    // Field of splitResult.       
     private var splitResult : SplitDocumentResult?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case splitResult;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class SplitDocumentResponse : WordsResponse {
             try container.encode(self.splitResult, forKey: .splitResult);
         }
     }
-
-    // Sets splitResult. Gets or sets resylt of splitting document.
+    
+    // Sets splitResult.   
     public func setSplitResult(splitResult : SplitDocumentResult?) {
         self.splitResult = splitResult;
     }
-
-    // Gets splitResult. Gets or sets resylt of splitting document.
+    
+    // Gets splitResult.   
     public func getSplitResult() -> SplitDocumentResult? {
         return self.splitResult;
     }

@@ -29,24 +29,25 @@ import Foundation
 
 // container class for svg save options.
 public class SvgSaveOptionsData : FixedPageSaveOptionsData {
-    // Field of exportEmbeddedImages. container class for svg save options.
+    
+    // Field of exportEmbeddedImages. Gets or sets specified whether images should be embedded into SVG document as base64.      
     private var exportEmbeddedImages : Bool?;
-
-    // Field of fitToViewPort. container class for svg save options.
+    
+    // Field of fitToViewPort. Gets or sets specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.      
     private var fitToViewPort : Bool?;
-
-    // Field of resourcesFolder. container class for svg save options.
+    
+    // Field of resourcesFolder. Gets or sets specifies the physical folder where resources (images) are saved when exporting.      
     private var resourcesFolder : String?;
-
-    // Field of resourcesFolderAlias. container class for svg save options.
+    
+    // Field of resourcesFolderAlias. Gets or sets specifies the name of the folder used to construct image URIs.      
     private var resourcesFolderAlias : String?;
-
-    // Field of showPageBorder. container class for svg save options.
+    
+    // Field of showPageBorder. Gets or sets show/hide page stepper.      
     private var showPageBorder : Bool?;
-
-    // Field of textOutputMode. container class for svg save options.
+    
+    // Field of textOutputMode. Gets or sets determines how text should be rendered.      
     private var textOutputMode : String?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case exportEmbeddedImages;
         case fitToViewPort;
@@ -56,11 +57,11 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         case textOutputMode;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -94,63 +95,63 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
             try container.encode(self.textOutputMode, forKey: .textOutputMode);
         }
     }
-
-    // Sets exportEmbeddedImages. Gets or sets specified whether images should be embedded into SVG document as base64.
+    
+    // Sets exportEmbeddedImages. Gets or sets specified whether images should be embedded into SVG document as base64.  
     public func setExportEmbeddedImages(exportEmbeddedImages : Bool?) {
         self.exportEmbeddedImages = exportEmbeddedImages;
     }
-
-    // Gets exportEmbeddedImages. Gets or sets specified whether images should be embedded into SVG document as base64.
+    
+    // Gets exportEmbeddedImages. Gets or sets specified whether images should be embedded into SVG document as base64.  
     public func getExportEmbeddedImages() -> Bool? {
         return self.exportEmbeddedImages;
     }
-
-    // Sets fitToViewPort. Gets or sets specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.
+    
+    // Sets fitToViewPort. Gets or sets specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.  
     public func setFitToViewPort(fitToViewPort : Bool?) {
         self.fitToViewPort = fitToViewPort;
     }
-
-    // Gets fitToViewPort. Gets or sets specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.
+    
+    // Gets fitToViewPort. Gets or sets specifies if the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.  
     public func getFitToViewPort() -> Bool? {
         return self.fitToViewPort;
     }
-
-    // Sets resourcesFolder. Gets or sets specifies the physical folder where resources (images) are saved when exporting.
+    
+    // Sets resourcesFolder. Gets or sets specifies the physical folder where resources (images) are saved when exporting.  
     public func setResourcesFolder(resourcesFolder : String?) {
         self.resourcesFolder = resourcesFolder;
     }
-
-    // Gets resourcesFolder. Gets or sets specifies the physical folder where resources (images) are saved when exporting.
+    
+    // Gets resourcesFolder. Gets or sets specifies the physical folder where resources (images) are saved when exporting.  
     public func getResourcesFolder() -> String? {
         return self.resourcesFolder;
     }
-
-    // Sets resourcesFolderAlias. Gets or sets specifies the name of the folder used to construct image URIs.
+    
+    // Sets resourcesFolderAlias. Gets or sets specifies the name of the folder used to construct image URIs.  
     public func setResourcesFolderAlias(resourcesFolderAlias : String?) {
         self.resourcesFolderAlias = resourcesFolderAlias;
     }
-
-    // Gets resourcesFolderAlias. Gets or sets specifies the name of the folder used to construct image URIs.
+    
+    // Gets resourcesFolderAlias. Gets or sets specifies the name of the folder used to construct image URIs.  
     public func getResourcesFolderAlias() -> String? {
         return self.resourcesFolderAlias;
     }
-
-    // Sets showPageBorder. Gets or sets show/hide page stepper.
+    
+    // Sets showPageBorder. Gets or sets show/hide page stepper.  
     public func setShowPageBorder(showPageBorder : Bool?) {
         self.showPageBorder = showPageBorder;
     }
-
-    // Gets showPageBorder. Gets or sets show/hide page stepper.
+    
+    // Gets showPageBorder. Gets or sets show/hide page stepper.  
     public func getShowPageBorder() -> Bool? {
         return self.showPageBorder;
     }
-
-    // Sets textOutputMode. Gets or sets determines how text should be rendered.
+    
+    // Sets textOutputMode. Gets or sets determines how text should be rendered.  
     public func setTextOutputMode(textOutputMode : String?) {
         self.textOutputMode = textOutputMode;
     }
-
-    // Gets textOutputMode. Gets or sets determines how text should be rendered.
+    
+    // Gets textOutputMode. Gets or sets determines how text should be rendered.  
     public func getTextOutputMode() -> String? {
         return self.textOutputMode;
     }

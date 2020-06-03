@@ -29,18 +29,19 @@ import Foundation
 
 // container class for doc/dot save options.
 public class DocSaveOptionsData : SaveOptionsData {
-    // Field of alwaysCompressMetafiles. container class for doc/dot save options.
+    
+    // Field of alwaysCompressMetafiles. Gets or sets When false, small metafiles are not compressed for performance reason. Default value is true, all metafiles are compressed regardless of its size.      
     private var alwaysCompressMetafiles : Bool?;
-
-    // Field of password. container class for doc/dot save options.
+    
+    // Field of password. Gets or sets password.      
     private var password : String?;
-
-    // Field of savePictureBullet. container class for doc/dot save options.
+    
+    // Field of savePictureBullet. Gets or sets When false, PictureBullet data is not saved to output document. Default value is true.      
     private var savePictureBullet : Bool?;
-
-    // Field of saveRoutingSlip. container class for doc/dot save options.
+    
+    // Field of saveRoutingSlip. Gets or sets determine whether or not save RoutingSlip data saved to output document.      
     private var saveRoutingSlip : Bool?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case alwaysCompressMetafiles;
         case password;
@@ -48,11 +49,11 @@ public class DocSaveOptionsData : SaveOptionsData {
         case saveRoutingSlip;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -78,43 +79,43 @@ public class DocSaveOptionsData : SaveOptionsData {
             try container.encode(self.saveRoutingSlip, forKey: .saveRoutingSlip);
         }
     }
-
-    // Sets alwaysCompressMetafiles. Gets or sets When false, small metafiles are not compressed for performance reason. Default value is true, all metafiles are compressed regardless of its size.
+    
+    // Sets alwaysCompressMetafiles. Gets or sets When false, small metafiles are not compressed for performance reason. Default value is true, all metafiles are compressed regardless of its size.  
     public func setAlwaysCompressMetafiles(alwaysCompressMetafiles : Bool?) {
         self.alwaysCompressMetafiles = alwaysCompressMetafiles;
     }
-
-    // Gets alwaysCompressMetafiles. Gets or sets When false, small metafiles are not compressed for performance reason. Default value is true, all metafiles are compressed regardless of its size.
+    
+    // Gets alwaysCompressMetafiles. Gets or sets When false, small metafiles are not compressed for performance reason. Default value is true, all metafiles are compressed regardless of its size.  
     public func getAlwaysCompressMetafiles() -> Bool? {
         return self.alwaysCompressMetafiles;
     }
-
-    // Sets password. Gets or sets password.
+    
+    // Sets password. Gets or sets password.  
     public func setPassword(password : String?) {
         self.password = password;
     }
-
-    // Gets password. Gets or sets password.
+    
+    // Gets password. Gets or sets password.  
     public func getPassword() -> String? {
         return self.password;
     }
-
-    // Sets savePictureBullet. Gets or sets When false, PictureBullet data is not saved to output document. Default value is true.
+    
+    // Sets savePictureBullet. Gets or sets When false, PictureBullet data is not saved to output document. Default value is true.  
     public func setSavePictureBullet(savePictureBullet : Bool?) {
         self.savePictureBullet = savePictureBullet;
     }
-
-    // Gets savePictureBullet. Gets or sets When false, PictureBullet data is not saved to output document. Default value is true.
+    
+    // Gets savePictureBullet. Gets or sets When false, PictureBullet data is not saved to output document. Default value is true.  
     public func getSavePictureBullet() -> Bool? {
         return self.savePictureBullet;
     }
-
-    // Sets saveRoutingSlip. Gets or sets determine whether or not save RoutingSlip data saved to output document.
+    
+    // Sets saveRoutingSlip. Gets or sets determine whether or not save RoutingSlip data saved to output document.  
     public func setSaveRoutingSlip(saveRoutingSlip : Bool?) {
         self.saveRoutingSlip = saveRoutingSlip;
     }
-
-    // Gets saveRoutingSlip. Gets or sets determine whether or not save RoutingSlip data saved to output document.
+    
+    // Gets saveRoutingSlip. Gets or sets determine whether or not save RoutingSlip data saved to output document.  
     public func getSaveRoutingSlip() -> Bool? {
         return self.saveRoutingSlip;
     }

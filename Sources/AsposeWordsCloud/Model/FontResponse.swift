@@ -27,21 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font.
+// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font.
 public class FontResponse : WordsResponse {
-    // Field of font. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/runs/{1}/font.
+    
+    // Field of font.       
     private var font : Font?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case font;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +55,13 @@ public class FontResponse : WordsResponse {
             try container.encode(self.font, forKey: .font);
         }
     }
-
-    // Sets font. Gets or sets font.
+    
+    // Sets font.   
     public func setFont(font : Font?) {
         self.font = font;
     }
-
-    // Gets font. Gets or sets font.
+    
+    // Gets font.   
     public func getFont() -> Font? {
         return self.font;
     }

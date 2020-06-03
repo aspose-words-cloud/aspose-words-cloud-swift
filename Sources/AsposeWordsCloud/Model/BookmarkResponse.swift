@@ -29,18 +29,19 @@ import Foundation
 
 // This response should be returned by the service when handling:  GET bookmarks/{bookmarkName}.
 public class BookmarkResponse : WordsResponse {
-    // Field of bookmark. This response should be returned by the service when handling:  GET bookmarks/{bookmarkName}.
+    
+    // Field of bookmark.       
     private var bookmark : Bookmark?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case bookmark;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class BookmarkResponse : WordsResponse {
             try container.encode(self.bookmark, forKey: .bookmark);
         }
     }
-
-    // Sets bookmark. Gets or sets bookmark.
+    
+    // Sets bookmark.   
     public func setBookmark(bookmark : Bookmark?) {
         self.bookmark = bookmark;
     }
-
-    // Gets bookmark. Gets or sets bookmark.
+    
+    // Gets bookmark.   
     public func getBookmark() -> Bookmark? {
         return self.bookmark;
     }

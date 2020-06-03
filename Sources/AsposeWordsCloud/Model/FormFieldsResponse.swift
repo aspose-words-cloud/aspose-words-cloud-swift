@@ -27,21 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/formfields.
+// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/formfields.
 public class FormFieldsResponse : WordsResponse {
-    // Field of formFields. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/formfields.
+    
+    // Field of formFields.       
     private var formFields : FormFieldCollection?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case formFields;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +55,13 @@ public class FormFieldsResponse : WordsResponse {
             try container.encode(self.formFields, forKey: .formFields);
         }
     }
-
-    // Sets formFields. Gets or sets collection of form fields.
+    
+    // Sets formFields.   
     public func setFormFields(formFields : FormFieldCollection?) {
         self.formFields = formFields;
     }
-
-    // Gets formFields. Gets or sets collection of form fields.
+    
+    // Gets formFields.   
     public func getFormFields() -> FormFieldCollection? {
         return self.formFields;
     }

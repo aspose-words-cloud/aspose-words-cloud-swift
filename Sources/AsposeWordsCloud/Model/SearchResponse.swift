@@ -27,25 +27,25 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/search.
+// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/search.
 public class SearchResponse : WordsResponse {
-    // Field of searchingPattern. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/search.
+    
+    // Field of searchingPattern. Gets or sets a regular expression pattern used to find matches.      
     private var searchingPattern : String?;
-
-    // Field of searchResults. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/search.
+    
+    // Field of searchResults.       
     private var searchResults : SearchResultsCollection?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case searchingPattern;
         case searchResults;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -63,23 +63,23 @@ public class SearchResponse : WordsResponse {
             try container.encode(self.searchResults, forKey: .searchResults);
         }
     }
-
-    // Sets searchingPattern. Gets or sets a regular expression pattern used to find matches.
+    
+    // Sets searchingPattern. Gets or sets a regular expression pattern used to find matches.  
     public func setSearchingPattern(searchingPattern : String?) {
         self.searchingPattern = searchingPattern;
     }
-
-    // Gets searchingPattern. Gets or sets a regular expression pattern used to find matches.
+    
+    // Gets searchingPattern. Gets or sets a regular expression pattern used to find matches.  
     public func getSearchingPattern() -> String? {
         return self.searchingPattern;
     }
-
-    // Sets searchResults. Gets or sets collection of search results.
+    
+    // Sets searchResults.   
     public func setSearchResults(searchResults : SearchResultsCollection?) {
         self.searchResults = searchResults;
     }
-
-    // Gets searchResults. Gets or sets collection of search results.
+    
+    // Gets searchResults.   
     public func getSearchResults() -> SearchResultsCollection? {
         return self.searchResults;
     }

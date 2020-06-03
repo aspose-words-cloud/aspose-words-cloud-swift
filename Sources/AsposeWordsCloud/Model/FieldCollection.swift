@@ -29,18 +29,19 @@ import Foundation
 
 // Represents DTO for collection of fields.
 public class FieldCollection : LinkElement {
-    // Field of list. Represents DTO for collection of fields.
+    
+    // Field of list. Gets or sets collection of fields.      
     private var list : [Field]?;
-
+        
     private enum CodingKeys: String, CodingKey {
         case list;
         case invalidCodingKey;
     }
-
+        
     public override init() {
         super.init();
     }
-
+    
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -54,13 +55,13 @@ public class FieldCollection : LinkElement {
             try container.encode(self.list, forKey: .list);
         }
     }
-
-    // Sets list. Gets or sets collection of fields.
+    
+    // Sets list. Gets or sets collection of fields.  
     public func setList(list : [Field]?) {
         self.list = list;
     }
-
-    // Gets list. Gets or sets collection of fields.
+    
+    // Gets list. Gets or sets collection of fields.  
     public func getList() -> [Field]? {
         return self.list;
     }

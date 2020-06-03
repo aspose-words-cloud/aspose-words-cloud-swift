@@ -31,52 +31,55 @@ import Foundation
 public class FootnoteBase : Codable, WordsApiModel {
     // Gets or sets returns a value that specifies whether this is a footnote or endnote.
     public enum FootnoteType : String, Codable
-    {
+    { 
         // Enum value "footnote"
         case footnote = "Footnote"
 
         // Enum value "endnote"
         case endnote = "Endnote"
     }
-
-    // Field of footnoteType. Footnote base class.
-    private var footnoteType : FootnoteType?;
-
-    // Field of position. Footnote base class.
+    
+    // Field of position.       
     private var position : DocumentPosition?;
-
-    // Field of referenceMark. Footnote base class.
+    
+    // Field of footnoteType. Gets or sets returns a value that specifies whether this is a footnote or endnote.      
+    private var footnoteType : FootnoteType?;
+    
+    // Field of referenceMark. Gets or sets /sets custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.      
     private var referenceMark : String?;
-
-    // Field of text. Footnote base class.
+    
+    // Field of text. Gets or sets this is a convenience property that allows to easily get or set text of the footnote.      
     private var text : String?;
-
+        
     private enum CodingKeys: String, CodingKey {
-        case footnoteType;
         case position;
+        case footnoteType;
         case referenceMark;
         case text;
         case invalidCodingKey;
     }
-
+        
     public init() {
+        
     }
-
+    
     public required init(from decoder: Decoder) throws {
+        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.footnoteType = try container.decodeIfPresent(FootnoteType.self, forKey: .footnoteType);
         self.position = try container.decodeIfPresent(DocumentPosition.self, forKey: .position);
+        self.footnoteType = try container.decodeIfPresent(FootnoteType.self, forKey: .footnoteType);
         self.referenceMark = try container.decodeIfPresent(String.self, forKey: .referenceMark);
         self.text = try container.decodeIfPresent(String.self, forKey: .text);
     }
 
     public func encode(to encoder: Encoder) throws {
+        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.footnoteType != nil) {
-            try container.encode(self.footnoteType, forKey: .footnoteType);
-        }
         if (self.position != nil) {
             try container.encode(self.position, forKey: .position);
+        }
+        if (self.footnoteType != nil) {
+            try container.encode(self.footnoteType, forKey: .footnoteType);
         }
         if (self.referenceMark != nil) {
             try container.encode(self.referenceMark, forKey: .referenceMark);
@@ -85,43 +88,43 @@ public class FootnoteBase : Codable, WordsApiModel {
             try container.encode(self.text, forKey: .text);
         }
     }
-
-    // Sets footnoteType. Gets or sets returns a value that specifies whether this is a footnote or endnote.
-    public func setFootnoteType(footnoteType : FootnoteType?) {
-        self.footnoteType = footnoteType;
-    }
-
-    // Gets footnoteType. Gets or sets returns a value that specifies whether this is a footnote or endnote.
-    public func getFootnoteType() -> FootnoteType? {
-        return self.footnoteType;
-    }
-
-    // Sets position. Gets or sets link to comment range start node.
+    
+    // Sets position.   
     public func setPosition(position : DocumentPosition?) {
         self.position = position;
     }
-
-    // Gets position. Gets or sets link to comment range start node.
+    
+    // Gets position.   
     public func getPosition() -> DocumentPosition? {
         return self.position;
     }
-
-    // Sets referenceMark. Gets or sets /sets custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.
+    
+    // Sets footnoteType. Gets or sets returns a value that specifies whether this is a footnote or endnote.  
+    public func setFootnoteType(footnoteType : FootnoteType?) {
+        self.footnoteType = footnoteType;
+    }
+    
+    // Gets footnoteType. Gets or sets returns a value that specifies whether this is a footnote or endnote.  
+    public func getFootnoteType() -> FootnoteType? {
+        return self.footnoteType;
+    }
+    
+    // Sets referenceMark. Gets or sets /sets custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.  
     public func setReferenceMark(referenceMark : String?) {
         self.referenceMark = referenceMark;
     }
-
-    // Gets referenceMark. Gets or sets /sets custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.
+    
+    // Gets referenceMark. Gets or sets /sets custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.  
     public func getReferenceMark() -> String? {
         return self.referenceMark;
     }
-
-    // Sets text. Gets or sets this is a convenience property that allows to easily get or set text of the footnote.
+    
+    // Sets text. Gets or sets this is a convenience property that allows to easily get or set text of the footnote.  
     public func setText(text : String?) {
         self.text = text;
     }
-
-    // Gets text. Gets or sets this is a convenience property that allows to easily get or set text of the footnote.
+    
+    // Gets text. Gets or sets this is a convenience property that allows to easily get or set text of the footnote.  
     public func getText() -> String? {
         return self.text;
     }
