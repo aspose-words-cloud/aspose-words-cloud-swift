@@ -10,7 +10,7 @@ then
     echo "OK"
 else
     echo "Failed: code coverage should be 100.00%"
-    echo "Coverage result:"
-    echo $(llvm-cov report -show-functions .build/x86_64-unknown-linux/debug/AsposeWordsCloudPackageTests.xctest -instr-profile=.build/x86_64-unknown-linux/debug/codecov/default.profdata Sources/AsposeWordsCloud/Api/WordsAPI.swift)
+    echo "Uncovered methods:"
+    echo $(llvm-cov report -show-functions .build/x86_64-unknown-linux/debug/AsposeWordsCloudPackageTests.xctest -instr-profile=.build/x86_64-unknown-linux/debug/codecov/default.profdata Sources/AsposeWordsCloud/Api/WordsAPI.swift | grep "* 0.00%*")
     exit 1
 fi

@@ -34,7 +34,8 @@ class ParagraphTests: BaseTestContext {
         ("testDeleteParagraphListFormatWithoutNodePath", testDeleteParagraphListFormatWithoutNodePath),		
         ("testGetParagraphTabStopsWithoutNodePath", testGetParagraphTabStopsWithoutNodePath),		
         ("testInsertOrUpdateParagraphTabStopWithoutNodePath", testInsertOrUpdateParagraphTabStopWithoutNodePath),		
-        ("testDeleteAllParagraphTabStopsWithoutNodePath", testDeleteAllParagraphTabStopsWithoutNodePath),		
+        ("testDeleteAllParagraphTabStopsWithoutNodePath", testDeleteAllParagraphTabStopsWithoutNodePath),
+        ("testDeleteParagraphTabStopWithoutNodePath", testDeleteParagraphTabStopWithoutNodePath),
     ];
 
     func getRemoteDataFolder(action : String) -> String {
