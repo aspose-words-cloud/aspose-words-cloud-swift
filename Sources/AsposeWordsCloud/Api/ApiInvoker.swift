@@ -10,10 +10,10 @@
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- *
+ * 
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- *
+ * 
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -31,45 +31,45 @@ import Foundation
 public class ApiInvoker {
     // An object containing the configuration for executing API requests 
     private let configuration : Configuration;
-    
+
     // Cached value of oauth2 authorization tokeт. 
     // It is filled after the first call to the API. 
     // Mutex is used to synchronize updates in a multi-threaded environment.
     private let mutex : NSLock;
     private var accessTokenCache : String?;
-    
+
     // Maximum size of printing body content in debug mode
     private let maxDebugPrintingContentSize = 1024 * 1024; // 1Mb
-    
+
     // Status codes for HTTP request
     private let httpStatusCodeOK = 200;
     private let httpStatusCodeBadRequest = 400;
     private let httpStatusCodeUnauthorized = 401;
     private let httpStatusCodeTimeout = 408;
-    
+
     // Initialize ApiInvoker object with specific configuration
     public init(configuration : Configuration) {
         self.configuration = configuration;
         self.mutex = NSLock();
         self.accessTokenCache = nil;
     }
-    
+
     // Internal class for represent API response
     private class InvokeResponse {
         public var data : Data?;
         public var errorCode : Int;
         public var errorMessage : String?;
-        
+
         public init(errorCode : Int) {
             self.errorCode = errorCode;
         }
     }
-    
+
     // Internal struct for represent oauth2 authorization response
     private struct AccessTokenResult : Decodable {
         public var access_token : String?;
     }
-    
+
     // Invoke request to the API with the specified set of arguments and execute callback after the request is completed
     public func invoke(
         url: URL,
@@ -90,7 +90,7 @@ public class ApiInvoker {
                 request.setValue(value, forHTTPHeaderField: key);
             }
         }
-        
+
         // Process the request body
         if (body != nil) {
             request.httpBody = body;
@@ -110,7 +110,7 @@ public class ApiInvoker {
                         formBody.append("\r\n".data(using: .utf8)!);
                     }
                     needsClrf = true;
-                
+
                     formBody.append("--\(boundaryPrefix)\r\nContent-Disposition: form-data; name=\"\(formParam.getName())\"\r\n\r\n".data(using: .utf8)!);
                     formBody.append(formParam.getBody());
                 }
@@ -120,12 +120,12 @@ public class ApiInvoker {
                 request.setValue("multipart/form-data; boundary=\(boundaryPrefix)", forHTTPHeaderField: "Content-Type");
             }
         }
-        
+
         // Set content length header
         if (request.httpBody != nil) {
             request.setValue(String(request.httpBody!.count), forHTTPHeaderField: "Content-Length");
         }
-        
+
         // Request or get from cache authorization token
         invokeAuthToken(forceTokenRequest: false, callback: { accessToken, statusCode in
             if (statusCode == self.httpStatusCodeOK) {
@@ -165,18 +165,18 @@ public class ApiInvoker {
             }
         });
     }
-    
+
     // Invokes prepared request to the API. Callback returns a response from the API call
     private func invokeRequest(urlRequest : inout URLRequest, accessToken : String?, callback : @escaping (_ response: InvokeResponse) -> ()) {
         // Set access token to request headers
         if (accessToken != nil) {
             urlRequest.setValue(accessToken!, forHTTPHeaderField: "Authorization");
         }
-        
+
         // Set statistic headers
         urlRequest.setValue(self.configuration.getSdkName(), forHTTPHeaderField: "x-aspose-client");
         urlRequest.setValue(self.configuration.getSdkVersion(), forHTTPHeaderField: "x-aspose-client-version");
-        
+
         // Print request when debug mode is enabled
         if (configuration.isDebugMode()) {
             print("REQUEST BEGIN");
@@ -217,7 +217,7 @@ public class ApiInvoker {
             else {
                 invokeResponse.errorCode = self.httpStatusCodeBadRequest;
             }
-            
+
             // Print response when debug mode is enabled
             if (self.configuration.isDebugMode()) {
                 print("RESPONSE BEGIN");
@@ -242,12 +242,12 @@ public class ApiInvoker {
                 }
                 print("RESPONSE END");
             }
-            
+
             callback(invokeResponse);
         });
         result.resume();
     }
-    
+
     // Requests authorization token from server. After the first call, the token is cached and the cached value is used for future calls.
     private func invokeAuthToken(forceTokenRequest: Bool, callback : @escaping (_ accessToken: String?, _ statusCode: Int) -> ()) {
         var accessToken : String? = nil;
@@ -258,7 +258,7 @@ public class ApiInvoker {
             }
             mutex.unlock();
         }
-        
+
         if (accessToken == nil) {
             let urlPath = URL(string: self.configuration.getBaseUrl())!.appendingPathComponent("connect/token");
             var request = URLRequest(url: urlPath);
