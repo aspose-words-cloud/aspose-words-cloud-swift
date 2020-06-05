@@ -51,6 +51,8 @@ public class WordsAPI {
             var rawPath = "/words/{name}/revisions/acceptAll";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -130,6 +132,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/appendDocument";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -221,6 +225,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{styledNodePath}", with: try ObjectSerializer.serializeToString(value: request.getStyledNodePath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -309,6 +315,8 @@ public class WordsAPI {
             var rawPath = "/words/{name}/buildReport";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -392,6 +400,8 @@ public class WordsAPI {
     public func buildReportOnline(request : BuildReportOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/buildReport";
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -451,6 +461,8 @@ public class WordsAPI {
     public func classify(request : ClassifyRequest, callback : @escaping (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/classify";
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -514,6 +526,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{documentName}/classify";
             rawPath = rawPath.replacingOccurrences(of: "{documentName}", with: try ObjectSerializer.serializeToString(value: request.getDocumentName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -599,6 +613,8 @@ public class WordsAPI {
             var rawPath = "/words/{name}/compareDocument";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -677,6 +693,8 @@ public class WordsAPI {
     public func convertDocument(request : ConvertDocumentRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/convert";
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -748,6 +766,8 @@ public class WordsAPI {
             var rawPath = "/words/storage/file/copy/{srcPath}";
             rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: request.getSrcPath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -809,6 +829,8 @@ public class WordsAPI {
             var rawPath = "/words/storage/folder/copy/{srcPath}";
             rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: request.getSrcPath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -865,6 +887,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/styles/copy";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -954,6 +978,8 @@ public class WordsAPI {
     public func createDocument(request : CreateDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/create";
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -1028,6 +1054,8 @@ public class WordsAPI {
             var rawPath = "/words/storage/folder/{path}";
             rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -1080,6 +1108,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{propertyName}", with: try ObjectSerializer.serializeToString(value: request.getPropertyName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -1173,6 +1203,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -1254,6 +1286,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -1338,6 +1372,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
             rawPath = rawPath.replacingOccurrences(of: "{borderType}", with: try ObjectSerializer.serializeToString(value: request.getBorderType()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -1429,6 +1465,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -1519,6 +1557,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{commentIndex}", with: try ObjectSerializer.serializeToString(value: request.getCommentIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -1595,6 +1635,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{propertyName}", with: try ObjectSerializer.serializeToString(value: request.getPropertyName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -1675,6 +1717,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -1751,6 +1795,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -1831,6 +1877,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -1908,6 +1956,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -1982,6 +2032,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/fields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -2060,6 +2112,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -2135,6 +2189,8 @@ public class WordsAPI {
             var rawPath = "/words/storage/file/{path}";
             rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -2189,6 +2245,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/storage/folder/{path}";
             rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -2248,6 +2306,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -2325,6 +2385,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -2405,6 +2467,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -2481,6 +2545,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -2561,6 +2627,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -2637,6 +2705,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{sectionPath}", with: try ObjectSerializer.serializeToString(value: request.getSectionPath()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -2717,6 +2787,8 @@ public class WordsAPI {
             var rawPath = "/words/{name}/macros";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -2796,6 +2868,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -2872,6 +2946,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -2952,6 +3028,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -3030,6 +3108,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -3120,6 +3200,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -3213,6 +3295,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -3296,6 +3380,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -3381,6 +3467,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -3460,6 +3548,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -3536,6 +3626,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{sectionIndex}", with: try ObjectSerializer.serializeToString(value: request.getSectionIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -3616,6 +3708,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -3694,6 +3788,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{tableRowPath}", with: try ObjectSerializer.serializeToString(value: request.getTableRowPath()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -3774,6 +3870,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -3851,6 +3949,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -3925,6 +4025,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/watermarks/deleteLast";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -4014,6 +4116,8 @@ public class WordsAPI {
             var rawPath = "/words/storage/file/{path}";
             rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -4071,6 +4175,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/MailMerge";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -4171,6 +4277,8 @@ public class WordsAPI {
     public func executeMailMergeOnline(request : ExecuteMailMergeOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/MailMerge";
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -4236,6 +4344,8 @@ public class WordsAPI {
     public func getAvailableFonts(request : GetAvailableFontsRequest, callback : @escaping (_ response : AvailableFontsResponse?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/fonts/available";
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -4301,6 +4411,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{bookmarkName}", with: try ObjectSerializer.serializeToString(value: request.getBookmarkName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -4377,6 +4489,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/bookmarks";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -4458,6 +4572,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{borderType}", with: try ObjectSerializer.serializeToString(value: request.getBorderType()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -4535,6 +4651,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -4614,6 +4732,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{commentIndex}", with: try ObjectSerializer.serializeToString(value: request.getCommentIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -4690,6 +4810,8 @@ public class WordsAPI {
             var rawPath = "/words/{name}/comments";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -4765,6 +4887,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{documentName}";
             rawPath = rawPath.replacingOccurrences(of: "{documentName}", with: try ObjectSerializer.serializeToString(value: request.getDocumentName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -4846,6 +4970,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -4923,6 +5049,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -5004,6 +5132,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -5071,6 +5201,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -5142,6 +5274,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -5210,6 +5344,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -5277,6 +5413,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -5354,6 +5492,8 @@ public class WordsAPI {
             var rawPath = "/words/{name}/drawingObjects";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -5429,6 +5569,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/mailMerge/FieldNames";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -5508,6 +5650,8 @@ public class WordsAPI {
     public func getDocumentFieldNamesOnline(request : GetDocumentFieldNamesOnlineRequest, callback : @escaping (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/mailMerge/FieldNames";
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -5576,6 +5720,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{hyperlinkIndex}", with: try ObjectSerializer.serializeToString(value: request.getHyperlinkIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -5653,6 +5799,8 @@ public class WordsAPI {
             var rawPath = "/words/{name}/hyperlinks";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -5728,6 +5876,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/documentProperties";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -5807,6 +5957,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{propertyName}", with: try ObjectSerializer.serializeToString(value: request.getPropertyName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -5883,6 +6035,8 @@ public class WordsAPI {
             var rawPath = "/words/{name}/protection";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -5958,6 +6112,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/statistics";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -6047,6 +6203,8 @@ public class WordsAPI {
             var rawPath = "/words/{name}";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -6127,6 +6285,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -6205,6 +6365,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -6280,6 +6442,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/fields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -6359,6 +6523,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -6435,6 +6601,8 @@ public class WordsAPI {
             var rawPath = "/words/storage/folder/{path}";
             rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -6502,6 +6670,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -6581,6 +6751,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -6656,6 +6828,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/footnotes";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -6734,6 +6908,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -6815,6 +6991,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -6893,6 +7071,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -6968,6 +7148,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/formfields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -7047,6 +7229,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -7124,6 +7308,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{headerFooterIndex}", with: try ObjectSerializer.serializeToString(value: request.getHeaderFooterIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -7209,6 +7395,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{sectionIndex}", with: try ObjectSerializer.serializeToString(value: request.getSectionIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -7290,6 +7478,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{sectionPath}", with: try ObjectSerializer.serializeToString(value: request.getSectionPath()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -7373,6 +7563,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{listId}", with: try ObjectSerializer.serializeToString(value: request.getListId()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -7448,6 +7640,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/lists";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -7529,6 +7723,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -7607,6 +7803,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -7682,6 +7880,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/OfficeMathObjects";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -7760,6 +7960,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -7841,6 +8043,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -7921,6 +8125,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -7998,6 +8204,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -8079,6 +8287,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -8156,6 +8366,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -8235,6 +8447,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -8310,6 +8524,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/paragraphs";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -8391,6 +8607,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -8469,6 +8687,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -8546,6 +8766,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -8629,6 +8851,8 @@ public class WordsAPI {
                 rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
             }
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -8708,6 +8932,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: try ObjectSerializer.serializeToString(value: request.getParagraphPath()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -8789,6 +9015,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -8866,6 +9094,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: try ObjectSerializer.serializeToString(value: request.getParagraphPath()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -8945,6 +9175,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{sectionIndex}", with: try ObjectSerializer.serializeToString(value: request.getSectionIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -9023,6 +9255,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{sectionIndex}", with: try ObjectSerializer.serializeToString(value: request.getSectionIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -9098,6 +9332,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/sections";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -9177,6 +9413,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{styleName}", with: try ObjectSerializer.serializeToString(value: request.getStyleName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -9255,6 +9493,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{styledNodePath}", with: try ObjectSerializer.serializeToString(value: request.getStyledNodePath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -9330,6 +9570,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/styles";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -9411,6 +9653,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -9490,6 +9734,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{tableRowPath}", with: try ObjectSerializer.serializeToString(value: request.getTableRowPath()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -9571,6 +9817,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -9651,6 +9899,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -9728,6 +9978,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -9809,6 +10061,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -9889,6 +10143,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -9967,6 +10223,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -10042,6 +10300,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/tables";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -10121,6 +10381,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -10196,6 +10458,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/comments";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -10286,6 +10550,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -10379,6 +10645,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/drawingObjects";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -10475,6 +10743,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -10566,6 +10836,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/fields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -10661,6 +10933,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -10748,6 +11022,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/footnotes";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -10838,6 +11114,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -10930,6 +11208,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/formfields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -11025,6 +11305,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{sectionPath}", with: try ObjectSerializer.serializeToString(value: request.getSectionPath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -11112,6 +11394,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/lists";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -11205,6 +11489,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -11287,6 +11573,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -11366,6 +11654,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/PageNumbers";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -11456,6 +11746,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -11548,6 +11840,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/paragraphs";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -11643,6 +11937,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: try ObjectSerializer.serializeToString(value: request.getParagraphPath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -11735,6 +12031,8 @@ public class WordsAPI {
             var rawPath = "/words/{name}/styles/insert";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -11824,6 +12122,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -11915,6 +12215,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{tableRowPath}", with: try ObjectSerializer.serializeToString(value: request.getTableRowPath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -12005,6 +12307,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{tablePath}", with: try ObjectSerializer.serializeToString(value: request.getTablePath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -12093,6 +12397,8 @@ public class WordsAPI {
             var rawPath = "/words/{name}/tables";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -12180,6 +12486,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/watermarks/images";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -12282,6 +12590,8 @@ public class WordsAPI {
             var rawPath = "/words/{name}/watermarks/texts";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -12368,6 +12678,8 @@ public class WordsAPI {
     public func loadWebDocument(request : LoadWebDocumentRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
             let rawPath = "/words/loadWebDocument";
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -12432,6 +12744,8 @@ public class WordsAPI {
             var rawPath = "/words/storage/file/move/{srcPath}";
             rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: request.getSrcPath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -12493,6 +12807,8 @@ public class WordsAPI {
             var rawPath = "/words/storage/folder/move/{srcPath}";
             rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: request.getSrcPath()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -12549,6 +12865,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/protection";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -12629,6 +12947,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/revisions/rejectAll";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -12716,6 +13036,8 @@ public class WordsAPI {
                 rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
             }
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -12800,6 +13122,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -12873,6 +13197,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -12950,6 +13276,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -13024,6 +13352,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -13097,6 +13427,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{pageIndex}", with: try ObjectSerializer.serializeToString(value: request.getPageIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -13174,6 +13506,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -13247,6 +13581,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -13324,6 +13660,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -13398,6 +13736,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -13469,6 +13809,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/replaceText";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -13564,6 +13906,8 @@ public class WordsAPI {
                 rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
             }
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -13642,6 +13986,8 @@ public class WordsAPI {
     public func resetCache(request : ResetCacheRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             let rawPath = "/words/fonts/cache";
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
 
             apiInvoker.invoke(
@@ -13683,6 +14029,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/saveAs";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -13770,6 +14118,8 @@ public class WordsAPI {
                 rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
             }
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -13845,6 +14195,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/saveAs/tiff";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -13994,6 +14346,8 @@ public class WordsAPI {
             var rawPath = "/words/{name}/search";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -14071,6 +14425,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/{name}/split";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -14170,6 +14526,8 @@ public class WordsAPI {
             var rawPath = "/words/{name}/protection";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -14251,6 +14609,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{bookmarkName}", with: try ObjectSerializer.serializeToString(value: request.getBookmarkName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -14344,6 +14704,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{borderType}", with: try ObjectSerializer.serializeToString(value: request.getBorderType()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -14433,6 +14795,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{commentIndex}", with: try ObjectSerializer.serializeToString(value: request.getCommentIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -14525,6 +14889,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -14620,6 +14986,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -14718,6 +15086,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -14806,6 +15176,8 @@ public class WordsAPI {
             var rawPath = "/words/{name}/updateFields";
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -14889,6 +15261,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -14979,6 +15353,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -15072,6 +15448,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -15162,6 +15540,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -15251,6 +15631,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{listId}", with: try ObjectSerializer.serializeToString(value: request.getListId()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -15344,6 +15726,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{listLevel}", with: try ObjectSerializer.serializeToString(value: request.getListLevel()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -15436,6 +15820,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -15525,6 +15911,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -15618,6 +16006,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -15707,6 +16097,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -15800,6 +16192,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -15892,6 +16286,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -15982,6 +16378,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{sectionIndex}", with: try ObjectSerializer.serializeToString(value: request.getSectionIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -16071,6 +16469,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{styleName}", with: try ObjectSerializer.serializeToString(value: request.getStyleName()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -16164,6 +16564,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -16256,6 +16658,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -16345,6 +16749,8 @@ public class WordsAPI {
             rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
@@ -16438,6 +16844,8 @@ public class WordsAPI {
 
             rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
 
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
@@ -16525,6 +16933,8 @@ public class WordsAPI {
         do {
             var rawPath = "/words/storage/file/{path}";
             rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
+
+            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
             var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
