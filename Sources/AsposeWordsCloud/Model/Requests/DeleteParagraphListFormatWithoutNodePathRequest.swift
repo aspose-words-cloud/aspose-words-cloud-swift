@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="InsertOrUpdateParagraphTabStopRequest.swift">
+ * <copyright company="Aspose" file="DeleteParagraphListFormatWithoutNodePathRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,57 +27,47 @@
 
 import Foundation
 
-// Request model for insertOrUpdateParagraphTabStop operation.
-public class InsertOrUpdateParagraphTabStopRequest {
+// Request model for deleteParagraphListFormatWithoutNodePath operation.
+public class DeleteParagraphListFormatWithoutNodePathRequest {
     private let name : String;
-    private let dto : TabStopInsert;
-    private let nodePath : String;
     private let index : Int;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
     private let destFileName : String?;
+    private let revisionAuthor : String?;
+    private let revisionDateTime : String?;
     
     private enum CodingKeys: String, CodingKey {
         case name;
-        case dto;
-        case nodePath;
         case index;
         case folder;
         case storage;
         case loadEncoding;
         case password;
         case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
         case invalidCodingKey;
     }
     
-    // Initializes a new instance of the insertOrUpdateParagraphTabStopRequest class.
-    public init(name : String, dto : TabStopInsert, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
+    // Initializes a new instance of the deleteParagraphListFormatWithoutNodePathRequest class.
+    public init(name : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.dto = dto;
-        self.nodePath = nodePath;
         self.index = index;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.destFileName = destFileName;
+        self.revisionAuthor = revisionAuthor;
+        self.revisionDateTime = revisionDateTime;
     }
     
     // The document name.
     public func getName() -> String {
         return self.name;
-    }
-    
-    // Paragraph tab stop.
-    public func getDto() -> TabStopInsert {
-        return self.dto;
-    }
-    
-    // Path to the node which contains paragraph.
-    public func getNodePath() -> String {
-        return self.nodePath;
     }
     
     // Object index.
@@ -108,5 +98,15 @@ public class InsertOrUpdateParagraphTabStopRequest {
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
     public func getDestFileName() -> String? {
         return self.destFileName;
+    }
+    
+    // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+    public func getRevisionAuthor() -> String? {
+        return self.revisionAuthor;
+    }
+    
+    // The date and time to use for revisions.
+    public func getRevisionDateTime() -> String? {
+        return self.revisionDateTime;
     }
 }

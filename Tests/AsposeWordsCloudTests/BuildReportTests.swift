@@ -53,7 +53,7 @@ class BuildReportTests: BaseTestContext {
         settings.setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json);
         settings.setReportBuildOptions(reportBuildOptions: [ReportBuildOptions.allowMissingMembers, ReportBuildOptions.removeEmptyParagraphs]);
 
-        let request = BuildReportRequest(name: remoteName, data: try String(contentsOf: dataPath), reportEngineSettings: settings);
+        let request = BuildReportRequest(name: remoteName, data: try String(contentsOf: dataPath), reportEngineSettings: settings, folder: getRemoteDataFolder(action: "testBuildReport"));
         _ = try super.getApi().buildReport(request: request);
     }
 }
