@@ -399,7 +399,7 @@ public class WordsAPI {
     // Executes document "build report" online operation.
     public func buildReportOnline(request : BuildReportOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            let rawPath = "/words/buildReport";
+            var rawPath = "/words/buildReport";
             rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
@@ -460,7 +460,7 @@ public class WordsAPI {
     // Classifies raw text.
     public func classify(request : ClassifyRequest, callback : @escaping (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
         do {
-            let rawPath = "/words/classify";
+            var rawPath = "/words/classify";
             rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
@@ -692,7 +692,7 @@ public class WordsAPI {
     // Converts document from the request's content to the specified format.
     public func convertDocument(request : ConvertDocumentRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            let rawPath = "/words/convert";
+            var rawPath = "/words/convert";
             rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
@@ -977,7 +977,7 @@ public class WordsAPI {
     // Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
     public func createDocument(request : CreateDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            let rawPath = "/words/create";
+            var rawPath = "/words/create";
             rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
@@ -4276,7 +4276,7 @@ public class WordsAPI {
     // Executes document mail merge online.
     public func executeMailMergeOnline(request : ExecuteMailMergeOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            let rawPath = "/words/MailMerge";
+            var rawPath = "/words/MailMerge";
             rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
@@ -4343,7 +4343,7 @@ public class WordsAPI {
     // Gets the list of fonts, available for document processing.
     public func getAvailableFonts(request : GetAvailableFontsRequest, callback : @escaping (_ response : AvailableFontsResponse?, _ error : Error?) -> ()) {
         do {
-            let rawPath = "/words/fonts/available";
+            var rawPath = "/words/fonts/available";
             rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
@@ -5649,7 +5649,7 @@ public class WordsAPI {
     // Reads document field names.
     public func getDocumentFieldNamesOnline(request : GetDocumentFieldNamesOnlineRequest, callback : @escaping (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
         do {
-            let rawPath = "/words/mailMerge/FieldNames";
+            var rawPath = "/words/mailMerge/FieldNames";
             rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
@@ -12677,7 +12677,7 @@ public class WordsAPI {
     // Loads new document from web into the file with any supported format of data.
     public func loadWebDocument(request : LoadWebDocumentRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
-            let rawPath = "/words/loadWebDocument";
+            var rawPath = "/words/loadWebDocument";
             rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
@@ -13985,7 +13985,7 @@ public class WordsAPI {
     // Resets font's cache.
     public func resetCache(request : ResetCacheRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            let rawPath = "/words/fonts/cache";
+            var rawPath = "/words/fonts/cache";
             rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
             let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
