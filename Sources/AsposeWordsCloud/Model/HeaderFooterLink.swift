@@ -29,9 +29,9 @@ import Foundation
 
 // HeaderFooter link element.
 public class HeaderFooterLink : LinkElement {
-    // Gets or sets paragraph&#39;s text.
+    // Gets or sets paragraph's text.
     public enum ModelType : String, Codable
-    { 
+    {
         // Enum value "headerEven"
         case headerEven = "HeaderEven"
 
@@ -50,19 +50,19 @@ public class HeaderFooterLink : LinkElement {
         // Enum value "footerFirst"
         case footerFirst = "FooterFirst"
     }
-    
-    // Field of type. Gets or sets paragraph's text.      
+
+    // Field of type. HeaderFooter link element.
     private var type : ModelType?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case type;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -76,13 +76,13 @@ public class HeaderFooterLink : LinkElement {
             try container.encode(self.type, forKey: .type);
         }
     }
-    
-    // Sets type. Gets or sets paragraph's text.  
+
+    // Sets type. Gets or sets paragraph's text.
     public func setType(type : ModelType?) {
         self.type = type;
     }
-    
-    // Gets type. Gets or sets paragraph's text.  
+
+    // Gets type. Gets or sets paragraph's text.
     public func getType() -> ModelType? {
         return self.type;
     }

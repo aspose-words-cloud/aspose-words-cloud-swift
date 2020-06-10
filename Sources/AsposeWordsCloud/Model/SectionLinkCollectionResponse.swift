@@ -27,21 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/sections.
+// This response should be returned by the service when handling:
+// GET https://api.aspose.cloud/v4.0/words/Test.doc/sections.
 public class SectionLinkCollectionResponse : WordsResponse {
-    
-    // Field of sections.       
+    // Field of sections. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/sections.
     private var sections : SectionLinkCollection?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case sections;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +55,13 @@ public class SectionLinkCollectionResponse : WordsResponse {
             try container.encode(self.sections, forKey: .sections);
         }
     }
-    
-    // Sets sections.   
+
+    // Sets sections. Gets or sets collection of sections.
     public func setSections(sections : SectionLinkCollection?) {
         self.sections = sections;
     }
-    
-    // Gets sections.   
+
+    // Gets sections. Gets or sets collection of sections.
     public func getSections() -> SectionLinkCollection? {
         return self.sections;
     }

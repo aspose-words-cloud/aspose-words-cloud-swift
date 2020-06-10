@@ -29,39 +29,35 @@ import Foundation
 
 // Represents a single document style to insert.
 public class StyleApply : Codable, WordsApiModel {
-    
-    // Field of styleName. Gets or sets the case sensitive name of the style to apply.      
+    // Field of styleName. Represents a single document style to insert.
     private var styleName : String?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case styleName;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.styleName = try container.decodeIfPresent(String.self, forKey: .styleName);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.styleName != nil) {
             try container.encode(self.styleName, forKey: .styleName);
         }
     }
-    
-    // Sets styleName. Gets or sets the case sensitive name of the style to apply.  
+
+    // Sets styleName. Gets or sets the case sensitive name of the style to apply.
     public func setStyleName(styleName : String?) {
         self.styleName = styleName;
     }
-    
-    // Gets styleName. Gets or sets the case sensitive name of the style to apply.  
+
+    // Gets styleName. Gets or sets the case sensitive name of the style to apply.
     public func getStyleName() -> String? {
         return self.styleName;
     }

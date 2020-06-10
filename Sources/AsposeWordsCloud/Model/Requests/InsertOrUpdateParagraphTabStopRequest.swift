@@ -38,7 +38,7 @@ public class InsertOrUpdateParagraphTabStopRequest {
     private let loadEncoding : String?;
     private let password : String?;
     private let destFileName : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case name;
         case dto;
@@ -51,8 +51,8 @@ public class InsertOrUpdateParagraphTabStopRequest {
         case destFileName;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the insertOrUpdateParagraphTabStopRequest class.
+
+    // Initializes a new instance of the InsertOrUpdateParagraphTabStopRequest class.
     public init(name : String, dto : TabStopInsert, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
         self.dto = dto;
@@ -64,47 +64,47 @@ public class InsertOrUpdateParagraphTabStopRequest {
         self.password = password;
         self.destFileName = destFileName;
     }
-    
+
     // The document name.
     public func getName() -> String {
         return self.name;
     }
-    
+
     // Paragraph tab stop.
     public func getDto() -> TabStopInsert {
         return self.dto;
     }
-    
+
     // Path to the node which contains paragraph.
     public func getNodePath() -> String {
         return self.nodePath;
     }
-    
+
     // Object index.
     public func getIndex() -> Int {
         return self.index;
     }
-    
+
     // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
-    
+
     // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
-    
+
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
-    
+
     // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }
-    
+
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
     public func getDestFileName() -> String? {
         return self.destFileName;

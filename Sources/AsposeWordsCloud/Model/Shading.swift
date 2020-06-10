@@ -27,11 +27,11 @@
 
 import Foundation
 
-// Paragraph format shading element.             
+// Paragraph format shading element.
 public class Shading : Codable, WordsApiModel {
     // Gets or sets the shading texture.
     public enum Texture : String, Codable
-    { 
+    {
         // Enum value "textureNone"
         case textureNone = "TextureNone"
 
@@ -194,29 +194,27 @@ public class Shading : Codable, WordsApiModel {
         // Enum value "textureNil"
         case textureNil = "TextureNil"
     }
-    
-    // Field of backgroundPatternColor.       
+
+    // Field of backgroundPatternColor. Paragraph format shading element.
     private var backgroundPatternColor : XmlColor?;
-    
-    // Field of foregroundPatternColor.       
+
+    // Field of foregroundPatternColor. Paragraph format shading element.
     private var foregroundPatternColor : XmlColor?;
-    
-    // Field of texture. Gets or sets the shading texture.      
+
+    // Field of texture. Paragraph format shading element.
     private var texture : Texture?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case backgroundPatternColor;
         case foregroundPatternColor;
         case texture;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.backgroundPatternColor = try container.decodeIfPresent(XmlColor.self, forKey: .backgroundPatternColor);
         self.foregroundPatternColor = try container.decodeIfPresent(XmlColor.self, forKey: .foregroundPatternColor);
@@ -224,7 +222,6 @@ public class Shading : Codable, WordsApiModel {
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.backgroundPatternColor != nil) {
             try container.encode(self.backgroundPatternColor, forKey: .backgroundPatternColor);
@@ -236,33 +233,33 @@ public class Shading : Codable, WordsApiModel {
             try container.encode(self.texture, forKey: .texture);
         }
     }
-    
-    // Sets backgroundPatternColor.   
+
+    // Sets backgroundPatternColor. Gets or sets the color that's applied to the background of the Shading object.
     public func setBackgroundPatternColor(backgroundPatternColor : XmlColor?) {
         self.backgroundPatternColor = backgroundPatternColor;
     }
-    
-    // Gets backgroundPatternColor.   
+
+    // Gets backgroundPatternColor. Gets or sets the color that's applied to the background of the Shading object.
     public func getBackgroundPatternColor() -> XmlColor? {
         return self.backgroundPatternColor;
     }
-    
-    // Sets foregroundPatternColor.   
+
+    // Sets foregroundPatternColor. Gets or sets the color that's applied to the foreground of the Shading object.
     public func setForegroundPatternColor(foregroundPatternColor : XmlColor?) {
         self.foregroundPatternColor = foregroundPatternColor;
     }
-    
-    // Gets foregroundPatternColor.   
+
+    // Gets foregroundPatternColor. Gets or sets the color that's applied to the foreground of the Shading object.
     public func getForegroundPatternColor() -> XmlColor? {
         return self.foregroundPatternColor;
     }
-    
-    // Sets texture. Gets or sets the shading texture.  
+
+    // Sets texture. Gets or sets the shading texture.
     public func setTexture(texture : Texture?) {
         self.texture = texture;
     }
-    
-    // Gets texture. Gets or sets the shading texture.  
+
+    // Gets texture. Gets or sets the shading texture.
     public func getTexture() -> Texture? {
         return self.texture;
     }

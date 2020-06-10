@@ -30,17 +30,17 @@ import Foundation
 // Request model for getAvailableFonts operation.
 public class GetAvailableFontsRequest {
     private let fontsLocation : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case fontsLocation;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the getAvailableFontsRequest class.
+
+    // Initializes a new instance of the GetAvailableFontsRequest class.
     public init(fontsLocation : String? = nil) {
         self.fontsLocation = fontsLocation;
     }
-    
+
     // Folder in filestorage with custom fonts.
     public func getFontsLocation() -> String? {
         return self.fontsLocation;

@@ -27,21 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/comments/0.
+// This response should be returned by the service when handling:
+// GET https://api.aspose.cloud/v4.0/words/Test.doc/comments/0.
 public class CommentResponse : WordsResponse {
-    
-    // Field of comment.       
+    // Field of comment. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/comments/0.
     private var comment : Comment?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case comment;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +55,13 @@ public class CommentResponse : WordsResponse {
             try container.encode(self.comment, forKey: .comment);
         }
     }
-    
-    // Sets comment.   
+
+    // Sets comment. Gets or sets comment information.
     public func setComment(comment : Comment?) {
         self.comment = comment;
     }
-    
-    // Gets comment.   
+
+    // Gets comment. Gets or sets comment information.
     public func getComment() -> Comment? {
         return self.comment;
     }

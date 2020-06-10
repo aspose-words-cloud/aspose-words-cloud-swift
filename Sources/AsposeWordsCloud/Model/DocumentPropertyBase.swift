@@ -29,39 +29,35 @@ import Foundation
 
 // Words document property DTO base class.
 public class DocumentPropertyBase : Codable, WordsApiModel {
-    
-    // Field of value. Gets or sets string value of the document property.      
+    // Field of value. Words document property DTO base class.
     private var value : String?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case value;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.value = try container.decodeIfPresent(String.self, forKey: .value);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.value != nil) {
             try container.encode(self.value, forKey: .value);
         }
     }
-    
-    // Sets value. Gets or sets string value of the document property.  
+
+    // Sets value. Gets or sets string value of the document property.
     public func setValue(value : String?) {
         self.value = value;
     }
-    
-    // Gets value. Gets or sets string value of the document property.  
+
+    // Gets value. Gets or sets string value of the document property.
     public func getValue() -> String? {
         return self.value;
     }

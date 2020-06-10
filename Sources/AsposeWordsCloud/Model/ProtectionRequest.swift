@@ -29,75 +29,71 @@ import Foundation
 
 // Request on changing of protection.
 public class ProtectionRequest : Codable, WordsApiModel {
-    
-    // Field of password. Gets or sets current password.      
-    private var password : String?;
-    
-    // Field of newPassword. Gets or sets new password.      
+    // Field of newPassword. Request on changing of protection.
     private var newPassword : String?;
-    
-    // Field of protectionType. Gets or sets new type of protection.      
+
+    // Field of password. Request on changing of protection.
+    private var password : String?;
+
+    // Field of protectionType. Request on changing of protection.
     private var protectionType : String?;
-        
+
     private enum CodingKeys: String, CodingKey {
-        case password;
         case newPassword;
+        case password;
         case protectionType;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.password = try container.decodeIfPresent(String.self, forKey: .password);
         self.newPassword = try container.decodeIfPresent(String.self, forKey: .newPassword);
+        self.password = try container.decodeIfPresent(String.self, forKey: .password);
         self.protectionType = try container.decodeIfPresent(String.self, forKey: .protectionType);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.password != nil) {
-            try container.encode(self.password, forKey: .password);
-        }
         if (self.newPassword != nil) {
             try container.encode(self.newPassword, forKey: .newPassword);
+        }
+        if (self.password != nil) {
+            try container.encode(self.password, forKey: .password);
         }
         if (self.protectionType != nil) {
             try container.encode(self.protectionType, forKey: .protectionType);
         }
     }
-    
-    // Sets password. Gets or sets current password.  
-    public func setPassword(password : String?) {
-        self.password = password;
-    }
-    
-    // Gets password. Gets or sets current password.  
-    public func getPassword() -> String? {
-        return self.password;
-    }
-    
-    // Sets newPassword. Gets or sets new password.  
+
+    // Sets newPassword. Gets or sets new password.
     public func setNewPassword(newPassword : String?) {
         self.newPassword = newPassword;
     }
-    
-    // Gets newPassword. Gets or sets new password.  
+
+    // Gets newPassword. Gets or sets new password.
     public func getNewPassword() -> String? {
         return self.newPassword;
     }
-    
-    // Sets protectionType. Gets or sets new type of protection.  
+
+    // Sets password. Gets or sets current password.
+    public func setPassword(password : String?) {
+        self.password = password;
+    }
+
+    // Gets password. Gets or sets current password.
+    public func getPassword() -> String? {
+        return self.password;
+    }
+
+    // Sets protectionType. Gets or sets new type of protection.
     public func setProtectionType(protectionType : String?) {
         self.protectionType = protectionType;
     }
-    
-    // Gets protectionType. Gets or sets new type of protection.  
+
+    // Gets protectionType. Gets or sets new type of protection.
     public func getProtectionType() -> String? {
         return self.protectionType;
     }

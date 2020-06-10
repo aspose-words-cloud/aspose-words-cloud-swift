@@ -29,94 +29,90 @@ import Foundation
 
 // Represents options for parsing CSV data.
 public class CsvDataLoadOptions : Codable, WordsApiModel {
-    
-    // Field of hasHeaders. Gets or sets a value indicating whether the first record of CSV data contains column names.      
-    private var hasHeaders : Bool?;
-    
-    // Field of delimiter. Gets or sets the character to be used as a column delimiter.      
-    private var delimiter : String?;
-    
-    // Field of quoteChar. Gets or sets the character that is used to quote field values.      
-    private var quoteChar : String?;
-    
-    // Field of commentChar. Gets or sets the character that is used to comment lines of CSV data.      
+    // Field of commentChar. Represents options for parsing CSV data.
     private var commentChar : String?;
-        
+
+    // Field of delimiter. Represents options for parsing CSV data.
+    private var delimiter : String?;
+
+    // Field of hasHeaders. Represents options for parsing CSV data.
+    private var hasHeaders : Bool?;
+
+    // Field of quoteChar. Represents options for parsing CSV data.
+    private var quoteChar : String?;
+
     private enum CodingKeys: String, CodingKey {
-        case hasHeaders;
-        case delimiter;
-        case quoteChar;
         case commentChar;
+        case delimiter;
+        case hasHeaders;
+        case quoteChar;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.hasHeaders = try container.decodeIfPresent(Bool.self, forKey: .hasHeaders);
-        self.delimiter = try container.decodeIfPresent(String.self, forKey: .delimiter);
-        self.quoteChar = try container.decodeIfPresent(String.self, forKey: .quoteChar);
         self.commentChar = try container.decodeIfPresent(String.self, forKey: .commentChar);
+        self.delimiter = try container.decodeIfPresent(String.self, forKey: .delimiter);
+        self.hasHeaders = try container.decodeIfPresent(Bool.self, forKey: .hasHeaders);
+        self.quoteChar = try container.decodeIfPresent(String.self, forKey: .quoteChar);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.hasHeaders != nil) {
-            try container.encode(self.hasHeaders, forKey: .hasHeaders);
+        if (self.commentChar != nil) {
+            try container.encode(self.commentChar, forKey: .commentChar);
         }
         if (self.delimiter != nil) {
             try container.encode(self.delimiter, forKey: .delimiter);
         }
+        if (self.hasHeaders != nil) {
+            try container.encode(self.hasHeaders, forKey: .hasHeaders);
+        }
         if (self.quoteChar != nil) {
             try container.encode(self.quoteChar, forKey: .quoteChar);
         }
-        if (self.commentChar != nil) {
-            try container.encode(self.commentChar, forKey: .commentChar);
-        }
     }
-    
-    // Sets hasHeaders. Gets or sets a value indicating whether the first record of CSV data contains column names.  
-    public func setHasHeaders(hasHeaders : Bool?) {
-        self.hasHeaders = hasHeaders;
-    }
-    
-    // Gets hasHeaders. Gets or sets a value indicating whether the first record of CSV data contains column names.  
-    public func getHasHeaders() -> Bool? {
-        return self.hasHeaders;
-    }
-    
-    // Sets delimiter. Gets or sets the character to be used as a column delimiter.  
-    public func setDelimiter(delimiter : String?) {
-        self.delimiter = delimiter;
-    }
-    
-    // Gets delimiter. Gets or sets the character to be used as a column delimiter.  
-    public func getDelimiter() -> String? {
-        return self.delimiter;
-    }
-    
-    // Sets quoteChar. Gets or sets the character that is used to quote field values.  
-    public func setQuoteChar(quoteChar : String?) {
-        self.quoteChar = quoteChar;
-    }
-    
-    // Gets quoteChar. Gets or sets the character that is used to quote field values.  
-    public func getQuoteChar() -> String? {
-        return self.quoteChar;
-    }
-    
-    // Sets commentChar. Gets or sets the character that is used to comment lines of CSV data.  
+
+    // Sets commentChar. Gets or sets the character that is used to comment lines of CSV data.
     public func setCommentChar(commentChar : String?) {
         self.commentChar = commentChar;
     }
-    
-    // Gets commentChar. Gets or sets the character that is used to comment lines of CSV data.  
+
+    // Gets commentChar. Gets or sets the character that is used to comment lines of CSV data.
     public func getCommentChar() -> String? {
         return self.commentChar;
+    }
+
+    // Sets delimiter. Gets or sets the character to be used as a column delimiter.
+    public func setDelimiter(delimiter : String?) {
+        self.delimiter = delimiter;
+    }
+
+    // Gets delimiter. Gets or sets the character to be used as a column delimiter.
+    public func getDelimiter() -> String? {
+        return self.delimiter;
+    }
+
+    // Sets hasHeaders. Gets or sets a value indicating whether the first record of CSV data contains column names.
+    public func setHasHeaders(hasHeaders : Bool?) {
+        self.hasHeaders = hasHeaders;
+    }
+
+    // Gets hasHeaders. Gets or sets a value indicating whether the first record of CSV data contains column names.
+    public func getHasHeaders() -> Bool? {
+        return self.hasHeaders;
+    }
+
+    // Sets quoteChar. Gets or sets the character that is used to quote field values.
+    public func setQuoteChar(quoteChar : String?) {
+        self.quoteChar = quoteChar;
+    }
+
+    // Gets quoteChar. Gets or sets the character that is used to quote field values.
+    public func getQuoteChar() -> String? {
+        return self.quoteChar;
     }
 }

@@ -34,7 +34,7 @@ public class MoveFileRequest {
     private let srcStorageName : String?;
     private let destStorageName : String?;
     private let versionId : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case destPath;
         case srcPath;
@@ -43,8 +43,8 @@ public class MoveFileRequest {
         case versionId;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the moveFileRequest class.
+
+    // Initializes a new instance of the MoveFileRequest class.
     public init(destPath : String, srcPath : String, srcStorageName : String? = nil, destStorageName : String? = nil, versionId : String? = nil) {
         self.destPath = destPath;
         self.srcPath = srcPath;
@@ -52,28 +52,28 @@ public class MoveFileRequest {
         self.destStorageName = destStorageName;
         self.versionId = versionId;
     }
-    
-    // Destination file path e.g. '/dest.ext'
+
+    // Destination file path e.g. '/dest.ext'.
     public func getDestPath() -> String {
         return self.destPath;
     }
-    
-    // Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'
+
+    // Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'.
     public func getSrcPath() -> String {
         return self.srcPath;
     }
-    
-    // Source storage name
+
+    // Source storage name.
     public func getSrcStorageName() -> String? {
         return self.srcStorageName;
     }
-    
-    // Destination storage name
+
+    // Destination storage name.
     public func getDestStorageName() -> String? {
         return self.destStorageName;
     }
-    
-    // File version ID to move
+
+    // File version ID to move.
     public func getVersionId() -> String? {
         return self.versionId;
     }

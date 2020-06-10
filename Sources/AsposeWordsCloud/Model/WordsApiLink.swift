@@ -29,15 +29,14 @@ import Foundation
 
 // Provides information for the words api resource link.
 public class WordsApiLink : Link {
-        
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
     }
@@ -45,4 +44,5 @@ public class WordsApiLink : Link {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
     }
+
 }

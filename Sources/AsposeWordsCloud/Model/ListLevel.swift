@@ -31,7 +31,7 @@ import Foundation
 public class ListLevel : LinkElement {
     // Gets or sets the justification of the actual number of the list item.
     public enum Alignment : String, Codable
-    { 
+    {
         // Enum value "_left"
         case _left = "Left"
 
@@ -41,9 +41,10 @@ public class ListLevel : LinkElement {
         // Enum value "_right"
         case _right = "Right"
     }
+
     // Gets or sets returns or sets the number style for this list level.
     public enum NumberStyle : String, Codable
-    { 
+    {
         // Enum value "arabic"
         case arabic = "Arabic"
 
@@ -122,17 +123,17 @@ public class ListLevel : LinkElement {
         // Enum value "chosung"
         case chosung = "Chosung"
 
-        // Enum value "gb1"
-        case gb1 = "GB1"
+        // Enum value "gB1"
+        case gB1 = "GB1"
 
-        // Enum value "gb2"
-        case gb2 = "GB2"
+        // Enum value "gB2"
+        case gB2 = "GB2"
 
-        // Enum value "gb3"
-        case gb3 = "GB3"
+        // Enum value "gB3"
+        case gB3 = "GB3"
 
-        // Enum value "gb4"
-        case gb4 = "GB4"
+        // Enum value "gB4"
+        case gB4 = "GB4"
 
         // Enum value "zodiac1"
         case zodiac1 = "Zodiac1"
@@ -230,9 +231,10 @@ public class ListLevel : LinkElement {
         // Enum value "custom"
         case custom = "Custom"
     }
+
     // Gets or sets returns or sets the character inserted after the number for the list level.
     public enum TrailingCharacter : String, Codable
-    { 
+    {
         // Enum value "tab"
         case tab = "Tab"
 
@@ -242,43 +244,43 @@ public class ListLevel : LinkElement {
         // Enum value "nothing"
         case nothing = "Nothing"
     }
-    
-    // Field of alignment. Gets or sets the justification of the actual number of the list item.      
+
+    // Field of alignment. Represents a document list levels.
     private var alignment : Alignment?;
-    
-    // Field of font.       
+
+    // Field of font. Represents a document list levels.
     private var font : Font?;
-    
-    // Field of isLegal. Gets or sets a value indicating whether true if the level turns all inherited numbers to Arabic, false if it preserves their number style.      
+
+    // Field of isLegal. Represents a document list levels.
     private var isLegal : Bool?;
-    
-    // Field of linkedStyle.       
+
+    // Field of linkedStyle. Represents a document list levels.
     private var linkedStyle : Style?;
-    
-    // Field of numberFormat. Gets or sets returns or sets the number format for the list level.      
+
+    // Field of numberFormat. Represents a document list levels.
     private var numberFormat : String?;
-    
-    // Field of numberPosition. Gets or sets returns or sets the position (in points) of the number or bullet for the list level.      
+
+    // Field of numberPosition. Represents a document list levels.
     private var numberPosition : Double?;
-    
-    // Field of numberStyle. Gets or sets returns or sets the number style for this list level.      
+
+    // Field of numberStyle. Represents a document list levels.
     private var numberStyle : NumberStyle?;
-    
-    // Field of restartAfterLevel. Gets or sets or returns the list level that must appear before the specified list level restarts numbering.      
+
+    // Field of restartAfterLevel. Represents a document list levels.
     private var restartAfterLevel : Int?;
-    
-    // Field of startAt. Gets or sets returns or sets the starting number for this list level.      
+
+    // Field of startAt. Represents a document list levels.
     private var startAt : Int?;
-    
-    // Field of tabPosition. Gets or sets returns or sets the tab position (in points) for the list level.      
+
+    // Field of tabPosition. Represents a document list levels.
     private var tabPosition : Double?;
-    
-    // Field of textPosition. Gets or sets returns or sets the position (in points) for the second line of wrapping text for the list level.      
+
+    // Field of textPosition. Represents a document list levels.
     private var textPosition : Double?;
-    
-    // Field of trailingCharacter. Gets or sets returns or sets the character inserted after the number for the list level.      
+
+    // Field of trailingCharacter. Represents a document list levels.
     private var trailingCharacter : TrailingCharacter?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case alignment;
         case font;
@@ -294,11 +296,11 @@ public class ListLevel : LinkElement {
         case trailingCharacter;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -356,123 +358,123 @@ public class ListLevel : LinkElement {
             try container.encode(self.trailingCharacter, forKey: .trailingCharacter);
         }
     }
-    
-    // Sets alignment. Gets or sets the justification of the actual number of the list item.  
+
+    // Sets alignment. Gets or sets the justification of the actual number of the list item.
     public func setAlignment(alignment : Alignment?) {
         self.alignment = alignment;
     }
-    
-    // Gets alignment. Gets or sets the justification of the actual number of the list item.  
+
+    // Gets alignment. Gets or sets the justification of the actual number of the list item.
     public func getAlignment() -> Alignment? {
         return self.alignment;
     }
-    
-    // Sets font.   
+
+    // Sets font. Gets or sets specifies character formatting used for the list label.
     public func setFont(font : Font?) {
         self.font = font;
     }
-    
-    // Gets font.   
+
+    // Gets font. Gets or sets specifies character formatting used for the list label.
     public func getFont() -> Font? {
         return self.font;
     }
-    
-    // Sets isLegal. Gets or sets a value indicating whether true if the level turns all inherited numbers to Arabic, false if it preserves their number style.  
+
+    // Sets isLegal. Gets or sets a value indicating whether true if the level turns all inherited numbers to Arabic, false if it preserves their number style.
     public func setIsLegal(isLegal : Bool?) {
         self.isLegal = isLegal;
     }
-    
-    // Gets isLegal. Gets or sets a value indicating whether true if the level turns all inherited numbers to Arabic, false if it preserves their number style.  
+
+    // Gets isLegal. Gets or sets a value indicating whether true if the level turns all inherited numbers to Arabic, false if it preserves their number style.
     public func getIsLegal() -> Bool? {
         return self.isLegal;
     }
-    
-    // Sets linkedStyle.   
+
+    // Sets linkedStyle. Gets or sets the paragraph style that is linked to this list level.
     public func setLinkedStyle(linkedStyle : Style?) {
         self.linkedStyle = linkedStyle;
     }
-    
-    // Gets linkedStyle.   
+
+    // Gets linkedStyle. Gets or sets the paragraph style that is linked to this list level.
     public func getLinkedStyle() -> Style? {
         return self.linkedStyle;
     }
-    
-    // Sets numberFormat. Gets or sets returns or sets the number format for the list level.  
+
+    // Sets numberFormat. Gets or sets returns or sets the number format for the list level.
     public func setNumberFormat(numberFormat : String?) {
         self.numberFormat = numberFormat;
     }
-    
-    // Gets numberFormat. Gets or sets returns or sets the number format for the list level.  
+
+    // Gets numberFormat. Gets or sets returns or sets the number format for the list level.
     public func getNumberFormat() -> String? {
         return self.numberFormat;
     }
-    
-    // Sets numberPosition. Gets or sets returns or sets the position (in points) of the number or bullet for the list level.  
+
+    // Sets numberPosition. Gets or sets returns or sets the position (in points) of the number or bullet for the list level.
     public func setNumberPosition(numberPosition : Double?) {
         self.numberPosition = numberPosition;
     }
-    
-    // Gets numberPosition. Gets or sets returns or sets the position (in points) of the number or bullet for the list level.  
+
+    // Gets numberPosition. Gets or sets returns or sets the position (in points) of the number or bullet for the list level.
     public func getNumberPosition() -> Double? {
         return self.numberPosition;
     }
-    
-    // Sets numberStyle. Gets or sets returns or sets the number style for this list level.  
+
+    // Sets numberStyle. Gets or sets returns or sets the number style for this list level.
     public func setNumberStyle(numberStyle : NumberStyle?) {
         self.numberStyle = numberStyle;
     }
-    
-    // Gets numberStyle. Gets or sets returns or sets the number style for this list level.  
+
+    // Gets numberStyle. Gets or sets returns or sets the number style for this list level.
     public func getNumberStyle() -> NumberStyle? {
         return self.numberStyle;
     }
-    
-    // Sets restartAfterLevel. Gets or sets or returns the list level that must appear before the specified list level restarts numbering.  
+
+    // Sets restartAfterLevel. Gets or sets or returns the list level that must appear before the specified list level restarts numbering.
     public func setRestartAfterLevel(restartAfterLevel : Int?) {
         self.restartAfterLevel = restartAfterLevel;
     }
-    
-    // Gets restartAfterLevel. Gets or sets or returns the list level that must appear before the specified list level restarts numbering.  
+
+    // Gets restartAfterLevel. Gets or sets or returns the list level that must appear before the specified list level restarts numbering.
     public func getRestartAfterLevel() -> Int? {
         return self.restartAfterLevel;
     }
-    
-    // Sets startAt. Gets or sets returns or sets the starting number for this list level.  
+
+    // Sets startAt. Gets or sets returns or sets the starting number for this list level.
     public func setStartAt(startAt : Int?) {
         self.startAt = startAt;
     }
-    
-    // Gets startAt. Gets or sets returns or sets the starting number for this list level.  
+
+    // Gets startAt. Gets or sets returns or sets the starting number for this list level.
     public func getStartAt() -> Int? {
         return self.startAt;
     }
-    
-    // Sets tabPosition. Gets or sets returns or sets the tab position (in points) for the list level.  
+
+    // Sets tabPosition. Gets or sets returns or sets the tab position (in points) for the list level.
     public func setTabPosition(tabPosition : Double?) {
         self.tabPosition = tabPosition;
     }
-    
-    // Gets tabPosition. Gets or sets returns or sets the tab position (in points) for the list level.  
+
+    // Gets tabPosition. Gets or sets returns or sets the tab position (in points) for the list level.
     public func getTabPosition() -> Double? {
         return self.tabPosition;
     }
-    
-    // Sets textPosition. Gets or sets returns or sets the position (in points) for the second line of wrapping text for the list level.  
+
+    // Sets textPosition. Gets or sets returns or sets the position (in points) for the second line of wrapping text for the list level.
     public func setTextPosition(textPosition : Double?) {
         self.textPosition = textPosition;
     }
-    
-    // Gets textPosition. Gets or sets returns or sets the position (in points) for the second line of wrapping text for the list level.  
+
+    // Gets textPosition. Gets or sets returns or sets the position (in points) for the second line of wrapping text for the list level.
     public func getTextPosition() -> Double? {
         return self.textPosition;
     }
-    
-    // Sets trailingCharacter. Gets or sets returns or sets the character inserted after the number for the list level.  
+
+    // Sets trailingCharacter. Gets or sets returns or sets the character inserted after the number for the list level.
     public func setTrailingCharacter(trailingCharacter : TrailingCharacter?) {
         self.trailingCharacter = trailingCharacter;
     }
-    
-    // Gets trailingCharacter. Gets or sets returns or sets the character inserted after the number for the list level.  
+
+    // Gets trailingCharacter. Gets or sets returns or sets the character inserted after the number for the list level.
     public func getTrailingCharacter() -> TrailingCharacter? {
         return self.trailingCharacter;
     }

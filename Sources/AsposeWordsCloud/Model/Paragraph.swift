@@ -29,19 +29,18 @@ import Foundation
 
 // Paragraph element.
 public class Paragraph : NodeLink {
-    
-    // Field of childNodes. Gets or sets child nodes.      
+    // Field of childNodes. Paragraph element.
     private var childNodes : [NodeLink]?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case childNodes;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class Paragraph : NodeLink {
             try container.encode(self.childNodes, forKey: .childNodes);
         }
     }
-    
-    // Sets childNodes. Gets or sets child nodes.  
+
+    // Sets childNodes. Gets or sets child nodes.
     public func setChildNodes(childNodes : [NodeLink]?) {
         self.childNodes = childNodes;
     }
-    
-    // Gets childNodes. Gets or sets child nodes.  
+
+    // Gets childNodes. Gets or sets child nodes.
     public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }

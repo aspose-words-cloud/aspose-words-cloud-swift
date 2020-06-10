@@ -37,7 +37,7 @@ public class GetDocumentStatisticsRequest {
     private let includeComments : Bool?;
     private let includeFootnotes : Bool?;
     private let includeTextInShapes : Bool?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case name;
         case folder;
@@ -49,8 +49,8 @@ public class GetDocumentStatisticsRequest {
         case includeTextInShapes;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the getDocumentStatisticsRequest class.
+
+    // Initializes a new instance of the GetDocumentStatisticsRequest class.
     public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, includeComments : Bool? = nil, includeFootnotes : Bool? = nil, includeTextInShapes : Bool? = nil) {
         self.name = name;
         self.folder = folder;
@@ -61,42 +61,42 @@ public class GetDocumentStatisticsRequest {
         self.includeFootnotes = includeFootnotes;
         self.includeTextInShapes = includeTextInShapes;
     }
-    
+
     // The document name.
     public func getName() -> String {
         return self.name;
     }
-    
+
     // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
-    
+
     // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
-    
+
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
-    
+
     // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }
-    
+
     // Support including/excluding comments from the WordCount. Default value is "false".
     public func getIncludeComments() -> Bool? {
         return self.includeComments;
     }
-    
+
     // Support including/excluding footnotes from the WordCount. Default value is "false".
     public func getIncludeFootnotes() -> Bool? {
         return self.includeFootnotes;
     }
-    
+
     // Support including/excluding shape's text from the WordCount. Default value is "false".
     public func getIncludeTextInShapes() -> Bool? {
         return self.includeTextInShapes;

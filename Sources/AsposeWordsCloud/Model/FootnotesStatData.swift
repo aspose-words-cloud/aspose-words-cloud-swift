@@ -29,58 +29,54 @@ import Foundation
 
 // Container for the footnotes statistical data.
 public class FootnotesStatData : Codable, WordsApiModel {
-    
-    // Field of wordCount. Gets or sets total count of words in footnotes.      
-    private var wordCount : Int?;
-    
-    // Field of paragraphCount. Gets or sets total count of paragraphs in footnotes.      
+    // Field of paragraphCount. Container for the footnotes statistical data.
     private var paragraphCount : Int?;
-        
+
+    // Field of wordCount. Container for the footnotes statistical data.
+    private var wordCount : Int?;
+
     private enum CodingKeys: String, CodingKey {
-        case wordCount;
         case paragraphCount;
+        case wordCount;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.wordCount = try container.decodeIfPresent(Int.self, forKey: .wordCount);
         self.paragraphCount = try container.decodeIfPresent(Int.self, forKey: .paragraphCount);
+        self.wordCount = try container.decodeIfPresent(Int.self, forKey: .wordCount);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.wordCount != nil) {
-            try container.encode(self.wordCount, forKey: .wordCount);
-        }
         if (self.paragraphCount != nil) {
             try container.encode(self.paragraphCount, forKey: .paragraphCount);
         }
+        if (self.wordCount != nil) {
+            try container.encode(self.wordCount, forKey: .wordCount);
+        }
     }
-    
-    // Sets wordCount. Gets or sets total count of words in footnotes.  
-    public func setWordCount(wordCount : Int?) {
-        self.wordCount = wordCount;
-    }
-    
-    // Gets wordCount. Gets or sets total count of words in footnotes.  
-    public func getWordCount() -> Int? {
-        return self.wordCount;
-    }
-    
-    // Sets paragraphCount. Gets or sets total count of paragraphs in footnotes.  
+
+    // Sets paragraphCount. Gets or sets total count of paragraphs in footnotes.
     public func setParagraphCount(paragraphCount : Int?) {
         self.paragraphCount = paragraphCount;
     }
-    
-    // Gets paragraphCount. Gets or sets total count of paragraphs in footnotes.  
+
+    // Gets paragraphCount. Gets or sets total count of paragraphs in footnotes.
     public func getParagraphCount() -> Int? {
         return self.paragraphCount;
+    }
+
+    // Sets wordCount. Gets or sets total count of words in footnotes.
+    public func setWordCount(wordCount : Int?) {
+        self.wordCount = wordCount;
+    }
+
+    // Gets wordCount. Gets or sets total count of words in footnotes.
+    public func getWordCount() -> Int? {
+        return self.wordCount;
     }
 }

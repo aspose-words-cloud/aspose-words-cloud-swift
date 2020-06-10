@@ -33,7 +33,7 @@ public class BuildReportOnlineRequest {
     private let data : String;
     private let reportEngineSettings : ReportEngineSettings;
     private let documentFileName : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case template;
         case data;
@@ -41,31 +41,31 @@ public class BuildReportOnlineRequest {
         case documentFileName;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the buildReportOnlineRequest class.
+
+    // Initializes a new instance of the BuildReportOnlineRequest class.
     public init(template : InputStream, data : String, reportEngineSettings : ReportEngineSettings, documentFileName : String? = nil) {
         self.template = template;
         self.data = data;
         self.reportEngineSettings = reportEngineSettings;
         self.documentFileName = documentFileName;
     }
-    
-    // File with template
+
+    // File with template.
     public func getTemplate() -> InputStream {
         return self.template;
     }
-    
-    // A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv
+
+    // A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv.
     public func getData() -> String {
         return self.data;
     }
-    
+
     // An object providing a settings of report engine.
     public func getReportEngineSettings() -> ReportEngineSettings {
         return self.reportEngineSettings;
     }
-    
-    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead. 
+
+    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
     public func getDocumentFileName() -> String? {
         return self.documentFileName;
     }

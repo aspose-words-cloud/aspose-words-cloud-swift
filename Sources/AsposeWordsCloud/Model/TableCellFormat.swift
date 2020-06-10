@@ -31,7 +31,7 @@ import Foundation
 public class TableCellFormat : LinkElement {
     // Gets or sets specifies how the cell is merged horizontally with other cells in the row.
     public enum HorizontalMerge : String, Codable
-    { 
+    {
         // Enum value "_none"
         case _none = "None"
 
@@ -41,9 +41,10 @@ public class TableCellFormat : LinkElement {
         // Enum value "previous"
         case previous = "Previous"
     }
+
     // Gets or sets returns or sets the orientation of text in a table cell.
     public enum Orientation : String, Codable
-    { 
+    {
         // Enum value "horizontal"
         case horizontal = "Horizontal"
 
@@ -62,9 +63,10 @@ public class TableCellFormat : LinkElement {
         // Enum value "verticalRotatedFarEast"
         case verticalRotatedFarEast = "VerticalRotatedFarEast"
     }
+
     // Gets or sets returns or sets the vertical alignment of text in the cell.
     public enum VerticalAlignment : String, Codable
-    { 
+    {
         // Enum value "top"
         case top = "Top"
 
@@ -74,9 +76,10 @@ public class TableCellFormat : LinkElement {
         // Enum value "bottom"
         case bottom = "Bottom"
     }
+
     // Gets or sets specifies how the cell is merged with other cells vertically.
     public enum VerticalMerge : String, Codable
-    { 
+    {
         // Enum value "_none"
         case _none = "None"
 
@@ -86,43 +89,43 @@ public class TableCellFormat : LinkElement {
         // Enum value "previous"
         case previous = "Previous"
     }
-    
-    // Field of bottomPadding. Gets or sets returns or sets the amount of space (in points) to add below the contents of cell.      
+
+    // Field of bottomPadding. Represents all formatting for a table row.
     private var bottomPadding : Double?;
-    
-    // Field of fitText. Gets or sets if true, fits text in the cell, compressing each paragraph to the width of the cell.      
+
+    // Field of fitText. Represents all formatting for a table row.
     private var fitText : Bool?;
-    
-    // Field of horizontalMerge. Gets or sets specifies how the cell is merged horizontally with other cells in the row.      
+
+    // Field of horizontalMerge. Represents all formatting for a table row.
     private var horizontalMerge : HorizontalMerge?;
-    
-    // Field of leftPadding. Gets or sets returns or sets the amount of space (in points) to add to the left of the contents of cell.      
+
+    // Field of leftPadding. Represents all formatting for a table row.
     private var leftPadding : Double?;
-    
-    // Field of orientation. Gets or sets returns or sets the orientation of text in a table cell.      
+
+    // Field of orientation. Represents all formatting for a table row.
     private var orientation : Orientation?;
-    
-    // Field of preferredWidth.       
+
+    // Field of preferredWidth. Represents all formatting for a table row.
     private var preferredWidth : PreferredWidth?;
-    
-    // Field of rightPadding. Gets or sets returns or sets the amount of space (in points) to add to the right of the contents of cell.      
+
+    // Field of rightPadding. Represents all formatting for a table row.
     private var rightPadding : Double?;
-    
-    // Field of topPadding. Gets or sets returns or sets the amount of space (in points) to add above the contents of cell.      
+
+    // Field of topPadding. Represents all formatting for a table row.
     private var topPadding : Double?;
-    
-    // Field of verticalAlignment. Gets or sets returns or sets the vertical alignment of text in the cell.      
+
+    // Field of verticalAlignment. Represents all formatting for a table row.
     private var verticalAlignment : VerticalAlignment?;
-    
-    // Field of verticalMerge. Gets or sets specifies how the cell is merged with other cells vertically.      
+
+    // Field of verticalMerge. Represents all formatting for a table row.
     private var verticalMerge : VerticalMerge?;
-    
-    // Field of width. Gets or sets the width of the cell in points.      
+
+    // Field of width. Represents all formatting for a table row.
     private var width : Double?;
-    
-    // Field of wrapText. Gets or sets if true, wrap text for the cell.      
+
+    // Field of wrapText. Represents all formatting for a table row.
     private var wrapText : Bool?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case bottomPadding;
         case fitText;
@@ -138,11 +141,11 @@ public class TableCellFormat : LinkElement {
         case wrapText;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -200,123 +203,123 @@ public class TableCellFormat : LinkElement {
             try container.encode(self.wrapText, forKey: .wrapText);
         }
     }
-    
-    // Sets bottomPadding. Gets or sets returns or sets the amount of space (in points) to add below the contents of cell.  
+
+    // Sets bottomPadding. Gets or sets returns or sets the amount of space (in points) to add below the contents of cell.
     public func setBottomPadding(bottomPadding : Double?) {
         self.bottomPadding = bottomPadding;
     }
-    
-    // Gets bottomPadding. Gets or sets returns or sets the amount of space (in points) to add below the contents of cell.  
+
+    // Gets bottomPadding. Gets or sets returns or sets the amount of space (in points) to add below the contents of cell.
     public func getBottomPadding() -> Double? {
         return self.bottomPadding;
     }
-    
-    // Sets fitText. Gets or sets if true, fits text in the cell, compressing each paragraph to the width of the cell.  
+
+    // Sets fitText. Gets or sets if true, fits text in the cell, compressing each paragraph to the width of the cell.
     public func setFitText(fitText : Bool?) {
         self.fitText = fitText;
     }
-    
-    // Gets fitText. Gets or sets if true, fits text in the cell, compressing each paragraph to the width of the cell.  
+
+    // Gets fitText. Gets or sets if true, fits text in the cell, compressing each paragraph to the width of the cell.
     public func getFitText() -> Bool? {
         return self.fitText;
     }
-    
-    // Sets horizontalMerge. Gets or sets specifies how the cell is merged horizontally with other cells in the row.  
+
+    // Sets horizontalMerge. Gets or sets specifies how the cell is merged horizontally with other cells in the row.
     public func setHorizontalMerge(horizontalMerge : HorizontalMerge?) {
         self.horizontalMerge = horizontalMerge;
     }
-    
-    // Gets horizontalMerge. Gets or sets specifies how the cell is merged horizontally with other cells in the row.  
+
+    // Gets horizontalMerge. Gets or sets specifies how the cell is merged horizontally with other cells in the row.
     public func getHorizontalMerge() -> HorizontalMerge? {
         return self.horizontalMerge;
     }
-    
-    // Sets leftPadding. Gets or sets returns or sets the amount of space (in points) to add to the left of the contents of cell.  
+
+    // Sets leftPadding. Gets or sets returns or sets the amount of space (in points) to add to the left of the contents of cell.
     public func setLeftPadding(leftPadding : Double?) {
         self.leftPadding = leftPadding;
     }
-    
-    // Gets leftPadding. Gets or sets returns or sets the amount of space (in points) to add to the left of the contents of cell.  
+
+    // Gets leftPadding. Gets or sets returns or sets the amount of space (in points) to add to the left of the contents of cell.
     public func getLeftPadding() -> Double? {
         return self.leftPadding;
     }
-    
-    // Sets orientation. Gets or sets returns or sets the orientation of text in a table cell.  
+
+    // Sets orientation. Gets or sets returns or sets the orientation of text in a table cell.
     public func setOrientation(orientation : Orientation?) {
         self.orientation = orientation;
     }
-    
-    // Gets orientation. Gets or sets returns or sets the orientation of text in a table cell.  
+
+    // Gets orientation. Gets or sets returns or sets the orientation of text in a table cell.
     public func getOrientation() -> Orientation? {
         return self.orientation;
     }
-    
-    // Sets preferredWidth.   
+
+    // Sets preferredWidth. Gets or sets returns or sets the preferred width of the cell.
     public func setPreferredWidth(preferredWidth : PreferredWidth?) {
         self.preferredWidth = preferredWidth;
     }
-    
-    // Gets preferredWidth.   
+
+    // Gets preferredWidth. Gets or sets returns or sets the preferred width of the cell.
     public func getPreferredWidth() -> PreferredWidth? {
         return self.preferredWidth;
     }
-    
-    // Sets rightPadding. Gets or sets returns or sets the amount of space (in points) to add to the right of the contents of cell.  
+
+    // Sets rightPadding. Gets or sets returns or sets the amount of space (in points) to add to the right of the contents of cell.
     public func setRightPadding(rightPadding : Double?) {
         self.rightPadding = rightPadding;
     }
-    
-    // Gets rightPadding. Gets or sets returns or sets the amount of space (in points) to add to the right of the contents of cell.  
+
+    // Gets rightPadding. Gets or sets returns or sets the amount of space (in points) to add to the right of the contents of cell.
     public func getRightPadding() -> Double? {
         return self.rightPadding;
     }
-    
-    // Sets topPadding. Gets or sets returns or sets the amount of space (in points) to add above the contents of cell.  
+
+    // Sets topPadding. Gets or sets returns or sets the amount of space (in points) to add above the contents of cell.
     public func setTopPadding(topPadding : Double?) {
         self.topPadding = topPadding;
     }
-    
-    // Gets topPadding. Gets or sets returns or sets the amount of space (in points) to add above the contents of cell.  
+
+    // Gets topPadding. Gets or sets returns or sets the amount of space (in points) to add above the contents of cell.
     public func getTopPadding() -> Double? {
         return self.topPadding;
     }
-    
-    // Sets verticalAlignment. Gets or sets returns or sets the vertical alignment of text in the cell.  
+
+    // Sets verticalAlignment. Gets or sets returns or sets the vertical alignment of text in the cell.
     public func setVerticalAlignment(verticalAlignment : VerticalAlignment?) {
         self.verticalAlignment = verticalAlignment;
     }
-    
-    // Gets verticalAlignment. Gets or sets returns or sets the vertical alignment of text in the cell.  
+
+    // Gets verticalAlignment. Gets or sets returns or sets the vertical alignment of text in the cell.
     public func getVerticalAlignment() -> VerticalAlignment? {
         return self.verticalAlignment;
     }
-    
-    // Sets verticalMerge. Gets or sets specifies how the cell is merged with other cells vertically.  
+
+    // Sets verticalMerge. Gets or sets specifies how the cell is merged with other cells vertically.
     public func setVerticalMerge(verticalMerge : VerticalMerge?) {
         self.verticalMerge = verticalMerge;
     }
-    
-    // Gets verticalMerge. Gets or sets specifies how the cell is merged with other cells vertically.  
+
+    // Gets verticalMerge. Gets or sets specifies how the cell is merged with other cells vertically.
     public func getVerticalMerge() -> VerticalMerge? {
         return self.verticalMerge;
     }
-    
-    // Sets width. Gets or sets the width of the cell in points.  
+
+    // Sets width. Gets or sets the width of the cell in points.
     public func setWidth(width : Double?) {
         self.width = width;
     }
-    
-    // Gets width. Gets or sets the width of the cell in points.  
+
+    // Gets width. Gets or sets the width of the cell in points.
     public func getWidth() -> Double? {
         return self.width;
     }
-    
-    // Sets wrapText. Gets or sets if true, wrap text for the cell.  
+
+    // Sets wrapText. Gets or sets if true, wrap text for the cell.
     public func setWrapText(wrapText : Bool?) {
         self.wrapText = wrapText;
     }
-    
-    // Gets wrapText. Gets or sets if true, wrap text for the cell.  
+
+    // Gets wrapText. Gets or sets if true, wrap text for the cell.
     public func getWrapText() -> Bool? {
         return self.wrapText;
     }

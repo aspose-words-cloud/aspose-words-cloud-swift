@@ -29,19 +29,18 @@ import Foundation
 
 // Collection of links to tables.
 public class TableLinkCollection : LinkElement {
-    
-    // Field of tableLinkList. Gets or sets collection of table's links.      
+    // Field of tableLinkList. Collection of links to tables.
     private var tableLinkList : [TableLink]?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case tableLinkList;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class TableLinkCollection : LinkElement {
             try container.encode(self.tableLinkList, forKey: .tableLinkList);
         }
     }
-    
-    // Sets tableLinkList. Gets or sets collection of table's links.  
+
+    // Sets tableLinkList. Gets or sets collection of table's links.
     public func setTableLinkList(tableLinkList : [TableLink]?) {
         self.tableLinkList = tableLinkList;
     }
-    
-    // Gets tableLinkList. Gets or sets collection of table's links.  
+
+    // Gets tableLinkList. Gets or sets collection of table's links.
     public func getTableLinkList() -> [TableLink]? {
         return self.tableLinkList;
     }

@@ -27,21 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/properties.
+// This response should be returned by the service when handling:
+// GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/properties.
 public class TablePropertiesResponse : WordsResponse {
-    
-    // Field of properties.       
+    // Field of properties. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/properties.
     private var properties : TableProperties?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case properties;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +55,13 @@ public class TablePropertiesResponse : WordsResponse {
             try container.encode(self.properties, forKey: .properties);
         }
     }
-    
-    // Sets properties.   
+
+    // Sets properties. Gets or sets table.
     public func setProperties(properties : TableProperties?) {
         self.properties = properties;
     }
-    
-    // Gets properties.   
+
+    // Gets properties. Gets or sets table.
     public func getProperties() -> TableProperties? {
         return self.properties;
     }

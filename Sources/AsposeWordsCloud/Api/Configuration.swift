@@ -10,10 +10,10 @@
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- *
+ * 
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- *
+ * 
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -29,66 +29,66 @@ import Foundation
 
 // Represents a set of configuration settings
 public class Configuration : Codable {
-    // Aspose Cloud API base URL
+    // Aspose.Words for Cloud base URL
     private var baseUrl : String;
-    
-    // Aspose Cloud API app sid
+
+    // Aspose.Words for Cloud app sid
     private var appSid: String;
-    
-    // Aspose Cloud API app key
+
+    // Aspose.Words for Cloud app key
     private var appKey: String;
-    
+
     // Indicating whether debug mode
     private var debugMode: Bool?;
-    
-    // Initialize new instance of Aspose Words configuration object with given parameters
+
+    // Initialize new instance of Aspose.Words for Cloud configuration object with given parameters
     public init(appSid: String, appKey: String, baseUrl: String = "https://api.aspose.cloud", debugMode: Bool = false) {
         self.appSid = appSid;
         self.appKey = appKey;
         self.baseUrl = baseUrl;
         self.debugMode = debugMode;
     }
-    
-    // Returns Aspose Cloud API base URL
+
+    // Returns Aspose.Words for Cloud base URL
     public func getBaseUrl() -> String {
         return self.baseUrl;
     }
-    
-    // Returns Cloud API app sid
+
+    // Returns Aspose.Words for Cloud app sid
     public func getAppSid() -> String {
         return self.appSid;
     }
-    
-    // Returns Aspose Cloud API app key
+
+    // Returns Aspose.Words for Cloud app key
     public func getAppKey() -> String {
         return self.appKey;
     }
-    
+
     // Is debug mode enabled
     public func isDebugMode() -> Bool {
         return self.debugMode != nil ? self.debugMode! : false;
     }
-    
+
     // Returns general version of cloud api
     public func getApiVersion() -> String {
         return "v4.0";
     }
-    
-    // Returns URL to Aspose Cloud API with remote API version
+
+    // Returns URL to Aspose.Words for Cloud with remote API version
     public func getApiRootUrl() throws -> URL {
         let url = URL(string: self.getBaseUrl());
         if (url == nil) {
             throw WordsApiError.badHostAddress(hostName: self.getBaseUrl());
         }
-        
+
         return url!.appendingPathComponent(self.getApiVersion());
     }
-    
+
     // Returns SDK name for using in statistics headers
     public func getSdkName() -> String {
         return "swift sdk";
     }
-    
+
     // Returns SDK version for using in statistics headers
     public func getSdkVersion() -> String {
         return "20.6";

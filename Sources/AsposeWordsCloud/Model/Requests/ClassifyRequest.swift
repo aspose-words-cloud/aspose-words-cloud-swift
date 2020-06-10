@@ -31,24 +31,24 @@ import Foundation
 public class ClassifyRequest {
     private let text : String;
     private let bestClassesCount : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case text;
         case bestClassesCount;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the classifyRequest class.
+
+    // Initializes a new instance of the ClassifyRequest class.
     public init(text : String, bestClassesCount : String? = nil) {
         self.text = text;
         self.bestClassesCount = bestClassesCount;
     }
-    
+
     // Text to classify.
     public func getText() -> String {
         return self.text;
     }
-    
+
     // Number of the best classes to return.
     public func getBestClassesCount() -> String? {
         return self.bestClassesCount;

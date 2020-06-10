@@ -29,64 +29,60 @@ import Foundation
 
 // container class for outline options.
 public class OutlineOptionsData : Codable, WordsApiModel {
-    
-    // Field of bookmarksOutlineLevels. Gets or sets allows to specify individual bookmarks outline level.      
+    // Field of bookmarksOutlineLevels. container class for outline options.
     private var bookmarksOutlineLevels : [BookmarksOutlineLevelData]?;
-    
-    // Field of defaultBookmarksOutlineLevel. Gets or sets specifies the default level in the document outline at which to display Word bookmarks.      
-    private var defaultBookmarksOutlineLevel : Int?;
-    
-    // Field of createMissingOutlineLevels. Gets or sets a value determining whether or not to create missing outline levels     when the document is exported.     Default value for this property is false.      
+
+    // Field of createMissingOutlineLevels. container class for outline options.
     private var createMissingOutlineLevels : Bool?;
-    
-    // Field of createOutlinesForHeadingsInTables. Gets or sets specifies whether or not to create outlines for headings (paragraphs formatted     with the Heading styles) inside tables.      
+
+    // Field of createOutlinesForHeadingsInTables. container class for outline options.
     private var createOutlinesForHeadingsInTables : Bool?;
-    
-    // Field of expandedOutlineLevels. Gets or sets specifies how many levels in the document outline to show expanded when the file is viewed.      
+
+    // Field of defaultBookmarksOutlineLevel. container class for outline options.
+    private var defaultBookmarksOutlineLevel : Int?;
+
+    // Field of expandedOutlineLevels. container class for outline options.
     private var expandedOutlineLevels : Int?;
-    
-    // Field of headingsOutlineLevels. Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.      
+
+    // Field of headingsOutlineLevels. container class for outline options.
     private var headingsOutlineLevels : Int?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case bookmarksOutlineLevels;
-        case defaultBookmarksOutlineLevel;
         case createMissingOutlineLevels;
         case createOutlinesForHeadingsInTables;
+        case defaultBookmarksOutlineLevel;
         case expandedOutlineLevels;
         case headingsOutlineLevels;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.bookmarksOutlineLevels = try container.decodeIfPresent([BookmarksOutlineLevelData].self, forKey: .bookmarksOutlineLevels);
-        self.defaultBookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .defaultBookmarksOutlineLevel);
         self.createMissingOutlineLevels = try container.decodeIfPresent(Bool.self, forKey: .createMissingOutlineLevels);
         self.createOutlinesForHeadingsInTables = try container.decodeIfPresent(Bool.self, forKey: .createOutlinesForHeadingsInTables);
+        self.defaultBookmarksOutlineLevel = try container.decodeIfPresent(Int.self, forKey: .defaultBookmarksOutlineLevel);
         self.expandedOutlineLevels = try container.decodeIfPresent(Int.self, forKey: .expandedOutlineLevels);
         self.headingsOutlineLevels = try container.decodeIfPresent(Int.self, forKey: .headingsOutlineLevels);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.bookmarksOutlineLevels != nil) {
             try container.encode(self.bookmarksOutlineLevels, forKey: .bookmarksOutlineLevels);
-        }
-        if (self.defaultBookmarksOutlineLevel != nil) {
-            try container.encode(self.defaultBookmarksOutlineLevel, forKey: .defaultBookmarksOutlineLevel);
         }
         if (self.createMissingOutlineLevels != nil) {
             try container.encode(self.createMissingOutlineLevels, forKey: .createMissingOutlineLevels);
         }
         if (self.createOutlinesForHeadingsInTables != nil) {
             try container.encode(self.createOutlinesForHeadingsInTables, forKey: .createOutlinesForHeadingsInTables);
+        }
+        if (self.defaultBookmarksOutlineLevel != nil) {
+            try container.encode(self.defaultBookmarksOutlineLevel, forKey: .defaultBookmarksOutlineLevel);
         }
         if (self.expandedOutlineLevels != nil) {
             try container.encode(self.expandedOutlineLevels, forKey: .expandedOutlineLevels);
@@ -95,63 +91,63 @@ public class OutlineOptionsData : Codable, WordsApiModel {
             try container.encode(self.headingsOutlineLevels, forKey: .headingsOutlineLevels);
         }
     }
-    
-    // Sets bookmarksOutlineLevels. Gets or sets allows to specify individual bookmarks outline level.  
+
+    // Sets bookmarksOutlineLevels. Gets or sets allows to specify individual bookmarks outline level.
     public func setBookmarksOutlineLevels(bookmarksOutlineLevels : [BookmarksOutlineLevelData]?) {
         self.bookmarksOutlineLevels = bookmarksOutlineLevels;
     }
-    
-    // Gets bookmarksOutlineLevels. Gets or sets allows to specify individual bookmarks outline level.  
+
+    // Gets bookmarksOutlineLevels. Gets or sets allows to specify individual bookmarks outline level.
     public func getBookmarksOutlineLevels() -> [BookmarksOutlineLevelData]? {
         return self.bookmarksOutlineLevels;
     }
-    
-    // Sets defaultBookmarksOutlineLevel. Gets or sets specifies the default level in the document outline at which to display Word bookmarks.  
-    public func setDefaultBookmarksOutlineLevel(defaultBookmarksOutlineLevel : Int?) {
-        self.defaultBookmarksOutlineLevel = defaultBookmarksOutlineLevel;
-    }
-    
-    // Gets defaultBookmarksOutlineLevel. Gets or sets specifies the default level in the document outline at which to display Word bookmarks.  
-    public func getDefaultBookmarksOutlineLevel() -> Int? {
-        return self.defaultBookmarksOutlineLevel;
-    }
-    
-    // Sets createMissingOutlineLevels. Gets or sets a value determining whether or not to create missing outline levels     when the document is exported.     Default value for this property is false.  
+
+    // Sets createMissingOutlineLevels. Gets or sets a value determining whether or not to create missing outline levels when the document is exported. Default value for this property is false.
     public func setCreateMissingOutlineLevels(createMissingOutlineLevels : Bool?) {
         self.createMissingOutlineLevels = createMissingOutlineLevels;
     }
-    
-    // Gets createMissingOutlineLevels. Gets or sets a value determining whether or not to create missing outline levels     when the document is exported.     Default value for this property is false.  
+
+    // Gets createMissingOutlineLevels. Gets or sets a value determining whether or not to create missing outline levels when the document is exported. Default value for this property is false.
     public func getCreateMissingOutlineLevels() -> Bool? {
         return self.createMissingOutlineLevels;
     }
-    
-    // Sets createOutlinesForHeadingsInTables. Gets or sets specifies whether or not to create outlines for headings (paragraphs formatted     with the Heading styles) inside tables.  
+
+    // Sets createOutlinesForHeadingsInTables. Gets or sets specifies whether or not to create outlines for headings (paragraphs formatted with the Heading styles) inside tables.
     public func setCreateOutlinesForHeadingsInTables(createOutlinesForHeadingsInTables : Bool?) {
         self.createOutlinesForHeadingsInTables = createOutlinesForHeadingsInTables;
     }
-    
-    // Gets createOutlinesForHeadingsInTables. Gets or sets specifies whether or not to create outlines for headings (paragraphs formatted     with the Heading styles) inside tables.  
+
+    // Gets createOutlinesForHeadingsInTables. Gets or sets specifies whether or not to create outlines for headings (paragraphs formatted with the Heading styles) inside tables.
     public func getCreateOutlinesForHeadingsInTables() -> Bool? {
         return self.createOutlinesForHeadingsInTables;
     }
-    
-    // Sets expandedOutlineLevels. Gets or sets specifies how many levels in the document outline to show expanded when the file is viewed.  
+
+    // Sets defaultBookmarksOutlineLevel. Gets or sets specifies the default level in the document outline at which to display Word bookmarks.
+    public func setDefaultBookmarksOutlineLevel(defaultBookmarksOutlineLevel : Int?) {
+        self.defaultBookmarksOutlineLevel = defaultBookmarksOutlineLevel;
+    }
+
+    // Gets defaultBookmarksOutlineLevel. Gets or sets specifies the default level in the document outline at which to display Word bookmarks.
+    public func getDefaultBookmarksOutlineLevel() -> Int? {
+        return self.defaultBookmarksOutlineLevel;
+    }
+
+    // Sets expandedOutlineLevels. Gets or sets specifies how many levels in the document outline to show expanded when the file is viewed.
     public func setExpandedOutlineLevels(expandedOutlineLevels : Int?) {
         self.expandedOutlineLevels = expandedOutlineLevels;
     }
-    
-    // Gets expandedOutlineLevels. Gets or sets specifies how many levels in the document outline to show expanded when the file is viewed.  
+
+    // Gets expandedOutlineLevels. Gets or sets specifies how many levels in the document outline to show expanded when the file is viewed.
     public func getExpandedOutlineLevels() -> Int? {
         return self.expandedOutlineLevels;
     }
-    
-    // Sets headingsOutlineLevels. Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.  
+
+    // Sets headingsOutlineLevels. Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
     public func setHeadingsOutlineLevels(headingsOutlineLevels : Int?) {
         self.headingsOutlineLevels = headingsOutlineLevels;
     }
-    
-    // Gets headingsOutlineLevels. Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.  
+
+    // Gets headingsOutlineLevels. Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
     public func getHeadingsOutlineLevels() -> Int? {
         return self.headingsOutlineLevels;
     }
