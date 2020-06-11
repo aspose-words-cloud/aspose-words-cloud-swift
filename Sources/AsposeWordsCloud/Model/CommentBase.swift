@@ -63,7 +63,12 @@ public class CommentBase : Codable, WordsApiModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.author = try container.decodeIfPresent(String.self, forKey: .author);
-        self.dateTime = try container.decodeIfPresent(Date.self, forKey: .dateTime);
+        var raw_dateTime = try container.decodeIfPresent(String.self, forKey: .dateTime);
+        if (raw_dateTime != nil) {
+            raw_dateTime = raw_dateTime!.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression);
+            self.dateTime = ObjectSerializer.customIso8601.date(from: raw_dateTime!)!;
+        }
+
         self.initial = try container.decodeIfPresent(String.self, forKey: .initial);
         self.rangeEnd = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeEnd);
         self.rangeStart = try container.decodeIfPresent(DocumentPosition.self, forKey: .rangeStart);

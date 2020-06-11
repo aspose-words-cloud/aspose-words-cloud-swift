@@ -46,7 +46,12 @@ public class ErrorDetails : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.errorDateTime = try container.decodeIfPresent(Date.self, forKey: .errorDateTime);
+        var raw_errorDateTime = try container.decodeIfPresent(String.self, forKey: .errorDateTime);
+        if (raw_errorDateTime != nil) {
+            raw_errorDateTime = raw_errorDateTime!.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression);
+            self.errorDateTime = ObjectSerializer.customIso8601.date(from: raw_errorDateTime!)!;
+        }
+
         self.requestId = try container.decodeIfPresent(String.self, forKey: .requestId);
     }
 

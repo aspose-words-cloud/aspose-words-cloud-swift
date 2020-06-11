@@ -62,7 +62,12 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
         self.hashAlgorithm = try container.decodeIfPresent(String.self, forKey: .hashAlgorithm);
         self.location = try container.decodeIfPresent(String.self, forKey: .location);
         self.reason = try container.decodeIfPresent(String.self, forKey: .reason);
-        self.signatureDate = try container.decodeIfPresent(Date.self, forKey: .signatureDate);
+        var raw_signatureDate = try container.decodeIfPresent(String.self, forKey: .signatureDate);
+        if (raw_signatureDate != nil) {
+            raw_signatureDate = raw_signatureDate!.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression);
+            self.signatureDate = ObjectSerializer.customIso8601.date(from: raw_signatureDate!)!;
+        }
+
     }
 
     public func encode(to encoder: Encoder) throws {

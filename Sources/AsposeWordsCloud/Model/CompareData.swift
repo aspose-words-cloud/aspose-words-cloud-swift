@@ -57,7 +57,12 @@ public class CompareData : Codable, WordsApiModel {
         self.author = try container.decodeIfPresent(String.self, forKey: .author);
         self.compareOptions = try container.decodeIfPresent(CompareOptions.self, forKey: .compareOptions);
         self.comparingWithDocument = try container.decodeIfPresent(String.self, forKey: .comparingWithDocument);
-        self.dateTime = try container.decodeIfPresent(Date.self, forKey: .dateTime);
+        var raw_dateTime = try container.decodeIfPresent(String.self, forKey: .dateTime);
+        if (raw_dateTime != nil) {
+            raw_dateTime = raw_dateTime!.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression);
+            self.dateTime = ObjectSerializer.customIso8601.date(from: raw_dateTime!)!;
+        }
+
     }
 
     public func encode(to encoder: Encoder) throws {

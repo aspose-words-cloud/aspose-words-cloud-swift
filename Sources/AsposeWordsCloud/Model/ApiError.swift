@@ -59,7 +59,12 @@ public class ApiError : Codable, WordsApiModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.code = try container.decodeIfPresent(String.self, forKey: .code);
-        self.dateTime = try container.decodeIfPresent(Date.self, forKey: .dateTime);
+        var raw_dateTime = try container.decodeIfPresent(String.self, forKey: .dateTime);
+        if (raw_dateTime != nil) {
+            raw_dateTime = raw_dateTime!.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression);
+            self.dateTime = ObjectSerializer.customIso8601.date(from: raw_dateTime!)!;
+        }
+
         self.description = try container.decodeIfPresent(String.self, forKey: .description);
         self.innerError = try container.decodeIfPresent(ApiError.self, forKey: .innerError);
         self.message = try container.decodeIfPresent(String.self, forKey: .message);

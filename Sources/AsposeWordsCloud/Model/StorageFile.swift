@@ -59,7 +59,12 @@ public class StorageFile : Codable, WordsApiModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.isFolder = try container.decodeIfPresent(Bool.self, forKey: .isFolder);
-        self.modifiedDate = try container.decodeIfPresent(Date.self, forKey: .modifiedDate);
+        var raw_modifiedDate = try container.decodeIfPresent(String.self, forKey: .modifiedDate);
+        if (raw_modifiedDate != nil) {
+            raw_modifiedDate = raw_modifiedDate!.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression);
+            self.modifiedDate = ObjectSerializer.customIso8601.date(from: raw_modifiedDate!)!;
+        }
+
         self.name = try container.decodeIfPresent(String.self, forKey: .name);
         self.path = try container.decodeIfPresent(String.self, forKey: .path);
         self.size = try container.decodeIfPresent(Int.self, forKey: .size);
