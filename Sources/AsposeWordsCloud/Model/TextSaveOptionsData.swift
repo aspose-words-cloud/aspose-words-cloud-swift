@@ -28,35 +28,9 @@
 import Foundation
 
 // Container class for text save options.
-public class TextSaveOptionsData : SaveOptionsData {
-    // Gets or sets specifies whether to output headers and footers when exporting in plain text format.
-    // default value is TxtExportHeadersFootersMode.PrimaryOnly.
-    public enum ExportHeadersFootersMode : String, Codable
-    {
-        // Enum value "_none"
-        case _none = "None"
-
-        // Enum value "primaryOnly"
-        case primaryOnly = "PrimaryOnly"
-
-        // Enum value "allAtEnd"
-        case allAtEnd = "AllAtEnd"
-    }
-
+public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     // Field of addBidiMarks. Container class for text save options.
     private var addBidiMarks : Bool?;
-
-    // Field of encoding. Container class for text save options.
-    private var encoding : String?;
-
-    // Field of exportHeadersFootersMode. Container class for text save options.
-    private var exportHeadersFootersMode : ExportHeadersFootersMode?;
-
-    // Field of forcePageBreaks. Container class for text save options.
-    private var forcePageBreaks : Bool?;
-
-    // Field of paragraphBreak. Container class for text save options.
-    private var paragraphBreak : String?;
 
     // Field of preserveTableLayout. Container class for text save options.
     private var preserveTableLayout : Bool?;
@@ -66,10 +40,6 @@ public class TextSaveOptionsData : SaveOptionsData {
 
     private enum CodingKeys: String, CodingKey {
         case addBidiMarks;
-        case encoding;
-        case exportHeadersFootersMode;
-        case forcePageBreaks;
-        case paragraphBreak;
         case preserveTableLayout;
         case simplifyListLabels;
         case invalidCodingKey;
@@ -83,10 +53,6 @@ public class TextSaveOptionsData : SaveOptionsData {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.addBidiMarks = try container.decodeIfPresent(Bool.self, forKey: .addBidiMarks);
-        self.encoding = try container.decodeIfPresent(String.self, forKey: .encoding);
-        self.exportHeadersFootersMode = try container.decodeIfPresent(ExportHeadersFootersMode.self, forKey: .exportHeadersFootersMode);
-        self.forcePageBreaks = try container.decodeIfPresent(Bool.self, forKey: .forcePageBreaks);
-        self.paragraphBreak = try container.decodeIfPresent(String.self, forKey: .paragraphBreak);
         self.preserveTableLayout = try container.decodeIfPresent(Bool.self, forKey: .preserveTableLayout);
         self.simplifyListLabels = try container.decodeIfPresent(Bool.self, forKey: .simplifyListLabels);
     }
@@ -96,18 +62,6 @@ public class TextSaveOptionsData : SaveOptionsData {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.addBidiMarks != nil) {
             try container.encode(self.addBidiMarks, forKey: .addBidiMarks);
-        }
-        if (self.encoding != nil) {
-            try container.encode(self.encoding, forKey: .encoding);
-        }
-        if (self.exportHeadersFootersMode != nil) {
-            try container.encode(self.exportHeadersFootersMode, forKey: .exportHeadersFootersMode);
-        }
-        if (self.forcePageBreaks != nil) {
-            try container.encode(self.forcePageBreaks, forKey: .forcePageBreaks);
-        }
-        if (self.paragraphBreak != nil) {
-            try container.encode(self.paragraphBreak, forKey: .paragraphBreak);
         }
         if (self.preserveTableLayout != nil) {
             try container.encode(self.preserveTableLayout, forKey: .preserveTableLayout);
@@ -125,46 +79,6 @@ public class TextSaveOptionsData : SaveOptionsData {
     // Gets addBidiMarks. Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.
     public func getAddBidiMarks() -> Bool? {
         return self.addBidiMarks;
-    }
-
-    // Sets encoding. Gets or sets specifies the encoding to use when exporting in plain text format.
-    public func setEncoding(encoding : String?) {
-        self.encoding = encoding;
-    }
-
-    // Gets encoding. Gets or sets specifies the encoding to use when exporting in plain text format.
-    public func getEncoding() -> String? {
-        return self.encoding;
-    }
-
-    // Sets exportHeadersFootersMode. Gets or sets specifies whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.
-    public func setExportHeadersFootersMode(exportHeadersFootersMode : ExportHeadersFootersMode?) {
-        self.exportHeadersFootersMode = exportHeadersFootersMode;
-    }
-
-    // Gets exportHeadersFootersMode. Gets or sets specifies whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.
-    public func getExportHeadersFootersMode() -> ExportHeadersFootersMode? {
-        return self.exportHeadersFootersMode;
-    }
-
-    // Sets forcePageBreaks. Gets or sets allows to specify whether the page breaks should be preserved during export. The default value is false.
-    public func setForcePageBreaks(forcePageBreaks : Bool?) {
-        self.forcePageBreaks = forcePageBreaks;
-    }
-
-    // Gets forcePageBreaks. Gets or sets allows to specify whether the page breaks should be preserved during export. The default value is false.
-    public func getForcePageBreaks() -> Bool? {
-        return self.forcePageBreaks;
-    }
-
-    // Sets paragraphBreak. Gets or sets specifies the string to use as a paragraph break when exporting in plain text format.
-    public func setParagraphBreak(paragraphBreak : String?) {
-        self.paragraphBreak = paragraphBreak;
-    }
-
-    // Gets paragraphBreak. Gets or sets specifies the string to use as a paragraph break when exporting in plain text format.
-    public func getParagraphBreak() -> String? {
-        return self.paragraphBreak;
     }
 
     // Sets preserveTableLayout. Gets or sets specifies whether the program should attempt to preserve layout of tables when saving in the plain text format.
