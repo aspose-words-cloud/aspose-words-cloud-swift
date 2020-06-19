@@ -30,7 +30,7 @@ import Foundation
 // Request model for updateParagraphFormat operation.
 public class UpdateParagraphFormatRequest {
     private let name : String;
-    private let dto : ParagraphFormat;
+    private let dto : ParagraphFormatUpdate;
     private let nodePath : String;
     private let index : Int;
     private let folder : String?;
@@ -57,7 +57,7 @@ public class UpdateParagraphFormatRequest {
     }
 
     // Initializes a new instance of the UpdateParagraphFormatRequest class.
-    public init(name : String, dto : ParagraphFormat, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, dto : ParagraphFormatUpdate, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.dto = dto;
         self.nodePath = nodePath;
@@ -77,7 +77,7 @@ public class UpdateParagraphFormatRequest {
     }
 
     // Paragraph format object.
-    public func getDto() -> ParagraphFormat {
+    public func getDto() -> ParagraphFormatUpdate {
         return self.dto;
     }
 

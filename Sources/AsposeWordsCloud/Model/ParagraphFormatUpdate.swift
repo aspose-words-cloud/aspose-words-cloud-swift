@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ParagraphFormat.swift">
+ * <copyright company="Aspose" file="ParagraphFormatUpdate.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,17 +27,9 @@
 
 import Foundation
 
-// Paragraph format element.
-public class ParagraphFormat : ParagraphFormatBase {
-    // Field of isHeading. Paragraph format element.
-    private var isHeading : Bool?;
-
-    // Field of isListItem. Paragraph format element.
-    private var isListItem : Bool?;
-
+// Paragraph format element update DTO.
+public class ParagraphFormatUpdate : ParagraphFormatBase {
     private enum CodingKeys: String, CodingKey {
-        case isHeading;
-        case isListItem;
         case invalidCodingKey;
     }
 
@@ -47,39 +39,10 @@ public class ParagraphFormat : ParagraphFormatBase {
 
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
-        let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.isHeading = try container.decodeIfPresent(Bool.self, forKey: .isHeading);
-        self.isListItem = try container.decodeIfPresent(Bool.self, forKey: .isListItem);
     }
 
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
-        var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.isHeading != nil) {
-            try container.encode(self.isHeading, forKey: .isHeading);
-        }
-        if (self.isListItem != nil) {
-            try container.encode(self.isListItem, forKey: .isListItem);
-        }
     }
 
-    // Sets isHeading. Gets or sets True when the paragraph style is one of the built-in Heading styles.
-    public func setIsHeading(isHeading : Bool?) {
-        self.isHeading = isHeading;
-    }
-
-    // Gets isHeading. Gets or sets True when the paragraph style is one of the built-in Heading styles.
-    public func getIsHeading() -> Bool? {
-        return self.isHeading;
-    }
-
-    // Sets isListItem. Gets or sets True when the paragraph is an item in a bulleted or numbered list.
-    public func setIsListItem(isListItem : Bool?) {
-        self.isListItem = isListItem;
-    }
-
-    // Gets isListItem. Gets or sets True when the paragraph is an item in a bulleted or numbered list.
-    public func getIsListItem() -> Bool? {
-        return self.isListItem;
-    }
 }
