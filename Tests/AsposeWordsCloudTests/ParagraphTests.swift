@@ -27,8 +27,7 @@ class ParagraphTests: BaseTestContext {
         ("testGetParagraphTabStops", testGetParagraphTabStops),	
         ("testInsertOrUpdateParagraphTabStop", testInsertOrUpdateParagraphTabStop),
         ("testDeleteAllParagraphTabStops", testDeleteAllParagraphTabStops),	
-        ("testDeleteParagraphTabStop", testDeleteParagraphTabStop),		
-        ("testUpdateParagraphFormatWithoutNodePath", testUpdateParagraphFormatWithoutNodePath),		
+        ("testDeleteParagraphTabStop", testDeleteParagraphTabStop),			
         ("testInsertParagraphWithoutNodePath", testInsertParagraphWithoutNodePath),		
         ("testUpdateParagraphListFormatWithoutNodePath", testUpdateParagraphListFormatWithoutNodePath),		
         ("testDeleteParagraphListFormatWithoutNodePath", testDeleteParagraphListFormatWithoutNodePath),		
@@ -240,8 +239,8 @@ class ParagraphTests: BaseTestContext {
         let remoteName = "TestGetDocumentParagraphs.docx";
         let fullName = (getRemoteDataFolder(action: "UpdateParagraphFormat") + "/" + remoteName);
         
-        let body = ParagraphFormat();
-        body.setAlignment(alignment: ParagraphFormat.Alignment._right);
+        let body = ParagraphFormatUpdate();
+        body.setAlignment(alignment: ParagraphFormatBase.Alignment._right);
         
         try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
         let request = UpdateParagraphFormatRequest(name: remoteName, dto: body, nodePath: "", index: 0, folder: getRemoteDataFolder(action: "UpdateParagraphFormat"));
@@ -249,21 +248,6 @@ class ParagraphTests: BaseTestContext {
         XCTAssert(actual.getParagraphFormat() != nil);
     }
     
-    func testUpdateParagraphFormatWithoutNodePath() throws {
-        let localName = "test_multi_pages.docx";
-        let remoteName = "TestGetDocumentParagraphs.docx";
-        let fullName = (getRemoteDataFolder(action: "UpdateParagraphFormat") + "/" + remoteName);
-        
-        let body = ParagraphFormat();
-        body.setAlignment(alignment: ParagraphFormat.Alignment._right);
-        
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent("Common", isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = UpdateParagraphFormatWithoutNodePathRequest(name: remoteName, dto: body, index: 0, folder: getRemoteDataFolder(action: "UpdateParagraphFormat"));
-        let actual = try super.getApi().updateParagraphFormatWithoutNodePath(request: request);
-        XCTAssert(actual.getParagraphFormat() != nil);
-    }
-    
-
     func testDeleteParagraph() throws {
         let localName = "test_multi_pages.docx";
         let remoteName = "TestGetDocumentParagraphs.docx";
