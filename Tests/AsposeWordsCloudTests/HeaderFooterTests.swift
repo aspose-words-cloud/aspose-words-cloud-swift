@@ -1,86 +1,104 @@
+/*
+ * --------------------------------------------------------------------------------
+ * <copyright company="Aspose" file="HeaderFooterTests.swift">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
+ * </copyright>
+ * <summary>
+ *   Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ * 
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ * 
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ * </summary>
+ * --------------------------------------------------------------------------------
+ */
+
 import XCTest
 @testable import AsposeWordsCloud
 
+// Example of how to work with headers and footers.
 class HeaderFooterTests: BaseTestContext {
     static var allTests = [
-        ("testGetHeadersFooters", testGetHeadersFooters),
+        ("testGetHeaderFooters", testGetHeaderFooters),
         ("testGetHeaderFooter", testGetHeaderFooter),
         ("testGetHeaderFooterOfSection", testGetHeaderFooterOfSection),
         ("testDeleteHeaderFooter", testDeleteHeaderFooter),
-        ("testDeleteHeaderFooters", testDeleteHeaderFooters),
-        ("testInsertHeaderFooter", testInsertHeaderFooter),
+        ("testDeleteHeadersFooters", testDeleteHeadersFooters),
+        ("testInsertHeaderFooter", testInsertHeaderFooter)
     ];
 
-    func getRemoteDataFolder(action : String) -> String {
-        return super.getRemoteTestDataFolder() + "HeaderFooter/" + action;
+    let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/HeaderFooters";
+    let localFile = "DocumentElements/HeaderFooters/HeadersFooters.doc";
+
+    // Test for getting headers and footers.
+    func testGetHeaderFooters() throws {
+      let remoteFileName = "TestGetHeadersFooters.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetHeaderFootersRequest(name: remoteFileName, sectionPath: "", folder: remoteDataFolder);
+      _ = try super.getApi().getHeaderFooters(request: request);
     }
 
-    private let headerFooterFolder = "DocumentElements/HeaderFooters";
-    
-    func testGetHeadersFooters() throws {
-        let localName = "HeadersFooters.doc";
-        let remoteName = "TestGetHeadersFooters.docx";
-        let fullName = (getRemoteDataFolder(action: "GetHeadersFooters") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(headerFooterFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetHeaderFootersRequest(name: remoteName, sectionPath: "", folder: getRemoteDataFolder(action: "GetHeadersFooters"));
-        let actual = try super.getApi().getHeaderFooters(request: request);
-        XCTAssert(actual.getHeaderFooters()?.getList()?.count ?? 0 > 0);
-    }
-    
-
+    // Test for getting headerfooter.
     func testGetHeaderFooter() throws {
-        let localName = "HeadersFooters.doc";
-        let remoteName = "TestGetHeaderFooter.docx";
-        let fullName = (getRemoteDataFolder(action: "GetHeaderFooter") + "/" + remoteName);
-        let index = 0;
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(headerFooterFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetHeaderFooterRequest(name: remoteName, headerFooterIndex: index, folder: getRemoteDataFolder(action: "GetHeaderFooter"));
-        let actual = try super.getApi().getHeaderFooter(request: request);
-        XCTAssert(actual.getHeaderFooter() != nil);
-    }
-    
+      let remoteFileName = "TestGetHeaderFooter.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetHeaderFooterRequest(name: remoteFileName, headerFooterIndex: 0, folder: remoteDataFolder);
+      _ = try super.getApi().getHeaderFooter(request: request);
+    }
+
+    // Test for getting headerfooter of section.
     func testGetHeaderFooterOfSection() throws {
-        let localName = "HeadersFooters.doc";
-        let remoteName = "TestGetHeaderFooterOfSection.docx";
-        let fullName = (getRemoteDataFolder(action: "GetHeaderFooterOfSection") + "/" + remoteName);
-        let index = 0;
-        let sectionIndex = 0;
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(headerFooterFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetHeaderFooterOfSectionRequest(name: remoteName, headerFooterIndex: index, sectionIndex: sectionIndex, folder: getRemoteDataFolder(action: "GetHeaderFooterOfSection"));
-        let actual = try super.getApi().getHeaderFooterOfSection(request: request);
-        XCTAssert(actual.getHeaderFooter() != nil);
-    }
-    
+      let remoteFileName = "TestGetHeaderFooterOfSection.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetHeaderFooterOfSectionRequest(name: remoteFileName, headerFooterIndex: 0, sectionIndex: 0, folder: remoteDataFolder);
+      _ = try super.getApi().getHeaderFooterOfSection(request: request);
+    }
+
+    // Test for deleting headerfooter.
     func testDeleteHeaderFooter() throws {
-        let localName = "HeadersFooters.doc";
-        let remoteName = "TestDeleteHeaderFooter.docx";
-        let fullName = (getRemoteDataFolder(action: "DeleteHeaderFooter") + "/" + remoteName);
-        let index = 0;
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(headerFooterFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = DeleteHeaderFooterRequest(name: remoteName, sectionPath: "", index: index, folder: getRemoteDataFolder(action: "DeleteHeaderFooter"));
-        try super.getApi().deleteHeaderFooter(request: request);
-    }
-    
+      let remoteFileName = "TestDeleteHeaderFooter.docx";
 
-    func testDeleteHeaderFooters() throws {
-        let localName = "HeadersFooters.doc";
-        let remoteName = "TestDeleteHeaderFooters.docx";
-        let fullName = (getRemoteDataFolder(action: "DeleteHeaderFooters") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(headerFooterFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = DeleteHeadersFootersRequest(name: remoteName, sectionPath: "", folder: getRemoteDataFolder(action: "DeleteHeaderFooters"));
-        try super.getApi().deleteHeadersFooters(request: request);
-    }
-    
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
+      let request = DeleteHeaderFooterRequest(name: remoteFileName, sectionPath: "", index: 0, folder: remoteDataFolder);
+      try super.getApi().deleteHeaderFooter(request: request);
+    }
+
+    // Test for deleting headerfooters.
+    func testDeleteHeadersFooters() throws {
+      let remoteFileName = "TestDeleteHeadersFooters.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = DeleteHeadersFootersRequest(name: remoteFileName, sectionPath: "", folder: remoteDataFolder);
+      try super.getApi().deleteHeadersFooters(request: request);
+    }
+
+    // Test for adding headerfooters.
     func testInsertHeaderFooter() throws {
-        let localName = "HeadersFooters.doc";
-        let remoteName = "TestInsertHeaderFooter.docx";
-        let fullName = (getRemoteDataFolder(action: "InsertHeaderFooter") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(headerFooterFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = InsertHeaderFooterRequest(name: remoteName, headerFooterType: "FooterEven", sectionPath: "",  folder: getRemoteDataFolder(action: "InsertHeaderFooter"));
-        let actual = try super.getApi().insertHeaderFooter(request: request);
-        XCTAssert(actual.getHeaderFooter() != nil);
+      let remoteFileName = "TestInsertHeaderFooter.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = InsertHeaderFooterRequest(name: remoteFileName, headerFooterType: "FooterEven", sectionPath: "", folder: remoteDataFolder);
+      _ = try super.getApi().insertHeaderFooter(request: request);
     }
 }

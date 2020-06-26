@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="LinuxMain.swift">
+ * <copyright company="Aspose" file="SplitDocumentToFormatTests.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -26,11 +26,24 @@
  */
 
 import XCTest
-import SwiftTestReporter
-import AsposeWordsCloudTests
+@testable import AsposeWordsCloud
 
-_ = TestObserver();
+// Example of how to split document and return result with specified format and page range.
+class SplitDocumentToFormatTests: BaseTestContext {
+    static var allTests = [
+        ("testSplitDocument", testSplitDocument)
+    ];
 
-var tests = [XCTestCaseEntry]()
-tests += AsposeWordsCloudTests.allTests()
-XCTMain(tests)
+    let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/SplitDocument";
+    let localFile = "Common/test_multi_pages.docx";
+
+    // Test for document splitting.
+    func testSplitDocument() throws {
+      let remoteFileName = "TestSplitDocument.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = SplitDocumentRequest(name: remoteFileName, format: "text", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/TestSplitDocument.text", from: 1, to: 2);
+      _ = try super.getApi().splitDocument(request: request);
+    }
+}

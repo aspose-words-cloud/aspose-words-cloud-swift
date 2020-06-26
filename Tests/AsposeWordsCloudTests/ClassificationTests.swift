@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="LinuxMain.swift">
+ * <copyright company="Aspose" file="ClassificationTests.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -26,11 +26,31 @@
  */
 
 import XCTest
-import SwiftTestReporter
-import AsposeWordsCloudTests
+@testable import AsposeWordsCloud
 
-_ = TestObserver();
+// Example of how to classify text.
+class ClassificationTests: BaseTestContext {
+    static var allTests = [
+        ("testClassify", testClassify),
+        ("testClassifyDocument", testClassifyDocument)
+    ];
 
-var tests = [XCTestCaseEntry]()
-tests += AsposeWordsCloudTests.allTests()
-XCTMain(tests)
+    let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/Common";
+    let localFile = "Common/test_multi_pages.docx";
+
+    // Test for raw text classification.
+    func testClassify() throws {
+      let request = ClassifyRequest(text: "Try text classification", bestClassesCount: "3");
+      _ = try super.getApi().classify(request: request);
+    }
+
+    // Test for document classification.
+    func testClassifyDocument() throws {
+      let remoteFileName = "TestClassifyDocument.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = ClassifyDocumentRequest(documentName: remoteFileName, folder: remoteDataFolder, bestClassesCount: "3");
+      _ = try super.getApi().classifyDocument(request: request);
+    }
+}

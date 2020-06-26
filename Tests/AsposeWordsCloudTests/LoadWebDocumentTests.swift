@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="LinuxMain.swift">
+ * <copyright company="Aspose" file="LoadWebDocumentTests.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -26,11 +26,30 @@
  */
 
 import XCTest
-import SwiftTestReporter
-import AsposeWordsCloudTests
+@testable import AsposeWordsCloud
 
-_ = TestObserver();
+// Example of how to load web document.
+class LoadWebDocumentTests: BaseTestContext {
+    static var allTests = [
+        ("testLoadWebDocument", testLoadWebDocument)
+    ];
 
-var tests = [XCTestCaseEntry]()
-tests += AsposeWordsCloudTests.allTests()
-XCTMain(tests)
+    // Test for loading web document.
+    func testLoadWebDocument() throws {
+      let requestDataSaveOptions = SaveOptionsData();
+      requestDataSaveOptions.setFileName(fileName: "google.doc");
+      requestDataSaveOptions.setSaveFormat(saveFormat: "doc");
+      requestDataSaveOptions.setDmlEffectsRenderingMode(dmlEffectsRenderingMode: "1");
+      requestDataSaveOptions.setDmlRenderingMode(dmlRenderingMode: "1");
+      requestDataSaveOptions.setUpdateSdtContent(updateSdtContent: false);
+      requestDataSaveOptions.setZipOutput(zipOutput: false);
+
+      let requestData = LoadWebDocumentData();
+      requestData.setLoadingDocumentUrl(loadingDocumentUrl: "http://google.com");
+      requestData.setSaveOptions(saveOptions: requestDataSaveOptions);
+
+
+      let request = LoadWebDocumentRequest(data: requestData);
+      _ = try super.getApi().loadWebDocument(request: request);
+    }
+}

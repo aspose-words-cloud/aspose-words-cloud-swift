@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="LinuxMain.swift">
+ * <copyright company="Aspose" file="DocumentStatisticsTests.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -26,11 +26,24 @@
  */
 
 import XCTest
-import SwiftTestReporter
-import AsposeWordsCloudTests
+@testable import AsposeWordsCloud
 
-_ = TestObserver();
+// Example of how to get document statistics.
+class DocumentStatisticsTests: BaseTestContext {
+    static var allTests = [
+        ("testGetDocumentStatistics", testGetDocumentStatistics)
+    ];
 
-var tests = [XCTestCaseEntry]()
-tests += AsposeWordsCloudTests.allTests()
-XCTMain(tests)
+    let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/Statistics";
+    let localFile = "Common/test_multi_pages.docx";
+
+    // Test for document classification.
+    func testGetDocumentStatistics() throws {
+      let remoteFileName = "TestGetDocumentStatistics.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetDocumentStatisticsRequest(name: remoteFileName, folder: remoteDataFolder);
+      _ = try super.getApi().getDocumentStatistics(request: request);
+    }
+}

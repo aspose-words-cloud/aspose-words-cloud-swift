@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="TextTests.swift">
+ * <copyright company="Aspose" file="AppendDocumentTests.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -28,39 +28,32 @@
 import XCTest
 @testable import AsposeWordsCloud
 
-// Example of how to work with macros.
-class TextTests: BaseTestContext {
+// Example of how to append document.
+class AppendDocumentTests: BaseTestContext {
     static var allTests = [
-        ("testReplaceText", testReplaceText),
-        ("testSearch", testSearch)
+        ("testAppendDocument", testAppendDocument)
     ];
 
-    let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Text";
+    let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/AppendDocument";
+    let localFile = "Common/test_multi_pages.docx";
 
-    // Test for replacing text.
-    func testReplaceText() throws {
-      let remoteFileName = "TestReplaceText.docx";
-      let localFile = "Common/test_multi_pages.docx";
-
-      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
-
-      let requestReplaceText = ReplaceTextParameters();
-      requestReplaceText.setOldValue(oldValue: "aspose");
-      requestReplaceText.setNewValue(newValue: "aspose new");
-
-
-      let request = ReplaceTextRequest(name: remoteFileName, replaceText: requestReplaceText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().replaceText(request: request);
-    }
-
-    // Test for searching.
-    func testSearch() throws {
-      let remoteFileName = "TestSearch.docx";
-      let localFile = "DocumentElements/Text/SampleWordDocument.docx";
+    // Test for appending document.
+    func testAppendDocument() throws {
+      let remoteFileName = "TestAppendDocument.docx";
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = SearchRequest(name: remoteFileName, pattern: "aspose", folder: remoteDataFolder);
-      _ = try super.getApi().search(request: request);
+      let requestDocumentListDocumentEntries0 = DocumentEntry();
+      requestDocumentListDocumentEntries0.setHref(href: remoteDataFolder + "/" + remoteFileName);
+      requestDocumentListDocumentEntries0.setImportFormatMode(importFormatMode: "KeepSourceFormatting");
+
+      let requestDocumentListDocumentEntries = [requestDocumentListDocumentEntries0];
+
+      let requestDocumentList = DocumentEntryList();
+      requestDocumentList.setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
+
+
+      let request = AppendDocumentRequest(name: remoteFileName, documentList: requestDocumentList, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      _ = try super.getApi().appendDocument(request: request);
     }
 }
