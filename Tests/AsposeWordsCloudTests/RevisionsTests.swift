@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="TextTests.swift">
+ * <copyright company="Aspose" file="RevisionsTests.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -28,39 +28,33 @@
 import XCTest
 @testable import AsposeWordsCloud
 
-// Example of how to work with macros.
-class TextTests: BaseTestContext {
+// Example of how to accept all revisions in document.
+class RevisionsTests: BaseTestContext {
     static var allTests = [
-        ("testReplaceText", testReplaceText),
-        ("testSearch", testSearch)
+        ("testAcceptAllRevisions", testAcceptAllRevisions),
+        ("testRejectAllRevisions", testRejectAllRevisions)
     ];
 
-    let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Text";
+    let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/Revisions";
+    let localFile = "Common/test_multi_pages.docx";
 
-    // Test for replacing text.
-    func testReplaceText() throws {
-      let remoteFileName = "TestReplaceText.docx";
-      let localFile = "Common/test_multi_pages.docx";
+    // Test for accepting revisions in document.
+    func testAcceptAllRevisions() throws {
+      let remoteFileName = "TestAcceptAllRevisions.docx";
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestReplaceText = ReplaceTextParameters();
-      requestReplaceText.setOldValue(oldValue: "aspose");
-      requestReplaceText.setNewValue(newValue: "aspose new");
-
-
-      let request = ReplaceTextRequest(name: remoteFileName, replaceText: requestReplaceText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().replaceText(request: request);
+      let request = AcceptAllRevisionsRequest(name: remoteFileName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      _ = try super.getApi().acceptAllRevisions(request: request);
     }
 
-    // Test for searching.
-    func testSearch() throws {
-      let remoteFileName = "TestSearch.docx";
-      let localFile = "DocumentElements/Text/SampleWordDocument.docx";
+    // Test for rejecting revisions in document.
+    func testRejectAllRevisions() throws {
+      let remoteFileName = "TestRejectAllRevisions.docx";
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = SearchRequest(name: remoteFileName, pattern: "aspose", folder: remoteDataFolder);
-      _ = try super.getApi().search(request: request);
+      let request = RejectAllRevisionsRequest(name: remoteFileName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      _ = try super.getApi().rejectAllRevisions(request: request);
     }
 }

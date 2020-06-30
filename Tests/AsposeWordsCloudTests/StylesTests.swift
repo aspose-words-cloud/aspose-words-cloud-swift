@@ -1,6 +1,34 @@
+/*
+ * --------------------------------------------------------------------------------
+ * <copyright company="Aspose" file="StylesTests.swift">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
+ * </copyright>
+ * <summary>
+ *   Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ * 
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ * 
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ * </summary>
+ * --------------------------------------------------------------------------------
+ */
+
 import XCTest
 @testable import AsposeWordsCloud
 
+// Example of how to work with styles.
 class StylesTests: BaseTestContext {
     static var allTests = [
         ("testGetStyles", testGetStyles),
@@ -9,86 +37,96 @@ class StylesTests: BaseTestContext {
         ("testInsertStyle", testInsertStyle),
         ("testCopyStyle", testCopyStyle),
         ("testGetStyleFromDocumentElement", testGetStyleFromDocumentElement),
-        ("testApplyStyleToDocumentElement", testApplyStyleToDocumentElement),
+        ("testApplyStyleToDocumentElement", testApplyStyleToDocumentElement)
     ];
 
-    func getRemoteDataFolder(action : String) -> String {
-        return super.getRemoteTestDataFolder() + "DocumentElements/Styles/" + action;
+    let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Styles";
+    let localFile = "DocumentElements/Styles/GetStyles.docx";
+
+    // Test for getting styles from document.
+    func testGetStyles() throws {
+      let remoteFileName = "TestGetStyles.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetStylesRequest(name: remoteFileName, folder: remoteDataFolder);
+      _ = try super.getApi().getStyles(request: request);
     }
 
-    private let localDataFolder = "DocumentElements/Styles";
-    private let localName = "GetStyles.docx";
-    
-    func testGetStyles() throws {
-        let remoteName = localName;
-        let fullName = (getRemoteDataFolder(action: "TestGetStyles") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetStylesRequest(name: remoteName, folder: getRemoteDataFolder(action: "TestGetStyles"));
-        _ = try super.getApi().getStyles(request: request);
-    }
-    
+    // Test for getting style from document.
     func testGetStyle() throws {
-        let remoteName = localName;
-        let fullName = (getRemoteDataFolder(action: "TestGetStyle") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetStyleRequest(name: remoteName, styleName: "Heading 1", folder: getRemoteDataFolder(action: "TestGetStyle"));
-        _ = try super.getApi().getStyle(request: request);
+      let remoteFileName = "TestGetStyle.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetStyleRequest(name: remoteFileName, styleName: "Heading 1", folder: remoteDataFolder);
+      _ = try super.getApi().getStyle(request: request);
     }
-    
+
+    // Test for updating style from document.
     func testUpdateStyle() throws {
-        let remoteName = localName;
-        let fullName = (getRemoteDataFolder(action: "TestUpdateStyle") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        
-        let data = StyleUpdate();
-        data.setName(name: "My Style");
-        
-        let request = UpdateStyleRequest(name: remoteName, styleUpdate: data, styleName: "Heading 1", folder: getRemoteDataFolder(action: "TestUpdateStyle"));
-        _ = try super.getApi().updateStyle(request: request);
+      let remoteFileName = "TestUpdateStyle.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestStyleUpdate = StyleUpdate();
+      requestStyleUpdate.setName(name: "My Style");
+
+
+      let request = UpdateStyleRequest(name: remoteFileName, styleUpdate: requestStyleUpdate, styleName: "Heading 1", folder: remoteDataFolder);
+      _ = try super.getApi().updateStyle(request: request);
     }
-    
+
+    // Test for inserting style from document.
     func testInsertStyle() throws {
-        let remoteName = localName;
-        let fullName = (getRemoteDataFolder(action: "TestInsertStyle") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        
-        let data = StyleInsert();
-        data.setStyleName(styleName: "My Style");
-        data.setStyleType(styleType: StyleInsert.StyleType.paragraph);
-        
-        let request = InsertStyleRequest(name: remoteName, styleInsert: data, folder: getRemoteDataFolder(action: "TestInsertStyle"));
-        _ = try super.getApi().insertStyle(request: request);
+      let remoteFileName = "TestInsertStyle.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestStyleInsert = StyleInsert();
+      requestStyleInsert.setStyleName(styleName: "My Style");
+      requestStyleInsert.setStyleType(styleType: StyleInsert.StyleType.paragraph);
+
+
+      let request = InsertStyleRequest(name: remoteFileName, styleInsert: requestStyleInsert, folder: remoteDataFolder);
+      _ = try super.getApi().insertStyle(request: request);
     }
-    
+
+    // Test for coping style from document.
     func testCopyStyle() throws {
-        let remoteName = localName;
-        let fullName = (getRemoteDataFolder(action: "TestCopyStyle") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        
-        let data = StyleCopy();
-        data.setStyleName(styleName: "Heading 1");
-        
-        let request = CopyStyleRequest(name: remoteName, styleCopy: data, folder: getRemoteDataFolder(action: "TestCopyStyle"));
-        _ = try super.getApi().copyStyle(request: request);
+      let remoteFileName = "TestCopyStyle.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestStyleCopy = StyleCopy();
+      requestStyleCopy.setStyleName(styleName: "Heading 1");
+
+
+      let request = CopyStyleRequest(name: remoteFileName, styleCopy: requestStyleCopy, folder: remoteDataFolder);
+      _ = try super.getApi().copyStyle(request: request);
     }
-    
+
+    // Test for getting style from document element.
     func testGetStyleFromDocumentElement() throws {
-        let remoteName = localName;
-        let fullName = (getRemoteDataFolder(action: "TestGetStyleFromDocumentElement") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetStyleFromDocumentElementRequest(name: remoteName, styledNodePath: "paragraphs/1/paragraphFormat", folder: getRemoteDataFolder(action: "TestGetStyleFromDocumentElement"));
-        _ = try super.getApi().getStyleFromDocumentElement(request: request);
+      let remoteFileName = "TestGetStyleFromDocumentElement.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetStyleFromDocumentElementRequest(name: remoteFileName, styledNodePath: "paragraphs/1/paragraphFormat", folder: remoteDataFolder);
+      _ = try super.getApi().getStyleFromDocumentElement(request: request);
     }
-    
+
+    // Test for applying style to document element.
     func testApplyStyleToDocumentElement() throws {
-        let remoteName = localName;
-        let fullName = (getRemoteDataFolder(action: "TestApplyStyleToDocumentElement") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(localDataFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        
-        let data = StyleApply();
-        data.setStyleName(styleName: "Heading 1");
-        
-        let request = ApplyStyleToDocumentElementRequest(name: remoteName, styleApply: data, styledNodePath: "paragraphs/1/paragraphFormat", folder: getRemoteDataFolder(action: "TestApplyStyleToDocumentElement"));
-        _ = try super.getApi().applyStyleToDocumentElement(request: request);
+      let remoteFileName = "TestApplyStyleToDocumentElement.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestStyleApply = StyleApply();
+      requestStyleApply.setStyleName(styleName: "Heading 1");
+
+
+      let request = ApplyStyleToDocumentElementRequest(name: remoteFileName, styleApply: requestStyleApply, styledNodePath: "paragraphs/1/paragraphFormat", folder: remoteDataFolder);
+      _ = try super.getApi().applyStyleToDocumentElement(request: request);
     }
 }

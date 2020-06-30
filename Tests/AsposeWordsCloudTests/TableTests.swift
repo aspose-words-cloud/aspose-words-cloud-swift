@@ -1,13 +1,36 @@
+/*
+ * --------------------------------------------------------------------------------
+ * <copyright company="Aspose" file="TableTests.swift">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
+ * </copyright>
+ * <summary>
+ *   Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ * 
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ * 
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ * </summary>
+ * --------------------------------------------------------------------------------
+ */
+
 import XCTest
 @testable import AsposeWordsCloud
 
+// Example of how to work wtih table.
 class TableTests: BaseTestContext {
     static var allTests = [
-        ("testGetTableBorders", testGetTableBorders),
-        ("testGetTableBorder", testGetTableBorder),
-        ("testDeleteTableBorders", testDeleteTableBorders),
-        ("testDeleteTableBorder", testDeleteTableBorder),
-        ("testUpdateTableBorder", testUpdateTableBorder),
         ("testGetTables", testGetTables),
         ("testGetTablesWithoutNodePath", testGetTablesWithoutNodePath),
         ("testGetTable", testGetTable),
@@ -26,401 +49,304 @@ class TableTests: BaseTestContext {
         ("testGetTableRowFormat", testGetTableRowFormat),
         ("testUpdateTableRowFormat", testUpdateTableRowFormat),
         ("testGetTableCell", testGetTableCell),
-        ("testDeleteCell", testDeleteCell),
+        ("testDeleteTableCell", testDeleteTableCell),
         ("testInsertTableCell", testInsertTableCell),
         ("testGetTableCellFormat", testGetTableCellFormat),
         ("testUpdateTableCellFormat", testUpdateTableCellFormat),
         ("testRenderTable", testRenderTable),
-        ("testRenderTableWithoutNodePath", testRenderTableWithoutNodePath),
+        ("testRenderTableWithoutNodePath", testRenderTableWithoutNodePath)
     ];
 
-    func getRemoteDataFolder(action : String) -> String {
-        return super.getRemoteTestDataFolder() + "Table/" + action;
-    }
-    
-    private let tableFolder = "DocumentElements/Tables"
+    let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Tables";
+    let localFile = "DocumentElements/Tables/TablesGet.docx";
 
-    func testGetTableBorders() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestGetTableBorders.docx";
-        let fullName = (getRemoteDataFolder(action: "GetTableBorders") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetBordersRequest(name: remoteName, nodePath: "tables/1/rows/0/cells/0", folder: getRemoteDataFolder(action: "GetTableBorders"));
-        let actual = try super.getApi().getBorders(request: request);
-        XCTAssert(actual.getBorders()?.getList()?.count ?? 0 > 0);
-    }
-    
-
-    func testGetTableBorder() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestGetTableBorder.docx";
-        let fullName = (getRemoteDataFolder(action: "GetTableBorder") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetBorderRequest(name: remoteName, nodePath: "tables/1/rows/0/cells/0", borderType: "left", folder: getRemoteDataFolder(action: "GetTableBorder"));
-        let actual = try super.getApi().getBorder(request: request);
-        XCTAssert(actual.getBorder() != nil);
-    }
-    
-
-    func testDeleteTableBorders() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestDeleteTableBorders.docx";
-        let fullName = (getRemoteDataFolder(action: "DeleteTableBorders") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = DeleteBordersRequest(name: remoteName, nodePath: "tables/1/rows/0/cells/0", folder: getRemoteDataFolder(action: "DeleteTableBorders"));
-        let actual = try super.getApi().deleteBorders(request: request);
-        XCTAssert(actual.getBorders()?.getList()?.count ?? 0 > 0);
-    }
-    
-
-    func testDeleteTableBorder() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestDeleteTableBorder.docx";
-        let fullName = (getRemoteDataFolder(action: "DeleteTableBorder") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = DeleteBorderRequest(name: remoteName, nodePath: "tables/1/rows/0/cells/0", borderType: "left", folder: getRemoteDataFolder(action: "DeleteTableBorder"));
-        let actual = try super.getApi().deleteBorder(request: request);
-        XCTAssert(actual.getBorder() != nil);
-    }
-    
-
-    func testUpdateTableBorder() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestUpdateTableBorder.docx";
-        let fullName = (getRemoteDataFolder(action: "UpdateTableBorder") + "/" + remoteName);
-        
-        let color = XmlColor();
-        color.setAlpha(alpha: 2);
-        
-        let border = Border();
-        border.setBorderType(borderType: Border.BorderType._left);
-        border.setColor(color: color);
-        border.setDistanceFromText(distanceFromText: 6);
-        border.setLineStyle(lineStyle: Border.LineStyle.dashDotStroker);
-        border.setLineWidth(lineWidth: 2);
-        border.setShadow(shadow: true);
-        
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = UpdateBorderRequest(name: remoteName, borderProperties: border, nodePath: "tables/1/rows/0/cells/0", borderType: "left", folder: getRemoteDataFolder(action: "UpdateTableBorder"));
-        let actual = try super.getApi().updateBorder(request: request);
-        XCTAssert(actual.getBorder() != nil);
-    }
-
+    // Test for getting tables.
     func testGetTables() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestGetTables.docx";
-        let fullName = (getRemoteDataFolder(action: "GetTables") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetTablesRequest(name: remoteName, nodePath: "", folder: getRemoteDataFolder(action: "GetTables"));
-        let actual = try super.getApi().getTables(request: request);
-        XCTAssert(actual.getTables()?.getTableLinkList()?.count ?? 0 > 0);
-    }
-    
+      let remoteFileName = "TestGetTables.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetTablesRequest(name: remoteFileName, nodePath: "", folder: remoteDataFolder);
+      _ = try super.getApi().getTables(request: request);
+    }
+
+    // Test for getting tables without node path.
     func testGetTablesWithoutNodePath() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestGetTablesWithoutNodePath.docx";
-        let fullName = (getRemoteDataFolder(action: "GetTablesWithoutNodePath") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetTablesWithoutNodePathRequest(name: remoteName, folder: getRemoteDataFolder(action: "GetTablesWithoutNodePath"));
-        let actual = try super.getApi().getTablesWithoutNodePath(request: request);
-        XCTAssert(actual.getTables()?.getTableLinkList()?.count ?? 0 > 0);
-    }
-    
+      let remoteFileName = "TestGetTablesWithoutNodePath.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetTablesWithoutNodePathRequest(name: remoteFileName, folder: remoteDataFolder);
+      _ = try super.getApi().getTablesWithoutNodePath(request: request);
+    }
+
+    // Test for getting table.
     func testGetTable() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestGetTable.docx";
-        let fullName = (getRemoteDataFolder(action: "GetTable") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetTableRequest(name: remoteName, nodePath: "", index: 1, folder: getRemoteDataFolder(action: "GetTable"));
-        let actual = try super.getApi().getTable(request: request);
-        XCTAssert(actual.getTable() != nil);
-    }
-    
+      let remoteFileName = "TestGetTable.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetTableRequest(name: remoteFileName, nodePath: "", index: 1, folder: remoteDataFolder);
+      _ = try super.getApi().getTable(request: request);
+    }
+
+    // Test for getting table without node path.
     func testGetTableWithoutNodePath() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestGetTableWithoutNodePath.docx";
-        let fullName = (getRemoteDataFolder(action: "GetTableWithoutNodePath") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetTableWithoutNodePathRequest(name: remoteName, index: 1, folder: getRemoteDataFolder(action: "GetTableWithoutNodePath"));
-        let actual = try super.getApi().getTableWithoutNodePath(request: request);
-        XCTAssert(actual.getTable() != nil);
-    }
-    
+      let remoteFileName = "TestGetTableWithoutNodePath.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetTableWithoutNodePathRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
+      _ = try super.getApi().getTableWithoutNodePath(request: request);
+    }
+
+    // Test for deleting table.
     func testDeleteTable() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestDeleteTable.docx";
-        let fullName = (getRemoteDataFolder(action: "DeleteTable") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = DeleteTableRequest(name: remoteName, nodePath: "", index: 1, folder: getRemoteDataFolder(action: "DeleteTable"));
-        try super.getApi().deleteTable(request: request);
-    }
-    
+      let remoteFileName = "TestDeleteTable.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = DeleteTableRequest(name: remoteFileName, nodePath: "", index: 1, folder: remoteDataFolder);
+      try super.getApi().deleteTable(request: request);
+    }
+
+    // Test for deleting table without node path.
     func testDeleteTableWithoutNodePath() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestDeleteTableWithoutNodePath.docx";
-        let fullName = (getRemoteDataFolder(action: "DeleteTableWithoutNodePath") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = DeleteTableWithoutNodePathRequest(name: remoteName, index: 1, folder: getRemoteDataFolder(action: "DeleteTableWithoutNodePath"));
-        try super.getApi().deleteTableWithoutNodePath(request: request);
-    }
-    
+      let remoteFileName = "TestDeleteTableWithoutNodePath.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = DeleteTableWithoutNodePathRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
+      try super.getApi().deleteTableWithoutNodePath(request: request);
+    }
+
+    // Test for adding table.
     func testInsertTable() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestInsertTable.docx";
-        let fullName = (getRemoteDataFolder(action: "InsertTable") + "/" + remoteName);
-        
-        let tableDto = TableInsert();
-        tableDto.setColumnsCount(columnsCount: 5);
-        tableDto.setRowsCount(rowsCount: 4);
-        
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = InsertTableRequest(name: remoteName, table: tableDto, nodePath: "", folder: getRemoteDataFolder(action: "InsertTable"));
-        let actual = try super.getApi().insertTable(request: request);
-        XCTAssert(actual.getTable() != nil);
-    }
-    
+      let remoteFileName = "TestInsertTable.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestTable = TableInsert();
+      requestTable.setColumnsCount(columnsCount: 5);
+      requestTable.setRowsCount(rowsCount: 4);
+
+
+      let request = InsertTableRequest(name: remoteFileName, table: requestTable, nodePath: "", folder: remoteDataFolder);
+      _ = try super.getApi().insertTable(request: request);
+    }
+
+    // Test for adding table without node path.
     func testInsertTableWithoutNodePath() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestInsertTableWithoutNodePath.docx";
-        let fullName = (getRemoteDataFolder(action: "InsertTableWithoutNodePath") + "/" + remoteName);
-        
-        let tableDto = TableInsert();
-        tableDto.setColumnsCount(columnsCount: 5);
-        tableDto.setRowsCount(rowsCount: 4);
-        
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = InsertTableWithoutNodePathRequest(name: remoteName, table: tableDto, folder: getRemoteDataFolder(action: "InsertTableWithoutNodePath"));
-        let actual = try super.getApi().insertTableWithoutNodePath(request: request);
-        XCTAssert(actual.getTable() != nil);
-    }
-    
+      let remoteFileName = "TestInsertTableWithoutNodePath.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestTable = TableInsert();
+      requestTable.setColumnsCount(columnsCount: 5);
+      requestTable.setRowsCount(rowsCount: 4);
+
+
+      let request = InsertTableWithoutNodePathRequest(name: remoteFileName, table: requestTable, folder: remoteDataFolder);
+      _ = try super.getApi().insertTableWithoutNodePath(request: request);
+    }
+
+    // Test for getting document properties.
     func testGetTableProperties() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestGetTableProperties.docx";
-        let fullName = (getRemoteDataFolder(action: "GetTableProperties") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetTablePropertiesRequest(name: remoteName, nodePath: "", index: 1, folder: getRemoteDataFolder(action: "GetTableProperties"));
-        let actual = try super.getApi().getTableProperties(request: request);
-        XCTAssert(actual.getProperties() != nil);
-    }
-    
+      let remoteFileName = "TestGetTableProperties.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetTablePropertiesRequest(name: remoteFileName, nodePath: "", index: 1, folder: remoteDataFolder);
+      _ = try super.getApi().getTableProperties(request: request);
+    }
+
+    // Test for getting document properties without node path.
     func testGetTablePropertiesWithoutNodePath() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestGetTablePropertiesWithoutNodePath.docx";
-        let fullName = (getRemoteDataFolder(action: "GetTablePropertiesWithoutNodePath") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetTablePropertiesWithoutNodePathRequest(name: remoteName, index: 1, folder: getRemoteDataFolder(action: "GetTablePropertiesWithoutNodePath"));
-        let actual = try super.getApi().getTablePropertiesWithoutNodePath(request: request);
-        XCTAssert(actual.getProperties() != nil);
-    }
-    
+      let remoteFileName = "TestGetTablePropertiesWithoutNodePath.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetTablePropertiesWithoutNodePathRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
+      _ = try super.getApi().getTablePropertiesWithoutNodePath(request: request);
+    }
+
+    // Test for updating table properties.
     func testUpdateTableProperties() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestUpdateTableProperties.docx";
-        let fullName = (getRemoteDataFolder(action: "UpdateTableProperties") + "/" + remoteName);
-        
-        let newProperties = TableProperties();
-        newProperties.setAlignment(alignment: TableProperties.Alignment._right);
-        newProperties.setAllowAutoFit(allowAutoFit: false);
-        newProperties.setBidi(bidi: true);
-        newProperties.setBottomPadding(bottomPadding: 1);
-        newProperties.setCellSpacing(cellSpacing: 2);
-        newProperties.setLeftIndent(leftIndent: 3);
-        newProperties.setLeftPadding(leftPadding: 4);
-        newProperties.setRightPadding(rightPadding: 5);
-        newProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
-        newProperties.setTopPadding(topPadding: 6);
-        
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = UpdateTablePropertiesRequest(name: remoteName, properties: newProperties, nodePath: "", index: 1, folder: getRemoteDataFolder(action: "UpdateTableProperties"));
-        let actual = try super.getApi().updateTableProperties(request: request);
-        XCTAssert(actual.getProperties() != nil);
-    }
-    
+      let remoteFileName = "TestUpdateTableProperties.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestProperties = TableProperties();
+      requestProperties.setAlignment(alignment: TableProperties.Alignment._right);
+      requestProperties.setAllowAutoFit(allowAutoFit: false);
+      requestProperties.setBidi(bidi: true);
+      requestProperties.setBottomPadding(bottomPadding: 1);
+      requestProperties.setCellSpacing(cellSpacing: 2);
+      requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
+
+
+      let request = UpdateTablePropertiesRequest(name: remoteFileName, properties: requestProperties, nodePath: "", index: 1, folder: remoteDataFolder);
+      _ = try super.getApi().updateTableProperties(request: request);
+    }
+
+    // Test for updating table properties without node path.
     func testUpdateTablePropertiesWithoutNodePath() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestUpdateTablePropertiesWithoutNodePath.docx";
-        let fullName = (getRemoteDataFolder(action: "UpdateTablePropertiesWithoutNodePath") + "/" + remoteName);
-        
-        let newProperties = TableProperties();
-        newProperties.setAlignment(alignment: TableProperties.Alignment._right);
-        newProperties.setAllowAutoFit(allowAutoFit: false);
-        newProperties.setBidi(bidi: true);
-        newProperties.setBottomPadding(bottomPadding: 1);
-        newProperties.setCellSpacing(cellSpacing: 2);
-        newProperties.setLeftIndent(leftIndent: 3);
-        newProperties.setLeftPadding(leftPadding: 4);
-        newProperties.setRightPadding(rightPadding: 5);
-        newProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
-        newProperties.setTopPadding(topPadding: 6);
-        
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = UpdateTablePropertiesWithoutNodePathRequest(name: remoteName, properties: newProperties, index: 1, folder: getRemoteDataFolder(action: "UpdateTablePropertiesWithoutNodePath"));
-        let actual = try super.getApi().updateTablePropertiesWithoutNodePath(request: request);
-        XCTAssert(actual.getProperties() != nil);
-    }
-    
+      let remoteFileName = "TestUpdateTablePropertiesWithoutNodePath.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestProperties = TableProperties();
+      requestProperties.setAlignment(alignment: TableProperties.Alignment._right);
+      requestProperties.setAllowAutoFit(allowAutoFit: false);
+      requestProperties.setBidi(bidi: true);
+      requestProperties.setBottomPadding(bottomPadding: 1);
+      requestProperties.setCellSpacing(cellSpacing: 2);
+      requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
+
+
+      let request = UpdateTablePropertiesWithoutNodePathRequest(name: remoteFileName, properties: requestProperties, index: 1, folder: remoteDataFolder);
+      _ = try super.getApi().updateTablePropertiesWithoutNodePath(request: request);
+    }
+
+    // Test for getting table row.
     func testGetTableRow() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestGetTableRow.docx";
-        let fullName = (getRemoteDataFolder(action: "GetTableRow") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetTableRowRequest(name: remoteName, tablePath: "tables/1", index: 0, folder: getRemoteDataFolder(action: "GetTableRow"));
-        let actual = try super.getApi().getTableRow(request: request);
-        XCTAssert(actual.getRow() != nil);
-    }
-    
+      let remoteFileName = "TestGetTableRow.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetTableRowRequest(name: remoteFileName, tablePath: "tables/1", index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().getTableRow(request: request);
+    }
+
+    // Test for deleting table row.
     func testDeleteTableRow() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestDeleteTableRow.docx";
-        let fullName = (getRemoteDataFolder(action: "DeleteTableRow") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = DeleteTableRowRequest(name: remoteName, tablePath: "tables/1", index: 0, folder: getRemoteDataFolder(action: "DeleteTableRow"));
-        try super.getApi().deleteTableRow(request: request);
-    }
-    
+      let remoteFileName = "TestDeleteTableRow.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = DeleteTableRowRequest(name: remoteFileName, tablePath: "tables/1", index: 0, folder: remoteDataFolder);
+      try super.getApi().deleteTableRow(request: request);
+    }
+
+    // Test for adding row.
     func testInsertTableRow() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestInsertTableRow.docx";
-        let fullName = (getRemoteDataFolder(action: "InsertTableRow") + "/" + remoteName);
-        
-        let row = TableRowInsert();
-        row.setColumnsCount(columnsCount: 5);
-        
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = InsertTableRowRequest(name: remoteName, row: row, tablePath: "sections/0/tables/2", folder: getRemoteDataFolder(action: "InsertTableRow"));
-        let actual = try super.getApi().insertTableRow(request: request);
-        XCTAssert(actual.getRow() != nil);
-    }
-    
+      let remoteFileName = "TestInsertTableRow.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestRow = TableRowInsert();
+      requestRow.setColumnsCount(columnsCount: 5);
+
+
+      let request = InsertTableRowRequest(name: remoteFileName, row: requestRow, tablePath: "sections/0/tables/2", folder: remoteDataFolder);
+      _ = try super.getApi().insertTableRow(request: request);
+    }
+
+    // Test for getting row format.
     func testGetTableRowFormat() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestGetTableRowFormat.docx";
-        let fullName = (getRemoteDataFolder(action: "GetTableRowFormat") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetTableRowFormatRequest(name: remoteName, tablePath: "sections/0/tables/2", index: 0, folder: getRemoteDataFolder(action: "GetTableRowFormat"));
-        let actual = try super.getApi().getTableRowFormat(request: request);
-        XCTAssert(actual.getRowFormat() != nil);
-    }
-    
+      let remoteFileName = "TestGetTableRowFormat.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetTableRowFormatRequest(name: remoteFileName, tablePath: "sections/0/tables/2", index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().getTableRowFormat(request: request);
+    }
+
+    // Test updating row format.
     func testUpdateTableRowFormat() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestUpdateTableRowFormat.docx";
-        let fullName = (getRemoteDataFolder(action: "UpdateTableRowFormat") + "/" + remoteName);
-        
-        let rowFormat = TableRowFormat();
-        rowFormat.setAllowBreakAcrossPages(allowBreakAcrossPages: true)
-        rowFormat.setHeadingFormat(headingFormat: true);
-        rowFormat.setHeight(height: 10);
-        rowFormat.setHeightRule(heightRule: TableRowFormat.HeightRule.auto);
-        
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = UpdateTableRowFormatRequest(name: remoteName, format: rowFormat, tablePath: "sections/0/tables/2", index: 0, folder: getRemoteDataFolder(action: "UpdateTableRowFormat"));
-        let actual = try super.getApi().updateTableRowFormat(request: request);
-        XCTAssert(actual.getRowFormat() != nil);
-    }
-    
+      let remoteFileName = "TestUpdateTableRowFormat.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestFormat = TableRowFormat();
+      requestFormat.setAllowBreakAcrossPages(allowBreakAcrossPages: true);
+      requestFormat.setHeadingFormat(headingFormat: true);
+      requestFormat.setHeight(height: 10);
+      requestFormat.setHeightRule(heightRule: TableRowFormat.HeightRule.auto);
+
+
+      let request = UpdateTableRowFormatRequest(name: remoteFileName, format: requestFormat, tablePath: "sections/0/tables/2", index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().updateTableRowFormat(request: request);
+    }
+
+    // Test for getting table cell.
     func testGetTableCell() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestGetTableCell.docx";
-        let fullName = (getRemoteDataFolder(action: "GetTableCell") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetTableCellRequest(name: remoteName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: getRemoteDataFolder(action: "GetTableCell"));
-        let actual = try super.getApi().getTableCell(request: request);
-        XCTAssert(actual.getCell() != nil);
-    }
-    
+      let remoteFileName = "TestGetTableCell.docx";
 
-    func testDeleteCell() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestDeleteCell.docx";
-        let fullName = (getRemoteDataFolder(action: "DeleteCell") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = DeleteTableCellRequest(name: remoteName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: getRemoteDataFolder(action: "DeleteCell"));
-        try super.getApi().deleteTableCell(request: request);
-    }
-    
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
+      let request = GetTableCellRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().getTableCell(request: request);
+    }
+
+    // Test for deleting cell.
+    func testDeleteTableCell() throws {
+      let remoteFileName = "TestDeleteTableCell.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = DeleteTableCellRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
+      try super.getApi().deleteTableCell(request: request);
+    }
+
+    // Test for adding cell.
     func testInsertTableCell() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestInsertTableCell.docx";
-        let fullName = (getRemoteDataFolder(action: "InsertTableCell") + "/" + remoteName);
-        let cell = TableCellInsert();
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = InsertTableCellRequest(name: remoteName, cell: cell, tableRowPath: "sections/0/tables/2/rows/0", folder: getRemoteDataFolder(action: "InsertTableCell"));
-        let actual = try super.getApi().insertTableCell(request: request);
-        XCTAssert(actual.getCell() != nil);
-    }
-    
+      let remoteFileName = "TestInsertTableCell.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestCell = TableCellInsert();
+
+
+
+      let request = InsertTableCellRequest(name: remoteFileName, cell: requestCell, tableRowPath: "sections/0/tables/2/rows/0", folder: remoteDataFolder);
+      _ = try super.getApi().insertTableCell(request: request);
+    }
+
+    // Test for getting cell format.
     func testGetTableCellFormat() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestGetTableCellFormat.docx";
-        let fullName = (getRemoteDataFolder(action: "GetTableCellFormat") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetTableCellFormatRequest(name: remoteName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: getRemoteDataFolder(action: "GetTableCellFormat"));
-        let actual = try super.getApi().getTableCellFormat(request: request);
-        XCTAssert(actual.getCellFormat() != nil);
-    }
-    
+      let remoteFileName = "TestGetTableCellFormat.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetTableCellFormatRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().getTableCellFormat(request: request);
+    }
+
+    // Test for updating cell format.
     func testUpdateTableCellFormat() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestUpdateTableCellFormat.docx";
-        let fullName = (getRemoteDataFolder(action: "UpdateTableCellFormat") + "/" + remoteName);
-        
-        let cellFormat = TableCellFormat();
-        cellFormat.setBottomPadding(bottomPadding: 5);
-        cellFormat.setFitText(fitText: true);
-        cellFormat.setHorizontalMerge(horizontalMerge: TableCellFormat.HorizontalMerge.first);
-        cellFormat.setWrapText(wrapText: true);
-        
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = UpdateTableCellFormatRequest(name: remoteName, format: cellFormat, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: getRemoteDataFolder(action: "UpdateTableCellFormat"));
-        let actual = try super.getApi().updateTableCellFormat(request: request);
-        XCTAssert(actual.getCellFormat() != nil);
-    }
-    
+      let remoteFileName = "TestUpdateTableCellFormat.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestFormat = TableCellFormat();
+      requestFormat.setBottomPadding(bottomPadding: 5);
+      requestFormat.setFitText(fitText: true);
+      requestFormat.setHorizontalMerge(horizontalMerge: TableCellFormat.HorizontalMerge.first);
+      requestFormat.setWrapText(wrapText: true);
+
+
+      let request = UpdateTableCellFormatRequest(name: remoteFileName, format: requestFormat, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().updateTableCellFormat(request: request);
+    }
+
+    // Test for table rendering.
     func testRenderTable() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestRenderTable.docx";
-        let fullName = (getRemoteDataFolder(action: "RenderTable") + "/" + remoteName);
-        let index = 0;
-        let format = "png";
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = RenderTableRequest(name: remoteName, format: format, nodePath: "", index: index, folder: getRemoteDataFolder(action: "RenderTable"));
-        let actual = try super.getApi().renderTable(request: request);
-        XCTAssert(actual.count > 0, "Error has occurred while table rendering");
-    }
-    
+      let remoteFileName = "TestRenderTable.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = RenderTableRequest(name: remoteFileName, format: "png", nodePath: "", index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().renderTable(request: request);
+    }
+
+    // Test for table rendering without node path.
     func testRenderTableWithoutNodePath() throws {
-        let localName = "TablesGet.docx";
-        let remoteName = "TestRenderTableWithoutNodePath.docx";
-        let fullName = (getRemoteDataFolder(action: "RenderTableWithoutNodePath") + "/" + remoteName);
-        let index = 0;
-        let format = "png";
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(tableFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = RenderTableWithoutNodePathRequest(name: remoteName, format: format, index: index, folder: getRemoteDataFolder(action: "RenderTableWithoutNodePath"));
-        let actual = try super.getApi().renderTableWithoutNodePath(request: request);
-        XCTAssert(actual.count > 0, "Error has occurred while table rendering");
+      let remoteFileName = "TestRenderTableWithoutNodePath.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = RenderTableWithoutNodePathRequest(name: remoteFileName, format: "png", index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().renderTableWithoutNodePath(request: request);
     }
 }
