@@ -66,7 +66,6 @@ class ParagraphTests: BaseTestContext {
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Paragraphs";
     let localFile = "Common/test_multi_pages.docx";
-    let fieldFolder = "DocumentElements/Fields";
     let listFolder = "DocumentElements/ParagraphListFormat";
     let tabStopFolder = "DocumentElements/Paragraphs";
 
