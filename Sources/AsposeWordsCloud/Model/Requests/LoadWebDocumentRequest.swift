@@ -31,24 +31,24 @@ import Foundation
 public class LoadWebDocumentRequest {
     private let data : LoadWebDocumentData;
     private let storage : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case data;
         case storage;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the loadWebDocumentRequest class.
+
+    // Initializes a new instance of the LoadWebDocumentRequest class.
     public init(data : LoadWebDocumentData, storage : String? = nil) {
         self.data = data;
         self.storage = storage;
     }
-    
+
     // Parameters of loading.
     public func getData() -> LoadWebDocumentData {
         return self.data;
     }
-    
+
     // Original document storage.
     public func getStorage() -> String? {
         return self.storage;

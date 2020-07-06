@@ -27,21 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat.
+// This response should be returned by the service when handling:
+// GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat.
 public class TableCellFormatResponse : WordsResponse {
-    
-    // Field of cellFormat.       
+    // Field of cellFormat. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat.
     private var cellFormat : TableCellFormat?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case cellFormat;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +55,13 @@ public class TableCellFormatResponse : WordsResponse {
             try container.encode(self.cellFormat, forKey: .cellFormat);
         }
     }
-    
-    // Sets cellFormat.   
+
+    // Sets cellFormat. Gets or sets table.
     public func setCellFormat(cellFormat : TableCellFormat?) {
         self.cellFormat = cellFormat;
     }
-    
-    // Gets cellFormat.   
+
+    // Gets cellFormat. Gets or sets table.
     public func getCellFormat() -> TableCellFormat? {
         return self.cellFormat;
     }

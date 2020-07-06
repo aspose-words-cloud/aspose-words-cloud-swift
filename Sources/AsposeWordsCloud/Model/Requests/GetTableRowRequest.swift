@@ -36,7 +36,7 @@ public class GetTableRowRequest {
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case name;
         case tablePath;
@@ -47,8 +47,8 @@ public class GetTableRowRequest {
         case password;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the getTableRowRequest class.
+
+    // Initializes a new instance of the GetTableRowRequest class.
     public init(name : String, tablePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.tablePath = tablePath;
@@ -58,37 +58,37 @@ public class GetTableRowRequest {
         self.loadEncoding = loadEncoding;
         self.password = password;
     }
-    
+
     // The document name.
     public func getName() -> String {
         return self.name;
     }
-    
+
     // Path to table.
     public func getTablePath() -> String {
         return self.tablePath;
     }
-    
+
     // Object index.
     public func getIndex() -> Int {
         return self.index;
     }
-    
+
     // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
-    
+
     // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
-    
+
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
-    
+
     // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;

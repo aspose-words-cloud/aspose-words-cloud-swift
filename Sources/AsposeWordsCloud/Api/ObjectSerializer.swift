@@ -10,10 +10,10 @@
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- *
+ * 
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- *
+ * 
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -30,22 +30,22 @@ import Foundation
 // Helper class for serialize or deserialize swift objects to string or binary format.
 class ObjectSerializer {
     private init() { }
-    
+
     private struct CustomKey : CodingKey {
         var stringValue: String;
         var intValue: Int?;
-        
+
         init?(stringValue: String) {
             self.stringValue = stringValue;
             self.intValue = nil;
         }
-        
+
         init?(intValue: Int) {
             self.stringValue = String(intValue);
             self.intValue = intValue;
         }
     }
-    
+
     // Serialize given object to string
     public static func serializeToString<T : Encodable>(value : T) throws -> String {
         if (value is WordsApiModel) {
@@ -61,7 +61,7 @@ class ObjectSerializer {
             return String(describing: value);
         }
     }
-    
+
     // Serialize given object as binary data for using as request body
     public static func serializeBody<T : Encodable>(value: T) throws -> Data {
         if (value is String) {
@@ -77,7 +77,7 @@ class ObjectSerializer {
             return try serialize(value: value);
         }
     }
-    
+
     // Serialize file stream as binary data
     public static func serializeFile(value: InputStream) throws -> Data {
         var result = Data();
@@ -85,7 +85,7 @@ class ObjectSerializer {
         defer {
             value.close();
         }
-        
+
         let bufferSize = 1024;
         let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: bufferSize);
         defer {
@@ -104,7 +104,7 @@ class ObjectSerializer {
         }
         return result;
     }
-    
+
     // Serialize given object as binary data
     public static func serialize<T : Encodable>(value: T) throws -> Data {
         if (value is WordsApiModel) {
@@ -124,14 +124,14 @@ class ObjectSerializer {
             return result!;
         }
     }
-    
+
     // Create an instance of T, from JSON data
     public static func deserialize<T>(type: T.Type, from data: Data) throws -> T where T : Decodable {
         return try customDecoder.decode(type, from: data);
     }
-    
+
     // Configuration for DateTime serialization/deserialization
-    private static let customIso8601: DateFormatter = {
+    public static let customIso8601: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'";
         formatter.calendar = Calendar(identifier: .iso8601);
@@ -139,7 +139,7 @@ class ObjectSerializer {
         formatter.locale = Locale(identifier: "en_US_POSIX");
         return formatter;
     }()
-    
+
     // Custom JSON encoder
     private static let customEncoder: JSONEncoder = {
         let encoder = JSONEncoder();
@@ -151,7 +151,7 @@ class ObjectSerializer {
         };
         return encoder;
     }();
-    
+
     // Custom JSON decoder
     private static let customDecoder: JSONDecoder = {
         let decoder = JSONDecoder();

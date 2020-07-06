@@ -31,24 +31,24 @@ import Foundation
 public class GetDocumentFieldNamesOnlineRequest {
     private let template : InputStream;
     private let useNonMergeFields : Bool?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case template;
         case useNonMergeFields;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the getDocumentFieldNamesOnlineRequest class.
+
+    // Initializes a new instance of the GetDocumentFieldNamesOnlineRequest class.
     public init(template : InputStream, useNonMergeFields : Bool? = nil) {
         self.template = template;
         self.useNonMergeFields = useNonMergeFields;
     }
-    
-    // File with template
+
+    // File with template.
     public func getTemplate() -> InputStream {
         return self.template;
     }
-    
+
     // Use non merge fields or not.
     public func getUseNonMergeFields() -> Bool? {
         return self.useNonMergeFields;

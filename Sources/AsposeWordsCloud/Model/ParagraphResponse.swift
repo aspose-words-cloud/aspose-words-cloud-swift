@@ -27,21 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}.
+// This response should be returned by the service when handling:
+// GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}.
 public class ParagraphResponse : WordsResponse {
-    
-    // Field of paragraph.       
+    // Field of paragraph. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}.
     private var paragraph : Paragraph?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case paragraph;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +55,13 @@ public class ParagraphResponse : WordsResponse {
             try container.encode(self.paragraph, forKey: .paragraph);
         }
     }
-    
-    // Sets paragraph.   
+
+    // Sets paragraph. Gets or sets paragraph.
     public func setParagraph(paragraph : Paragraph?) {
         self.paragraph = paragraph;
     }
-    
-    // Gets paragraph.   
+
+    // Gets paragraph. Gets or sets paragraph.
     public func getParagraph() -> Paragraph? {
         return self.paragraph;
     }

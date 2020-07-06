@@ -27,21 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling: GET {nodeWithBorders}/borders.
+// This response should be returned by the service when handling:
+// GET {nodeWithBorders}/borders.
 public class BorderResponse : WordsResponse {
-    
-    // Field of border.       
+    // Field of border. This response should be returned by the service when handling: GET {nodeWithBorders}/borders.
     private var border : Border?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case border;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +55,13 @@ public class BorderResponse : WordsResponse {
             try container.encode(self.border, forKey: .border);
         }
     }
-    
-    // Sets border.   
+
+    // Sets border. Gets or sets table.
     public func setBorder(border : Border?) {
         self.border = border;
     }
-    
-    // Gets border.   
+
+    // Gets border. Gets or sets table.
     public func getBorder() -> Border? {
         return self.border;
     }

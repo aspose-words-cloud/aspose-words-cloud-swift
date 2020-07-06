@@ -29,22 +29,21 @@ import Foundation
 
 // container class for details of digital signature.
 public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
-    
-    // Field of certificateFilename. Gets or sets certificate's filename using for signing.      
+    // Field of certificateFilename. container class for details of digital signature.
     private var certificateFilename : String?;
-    
-    // Field of hashAlgorithm. Gets or sets hash algorithm.      
+
+    // Field of hashAlgorithm. container class for details of digital signature.
     private var hashAlgorithm : String?;
-    
-    // Field of location. Gets or sets location of the signing.      
+
+    // Field of location. container class for details of digital signature.
     private var location : String?;
-    
-    // Field of reason. Gets or sets reason for the signing.      
+
+    // Field of reason. container class for details of digital signature.
     private var reason : String?;
-    
-    // Field of signatureDate. Gets or sets date of the signing.      
+
+    // Field of signatureDate. container class for details of digital signature.
     private var signatureDate : Date?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case certificateFilename;
         case hashAlgorithm;
@@ -53,23 +52,25 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
         case signatureDate;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.certificateFilename = try container.decodeIfPresent(String.self, forKey: .certificateFilename);
         self.hashAlgorithm = try container.decodeIfPresent(String.self, forKey: .hashAlgorithm);
         self.location = try container.decodeIfPresent(String.self, forKey: .location);
         self.reason = try container.decodeIfPresent(String.self, forKey: .reason);
-        self.signatureDate = try container.decodeIfPresent(Date.self, forKey: .signatureDate);
+        var raw_signatureDate = try container.decodeIfPresent(String.self, forKey: .signatureDate);
+        if (raw_signatureDate != nil) {
+            raw_signatureDate = raw_signatureDate!.replacingOccurrences(of: "\\.\\d+", with: "", options: .regularExpression);
+            self.signatureDate = ObjectSerializer.customIso8601.date(from: raw_signatureDate!)!;
+        }
+
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.certificateFilename != nil) {
             try container.encode(self.certificateFilename, forKey: .certificateFilename);
@@ -87,53 +88,53 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
             try container.encode(self.signatureDate, forKey: .signatureDate);
         }
     }
-    
-    // Sets certificateFilename. Gets or sets certificate's filename using for signing.  
+
+    // Sets certificateFilename. Gets or sets certificate's filename using for signing.
     public func setCertificateFilename(certificateFilename : String?) {
         self.certificateFilename = certificateFilename;
     }
-    
-    // Gets certificateFilename. Gets or sets certificate's filename using for signing.  
+
+    // Gets certificateFilename. Gets or sets certificate's filename using for signing.
     public func getCertificateFilename() -> String? {
         return self.certificateFilename;
     }
-    
-    // Sets hashAlgorithm. Gets or sets hash algorithm.  
+
+    // Sets hashAlgorithm. Gets or sets hash algorithm.
     public func setHashAlgorithm(hashAlgorithm : String?) {
         self.hashAlgorithm = hashAlgorithm;
     }
-    
-    // Gets hashAlgorithm. Gets or sets hash algorithm.  
+
+    // Gets hashAlgorithm. Gets or sets hash algorithm.
     public func getHashAlgorithm() -> String? {
         return self.hashAlgorithm;
     }
-    
-    // Sets location. Gets or sets location of the signing.  
+
+    // Sets location. Gets or sets location of the signing.
     public func setLocation(location : String?) {
         self.location = location;
     }
-    
-    // Gets location. Gets or sets location of the signing.  
+
+    // Gets location. Gets or sets location of the signing.
     public func getLocation() -> String? {
         return self.location;
     }
-    
-    // Sets reason. Gets or sets reason for the signing.  
+
+    // Sets reason. Gets or sets reason for the signing.
     public func setReason(reason : String?) {
         self.reason = reason;
     }
-    
-    // Gets reason. Gets or sets reason for the signing.  
+
+    // Gets reason. Gets or sets reason for the signing.
     public func getReason() -> String? {
         return self.reason;
     }
-    
-    // Sets signatureDate. Gets or sets date of the signing.  
+
+    // Sets signatureDate. Gets or sets date of the signing.
     public func setSignatureDate(signatureDate : Date?) {
         self.signatureDate = signatureDate;
     }
-    
-    // Gets signatureDate. Gets or sets date of the signing.  
+
+    // Gets signatureDate. Gets or sets date of the signing.
     public func getSignatureDate() -> Date? {
         return self.signatureDate;
     }

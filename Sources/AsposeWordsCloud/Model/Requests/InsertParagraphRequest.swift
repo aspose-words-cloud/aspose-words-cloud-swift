@@ -40,7 +40,7 @@ public class InsertParagraphRequest {
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
     private let insertBeforeNode : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case name;
         case paragraph;
@@ -55,8 +55,8 @@ public class InsertParagraphRequest {
         case insertBeforeNode;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the insertParagraphRequest class.
+
+    // Initializes a new instance of the InsertParagraphRequest class.
     public init(name : String, paragraph : ParagraphInsert, nodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
         self.name = name;
         self.paragraph = paragraph;
@@ -70,57 +70,57 @@ public class InsertParagraphRequest {
         self.revisionDateTime = revisionDateTime;
         self.insertBeforeNode = insertBeforeNode;
     }
-    
+
     // The document name.
     public func getName() -> String {
         return self.name;
     }
-    
+
     // Paragraph data.
     public func getParagraph() -> ParagraphInsert {
         return self.paragraph;
     }
-    
+
     // Path to the node which contains paragraphs.
     public func getNodePath() -> String {
         return self.nodePath;
     }
-    
+
     // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
-    
+
     // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
-    
+
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
-    
+
     // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
     }
-    
+
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
     public func getDestFileName() -> String? {
         return self.destFileName;
     }
-    
+
     // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
     public func getRevisionAuthor() -> String? {
         return self.revisionAuthor;
     }
-    
+
     // The date and time to use for revisions.
     public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
     }
-    
+
     // Paragraph will be inserted before node with index.
     public func getInsertBeforeNode() -> String? {
         return self.insertBeforeNode;

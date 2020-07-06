@@ -1,6 +1,34 @@
+/*
+ * --------------------------------------------------------------------------------
+ * <copyright company="Aspose" file="FootnoteTests.swift">
+ *   Copyright (c) 2020 Aspose.Words for Cloud
+ * </copyright>
+ * <summary>
+ *   Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  of this software and associated documentation files (the "Software"), to deal
+ *  in the Software without restriction, including without limitation the rights
+ *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the Software is
+ *  furnished to do so, subject to the following conditions:
+ * 
+ *  The above copyright notice and this permission notice shall be included in all
+ *  copies or substantial portions of the Software.
+ * 
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ *  SOFTWARE.
+ * </summary>
+ * --------------------------------------------------------------------------------
+ */
+
 import XCTest
 @testable import AsposeWordsCloud
 
+// Example of how to work with footnotes.
 class FootnoteTests: BaseTestContext {
     static var allTests = [
         ("testInsertFootnote", testInsertFootnote),
@@ -12,138 +40,127 @@ class FootnoteTests: BaseTestContext {
         ("testGetFootnote", testGetFootnote),
         ("testGetFootnoteWithoutNodePath", testGetFootnoteWithoutNodePath),
         ("testUpdateFootnote", testUpdateFootnote),
-        ("testUpdateFootnoteWithoutNodePath", testUpdateFootnoteWithoutNodePath),
+        ("testUpdateFootnoteWithoutNodePath", testUpdateFootnoteWithoutNodePath)
     ];
 
-    func getRemoteDataFolder(action : String) -> String {
-        return super.getRemoteTestDataFolder() + "Footnote/" + action;
-    }
+    let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Footnotes";
+    let footnoteFolder = "DocumentElements/Footnotes";
 
-    private let footnoteFolder = "DocumentElements/Footnotes";
-    
+    // Test for adding footnote.
     func testInsertFootnote() throws {
-        let localName = "Footnote.doc";
-        let remoteName = "TestInsertFootnote.docx";
-        let fullName = (getRemoteDataFolder(action: "InsertFootnote") + "/" + remoteName);
-        let footNote = FootnoteInsert();
-        footNote.setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote);
-        footNote.setText(text: "test endnote");
-    
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = InsertFootnoteRequest(name: remoteName, footnoteDto: footNote, nodePath: "", folder: getRemoteDataFolder(action: "InsertFootnote"));
-        let actual = try super.getApi().insertFootnote(request: request);
-        XCTAssert(actual.getFootnote() != nil);
-    }
-    
+      let remoteFileName = "TestInsertFootnote.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestFootnoteDto = FootnoteInsert();
+      requestFootnoteDto.setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote);
+      requestFootnoteDto.setText(text: "test endnote");
+
+
+      let request = InsertFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, nodePath: "", folder: remoteDataFolder);
+      _ = try super.getApi().insertFootnote(request: request);
+    }
+
+    // Test for adding footnote without node path.
     func testInsertFootnoteWithoutNodePath() throws {
-        let localName = "Footnote.doc";
-        let remoteName = "TestInsertFootnoteWithoutNodePath.docx";
-        let fullName = (getRemoteDataFolder(action: "InsertFootnoteWithoutNodePath") + "/" + remoteName);
-        
-        let footNote = FootnoteInsert();
-        footNote.setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote);
-        footNote.setText(text: "test endnote");
-        
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = InsertFootnoteWithoutNodePathRequest(name: remoteName, footnoteDto: footNote, folder: getRemoteDataFolder(action: "InsertFootnoteWithoutNodePath"));
-        let actual = try super.getApi().insertFootnoteWithoutNodePath(request: request);
-        XCTAssert(actual.getFootnote() != nil)
-    }
-    
+      let remoteFileName = "TestInsertFootnoteWithoutNodePath.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestFootnoteDto = FootnoteInsert();
+      requestFootnoteDto.setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote);
+      requestFootnoteDto.setText(text: "test endnote");
+
+
+      let request = InsertFootnoteWithoutNodePathRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, folder: remoteDataFolder);
+      _ = try super.getApi().insertFootnoteWithoutNodePath(request: request);
+    }
+
+    // Test for deleting footnote.
     func testDeleteFootnote() throws {
-        let localName = "Footnote.doc";
-        let remoteName = "TestDeleteFootnote.docx";
-        let fullName = (getRemoteDataFolder(action: "DeleteFootnote") + "/" + remoteName);
-        let index = 0;
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = DeleteFootnoteRequest(name: remoteName, nodePath: "", index: index, folder: getRemoteDataFolder(action: "DeleteFootnote"));
-        try super.getApi().deleteFootnote(request: request);
-    }
-    
+      let remoteFileName = "TestDeleteFootnote.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = DeleteFootnoteRequest(name: remoteFileName, nodePath: "", index: 0, folder: remoteDataFolder);
+      try super.getApi().deleteFootnote(request: request);
+    }
+
+    // Test for deleting footnote without node path.
     func testDeleteFootnoteWithoutNodePath() throws {
-        let localName = "Footnote.doc";
-        let remoteName = "TestDeleteFootnoteWithoutNodePath.docx";
-        let fullName = (getRemoteDataFolder(action: "DeleteFootnoteWithoutNodePath") + "/" + remoteName);
-        let index = 0;
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = DeleteFootnoteWithoutNodePathRequest(name: remoteName, index: index, folder: getRemoteDataFolder(action: "DeleteFootnoteWithoutNodePath"));
-        try super.getApi().deleteFootnoteWithoutNodePath(request: request);
-    }
-    
+      let remoteFileName = "TestDeleteFootnoteWithoutNodePath.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = DeleteFootnoteWithoutNodePathRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
+      try super.getApi().deleteFootnoteWithoutNodePath(request: request);
+    }
+
+    // Test for getting footnotes.
     func testGetFootnotes() throws {
-        let localName = "Footnote.doc";
-        let remoteName = "TestGetFootnotes.docx";
-        let fullName = (getRemoteDataFolder(action: "GetFootnotes") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetFootnotesRequest(name: remoteName, nodePath: "", folder: getRemoteDataFolder(action: "GetFootnotes"));
-        let actual = try super.getApi().getFootnotes(request: request);
-        XCTAssert(actual.getFootnotes()?.getList()?.count ?? 0 > 0)
-    }
-    
+      let remoteFileName = "TestGetFootnotes.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetFootnotesRequest(name: remoteFileName, nodePath: "", folder: remoteDataFolder);
+      _ = try super.getApi().getFootnotes(request: request);
+    }
+
+    // Test for getting footnotes without node path.
     func testGetFootnotesWithoutNodePath() throws {
-        let localName = "Footnote.doc";
-        let remoteName = "TestGetFootnotesWithoutNodePath.docx";
-        let fullName = (getRemoteDataFolder(action: "GetFootnotesWithoutNodePath") + "/" + remoteName);
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetFootnotesWithoutNodePathRequest(name: remoteName, folder: getRemoteDataFolder(action: "GetFootnotesWithoutNodePath"));
-        let actual = try super.getApi().getFootnotesWithoutNodePath(request: request);
-        XCTAssert(actual.getFootnotes()?.getList()?.count ?? 0 > 0);
-    }
-    
+      let remoteFileName = "TestGetFootnotesWithoutNodePath.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetFootnotesWithoutNodePathRequest(name: remoteFileName, folder: remoteDataFolder);
+      _ = try super.getApi().getFootnotesWithoutNodePath(request: request);
+    }
+
+    // Test for getting footnote.
     func testGetFootnote() throws {
-        let localName = "Footnote.doc";
-        let remoteName = "TestGetFootnote.docx";
-        let fullName = (getRemoteDataFolder(action: "GetFootnote") + "/" + remoteName);
-        let index = 0;
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetFootnoteRequest(name: remoteName, nodePath: "", index: index, folder: getRemoteDataFolder(action: "GetFootnote"));
-        let actual = try super.getApi().getFootnote(request: request);
-        XCTAssert(actual.getFootnote() != nil);
-    }
-    
+      let remoteFileName = "TestGetFootnote.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetFootnoteRequest(name: remoteFileName, nodePath: "", index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().getFootnote(request: request);
+    }
+
+    // Test for getting footnote without node path.
     func testGetFootnoteWithoutNodePath() throws {
-        let localName = "Footnote.doc";
-        let remoteName = "TestGetFootnoteWithoutNodePath.docx";
-        let fullName = (getRemoteDataFolder(action: "GetFootnoteWithoutNodePath") + "/" + remoteName);
-        let index = 0;
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = GetFootnoteWithoutNodePathRequest(name: remoteName, index: index, folder: getRemoteDataFolder(action: "GetFootnoteWithoutNodePath"));
-        let actual = try super.getApi().getFootnoteWithoutNodePath(request: request);
-        XCTAssert(actual.getFootnote() != nil);
-    }
-    
+      let remoteFileName = "TestGetFootnoteWithoutNodePath.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = GetFootnoteWithoutNodePathRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().getFootnoteWithoutNodePath(request: request);
+    }
+
+    // Test for updating footnote.
     func testUpdateFootnote() throws {
-        let localName = "Footnote.doc";
-        let remoteName = "TestUpdateFootnote.docx";
-        let fullName = (getRemoteDataFolder(action: "UpdateFootnote") + "/" + remoteName);
-        let index = 0;
-        let footnote = FootnoteUpdate();
-        footnote.setText(text: "text is here");
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = UpdateFootnoteRequest(name: remoteName, footnoteDto: footnote, nodePath: "", index: index, folder: getRemoteDataFolder(action: "UpdateFootnote"));
-        let actual = try super.getApi().updateFootnote(request: request);
-        XCTAssert(actual.getFootnote() != nil);
-    }
-    
+      let remoteFileName = "TestUpdateFootnote.docx";
 
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestFootnoteDto = FootnoteUpdate();
+      requestFootnoteDto.setText(text: "new text is here");
+
+
+      let request = UpdateFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, nodePath: "", index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().updateFootnote(request: request);
+    }
+
+    // Test for updating footnote without node path.
     func testUpdateFootnoteWithoutNodePath() throws {
-        let localName = "Footnote.doc";
-        let remoteName = "TestUpdateFootnoteWithoutNodePath.docx";
-        let fullName = (getRemoteDataFolder(action: "UpdateFootnoteWithoutNodePath") + "/" + remoteName);
-        let index = 0;
-        let footnote = FootnoteUpdate();
-        footnote.setText(text: "text is here");
-        try super.uploadFile(fileContent: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder, isDirectory: true).appendingPathComponent(localName, isDirectory: false), path: fullName);
-        let request = UpdateFootnoteWithoutNodePathRequest(name: remoteName, footnoteDto: footnote, index: index, folder: getRemoteDataFolder(action: "UpdateFootnoteWithoutNodePath"));
-        let actual = try super.getApi().updateFootnoteWithoutNodePath(request: request);
-        XCTAssert(actual.getFootnote() != nil);
+      let remoteFileName = "TestUpdateFootnoteWithoutNodePath.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestFootnoteDto = FootnoteUpdate();
+      requestFootnoteDto.setText(text: "new text is here");
+
+
+      let request = UpdateFootnoteWithoutNodePathRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().updateFootnoteWithoutNodePath(request: request);
     }
 }

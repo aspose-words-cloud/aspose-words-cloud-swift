@@ -33,7 +33,7 @@ public class MoveFolderRequest {
     private let srcPath : String;
     private let srcStorageName : String?;
     private let destStorageName : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case destPath;
         case srcPath;
@@ -41,31 +41,31 @@ public class MoveFolderRequest {
         case destStorageName;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the moveFolderRequest class.
+
+    // Initializes a new instance of the MoveFolderRequest class.
     public init(destPath : String, srcPath : String, srcStorageName : String? = nil, destStorageName : String? = nil) {
         self.destPath = destPath;
         self.srcPath = srcPath;
         self.srcStorageName = srcStorageName;
         self.destStorageName = destStorageName;
     }
-    
-    // Destination folder path to move to e.g '/dst'
+
+    // Destination folder path to move to e.g '/dst'.
     public func getDestPath() -> String {
         return self.destPath;
     }
-    
-    // Source folder path e.g. /Folder1
+
+    // Source folder path e.g. /Folder1.
     public func getSrcPath() -> String {
         return self.srcPath;
     }
-    
-    // Source storage name
+
+    // Source storage name.
     public func getSrcStorageName() -> String? {
         return self.srcStorageName;
     }
-    
-    // Destination storage name
+
+    // Destination storage name.
     public func getDestStorageName() -> String? {
         return self.destStorageName;
     }

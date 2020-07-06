@@ -29,58 +29,54 @@ import Foundation
 
 // Class for insert watermark text request building.
 public class WatermarkText : Codable, WordsApiModel {
-    
-    // Field of text. Gets or sets the watermark text.      
-    private var text : String?;
-    
-    // Field of rotationAngle. Gets or sets the watermark rotation angle.      
+    // Field of rotationAngle. Class for insert watermark text request building.
     private var rotationAngle : Double?;
-        
+
+    // Field of text. Class for insert watermark text request building.
+    private var text : String?;
+
     private enum CodingKeys: String, CodingKey {
-        case text;
         case rotationAngle;
+        case text;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.text = try container.decodeIfPresent(String.self, forKey: .text);
         self.rotationAngle = try container.decodeIfPresent(Double.self, forKey: .rotationAngle);
+        self.text = try container.decodeIfPresent(String.self, forKey: .text);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.text != nil) {
-            try container.encode(self.text, forKey: .text);
-        }
         if (self.rotationAngle != nil) {
             try container.encode(self.rotationAngle, forKey: .rotationAngle);
         }
+        if (self.text != nil) {
+            try container.encode(self.text, forKey: .text);
+        }
     }
-    
-    // Sets text. Gets or sets the watermark text.  
-    public func setText(text : String?) {
-        self.text = text;
-    }
-    
-    // Gets text. Gets or sets the watermark text.  
-    public func getText() -> String? {
-        return self.text;
-    }
-    
-    // Sets rotationAngle. Gets or sets the watermark rotation angle.  
+
+    // Sets rotationAngle. Gets or sets the watermark rotation angle.
     public func setRotationAngle(rotationAngle : Double?) {
         self.rotationAngle = rotationAngle;
     }
-    
-    // Gets rotationAngle. Gets or sets the watermark rotation angle.  
+
+    // Gets rotationAngle. Gets or sets the watermark rotation angle.
     public func getRotationAngle() -> Double? {
         return self.rotationAngle;
+    }
+
+    // Sets text. Gets or sets the watermark text.
+    public func setText(text : String?) {
+        self.text = text;
+    }
+
+    // Gets text. Gets or sets the watermark text.
+    public func getText() -> String? {
+        return self.text;
     }
 }

@@ -31,7 +31,7 @@ import Foundation
 public class FormFieldTextInput : FormField {
     // Gets or sets the type of a text form field.
     public enum TextInputType : String, Codable
-    { 
+    {
         // Enum value "regular"
         case regular = "Regular"
 
@@ -50,19 +50,19 @@ public class FormFieldTextInput : FormField {
         // Enum value "calculated"
         case calculated = "Calculated"
     }
-    
-    // Field of maxLength. Gets or sets maximum length for the text field. Zero when the length is not limited.      
+
+    // Field of maxLength. FormField text input element.
     private var maxLength : Int?;
-    
-    // Field of textInputDefault. Gets or sets the default string or a calculation expression of a text form field.      
+
+    // Field of textInputDefault. FormField text input element.
     private var textInputDefault : String?;
-    
-    // Field of textInputFormat. Gets or sets returns or sets the text formatting for a text form field.      
+
+    // Field of textInputFormat. FormField text input element.
     private var textInputFormat : String?;
-    
-    // Field of textInputType. Gets or sets the type of a text form field.      
+
+    // Field of textInputType. FormField text input element.
     private var textInputType : TextInputType?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case maxLength;
         case textInputDefault;
@@ -70,11 +70,11 @@ public class FormFieldTextInput : FormField {
         case textInputType;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -100,43 +100,43 @@ public class FormFieldTextInput : FormField {
             try container.encode(self.textInputType, forKey: .textInputType);
         }
     }
-    
-    // Sets maxLength. Gets or sets maximum length for the text field. Zero when the length is not limited.  
+
+    // Sets maxLength. Gets or sets maximum length for the text field. Zero when the length is not limited.
     public func setMaxLength(maxLength : Int?) {
         self.maxLength = maxLength;
     }
-    
-    // Gets maxLength. Gets or sets maximum length for the text field. Zero when the length is not limited.  
+
+    // Gets maxLength. Gets or sets maximum length for the text field. Zero when the length is not limited.
     public func getMaxLength() -> Int? {
         return self.maxLength;
     }
-    
-    // Sets textInputDefault. Gets or sets the default string or a calculation expression of a text form field.  
+
+    // Sets textInputDefault. Gets or sets the default string or a calculation expression of a text form field.
     public func setTextInputDefault(textInputDefault : String?) {
         self.textInputDefault = textInputDefault;
     }
-    
-    // Gets textInputDefault. Gets or sets the default string or a calculation expression of a text form field.  
+
+    // Gets textInputDefault. Gets or sets the default string or a calculation expression of a text form field.
     public func getTextInputDefault() -> String? {
         return self.textInputDefault;
     }
-    
-    // Sets textInputFormat. Gets or sets returns or sets the text formatting for a text form field.  
+
+    // Sets textInputFormat. Gets or sets returns or sets the text formatting for a text form field.
     public func setTextInputFormat(textInputFormat : String?) {
         self.textInputFormat = textInputFormat;
     }
-    
-    // Gets textInputFormat. Gets or sets returns or sets the text formatting for a text form field.  
+
+    // Gets textInputFormat. Gets or sets returns or sets the text formatting for a text form field.
     public func getTextInputFormat() -> String? {
         return self.textInputFormat;
     }
-    
-    // Sets textInputType. Gets or sets the type of a text form field.  
+
+    // Sets textInputType. Gets or sets the type of a text form field.
     public func setTextInputType(textInputType : TextInputType?) {
         self.textInputType = textInputType;
     }
-    
-    // Gets textInputType. Gets or sets the type of a text form field.  
+
+    // Gets textInputType. Gets or sets the type of a text form field.
     public func getTextInputType() -> TextInputType? {
         return self.textInputType;
     }

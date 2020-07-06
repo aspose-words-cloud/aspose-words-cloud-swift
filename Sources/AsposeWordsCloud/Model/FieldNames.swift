@@ -29,19 +29,18 @@ import Foundation
 
 // Represents a collection of merge fields within a document.
 public class FieldNames : LinkElement {
-    
-    // Field of names. Gets or sets collection of fields names.      
+    // Field of names. Represents a collection of merge fields within a document.
     private var names : [String]?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case names;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class FieldNames : LinkElement {
             try container.encode(self.names, forKey: .names);
         }
     }
-    
-    // Sets names. Gets or sets collection of fields names.  
+
+    // Sets names. Gets or sets collection of fields names.
     public func setNames(names : [String]?) {
         self.names = names;
     }
-    
-    // Gets names. Gets or sets collection of fields names.  
+
+    // Gets names. Gets or sets collection of fields names.
     public func getNames() -> [String]? {
         return self.names;
     }

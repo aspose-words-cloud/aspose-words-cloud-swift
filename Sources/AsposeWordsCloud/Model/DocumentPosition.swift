@@ -29,32 +29,28 @@ import Foundation
 
 // Represents a position in the document tree.
 public class DocumentPosition : Codable, WordsApiModel {
-    
-    // Field of node.       
+    // Field of node. Represents a position in the document tree.
     private var node : NodeLink?;
-    
-    // Field of offset. Gets or sets offset into the node.      
+
+    // Field of offset. Represents a position in the document tree.
     private var offset : Int?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case node;
         case offset;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.node = try container.decodeIfPresent(NodeLink.self, forKey: .node);
         self.offset = try container.decodeIfPresent(Int.self, forKey: .offset);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.node != nil) {
             try container.encode(self.node, forKey: .node);
@@ -63,23 +59,23 @@ public class DocumentPosition : Codable, WordsApiModel {
             try container.encode(self.offset, forKey: .offset);
         }
     }
-    
-    // Sets node.   
+
+    // Sets node. Gets or sets link to  node.
     public func setNode(node : NodeLink?) {
         self.node = node;
     }
-    
-    // Gets node.   
+
+    // Gets node. Gets or sets link to  node.
     public func getNode() -> NodeLink? {
         return self.node;
     }
-    
-    // Sets offset. Gets or sets offset into the node.  
+
+    // Sets offset. Gets or sets offset into the node.
     public func setOffset(offset : Int?) {
         self.offset = offset;
     }
-    
-    // Gets offset. Gets or sets offset into the node.  
+
+    // Gets offset. Gets or sets offset into the node.
     public func getOffset() -> Int? {
         return self.offset;
     }

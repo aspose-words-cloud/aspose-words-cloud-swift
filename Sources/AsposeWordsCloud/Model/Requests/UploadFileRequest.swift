@@ -32,32 +32,34 @@ public class UploadFileRequest {
     private let fileContent : InputStream;
     private let path : String;
     private let storageName : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case fileContent;
         case path;
         case storageName;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the uploadFileRequest class.
+
+    // Initializes a new instance of the UploadFileRequest class.
     public init(fileContent : InputStream, path : String, storageName : String? = nil) {
         self.fileContent = fileContent;
         self.path = path;
         self.storageName = storageName;
     }
-    
-    // File to upload
+
+    // File to upload.
     public func getFileContent() -> InputStream {
         return self.fileContent;
     }
-    
-    // Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.
+
+    // Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext
+    // If the content is multipart and path does not contains the file name it tries to get them from filename parameter
+    // from Content-Disposition header.
     public func getPath() -> String {
         return self.path;
     }
-    
-    // Storage name
+
+    // Storage name.
     public func getStorageName() -> String? {
         return self.storageName;
     }

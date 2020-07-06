@@ -29,46 +29,39 @@ import Foundation
 
 // Represents a single document style properties to update.
 public class StyleUpdate : Codable, WordsApiModel {
-    
-    // Field of nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.      
-    private var nextParagraphStyleName : String?;
-    
-    // Field of baseStyleName. Gets or sets /sets the name of the style this style is based on.      
+    // Field of baseStyleName. Represents a single document style properties to update.
     private var baseStyleName : String?;
-    
-    // Field of isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.      
+
+    // Field of isQuickStyle. Represents a single document style properties to update.
     private var isQuickStyle : Bool?;
-    
-    // Field of name. Gets or sets the name of the style.      
+
+    // Field of name. Represents a single document style properties to update.
     private var name : String?;
-        
+
+    // Field of nextParagraphStyleName. Represents a single document style properties to update.
+    private var nextParagraphStyleName : String?;
+
     private enum CodingKeys: String, CodingKey {
-        case nextParagraphStyleName;
         case baseStyleName;
         case isQuickStyle;
         case name;
+        case nextParagraphStyleName;
         case invalidCodingKey;
     }
-        
+
     public init() {
-        
     }
-    
+
     public required init(from decoder: Decoder) throws {
-        
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.nextParagraphStyleName = try container.decodeIfPresent(String.self, forKey: .nextParagraphStyleName);
         self.baseStyleName = try container.decodeIfPresent(String.self, forKey: .baseStyleName);
         self.isQuickStyle = try container.decodeIfPresent(Bool.self, forKey: .isQuickStyle);
         self.name = try container.decodeIfPresent(String.self, forKey: .name);
+        self.nextParagraphStyleName = try container.decodeIfPresent(String.self, forKey: .nextParagraphStyleName);
     }
 
     public func encode(to encoder: Encoder) throws {
-        
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.nextParagraphStyleName != nil) {
-            try container.encode(self.nextParagraphStyleName, forKey: .nextParagraphStyleName);
-        }
         if (self.baseStyleName != nil) {
             try container.encode(self.baseStyleName, forKey: .baseStyleName);
         }
@@ -78,45 +71,48 @@ public class StyleUpdate : Codable, WordsApiModel {
         if (self.name != nil) {
             try container.encode(self.name, forKey: .name);
         }
+        if (self.nextParagraphStyleName != nil) {
+            try container.encode(self.nextParagraphStyleName, forKey: .nextParagraphStyleName);
+        }
     }
-    
-    // Sets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.  
-    public func setNextParagraphStyleName(nextParagraphStyleName : String?) {
-        self.nextParagraphStyleName = nextParagraphStyleName;
-    }
-    
-    // Gets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.  
-    public func getNextParagraphStyleName() -> String? {
-        return self.nextParagraphStyleName;
-    }
-    
-    // Sets baseStyleName. Gets or sets /sets the name of the style this style is based on.  
+
+    // Sets baseStyleName. Gets or sets /sets the name of the style this style is based on.
     public func setBaseStyleName(baseStyleName : String?) {
         self.baseStyleName = baseStyleName;
     }
-    
-    // Gets baseStyleName. Gets or sets /sets the name of the style this style is based on.  
+
+    // Gets baseStyleName. Gets or sets /sets the name of the style this style is based on.
     public func getBaseStyleName() -> String? {
         return self.baseStyleName;
     }
-    
-    // Sets isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.  
+
+    // Sets isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.
     public func setIsQuickStyle(isQuickStyle : Bool?) {
         self.isQuickStyle = isQuickStyle;
     }
-    
-    // Gets isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.  
+
+    // Gets isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.
     public func getIsQuickStyle() -> Bool? {
         return self.isQuickStyle;
     }
-    
-    // Sets name. Gets or sets the name of the style.  
+
+    // Sets name. Gets or sets the name of the style.
     public func setName(name : String?) {
         self.name = name;
     }
-    
-    // Gets name. Gets or sets the name of the style.  
+
+    // Gets name. Gets or sets the name of the style.
     public func getName() -> String? {
         return self.name;
+    }
+
+    // Sets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
+    public func setNextParagraphStyleName(nextParagraphStyleName : String?) {
+        self.nextParagraphStyleName = nextParagraphStyleName;
+    }
+
+    // Gets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
+    public func getNextParagraphStyleName() -> String? {
+        return self.nextParagraphStyleName;
     }
 }

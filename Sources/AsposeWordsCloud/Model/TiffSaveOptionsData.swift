@@ -29,27 +29,26 @@ import Foundation
 
 // Container class for tiff save options.
 public class TiffSaveOptionsData : ImageSaveOptionsData {
-    
-    // Field of thresholdForFloydSteinbergDithering. Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering. Default value is 128.      
+    // Field of thresholdForFloydSteinbergDithering. Container class for tiff save options.
     private var thresholdForFloydSteinbergDithering : Int?;
-    
-    // Field of tiffBinarizationMethod. Gets or sets specifies method used while converting images to 1 bpp format.      
+
+    // Field of tiffBinarizationMethod. Container class for tiff save options.
     private var tiffBinarizationMethod : String?;
-    
-    // Field of tiffCompression. Gets or sets type of compression.      
+
+    // Field of tiffCompression. Container class for tiff save options.
     private var tiffCompression : String?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case thresholdForFloydSteinbergDithering;
         case tiffBinarizationMethod;
         case tiffCompression;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -71,33 +70,33 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
             try container.encode(self.tiffCompression, forKey: .tiffCompression);
         }
     }
-    
-    // Sets thresholdForFloydSteinbergDithering. Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering. Default value is 128.  
+
+    // Sets thresholdForFloydSteinbergDithering. Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering. Default value is 128.
     public func setThresholdForFloydSteinbergDithering(thresholdForFloydSteinbergDithering : Int?) {
         self.thresholdForFloydSteinbergDithering = thresholdForFloydSteinbergDithering;
     }
-    
-    // Gets thresholdForFloydSteinbergDithering. Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering. Default value is 128.  
+
+    // Gets thresholdForFloydSteinbergDithering. Gets or sets the threshold that determines the value of the binarization error in the Floyd-Steinberg method. when ImageBinarizationMethod is ImageBinarizationMethod.FloydSteinbergDithering. Default value is 128.
     public func getThresholdForFloydSteinbergDithering() -> Int? {
         return self.thresholdForFloydSteinbergDithering;
     }
-    
-    // Sets tiffBinarizationMethod. Gets or sets specifies method used while converting images to 1 bpp format.  
+
+    // Sets tiffBinarizationMethod. Gets or sets specifies method used while converting images to 1 bpp format.
     public func setTiffBinarizationMethod(tiffBinarizationMethod : String?) {
         self.tiffBinarizationMethod = tiffBinarizationMethod;
     }
-    
-    // Gets tiffBinarizationMethod. Gets or sets specifies method used while converting images to 1 bpp format.  
+
+    // Gets tiffBinarizationMethod. Gets or sets specifies method used while converting images to 1 bpp format.
     public func getTiffBinarizationMethod() -> String? {
         return self.tiffBinarizationMethod;
     }
-    
-    // Sets tiffCompression. Gets or sets type of compression.  
+
+    // Sets tiffCompression. Gets or sets type of compression.
     public func setTiffCompression(tiffCompression : String?) {
         self.tiffCompression = tiffCompression;
     }
-    
-    // Gets tiffCompression. Gets or sets type of compression.  
+
+    // Gets tiffCompression. Gets or sets type of compression.
     public func getTiffCompression() -> String? {
         return self.tiffCompression;
     }

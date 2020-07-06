@@ -29,19 +29,18 @@ import Foundation
 
 // Collection of footnotes.
 public class FootnoteCollection : LinkElement {
-    
-    // Field of list. Gets or sets collection of foonotes links.      
+    // Field of list. Collection of footnotes.
     private var list : [Footnote]?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case list;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class FootnoteCollection : LinkElement {
             try container.encode(self.list, forKey: .list);
         }
     }
-    
-    // Sets list. Gets or sets collection of foonotes links.  
+
+    // Sets list. Gets or sets collection of foonotes links.
     public func setList(list : [Footnote]?) {
         self.list = list;
     }
-    
-    // Gets list. Gets or sets collection of foonotes links.  
+
+    // Gets list. Gets or sets collection of foonotes links.
     public func getList() -> [Footnote]? {
         return self.list;
     }

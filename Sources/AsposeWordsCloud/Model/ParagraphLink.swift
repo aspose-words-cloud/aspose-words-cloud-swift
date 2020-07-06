@@ -29,19 +29,18 @@ import Foundation
 
 // Paragraph link element.
 public class ParagraphLink : NodeLink {
-    
-    // Field of text. Gets or sets paragraph's text.      
+    // Field of text. Paragraph link element.
     private var text : String?;
-        
+
     private enum CodingKeys: String, CodingKey {
         case text;
         case invalidCodingKey;
     }
-        
+
     public override init() {
         super.init();
     }
-    
+
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -55,13 +54,13 @@ public class ParagraphLink : NodeLink {
             try container.encode(self.text, forKey: .text);
         }
     }
-    
-    // Sets text. Gets or sets paragraph's text.  
+
+    // Sets text. Gets or sets paragraph's text.
     public func setText(text : String?) {
         self.text = text;
     }
-    
-    // Gets text. Gets or sets paragraph's text.  
+
+    // Gets text. Gets or sets paragraph's text.
     public func getText() -> String? {
         return self.text;
     }

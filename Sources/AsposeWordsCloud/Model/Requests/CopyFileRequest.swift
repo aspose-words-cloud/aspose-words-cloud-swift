@@ -34,7 +34,7 @@ public class CopyFileRequest {
     private let srcStorageName : String?;
     private let destStorageName : String?;
     private let versionId : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case destPath;
         case srcPath;
@@ -43,8 +43,8 @@ public class CopyFileRequest {
         case versionId;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the copyFileRequest class.
+
+    // Initializes a new instance of the CopyFileRequest class.
     public init(destPath : String, srcPath : String, srcStorageName : String? = nil, destStorageName : String? = nil, versionId : String? = nil) {
         self.destPath = destPath;
         self.srcPath = srcPath;
@@ -52,28 +52,28 @@ public class CopyFileRequest {
         self.destStorageName = destStorageName;
         self.versionId = versionId;
     }
-    
-    // Destination file path
+
+    // Destination file path.
     public func getDestPath() -> String {
         return self.destPath;
     }
-    
-    // Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'
+
+    // Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'.
     public func getSrcPath() -> String {
         return self.srcPath;
     }
-    
-    // Source storage name
+
+    // Source storage name.
     public func getSrcStorageName() -> String? {
         return self.srcStorageName;
     }
-    
-    // Destination storage name
+
+    // Destination storage name.
     public func getDestStorageName() -> String? {
         return self.destStorageName;
     }
-    
-    // File version ID to copy
+
+    // File version ID to copy.
     public func getVersionId() -> String? {
         return self.versionId;
     }

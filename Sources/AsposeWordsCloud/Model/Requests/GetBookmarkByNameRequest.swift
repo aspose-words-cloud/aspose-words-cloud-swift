@@ -35,7 +35,7 @@ public class GetBookmarkByNameRequest {
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
-    
+
     private enum CodingKeys: String, CodingKey {
         case name;
         case bookmarkName;
@@ -45,8 +45,8 @@ public class GetBookmarkByNameRequest {
         case password;
         case invalidCodingKey;
     }
-    
-    // Initializes a new instance of the getBookmarkByNameRequest class.
+
+    // Initializes a new instance of the GetBookmarkByNameRequest class.
     public init(name : String, bookmarkName : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.bookmarkName = bookmarkName;
@@ -55,32 +55,32 @@ public class GetBookmarkByNameRequest {
         self.loadEncoding = loadEncoding;
         self.password = password;
     }
-    
+
     // The document name.
     public func getName() -> String {
         return self.name;
     }
-    
+
     // The bookmark name.
     public func getBookmarkName() -> String {
         return self.bookmarkName;
     }
-    
+
     // Original document folder.
     public func getFolder() -> String? {
         return self.folder;
     }
-    
+
     // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
     }
-    
+
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
     public func getLoadEncoding() -> String? {
         return self.loadEncoding;
     }
-    
+
     // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
