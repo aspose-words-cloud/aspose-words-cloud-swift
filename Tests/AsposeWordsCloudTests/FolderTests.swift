@@ -75,11 +75,9 @@ class FolderTests: BaseTestContext {
 
     // Test for move folder.
     func testMoveFolder() throws {
-      let folderToMove = remoteDataFolder + "/TestMoveFolder";
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/TestMoveFolderSrc/TestMoveFolderSrc.docx");
 
-      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: folderToMove + "Src/TestMoveFolderSrc.docx");
-
-      let request = MoveFolderRequest(destPath: folderToMove + "Dest", srcPath: folderToMove + "Src");
+      let request = MoveFolderRequest(destPath: BaseTestContext.getRemoteTestOut() + "/TestMoveFolderDest", srcPath: remoteDataFolder + "/TestMoveFolderSrc");
       try super.getApi().moveFolder(request: request);
     }
 }
