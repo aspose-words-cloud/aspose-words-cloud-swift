@@ -77,7 +77,7 @@ class FolderTests: BaseTestContext {
     func testMoveFolder() throws {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/TestMoveFolderSrc/TestMoveFolderSrc.docx");
 
-      let request = MoveFolderRequest(destPath: BaseTestContext.getRemoteTestOut() + "/TestMoveFolderDest", srcPath: remoteDataFolder + "/TestMoveFolderSrc");
+      let request = MoveFolderRequest(destPath: BaseTestContext.getRemoteTestOut() + "/TestMoveFolderDest_" + UUID().uuidString, srcPath: remoteDataFolder + "/TestMoveFolderSrc");
       try super.getApi().moveFolder(request: request);
     }
 }
