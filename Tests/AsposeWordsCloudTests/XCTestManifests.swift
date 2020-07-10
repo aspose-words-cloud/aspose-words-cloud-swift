@@ -31,6 +31,7 @@ import XCTest
 public func allTests() -> [XCTestCaseEntry] {
     return [
         testCase(BookmarkTests.allTests),
+        testCase(CompatibilityTests.allTests),
         testCase(AppendDocumentTests.allTests),
         testCase(ClassificationTests.allTests),
         testCase(CommentTests.allTests),
