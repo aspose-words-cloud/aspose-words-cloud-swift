@@ -73,6 +73,9 @@ The complete source code is available in this repository folder. You can either 
 To use Aspose Words Cloud SDK for Swift you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create App Key and SID at [Cloud Dashboard](https://dashboard.aspose.cloud/#/apps). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
 
 ## Installation & Usage
+
+### Swift Package Manager
+
 Add link to this repository as dependency to your Package.swift:
 
 ```swift
@@ -90,6 +93,14 @@ targets: [
     ),
 ]
 
+```
+
+### Cocoapods
+
+Add link to git repository as dependency to your Podfile:
+
+```ruby
+pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '20.7'
 ```
 
 ## Getting Started
