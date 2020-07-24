@@ -61,7 +61,7 @@ class FormFieldTests: BaseTestContext {
       requestFormField.setTextInputDefault(textInputDefault: "No name");
 
 
-      let request = UpdateFormFieldRequest(name: remoteFileName, formField: requestFormField, nodePath: "sections/0", index: 0, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = UpdateFormFieldRequest(name: remoteFileName, formField: requestFormField, index: 0, nodePath: "sections/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().updateFormField(request: request);
     }
 
@@ -80,8 +80,8 @@ class FormFieldTests: BaseTestContext {
       requestFormField.setTextInputDefault(textInputDefault: "No name");
 
 
-      let request = UpdateFormFieldWithoutNodePathRequest(name: remoteFileName, formField: requestFormField, index: 0, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().updateFormFieldWithoutNodePath(request: request);
+      let request = UpdateFormFieldRequest(name: remoteFileName, formField: requestFormField, index: 0, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      _ = try super.getApi().updateFormField(request: request);
     }
 
     // Test for getting form field.
@@ -90,7 +90,7 @@ class FormFieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetFormFieldRequest(name: remoteFileName, nodePath: "sections/0", index: 0, folder: remoteDataFolder);
+      let request = GetFormFieldRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder);
       _ = try super.getApi().getFormField(request: request);
     }
 
@@ -100,8 +100,8 @@ class FormFieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetFormFieldWithoutNodePathRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getFormFieldWithoutNodePath(request: request);
+      let request = GetFormFieldRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().getFormField(request: request);
     }
 
     // Test for getting form fields.
@@ -120,8 +120,8 @@ class FormFieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetFormFieldsWithoutNodePathRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getFormFieldsWithoutNodePath(request: request);
+      let request = GetFormFieldsRequest(name: remoteFileName, folder: remoteDataFolder);
+      _ = try super.getApi().getFormFields(request: request);
     }
 
     // Test for insert form field without node path.
@@ -160,8 +160,8 @@ class FormFieldTests: BaseTestContext {
       requestFormField.setTextInputFormat(textInputFormat: "UPPERCASE");
 
 
-      let request = InsertFormFieldWithoutNodePathRequest(name: remoteFileName, formField: requestFormField, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().insertFormFieldWithoutNodePath(request: request);
+      let request = InsertFormFieldRequest(name: remoteFileName, formField: requestFormField, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      _ = try super.getApi().insertFormField(request: request);
     }
 
     // Test for deleting form field.
@@ -170,7 +170,7 @@ class FormFieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteFormFieldRequest(name: remoteFileName, nodePath: "sections/0", index: 0, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = DeleteFormFieldRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       try super.getApi().deleteFormField(request: request);
     }
 
@@ -180,7 +180,7 @@ class FormFieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteFormFieldWithoutNodePathRequest(name: remoteFileName, index: 0, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      try super.getApi().deleteFormFieldWithoutNodePath(request: request);
+      let request = DeleteFormFieldRequest(name: remoteFileName, index: 0, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      try super.getApi().deleteFormField(request: request);
     }
 }

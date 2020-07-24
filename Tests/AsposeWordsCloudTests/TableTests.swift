@@ -76,8 +76,8 @@ class TableTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetTablesWithoutNodePathRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getTablesWithoutNodePath(request: request);
+      let request = GetTablesRequest(name: remoteFileName, folder: remoteDataFolder);
+      _ = try super.getApi().getTables(request: request);
     }
 
     // Test for getting table.
@@ -86,7 +86,7 @@ class TableTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetTableRequest(name: remoteFileName, nodePath: "", index: 1, folder: remoteDataFolder);
+      let request = GetTableRequest(name: remoteFileName, index: 1, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().getTable(request: request);
     }
 
@@ -96,8 +96,8 @@ class TableTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetTableWithoutNodePathRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
-      _ = try super.getApi().getTableWithoutNodePath(request: request);
+      let request = GetTableRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
+      _ = try super.getApi().getTable(request: request);
     }
 
     // Test for deleting table.
@@ -106,7 +106,7 @@ class TableTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteTableRequest(name: remoteFileName, nodePath: "", index: 1, folder: remoteDataFolder);
+      let request = DeleteTableRequest(name: remoteFileName, index: 1, nodePath: "", folder: remoteDataFolder);
       try super.getApi().deleteTable(request: request);
     }
 
@@ -116,8 +116,8 @@ class TableTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteTableWithoutNodePathRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
-      try super.getApi().deleteTableWithoutNodePath(request: request);
+      let request = DeleteTableRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
+      try super.getApi().deleteTable(request: request);
     }
 
     // Test for adding table.
@@ -146,8 +146,8 @@ class TableTests: BaseTestContext {
       requestTable.setRowsCount(rowsCount: 4);
 
 
-      let request = InsertTableWithoutNodePathRequest(name: remoteFileName, table: requestTable, folder: remoteDataFolder);
-      _ = try super.getApi().insertTableWithoutNodePath(request: request);
+      let request = InsertTableRequest(name: remoteFileName, table: requestTable, folder: remoteDataFolder);
+      _ = try super.getApi().insertTable(request: request);
     }
 
     // Test for getting document properties.
@@ -156,7 +156,7 @@ class TableTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetTablePropertiesRequest(name: remoteFileName, nodePath: "", index: 1, folder: remoteDataFolder);
+      let request = GetTablePropertiesRequest(name: remoteFileName, index: 1, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().getTableProperties(request: request);
     }
 
@@ -166,8 +166,8 @@ class TableTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetTablePropertiesWithoutNodePathRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
-      _ = try super.getApi().getTablePropertiesWithoutNodePath(request: request);
+      let request = GetTablePropertiesRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
+      _ = try super.getApi().getTableProperties(request: request);
     }
 
     // Test for updating table properties.
@@ -185,7 +185,7 @@ class TableTests: BaseTestContext {
       requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
 
 
-      let request = UpdateTablePropertiesRequest(name: remoteFileName, properties: requestProperties, nodePath: "", index: 1, folder: remoteDataFolder);
+      let request = UpdateTablePropertiesRequest(name: remoteFileName, properties: requestProperties, index: 1, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().updateTableProperties(request: request);
     }
 
@@ -204,8 +204,8 @@ class TableTests: BaseTestContext {
       requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
 
 
-      let request = UpdateTablePropertiesWithoutNodePathRequest(name: remoteFileName, properties: requestProperties, index: 1, folder: remoteDataFolder);
-      _ = try super.getApi().updateTablePropertiesWithoutNodePath(request: request);
+      let request = UpdateTablePropertiesRequest(name: remoteFileName, properties: requestProperties, index: 1, folder: remoteDataFolder);
+      _ = try super.getApi().updateTableProperties(request: request);
     }
 
     // Test for getting table row.
@@ -336,7 +336,7 @@ class TableTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = RenderTableRequest(name: remoteFileName, format: "png", nodePath: "", index: 0, folder: remoteDataFolder);
+      let request = RenderTableRequest(name: remoteFileName, format: "png", index: 0, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().renderTable(request: request);
     }
 
@@ -346,7 +346,7 @@ class TableTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = RenderTableWithoutNodePathRequest(name: remoteFileName, format: "png", index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().renderTableWithoutNodePath(request: request);
+      let request = RenderTableRequest(name: remoteFileName, format: "png", index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().renderTable(request: request);
     }
 }

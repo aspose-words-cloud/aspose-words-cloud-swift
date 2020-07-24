@@ -30,8 +30,8 @@ import Foundation
 // Request model for getBorder operation.
 public class GetBorderRequest {
     private let name : String;
-    private let nodePath : String;
     private let borderType : String;
+    private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -39,8 +39,8 @@ public class GetBorderRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case nodePath;
         case borderType;
+        case nodePath;
         case folder;
         case storage;
         case loadEncoding;
@@ -49,10 +49,10 @@ public class GetBorderRequest {
     }
 
     // Initializes a new instance of the GetBorderRequest class.
-    public init(name : String, nodePath : String, borderType : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
+    public init(name : String, borderType : String, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
-        self.nodePath = nodePath;
         self.borderType = borderType;
+        self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -64,14 +64,14 @@ public class GetBorderRequest {
         return self.name;
     }
 
-    // Path to the node with border(node should be paragraph, cell or row).
-    public func getNodePath() -> String {
-        return self.nodePath;
-    }
-
     // Border type.
     public func getBorderType() -> String {
         return self.borderType;
+    }
+
+    // Path to the node with border(node should be paragraph, cell or row).
+    public func getNodePath() -> String? {
+        return self.nodePath;
     }
 
     // Original document folder.

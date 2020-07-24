@@ -30,8 +30,8 @@ import Foundation
 // Request model for deleteBorder operation.
 public class DeleteBorderRequest {
     private let name : String;
-    private let nodePath : String;
     private let borderType : String;
+    private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -42,8 +42,8 @@ public class DeleteBorderRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case nodePath;
         case borderType;
+        case nodePath;
         case folder;
         case storage;
         case loadEncoding;
@@ -55,10 +55,10 @@ public class DeleteBorderRequest {
     }
 
     // Initializes a new instance of the DeleteBorderRequest class.
-    public init(name : String, nodePath : String, borderType : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, borderType : String, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.nodePath = nodePath;
         self.borderType = borderType;
+        self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -73,14 +73,14 @@ public class DeleteBorderRequest {
         return self.name;
     }
 
-    // Path to the node with border(node should be paragraph, cell or row).
-    public func getNodePath() -> String {
-        return self.nodePath;
-    }
-
     // Border type.
     public func getBorderType() -> String {
         return self.borderType;
+    }
+
+    // Path to the node with border(node should be paragraph, cell or row).
+    public func getNodePath() -> String? {
+        return self.nodePath;
     }
 
     // Original document folder.

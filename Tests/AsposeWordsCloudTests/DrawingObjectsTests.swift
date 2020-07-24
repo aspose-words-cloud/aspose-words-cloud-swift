@@ -69,8 +69,8 @@ class DrawingObjectsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetDocumentDrawingObjectsWithoutNodePathRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentDrawingObjectsWithoutNodePath(request: request);
+      let request = GetDocumentDrawingObjectsRequest(name: remoteFileName, folder: remoteDataFolder);
+      _ = try super.getApi().getDocumentDrawingObjects(request: request);
     }
 
     // Test for getting drawing object by specified index.
@@ -79,7 +79,7 @@ class DrawingObjectsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetDocumentDrawingObjectByIndexRequest(name: remoteFileName, nodePath: "sections/0", index: 0, folder: remoteDataFolder);
+      let request = GetDocumentDrawingObjectByIndexRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder);
       _ = try super.getApi().getDocumentDrawingObjectByIndex(request: request);
     }
 
@@ -89,8 +89,8 @@ class DrawingObjectsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetDocumentDrawingObjectByIndexWithoutNodePathRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentDrawingObjectByIndexWithoutNodePath(request: request);
+      let request = GetDocumentDrawingObjectByIndexRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().getDocumentDrawingObjectByIndex(request: request);
     }
 
     // Test for getting drawing object by specified index and format.
@@ -99,7 +99,7 @@ class DrawingObjectsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = RenderDrawingObjectRequest(name: remoteFileName, format: "png", nodePath: "sections/0", index: 0, folder: remoteDataFolder);
+      let request = RenderDrawingObjectRequest(name: remoteFileName, format: "png", index: 0, nodePath: "sections/0", folder: remoteDataFolder);
       _ = try super.getApi().renderDrawingObject(request: request);
     }
 
@@ -109,8 +109,8 @@ class DrawingObjectsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = RenderDrawingObjectWithoutNodePathRequest(name: remoteFileName, format: "png", index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().renderDrawingObjectWithoutNodePath(request: request);
+      let request = RenderDrawingObjectRequest(name: remoteFileName, format: "png", index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().renderDrawingObject(request: request);
     }
 
     // Test for reading drawing object's image data.
@@ -119,7 +119,7 @@ class DrawingObjectsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetDocumentDrawingObjectImageDataRequest(name: remoteFileName, nodePath: "sections/0", index: 0, folder: remoteDataFolder);
+      let request = GetDocumentDrawingObjectImageDataRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder);
       _ = try super.getApi().getDocumentDrawingObjectImageData(request: request);
     }
 
@@ -129,8 +129,8 @@ class DrawingObjectsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetDocumentDrawingObjectImageDataWithoutNodePathRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentDrawingObjectImageDataWithoutNodePath(request: request);
+      let request = GetDocumentDrawingObjectImageDataRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().getDocumentDrawingObjectImageData(request: request);
     }
 
     // Test for getting drawing object OLE data.
@@ -139,7 +139,7 @@ class DrawingObjectsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localDrawingFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetDocumentDrawingObjectOleDataRequest(name: remoteFileName, nodePath: "sections/0", index: 0, folder: remoteDataFolder);
+      let request = GetDocumentDrawingObjectOleDataRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder);
       _ = try super.getApi().getDocumentDrawingObjectOleData(request: request);
     }
 
@@ -149,8 +149,8 @@ class DrawingObjectsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localDrawingFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetDocumentDrawingObjectOleDataWithoutNodePathRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentDrawingObjectOleDataWithoutNodePath(request: request);
+      let request = GetDocumentDrawingObjectOleDataRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().getDocumentDrawingObjectOleData(request: request);
     }
 
     // Test for adding drawing object.
@@ -189,8 +189,8 @@ class DrawingObjectsTests: BaseTestContext {
       requestDrawingObject.setWrapType(wrapType: DrawingObjectInsert.WrapType.inline);
 
 
-      let request = InsertDrawingObjectWithoutNodePathRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, folder: remoteDataFolder);
-      _ = try super.getApi().insertDrawingObjectWithoutNodePath(request: request);
+      let request = InsertDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, folder: remoteDataFolder);
+      _ = try super.getApi().insertDrawingObject(request: request);
     }
 
     // Test for deleting drawing object.
@@ -199,7 +199,7 @@ class DrawingObjectsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteDrawingObjectRequest(name: remoteFileName, nodePath: "", index: 0, folder: remoteDataFolder);
+      let request = DeleteDrawingObjectRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       try super.getApi().deleteDrawingObject(request: request);
     }
 
@@ -209,8 +209,8 @@ class DrawingObjectsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteDrawingObjectWithoutNodePathRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      try super.getApi().deleteDrawingObjectWithoutNodePath(request: request);
+      let request = DeleteDrawingObjectRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
+      try super.getApi().deleteDrawingObject(request: request);
     }
 
     // Test for updating drawing object.
@@ -223,7 +223,7 @@ class DrawingObjectsTests: BaseTestContext {
       requestDrawingObject.setLeft(_left: 0);
 
 
-      let request = UpdateDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, nodePath: "", index: 0, folder: remoteDataFolder);
+      let request = UpdateDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, index: 0, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().updateDrawingObject(request: request);
     }
 
@@ -237,7 +237,7 @@ class DrawingObjectsTests: BaseTestContext {
       requestDrawingObject.setLeft(_left: 0);
 
 
-      let request = UpdateDrawingObjectWithoutNodePathRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().updateDrawingObjectWithoutNodePath(request: request);
+      let request = UpdateDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().updateDrawingObject(request: request);
     }
 }

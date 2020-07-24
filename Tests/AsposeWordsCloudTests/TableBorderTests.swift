@@ -57,7 +57,7 @@ class TableBorderTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetBorderRequest(name: remoteFileName, nodePath: "tables/1/rows/0/cells/0", borderType: "left", folder: remoteDataFolder);
+      let request = GetBorderRequest(name: remoteFileName, borderType: "left", nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
       _ = try super.getApi().getBorder(request: request);
     }
 
@@ -77,7 +77,7 @@ class TableBorderTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteBorderRequest(name: remoteFileName, nodePath: "tables/1/rows/0/cells/0", borderType: "left", folder: remoteDataFolder);
+      let request = DeleteBorderRequest(name: remoteFileName, borderType: "left", nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
       _ = try super.getApi().deleteBorder(request: request);
     }
 
@@ -99,7 +99,7 @@ class TableBorderTests: BaseTestContext {
       requestBorderProperties.setShadow(shadow: true);
 
 
-      let request = UpdateBorderRequest(name: remoteFileName, borderProperties: requestBorderProperties, nodePath: "tables/1/rows/0/cells/0", borderType: "left", folder: remoteDataFolder);
+      let request = UpdateBorderRequest(name: remoteFileName, borderProperties: requestBorderProperties, borderType: "left", nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
       _ = try super.getApi().updateBorder(request: request);
     }
 }

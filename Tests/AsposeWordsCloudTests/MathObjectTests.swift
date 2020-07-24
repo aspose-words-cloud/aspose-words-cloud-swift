@@ -60,8 +60,8 @@ class MathObjectTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetOfficeMathObjectsWithoutNodePathRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getOfficeMathObjectsWithoutNodePath(request: request);
+      let request = GetOfficeMathObjectsRequest(name: remoteFileName, folder: remoteDataFolder);
+      _ = try super.getApi().getOfficeMathObjects(request: request);
     }
 
     // Test for getting mathObject.
@@ -70,7 +70,7 @@ class MathObjectTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetOfficeMathObjectRequest(name: remoteFileName, nodePath: "", index: 0, folder: remoteDataFolder);
+      let request = GetOfficeMathObjectRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().getOfficeMathObject(request: request);
     }
 
@@ -80,8 +80,8 @@ class MathObjectTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetOfficeMathObjectWithoutNodePathRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getOfficeMathObjectWithoutNodePath(request: request);
+      let request = GetOfficeMathObjectRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().getOfficeMathObject(request: request);
     }
 
     // Test for rendering mathObject.
@@ -90,7 +90,7 @@ class MathObjectTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = RenderMathObjectRequest(name: remoteFileName, format: "png", nodePath: "", index: 0, folder: remoteDataFolder);
+      let request = RenderMathObjectRequest(name: remoteFileName, format: "png", index: 0, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().renderMathObject(request: request);
     }
 
@@ -100,8 +100,8 @@ class MathObjectTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = RenderMathObjectWithoutNodePathRequest(name: remoteFileName, format: "png", index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().renderMathObjectWithoutNodePath(request: request);
+      let request = RenderMathObjectRequest(name: remoteFileName, format: "png", index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().renderMathObject(request: request);
     }
 
     // Test for deleting mathObject.
@@ -110,7 +110,7 @@ class MathObjectTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteOfficeMathObjectRequest(name: remoteFileName, nodePath: "", index: 0, folder: remoteDataFolder);
+      let request = DeleteOfficeMathObjectRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       try super.getApi().deleteOfficeMathObject(request: request);
     }
 
@@ -120,7 +120,7 @@ class MathObjectTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteOfficeMathObjectWithoutNodePathRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      try super.getApi().deleteOfficeMathObjectWithoutNodePath(request: request);
+      let request = DeleteOfficeMathObjectRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
+      try super.getApi().deleteOfficeMathObject(request: request);
     }
 }
