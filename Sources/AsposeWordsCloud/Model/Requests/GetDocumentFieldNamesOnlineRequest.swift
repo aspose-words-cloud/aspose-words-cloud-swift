@@ -29,27 +29,27 @@ import Foundation
 
 // Request model for getDocumentFieldNamesOnline operation.
 public class GetDocumentFieldNamesOnlineRequest {
-    private let template : InputStream;
+    private let document : InputStream;
     private let useNonMergeFields : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case template;
+        case document;
         case useNonMergeFields;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetDocumentFieldNamesOnlineRequest class.
-    public init(template : InputStream, useNonMergeFields : Bool? = nil) {
-        self.template = template;
+    public init(document : InputStream, useNonMergeFields : Bool? = nil) {
+        self.document = document;
         self.useNonMergeFields = useNonMergeFields;
     }
 
-    // File with template.
-    public func getTemplate() -> InputStream {
-        return self.template;
+    // The document.
+    public func getDocument() -> InputStream {
+        return self.document;
     }
 
-    // Use non merge fields or not.
+    // If true, result includes "mustache" field names.
     public func getUseNonMergeFields() -> Bool? {
         return self.useNonMergeFields;
     }

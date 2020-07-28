@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="OptimizeDocumentRequest.swift">
+ * <copyright company="Aspose" file="InsertParagraphWithoutNodePathOnlineRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,62 +27,49 @@
 
 import Foundation
 
-// Request model for optimizeDocument operation.
-public class OptimizeDocumentRequest {
-    private let name : String;
-    private let options : OptimizationOptions;
-    private let folder : String?;
-    private let storage : String?;
+// Request model for insertParagraphWithoutNodePathOnline operation.
+public class InsertParagraphWithoutNodePathOnlineRequest {
+    private let document : InputStream;
+    private let paragraph : ParagraphInsert;
     private let loadEncoding : String?;
     private let password : String?;
     private let destFileName : String?;
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
+    private let insertBeforeNode : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case name;
-        case options;
-        case folder;
-        case storage;
+        case document;
+        case paragraph;
         case loadEncoding;
         case password;
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
+        case insertBeforeNode;
         case invalidCodingKey;
     }
 
-    // Initializes a new instance of the OptimizeDocumentRequest class.
-    public init(name : String, options : OptimizationOptions, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.name = name;
-        self.options = options;
-        self.folder = folder;
-        self.storage = storage;
+    // Initializes a new instance of the InsertParagraphWithoutNodePathOnlineRequest class.
+    public init(document : InputStream, paragraph : ParagraphInsert, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
+        self.document = document;
+        self.paragraph = paragraph;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
+        self.insertBeforeNode = insertBeforeNode;
     }
 
-    // The document name.
-    public func getName() -> String {
-        return self.name;
+    // The document.
+    public func getDocument() -> InputStream {
+        return self.document;
     }
 
-    // The document optimization options.
-    public func getOptions() -> OptimizationOptions {
-        return self.options;
-    }
-
-    // Original document folder.
-    public func getFolder() -> String? {
-        return self.folder;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
+    // Paragraph data.
+    public func getParagraph() -> ParagraphInsert {
+        return self.paragraph;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -108,5 +95,10 @@ public class OptimizeDocumentRequest {
     // The date and time to use for revisions.
     public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
+    }
+
+    // Paragraph will be inserted before node with index.
+    public func getInsertBeforeNode() -> String? {
+        return self.insertBeforeNode;
     }
 }

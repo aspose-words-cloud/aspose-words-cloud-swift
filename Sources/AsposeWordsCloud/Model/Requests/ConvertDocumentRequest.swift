@@ -31,28 +31,28 @@ import Foundation
 public class ConvertDocumentRequest {
     private let document : InputStream;
     private let format : String;
-    private let storage : String?;
     private let outPath : String?;
     private let fileNameFieldValue : String?;
+    private let storage : String?;
     private let fontsLocation : String?;
 
     private enum CodingKeys: String, CodingKey {
         case document;
         case format;
-        case storage;
         case outPath;
         case fileNameFieldValue;
+        case storage;
         case fontsLocation;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the ConvertDocumentRequest class.
-    public init(document : InputStream, format : String, storage : String? = nil, outPath : String? = nil, fileNameFieldValue : String? = nil, fontsLocation : String? = nil) {
+    public init(document : InputStream, format : String, outPath : String? = nil, fileNameFieldValue : String? = nil, storage : String? = nil, fontsLocation : String? = nil) {
         self.document = document;
         self.format = format;
-        self.storage = storage;
         self.outPath = outPath;
         self.fileNameFieldValue = fileNameFieldValue;
+        self.storage = storage;
         self.fontsLocation = fontsLocation;
     }
 
@@ -66,11 +66,6 @@ public class ConvertDocumentRequest {
         return self.format;
     }
 
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
-    }
-
     // Path for saving operation result to the local storage.
     public func getOutPath() -> String? {
         return self.outPath;
@@ -79,6 +74,11 @@ public class ConvertDocumentRequest {
     // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
     public func getFileNameFieldValue() -> String? {
         return self.fileNameFieldValue;
+    }
+
+    // Original document storage.
+    public func getStorage() -> String? {
+        return self.storage;
     }
 
     // Folder in filestorage with custom fonts.
