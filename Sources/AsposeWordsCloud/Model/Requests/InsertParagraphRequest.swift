@@ -30,8 +30,8 @@ import Foundation
 // Request model for insertParagraph operation.
 public class InsertParagraphRequest {
     private let name : String;
-    private let nodePath : String;
     private let paragraph : ParagraphInsert;
+    private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -43,8 +43,8 @@ public class InsertParagraphRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case nodePath;
         case paragraph;
+        case nodePath;
         case folder;
         case storage;
         case loadEncoding;
@@ -57,10 +57,10 @@ public class InsertParagraphRequest {
     }
 
     // Initializes a new instance of the InsertParagraphRequest class.
-    public init(name : String, nodePath : String, paragraph : ParagraphInsert, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
+    public init(name : String, paragraph : ParagraphInsert, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
         self.name = name;
-        self.nodePath = nodePath;
         self.paragraph = paragraph;
+        self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -76,14 +76,14 @@ public class InsertParagraphRequest {
         return self.name;
     }
 
-    // Path to the node which contains paragraphs.
-    public func getNodePath() -> String {
-        return self.nodePath;
-    }
-
     // Paragraph data.
     public func getParagraph() -> ParagraphInsert {
         return self.paragraph;
+    }
+
+    // Path to the node which contains paragraphs.
+    public func getNodePath() -> String? {
+        return self.nodePath;
     }
 
     // Original document folder.

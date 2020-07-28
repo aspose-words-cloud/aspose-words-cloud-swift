@@ -31,8 +31,8 @@ import Foundation
 public class UpdateFieldRequest {
     private let name : String;
     private let field : FieldUpdate;
-    private let nodePath : String;
     private let index : Int;
+    private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -44,8 +44,8 @@ public class UpdateFieldRequest {
     private enum CodingKeys: String, CodingKey {
         case name;
         case field;
-        case nodePath;
         case index;
+        case nodePath;
         case folder;
         case storage;
         case loadEncoding;
@@ -57,11 +57,11 @@ public class UpdateFieldRequest {
     }
 
     // Initializes a new instance of the UpdateFieldRequest class.
-    public init(name : String, field : FieldUpdate, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, field : FieldUpdate, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.field = field;
-        self.nodePath = nodePath;
         self.index = index;
+        self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -81,14 +81,14 @@ public class UpdateFieldRequest {
         return self.field;
     }
 
-    // Path to the node, which contains collection of fields.
-    public func getNodePath() -> String {
-        return self.nodePath;
-    }
-
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // Path to the node, which contains collection of fields.
+    public func getNodePath() -> String? {
+        return self.nodePath;
     }
 
     // Original document folder.

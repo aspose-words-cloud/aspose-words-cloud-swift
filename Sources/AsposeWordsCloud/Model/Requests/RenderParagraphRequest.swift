@@ -31,8 +31,8 @@ import Foundation
 public class RenderParagraphRequest {
     private let name : String;
     private let format : String;
-    private let nodePath : String;
     private let index : Int;
+    private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -42,8 +42,8 @@ public class RenderParagraphRequest {
     private enum CodingKeys: String, CodingKey {
         case name;
         case format;
-        case nodePath;
         case index;
+        case nodePath;
         case folder;
         case storage;
         case loadEncoding;
@@ -53,11 +53,11 @@ public class RenderParagraphRequest {
     }
 
     // Initializes a new instance of the RenderParagraphRequest class.
-    public init(name : String, format : String, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
+    public init(name : String, format : String, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
         self.name = name;
         self.format = format;
-        self.nodePath = nodePath;
         self.index = index;
+        self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -75,14 +75,14 @@ public class RenderParagraphRequest {
         return self.format;
     }
 
-    // Path to the node, which contains paragraphs.
-    public func getNodePath() -> String {
-        return self.nodePath;
-    }
-
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // Path to the node, which contains paragraphs.
+    public func getNodePath() -> String? {
+        return self.nodePath;
     }
 
     // Original document folder.

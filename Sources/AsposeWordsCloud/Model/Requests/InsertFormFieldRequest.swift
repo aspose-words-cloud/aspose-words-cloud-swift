@@ -31,7 +31,7 @@ import Foundation
 public class InsertFormFieldRequest {
     private let name : String;
     private let formField : FormField;
-    private let nodePath : String;
+    private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -57,7 +57,7 @@ public class InsertFormFieldRequest {
     }
 
     // Initializes a new instance of the InsertFormFieldRequest class.
-    public init(name : String, formField : FormField, nodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
+    public init(name : String, formField : FormField, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
         self.name = name;
         self.formField = formField;
         self.nodePath = nodePath;
@@ -82,7 +82,7 @@ public class InsertFormFieldRequest {
     }
 
     // Path to the node that contains collection of formfields.
-    public func getNodePath() -> String {
+    public func getNodePath() -> String? {
         return self.nodePath;
     }
 

@@ -30,7 +30,7 @@ import Foundation
 // Request model for getFormFields operation.
 public class GetFormFieldsRequest {
     private let name : String;
-    private let nodePath : String;
+    private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -47,7 +47,7 @@ public class GetFormFieldsRequest {
     }
 
     // Initializes a new instance of the GetFormFieldsRequest class.
-    public init(name : String, nodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
+    public init(name : String, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.nodePath = nodePath;
         self.folder = folder;
@@ -62,7 +62,7 @@ public class GetFormFieldsRequest {
     }
 
     // Path to the node containing collection of form fields.
-    public func getNodePath() -> String {
+    public func getNodePath() -> String? {
         return self.nodePath;
     }
 

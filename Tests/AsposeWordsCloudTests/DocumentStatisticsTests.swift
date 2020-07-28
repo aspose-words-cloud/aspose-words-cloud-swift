@@ -31,7 +31,8 @@ import XCTest
 // Example of how to get document statistics.
 class DocumentStatisticsTests: BaseTestContext {
     static var allTests = [
-        ("testGetDocumentStatistics", testGetDocumentStatistics)
+        ("testGetDocumentStatistics", testGetDocumentStatistics),
+        ("testGetDocumentStatisticsOnline", testGetDocumentStatisticsOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/Statistics";
@@ -45,5 +46,11 @@ class DocumentStatisticsTests: BaseTestContext {
 
       let request = GetDocumentStatisticsRequest(name: remoteFileName, folder: remoteDataFolder);
       _ = try super.getApi().getDocumentStatistics(request: request);
+    }
+
+    // Test for document classification online.
+    func testGetDocumentStatisticsOnline() throws {
+      let request = GetDocumentStatisticsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      _ = try super.getApi().getDocumentStatisticsOnline(request: request);
     }
 }

@@ -31,7 +31,8 @@ import XCTest
 // Example of how to append document.
 class AppendDocumentTests: BaseTestContext {
     static var allTests = [
-        ("testAppendDocument", testAppendDocument)
+        ("testAppendDocument", testAppendDocument),
+        ("testAppendDocumentOnline", testAppendDocumentOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/AppendDocument";
@@ -55,5 +56,25 @@ class AppendDocumentTests: BaseTestContext {
 
       let request = AppendDocumentRequest(name: remoteFileName, documentList: requestDocumentList, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().appendDocument(request: request);
+    }
+
+    // Test for appending document online.
+    func testAppendDocumentOnline() throws {
+      let remoteFileName = "TestAppendDocument.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestDocumentListDocumentEntries0 = DocumentEntry();
+      requestDocumentListDocumentEntries0.setHref(href: remoteDataFolder + "/" + remoteFileName);
+      requestDocumentListDocumentEntries0.setImportFormatMode(importFormatMode: "KeepSourceFormatting");
+
+      let requestDocumentListDocumentEntries = [requestDocumentListDocumentEntries0];
+
+      let requestDocumentList = DocumentEntryList();
+      requestDocumentList.setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
+
+
+      let request = AppendDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, documentList: requestDocumentList);
+      _ = try super.getApi().appendDocumentOnline(request: request);
     }
 }

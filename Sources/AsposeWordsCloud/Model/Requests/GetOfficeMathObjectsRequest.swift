@@ -30,7 +30,7 @@ import Foundation
 // Request model for getOfficeMathObjects operation.
 public class GetOfficeMathObjectsRequest {
     private let name : String;
-    private let nodePath : String;
+    private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -47,7 +47,7 @@ public class GetOfficeMathObjectsRequest {
     }
 
     // Initializes a new instance of the GetOfficeMathObjectsRequest class.
-    public init(name : String, nodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
+    public init(name : String, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.name = name;
         self.nodePath = nodePath;
         self.folder = folder;
@@ -62,7 +62,7 @@ public class GetOfficeMathObjectsRequest {
     }
 
     // Path to the node, which contains collection of OfficeMath objects.
-    public func getNodePath() -> String {
+    public func getNodePath() -> String? {
         return self.nodePath;
     }
 
