@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="RenderTableWithoutNodePathRequest.swift">
+ * <copyright company="Aspose" file="OptimizeDocumentRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,39 +27,42 @@
 
 import Foundation
 
-// Request model for renderTableWithoutNodePath operation.
-public class RenderTableWithoutNodePathRequest {
+// Request model for optimizeDocument operation.
+public class OptimizeDocumentRequest {
     private let name : String;
-    private let format : String;
-    private let index : Int;
+    private let options : OptimizationOptions;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
-    private let fontsLocation : String?;
+    private let destFileName : String?;
+    private let revisionAuthor : String?;
+    private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case format;
-        case index;
+        case options;
         case folder;
         case storage;
         case loadEncoding;
         case password;
-        case fontsLocation;
+        case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
         case invalidCodingKey;
     }
 
-    // Initializes a new instance of the RenderTableWithoutNodePathRequest class.
-    public init(name : String, format : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
+    // Initializes a new instance of the OptimizeDocumentRequest class.
+    public init(name : String, options : OptimizationOptions, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.format = format;
-        self.index = index;
+        self.options = options;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
-        self.fontsLocation = fontsLocation;
+        self.destFileName = destFileName;
+        self.revisionAuthor = revisionAuthor;
+        self.revisionDateTime = revisionDateTime;
     }
 
     // The document name.
@@ -67,14 +70,9 @@ public class RenderTableWithoutNodePathRequest {
         return self.name;
     }
 
-    // The destination format.
-    public func getFormat() -> String {
-        return self.format;
-    }
-
-    // Object index.
-    public func getIndex() -> Int {
-        return self.index;
+    // The document optimization options.
+    public func getOptions() -> OptimizationOptions {
+        return self.options;
     }
 
     // Original document folder.
@@ -97,8 +95,18 @@ public class RenderTableWithoutNodePathRequest {
         return self.password;
     }
 
-    // Folder in filestorage with custom fonts.
-    public func getFontsLocation() -> String? {
-        return self.fontsLocation;
+    // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+    public func getDestFileName() -> String? {
+        return self.destFileName;
+    }
+
+    // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+    public func getRevisionAuthor() -> String? {
+        return self.revisionAuthor;
+    }
+
+    // The date and time to use for revisions.
+    public func getRevisionDateTime() -> String? {
+        return self.revisionDateTime;
     }
 }

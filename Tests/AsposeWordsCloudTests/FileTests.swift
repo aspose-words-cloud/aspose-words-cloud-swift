@@ -65,7 +65,7 @@ class FileTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = MoveFileRequest(destPath: remoteDataFolder + "/TestMoveFileDest.docx", srcPath: remoteDataFolder + "/" + remoteFileName);
+      let request = MoveFileRequest(destPath: BaseTestContext.getRemoteTestOut() + "/TestMoveFileDest_" + UUID().uuidString + ".docx", srcPath: remoteDataFolder + "/" + remoteFileName);
       try super.getApi().moveFile(request: request);
     }
 

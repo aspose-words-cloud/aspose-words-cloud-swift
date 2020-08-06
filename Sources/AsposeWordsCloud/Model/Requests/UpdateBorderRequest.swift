@@ -31,8 +31,8 @@ import Foundation
 public class UpdateBorderRequest {
     private let name : String;
     private let borderProperties : Border;
-    private let nodePath : String;
     private let borderType : String;
+    private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -44,8 +44,8 @@ public class UpdateBorderRequest {
     private enum CodingKeys: String, CodingKey {
         case name;
         case borderProperties;
-        case nodePath;
         case borderType;
+        case nodePath;
         case folder;
         case storage;
         case loadEncoding;
@@ -57,11 +57,11 @@ public class UpdateBorderRequest {
     }
 
     // Initializes a new instance of the UpdateBorderRequest class.
-    public init(name : String, borderProperties : Border, nodePath : String, borderType : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, borderProperties : Border, borderType : String, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
         self.borderProperties = borderProperties;
-        self.nodePath = nodePath;
         self.borderType = borderType;
+        self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -81,14 +81,14 @@ public class UpdateBorderRequest {
         return self.borderProperties;
     }
 
-    // Path to the node with border(node should be paragraph, cell or row).
-    public func getNodePath() -> String {
-        return self.nodePath;
-    }
-
     // Border type.
     public func getBorderType() -> String {
         return self.borderType;
+    }
+
+    // Path to the node with border(node should be paragraph, cell or row).
+    public func getNodePath() -> String? {
+        return self.nodePath;
     }
 
     // Original document folder.

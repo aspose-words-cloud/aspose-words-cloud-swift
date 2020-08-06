@@ -31,8 +31,8 @@ import Foundation
 public class InsertOrUpdateParagraphTabStopRequest {
     private let name : String;
     private let dto : TabStopInsert;
-    private let nodePath : String;
     private let index : Int;
+    private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -42,8 +42,8 @@ public class InsertOrUpdateParagraphTabStopRequest {
     private enum CodingKeys: String, CodingKey {
         case name;
         case dto;
-        case nodePath;
         case index;
+        case nodePath;
         case folder;
         case storage;
         case loadEncoding;
@@ -53,11 +53,11 @@ public class InsertOrUpdateParagraphTabStopRequest {
     }
 
     // Initializes a new instance of the InsertOrUpdateParagraphTabStopRequest class.
-    public init(name : String, dto : TabStopInsert, nodePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
+    public init(name : String, dto : TabStopInsert, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
         self.dto = dto;
-        self.nodePath = nodePath;
         self.index = index;
+        self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -75,14 +75,14 @@ public class InsertOrUpdateParagraphTabStopRequest {
         return self.dto;
     }
 
-    // Path to the node which contains paragraph.
-    public func getNodePath() -> String {
-        return self.nodePath;
-    }
-
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // Path to the node which contains paragraph.
+    public func getNodePath() -> String? {
+        return self.nodePath;
     }
 
     // Original document folder.

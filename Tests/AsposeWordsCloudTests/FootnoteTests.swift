@@ -72,8 +72,8 @@ class FootnoteTests: BaseTestContext {
       requestFootnoteDto.setText(text: "test endnote");
 
 
-      let request = InsertFootnoteWithoutNodePathRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, folder: remoteDataFolder);
-      _ = try super.getApi().insertFootnoteWithoutNodePath(request: request);
+      let request = InsertFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, folder: remoteDataFolder);
+      _ = try super.getApi().insertFootnote(request: request);
     }
 
     // Test for deleting footnote.
@@ -82,7 +82,7 @@ class FootnoteTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteFootnoteRequest(name: remoteFileName, nodePath: "", index: 0, folder: remoteDataFolder);
+      let request = DeleteFootnoteRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       try super.getApi().deleteFootnote(request: request);
     }
 
@@ -92,8 +92,8 @@ class FootnoteTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteFootnoteWithoutNodePathRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      try super.getApi().deleteFootnoteWithoutNodePath(request: request);
+      let request = DeleteFootnoteRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
+      try super.getApi().deleteFootnote(request: request);
     }
 
     // Test for getting footnotes.
@@ -112,8 +112,8 @@ class FootnoteTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetFootnotesWithoutNodePathRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getFootnotesWithoutNodePath(request: request);
+      let request = GetFootnotesRequest(name: remoteFileName, folder: remoteDataFolder);
+      _ = try super.getApi().getFootnotes(request: request);
     }
 
     // Test for getting footnote.
@@ -122,7 +122,7 @@ class FootnoteTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetFootnoteRequest(name: remoteFileName, nodePath: "", index: 0, folder: remoteDataFolder);
+      let request = GetFootnoteRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().getFootnote(request: request);
     }
 
@@ -132,8 +132,8 @@ class FootnoteTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetFootnoteWithoutNodePathRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getFootnoteWithoutNodePath(request: request);
+      let request = GetFootnoteRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().getFootnote(request: request);
     }
 
     // Test for updating footnote.
@@ -146,7 +146,7 @@ class FootnoteTests: BaseTestContext {
       requestFootnoteDto.setText(text: "new text is here");
 
 
-      let request = UpdateFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, nodePath: "", index: 0, folder: remoteDataFolder);
+      let request = UpdateFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, index: 0, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().updateFootnote(request: request);
     }
 
@@ -160,7 +160,7 @@ class FootnoteTests: BaseTestContext {
       requestFootnoteDto.setText(text: "new text is here");
 
 
-      let request = UpdateFootnoteWithoutNodePathRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().updateFootnoteWithoutNodePath(request: request);
+      let request = UpdateFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().updateFootnote(request: request);
     }
 }

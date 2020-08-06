@@ -13,6 +13,66 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 20.8
+
+- Added new api method (PUT '/words/{name}/compatibility/optimize') which is allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word
+- Added 'ApplyBaseDocumentHeadersAndFootersToAppendingDocuments' option to 'DocumentEntryList' for AppendDocument API
+- WithoutNodePath methods have been removed, pass null values instead
+
+
+## Enhancements in Version 20.7
+
+- Added 'Markdown' save format
+- Added endpoint to update paragraph format without node path (PUT '/words/{name}/paragraphs/{index}/format')
+- Fix url parameters encoding issue.
+
+## Enhancements in Version 20.6
+
+- Added new methods:
+  - DeleteAllParagraphTabStopsWithoutNodePath
+  - DeleteParagraphTabStopWithoutNodePath
+  - GetParagraphTabStopsWithoutNodePath
+  - InsertOrUpdateParagraphTabStopWithoutNodePath
+  - InsertParagraphWithoutNodePath
+  - UpdateParagraphFormatWithoutNodePath
+  - UpdateParagraphListFormatWithoutNodePath
+  - DeleteParagraphListFormatWithoutNodePath
+- DrawingObject related methods have been changed body content. Special request classes are introduced instead of strings.
+- InsertOrUpdateParagraphTabStop, DeleteParagraphTabStop methods have been changed parameter order
+- OoxmlSaveOptionsData.CompressionLevel property has been added
+
+
+## Enhancements in Version 20.5
+
+- Added methods to work with Word document lists
+  - GetLists
+  - GetList
+  - InsertList
+  - UpdateList
+  - UpdateListLevel
+- Added methods to work with styles
+  - GetStyles
+  - UpdateStyle
+  - InsertStyle
+  - CopyStyle
+  - GetStyleFromDocumentElement
+  - ApplyStyleToDocumentElement
+- Added methods to work with paragraph list format
+  - GetParagraphListFormat
+  - GetParagraphListFormatWithoutNodePath
+  - UpdateParagraphListFormat
+  - DeleteParagraphListFormat
+- Added methods to work with paragraph tab stops
+  - GetParagraphTabStops
+  - InsertOrUpdateParagraphTabStop
+  - DeleteAllParagraphTabStops
+  - DeleteParagraphTabStop
+- Added methods to build reports
+  - BuildReport
+  - BuildReportOnline
+- Added Shading property to ParagraphFormat
+
+
 ## How to use the SDK?
 The complete source code is available in this repository folder. You can either directly use it in your project via source code or add this repository as dependency (recommended). For more details, please visit our [documentation website](https://docs.aspose.cloud/display/wordscloud/Available+SDKs).
 
@@ -20,13 +80,16 @@ The complete source code is available in this repository folder. You can either 
 To use Aspose Words Cloud SDK for Swift you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create App Key and SID at [Cloud Dashboard](https://dashboard.aspose.cloud/#/apps). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
 
 ## Installation & Usage
+
+### Swift Package Manager
+
 Add link to this repository as dependency to your Package.swift:
 
 ```swift
 
 dependencies: [
     // Dependencies declare other packages that this package depends on.
-    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "20.7"),
+    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "20.8"),
 ],
 targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -37,6 +100,14 @@ targets: [
     ),
 ]
 
+```
+
+### Cocoapods
+
+Add link to git repository as dependency to your Podfile:
+
+```ruby
+pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '20.8'
 ```
 
 ## Getting Started

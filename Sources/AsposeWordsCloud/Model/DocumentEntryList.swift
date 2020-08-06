@@ -29,10 +29,14 @@ import Foundation
 
 // Represents a list of documents which will be appended to the original resource document.
 public class DocumentEntryList : Codable, WordsApiModel {
+    // Field of applyBaseDocumentHeadersAndFootersToAppendingDocuments. Represents a list of documents which will be appended to the original resource document.
+    private var applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool?;
+
     // Field of documentEntries. Represents a list of documents which will be appended to the original resource document.
     private var documentEntries : [DocumentEntry]?;
 
     private enum CodingKeys: String, CodingKey {
+        case applyBaseDocumentHeadersAndFootersToAppendingDocuments;
         case documentEntries;
         case invalidCodingKey;
     }
@@ -42,14 +46,28 @@ public class DocumentEntryList : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.applyBaseDocumentHeadersAndFootersToAppendingDocuments = try container.decodeIfPresent(Bool.self, forKey: .applyBaseDocumentHeadersAndFootersToAppendingDocuments);
         self.documentEntries = try container.decodeIfPresent([DocumentEntry].self, forKey: .documentEntries);
     }
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.applyBaseDocumentHeadersAndFootersToAppendingDocuments != nil) {
+            try container.encode(self.applyBaseDocumentHeadersAndFootersToAppendingDocuments, forKey: .applyBaseDocumentHeadersAndFootersToAppendingDocuments);
+        }
         if (self.documentEntries != nil) {
             try container.encode(self.documentEntries, forKey: .documentEntries);
         }
+    }
+
+    // Sets applyBaseDocumentHeadersAndFootersToAppendingDocuments. Gets or sets parameter that indicates to apply headers and footers from base document to appending documents. Default is true.
+    public func setApplyBaseDocumentHeadersAndFootersToAppendingDocuments(applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool?) {
+        self.applyBaseDocumentHeadersAndFootersToAppendingDocuments = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+    }
+
+    // Gets applyBaseDocumentHeadersAndFootersToAppendingDocuments. Gets or sets parameter that indicates to apply headers and footers from base document to appending documents. Default is true.
+    public func getApplyBaseDocumentHeadersAndFootersToAppendingDocuments() -> Bool? {
+        return self.applyBaseDocumentHeadersAndFootersToAppendingDocuments;
     }
 
     // Sets documentEntries. Gets or sets list of documents.

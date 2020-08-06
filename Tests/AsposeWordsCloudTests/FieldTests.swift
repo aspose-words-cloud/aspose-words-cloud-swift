@@ -72,8 +72,8 @@ class FieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetFieldsWithoutNodePathRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getFieldsWithoutNodePath(request: request);
+      let request = GetFieldsRequest(name: remoteFileName, folder: remoteDataFolder);
+      _ = try super.getApi().getFields(request: request);
     }
 
     // Test for getting field by index.
@@ -83,7 +83,7 @@ class FieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetFieldRequest(name: remoteFileName, nodePath: "sections/0/paragraphs/0", index: 0, folder: remoteDataFolder);
+      let request = GetFieldRequest(name: remoteFileName, index: 0, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
       _ = try super.getApi().getField(request: request);
     }
 
@@ -94,8 +94,8 @@ class FieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetFieldWithoutNodePathRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getFieldWithoutNodePath(request: request);
+      let request = GetFieldRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
+      _ = try super.getApi().getField(request: request);
     }
 
     // Test for putting field.
@@ -124,8 +124,8 @@ class FieldTests: BaseTestContext {
       requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
 
 
-      let request = InsertFieldWithoutNodePathRequest(name: remoteFileName, field: requestField, folder: remoteDataFolder);
-      _ = try super.getApi().insertFieldWithoutNodePath(request: request);
+      let request = InsertFieldRequest(name: remoteFileName, field: requestField, folder: remoteDataFolder);
+      _ = try super.getApi().insertField(request: request);
     }
 
     // Test for posting field.
@@ -139,7 +139,7 @@ class FieldTests: BaseTestContext {
       requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
 
 
-      let request = UpdateFieldRequest(name: remoteFileName, field: requestField, nodePath: "sections/0/paragraphs/0", index: 0, folder: remoteDataFolder);
+      let request = UpdateFieldRequest(name: remoteFileName, field: requestField, index: 0, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
       _ = try super.getApi().updateField(request: request);
     }
 
@@ -166,7 +166,7 @@ class FieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteFieldRequest(name: remoteFileName, nodePath: "sections/0/paragraphs/0", index: 0, folder: remoteDataFolder);
+      let request = DeleteFieldRequest(name: remoteFileName, index: 0, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
       try super.getApi().deleteField(request: request);
     }
 
@@ -177,8 +177,8 @@ class FieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteFieldWithoutNodePathRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      try super.getApi().deleteFieldWithoutNodePath(request: request);
+      let request = DeleteFieldRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
+      try super.getApi().deleteField(request: request);
     }
 
     // Test for deleting paragraph fields.
@@ -199,8 +199,8 @@ class FieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("Common/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteFieldsWithoutNodePathRequest(name: remoteFileName, folder: remoteDataFolder);
-      try super.getApi().deleteFieldsWithoutNodePath(request: request);
+      let request = DeleteFieldsRequest(name: remoteFileName, folder: remoteDataFolder);
+      try super.getApi().deleteFields(request: request);
     }
 
     // Test for deleting section fields.
@@ -221,8 +221,8 @@ class FieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("Common/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteFieldsWithoutNodePathRequest(name: remoteFileName, folder: remoteDataFolder);
-      try super.getApi().deleteFieldsWithoutNodePath(request: request);
+      let request = DeleteFieldsRequest(name: remoteFileName, folder: remoteDataFolder);
+      try super.getApi().deleteFields(request: request);
     }
 
     // Test for deleting paragraph fields in section.
