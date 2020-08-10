@@ -265,8 +265,22 @@ public class WordsAPI {
                     if (error == nil) {
                         do {
                             let multipartResponse = [String : Data]();
-                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
+                            let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+
+                            for part in parts {
+                                let partDataBounds = part.range(of: dispositionSeparator);
+                                if (!partDataBounds.isEmpty)
+                                {
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
+                                    let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
+                                    let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
+                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                }
+                            }
 
                             let responseObject = AppendDocumentOnlineResponse(
                                 model: try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["Model"]!),
@@ -900,8 +914,22 @@ public class WordsAPI {
                     if (error == nil) {
                         do {
                             let multipartResponse = [String : Data]();
-                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
+                            let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+
+                            for part in parts {
+                                let partDataBounds = part.range(of: dispositionSeparator);
+                                if (!partDataBounds.isEmpty)
+                                {
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
+                                    let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
+                                    let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
+                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                }
+                            }
 
                             let responseObject = CompareDocumentOnlineResponse(
                                 model: try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["Model"]!),
@@ -9804,8 +9832,22 @@ public class WordsAPI {
                     if (error == nil) {
                         do {
                             let multipartResponse = [String : Data]();
-                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
+                            let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+
+                            for part in parts {
+                                let partDataBounds = part.range(of: dispositionSeparator);
+                                if (!partDataBounds.isEmpty)
+                                {
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
+                                    let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
+                                    let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
+                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                }
+                            }
 
                             let responseObject = InsertOrUpdateParagraphTabStopOnlineResponse(
                                 model: try ObjectSerializer.deserialize(type: TabStopsResponse.self, from: multipartResponse["Model"]!),
@@ -9986,8 +10028,22 @@ public class WordsAPI {
                     if (error == nil) {
                         do {
                             let multipartResponse = [String : Data]();
-                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
+                            let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+
+                            for part in parts {
+                                let partDataBounds = part.range(of: dispositionSeparator);
+                                if (!partDataBounds.isEmpty)
+                                {
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
+                                    let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
+                                    let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
+                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                }
+                            }
 
                             let responseObject = InsertPageNumbersOnlineResponse(
                                 model: try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["Model"]!),
@@ -10190,8 +10246,22 @@ public class WordsAPI {
                     if (error == nil) {
                         do {
                             let multipartResponse = [String : Data]();
-                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
+                            let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+
+                            for part in parts {
+                                let partDataBounds = part.range(of: dispositionSeparator);
+                                if (!partDataBounds.isEmpty)
+                                {
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
+                                    let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
+                                    let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
+                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                }
+                            }
 
                             let responseObject = InsertParagraphOnlineResponse(
                                 model: try ObjectSerializer.deserialize(type: ParagraphResponse.self, from: multipartResponse["Model"]!),
@@ -12165,8 +12235,22 @@ public class WordsAPI {
                     if (error == nil) {
                         do {
                             let multipartResponse = [String : Data]();
-                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
+                            let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+
+                            for part in parts {
+                                let partDataBounds = part.range(of: dispositionSeparator);
+                                if (!partDataBounds.isEmpty)
+                                {
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
+                                    let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
+                                    let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
+                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                }
+                            }
 
                             let responseObject = SaveAsOnlineResponse(
                                 model: try ObjectSerializer.deserialize(type: SaveResponse.self, from: multipartResponse["Model"]!),
@@ -12850,8 +12934,22 @@ public class WordsAPI {
                     if (error == nil) {
                         do {
                             let multipartResponse = [String : Data]();
-                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
+                            let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+
+                            for part in parts {
+                                let partDataBounds = part.range(of: dispositionSeparator);
+                                if (!partDataBounds.isEmpty)
+                                {
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
+                                    let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
+                                    let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
+                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                }
+                            }
 
                             let responseObject = UpdateBookmarkOnlineResponse(
                                 model: try ObjectSerializer.deserialize(type: BookmarkResponse.self, from: multipartResponse["Model"]!),
@@ -13050,8 +13148,22 @@ public class WordsAPI {
                     if (error == nil) {
                         do {
                             let multipartResponse = [String : Data]();
-                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
+                            let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+
+                            for part in parts {
+                                let partDataBounds = part.range(of: dispositionSeparator);
+                                if (!partDataBounds.isEmpty)
+                                {
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
+                                    let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
+                                    let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
+                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                }
+                            }
 
                             let responseObject = UpdateBorderOnlineResponse(
                                 model: try ObjectSerializer.deserialize(type: BorderResponse.self, from: multipartResponse["Model"]!),
@@ -14110,8 +14222,22 @@ public class WordsAPI {
                     if (error == nil) {
                         do {
                             let multipartResponse = [String : Data]();
-                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                            let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
+                            let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+
+                            for part in parts {
+                                let partDataBounds = part.range(of: dispositionSeparator);
+                                if (!partDataBounds.isEmpty)
+                                {
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
+                                    let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
+                                    let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
+                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                }
+                            }
 
                             let responseObject = UpdateParagraphListFormatOnlineResponse(
                                 model: try ObjectSerializer.deserialize(type: ParagraphListFormatResponse.self, from: multipartResponse["Model"]!),
