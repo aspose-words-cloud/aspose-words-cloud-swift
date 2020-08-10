@@ -264,7 +264,7 @@ public class WordsAPI {
                 callback: { response, error in
                     if (error == nil) {
                         do {
-                            let multipartResponse = [String : Data]();
+                            var multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
@@ -278,7 +278,7 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -913,7 +913,7 @@ public class WordsAPI {
                 callback: { response, error in
                     if (error == nil) {
                         do {
-                            let multipartResponse = [String : Data]();
+                            var multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
@@ -927,7 +927,7 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -9831,7 +9831,7 @@ public class WordsAPI {
                 callback: { response, error in
                     if (error == nil) {
                         do {
-                            let multipartResponse = [String : Data]();
+                            var multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
@@ -9845,7 +9845,7 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -10027,7 +10027,7 @@ public class WordsAPI {
                 callback: { response, error in
                     if (error == nil) {
                         do {
-                            let multipartResponse = [String : Data]();
+                            var multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
@@ -10041,7 +10041,7 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -10245,7 +10245,7 @@ public class WordsAPI {
                 callback: { response, error in
                     if (error == nil) {
                         do {
-                            let multipartResponse = [String : Data]();
+                            var multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
@@ -10259,7 +10259,7 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -12234,7 +12234,7 @@ public class WordsAPI {
                 callback: { response, error in
                     if (error == nil) {
                         do {
-                            let multipartResponse = [String : Data]();
+                            var multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
@@ -12248,7 +12248,7 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -12933,7 +12933,7 @@ public class WordsAPI {
                 callback: { response, error in
                     if (error == nil) {
                         do {
-                            let multipartResponse = [String : Data]();
+                            var multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
@@ -12947,7 +12947,7 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -13147,7 +13147,7 @@ public class WordsAPI {
                 callback: { response, error in
                     if (error == nil) {
                         do {
-                            let multipartResponse = [String : Data]();
+                            var multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
@@ -13161,7 +13161,7 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -14221,7 +14221,7 @@ public class WordsAPI {
                 callback: { response, error in
                     if (error == nil) {
                         do {
-                            let multipartResponse = [String : Data]();
+                            var multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
@@ -14235,7 +14235,7 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
