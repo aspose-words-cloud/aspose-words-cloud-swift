@@ -269,7 +269,7 @@ public class WordsAPI {
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
 
                             let responseObject = AppendDocumentOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["Model"]),
+                                model: try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["Model"])!,
                                 document: String(decoding: multipartResponse["Document"], as: UTF8.self)
                             );
 
@@ -904,7 +904,7 @@ public class WordsAPI {
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
 
                             let responseObject = CompareDocumentOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["Model"]),
+                                model: try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["Model"])!,
                                 document: String(decoding: multipartResponse["Document"], as: UTF8.self)
                             );
 
@@ -9808,7 +9808,7 @@ public class WordsAPI {
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
 
                             let responseObject = InsertOrUpdateParagraphTabStopOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: TabStopsResponse.self, from: multipartResponse["Model"]),
+                                model: try ObjectSerializer.deserialize(type: TabStopsResponse.self, from: multipartResponse["Model"])!,
                                 document: String(decoding: multipartResponse["Document"], as: UTF8.self)
                             );
 
@@ -9990,7 +9990,7 @@ public class WordsAPI {
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
 
                             let responseObject = InsertPageNumbersOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["Model"]),
+                                model: try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["Model"])!,
                                 document: String(decoding: multipartResponse["Document"], as: UTF8.self)
                             );
 
@@ -10194,7 +10194,7 @@ public class WordsAPI {
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
 
                             let responseObject = InsertParagraphOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: ParagraphResponse.self, from: multipartResponse["Model"]),
+                                model: try ObjectSerializer.deserialize(type: ParagraphResponse.self, from: multipartResponse["Model"])!,
                                 document: String(decoding: multipartResponse["Document"], as: UTF8.self)
                             );
 
@@ -12169,7 +12169,7 @@ public class WordsAPI {
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
 
                             let responseObject = SaveAsOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: SaveResponse.self, from: multipartResponse["Model"]),
+                                model: try ObjectSerializer.deserialize(type: SaveResponse.self, from: multipartResponse["Model"])!,
                                 document: String(decoding: multipartResponse["Document"], as: UTF8.self)
                             );
 
@@ -12854,7 +12854,7 @@ public class WordsAPI {
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
 
                             let responseObject = UpdateBookmarkOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: BookmarkResponse.self, from: multipartResponse["Model"]),
+                                model: try ObjectSerializer.deserialize(type: BookmarkResponse.self, from: multipartResponse["Model"])!,
                                 document: String(decoding: multipartResponse["Document"], as: UTF8.self)
                             );
 
@@ -13054,7 +13054,7 @@ public class WordsAPI {
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
 
                             let responseObject = UpdateBorderOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: BorderResponse.self, from: multipartResponse["Model"]),
+                                model: try ObjectSerializer.deserialize(type: BorderResponse.self, from: multipartResponse["Model"])!,
                                 document: String(decoding: multipartResponse["Document"], as: UTF8.self)
                             );
 
@@ -14114,7 +14114,7 @@ public class WordsAPI {
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
 
                             let responseObject = UpdateParagraphListFormatOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: ParagraphListFormatResponse.self, from: multipartResponse["Model"]),
+                                model: try ObjectSerializer.deserialize(type: ParagraphListFormatResponse.self, from: multipartResponse["Model"])!,
                                 document: String(decoding: multipartResponse["Document"], as: UTF8.self)
                             );
 
