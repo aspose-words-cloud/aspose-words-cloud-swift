@@ -130,6 +130,25 @@ class ObjectSerializer {
         return try customDecoder.decode(type, from: data);
     }
 
+    // Split data into parts
+    public static func splitData(separator: Data) : [Data] {
+        var chunks: [Data] = [];
+        var pos = startIndex;
+        while let r = self[pos...].range(of: separator) {
+            if (r.lowerBound > pos) {
+                chunks.append(self[pos..<r.lowerBound]);
+            }
+
+            pos = r.upperBound;
+        }
+
+        if (pos < endIndex) {
+            chunks.append(self[pos..<endIndex]);
+        }
+
+        return chunks;
+    }
+
     // Configuration for DateTime serialization/deserialization
     public static let customIso8601: DateFormatter = {
         let formatter = DateFormatter()

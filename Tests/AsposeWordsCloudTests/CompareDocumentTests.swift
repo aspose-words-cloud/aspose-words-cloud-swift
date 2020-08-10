@@ -62,7 +62,6 @@ class CompareDocumentTests: BaseTestContext {
     func testCompareDocumentOnline() throws {
       let localName1 = "compareTestDoc1.doc";
       let localName2 = "compareTestDoc2.doc";
-      let remoteName1 = "TestCompareDocument1.doc";
       let remoteName2 = "TestCompareDocument2.doc";
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName2, isDirectory: false), path: remoteFolder + "/" + remoteName2);

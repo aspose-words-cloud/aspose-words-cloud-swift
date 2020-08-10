@@ -262,7 +262,16 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    callback(nil, error);
+                    let multipartResult = [String : Data]();
+                    let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                    let boundary = response!.subdata(in: 0..<boundaryIndex);
+
+                    let responseObject = AppendDocumentOnlineResponse(
+                        try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["Model"]),
+                        String(decoding: multipartResponse["Document"], as: UTF8.self)
+                    );
+
+                    callback(responseObject, error);
                 }
             );
         }
@@ -880,7 +889,16 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    callback(nil, error);
+                    let multipartResult = [String : Data]();
+                    let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                    let boundary = response!.subdata(in: 0..<boundaryIndex);
+
+                    let responseObject = CompareDocumentOnlineResponse(
+                        try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["Model"]),
+                        String(decoding: multipartResponse["Document"], as: UTF8.self)
+                    );
+
+                    callback(responseObject, error);
                 }
             );
         }
@@ -9767,7 +9785,16 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    callback(nil, error);
+                    let multipartResult = [String : Data]();
+                    let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                    let boundary = response!.subdata(in: 0..<boundaryIndex);
+
+                    let responseObject = InsertOrUpdateParagraphTabStopOnlineResponse(
+                        try ObjectSerializer.deserialize(type: TabStopsResponse.self, from: multipartResponse["Model"]),
+                        String(decoding: multipartResponse["Document"], as: UTF8.self)
+                    );
+
+                    callback(responseObject, error);
                 }
             );
         }
@@ -9932,7 +9959,16 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    callback(nil, error);
+                    let multipartResult = [String : Data]();
+                    let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                    let boundary = response!.subdata(in: 0..<boundaryIndex);
+
+                    let responseObject = InsertPageNumbersOnlineResponse(
+                        try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["Model"]),
+                        String(decoding: multipartResponse["Document"], as: UTF8.self)
+                    );
+
+                    callback(responseObject, error);
                 }
             );
         }
@@ -10119,7 +10155,16 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    callback(nil, error);
+                    let multipartResult = [String : Data]();
+                    let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                    let boundary = response!.subdata(in: 0..<boundaryIndex);
+
+                    let responseObject = InsertParagraphOnlineResponse(
+                        try ObjectSerializer.deserialize(type: ParagraphResponse.self, from: multipartResponse["Model"]),
+                        String(decoding: multipartResponse["Document"], as: UTF8.self)
+                    );
+
+                    callback(responseObject, error);
                 }
             );
         }
@@ -12077,7 +12122,16 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    callback(nil, error);
+                    let multipartResult = [String : Data]();
+                    let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                    let boundary = response!.subdata(in: 0..<boundaryIndex);
+
+                    let responseObject = SaveAsOnlineResponse(
+                        try ObjectSerializer.deserialize(type: SaveResponse.self, from: multipartResponse["Model"]),
+                        String(decoding: multipartResponse["Document"], as: UTF8.self)
+                    );
+
+                    callback(responseObject, error);
                 }
             );
         }
@@ -12745,7 +12799,16 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    callback(nil, error);
+                    let multipartResult = [String : Data]();
+                    let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                    let boundary = response!.subdata(in: 0..<boundaryIndex);
+
+                    let responseObject = UpdateBookmarkOnlineResponse(
+                        try ObjectSerializer.deserialize(type: BookmarkResponse.self, from: multipartResponse["Model"]),
+                        String(decoding: multipartResponse["Document"], as: UTF8.self)
+                    );
+
+                    callback(responseObject, error);
                 }
             );
         }
@@ -12928,7 +12991,16 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    callback(nil, error);
+                    let multipartResult = [String : Data]();
+                    let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                    let boundary = response!.subdata(in: 0..<boundaryIndex);
+
+                    let responseObject = UpdateBorderOnlineResponse(
+                        try ObjectSerializer.deserialize(type: BorderResponse.self, from: multipartResponse["Model"]),
+                        String(decoding: multipartResponse["Document"], as: UTF8.self)
+                    );
+
+                    callback(responseObject, error);
                 }
             );
         }
@@ -13971,7 +14043,16 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    callback(nil, error);
+                    let multipartResult = [String : Data]();
+                    let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
+                    let boundary = response!.subdata(in: 0..<boundaryIndex);
+
+                    let responseObject = UpdateParagraphListFormatOnlineResponse(
+                        try ObjectSerializer.deserialize(type: ParagraphListFormatResponse.self, from: multipartResponse["Model"]),
+                        String(decoding: multipartResponse["Document"], as: UTF8.self)
+                    );
+
+                    callback(responseObject, error);
                 }
             );
         }
