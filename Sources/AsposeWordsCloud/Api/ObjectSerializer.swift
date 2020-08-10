@@ -131,9 +131,10 @@ class ObjectSerializer {
     }
 
     // Split data into parts
-    public static func splitData(separator: Data) : [Data] {
+    public static func splitData(separator: Data) -> [Data] {
+        let endIndex = separator.count;
         var chunks: [Data] = [];
-        var pos = startIndex;
+        var pos = 0;
         while let r = self[pos...].range(of: separator) {
             if (r.lowerBound > pos) {
                 chunks.append(self[pos..<r.lowerBound]);
