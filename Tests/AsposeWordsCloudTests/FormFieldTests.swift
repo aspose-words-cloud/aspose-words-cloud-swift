@@ -61,7 +61,7 @@ class FormFieldTests: BaseTestContext {
       requestFormField.setTextInputDefault(textInputDefault: "No name");
 
 
-      let request = UpdateFormFieldRequest(name: remoteFileName, formField: requestFormField, index: 0, nodePath: "sections/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = UpdateFormFieldRequest(name: remoteFileName, index: 0, formField: requestFormField, nodePath: "sections/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().updateFormField(request: request);
     }
 
@@ -80,7 +80,7 @@ class FormFieldTests: BaseTestContext {
       requestFormField.setTextInputDefault(textInputDefault: "No name");
 
 
-      let request = UpdateFormFieldRequest(name: remoteFileName, formField: requestFormField, index: 0, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = UpdateFormFieldRequest(name: remoteFileName, index: 0, formField: requestFormField, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().updateFormField(request: request);
     }
 

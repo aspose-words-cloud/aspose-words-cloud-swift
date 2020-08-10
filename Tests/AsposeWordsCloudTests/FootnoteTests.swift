@@ -146,7 +146,7 @@ class FootnoteTests: BaseTestContext {
       requestFootnoteDto.setText(text: "new text is here");
 
 
-      let request = UpdateFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, index: 0, nodePath: "", folder: remoteDataFolder);
+      let request = UpdateFootnoteRequest(name: remoteFileName, index: 0, footnoteDto: requestFootnoteDto, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().updateFootnote(request: request);
     }
 
@@ -160,7 +160,7 @@ class FootnoteTests: BaseTestContext {
       requestFootnoteDto.setText(text: "new text is here");
 
 
-      let request = UpdateFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, index: 0, folder: remoteDataFolder);
+      let request = UpdateFootnoteRequest(name: remoteFileName, index: 0, footnoteDto: requestFootnoteDto, folder: remoteDataFolder);
       _ = try super.getApi().updateFootnote(request: request);
     }
 }

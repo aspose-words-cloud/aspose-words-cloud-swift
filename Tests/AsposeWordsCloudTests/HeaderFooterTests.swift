@@ -98,7 +98,7 @@ class HeaderFooterTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = InsertHeaderFooterRequest(name: remoteFileName, headerFooterType: "FooterEven", sectionPath: "", folder: remoteDataFolder);
+      let request = InsertHeaderFooterRequest(name: remoteFileName, sectionPath: "", headerFooterType: "FooterEven", folder: remoteDataFolder);
       _ = try super.getApi().insertHeaderFooter(request: request);
     }
 }

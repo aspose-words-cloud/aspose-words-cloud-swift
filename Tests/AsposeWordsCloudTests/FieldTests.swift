@@ -140,7 +140,7 @@ class FieldTests: BaseTestContext {
       requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
 
 
-      let request = UpdateFieldRequest(name: remoteFileName, field: requestField, index: 0, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
+      let request = UpdateFieldRequest(name: remoteFileName, index: 0, field: requestField, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
       _ = try super.getApi().updateField(request: request);
     }
 

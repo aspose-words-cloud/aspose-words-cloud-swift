@@ -71,7 +71,7 @@ class ListsTests: BaseTestContext {
       requestListUpdate.setIsRestartAtEachSection(isRestartAtEachSection: true);
 
 
-      let request = UpdateListRequest(name: remoteFileName, listUpdate: requestListUpdate, listId: 1, folder: remoteDataFolder);
+      let request = UpdateListRequest(name: remoteFileName, listId: 1, listUpdate: requestListUpdate, folder: remoteDataFolder);
       _ = try super.getApi().updateList(request: request);
     }
 
@@ -85,7 +85,7 @@ class ListsTests: BaseTestContext {
       requestListUpdate.setAlignment(alignment: ListLevelUpdate.Alignment._right);
 
 
-      let request = UpdateListLevelRequest(name: remoteFileName, listUpdate: requestListUpdate, listId: 1, listLevel: 1, folder: remoteDataFolder);
+      let request = UpdateListLevelRequest(name: remoteFileName, listId: 1, listUpdate: requestListUpdate, listLevel: 1, folder: remoteDataFolder);
       _ = try super.getApi().updateListLevel(request: request);
     }
 

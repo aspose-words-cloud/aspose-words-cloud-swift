@@ -100,7 +100,7 @@ class TableBorderTests: BaseTestContext {
       requestBorderProperties.setShadow(shadow: true);
 
 
-      let request = UpdateBorderRequest(name: remoteFileName, borderProperties: requestBorderProperties, borderType: "left", nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
+      let request = UpdateBorderRequest(name: remoteFileName, borderType: "left", borderProperties: requestBorderProperties, nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
       _ = try super.getApi().updateBorder(request: request);
     }
 

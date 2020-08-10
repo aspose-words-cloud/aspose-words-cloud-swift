@@ -262,7 +262,7 @@ class ParagraphTests: BaseTestContext {
       requestParagraphFormatDto.setAlignment(alignment: ParagraphFormatUpdate.Alignment._right);
 
 
-      let request = UpdateParagraphFormatRequest(name: remoteFileName, paragraphFormatDto: requestParagraphFormatDto, index: 0, nodePath: "", folder: remoteDataFolder);
+      let request = UpdateParagraphFormatRequest(name: remoteFileName, index: 0, paragraphFormatDto: requestParagraphFormatDto, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().updateParagraphFormat(request: request);
     }
 
@@ -328,7 +328,7 @@ class ParagraphTests: BaseTestContext {
       requestListFormatDto.setListId(listId: 2);
 
 
-      let request = UpdateParagraphListFormatRequest(name: remoteFileName, listFormatDto: requestListFormatDto, index: 0, nodePath: "", folder: remoteDataFolder);
+      let request = UpdateParagraphListFormatRequest(name: remoteFileName, index: 0, listFormatDto: requestListFormatDto, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().updateParagraphListFormat(request: request);
     }
 
@@ -352,7 +352,7 @@ class ParagraphTests: BaseTestContext {
       requestListFormatDto.setListId(listId: 2);
 
 
-      let request = UpdateParagraphListFormatRequest(name: remoteFileName, listFormatDto: requestListFormatDto, index: 0, folder: remoteDataFolder);
+      let request = UpdateParagraphListFormatRequest(name: remoteFileName, index: 0, listFormatDto: requestListFormatDto, folder: remoteDataFolder);
       _ = try super.getApi().updateParagraphListFormat(request: request);
     }
 
@@ -420,7 +420,7 @@ class ParagraphTests: BaseTestContext {
       requestTabStopInsertDto.setPosition(position: 72);
 
 
-      let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, tabStopInsertDto: requestTabStopInsertDto, index: 0, nodePath: "", folder: remoteDataFolder);
+      let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, index: 0, tabStopInsertDto: requestTabStopInsertDto, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
     }
 
@@ -448,7 +448,7 @@ class ParagraphTests: BaseTestContext {
       requestTabStopInsertDto.setPosition(position: 72);
 
 
-      let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, tabStopInsertDto: requestTabStopInsertDto, index: 0, folder: remoteDataFolder);
+      let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, index: 0, tabStopInsertDto: requestTabStopInsertDto, folder: remoteDataFolder);
       _ = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
     }
 

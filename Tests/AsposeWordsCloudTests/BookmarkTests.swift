@@ -72,7 +72,7 @@ class BookmarkTests: BaseTestContext {
       requestBookmarkData.setText(text: "This will be the text for Aspose");
 
 
-      let request = UpdateBookmarkRequest(name: remoteFileName, bookmarkData: requestBookmarkData, bookmarkName: bookmarkName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = UpdateBookmarkRequest(name: remoteFileName, bookmarkName: bookmarkName, bookmarkData: requestBookmarkData, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().updateBookmark(request: request);
     }
 
