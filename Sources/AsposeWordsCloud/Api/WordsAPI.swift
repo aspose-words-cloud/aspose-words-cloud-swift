@@ -262,9 +262,9 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    if (responseError == nil) {
+                    if (error == nil) {
                         do {
-                            let multipartResult = [String : Data]();
+                            let multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryIndex);
 
@@ -897,9 +897,9 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    if (responseError == nil) {
+                    if (error == nil) {
                         do {
-                            let multipartResult = [String : Data]();
+                            let multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryIndex);
 
@@ -9801,9 +9801,9 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    if (responseError == nil) {
+                    if (error == nil) {
                         do {
-                            let multipartResult = [String : Data]();
+                            let multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryIndex);
 
@@ -9983,9 +9983,9 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    if (responseError == nil) {
+                    if (error == nil) {
                         do {
-                            let multipartResult = [String : Data]();
+                            let multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryIndex);
 
@@ -10187,9 +10187,9 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    if (responseError == nil) {
+                    if (error == nil) {
                         do {
-                            let multipartResult = [String : Data]();
+                            let multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryIndex);
 
@@ -12162,9 +12162,9 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    if (responseError == nil) {
+                    if (error == nil) {
                         do {
-                            let multipartResult = [String : Data]();
+                            let multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryIndex);
 
@@ -12847,9 +12847,9 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    if (responseError == nil) {
+                    if (error == nil) {
                         do {
-                            let multipartResult = [String : Data]();
+                            let multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryIndex);
 
@@ -13047,9 +13047,9 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    if (responseError == nil) {
+                    if (error == nil) {
                         do {
-                            let multipartResult = [String : Data]();
+                            let multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryIndex);
 
@@ -14107,9 +14107,9 @@ public class WordsAPI {
                 headers: nil,
                 formParams: formParams,
                 callback: { response, error in
-                    if (responseError == nil) {
+                    if (error == nil) {
                         do {
-                            let multipartResult = [String : Data]();
+                            let multipartResponse = [String : Data]();
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\n")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryIndex);
 
