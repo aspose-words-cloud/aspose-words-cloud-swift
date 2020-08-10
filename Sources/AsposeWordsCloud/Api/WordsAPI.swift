@@ -268,17 +268,17 @@ public class WordsAPI {
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
-                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8)!;
 
                             for part in parts {
                                 let partDataBounds = part.range(of: dispositionSeparator);
-                                if (!partDataBounds.isEmpty)
+                                if (partDataBounds != nil && partDataBounds!.isEmpty == false)
                                 {
-                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds!.lowerBound], as: UTF8.self);
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -917,17 +917,17 @@ public class WordsAPI {
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
-                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8)!;
 
                             for part in parts {
                                 let partDataBounds = part.range(of: dispositionSeparator);
-                                if (!partDataBounds.isEmpty)
+                                if (partDataBounds != nil && partDataBounds!.isEmpty == false)
                                 {
-                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds!.lowerBound], as: UTF8.self);
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -9835,17 +9835,17 @@ public class WordsAPI {
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
-                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8)!;
 
                             for part in parts {
                                 let partDataBounds = part.range(of: dispositionSeparator);
-                                if (!partDataBounds.isEmpty)
+                                if (partDataBounds != nil && partDataBounds!.isEmpty == false)
                                 {
-                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds!.lowerBound], as: UTF8.self);
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -10031,17 +10031,17 @@ public class WordsAPI {
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
-                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8)!;
 
                             for part in parts {
                                 let partDataBounds = part.range(of: dispositionSeparator);
-                                if (!partDataBounds.isEmpty)
+                                if (partDataBounds != nil && partDataBounds!.isEmpty == false)
                                 {
-                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds!.lowerBound], as: UTF8.self);
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -10249,17 +10249,17 @@ public class WordsAPI {
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
-                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8)!;
 
                             for part in parts {
                                 let partDataBounds = part.range(of: dispositionSeparator);
-                                if (!partDataBounds.isEmpty)
+                                if (partDataBounds != nil && partDataBounds!.isEmpty == false)
                                 {
-                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds!.lowerBound], as: UTF8.self);
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -12238,17 +12238,17 @@ public class WordsAPI {
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
-                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8)!;
 
                             for part in parts {
                                 let partDataBounds = part.range(of: dispositionSeparator);
-                                if (!partDataBounds.isEmpty)
+                                if (partDataBounds != nil && partDataBounds!.isEmpty == false)
                                 {
-                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds!.lowerBound], as: UTF8.self);
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -12937,17 +12937,17 @@ public class WordsAPI {
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
-                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8)!;
 
                             for part in parts {
                                 let partDataBounds = part.range(of: dispositionSeparator);
-                                if (!partDataBounds.isEmpty)
+                                if (partDataBounds != nil && partDataBounds!.isEmpty == false)
                                 {
-                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds!.lowerBound], as: UTF8.self);
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -13151,17 +13151,17 @@ public class WordsAPI {
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
-                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8)!;
 
                             for part in parts {
                                 let partDataBounds = part.range(of: dispositionSeparator);
-                                if (!partDataBounds.isEmpty)
+                                if (partDataBounds != nil && partDataBounds!.isEmpty == false)
                                 {
-                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds!.lowerBound], as: UTF8.self);
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
@@ -14225,17 +14225,17 @@ public class WordsAPI {
                             let boundaryEndIndex = response!.firstIndex(of: UInt8("\r")!)!;
                             let boundary = response!.subdata(in: 0..<boundaryEndIndex);
                             let parts = ObjectSerializer.splitData(data: response!, separator: boundary);
-                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8);
+                            let dispositionSeparator = String(describing: "\r\n\r\n").data(using: .utf8)!;
 
                             for part in parts {
                                 let partDataBounds = part.range(of: dispositionSeparator);
-                                if (!partDataBounds.isEmpty)
+                                if (partDataBounds != nil && partDataBounds!.isEmpty == false)
                                 {
-                                    let contentDisposition = String(decoding: part[0..<partDataBounds.lowerBound], as: UTF8.self);
+                                    let contentDisposition = String(decoding: part[0..<partDataBounds!.lowerBound], as: UTF8.self);
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[partName] = part[partDataBounds.upperBound...];
+                                    multipartResponse[partName] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
