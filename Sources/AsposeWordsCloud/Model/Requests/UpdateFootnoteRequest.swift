@@ -30,8 +30,8 @@ import Foundation
 // Request model for updateFootnote operation.
 public class UpdateFootnoteRequest {
     private let name : String;
-    private let footnoteDto : FootnoteUpdate;
     private let index : Int;
+    private let footnoteDto : FootnoteUpdate;
     private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
@@ -43,8 +43,8 @@ public class UpdateFootnoteRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case footnoteDto;
         case index;
+        case footnoteDto;
         case nodePath;
         case folder;
         case storage;
@@ -57,10 +57,10 @@ public class UpdateFootnoteRequest {
     }
 
     // Initializes a new instance of the UpdateFootnoteRequest class.
-    public init(name : String, footnoteDto : FootnoteUpdate, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, index : Int, footnoteDto : FootnoteUpdate, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.footnoteDto = footnoteDto;
         self.index = index;
+        self.footnoteDto = footnoteDto;
         self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
@@ -76,14 +76,14 @@ public class UpdateFootnoteRequest {
         return self.name;
     }
 
-    // Footnote data.
-    public func getFootnoteDto() -> FootnoteUpdate {
-        return self.footnoteDto;
-    }
-
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // Footnote data.
+    public func getFootnoteDto() -> FootnoteUpdate {
+        return self.footnoteDto;
     }
 
     // Path to the node, which contains collection of footnotes.

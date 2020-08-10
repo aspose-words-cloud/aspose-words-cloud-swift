@@ -70,7 +70,7 @@ public class AppendDocumentRequest {
         return self.name;
     }
 
-    // DocumentEntryList with a list of documents to append.
+    // <see cref="DocumentEntryList"/> with a list of documents to append.
     public func getDocumentList() -> DocumentEntryList {
         return self.documentList;
     }

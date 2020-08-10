@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="CompareDocumentRequest.swift">
+ * <copyright company="Aspose" file="DeleteParagraphListFormatOnlineRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,56 +27,54 @@
 
 import Foundation
 
-// Request model for compareDocument operation.
-public class CompareDocumentRequest {
-    private let name : String;
-    private let compareData : CompareData;
-    private let folder : String?;
-    private let storage : String?;
+// Request model for deleteParagraphListFormatOnline operation.
+public class DeleteParagraphListFormatOnlineRequest {
+    private let document : InputStream;
+    private let index : Int;
+    private let nodePath : String?;
     private let loadEncoding : String?;
     private let password : String?;
     private let destFileName : String?;
+    private let revisionAuthor : String?;
+    private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case name;
-        case compareData;
-        case folder;
-        case storage;
+        case document;
+        case index;
+        case nodePath;
         case loadEncoding;
         case password;
         case destFileName;
+        case revisionAuthor;
+        case revisionDateTime;
         case invalidCodingKey;
     }
 
-    // Initializes a new instance of the CompareDocumentRequest class.
-    public init(name : String, compareData : CompareData, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
-        self.name = name;
-        self.compareData = compareData;
-        self.folder = folder;
-        self.storage = storage;
+    // Initializes a new instance of the DeleteParagraphListFormatOnlineRequest class.
+    public init(document : InputStream, index : Int, nodePath : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+        self.document = document;
+        self.index = index;
+        self.nodePath = nodePath;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.destFileName = destFileName;
+        self.revisionAuthor = revisionAuthor;
+        self.revisionDateTime = revisionDateTime;
     }
 
-    // Original document name.
-    public func getName() -> String {
-        return self.name;
+    // The document.
+    public func getDocument() -> InputStream {
+        return self.document;
     }
 
-    // Compare data.
-    public func getCompareData() -> CompareData {
-        return self.compareData;
+    // Object index.
+    public func getIndex() -> Int {
+        return self.index;
     }
 
-    // Original document folder.
-    public func getFolder() -> String? {
-        return self.folder;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
+    // Path to the node which contains paragraphs.
+    public func getNodePath() -> String? {
+        return self.nodePath;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -92,5 +90,15 @@ public class CompareDocumentRequest {
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
     public func getDestFileName() -> String? {
         return self.destFileName;
+    }
+
+    // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+    public func getRevisionAuthor() -> String? {
+        return self.revisionAuthor;
+    }
+
+    // The date and time to use for revisions.
+    public func getRevisionDateTime() -> String? {
+        return self.revisionDateTime;
     }
 }

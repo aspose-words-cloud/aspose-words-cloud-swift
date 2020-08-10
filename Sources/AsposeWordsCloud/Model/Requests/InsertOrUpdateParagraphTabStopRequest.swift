@@ -30,8 +30,8 @@ import Foundation
 // Request model for insertOrUpdateParagraphTabStop operation.
 public class InsertOrUpdateParagraphTabStopRequest {
     private let name : String;
-    private let dto : TabStopInsert;
     private let index : Int;
+    private let tabStopInsertDto : TabStopInsert;
     private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
@@ -41,8 +41,8 @@ public class InsertOrUpdateParagraphTabStopRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case dto;
         case index;
+        case tabStopInsertDto;
         case nodePath;
         case folder;
         case storage;
@@ -53,10 +53,10 @@ public class InsertOrUpdateParagraphTabStopRequest {
     }
 
     // Initializes a new instance of the InsertOrUpdateParagraphTabStopRequest class.
-    public init(name : String, dto : TabStopInsert, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
+    public init(name : String, index : Int, tabStopInsertDto : TabStopInsert, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
-        self.dto = dto;
         self.index = index;
+        self.tabStopInsertDto = tabStopInsertDto;
         self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
@@ -70,14 +70,14 @@ public class InsertOrUpdateParagraphTabStopRequest {
         return self.name;
     }
 
-    // Paragraph tab stop.
-    public func getDto() -> TabStopInsert {
-        return self.dto;
-    }
-
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // TabStopInsert dto.
+    public func getTabStopInsertDto() -> TabStopInsert {
+        return self.tabStopInsertDto;
     }
 
     // Path to the node which contains paragraph.

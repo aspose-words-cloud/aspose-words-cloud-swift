@@ -29,27 +29,43 @@ import Foundation
 
 // Request model for getDocumentFieldNamesOnline operation.
 public class GetDocumentFieldNamesOnlineRequest {
-    private let template : InputStream;
+    private let document : InputStream;
+    private let loadEncoding : String?;
+    private let password : String?;
     private let useNonMergeFields : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case template;
+        case document;
+        case loadEncoding;
+        case password;
         case useNonMergeFields;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetDocumentFieldNamesOnlineRequest class.
-    public init(template : InputStream, useNonMergeFields : Bool? = nil) {
-        self.template = template;
+    public init(document : InputStream, loadEncoding : String? = nil, password : String? = nil, useNonMergeFields : Bool? = nil) {
+        self.document = document;
+        self.loadEncoding = loadEncoding;
+        self.password = password;
         self.useNonMergeFields = useNonMergeFields;
     }
 
-    // File with template.
-    public func getTemplate() -> InputStream {
-        return self.template;
+    // The document.
+    public func getDocument() -> InputStream {
+        return self.document;
     }
 
-    // Use non merge fields or not.
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password for opening an encrypted document.
+    public func getPassword() -> String? {
+        return self.password;
+    }
+
+    // If true, result includes "mustache" field names.
     public func getUseNonMergeFields() -> Bool? {
         return self.useNonMergeFields;
     }

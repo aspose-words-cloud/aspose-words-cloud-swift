@@ -30,8 +30,8 @@ import Foundation
 // Request model for insertHeaderFooter operation.
 public class InsertHeaderFooterRequest {
     private let name : String;
-    private let headerFooterType : String;
     private let sectionPath : String;
+    private let headerFooterType : String;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -42,8 +42,8 @@ public class InsertHeaderFooterRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case headerFooterType;
         case sectionPath;
+        case headerFooterType;
         case folder;
         case storage;
         case loadEncoding;
@@ -55,10 +55,10 @@ public class InsertHeaderFooterRequest {
     }
 
     // Initializes a new instance of the InsertHeaderFooterRequest class.
-    public init(name : String, headerFooterType : String, sectionPath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, sectionPath : String, headerFooterType : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.headerFooterType = headerFooterType;
         self.sectionPath = sectionPath;
+        self.headerFooterType = headerFooterType;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -73,14 +73,14 @@ public class InsertHeaderFooterRequest {
         return self.name;
     }
 
-    // Type of header/footer.
-    public func getHeaderFooterType() -> String {
-        return self.headerFooterType;
-    }
-
     // Path to parent section.
     public func getSectionPath() -> String {
         return self.sectionPath;
+    }
+
+    // Type of header/footer.
+    public func getHeaderFooterType() -> String {
+        return self.headerFooterType;
     }
 
     // Original document folder.

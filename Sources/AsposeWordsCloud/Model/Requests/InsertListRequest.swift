@@ -70,7 +70,7 @@ public class InsertListRequest {
         return self.name;
     }
 
-    // List to insert.
+    // List object.
     public func getListInsert() -> ListInsert {
         return self.listInsert;
     }

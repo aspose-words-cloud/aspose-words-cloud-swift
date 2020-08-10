@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="CompareDocumentRequest.swift">
+ * <copyright company="Aspose" file="SaveAsOnlineRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,56 +27,40 @@
 
 import Foundation
 
-// Request model for compareDocument operation.
-public class CompareDocumentRequest {
-    private let name : String;
-    private let compareData : CompareData;
-    private let folder : String?;
-    private let storage : String?;
+// Request model for saveAsOnline operation.
+public class SaveAsOnlineRequest {
+    private let document : InputStream;
+    private let saveOptionsData : SaveOptionsData;
     private let loadEncoding : String?;
     private let password : String?;
-    private let destFileName : String?;
+    private let fontsLocation : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case name;
-        case compareData;
-        case folder;
-        case storage;
+        case document;
+        case saveOptionsData;
         case loadEncoding;
         case password;
-        case destFileName;
+        case fontsLocation;
         case invalidCodingKey;
     }
 
-    // Initializes a new instance of the CompareDocumentRequest class.
-    public init(name : String, compareData : CompareData, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
-        self.name = name;
-        self.compareData = compareData;
-        self.folder = folder;
-        self.storage = storage;
+    // Initializes a new instance of the SaveAsOnlineRequest class.
+    public init(document : InputStream, saveOptionsData : SaveOptionsData, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
+        self.document = document;
+        self.saveOptionsData = saveOptionsData;
         self.loadEncoding = loadEncoding;
         self.password = password;
-        self.destFileName = destFileName;
+        self.fontsLocation = fontsLocation;
     }
 
-    // Original document name.
-    public func getName() -> String {
-        return self.name;
+    // The document.
+    public func getDocument() -> InputStream {
+        return self.document;
     }
 
-    // Compare data.
-    public func getCompareData() -> CompareData {
-        return self.compareData;
-    }
-
-    // Original document folder.
-    public func getFolder() -> String? {
-        return self.folder;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
+    // Save options.
+    public func getSaveOptionsData() -> SaveOptionsData {
+        return self.saveOptionsData;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -89,8 +73,8 @@ public class CompareDocumentRequest {
         return self.password;
     }
 
-    // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-    public func getDestFileName() -> String? {
-        return self.destFileName;
+    // Folder in filestorage with custom fonts.
+    public func getFontsLocation() -> String? {
+        return self.fontsLocation;
     }
 }

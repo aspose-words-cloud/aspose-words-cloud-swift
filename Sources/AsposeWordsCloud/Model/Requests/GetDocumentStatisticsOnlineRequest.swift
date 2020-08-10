@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="CompareDocumentRequest.swift">
+ * <copyright company="Aspose" file="GetDocumentStatisticsOnlineRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,56 +27,38 @@
 
 import Foundation
 
-// Request model for compareDocument operation.
-public class CompareDocumentRequest {
-    private let name : String;
-    private let compareData : CompareData;
-    private let folder : String?;
-    private let storage : String?;
+// Request model for getDocumentStatisticsOnline operation.
+public class GetDocumentStatisticsOnlineRequest {
+    private let document : InputStream;
     private let loadEncoding : String?;
     private let password : String?;
-    private let destFileName : String?;
+    private let includeComments : Bool?;
+    private let includeFootnotes : Bool?;
+    private let includeTextInShapes : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case name;
-        case compareData;
-        case folder;
-        case storage;
+        case document;
         case loadEncoding;
         case password;
-        case destFileName;
+        case includeComments;
+        case includeFootnotes;
+        case includeTextInShapes;
         case invalidCodingKey;
     }
 
-    // Initializes a new instance of the CompareDocumentRequest class.
-    public init(name : String, compareData : CompareData, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
-        self.name = name;
-        self.compareData = compareData;
-        self.folder = folder;
-        self.storage = storage;
+    // Initializes a new instance of the GetDocumentStatisticsOnlineRequest class.
+    public init(document : InputStream, loadEncoding : String? = nil, password : String? = nil, includeComments : Bool? = nil, includeFootnotes : Bool? = nil, includeTextInShapes : Bool? = nil) {
+        self.document = document;
         self.loadEncoding = loadEncoding;
         self.password = password;
-        self.destFileName = destFileName;
+        self.includeComments = includeComments;
+        self.includeFootnotes = includeFootnotes;
+        self.includeTextInShapes = includeTextInShapes;
     }
 
-    // Original document name.
-    public func getName() -> String {
-        return self.name;
-    }
-
-    // Compare data.
-    public func getCompareData() -> CompareData {
-        return self.compareData;
-    }
-
-    // Original document folder.
-    public func getFolder() -> String? {
-        return self.folder;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
+    // The document.
+    public func getDocument() -> InputStream {
+        return self.document;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -89,8 +71,18 @@ public class CompareDocumentRequest {
         return self.password;
     }
 
-    // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-    public func getDestFileName() -> String? {
-        return self.destFileName;
+    // Support including/excluding comments from the WordCount. Default value is "false".
+    public func getIncludeComments() -> Bool? {
+        return self.includeComments;
+    }
+
+    // Support including/excluding footnotes from the WordCount. Default value is "false".
+    public func getIncludeFootnotes() -> Bool? {
+        return self.includeFootnotes;
+    }
+
+    // Support including/excluding shape's text from the WordCount. Default value is "false".
+    public func getIncludeTextInShapes() -> Bool? {
+        return self.includeTextInShapes;
     }
 }

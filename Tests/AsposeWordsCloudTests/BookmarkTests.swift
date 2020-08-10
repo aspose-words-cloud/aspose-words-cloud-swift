@@ -33,7 +33,8 @@ class BookmarkTests: BaseTestContext {
     static var allTests = [
         ("testGetBookmarks", testGetBookmarks),
         ("testGetBookmarkByName", testGetBookmarkByName),
-        ("testUpdateBookmark", testUpdateBookmark)
+        ("testUpdateBookmark", testUpdateBookmark),
+        ("testUpdateBookmarkOnline", testUpdateBookmarkOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Bookmarks";
@@ -73,5 +74,19 @@ class BookmarkTests: BaseTestContext {
 
       let request = UpdateBookmarkRequest(name: remoteFileName, bookmarkData: requestBookmarkData, bookmarkName: bookmarkName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().updateBookmark(request: request);
+    }
+
+    // Test for updating existed bookmark online.
+    func testUpdateBookmarkOnline() throws {
+      let remoteFileName = "TestUpdateDocumentBookmark.docx";
+      let bookmarkName = "aspose";
+
+      let requestBookmarkData = BookmarkData();
+      requestBookmarkData.setName(name: bookmarkName);
+      requestBookmarkData.setText(text: "This will be the text for Aspose");
+
+
+      let request = UpdateBookmarkOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, bookmarkData: requestBookmarkData, bookmarkName: bookmarkName, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      _ = try super.getApi().updateBookmarkOnline(request: request);
     }
 }

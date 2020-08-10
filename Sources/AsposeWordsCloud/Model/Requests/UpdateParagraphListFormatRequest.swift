@@ -30,8 +30,8 @@ import Foundation
 // Request model for updateParagraphListFormat operation.
 public class UpdateParagraphListFormatRequest {
     private let name : String;
-    private let dto : ListFormatUpdate;
     private let index : Int;
+    private let listFormatDto : ListFormatUpdate;
     private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
@@ -43,8 +43,8 @@ public class UpdateParagraphListFormatRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case dto;
         case index;
+        case listFormatDto;
         case nodePath;
         case folder;
         case storage;
@@ -57,10 +57,10 @@ public class UpdateParagraphListFormatRequest {
     }
 
     // Initializes a new instance of the UpdateParagraphListFormatRequest class.
-    public init(name : String, dto : ListFormatUpdate, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, index : Int, listFormatDto : ListFormatUpdate, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.dto = dto;
         self.index = index;
+        self.listFormatDto = listFormatDto;
         self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
@@ -76,14 +76,14 @@ public class UpdateParagraphListFormatRequest {
         return self.name;
     }
 
-    // Paragraph format object.
-    public func getDto() -> ListFormatUpdate {
-        return self.dto;
-    }
-
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // ListFormatUpdate dto.
+    public func getListFormatDto() -> ListFormatUpdate {
+        return self.listFormatDto;
     }
 
     // Path to the node which contains paragraphs.

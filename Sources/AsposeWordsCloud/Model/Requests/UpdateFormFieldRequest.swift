@@ -30,8 +30,8 @@ import Foundation
 // Request model for updateFormField operation.
 public class UpdateFormFieldRequest {
     private let name : String;
-    private let formField : FormField;
     private let index : Int;
+    private let formField : FormField;
     private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
@@ -43,8 +43,8 @@ public class UpdateFormFieldRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case formField;
         case index;
+        case formField;
         case nodePath;
         case folder;
         case storage;
@@ -57,10 +57,10 @@ public class UpdateFormFieldRequest {
     }
 
     // Initializes a new instance of the UpdateFormFieldRequest class.
-    public init(name : String, formField : FormField, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, index : Int, formField : FormField, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.formField = formField;
         self.index = index;
+        self.formField = formField;
         self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
@@ -76,14 +76,14 @@ public class UpdateFormFieldRequest {
         return self.name;
     }
 
-    // From field data.
-    public func getFormField() -> FormField {
-        return self.formField;
-    }
-
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // From field data.
+    public func getFormField() -> FormField {
+        return self.formField;
     }
 
     // Path to the node that contains collection of formfields.

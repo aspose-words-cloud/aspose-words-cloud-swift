@@ -32,14 +32,17 @@ import XCTest
 class ParagraphTests: BaseTestContext {
     static var allTests = [
         ("testGetDocumentParagraphByIndex", testGetDocumentParagraphByIndex),
+        ("testGetDocumentParagraphOnline", testGetDocumentParagraphOnline),
         ("testGetDocumentParagraphByIndexWithoutNodePath", testGetDocumentParagraphByIndexWithoutNodePath),
         ("testGetDocumentParagraphs", testGetDocumentParagraphs),
+        ("testGetDocumentParagraphsOnline", testGetDocumentParagraphsOnline),
         ("testGetDocumentParagraphsWithoutNodePath", testGetDocumentParagraphsWithoutNodePath),
         ("testGetDocumentParagraphRun", testGetDocumentParagraphRun),
         ("testGetDocumentParagraphRunFont", testGetDocumentParagraphRunFont),
         ("testGetParagraphRuns", testGetParagraphRuns),
         ("testUpdateRunFont", testUpdateRunFont),
         ("testInsertParagraph", testInsertParagraph),
+        ("testInsertParagraphOnline", testInsertParagraphOnline),
         ("testInsertParagraphWithoutNodePath", testInsertParagraphWithoutNodePath),
         ("testRenderParagraph", testRenderParagraph),
         ("testRenderParagraphWithoutNodePath", testRenderParagraphWithoutNodePath),
@@ -47,16 +50,22 @@ class ParagraphTests: BaseTestContext {
         ("testGetParagraphFormatWithoutNodePath", testGetParagraphFormatWithoutNodePath),
         ("testUpdateParagraphFormat", testUpdateParagraphFormat),
         ("testDeleteParagraph", testDeleteParagraph),
+        ("testDeleteParagraphOnline", testDeleteParagraphOnline),
         ("testDeleteParagraphWithoutNodePath", testDeleteParagraphWithoutNodePath),
         ("testGetParagraphListFormat", testGetParagraphListFormat),
+        ("testGetParagraphListFormatOnline", testGetParagraphListFormatOnline),
         ("testGetParagraphListFormatWithoutNodePath", testGetParagraphListFormatWithoutNodePath),
         ("testUpdateParagraphListFormat", testUpdateParagraphListFormat),
+        ("testUpdateParagraphListFormatOnline", testUpdateParagraphListFormatOnline),
         ("testUpdateParagraphListFormatWithoutNodePath", testUpdateParagraphListFormatWithoutNodePath),
         ("testDeleteParagraphListFormat", testDeleteParagraphListFormat),
+        ("testDeleteParagraphListFormatOnline", testDeleteParagraphListFormatOnline),
         ("testDeleteParagraphListFormatWithoutNodePath", testDeleteParagraphListFormatWithoutNodePath),
         ("testGetParagraphTabStops", testGetParagraphTabStops),
+        ("testGetParagraphTabStopsOnline", testGetParagraphTabStopsOnline),
         ("testGetParagraphTabStopsWithoutNodePath", testGetParagraphTabStopsWithoutNodePath),
         ("testInsertParagraphTabStops", testInsertParagraphTabStops),
+        ("testInsertParagraphTabStopsOnline", testInsertParagraphTabStopsOnline),
         ("testInsertParagraphTabStopsWithoutNodePath", testInsertParagraphTabStopsWithoutNodePath),
         ("testDeleteAllParagraphTabStops", testDeleteAllParagraphTabStops),
         ("testDeleteAllParagraphTabStopsWithoutNodePath", testDeleteAllParagraphTabStopsWithoutNodePath),
@@ -79,6 +88,12 @@ class ParagraphTests: BaseTestContext {
       _ = try super.getApi().getParagraph(request: request);
     }
 
+    // Test for getting paragraph online.
+    func testGetDocumentParagraphOnline() throws {
+      let request = GetParagraphOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, nodePath: "sections/0");
+      _ = try super.getApi().getParagraphOnline(request: request);
+    }
+
     // Test for getting paragraph without node path.
     func testGetDocumentParagraphByIndexWithoutNodePath() throws {
       let remoteFileName = "TestGetDocumentParagraphByIndexWithoutNodePath.docx";
@@ -97,6 +112,12 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphsRequest(name: remoteFileName, nodePath: "sections/0", folder: remoteDataFolder);
       _ = try super.getApi().getParagraphs(request: request);
+    }
+
+    // Test for getting all paragraphs online.
+    func testGetDocumentParagraphsOnline() throws {
+      let request = GetParagraphsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, nodePath: "sections/0");
+      _ = try super.getApi().getParagraphsOnline(request: request);
     }
 
     // Test for getting all paragraphs without node path.
@@ -167,6 +188,16 @@ class ParagraphTests: BaseTestContext {
       _ = try super.getApi().insertParagraph(request: request);
     }
 
+    // Test for adding paragraph online.
+    func testInsertParagraphOnline() throws {
+      let requestParagraph = ParagraphInsert();
+      requestParagraph.setText(text: "This is a new paragraph for your document");
+
+
+      let request = InsertParagraphOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraph: requestParagraph, nodePath: "sections/0");
+      _ = try super.getApi().insertParagraphOnline(request: request);
+    }
+
     // Test for adding paragraph without node path.
     func testInsertParagraphWithoutNodePath() throws {
       let remoteFileName = "TestInsertParagraphWithoutNodePath.docx";
@@ -227,11 +258,11 @@ class ParagraphTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestDto = ParagraphFormatUpdate();
-      requestDto.setAlignment(alignment: ParagraphFormatUpdate.Alignment._right);
+      let requestParagraphFormatDto = ParagraphFormatUpdate();
+      requestParagraphFormatDto.setAlignment(alignment: ParagraphFormatUpdate.Alignment._right);
 
 
-      let request = UpdateParagraphFormatRequest(name: remoteFileName, dto: requestDto, index: 0, nodePath: "", folder: remoteDataFolder);
+      let request = UpdateParagraphFormatRequest(name: remoteFileName, paragraphFormatDto: requestParagraphFormatDto, index: 0, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().updateParagraphFormat(request: request);
     }
 
@@ -243,6 +274,12 @@ class ParagraphTests: BaseTestContext {
 
       let request = DeleteParagraphRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       try super.getApi().deleteParagraph(request: request);
+    }
+
+    // Test for deleting  a paragraph online.
+    func testDeleteParagraphOnline() throws {
+      let request = DeleteParagraphOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, nodePath: "");
+      _ = try super.getApi().deleteParagraphOnline(request: request);
     }
 
     // Test for deleting  a paragraph without node path.
@@ -265,6 +302,12 @@ class ParagraphTests: BaseTestContext {
       _ = try super.getApi().getParagraphListFormat(request: request);
     }
 
+    // Test for getting paragraph list format online.
+    func testGetParagraphListFormatOnline() throws {
+      let request = GetParagraphListFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(listFolder + "/ParagraphGetListFormat.doc", isDirectory: false))!, index: 0, nodePath: "");
+      _ = try super.getApi().getParagraphListFormatOnline(request: request);
+    }
+
     // Test for getting paragraph list format without node path.
     func testGetParagraphListFormatWithoutNodePath() throws {
       let remoteFileName = "TestParagraphGetListFormatWithoutNodePath.docx";
@@ -281,12 +324,22 @@ class ParagraphTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(listFolder + "/ParagraphUpdateListFormat.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestDto = ListFormatUpdate();
-      requestDto.setListId(listId: 2);
+      let requestListFormatDto = ListFormatUpdate();
+      requestListFormatDto.setListId(listId: 2);
 
 
-      let request = UpdateParagraphListFormatRequest(name: remoteFileName, dto: requestDto, index: 0, nodePath: "", folder: remoteDataFolder);
+      let request = UpdateParagraphListFormatRequest(name: remoteFileName, listFormatDto: requestListFormatDto, index: 0, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().updateParagraphListFormat(request: request);
+    }
+
+    // Test for updating paragraph list format online.
+    func testUpdateParagraphListFormatOnline() throws {
+      let requestListFormatDto = ListFormatUpdate();
+      requestListFormatDto.setListId(listId: 2);
+
+
+      let request = UpdateParagraphListFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(listFolder + "/ParagraphUpdateListFormat.doc", isDirectory: false))!, listFormatDto: requestListFormatDto, index: 0, nodePath: "");
+      _ = try super.getApi().updateParagraphListFormatOnline(request: request);
     }
 
     // Test for updating paragraph list format without node path.
@@ -295,11 +348,11 @@ class ParagraphTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(listFolder + "/ParagraphUpdateListFormat.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestDto = ListFormatUpdate();
-      requestDto.setListId(listId: 2);
+      let requestListFormatDto = ListFormatUpdate();
+      requestListFormatDto.setListId(listId: 2);
 
 
-      let request = UpdateParagraphListFormatRequest(name: remoteFileName, dto: requestDto, index: 0, folder: remoteDataFolder);
+      let request = UpdateParagraphListFormatRequest(name: remoteFileName, listFormatDto: requestListFormatDto, index: 0, folder: remoteDataFolder);
       _ = try super.getApi().updateParagraphListFormat(request: request);
     }
 
@@ -311,6 +364,12 @@ class ParagraphTests: BaseTestContext {
 
       let request = DeleteParagraphListFormatRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().deleteParagraphListFormat(request: request);
+    }
+
+    // Test for deleting paragraph list format online.
+    func testDeleteParagraphListFormatOnline() throws {
+      let request = DeleteParagraphListFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(listFolder + "/ParagraphDeleteListFormat.doc", isDirectory: false))!, index: 0, nodePath: "");
+      _ = try super.getApi().deleteParagraphListFormatOnline(request: request);
     }
 
     // Test for deleting paragraph list format without node path.
@@ -333,6 +392,12 @@ class ParagraphTests: BaseTestContext {
       _ = try super.getApi().getParagraphTabStops(request: request);
     }
 
+    // Test for getting paragraph tab stops online.
+    func testGetParagraphTabStopsOnline() throws {
+      let request = GetParagraphTabStopsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false))!, index: 0, nodePath: "");
+      _ = try super.getApi().getParagraphTabStopsOnline(request: request);
+    }
+
     // Test for getting paragraph tab stops without node path.
     func testGetParagraphTabStopsWithoutNodePath() throws {
       let remoteFileName = "TestGetParagraphTabStopsWithoutNodePath.docx";
@@ -349,14 +414,26 @@ class ParagraphTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestDto = TabStopInsert();
-      requestDto.setAlignment(alignment: TabStopInsert.Alignment._left);
-      requestDto.setLeader(leader: TabStopInsert.Leader._none);
-      requestDto.setPosition(position: 72);
+      let requestTabStopInsertDto = TabStopInsert();
+      requestTabStopInsertDto.setAlignment(alignment: TabStopInsert.Alignment._left);
+      requestTabStopInsertDto.setLeader(leader: TabStopInsert.Leader._none);
+      requestTabStopInsertDto.setPosition(position: 72);
 
 
-      let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, dto: requestDto, index: 0, nodePath: "", folder: remoteDataFolder);
+      let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, tabStopInsertDto: requestTabStopInsertDto, index: 0, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
+    }
+
+    // Test for inserting paragraph tab stop online.
+    func testInsertParagraphTabStopsOnline() throws {
+      let requestTabStopInsertDto = TabStopInsert();
+      requestTabStopInsertDto.setAlignment(alignment: TabStopInsert.Alignment._left);
+      requestTabStopInsertDto.setLeader(leader: TabStopInsert.Leader._none);
+      requestTabStopInsertDto.setPosition(position: 72);
+
+
+      let request = InsertOrUpdateParagraphTabStopOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false))!, tabStopInsertDto: requestTabStopInsertDto, index: 0, nodePath: "");
+      _ = try super.getApi().insertOrUpdateParagraphTabStopOnline(request: request);
     }
 
     // Test for inserting paragraph tab stop without node path.
@@ -365,13 +442,13 @@ class ParagraphTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestDto = TabStopInsert();
-      requestDto.setAlignment(alignment: TabStopInsert.Alignment._left);
-      requestDto.setLeader(leader: TabStopInsert.Leader._none);
-      requestDto.setPosition(position: 72);
+      let requestTabStopInsertDto = TabStopInsert();
+      requestTabStopInsertDto.setAlignment(alignment: TabStopInsert.Alignment._left);
+      requestTabStopInsertDto.setLeader(leader: TabStopInsert.Leader._none);
+      requestTabStopInsertDto.setPosition(position: 72);
 
 
-      let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, dto: requestDto, index: 0, folder: remoteDataFolder);
+      let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, tabStopInsertDto: requestTabStopInsertDto, index: 0, folder: remoteDataFolder);
       _ = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
     }
 

@@ -29,7 +29,7 @@ import Foundation
 
 // Request model for classifyDocument operation.
 public class ClassifyDocumentRequest {
-    private let documentName : String;
+    private let name : String;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -38,7 +38,7 @@ public class ClassifyDocumentRequest {
     private let taxonomy : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case documentName;
+        case name;
         case folder;
         case storage;
         case loadEncoding;
@@ -49,8 +49,8 @@ public class ClassifyDocumentRequest {
     }
 
     // Initializes a new instance of the ClassifyDocumentRequest class.
-    public init(documentName : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, bestClassesCount : String? = nil, taxonomy : String? = nil) {
-        self.documentName = documentName;
+    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, bestClassesCount : String? = nil, taxonomy : String? = nil) {
+        self.name = name;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -60,8 +60,8 @@ public class ClassifyDocumentRequest {
     }
 
     // The document name.
-    public func getDocumentName() -> String {
-        return self.documentName;
+    public func getName() -> String {
+        return self.name;
     }
 
     // Original document folder.

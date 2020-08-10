@@ -35,7 +35,8 @@ class TableBorderTests: BaseTestContext {
         ("testGetBorder", testGetBorder),
         ("testDeleteBorders", testDeleteBorders),
         ("testDeleteBorder", testDeleteBorder),
-        ("testUpdateBorder", testUpdateBorder)
+        ("testUpdateBorder", testUpdateBorder),
+        ("testUpdateBorderOnline", testUpdateBorderOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Tables";
@@ -101,5 +102,23 @@ class TableBorderTests: BaseTestContext {
 
       let request = UpdateBorderRequest(name: remoteFileName, borderProperties: requestBorderProperties, borderType: "left", nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
       _ = try super.getApi().updateBorder(request: request);
+    }
+
+    // Test for updating border online.
+    func testUpdateBorderOnline() throws {
+      let requestBorderPropertiesColor = XmlColor();
+      requestBorderPropertiesColor.setAlpha(alpha: 2);
+
+      let requestBorderProperties = Border();
+      requestBorderProperties.setBorderType(borderType: Border.BorderType._left);
+      requestBorderProperties.setColor(color: requestBorderPropertiesColor);
+      requestBorderProperties.setDistanceFromText(distanceFromText: 6);
+      requestBorderProperties.setLineStyle(lineStyle: Border.LineStyle.dashDotStroker);
+      requestBorderProperties.setLineWidth(lineWidth: 2);
+      requestBorderProperties.setShadow(shadow: true);
+
+
+      let request = UpdateBorderOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, borderProperties: requestBorderProperties, borderType: "left", nodePath: "tables/1/rows/0/cells/0");
+      _ = try super.getApi().updateBorderOnline(request: request);
     }
 }

@@ -78,7 +78,7 @@ public class UpdateCommentRequest {
         return self.commentIndex;
     }
 
-    // The comment data.
+    // Comment data.
     public func getComment() -> CommentUpdate {
         return self.comment;
     }

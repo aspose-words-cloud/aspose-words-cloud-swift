@@ -30,8 +30,8 @@ import Foundation
 // Request model for updateBorder operation.
 public class UpdateBorderRequest {
     private let name : String;
-    private let borderProperties : Border;
     private let borderType : String;
+    private let borderProperties : Border;
     private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
@@ -43,8 +43,8 @@ public class UpdateBorderRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case borderProperties;
         case borderType;
+        case borderProperties;
         case nodePath;
         case folder;
         case storage;
@@ -57,10 +57,10 @@ public class UpdateBorderRequest {
     }
 
     // Initializes a new instance of the UpdateBorderRequest class.
-    public init(name : String, borderProperties : Border, borderType : String, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, borderType : String, borderProperties : Border, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.borderProperties = borderProperties;
         self.borderType = borderType;
+        self.borderProperties = borderProperties;
         self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
@@ -76,14 +76,14 @@ public class UpdateBorderRequest {
         return self.name;
     }
 
-    // Border properties.
-    public func getBorderProperties() -> Border {
-        return self.borderProperties;
-    }
-
     // Border type.
     public func getBorderType() -> String {
         return self.borderType;
+    }
+
+    // Border properties.
+    public func getBorderProperties() -> Border {
+        return self.borderProperties;
     }
 
     // Path to the node with border(node should be paragraph, cell or row).

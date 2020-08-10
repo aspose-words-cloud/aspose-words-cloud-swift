@@ -39,6 +39,7 @@ class FieldTests: BaseTestContext {
         ("testInsertFieldWithoutNodePath", testInsertFieldWithoutNodePath),
         ("testUpdateField", testUpdateField),
         ("testInsertPageNumbers", testInsertPageNumbers),
+        ("testInsertPageNumbersOnline", testInsertPageNumbersOnline),
         ("testDeleteField", testDeleteField),
         ("testDeleteFieldWithoutNodePath", testDeleteFieldWithoutNodePath),
         ("testDeleteParagraphFields", testDeleteParagraphFields),
@@ -157,6 +158,20 @@ class FieldTests: BaseTestContext {
 
       let request = InsertPageNumbersRequest(name: remoteFileName, pageNumber: requestPageNumber, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().insertPageNumbers(request: request);
+    }
+
+    // Test for inserting page numbers field online.
+    func testInsertPageNumbersOnline() throws {
+      let localFileName = "test_multi_pages.docx";
+      let remoteFileName = "InsertPageNumbersOnlineTest.docx";
+
+      let requestPageNumber = PageNumber();
+      requestPageNumber.setAlignment(alignment: "center");
+      requestPageNumber.setFormat(format: "{PAGE} of {NUMPAGES}");
+
+
+      let request = InsertPageNumbersOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/" + localFileName, isDirectory: false))!, pageNumber: requestPageNumber, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      _ = try super.getApi().insertPageNumbersOnline(request: request);
     }
 
     // Test for deleting field.

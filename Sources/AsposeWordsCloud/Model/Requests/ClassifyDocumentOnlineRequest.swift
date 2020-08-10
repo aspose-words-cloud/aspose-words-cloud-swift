@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="CompareDocumentRequest.swift">
+ * <copyright company="Aspose" file="ClassifyDocumentOnlineRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,56 +27,35 @@
 
 import Foundation
 
-// Request model for compareDocument operation.
-public class CompareDocumentRequest {
-    private let name : String;
-    private let compareData : CompareData;
-    private let folder : String?;
-    private let storage : String?;
+// Request model for classifyDocumentOnline operation.
+public class ClassifyDocumentOnlineRequest {
+    private let document : InputStream;
     private let loadEncoding : String?;
     private let password : String?;
-    private let destFileName : String?;
+    private let bestClassesCount : String?;
+    private let taxonomy : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case name;
-        case compareData;
-        case folder;
-        case storage;
+        case document;
         case loadEncoding;
         case password;
-        case destFileName;
+        case bestClassesCount;
+        case taxonomy;
         case invalidCodingKey;
     }
 
-    // Initializes a new instance of the CompareDocumentRequest class.
-    public init(name : String, compareData : CompareData, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
-        self.name = name;
-        self.compareData = compareData;
-        self.folder = folder;
-        self.storage = storage;
+    // Initializes a new instance of the ClassifyDocumentOnlineRequest class.
+    public init(document : InputStream, loadEncoding : String? = nil, password : String? = nil, bestClassesCount : String? = nil, taxonomy : String? = nil) {
+        self.document = document;
         self.loadEncoding = loadEncoding;
         self.password = password;
-        self.destFileName = destFileName;
+        self.bestClassesCount = bestClassesCount;
+        self.taxonomy = taxonomy;
     }
 
-    // Original document name.
-    public func getName() -> String {
-        return self.name;
-    }
-
-    // Compare data.
-    public func getCompareData() -> CompareData {
-        return self.compareData;
-    }
-
-    // Original document folder.
-    public func getFolder() -> String? {
-        return self.folder;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
+    // The document.
+    public func getDocument() -> InputStream {
+        return self.document;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -89,8 +68,13 @@ public class CompareDocumentRequest {
         return self.password;
     }
 
-    // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-    public func getDestFileName() -> String? {
-        return self.destFileName;
+    // Count of the best classes to return.
+    public func getBestClassesCount() -> String? {
+        return self.bestClassesCount;
+    }
+
+    // Taxonomy to use for classification return.
+    public func getTaxonomy() -> String? {
+        return self.taxonomy;
     }
 }

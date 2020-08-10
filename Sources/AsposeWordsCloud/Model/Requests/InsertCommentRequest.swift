@@ -70,7 +70,7 @@ public class InsertCommentRequest {
         return self.name;
     }
 
-    // The comment data.
+    // Comment data.
     public func getComment() -> CommentInsert {
         return self.comment;
     }

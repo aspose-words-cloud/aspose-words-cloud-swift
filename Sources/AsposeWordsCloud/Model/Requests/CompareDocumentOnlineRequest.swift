@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="CompareDocumentRequest.swift">
+ * <copyright company="Aspose" file="CompareDocumentOnlineRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,56 +27,40 @@
 
 import Foundation
 
-// Request model for compareDocument operation.
-public class CompareDocumentRequest {
-    private let name : String;
+// Request model for compareDocumentOnline operation.
+public class CompareDocumentOnlineRequest {
+    private let document : InputStream;
     private let compareData : CompareData;
-    private let folder : String?;
-    private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
     private let destFileName : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case name;
+        case document;
         case compareData;
-        case folder;
-        case storage;
         case loadEncoding;
         case password;
         case destFileName;
         case invalidCodingKey;
     }
 
-    // Initializes a new instance of the CompareDocumentRequest class.
-    public init(name : String, compareData : CompareData, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
-        self.name = name;
+    // Initializes a new instance of the CompareDocumentOnlineRequest class.
+    public init(document : InputStream, compareData : CompareData, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
+        self.document = document;
         self.compareData = compareData;
-        self.folder = folder;
-        self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.destFileName = destFileName;
     }
 
-    // Original document name.
-    public func getName() -> String {
-        return self.name;
+    // The document.
+    public func getDocument() -> InputStream {
+        return self.document;
     }
 
     // Compare data.
     public func getCompareData() -> CompareData {
         return self.compareData;
-    }
-
-    // Original document folder.
-    public func getFolder() -> String? {
-        return self.folder;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.

@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="DocumentStatisticsTests.swift">
+ * <copyright company="Aspose" file="UpdateParagraphListFormatOnlineResponse.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -25,32 +25,31 @@
  * --------------------------------------------------------------------------------
  */
 
-import XCTest
-@testable import AsposeWordsCloud
+import Foundation
 
-// Example of how to get document statistics.
-class DocumentStatisticsTests: BaseTestContext {
-    static var allTests = [
-        ("testGetDocumentStatistics", testGetDocumentStatistics),
-        ("testGetDocumentStatisticsOnline", testGetDocumentStatisticsOnline)
-    ];
+// Response model for updateParagraphListFormatOnline operation.
+public class UpdateParagraphListFormatOnlineResponse {
+    private let model : ParagraphListFormatResponse;
+    private let document : InputStream;
 
-    let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/Statistics";
-    let localFile = "Common/test_multi_pages.docx";
-
-    // Test for document classification.
-    func testGetDocumentStatistics() throws {
-      let remoteFileName = "TestGetDocumentStatistics.docx";
-
-      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
-
-      let request = GetDocumentStatisticsRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentStatistics(request: request);
+    private enum CodingKeys: String, CodingKey {
+        case model;
+        case document;
+        case invalidCodingKey;
     }
 
-    // Test for document classification online.
-    func testGetDocumentStatisticsOnline() throws {
-      let request = GetDocumentStatisticsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
-      _ = try super.getApi().getDocumentStatisticsOnline(request: request);
+    // Initializes a new instance of the UpdateParagraphListFormatOnlineResponse class.
+    public init(model : ParagraphListFormatResponse, document : InputStream) {
+        self.model = model;
+        self.document = document;
+    }
+
+    public func getModel() -> ParagraphListFormatResponse {
+        return self.model;
+    }
+
+    // The document.
+    public func getDocument() -> InputStream {
+        return self.document;
     }
 }

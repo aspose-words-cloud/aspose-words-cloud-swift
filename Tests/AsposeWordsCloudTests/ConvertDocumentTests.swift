@@ -32,6 +32,7 @@ import XCTest
 class ConvertDocumentTests: BaseTestContext {
     static var allTests = [
         ("testSaveAs", testSaveAs),
+        ("testSaveAsOnline", testSaveAsOnline),
         ("testSaveAsDocx", testSaveAsDocx),
         ("testSaveAsTiff", testSaveAsTiff),
         ("testConvertDocument", testConvertDocument)
@@ -54,6 +55,19 @@ class ConvertDocumentTests: BaseTestContext {
 
       let request = SaveAsRequest(name: remoteName, saveOptionsData: requestSaveOptionsData, folder: remoteFolder);
       _ = try super.getApi().saveAs(request: request);
+    }
+
+    // Test for converting document online to one of the available formats.
+    func testSaveAsOnline() throws {
+      let localName = "test_multi_pages.docx";
+
+      let requestSaveOptionsData = SaveOptionsData();
+      requestSaveOptionsData.setSaveFormat(saveFormat: "pdf");
+      requestSaveOptionsData.setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/TestSaveAs.pdf");
+
+
+      let request = SaveAsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/" + localName, isDirectory: false))!, saveOptionsData: requestSaveOptionsData);
+      _ = try super.getApi().saveAsOnline(request: request);
     }
 
     // Test for converting document to one of the available formats.
