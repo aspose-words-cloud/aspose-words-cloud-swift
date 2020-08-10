@@ -30,7 +30,7 @@ import Foundation
 // Response model for compareDocumentOnline operation.
 public class CompareDocumentOnlineResponse {
     private let model : DocumentResponse;
-    private let document : InputStream;
+    private let document : Data;
 
     private enum CodingKeys: String, CodingKey {
         case model;
@@ -39,7 +39,7 @@ public class CompareDocumentOnlineResponse {
     }
 
     // Initializes a new instance of the CompareDocumentOnlineResponse class.
-    public init(model : DocumentResponse, document : InputStream) {
+    public init(model : DocumentResponse, document : Data) {
         self.model = model;
         self.document = document;
     }
@@ -49,7 +49,7 @@ public class CompareDocumentOnlineResponse {
     }
 
     // The document.
-    public func getDocument() -> InputStream {
+    public func getDocument() -> Data {
         return self.document;
     }
 }

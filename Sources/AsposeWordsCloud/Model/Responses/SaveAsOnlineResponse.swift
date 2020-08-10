@@ -30,7 +30,7 @@ import Foundation
 // Response model for saveAsOnline operation.
 public class SaveAsOnlineResponse {
     private let model : SaveResponse;
-    private let document : InputStream;
+    private let document : Data;
 
     private enum CodingKeys: String, CodingKey {
         case model;
@@ -39,7 +39,7 @@ public class SaveAsOnlineResponse {
     }
 
     // Initializes a new instance of the SaveAsOnlineResponse class.
-    public init(model : SaveResponse, document : InputStream) {
+    public init(model : SaveResponse, document : Data) {
         self.model = model;
         self.document = document;
     }
@@ -49,7 +49,7 @@ public class SaveAsOnlineResponse {
     }
 
     // The document.
-    public func getDocument() -> InputStream {
+    public func getDocument() -> Data {
         return self.document;
     }
 }

@@ -30,7 +30,7 @@ import Foundation
 // Response model for updateBookmarkOnline operation.
 public class UpdateBookmarkOnlineResponse {
     private let model : BookmarkResponse;
-    private let document : InputStream;
+    private let document : Data;
 
     private enum CodingKeys: String, CodingKey {
         case model;
@@ -39,7 +39,7 @@ public class UpdateBookmarkOnlineResponse {
     }
 
     // Initializes a new instance of the UpdateBookmarkOnlineResponse class.
-    public init(model : BookmarkResponse, document : InputStream) {
+    public init(model : BookmarkResponse, document : Data) {
         self.model = model;
         self.document = document;
     }
@@ -49,7 +49,7 @@ public class UpdateBookmarkOnlineResponse {
     }
 
     // The document.
-    public func getDocument() -> InputStream {
+    public func getDocument() -> Data {
         return self.document;
     }
 }

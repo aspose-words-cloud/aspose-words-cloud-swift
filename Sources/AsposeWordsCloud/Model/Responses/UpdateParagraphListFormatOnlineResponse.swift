@@ -30,7 +30,7 @@ import Foundation
 // Response model for updateParagraphListFormatOnline operation.
 public class UpdateParagraphListFormatOnlineResponse {
     private let model : ParagraphListFormatResponse;
-    private let document : InputStream;
+    private let document : Data;
 
     private enum CodingKeys: String, CodingKey {
         case model;
@@ -39,7 +39,7 @@ public class UpdateParagraphListFormatOnlineResponse {
     }
 
     // Initializes a new instance of the UpdateParagraphListFormatOnlineResponse class.
-    public init(model : ParagraphListFormatResponse, document : InputStream) {
+    public init(model : ParagraphListFormatResponse, document : Data) {
         self.model = model;
         self.document = document;
     }
@@ -49,7 +49,7 @@ public class UpdateParagraphListFormatOnlineResponse {
     }
 
     // The document.
-    public func getDocument() -> InputStream {
+    public func getDocument() -> Data {
         return self.document;
     }
 }

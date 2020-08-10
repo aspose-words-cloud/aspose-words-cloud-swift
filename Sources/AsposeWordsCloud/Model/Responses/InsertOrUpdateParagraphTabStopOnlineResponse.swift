@@ -30,7 +30,7 @@ import Foundation
 // Response model for insertOrUpdateParagraphTabStopOnline operation.
 public class InsertOrUpdateParagraphTabStopOnlineResponse {
     private let model : TabStopsResponse;
-    private let document : InputStream;
+    private let document : Data;
 
     private enum CodingKeys: String, CodingKey {
         case model;
@@ -39,7 +39,7 @@ public class InsertOrUpdateParagraphTabStopOnlineResponse {
     }
 
     // Initializes a new instance of the InsertOrUpdateParagraphTabStopOnlineResponse class.
-    public init(model : TabStopsResponse, document : InputStream) {
+    public init(model : TabStopsResponse, document : Data) {
         self.model = model;
         self.document = document;
     }
@@ -49,7 +49,7 @@ public class InsertOrUpdateParagraphTabStopOnlineResponse {
     }
 
     // The document.
-    public func getDocument() -> InputStream {
+    public func getDocument() -> Data {
         return self.document;
     }
 }
