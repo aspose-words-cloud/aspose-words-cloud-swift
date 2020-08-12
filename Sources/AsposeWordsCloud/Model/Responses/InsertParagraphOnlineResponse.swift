@@ -29,8 +29,8 @@ import Foundation
 
 // Response model for insertParagraphOnline operation.
 public class InsertParagraphOnlineResponse {
-    private let model : ParagraphResponse;
-    private let document : Data;
+    private let model : ParagraphResponse?;
+    private let document : Data?;
 
     private enum CodingKeys: String, CodingKey {
         case model;
@@ -39,17 +39,17 @@ public class InsertParagraphOnlineResponse {
     }
 
     // Initializes a new instance of the InsertParagraphOnlineResponse class.
-    public init(model : ParagraphResponse, document : Data) {
+    public init(model : ParagraphResponse?, document : Data?) {
         self.model = model;
         self.document = document;
     }
 
-    public func getModel() -> ParagraphResponse {
+    public func getModel() -> ParagraphResponse? {
         return self.model;
     }
 
     // The document.
-    public func getDocument() -> Data {
+    public func getDocument() -> Data? {
         return self.document;
     }
 }

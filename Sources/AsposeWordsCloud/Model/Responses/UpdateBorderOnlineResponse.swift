@@ -29,8 +29,8 @@ import Foundation
 
 // Response model for updateBorderOnline operation.
 public class UpdateBorderOnlineResponse {
-    private let model : BorderResponse;
-    private let document : Data;
+    private let model : BorderResponse?;
+    private let document : Data?;
 
     private enum CodingKeys: String, CodingKey {
         case model;
@@ -39,17 +39,17 @@ public class UpdateBorderOnlineResponse {
     }
 
     // Initializes a new instance of the UpdateBorderOnlineResponse class.
-    public init(model : BorderResponse, document : Data) {
+    public init(model : BorderResponse?, document : Data?) {
         self.model = model;
         self.document = document;
     }
 
-    public func getModel() -> BorderResponse {
+    public func getModel() -> BorderResponse? {
         return self.model;
     }
 
     // The document.
-    public func getDocument() -> Data {
+    public func getDocument() -> Data? {
         return self.document;
     }
 }

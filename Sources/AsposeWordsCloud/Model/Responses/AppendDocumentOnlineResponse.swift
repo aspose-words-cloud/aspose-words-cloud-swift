@@ -29,8 +29,8 @@ import Foundation
 
 // Response model for appendDocumentOnline operation.
 public class AppendDocumentOnlineResponse {
-    private let model : DocumentResponse;
-    private let document : Data;
+    private let model : DocumentResponse?;
+    private let document : Data?;
 
     private enum CodingKeys: String, CodingKey {
         case model;
@@ -39,17 +39,17 @@ public class AppendDocumentOnlineResponse {
     }
 
     // Initializes a new instance of the AppendDocumentOnlineResponse class.
-    public init(model : DocumentResponse, document : Data) {
+    public init(model : DocumentResponse?, document : Data?) {
         self.model = model;
         self.document = document;
     }
 
-    public func getModel() -> DocumentResponse {
+    public func getModel() -> DocumentResponse? {
         return self.model;
     }
 
     // The document.
-    public func getDocument() -> Data {
+    public func getDocument() -> Data? {
         return self.document;
     }
 }

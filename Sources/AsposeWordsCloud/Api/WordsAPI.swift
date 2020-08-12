@@ -278,13 +278,13 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName).lowercased()] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
                             let responseObject = AppendDocumentOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["Model"]!),
-                                document: multipartResponse["Document"]!
+                                model: (multipartResponse["model"] != nil) ? (try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["model"]!)) : nil,
+                                document: multipartResponse["document"]
                             );
 
                             callback(responseObject, error);
@@ -927,13 +927,13 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName).lowercased()] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
                             let responseObject = CompareDocumentOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["Model"]!),
-                                document: multipartResponse["Document"]!
+                                model: (multipartResponse["model"] != nil) ? (try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["model"]!)) : nil,
+                                document: multipartResponse["document"]
                             );
 
                             callback(responseObject, error);
@@ -9845,13 +9845,13 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName).lowercased()] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
                             let responseObject = InsertOrUpdateParagraphTabStopOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: TabStopsResponse.self, from: multipartResponse["Model"]!),
-                                document: multipartResponse["Document"]!
+                                model: (multipartResponse["model"] != nil) ? (try ObjectSerializer.deserialize(type: TabStopsResponse.self, from: multipartResponse["model"]!)) : nil,
+                                document: multipartResponse["document"]
                             );
 
                             callback(responseObject, error);
@@ -10041,13 +10041,13 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName).lowercased()] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
                             let responseObject = InsertPageNumbersOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["Model"]!),
-                                document: multipartResponse["Document"]!
+                                model: (multipartResponse["model"] != nil) ? (try ObjectSerializer.deserialize(type: DocumentResponse.self, from: multipartResponse["model"]!)) : nil,
+                                document: multipartResponse["document"]
                             );
 
                             callback(responseObject, error);
@@ -10259,13 +10259,13 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName).lowercased()] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
                             let responseObject = InsertParagraphOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: ParagraphResponse.self, from: multipartResponse["Model"]!),
-                                document: multipartResponse["Document"]!
+                                model: (multipartResponse["model"] != nil) ? (try ObjectSerializer.deserialize(type: ParagraphResponse.self, from: multipartResponse["model"]!)) : nil,
+                                document: multipartResponse["document"]
                             );
 
                             callback(responseObject, error);
@@ -12248,13 +12248,13 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName).lowercased()] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
                             let responseObject = SaveAsOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: SaveResponse.self, from: multipartResponse["Model"]!),
-                                document: multipartResponse["Document"]!
+                                model: (multipartResponse["model"] != nil) ? (try ObjectSerializer.deserialize(type: SaveResponse.self, from: multipartResponse["model"]!)) : nil,
+                                document: multipartResponse["document"]
                             );
 
                             callback(responseObject, error);
@@ -12947,13 +12947,13 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName).lowercased()] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
                             let responseObject = UpdateBookmarkOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: BookmarkResponse.self, from: multipartResponse["Model"]!),
-                                document: multipartResponse["Document"]!
+                                model: (multipartResponse["model"] != nil) ? (try ObjectSerializer.deserialize(type: BookmarkResponse.self, from: multipartResponse["model"]!)) : nil,
+                                document: multipartResponse["document"]
                             );
 
                             callback(responseObject, error);
@@ -13161,13 +13161,13 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName).lowercased()] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
                             let responseObject = UpdateBorderOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: BorderResponse.self, from: multipartResponse["Model"]!),
-                                document: multipartResponse["Document"]!
+                                model: (multipartResponse["model"] != nil) ? (try ObjectSerializer.deserialize(type: BorderResponse.self, from: multipartResponse["model"]!)) : nil,
+                                document: multipartResponse["document"]
                             );
 
                             callback(responseObject, error);
@@ -14235,13 +14235,13 @@ public class WordsAPI {
                                     let partNameIndexStart = contentDisposition.range(of: "name=\"")!.upperBound;
                                     let partNameIndexEnd = contentDisposition[partNameIndexStart...].range(of: "\"")!.lowerBound;
                                     let partName = contentDisposition[partNameIndexStart..<partNameIndexEnd];
-                                    multipartResponse[String(partName)] = part[partDataBounds!.upperBound...];
+                                    multipartResponse[String(partName).lowercased()] = part[partDataBounds!.upperBound...];
                                 }
                             }
 
                             let responseObject = UpdateParagraphListFormatOnlineResponse(
-                                model: try ObjectSerializer.deserialize(type: ParagraphListFormatResponse.self, from: multipartResponse["Model"]!),
-                                document: multipartResponse["Document"]!
+                                model: (multipartResponse["model"] != nil) ? (try ObjectSerializer.deserialize(type: ParagraphListFormatResponse.self, from: multipartResponse["model"]!)) : nil,
+                                document: multipartResponse["document"]
                             );
 
                             callback(responseObject, error);
