@@ -47,9 +47,9 @@ class BookmarkTests: BaseTestContext {
 
       let request = GetBookmarksRequest(name: remoteFileName, folder: remoteDataFolder);
       actual = try super.getApi().getBookmarks(request: request);
-      assert(actual.get(bookmarks)! != nil);
-      assert(3 == actual.get(bookmarks)!.get(bookmarkList)!.count);
-      assert("aspose" == actual.get(bookmarks)!.get(bookmarkList)![1].get(name)!);
+      assert(actual.getBookmarks()! != nil);
+      assert(3 == actual.getBookmarks()!.getBookmarkList()!.count);
+      assert("aspose" == actual.getBookmarks()!.getBookmarkList()![1].getName()!);
     }
 
     // Test for getting bookmark by specified name.
