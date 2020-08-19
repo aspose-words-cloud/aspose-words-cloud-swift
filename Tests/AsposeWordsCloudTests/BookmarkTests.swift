@@ -46,7 +46,7 @@ class BookmarkTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetBookmarksRequest(name: remoteFileName, folder: remoteDataFolder);
-      actual = try super.getApi().getBookmarks(request: request);
+      let actual = try super.getApi().getBookmarks(request: request);
       assert(actual.getBookmarks()! != nil);
       assert(3 == actual.getBookmarks()!.getBookmarkList()!.count);
       assert("aspose" == actual.getBookmarks()!.getBookmarkList()![1].getName()!);
