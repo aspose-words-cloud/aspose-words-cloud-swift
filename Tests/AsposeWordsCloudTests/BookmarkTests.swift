@@ -46,7 +46,10 @@ class BookmarkTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetBookmarksRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getBookmarks(request: request);
+      actual = try super.getApi().getBookmarks(request: request);
+      assert(actual.get(bookmarks)! != nil);
+      assert(3 == actual.get(bookmarks)!.get(bookmarkList)!.count);
+      assert("aspose" == actual.get(bookmarks)!.get(bookmarkList)![1].get(name)!);
     }
 
     // Test for getting bookmark by specified name.
