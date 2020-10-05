@@ -49,12 +49,12 @@ public struct ApiRequest {
         return self.method;
     }
 
-    public func setBody(body : Data?, contentType : String) {
+    public mutating func setBody(body : Data?, contentType : String) {
         self.body = body;
         self.setContentType(value: contentType);
     }
 
-    public func setBody(formParams : [RequestFormParam]) {
+    public mutating func setBody(formParams : [RequestFormParam]) {
         if (formParams.count == 0)
         {
             self.body = nil;
@@ -89,11 +89,11 @@ public struct ApiRequest {
         return self.body;
     }
 
-    public func addHeader(key : String, value : String) {
+    public mutating func addHeader(key : String, value : String) {
         self.headers[key] = value;
     }
 
-    public func setContentType(value : String) {
+    public mutating func setContentType(value : String) {
         self.headers["Content-Type"] = value;
     }
 
