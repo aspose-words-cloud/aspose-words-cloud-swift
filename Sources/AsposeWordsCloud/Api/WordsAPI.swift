@@ -6873,7 +6873,7 @@ public class WordsAPI {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : [Any]? = nil;
         var responseError : Error? = nil;
-        self.batch(request : request, callback: { response, error in
+        self.batch(requests : requests, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();

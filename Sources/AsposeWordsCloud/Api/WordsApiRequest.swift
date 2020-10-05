@@ -28,6 +28,6 @@
 import Foundation
 
 // General protocol for all models.
-protocol WordsApiRequest {
-    func createApiRequestData(configuration : Configuration) throws -> ApiRequestData;
+public protocol WordsApiRequest {
+    func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData;
 }
