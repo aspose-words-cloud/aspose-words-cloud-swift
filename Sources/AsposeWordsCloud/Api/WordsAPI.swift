@@ -48,44 +48,8 @@ public class WordsAPI {
     // Accepts all revisions in document.
     public func acceptAllRevisions(request : AcceptAllRevisionsRequest, callback : @escaping (_ response : RevisionsModificationResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/revisions/acceptAll";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : RevisionsModificationResponse? = nil;
                     var responseError = error;
@@ -130,52 +94,8 @@ public class WordsAPI {
     // Appends documents to original document.
     public func appendDocument(request : AppendDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/appendDocument";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getDocumentList()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentResponse? = nil;
                     var responseError = error;
@@ -220,54 +140,8 @@ public class WordsAPI {
     // Apply a style to the document node.
     public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest, callback : @escaping (_ response : WordsResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{styledNodePath}/style";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{styledNodePath}", with: try ObjectSerializer.serializeToString(value: request.getStyledNodePath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getStyleApply()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : WordsResponse? = nil;
                     var responseError = error;
@@ -312,49 +186,8 @@ public class WordsAPI {
     // Executes document "build report" operation.
     public func buildReport(request : BuildReportRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/buildReport";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-            var formParams : [RequestFormParam] = [];
-            formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: request.getData())));
-
-            formParams.append(RequestFormParam(name: "reportEngineSettings", body: try ObjectSerializer.serialize(value: request.getReportEngineSettings())));
-
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: formParams,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentResponse? = nil;
                     var responseError = error;
@@ -399,33 +232,8 @@ public class WordsAPI {
     // Executes document "build report" online operation.
     public func buildReportOnline(request : BuildReportOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/buildReport";
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getDocumentFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "documentFileName", value: try ObjectSerializer.serializeToString(value: request.getDocumentFileName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-            var formParams : [RequestFormParam] = [];
-            formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: request.getTemplate())));
-
-            formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: request.getData())));
-
-            formParams.append(RequestFormParam(name: "reportEngineSettings", body: try ObjectSerializer.serialize(value: request.getReportEngineSettings())));
-
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: formParams,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(response, error);
                 }
@@ -460,26 +268,8 @@ public class WordsAPI {
     // Classifies raw text.
     public func classify(request : ClassifyRequest, callback : @escaping (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/classify";
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getBestClassesCount() != nil) {
-                queryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: request.getBestClassesCount()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getText()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ClassificationResponse? = nil;
                     var responseError = error;
@@ -524,48 +314,8 @@ public class WordsAPI {
     // Classifies document.
     public func classifyDocument(request : ClassifyDocumentRequest, callback : @escaping (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{documentName}/classify";
-            rawPath = rawPath.replacingOccurrences(of: "{documentName}", with: try ObjectSerializer.serializeToString(value: request.getDocumentName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getBestClassesCount() != nil) {
-                queryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: request.getBestClassesCount()!)));
-            }
-
-            if (request.getTaxonomy() != nil) {
-                queryItems.append(URLQueryItem(name: "taxonomy", value: try ObjectSerializer.serializeToString(value: request.getTaxonomy()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ClassificationResponse? = nil;
                     var responseError = error;
@@ -610,44 +360,8 @@ public class WordsAPI {
     // Compares document with original document.
     public func compareDocument(request : CompareDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/compareDocument";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getCompareData()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentResponse? = nil;
                     var responseError = error;
@@ -692,43 +406,8 @@ public class WordsAPI {
     // Converts document from the request's content to the specified format.
     public func convertDocument(request : ConvertDocumentRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/convert";
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: request.getFormat())));
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getOutPath() != nil) {
-                queryItems.append(URLQueryItem(name: "outPath", value: try ObjectSerializer.serializeToString(value: request.getOutPath()!)));
-            }
-
-            if (request.getFileNameFieldValue() != nil) {
-                queryItems.append(URLQueryItem(name: "fileNameFieldValue", value: try ObjectSerializer.serializeToString(value: request.getFileNameFieldValue()!)));
-            }
-
-            if (request.getFontsLocation() != nil) {
-                queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-            var formParams : [RequestFormParam] = [];
-            formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: request.getDocument())));
-
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: formParams,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(response, error);
                 }
@@ -763,38 +442,8 @@ public class WordsAPI {
     // Copy file.
     public func copyFile(request : CopyFileRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/storage/file/copy/{srcPath}";
-            rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: request.getSrcPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            queryItems.append(URLQueryItem(name: "destPath", value: try ObjectSerializer.serializeToString(value: request.getDestPath())));
-
-            if (request.getSrcStorageName() != nil) {
-                queryItems.append(URLQueryItem(name: "srcStorageName", value: try ObjectSerializer.serializeToString(value: request.getSrcStorageName()!)));
-            }
-
-            if (request.getDestStorageName() != nil) {
-                queryItems.append(URLQueryItem(name: "destStorageName", value: try ObjectSerializer.serializeToString(value: request.getDestStorageName()!)));
-            }
-
-            if (request.getVersionId() != nil) {
-                queryItems.append(URLQueryItem(name: "versionId", value: try ObjectSerializer.serializeToString(value: request.getVersionId()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -826,34 +475,8 @@ public class WordsAPI {
     // Copy folder.
     public func copyFolder(request : CopyFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/storage/folder/copy/{srcPath}";
-            rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: request.getSrcPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            queryItems.append(URLQueryItem(name: "destPath", value: try ObjectSerializer.serializeToString(value: request.getDestPath())));
-
-            if (request.getSrcStorageName() != nil) {
-                queryItems.append(URLQueryItem(name: "srcStorageName", value: try ObjectSerializer.serializeToString(value: request.getSrcStorageName()!)));
-            }
-
-            if (request.getDestStorageName() != nil) {
-                queryItems.append(URLQueryItem(name: "destStorageName", value: try ObjectSerializer.serializeToString(value: request.getDestStorageName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -885,52 +508,8 @@ public class WordsAPI {
     // Copy and insert a new style to the document, returns a copied style.
     public func copyStyle(request : CopyStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/styles/copy";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getStyleCopy()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : StyleResponse? = nil;
                     var responseError = error;
@@ -977,34 +556,8 @@ public class WordsAPI {
     // Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
     public func createDocument(request : CreateDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/create";
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: request.getFileName()!)));
-            }
-
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentResponse? = nil;
                     var responseError = error;
@@ -1051,28 +604,8 @@ public class WordsAPI {
     // Create the folder.
     public func createFolder(request : CreateFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/storage/folder/{path}";
-            rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getStorageName() != nil) {
-                queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: request.getStorageName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1104,54 +637,8 @@ public class WordsAPI {
     // Adds new or update existing document property.
     public func createOrUpdateDocumentProperty(request : CreateOrUpdateDocumentPropertyRequest, callback : @escaping (_ response : DocumentPropertyResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/documentProperties/{propertyName}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{propertyName}", with: try ObjectSerializer.serializeToString(value: request.getPropertyName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getProperty()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentPropertyResponse? = nil;
                     var responseError = error;
@@ -1196,53 +683,8 @@ public class WordsAPI {
     // Remove all tab stops.
     public func deleteAllParagraphTabStops(request : DeleteAllParagraphTabStopsRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TabStopsResponse? = nil;
                     var responseError = error;
@@ -1287,61 +729,8 @@ public class WordsAPI {
     // 'nodePath' should refer to paragraph, cell or row.
     public func deleteBorder(request : DeleteBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/borders/{borderType}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{borderType}", with: try ObjectSerializer.serializeToString(value: request.getBorderType()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : BorderResponse? = nil;
                     var responseError = error;
@@ -1386,59 +775,8 @@ public class WordsAPI {
     // 'nodePath' should refer to paragraph, cell or row.
     public func deleteBorders(request : DeleteBordersRequest, callback : @escaping (_ response : BordersResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/borders";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : BordersResponse? = nil;
                     var responseError = error;
@@ -1483,54 +821,8 @@ public class WordsAPI {
     // Removes comment from document.
     public func deleteComment(request : DeleteCommentRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/comments/{commentIndex}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{commentIndex}", with: try ObjectSerializer.serializeToString(value: request.getCommentIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1562,54 +854,8 @@ public class WordsAPI {
     // Deletes document property.
     public func deleteDocumentProperty(request : DeleteDocumentPropertyRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/documentProperties/{propertyName}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{propertyName}", with: try ObjectSerializer.serializeToString(value: request.getPropertyName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1641,61 +887,8 @@ public class WordsAPI {
     // Removes drawing object from document.
     public func deleteDrawingObject(request : DeleteDrawingObjectRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1727,61 +920,8 @@ public class WordsAPI {
     // Deletes field from document.
     public func deleteField(request : DeleteFieldRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/fields/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1813,59 +953,8 @@ public class WordsAPI {
     // Removes fields from section paragraph.
     public func deleteFields(request : DeleteFieldsRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/fields";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1897,32 +986,8 @@ public class WordsAPI {
     // Delete file.
     public func deleteFile(request : DeleteFileRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/storage/file/{path}";
-            rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getStorageName() != nil) {
-                queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: request.getStorageName()!)));
-            }
-
-            if (request.getVersionId() != nil) {
-                queryItems.append(URLQueryItem(name: "versionId", value: try ObjectSerializer.serializeToString(value: request.getVersionId()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1954,32 +1019,8 @@ public class WordsAPI {
     // Delete folder.
     public func deleteFolder(request : DeleteFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/storage/folder/{path}";
-            rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getStorageName() != nil) {
-                queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: request.getStorageName()!)));
-            }
-
-            if (request.getRecursive() != nil) {
-                queryItems.append(URLQueryItem(name: "recursive", value: try ObjectSerializer.serializeToString(value: request.getRecursive()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2011,61 +1052,8 @@ public class WordsAPI {
     // Removes footnote from document.
     public func deleteFootnote(request : DeleteFootnoteRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/footnotes/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2097,61 +1085,8 @@ public class WordsAPI {
     // Removes form field from document.
     public func deleteFormField(request : DeleteFormFieldRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/formfields/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2183,56 +1118,8 @@ public class WordsAPI {
     // Deletes header/footer from document.
     public func deleteHeaderFooter(request : DeleteHeaderFooterRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{sectionPath}/headersfooters/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{sectionPath}", with: try ObjectSerializer.serializeToString(value: request.getSectionPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2264,58 +1151,8 @@ public class WordsAPI {
     // Deletes document headers and footers.
     public func deleteHeadersFooters(request : DeleteHeadersFootersRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{sectionPath}/headersfooters";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{sectionPath}", with: try ObjectSerializer.serializeToString(value: request.getSectionPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (request.getHeadersFootersTypes() != nil) {
-                queryItems.append(URLQueryItem(name: "headersFootersTypes", value: try ObjectSerializer.serializeToString(value: request.getHeadersFootersTypes()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2347,52 +1184,8 @@ public class WordsAPI {
     // Removes macros from document.
     public func deleteMacros(request : DeleteMacrosRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/macros";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2424,61 +1217,8 @@ public class WordsAPI {
     // Removes OfficeMath object from document.
     public func deleteOfficeMathObject(request : DeleteOfficeMathObjectRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2510,61 +1250,8 @@ public class WordsAPI {
     // Removes paragraph from section.
     public func deleteParagraph(request : DeleteParagraphRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2596,61 +1283,8 @@ public class WordsAPI {
     // Delete paragraph list format, returns updated list format properties.
     public func deleteParagraphListFormat(request : DeleteParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ParagraphListFormatResponse? = nil;
                     var responseError = error;
@@ -2695,55 +1329,8 @@ public class WordsAPI {
     // Remove the i-th tab stop.
     public func deleteParagraphTabStop(request : DeleteParagraphTabStopRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstop";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            queryItems.append(URLQueryItem(name: "position", value: try ObjectSerializer.serializeToString(value: request.getPosition())));
-
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TabStopsResponse? = nil;
                     var responseError = error;
@@ -2788,56 +1375,8 @@ public class WordsAPI {
     // Removes run from document.
     public func deleteRun(request : DeleteRunRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{paragraphPath}/runs/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: try ObjectSerializer.serializeToString(value: request.getParagraphPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2869,54 +1408,8 @@ public class WordsAPI {
     // Removes section from document.
     public func deleteSection(request : DeleteSectionRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/sections/{sectionIndex}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{sectionIndex}", with: try ObjectSerializer.serializeToString(value: request.getSectionIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2948,61 +1441,8 @@ public class WordsAPI {
     // Deletes a table.
     public func deleteTable(request : DeleteTableRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/tables/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -3034,56 +1474,8 @@ public class WordsAPI {
     // Deletes a table cell.
     public func deleteTableCell(request : DeleteTableCellRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{tableRowPath}/cells/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{tableRowPath}", with: try ObjectSerializer.serializeToString(value: request.getTableRowPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -3115,56 +1507,8 @@ public class WordsAPI {
     // Deletes a table row.
     public func deleteTableRow(request : DeleteTableRowRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{tablePath}/rows/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{tablePath}", with: try ObjectSerializer.serializeToString(value: request.getTablePath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -3196,52 +1540,8 @@ public class WordsAPI {
     // Deletes watermark (for deleting last watermark from the document).
     public func deleteWatermark(request : DeleteWatermarkRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/watermarks/deleteLast";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentResponse? = nil;
                     var responseError = error;
@@ -3286,32 +1586,8 @@ public class WordsAPI {
     // Download file.
     public func downloadFile(request : DownloadFileRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/storage/file/{path}";
-            rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getStorageName() != nil) {
-                queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: request.getStorageName()!)));
-            }
-
-            if (request.getVersionId() != nil) {
-                queryItems.append(URLQueryItem(name: "versionId", value: try ObjectSerializer.serializeToString(value: request.getVersionId()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(response, error);
                 }
@@ -3346,65 +1622,8 @@ public class WordsAPI {
     // Executes document mail merge operation.
     public func executeMailMerge(request : ExecuteMailMergeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/MailMerge";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getWithRegions() != nil) {
-                queryItems.append(URLQueryItem(name: "withRegions", value: try ObjectSerializer.serializeToString(value: request.getWithRegions()!)));
-            }
-
-            if (request.getMailMergeDataFile() != nil) {
-                queryItems.append(URLQueryItem(name: "mailMergeDataFile", value: try ObjectSerializer.serializeToString(value: request.getMailMergeDataFile()!)));
-            }
-
-            if (request.getCleanup() != nil) {
-                queryItems.append(URLQueryItem(name: "cleanup", value: try ObjectSerializer.serializeToString(value: request.getCleanup()!)));
-            }
-
-            if (request.getUseWholeParagraphAsRegion() != nil) {
-                queryItems.append(URLQueryItem(name: "useWholeParagraphAsRegion", value: try ObjectSerializer.serializeToString(value: request.getUseWholeParagraphAsRegion()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-            var formParams : [RequestFormParam] = [];
-            if (request.getData() != nil) {
-                formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: request.getData()!)));
-            }
-
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: formParams,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentResponse? = nil;
                     var responseError = error;
@@ -3449,39 +1668,8 @@ public class WordsAPI {
     // Executes document mail merge online.
     public func executeMailMergeOnline(request : ExecuteMailMergeOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/MailMerge";
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getWithRegions() != nil) {
-                queryItems.append(URLQueryItem(name: "withRegions", value: try ObjectSerializer.serializeToString(value: request.getWithRegions()!)));
-            }
-
-            if (request.getCleanup() != nil) {
-                queryItems.append(URLQueryItem(name: "cleanup", value: try ObjectSerializer.serializeToString(value: request.getCleanup()!)));
-            }
-
-            if (request.getDocumentFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "documentFileName", value: try ObjectSerializer.serializeToString(value: request.getDocumentFileName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-            var formParams : [RequestFormParam] = [];
-            formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: request.getTemplate())));
-
-            formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serializeFile(value: request.getData())));
-
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: formParams,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(response, error);
                 }
@@ -3516,26 +1704,8 @@ public class WordsAPI {
     // Gets the list of fonts, available for document processing.
     public func getAvailableFonts(request : GetAvailableFontsRequest, callback : @escaping (_ response : AvailableFontsResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/fonts/available";
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFontsLocation() != nil) {
-                queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : AvailableFontsResponse? = nil;
                     var responseError = error;
@@ -3580,42 +1750,8 @@ public class WordsAPI {
     // Reads document bookmark data by its name.
     public func getBookmarkByName(request : GetBookmarkByNameRequest, callback : @escaping (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/bookmarks/{bookmarkName}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{bookmarkName}", with: try ObjectSerializer.serializeToString(value: request.getBookmarkName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : BookmarkResponse? = nil;
                     var responseError = error;
@@ -3660,40 +1796,8 @@ public class WordsAPI {
     // Reads document bookmarks common info.
     public func getBookmarks(request : GetBookmarksRequest, callback : @escaping (_ response : BookmarksResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/bookmarks";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : BookmarksResponse? = nil;
                     var responseError = error;
@@ -3738,49 +1842,8 @@ public class WordsAPI {
     // 'nodePath' should refer to paragraph, cell or row.
     public func getBorder(request : GetBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/borders/{borderType}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{borderType}", with: try ObjectSerializer.serializeToString(value: request.getBorderType()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : BorderResponse? = nil;
                     var responseError = error;
@@ -3825,47 +1888,8 @@ public class WordsAPI {
     // 'nodePath' should refer to paragraph, cell or row.
     public func getBorders(request : GetBordersRequest, callback : @escaping (_ response : BordersResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/borders";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : BordersResponse? = nil;
                     var responseError = error;
@@ -3910,42 +1934,8 @@ public class WordsAPI {
     // Gets comment from document.
     public func getComment(request : GetCommentRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/comments/{commentIndex}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{commentIndex}", with: try ObjectSerializer.serializeToString(value: request.getCommentIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : CommentResponse? = nil;
                     var responseError = error;
@@ -3990,40 +1980,8 @@ public class WordsAPI {
     // Gets comments from document.
     public func getComments(request : GetCommentsRequest, callback : @escaping (_ response : CommentsResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/comments";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : CommentsResponse? = nil;
                     var responseError = error;
@@ -4068,40 +2026,8 @@ public class WordsAPI {
     // Reads document common info.
     public func getDocument(request : GetDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{documentName}";
-            rawPath = rawPath.replacingOccurrences(of: "{documentName}", with: try ObjectSerializer.serializeToString(value: request.getDocumentName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentResponse? = nil;
                     var responseError = error;
@@ -4146,49 +2072,8 @@ public class WordsAPI {
     // Reads document drawing object common info by its index or convert to format specified.
     public func getDocumentDrawingObjectByIndex(request : GetDocumentDrawingObjectByIndexRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DrawingObjectResponse? = nil;
                     var responseError = error;
@@ -4233,49 +2118,8 @@ public class WordsAPI {
     // Reads drawing object image data.
     public func getDocumentDrawingObjectImageData(request : GetDocumentDrawingObjectImageDataRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}/imageData";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(response, error);
                 }
@@ -4310,49 +2154,8 @@ public class WordsAPI {
     // Gets drawing object OLE data.
     public func getDocumentDrawingObjectOleData(request : GetDocumentDrawingObjectOleDataRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}/oleData";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(response, error);
                 }
@@ -4387,47 +2190,8 @@ public class WordsAPI {
     // Reads document drawing objects common info.
     public func getDocumentDrawingObjects(request : GetDocumentDrawingObjectsRequest, callback : @escaping (_ response : DrawingObjectsResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/drawingObjects";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DrawingObjectsResponse? = nil;
                     var responseError = error;
@@ -4472,44 +2236,8 @@ public class WordsAPI {
     // Reads document field names.
     public func getDocumentFieldNames(request : GetDocumentFieldNamesRequest, callback : @escaping (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/mailMerge/FieldNames";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getUseNonMergeFields() != nil) {
-                queryItems.append(URLQueryItem(name: "useNonMergeFields", value: try ObjectSerializer.serializeToString(value: request.getUseNonMergeFields()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FieldNamesResponse? = nil;
                     var responseError = error;
@@ -4554,29 +2282,8 @@ public class WordsAPI {
     // Reads document field names.
     public func getDocumentFieldNamesOnline(request : GetDocumentFieldNamesOnlineRequest, callback : @escaping (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/mailMerge/FieldNames";
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getUseNonMergeFields() != nil) {
-                queryItems.append(URLQueryItem(name: "useNonMergeFields", value: try ObjectSerializer.serializeToString(value: request.getUseNonMergeFields()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-            var formParams : [RequestFormParam] = [];
-            formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: request.getTemplate())));
-
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: formParams,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FieldNamesResponse? = nil;
                     var responseError = error;
@@ -4621,42 +2328,8 @@ public class WordsAPI {
     // Reads document hyperlink by its index.
     public func getDocumentHyperlinkByIndex(request : GetDocumentHyperlinkByIndexRequest, callback : @escaping (_ response : HyperlinkResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/hyperlinks/{hyperlinkIndex}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{hyperlinkIndex}", with: try ObjectSerializer.serializeToString(value: request.getHyperlinkIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : HyperlinkResponse? = nil;
                     var responseError = error;
@@ -4701,40 +2374,8 @@ public class WordsAPI {
     // Reads document hyperlinks common info.
     public func getDocumentHyperlinks(request : GetDocumentHyperlinksRequest, callback : @escaping (_ response : HyperlinksResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/hyperlinks";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : HyperlinksResponse? = nil;
                     var responseError = error;
@@ -4779,40 +2420,8 @@ public class WordsAPI {
     // Reads document properties info.
     public func getDocumentProperties(request : GetDocumentPropertiesRequest, callback : @escaping (_ response : DocumentPropertiesResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/documentProperties";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentPropertiesResponse? = nil;
                     var responseError = error;
@@ -4857,42 +2466,8 @@ public class WordsAPI {
     // Reads document property info by the property name.
     public func getDocumentProperty(request : GetDocumentPropertyRequest, callback : @escaping (_ response : DocumentPropertyResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/documentProperties/{propertyName}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{propertyName}", with: try ObjectSerializer.serializeToString(value: request.getPropertyName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentPropertyResponse? = nil;
                     var responseError = error;
@@ -4937,40 +2512,8 @@ public class WordsAPI {
     // Reads document protection common info.
     public func getDocumentProtection(request : GetDocumentProtectionRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/protection";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ProtectionDataResponse? = nil;
                     var responseError = error;
@@ -5015,52 +2558,8 @@ public class WordsAPI {
     // Reads document statistics.
     public func getDocumentStatistics(request : GetDocumentStatisticsRequest, callback : @escaping (_ response : StatDataResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/statistics";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getIncludeComments() != nil) {
-                queryItems.append(URLQueryItem(name: "includeComments", value: try ObjectSerializer.serializeToString(value: request.getIncludeComments()!)));
-            }
-
-            if (request.getIncludeFootnotes() != nil) {
-                queryItems.append(URLQueryItem(name: "includeFootnotes", value: try ObjectSerializer.serializeToString(value: request.getIncludeFootnotes()!)));
-            }
-
-            if (request.getIncludeTextInShapes() != nil) {
-                queryItems.append(URLQueryItem(name: "includeTextInShapes", value: try ObjectSerializer.serializeToString(value: request.getIncludeTextInShapes()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : StatDataResponse? = nil;
                     var responseError = error;
@@ -5105,50 +2604,8 @@ public class WordsAPI {
     // Exports the document into the specified format.
     public func getDocumentWithFormat(request : GetDocumentWithFormatRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: request.getFormat())));
-
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getOutPath() != nil) {
-                queryItems.append(URLQueryItem(name: "outPath", value: try ObjectSerializer.serializeToString(value: request.getOutPath()!)));
-            }
-
-            if (request.getFontsLocation() != nil) {
-                queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(response, error);
                 }
@@ -5183,49 +2640,8 @@ public class WordsAPI {
     // Gets field from document.
     public func getField(request : GetFieldRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/fields/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FieldResponse? = nil;
                     var responseError = error;
@@ -5270,47 +2686,8 @@ public class WordsAPI {
     // Get fields from document.
     public func getFields(request : GetFieldsRequest, callback : @escaping (_ response : FieldsResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/fields";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FieldsResponse? = nil;
                     var responseError = error;
@@ -5355,28 +2732,8 @@ public class WordsAPI {
     // Get all files and folders within a folder.
     public func getFilesList(request : GetFilesListRequest, callback : @escaping (_ response : FilesList?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/storage/folder/{path}";
-            rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getStorageName() != nil) {
-                queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: request.getStorageName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FilesList? = nil;
                     var responseError = error;
@@ -5421,49 +2778,8 @@ public class WordsAPI {
     // Reads footnote by index.
     public func getFootnote(request : GetFootnoteRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/footnotes/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FootnoteResponse? = nil;
                     var responseError = error;
@@ -5508,47 +2824,8 @@ public class WordsAPI {
     // Gets footnotes from document.
     public func getFootnotes(request : GetFootnotesRequest, callback : @escaping (_ response : FootnotesResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/footnotes";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FootnotesResponse? = nil;
                     var responseError = error;
@@ -5593,49 +2870,8 @@ public class WordsAPI {
     // Returns representation of an one of the form field.
     public func getFormField(request : GetFormFieldRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/formfields/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FormFieldResponse? = nil;
                     var responseError = error;
@@ -5680,47 +2916,8 @@ public class WordsAPI {
     // Gets form fields from document.
     public func getFormFields(request : GetFormFieldsRequest, callback : @escaping (_ response : FormFieldsResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/formfields";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FormFieldsResponse? = nil;
                     var responseError = error;
@@ -5765,46 +2962,8 @@ public class WordsAPI {
     // Returns a header/footer from the document by index.
     public func getHeaderFooter(request : GetHeaderFooterRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/headersfooters/{headerFooterIndex}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{headerFooterIndex}", with: try ObjectSerializer.serializeToString(value: request.getHeaderFooterIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getFilterByType() != nil) {
-                queryItems.append(URLQueryItem(name: "filterByType", value: try ObjectSerializer.serializeToString(value: request.getFilterByType()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : HeaderFooterResponse? = nil;
                     var responseError = error;
@@ -5849,48 +3008,8 @@ public class WordsAPI {
     // Returns a header/footer from the document section.
     public func getHeaderFooterOfSection(request : GetHeaderFooterOfSectionRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{headerFooterIndex}", with: try ObjectSerializer.serializeToString(value: request.getHeaderFooterIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{sectionIndex}", with: try ObjectSerializer.serializeToString(value: request.getSectionIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getFilterByType() != nil) {
-                queryItems.append(URLQueryItem(name: "filterByType", value: try ObjectSerializer.serializeToString(value: request.getFilterByType()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : HeaderFooterResponse? = nil;
                     var responseError = error;
@@ -5935,46 +3054,8 @@ public class WordsAPI {
     // Returns a list of header/footers from the document.
     public func getHeaderFooters(request : GetHeaderFootersRequest, callback : @escaping (_ response : HeaderFootersResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{sectionPath}/headersfooters";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{sectionPath}", with: try ObjectSerializer.serializeToString(value: request.getSectionPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getFilterByType() != nil) {
-                queryItems.append(URLQueryItem(name: "filterByType", value: try ObjectSerializer.serializeToString(value: request.getFilterByType()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : HeaderFootersResponse? = nil;
                     var responseError = error;
@@ -6019,42 +3100,8 @@ public class WordsAPI {
     // This resource represents one of the lists contained in the document.
     public func getList(request : GetListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/lists/{listId}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{listId}", with: try ObjectSerializer.serializeToString(value: request.getListId()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ListResponse? = nil;
                     var responseError = error;
@@ -6099,40 +3146,8 @@ public class WordsAPI {
     // Returns a list of lists that are contained in the document.
     public func getLists(request : GetListsRequest, callback : @escaping (_ response : ListsResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/lists";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ListsResponse? = nil;
                     var responseError = error;
@@ -6177,49 +3192,8 @@ public class WordsAPI {
     // Reads OfficeMath object by index.
     public func getOfficeMathObject(request : GetOfficeMathObjectRequest, callback : @escaping (_ response : OfficeMathObjectResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : OfficeMathObjectResponse? = nil;
                     var responseError = error;
@@ -6264,47 +3238,8 @@ public class WordsAPI {
     // Gets OfficeMath objects from document.
     public func getOfficeMathObjects(request : GetOfficeMathObjectsRequest, callback : @escaping (_ response : OfficeMathObjectsResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/OfficeMathObjects";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : OfficeMathObjectsResponse? = nil;
                     var responseError = error;
@@ -6349,49 +3284,8 @@ public class WordsAPI {
     // This resource represents one of the paragraphs contained in the document.
     public func getParagraph(request : GetParagraphRequest, callback : @escaping (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ParagraphResponse? = nil;
                     var responseError = error;
@@ -6436,49 +3330,8 @@ public class WordsAPI {
     // Represents all the formatting for a paragraph.
     public func getParagraphFormat(request : GetParagraphFormatRequest, callback : @escaping (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/format";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ParagraphFormatResponse? = nil;
                     var responseError = error;
@@ -6523,49 +3376,8 @@ public class WordsAPI {
     // Represents list format for a paragraph.
     public func getParagraphListFormat(request : GetParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ParagraphListFormatResponse? = nil;
                     var responseError = error;
@@ -6610,47 +3422,8 @@ public class WordsAPI {
     // Returns a list of paragraphs that are contained in the document.
     public func getParagraphs(request : GetParagraphsRequest, callback : @escaping (_ response : ParagraphLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/paragraphs";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ParagraphLinkCollectionResponse? = nil;
                     var responseError = error;
@@ -6695,49 +3468,8 @@ public class WordsAPI {
     // Get all tab stops for the paragraph.
     public func getParagraphTabStops(request : GetParagraphTabStopsRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TabStopsResponse? = nil;
                     var responseError = error;
@@ -6782,49 +3514,8 @@ public class WordsAPI {
     // Gets the text from the range.
     public func getRangeText(request : GetRangeTextRequest, callback : @escaping (_ response : RangeTextResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{rangeStartIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeStartIdentifier()));
-
-            if (request.getRangeEndIdentifier() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : RangeTextResponse? = nil;
                     var responseError = error;
@@ -6869,44 +3560,8 @@ public class WordsAPI {
     // This resource represents run of text contained in the document.
     public func getRun(request : GetRunRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{paragraphPath}/runs/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: try ObjectSerializer.serializeToString(value: request.getParagraphPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : RunResponse? = nil;
                     var responseError = error;
@@ -6951,44 +3606,8 @@ public class WordsAPI {
     // This resource represents font of run.
     public func getRunFont(request : GetRunFontRequest, callback : @escaping (_ response : FontResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{paragraphPath}/runs/{index}/font";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: try ObjectSerializer.serializeToString(value: request.getParagraphPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FontResponse? = nil;
                     var responseError = error;
@@ -7033,42 +3652,8 @@ public class WordsAPI {
     // This resource represents collection of runs in the paragraph.
     public func getRuns(request : GetRunsRequest, callback : @escaping (_ response : RunsResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{paragraphPath}/runs";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: try ObjectSerializer.serializeToString(value: request.getParagraphPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : RunsResponse? = nil;
                     var responseError = error;
@@ -7113,42 +3698,8 @@ public class WordsAPI {
     // Gets document section by index.
     public func getSection(request : GetSectionRequest, callback : @escaping (_ response : SectionResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/sections/{sectionIndex}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{sectionIndex}", with: try ObjectSerializer.serializeToString(value: request.getSectionIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : SectionResponse? = nil;
                     var responseError = error;
@@ -7193,42 +3744,8 @@ public class WordsAPI {
     // Gets page setup of section.
     public func getSectionPageSetup(request : GetSectionPageSetupRequest, callback : @escaping (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/sections/{sectionIndex}/pageSetup";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{sectionIndex}", with: try ObjectSerializer.serializeToString(value: request.getSectionIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : SectionPageSetupResponse? = nil;
                     var responseError = error;
@@ -7273,40 +3790,8 @@ public class WordsAPI {
     // Returns a list of sections that are contained in the document.
     public func getSections(request : GetSectionsRequest, callback : @escaping (_ response : SectionLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/sections";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : SectionLinkCollectionResponse? = nil;
                     var responseError = error;
@@ -7351,42 +3836,8 @@ public class WordsAPI {
     // This resource represents one of the styles contained in the document.
     public func getStyle(request : GetStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/styles/{styleName}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{styleName}", with: try ObjectSerializer.serializeToString(value: request.getStyleName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : StyleResponse? = nil;
                     var responseError = error;
@@ -7431,42 +3882,8 @@ public class WordsAPI {
     // Gets a style from the document node.
     public func getStyleFromDocumentElement(request : GetStyleFromDocumentElementRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{styledNodePath}/style";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{styledNodePath}", with: try ObjectSerializer.serializeToString(value: request.getStyledNodePath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : StyleResponse? = nil;
                     var responseError = error;
@@ -7511,40 +3928,8 @@ public class WordsAPI {
     // Returns a list of styles contained in the document.
     public func getStyles(request : GetStylesRequest, callback : @escaping (_ response : StylesResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/styles";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : StylesResponse? = nil;
                     var responseError = error;
@@ -7589,49 +3974,8 @@ public class WordsAPI {
     // Returns a table.
     public func getTable(request : GetTableRequest, callback : @escaping (_ response : TableResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/tables/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TableResponse? = nil;
                     var responseError = error;
@@ -7676,44 +4020,8 @@ public class WordsAPI {
     // Returns a table cell.
     public func getTableCell(request : GetTableCellRequest, callback : @escaping (_ response : TableCellResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{tableRowPath}/cells/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{tableRowPath}", with: try ObjectSerializer.serializeToString(value: request.getTableRowPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TableCellResponse? = nil;
                     var responseError = error;
@@ -7758,44 +4066,8 @@ public class WordsAPI {
     // Returns a table cell format.
     public func getTableCellFormat(request : GetTableCellFormatRequest, callback : @escaping (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{tableRowPath}", with: try ObjectSerializer.serializeToString(value: request.getTableRowPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TableCellFormatResponse? = nil;
                     var responseError = error;
@@ -7840,49 +4112,8 @@ public class WordsAPI {
     // Returns a table properties.
     public func getTableProperties(request : GetTablePropertiesRequest, callback : @escaping (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/tables/{index}/properties";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TablePropertiesResponse? = nil;
                     var responseError = error;
@@ -7927,44 +4158,8 @@ public class WordsAPI {
     // Returns a table row.
     public func getTableRow(request : GetTableRowRequest, callback : @escaping (_ response : TableRowResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{tablePath}/rows/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{tablePath}", with: try ObjectSerializer.serializeToString(value: request.getTablePath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TableRowResponse? = nil;
                     var responseError = error;
@@ -8009,44 +4204,8 @@ public class WordsAPI {
     // Returns a table row format.
     public func getTableRowFormat(request : GetTableRowFormatRequest, callback : @escaping (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{tablePath}/rows/{index}/rowformat";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{tablePath}", with: try ObjectSerializer.serializeToString(value: request.getTablePath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TableRowFormatResponse? = nil;
                     var responseError = error;
@@ -8091,47 +4250,8 @@ public class WordsAPI {
     // Returns a list of tables that are contained in the document.
     public func getTables(request : GetTablesRequest, callback : @escaping (_ response : TableLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/tables";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TableLinkCollectionResponse? = nil;
                     var responseError = error;
@@ -8176,52 +4296,8 @@ public class WordsAPI {
     // Adds comment to document, returns inserted comment data.
     public func insertComment(request : InsertCommentRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/comments";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getComment()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : CommentResponse? = nil;
                     var responseError = error;
@@ -8266,64 +4342,8 @@ public class WordsAPI {
     // Adds drawing object to document, returns added  drawing object's data.
     public func insertDrawingObject(request : InsertDrawingObjectRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/drawingObjects";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-            var formParams : [RequestFormParam] = [];
-            formParams.append(RequestFormParam(name: "drawingObject", body: try ObjectSerializer.serialize(value: request.getDrawingObject())));
-
-            formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: request.getImageFile())));
-
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: nil,
-                headers: nil,
-                formParams: formParams,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DrawingObjectResponse? = nil;
                     var responseError = error;
@@ -8368,63 +4388,8 @@ public class WordsAPI {
     // Adds field to document, returns inserted field's data.
     public func insertField(request : InsertFieldRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/fields";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (request.getInsertBeforeNode() != nil) {
-                queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: request.getInsertBeforeNode()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getField()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FieldResponse? = nil;
                     var responseError = error;
@@ -8469,59 +4434,8 @@ public class WordsAPI {
     // Adds footnote to document, returns added footnote's data.
     public func insertFootnote(request : InsertFootnoteRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/footnotes";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getFootnoteDto()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FootnoteResponse? = nil;
                     var responseError = error;
@@ -8566,63 +4480,8 @@ public class WordsAPI {
     // Adds form field to paragraph, returns added form field's data.
     public func insertFormField(request : InsertFormFieldRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/formfields";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (request.getInsertBeforeNode() != nil) {
-                queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: request.getInsertBeforeNode()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getFormField()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FormFieldResponse? = nil;
                     var responseError = error;
@@ -8667,54 +4526,8 @@ public class WordsAPI {
     // Inserts to document header or footer.
     public func insertHeaderFooter(request : InsertHeaderFooterRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{sectionPath}/headersfooters";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{sectionPath}", with: try ObjectSerializer.serializeToString(value: request.getSectionPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getHeaderFooterType()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : HeaderFooterResponse? = nil;
                     var responseError = error;
@@ -8759,52 +4572,8 @@ public class WordsAPI {
     // Adds list to document, returns added list's data.
     public func insertList(request : InsertListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/lists";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getListInsert()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ListResponse? = nil;
                     var responseError = error;
@@ -8849,53 +4618,8 @@ public class WordsAPI {
     // Insert or resplace tab stop if a tab stop with the position exists.
     public func insertOrUpdateParagraphTabStop(request : InsertOrUpdateParagraphTabStopRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getDto()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TabStopsResponse? = nil;
                     var responseError = error;
@@ -8940,52 +4664,8 @@ public class WordsAPI {
     // Inserts document page numbers.
     public func insertPageNumbers(request : InsertPageNumbersRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/PageNumbers";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getPageNumber()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentResponse? = nil;
                     var responseError = error;
@@ -9030,63 +4710,8 @@ public class WordsAPI {
     // Adds paragraph to document, returns added paragraph's data.
     public func insertParagraph(request : InsertParagraphRequest, callback : @escaping (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/paragraphs";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (request.getInsertBeforeNode() != nil) {
-                queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: request.getInsertBeforeNode()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getParagraph()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ParagraphResponse? = nil;
                     var responseError = error;
@@ -9131,58 +4756,8 @@ public class WordsAPI {
     // Adds run to document, returns added paragraph's data.
     public func insertRun(request : InsertRunRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{paragraphPath}/runs";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: try ObjectSerializer.serializeToString(value: request.getParagraphPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (request.getInsertBeforeNode() != nil) {
-                queryItems.append(URLQueryItem(name: "insertBeforeNode", value: try ObjectSerializer.serializeToString(value: request.getInsertBeforeNode()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getRun()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : RunResponse? = nil;
                     var responseError = error;
@@ -9227,52 +4802,8 @@ public class WordsAPI {
     // Adds a style to the document, returns an added style.
     public func insertStyle(request : InsertStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/styles/insert";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getStyleInsert()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : StyleResponse? = nil;
                     var responseError = error;
@@ -9317,59 +4848,8 @@ public class WordsAPI {
     // Adds table to document, returns added table's data.
     public func insertTable(request : InsertTableRequest, callback : @escaping (_ response : TableResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/tables";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getTable()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TableResponse? = nil;
                     var responseError = error;
@@ -9414,54 +4894,8 @@ public class WordsAPI {
     // Adds table cell to table, returns added cell's data.
     public func insertTableCell(request : InsertTableCellRequest, callback : @escaping (_ response : TableCellResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{tableRowPath}/cells";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{tableRowPath}", with: try ObjectSerializer.serializeToString(value: request.getTableRowPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getCell()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TableCellResponse? = nil;
                     var responseError = error;
@@ -9506,54 +4940,8 @@ public class WordsAPI {
     // Adds table row to table, returns added row's data.
     public func insertTableRow(request : InsertTableRowRequest, callback : @escaping (_ response : TableRowResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{tablePath}/rows";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{tablePath}", with: try ObjectSerializer.serializeToString(value: request.getTablePath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getRow()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TableRowResponse? = nil;
                     var responseError = error;
@@ -9598,65 +4986,8 @@ public class WordsAPI {
     // Inserts document watermark image.
     public func insertWatermarkImage(request : InsertWatermarkImageRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/watermarks/images";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (request.getRotationAngle() != nil) {
-                queryItems.append(URLQueryItem(name: "rotationAngle", value: try ObjectSerializer.serializeToString(value: request.getRotationAngle()!)));
-            }
-
-            if (request.getImage() != nil) {
-                queryItems.append(URLQueryItem(name: "image", value: try ObjectSerializer.serializeToString(value: request.getImage()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-            var formParams : [RequestFormParam] = [];
-            if (request.getImageFile() != nil) {
-                formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: request.getImageFile()!)));
-            }
-
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: nil,
-                headers: nil,
-                formParams: formParams,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentResponse? = nil;
                     var responseError = error;
@@ -9701,52 +5032,8 @@ public class WordsAPI {
     // Inserts document watermark text.
     public func insertWatermarkText(request : InsertWatermarkTextRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/watermarks/texts";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getWatermarkText()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentResponse? = nil;
                     var responseError = error;
@@ -9791,26 +5078,8 @@ public class WordsAPI {
     // Loads new document from web into the file with any supported format of data.
     public func loadWebDocument(request : LoadWebDocumentRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/loadWebDocument";
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getData()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : SaveResponse? = nil;
                     var responseError = error;
@@ -9855,38 +5124,8 @@ public class WordsAPI {
     // Move file.
     public func moveFile(request : MoveFileRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/storage/file/move/{srcPath}";
-            rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: request.getSrcPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            queryItems.append(URLQueryItem(name: "destPath", value: try ObjectSerializer.serializeToString(value: request.getDestPath())));
-
-            if (request.getSrcStorageName() != nil) {
-                queryItems.append(URLQueryItem(name: "srcStorageName", value: try ObjectSerializer.serializeToString(value: request.getSrcStorageName()!)));
-            }
-
-            if (request.getDestStorageName() != nil) {
-                queryItems.append(URLQueryItem(name: "destStorageName", value: try ObjectSerializer.serializeToString(value: request.getDestStorageName()!)));
-            }
-
-            if (request.getVersionId() != nil) {
-                queryItems.append(URLQueryItem(name: "versionId", value: try ObjectSerializer.serializeToString(value: request.getVersionId()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -9918,34 +5157,8 @@ public class WordsAPI {
     // Move folder.
     public func moveFolder(request : MoveFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/storage/folder/move/{srcPath}";
-            rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: request.getSrcPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            queryItems.append(URLQueryItem(name: "destPath", value: try ObjectSerializer.serializeToString(value: request.getDestPath())));
-
-            if (request.getSrcStorageName() != nil) {
-                queryItems.append(URLQueryItem(name: "srcStorageName", value: try ObjectSerializer.serializeToString(value: request.getSrcStorageName()!)));
-            }
-
-            if (request.getDestStorageName() != nil) {
-                queryItems.append(URLQueryItem(name: "destStorageName", value: try ObjectSerializer.serializeToString(value: request.getDestStorageName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -9977,52 +5190,8 @@ public class WordsAPI {
     // Allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word.
     public func optimizeDocument(request : OptimizeDocumentRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/compatibility/optimize";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getOptions()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -10054,44 +5223,8 @@ public class WordsAPI {
     // Protects document.
     public func protectDocument(request : ProtectDocumentRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/protection";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getProtectionRequest()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ProtectionDataResponse? = nil;
                     var responseError = error;
@@ -10136,44 +5269,8 @@ public class WordsAPI {
     // Rejects all revisions in document.
     public func rejectAllRevisions(request : RejectAllRevisionsRequest, callback : @escaping (_ response : RevisionsModificationResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/revisions/rejectAll";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : RevisionsModificationResponse? = nil;
                     var responseError = error;
@@ -10218,53 +5315,8 @@ public class WordsAPI {
     // Removes the range from the document.
     public func removeRange(request : RemoveRangeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{rangeStartIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeStartIdentifier()));
-
-            if (request.getRangeEndIdentifier() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentResponse? = nil;
                     var responseError = error;
@@ -10309,55 +5361,8 @@ public class WordsAPI {
     // Renders drawing object to specified format.
     public func renderDrawingObject(request : RenderDrawingObjectRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}/render";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: request.getFormat())));
-
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getFontsLocation() != nil) {
-                queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(response, error);
                 }
@@ -10392,55 +5397,8 @@ public class WordsAPI {
     // Renders math object to specified format.
     public func renderMathObject(request : RenderMathObjectRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/OfficeMathObjects/{index}/render";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: request.getFormat())));
-
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getFontsLocation() != nil) {
-                queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(response, error);
                 }
@@ -10475,48 +5433,8 @@ public class WordsAPI {
     // Renders page to specified format.
     public func renderPage(request : RenderPageRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/pages/{pageIndex}/render";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{pageIndex}", with: try ObjectSerializer.serializeToString(value: request.getPageIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: request.getFormat())));
-
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getFontsLocation() != nil) {
-                queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(response, error);
                 }
@@ -10551,55 +5469,8 @@ public class WordsAPI {
     // Renders paragraph to specified format.
     public func renderParagraph(request : RenderParagraphRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/render";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: request.getFormat())));
-
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getFontsLocation() != nil) {
-                queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(response, error);
                 }
@@ -10634,55 +5505,8 @@ public class WordsAPI {
     // Renders table to specified format.
     public func renderTable(request : RenderTableRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/tables/{index}/render";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: request.getFormat())));
-
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getFontsLocation() != nil) {
-                queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(response, error);
                 }
@@ -10717,52 +5541,8 @@ public class WordsAPI {
     // Replaces document text.
     public func replaceText(request : ReplaceTextRequest, callback : @escaping (_ response : ReplaceTextResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/replaceText";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getReplaceText()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ReplaceTextResponse? = nil;
                     var responseError = error;
@@ -10807,53 +5587,8 @@ public class WordsAPI {
     // Replaces the content in the range.
     public func replaceWithText(request : ReplaceWithTextRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{rangeStartIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeStartIdentifier()));
-
-            if (request.getRangeEndIdentifier() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getRangeText()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentResponse? = nil;
                     var responseError = error;
@@ -10898,17 +5633,8 @@ public class WordsAPI {
     // Resets font's cache.
     public func resetCache(request : ResetCacheRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/fonts/cache";
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-
             apiInvoker.invoke(
-                url: urlPath,
-                method: "DELETE",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     callback(error);
                 }
@@ -10940,44 +5666,8 @@ public class WordsAPI {
     // Converts document to destination format with detailed settings and saves result to storage.
     public func saveAs(request : SaveAsRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/saveAs";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getFontsLocation() != nil) {
-                queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getSaveOptionsData()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : SaveResponse? = nil;
                     var responseError = error;
@@ -11022,49 +5712,8 @@ public class WordsAPI {
     // Saves the selected range as a new document.
     public func saveAsRange(request : SaveAsRangeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{rangeStartIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeStartIdentifier()));
-
-            if (request.getRangeEndIdentifier() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: request.getRangeEndIdentifier()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "POST",
-                body: try ObjectSerializer.serializeBody(value: request.getDocumentParameters()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentResponse? = nil;
                     var responseError = error;
@@ -11109,112 +5758,8 @@ public class WordsAPI {
     // Converts document to tiff with detailed settings and saves result to storage.
     public func saveAsTiff(request : SaveAsTiffRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/saveAs/tiff";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getUseAntiAliasing() != nil) {
-                queryItems.append(URLQueryItem(name: "useAntiAliasing", value: try ObjectSerializer.serializeToString(value: request.getUseAntiAliasing()!)));
-            }
-
-            if (request.getUseHighQualityRendering() != nil) {
-                queryItems.append(URLQueryItem(name: "useHighQualityRendering", value: try ObjectSerializer.serializeToString(value: request.getUseHighQualityRendering()!)));
-            }
-
-            if (request.getImageBrightness() != nil) {
-                queryItems.append(URLQueryItem(name: "imageBrightness", value: try ObjectSerializer.serializeToString(value: request.getImageBrightness()!)));
-            }
-
-            if (request.getImageColorMode() != nil) {
-                queryItems.append(URLQueryItem(name: "imageColorMode", value: try ObjectSerializer.serializeToString(value: request.getImageColorMode()!)));
-            }
-
-            if (request.getImageContrast() != nil) {
-                queryItems.append(URLQueryItem(name: "imageContrast", value: try ObjectSerializer.serializeToString(value: request.getImageContrast()!)));
-            }
-
-            if (request.getNumeralFormat() != nil) {
-                queryItems.append(URLQueryItem(name: "numeralFormat", value: try ObjectSerializer.serializeToString(value: request.getNumeralFormat()!)));
-            }
-
-            if (request.getPageCount() != nil) {
-                queryItems.append(URLQueryItem(name: "pageCount", value: try ObjectSerializer.serializeToString(value: request.getPageCount()!)));
-            }
-
-            if (request.getPageIndex() != nil) {
-                queryItems.append(URLQueryItem(name: "pageIndex", value: try ObjectSerializer.serializeToString(value: request.getPageIndex()!)));
-            }
-
-            if (request.getPaperColor() != nil) {
-                queryItems.append(URLQueryItem(name: "paperColor", value: try ObjectSerializer.serializeToString(value: request.getPaperColor()!)));
-            }
-
-            if (request.getPixelFormat() != nil) {
-                queryItems.append(URLQueryItem(name: "pixelFormat", value: try ObjectSerializer.serializeToString(value: request.getPixelFormat()!)));
-            }
-
-            if (request.getResolution() != nil) {
-                queryItems.append(URLQueryItem(name: "resolution", value: try ObjectSerializer.serializeToString(value: request.getResolution()!)));
-            }
-
-            if (request.getScale() != nil) {
-                queryItems.append(URLQueryItem(name: "scale", value: try ObjectSerializer.serializeToString(value: request.getScale()!)));
-            }
-
-            if (request.getTiffCompression() != nil) {
-                queryItems.append(URLQueryItem(name: "tiffCompression", value: try ObjectSerializer.serializeToString(value: request.getTiffCompression()!)));
-            }
-
-            if (request.getDmlRenderingMode() != nil) {
-                queryItems.append(URLQueryItem(name: "dmlRenderingMode", value: try ObjectSerializer.serializeToString(value: request.getDmlRenderingMode()!)));
-            }
-
-            if (request.getDmlEffectsRenderingMode() != nil) {
-                queryItems.append(URLQueryItem(name: "dmlEffectsRenderingMode", value: try ObjectSerializer.serializeToString(value: request.getDmlEffectsRenderingMode()!)));
-            }
-
-            if (request.getTiffBinarizationMethod() != nil) {
-                queryItems.append(URLQueryItem(name: "tiffBinarizationMethod", value: try ObjectSerializer.serializeToString(value: request.getTiffBinarizationMethod()!)));
-            }
-
-            if (request.getZipOutput() != nil) {
-                queryItems.append(URLQueryItem(name: "zipOutput", value: try ObjectSerializer.serializeToString(value: request.getZipOutput()!)));
-            }
-
-            if (request.getFontsLocation() != nil) {
-                queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getSaveOptions()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : SaveResponse? = nil;
                     var responseError = error;
@@ -11259,42 +5804,8 @@ public class WordsAPI {
     // Searches text in document.
     public func search(request : SearchRequest, callback : @escaping (_ response : SearchResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/search";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            queryItems.append(URLQueryItem(name: "pattern", value: try ObjectSerializer.serializeToString(value: request.getPattern())));
-
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "GET",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : SearchResponse? = nil;
                     var responseError = error;
@@ -11339,62 +5850,8 @@ public class WordsAPI {
     // Splits document.
     public func splitDocument(request : SplitDocumentRequest, callback : @escaping (_ response : SplitDocumentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/split";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: request.getFormat())));
-
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getFrom() != nil) {
-                queryItems.append(URLQueryItem(name: "from", value: try ObjectSerializer.serializeToString(value: request.getFrom()!)));
-            }
-
-            if (request.getTo() != nil) {
-                queryItems.append(URLQueryItem(name: "to", value: try ObjectSerializer.serializeToString(value: request.getTo()!)));
-            }
-
-            if (request.getZipOutput() != nil) {
-                queryItems.append(URLQueryItem(name: "zipOutput", value: try ObjectSerializer.serializeToString(value: request.getZipOutput()!)));
-            }
-
-            if (request.getFontsLocation() != nil) {
-                queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: request.getFontsLocation()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : SplitDocumentResponse? = nil;
                     var responseError = error;
@@ -11439,44 +5896,8 @@ public class WordsAPI {
     // Unprotects document.
     public func unprotectDocument(request : UnprotectDocumentRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/protection";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "DELETE",
-                body: try ObjectSerializer.serializeBody(value: request.getProtectionRequest()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ProtectionDataResponse? = nil;
                     var responseError = error;
@@ -11521,54 +5942,8 @@ public class WordsAPI {
     // Updates document bookmark.
     public func updateBookmark(request : UpdateBookmarkRequest, callback : @escaping (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/bookmarks/{bookmarkName}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{bookmarkName}", with: try ObjectSerializer.serializeToString(value: request.getBookmarkName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getBookmarkData()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : BookmarkResponse? = nil;
                     var responseError = error;
@@ -11613,61 +5988,8 @@ public class WordsAPI {
     // 'nodePath' should refer to paragraph, cell or row.
     public func updateBorder(request : UpdateBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/borders/{borderType}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{borderType}", with: try ObjectSerializer.serializeToString(value: request.getBorderType()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getBorderProperties()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : BorderResponse? = nil;
                     var responseError = error;
@@ -11712,54 +6034,8 @@ public class WordsAPI {
     // Updates the comment, returns updated comment data.
     public func updateComment(request : UpdateCommentRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/comments/{commentIndex}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{commentIndex}", with: try ObjectSerializer.serializeToString(value: request.getCommentIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getComment()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : CommentResponse? = nil;
                     var responseError = error;
@@ -11804,66 +6080,8 @@ public class WordsAPI {
     // Updates drawing object, returns updated  drawing object's data.
     public func updateDrawingObject(request : UpdateDrawingObjectRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-            var formParams : [RequestFormParam] = [];
-            formParams.append(RequestFormParam(name: "drawingObject", body: try ObjectSerializer.serialize(value: request.getDrawingObject())));
-
-            formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: request.getImageFile())));
-
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: formParams,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DrawingObjectResponse? = nil;
                     var responseError = error;
@@ -11908,61 +6126,8 @@ public class WordsAPI {
     // Updates field's properties, returns updated field's data.
     public func updateField(request : UpdateFieldRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/fields/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getField()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FieldResponse? = nil;
                     var responseError = error;
@@ -12007,44 +6172,8 @@ public class WordsAPI {
     // Updates (reevaluate) fields in document.
     public func updateFields(request : UpdateFieldsRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/updateFields";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : DocumentResponse? = nil;
                     var responseError = error;
@@ -12089,61 +6218,8 @@ public class WordsAPI {
     // Updates footnote's properties, returns updated run's data.
     public func updateFootnote(request : UpdateFootnoteRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/footnotes/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getFootnoteDto()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FootnoteResponse? = nil;
                     var responseError = error;
@@ -12188,61 +6264,8 @@ public class WordsAPI {
     // Updates properties of form field, returns updated form field.
     public func updateFormField(request : UpdateFormFieldRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/formfields/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getFormField()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FormFieldResponse? = nil;
                     var responseError = error;
@@ -12287,54 +6310,8 @@ public class WordsAPI {
     // Updates list properties, returns updated list.
     public func updateList(request : UpdateListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/lists/{listId}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{listId}", with: try ObjectSerializer.serializeToString(value: request.getListId()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getListUpdate()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ListResponse? = nil;
                     var responseError = error;
@@ -12379,56 +6356,8 @@ public class WordsAPI {
     // Updates list level in document list, returns updated list.
     public func updateListLevel(request : UpdateListLevelRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/lists/{listId}/listLevels/{listLevel}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{listId}", with: try ObjectSerializer.serializeToString(value: request.getListId()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{listLevel}", with: try ObjectSerializer.serializeToString(value: request.getListLevel()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getListUpdate()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ListResponse? = nil;
                     var responseError = error;
@@ -12473,61 +6402,8 @@ public class WordsAPI {
     // Updates paragraph format properties, returns updated format properties.
     public func updateParagraphFormat(request : UpdateParagraphFormatRequest, callback : @escaping (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/format";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getDto()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ParagraphFormatResponse? = nil;
                     var responseError = error;
@@ -12572,61 +6448,8 @@ public class WordsAPI {
     // Updates paragraph list format properties, returns updated list format properties.
     public func updateParagraphListFormat(request : UpdateParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getDto()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : ParagraphListFormatResponse? = nil;
                     var responseError = error;
@@ -12671,56 +6494,8 @@ public class WordsAPI {
     // Updates run's properties, returns updated run's data.
     public func updateRun(request : UpdateRunRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{paragraphPath}/runs/{index}";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: try ObjectSerializer.serializeToString(value: request.getParagraphPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getRun()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : RunResponse? = nil;
                     var responseError = error;
@@ -12765,56 +6540,8 @@ public class WordsAPI {
     // Updates font properties, returns updated font data.
     public func updateRunFont(request : UpdateRunFontRequest, callback : @escaping (_ response : FontResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{paragraphPath}/runs/{index}/font";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: try ObjectSerializer.serializeToString(value: request.getParagraphPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getFontDto()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FontResponse? = nil;
                     var responseError = error;
@@ -12859,54 +6586,8 @@ public class WordsAPI {
     // Updates page setup of section.
     public func updateSectionPageSetup(request : UpdateSectionPageSetupRequest, callback : @escaping (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/sections/{sectionIndex}/pageSetup";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{sectionIndex}", with: try ObjectSerializer.serializeToString(value: request.getSectionIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getPageSetup()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : SectionPageSetupResponse? = nil;
                     var responseError = error;
@@ -12951,54 +6632,8 @@ public class WordsAPI {
     // Updates style properties, returns an updated style.
     public func updateStyle(request : UpdateStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/styles/{styleName}/update";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{styleName}", with: try ObjectSerializer.serializeToString(value: request.getStyleName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getStyleUpdate()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : StyleResponse? = nil;
                     var responseError = error;
@@ -13043,56 +6678,8 @@ public class WordsAPI {
     // Updates a table cell format.
     public func updateTableCellFormat(request : UpdateTableCellFormatRequest, callback : @escaping (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{tableRowPath}/cells/{index}/cellformat";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{tableRowPath}", with: try ObjectSerializer.serializeToString(value: request.getTableRowPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getFormat()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TableCellFormatResponse? = nil;
                     var responseError = error;
@@ -13137,61 +6724,8 @@ public class WordsAPI {
     // Updates a table properties.
     public func updateTableProperties(request : UpdateTablePropertiesRequest, callback : @escaping (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{nodePath}/tables/{index}/properties";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            if (request.getNodePath() != nil) {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: request.getNodePath()!));
-            }
-            else {
-                rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
-            }
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getProperties()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TablePropertiesResponse? = nil;
                     var responseError = error;
@@ -13236,56 +6770,8 @@ public class WordsAPI {
     // Updates a table row format.
     public func updateTableRowFormat(request : UpdateTableRowFormatRequest, callback : @escaping (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/{name}/{tablePath}/rows/{index}/rowformat";
-            rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{tablePath}", with: try ObjectSerializer.serializeToString(value: request.getTablePath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: request.getIndex()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getFolder() != nil) {
-                queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
-            }
-
-            if (request.getStorage() != nil) {
-                queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
-            }
-
-            if (request.getLoadEncoding() != nil) {
-                queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
-            }
-
-            if (request.getPassword() != nil) {
-                queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
-            }
-
-            if (request.getDestFileName() != nil) {
-                queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
-            }
-
-            if (request.getRevisionAuthor() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: request.getRevisionAuthor()!)));
-            }
-
-            if (request.getRevisionDateTime() != nil) {
-                queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: request.getRevisionDateTime()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: try ObjectSerializer.serializeBody(value: request.getFormat()),
-                headers: nil,
-                formParams: nil,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : TableRowFormatResponse? = nil;
                     var responseError = error;
@@ -13330,31 +6816,8 @@ public class WordsAPI {
     // Upload file.
     public func uploadFile(request : UploadFileRequest, callback : @escaping (_ response : FilesUploadResult?, _ error : Error?) -> ()) {
         do {
-            var rawPath = "/words/storage/file/{path}";
-            rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
-
-            rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-            let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-            var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
-            var queryItems : [URLQueryItem] = [];
-            if (request.getStorageName() != nil) {
-                queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: request.getStorageName()!)));
-            }
-
-            if (queryItems.count > 0) {
-                urlBuilder.queryItems = queryItems;
-            }
-            var formParams : [RequestFormParam] = [];
-            formParams.append(RequestFormParam(name: "fileContent", body: try ObjectSerializer.serializeFile(value: request.getFileContent())));
-
-
             apiInvoker.invoke(
-                url: urlBuilder.url!,
-                method: "PUT",
-                body: nil,
-                headers: nil,
-                formParams: formParams,
+                apiRequest: try request.createApiRequest(),
                 callback: { response, error in
                     var responseObject : FilesUploadResult? = nil;
                     var responseError = error;

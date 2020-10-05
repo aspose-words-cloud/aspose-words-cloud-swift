@@ -47,6 +47,32 @@ public class DeleteFolderRequest {
         self.recursive = recursive;
     }
 
+    // Creates the api request data
+    public createApiRequest() throws -> ApiRequest {
+         var rawPath = "/words/storage/folder/{path}";
+         rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (request.getStorageName() != nil) {
+             queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: request.getStorageName()!)));
+         }
+
+         if (request.getRecursive() != nil) {
+             queryItems.append(URLQueryItem(name: "recursive", value: try ObjectSerializer.serializeToString(value: request.getRecursive()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         let result = ApiRequest(url: urlBuilder.url!, method: "DELETE");
+         return result;
+    }
+
     // Folder path e.g. /Folder1s.
     public func getPath() -> String {
         return self.path;

@@ -44,6 +44,30 @@ public class GetDocumentFieldNamesOnlineRequest {
         self.useNonMergeFields = useNonMergeFields;
     }
 
+    // Creates the api request data
+    public createApiRequest() throws -> ApiRequest {
+         var rawPath = "/words/mailMerge/FieldNames";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (request.getUseNonMergeFields() != nil) {
+             queryItems.append(URLQueryItem(name: "useNonMergeFields", value: try ObjectSerializer.serializeToString(value: request.getUseNonMergeFields()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+         var formParams : [RequestFormParam] = [];
+         formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: request.getTemplate()), contentType: "application/octet-stream"));
+
+
+         var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         result.setBody(formParams: formParams);
+         return result;
+    }
+
     // File with template.
     public func getTemplate() -> InputStream {
         return self.template;

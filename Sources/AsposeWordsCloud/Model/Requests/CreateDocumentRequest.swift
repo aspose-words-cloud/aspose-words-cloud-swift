@@ -47,6 +47,34 @@ public class CreateDocumentRequest {
         self.folder = folder;
     }
 
+    // Creates the api request data
+    public createApiRequest() throws -> ApiRequest {
+         var rawPath = "/words/create";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (request.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+         }
+
+         if (request.getFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: request.getFileName()!)));
+         }
+
+         if (request.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         let result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         return result;
+    }
+
     // Original document storage.
     public func getStorage() -> String? {
         return self.storage;

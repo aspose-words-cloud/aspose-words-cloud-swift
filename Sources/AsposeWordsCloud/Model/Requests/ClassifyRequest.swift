@@ -44,6 +44,27 @@ public class ClassifyRequest {
         self.bestClassesCount = bestClassesCount;
     }
 
+    // Creates the api request data
+    public createApiRequest() throws -> ApiRequest {
+         var rawPath = "/words/classify";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (request.getBestClassesCount() != nil) {
+             queryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: request.getBestClassesCount()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: request.getText()), contentType: "application/json");
+         return result;
+    }
+
     // Text to classify.
     public func getText() -> String {
         return self.text;

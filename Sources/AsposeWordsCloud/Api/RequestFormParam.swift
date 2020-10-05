@@ -31,8 +31,9 @@ import Foundation
 public struct RequestFormParam {
     private let name : String;
     private let body : Data;
+    private let contentType : String;
 
-    public init(name : String, body : Data) {
+    public init(name : String, body : Data, contentType : String) {
         self.name = name;
         self.body = body;
     }
@@ -43,5 +44,9 @@ public struct RequestFormParam {
 
     public func getBody() -> Data {
         return self.body;
+    }
+
+    public func getContentType() -> String {
+        return self.contentType;
     }
 }
