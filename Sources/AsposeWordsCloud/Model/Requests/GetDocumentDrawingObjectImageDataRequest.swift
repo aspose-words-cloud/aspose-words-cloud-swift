@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getDocumentDrawingObjectImageData operation.
-public class GetDocumentDrawingObjectImageDataRequest {
+public class GetDocumentDrawingObjectImageDataRequest : WordsApiRequest {
     private let name : String;
     private let index : Int;
     private let nodePath : String?;
@@ -95,7 +95,7 @@ public class GetDocumentDrawingObjectImageDataRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}/imageData";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -133,7 +133,7 @@ public class GetDocumentDrawingObjectImageDataRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "GET");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
          return result;
     }
 }

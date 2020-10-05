@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for insertParagraph operation.
-public class InsertParagraphRequest {
+public class InsertParagraphRequest : WordsApiRequest {
     private let name : String;
     private let paragraph : ParagraphInsert;
     private let nodePath : String?;
@@ -127,7 +127,7 @@ public class InsertParagraphRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{nodePath}/paragraphs";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -179,7 +179,7 @@ public class InsertParagraphRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "POST");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getParagraph()), contentType: "application/json");
          return result;
     }

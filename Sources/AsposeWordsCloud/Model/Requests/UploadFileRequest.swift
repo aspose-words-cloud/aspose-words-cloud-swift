@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for uploadFile operation.
-public class UploadFileRequest {
+public class UploadFileRequest : WordsApiRequest {
     private let fileContent : InputStream;
     private let path : String;
     private let storageName : String?;
@@ -65,7 +65,7 @@ public class UploadFileRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/storage/file/{path}";
          rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: self.getPath()));
 
@@ -85,7 +85,7 @@ public class UploadFileRequest {
          formParams.append(RequestFormParam(name: "fileContent", body: try ObjectSerializer.serializeFile(value: self.getFileContent()), contentType: "application/octet-stream"));
 
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(formParams: formParams);
          return result;
     }

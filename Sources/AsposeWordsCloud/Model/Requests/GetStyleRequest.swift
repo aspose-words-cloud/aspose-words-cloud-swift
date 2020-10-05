@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getStyle operation.
-public class GetStyleRequest {
+public class GetStyleRequest : WordsApiRequest {
     private let name : String;
     private let styleName : String;
     private let folder : String?;
@@ -87,7 +87,7 @@ public class GetStyleRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/styles/{styleName}";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -118,7 +118,7 @@ public class GetStyleRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "GET");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
          return result;
     }
 }

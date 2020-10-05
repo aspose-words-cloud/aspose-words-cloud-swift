@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for deleteComment operation.
-public class DeleteCommentRequest {
+public class DeleteCommentRequest : WordsApiRequest {
     private let name : String;
     private let commentIndex : Int;
     private let folder : String?;
@@ -111,7 +111,7 @@ public class DeleteCommentRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/comments/{commentIndex}";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -154,7 +154,7 @@ public class DeleteCommentRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "DELETE");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "DELETE");
          return result;
     }
 }

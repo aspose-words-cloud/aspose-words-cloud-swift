@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for renderPage operation.
-public class RenderPageRequest {
+public class RenderPageRequest : WordsApiRequest {
     private let name : String;
     private let pageIndex : Int;
     private let format : String;
@@ -103,7 +103,7 @@ public class RenderPageRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/pages/{pageIndex}/render";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -140,7 +140,7 @@ public class RenderPageRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "GET");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
          return result;
     }
 }

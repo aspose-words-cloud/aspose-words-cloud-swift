@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for updateFootnote operation.
-public class UpdateFootnoteRequest {
+public class UpdateFootnoteRequest : WordsApiRequest {
     private let name : String;
     private let footnoteDto : FootnoteUpdate;
     private let index : Int;
@@ -127,7 +127,7 @@ public class UpdateFootnoteRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{nodePath}/footnotes/{index}";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -177,7 +177,7 @@ public class UpdateFootnoteRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getFootnoteDto()), contentType: "application/json");
          return result;
     }

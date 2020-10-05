@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for buildReport operation.
-public class BuildReportRequest {
+public class BuildReportRequest : WordsApiRequest {
     private let name : String;
     private let data : String;
     private let reportEngineSettings : ReportEngineSettings;
@@ -103,7 +103,7 @@ public class BuildReportRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/buildReport";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -141,7 +141,7 @@ public class BuildReportRequest {
          formParams.append(RequestFormParam(name: "reportEngineSettings", body: try ObjectSerializer.serialize(value: self.getReportEngineSettings()), contentType: "application/json"));
 
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(formParams: formParams);
          return result;
     }

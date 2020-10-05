@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getHeaderFooter operation.
-public class GetHeaderFooterRequest {
+public class GetHeaderFooterRequest : WordsApiRequest {
     private let name : String;
     private let headerFooterIndex : Int;
     private let folder : String?;
@@ -95,7 +95,7 @@ public class GetHeaderFooterRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/headersfooters/{headerFooterIndex}";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -130,7 +130,7 @@ public class GetHeaderFooterRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "GET");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
          return result;
     }
 }

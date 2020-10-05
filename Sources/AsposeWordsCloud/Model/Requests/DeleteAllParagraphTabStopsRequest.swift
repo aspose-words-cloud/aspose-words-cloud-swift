@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for deleteAllParagraphTabStops operation.
-public class DeleteAllParagraphTabStopsRequest {
+public class DeleteAllParagraphTabStopsRequest : WordsApiRequest {
     private let name : String;
     private let index : Int;
     private let nodePath : String?;
@@ -103,7 +103,7 @@ public class DeleteAllParagraphTabStopsRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -145,7 +145,7 @@ public class DeleteAllParagraphTabStopsRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "DELETE");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "DELETE");
          return result;
     }
 }

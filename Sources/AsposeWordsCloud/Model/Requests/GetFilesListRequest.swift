@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getFilesList operation.
-public class GetFilesListRequest {
+public class GetFilesListRequest : WordsApiRequest {
     private let path : String;
     private let storageName : String?;
 
@@ -55,7 +55,7 @@ public class GetFilesListRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/storage/folder/{path}";
          rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: self.getPath()));
 
@@ -72,7 +72,7 @@ public class GetFilesListRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "GET");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
          return result;
     }
 }

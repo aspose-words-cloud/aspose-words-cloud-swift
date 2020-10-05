@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ApiRequest.swift">
+ * <copyright company="Aspose" file="WordsApiRequestData.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -28,7 +28,7 @@
 import Foundation
 
 // Common REST API request data
-public struct ApiRequest {
+public struct WordsApiRequestData {
     private let url : URL;
     private let method : String;
     private var body : Data?;

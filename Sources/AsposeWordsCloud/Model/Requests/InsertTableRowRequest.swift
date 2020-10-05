@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for insertTableRow operation.
-public class InsertTableRowRequest {
+public class InsertTableRowRequest : WordsApiRequest {
     private let name : String;
     private let row : TableRowInsert;
     private let tablePath : String;
@@ -119,7 +119,7 @@ public class InsertTableRowRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{tablePath}/rows";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -162,7 +162,7 @@ public class InsertTableRowRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "POST");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getRow()), contentType: "application/json");
          return result;
     }

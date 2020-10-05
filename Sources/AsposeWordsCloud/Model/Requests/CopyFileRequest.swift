@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for copyFile operation.
-public class CopyFileRequest {
+public class CopyFileRequest : WordsApiRequest {
     private let destPath : String;
     private let srcPath : String;
     private let srcStorageName : String?;
@@ -79,7 +79,7 @@ public class CopyFileRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/storage/file/copy/{srcPath}";
          rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: self.getSrcPath()));
 
@@ -106,7 +106,7 @@ public class CopyFileRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          return result;
     }
 }

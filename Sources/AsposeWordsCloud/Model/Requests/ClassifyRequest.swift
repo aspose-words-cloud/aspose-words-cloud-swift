@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for classify operation.
-public class ClassifyRequest {
+public class ClassifyRequest : WordsApiRequest {
     private let text : String;
     private let bestClassesCount : String?;
 
@@ -55,7 +55,7 @@ public class ClassifyRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/classify";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
@@ -70,7 +70,7 @@ public class ClassifyRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getText()), contentType: "application/json");
          return result;
     }

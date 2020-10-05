@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for executeMailMergeOnline operation.
-public class ExecuteMailMergeOnlineRequest {
+public class ExecuteMailMergeOnlineRequest : WordsApiRequest {
     private let template : InputStream;
     private let data : InputStream;
     private let withRegions : Bool?;
@@ -79,7 +79,7 @@ public class ExecuteMailMergeOnlineRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/MailMerge";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
@@ -107,7 +107,7 @@ public class ExecuteMailMergeOnlineRequest {
          formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serializeFile(value: self.getData()), contentType: "application/octet-stream"));
 
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(formParams: formParams);
          return result;
     }

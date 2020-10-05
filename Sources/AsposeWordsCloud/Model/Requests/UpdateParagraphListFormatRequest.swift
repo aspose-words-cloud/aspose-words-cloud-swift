@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for updateParagraphListFormat operation.
-public class UpdateParagraphListFormatRequest {
+public class UpdateParagraphListFormatRequest : WordsApiRequest {
     private let name : String;
     private let dto : ListFormatUpdate;
     private let index : Int;
@@ -127,7 +127,7 @@ public class UpdateParagraphListFormatRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/listFormat";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -177,7 +177,7 @@ public class UpdateParagraphListFormatRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getDto()), contentType: "application/json");
          return result;
     }

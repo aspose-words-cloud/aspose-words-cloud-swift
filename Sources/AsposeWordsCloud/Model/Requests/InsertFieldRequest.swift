@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for insertField operation.
-public class InsertFieldRequest {
+public class InsertFieldRequest : WordsApiRequest {
     private let name : String;
     private let field : FieldInsert;
     private let nodePath : String?;
@@ -127,7 +127,7 @@ public class InsertFieldRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{nodePath}/fields";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -179,7 +179,7 @@ public class InsertFieldRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "POST");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getField()), contentType: "application/json");
          return result;
     }

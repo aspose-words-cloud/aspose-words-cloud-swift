@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getAvailableFonts operation.
-public class GetAvailableFontsRequest {
+public class GetAvailableFontsRequest : WordsApiRequest {
     private let fontsLocation : String?;
 
     private enum CodingKeys: String, CodingKey {
@@ -47,7 +47,7 @@ public class GetAvailableFontsRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/fonts/available";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
@@ -62,7 +62,7 @@ public class GetAvailableFontsRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "GET");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
          return result;
     }
 }

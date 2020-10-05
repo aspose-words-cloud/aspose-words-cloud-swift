@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for convertDocument operation.
-public class ConvertDocumentRequest {
+public class ConvertDocumentRequest : WordsApiRequest {
     private let document : InputStream;
     private let format : String;
     private let storage : String?;
@@ -87,7 +87,7 @@ public class ConvertDocumentRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/convert";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
@@ -119,7 +119,7 @@ public class ConvertDocumentRequest {
          formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(formParams: formParams);
          return result;
     }

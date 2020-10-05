@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for updateSectionPageSetup operation.
-public class UpdateSectionPageSetupRequest {
+public class UpdateSectionPageSetupRequest : WordsApiRequest {
     private let name : String;
     private let sectionIndex : Int;
     private let pageSetup : PageSetup;
@@ -119,7 +119,7 @@ public class UpdateSectionPageSetupRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/sections/{sectionIndex}/pageSetup";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -162,7 +162,7 @@ public class UpdateSectionPageSetupRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getPageSetup()), contentType: "application/json");
          return result;
     }

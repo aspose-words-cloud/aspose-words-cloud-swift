@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for saveAsTiff operation.
-public class SaveAsTiffRequest {
+public class SaveAsTiffRequest : WordsApiRequest {
     private let name : String;
     private let saveOptions : TiffSaveOptionsData;
     private let folder : String?;
@@ -231,7 +231,7 @@ public class SaveAsTiffRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/saveAs/tiff";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -332,7 +332,7 @@ public class SaveAsTiffRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getSaveOptions()), contentType: "application/json");
          return result;
     }

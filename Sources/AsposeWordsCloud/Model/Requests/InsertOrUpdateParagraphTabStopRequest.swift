@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for insertOrUpdateParagraphTabStop operation.
-public class InsertOrUpdateParagraphTabStopRequest {
+public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
     private let name : String;
     private let dto : TabStopInsert;
     private let index : Int;
@@ -111,7 +111,7 @@ public class InsertOrUpdateParagraphTabStopRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -153,7 +153,7 @@ public class InsertOrUpdateParagraphTabStopRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "POST");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getDto()), contentType: "application/json");
          return result;
     }

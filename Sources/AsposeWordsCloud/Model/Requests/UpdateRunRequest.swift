@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for updateRun operation.
-public class UpdateRunRequest {
+public class UpdateRunRequest : WordsApiRequest {
     private let name : String;
     private let run : RunUpdate;
     private let paragraphPath : String;
@@ -127,7 +127,7 @@ public class UpdateRunRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{paragraphPath}/runs/{index}";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -172,7 +172,7 @@ public class UpdateRunRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getRun()), contentType: "application/json");
          return result;
     }

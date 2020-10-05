@@ -71,20 +71,20 @@ public class ApiInvoker {
     }
 
     // Invoke request to the API with the specified set of arguments and execute callback after the request is completed
-    public func invoke(apiRequest : ApiRequest, callback: @escaping (_ response: Data?, _ error: Error?) -> ()
+    public func invoke(apiRequestData : WordsApiRequestData, callback: @escaping (_ response: Data?, _ error: Error?) -> ()
     ) {
         // Create URL request object
-        var request = URLRequest(url: apiRequest.getURL());
-        request.httpMethod = apiRequest.getMethod();
+        var request = URLRequest(url: apiRequestData.getURL());
+        request.httpMethod = apiRequestData.getMethod();
 
         // Fill headers
-        for (key, value) in apiRequest.getHeaders() {
+        for (key, value) in apiRequestData.getHeaders() {
             request.setValue(value, forHTTPHeaderField: key);
         }
 
         // Process the request body
-        if (apiRequest.getBody() != nil) {
-            request.httpBody = apiRequest.getBody();
+        if (apiRequestData.getBody() != nil) {
+            request.httpBody = apiRequestData.getBody();
         }
 
         // Request or get from cache authorization token

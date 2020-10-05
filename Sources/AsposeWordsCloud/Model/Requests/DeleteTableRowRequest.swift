@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for deleteTableRow operation.
-public class DeleteTableRowRequest {
+public class DeleteTableRowRequest : WordsApiRequest {
     private let name : String;
     private let tablePath : String;
     private let index : Int;
@@ -119,7 +119,7 @@ public class DeleteTableRowRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{tablePath}/rows/{index}";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -164,7 +164,7 @@ public class DeleteTableRowRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "DELETE");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "DELETE");
          return result;
     }
 }

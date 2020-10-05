@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getFootnote operation.
-public class GetFootnoteRequest {
+public class GetFootnoteRequest : WordsApiRequest {
     private let name : String;
     private let index : Int;
     private let nodePath : String?;
@@ -95,7 +95,7 @@ public class GetFootnoteRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{nodePath}/footnotes/{index}";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -133,7 +133,7 @@ public class GetFootnoteRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "GET");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
          return result;
     }
 }

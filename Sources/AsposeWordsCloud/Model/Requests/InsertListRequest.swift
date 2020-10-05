@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for insertList operation.
-public class InsertListRequest {
+public class InsertListRequest : WordsApiRequest {
     private let name : String;
     private let listInsert : ListInsert;
     private let folder : String?;
@@ -111,7 +111,7 @@ public class InsertListRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/lists";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -152,7 +152,7 @@ public class InsertListRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "POST");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getListInsert()), contentType: "application/json");
          return result;
     }

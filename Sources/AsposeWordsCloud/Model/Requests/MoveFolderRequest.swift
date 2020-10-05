@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for moveFolder operation.
-public class MoveFolderRequest {
+public class MoveFolderRequest : WordsApiRequest {
     private let destPath : String;
     private let srcPath : String;
     private let srcStorageName : String?;
@@ -71,7 +71,7 @@ public class MoveFolderRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/storage/folder/move/{srcPath}";
          rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: self.getSrcPath()));
 
@@ -94,7 +94,7 @@ public class MoveFolderRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          return result;
     }
 }

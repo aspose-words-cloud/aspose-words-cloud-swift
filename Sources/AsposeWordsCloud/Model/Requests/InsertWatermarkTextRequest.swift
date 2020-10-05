@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for insertWatermarkText operation.
-public class InsertWatermarkTextRequest {
+public class InsertWatermarkTextRequest : WordsApiRequest {
     private let name : String;
     private let watermarkText : WatermarkText;
     private let folder : String?;
@@ -111,7 +111,7 @@ public class InsertWatermarkTextRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/watermarks/texts";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -152,7 +152,7 @@ public class InsertWatermarkTextRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "POST");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getWatermarkText()), contentType: "application/json");
          return result;
     }

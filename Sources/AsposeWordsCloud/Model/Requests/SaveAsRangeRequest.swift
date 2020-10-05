@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for saveAsRange operation.
-public class SaveAsRangeRequest {
+public class SaveAsRangeRequest : WordsApiRequest {
     private let name : String;
     private let rangeStartIdentifier : String;
     private let documentParameters : RangeDocument;
@@ -105,7 +105,7 @@ public class SaveAsRangeRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -143,7 +143,7 @@ public class SaveAsRangeRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "POST");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getDocumentParameters()), contentType: "application/json");
          return result;
     }

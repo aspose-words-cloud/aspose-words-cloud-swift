@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for deleteWatermark operation.
-public class DeleteWatermarkRequest {
+public class DeleteWatermarkRequest : WordsApiRequest {
     private let name : String;
     private let folder : String?;
     private let storage : String?;
@@ -103,7 +103,7 @@ public class DeleteWatermarkRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/watermarks/deleteLast";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -144,7 +144,7 @@ public class DeleteWatermarkRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "POST");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
          return result;
     }
 }

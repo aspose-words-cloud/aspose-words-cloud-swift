@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for updateStyle operation.
-public class UpdateStyleRequest {
+public class UpdateStyleRequest : WordsApiRequest {
     private let name : String;
     private let styleUpdate : StyleUpdate;
     private let styleName : String;
@@ -119,7 +119,7 @@ public class UpdateStyleRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/styles/{styleName}/update";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -162,7 +162,7 @@ public class UpdateStyleRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getStyleUpdate()), contentType: "application/json");
          return result;
     }

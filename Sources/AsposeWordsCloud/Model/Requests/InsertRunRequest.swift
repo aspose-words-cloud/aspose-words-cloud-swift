@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for insertRun operation.
-public class InsertRunRequest {
+public class InsertRunRequest : WordsApiRequest {
     private let name : String;
     private let paragraphPath : String;
     private let run : RunInsert;
@@ -127,7 +127,7 @@ public class InsertRunRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{paragraphPath}/runs";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -174,7 +174,7 @@ public class InsertRunRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "POST");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getRun()), contentType: "application/json");
          return result;
     }

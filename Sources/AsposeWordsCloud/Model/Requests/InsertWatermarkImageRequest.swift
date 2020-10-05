@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for insertWatermarkImage operation.
-public class InsertWatermarkImageRequest {
+public class InsertWatermarkImageRequest : WordsApiRequest {
     private let name : String;
     private let imageFile : InputStream?;
     private let folder : String?;
@@ -127,7 +127,7 @@ public class InsertWatermarkImageRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/watermarks/images";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -181,7 +181,7 @@ public class InsertWatermarkImageRequest {
          }
 
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "POST");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
          result.setBody(formParams: formParams);
          return result;
     }

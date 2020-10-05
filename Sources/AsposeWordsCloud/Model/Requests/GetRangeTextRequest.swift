@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getRangeText operation.
-public class GetRangeTextRequest {
+public class GetRangeTextRequest : WordsApiRequest {
     private let name : String;
     private let rangeStartIdentifier : String;
     private let rangeEndIdentifier : String?;
@@ -97,7 +97,7 @@ public class GetRangeTextRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -135,7 +135,7 @@ public class GetRangeTextRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "GET");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
          return result;
     }
 }

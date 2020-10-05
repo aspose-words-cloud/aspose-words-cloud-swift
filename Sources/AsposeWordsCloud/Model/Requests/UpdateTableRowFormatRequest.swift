@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for updateTableRowFormat operation.
-public class UpdateTableRowFormatRequest {
+public class UpdateTableRowFormatRequest : WordsApiRequest {
     private let name : String;
     private let format : TableRowFormat;
     private let tablePath : String;
@@ -127,7 +127,7 @@ public class UpdateTableRowFormatRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{tablePath}/rows/{index}/rowformat";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -172,7 +172,7 @@ public class UpdateTableRowFormatRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getFormat()), contentType: "application/json");
          return result;
     }

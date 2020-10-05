@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getBorder operation.
-public class GetBorderRequest {
+public class GetBorderRequest : WordsApiRequest {
     private let name : String;
     private let borderType : String;
     private let nodePath : String?;
@@ -95,7 +95,7 @@ public class GetBorderRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{nodePath}/borders/{borderType}";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -133,7 +133,7 @@ public class GetBorderRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "GET");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
          return result;
     }
 }

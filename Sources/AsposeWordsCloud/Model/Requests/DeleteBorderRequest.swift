@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for deleteBorder operation.
-public class DeleteBorderRequest {
+public class DeleteBorderRequest : WordsApiRequest {
     private let name : String;
     private let borderType : String;
     private let nodePath : String?;
@@ -119,7 +119,7 @@ public class DeleteBorderRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{nodePath}/borders/{borderType}";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -169,7 +169,7 @@ public class DeleteBorderRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = ApiRequest(url: urlBuilder.url!, method: "DELETE");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "DELETE");
          return result;
     }
 }

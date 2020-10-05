@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for updateDrawingObject operation.
-public class UpdateDrawingObjectRequest {
+public class UpdateDrawingObjectRequest : WordsApiRequest {
     private let name : String;
     private let drawingObject : DrawingObjectUpdate;
     private let imageFile : InputStream;
@@ -135,7 +135,7 @@ public class UpdateDrawingObjectRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -190,7 +190,7 @@ public class UpdateDrawingObjectRequest {
          formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: self.getImageFile()), contentType: "application/octet-stream"));
 
 
-         var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(formParams: formParams);
          return result;
     }

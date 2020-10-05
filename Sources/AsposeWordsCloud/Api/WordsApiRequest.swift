@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ResetCacheRequest.swift">
+ * <copyright company="Aspose" file="WordsApiRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,16 +27,7 @@
 
 import Foundation
 
-// Request model for resetCache operation.
-public class ResetCacheRequest : WordsApiRequest {
-    // Creates the api request data
-    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/fonts/cache";
-         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
-
-         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
-
-         let result = WordsApiRequestData(url: urlPath, method: "DELETE");
-         return result;
-    }
+// General protocol for all models.
+protocol WordsApiRequest {
+    func createApiRequestData(configuration : Configuration) throws -> ApiRequestData;
 }
