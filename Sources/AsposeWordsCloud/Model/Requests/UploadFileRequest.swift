@@ -48,13 +48,13 @@ public class UploadFileRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest() throws -> ApiRequest {
+    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/storage/file/{path}";
          rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: self.getPath()));
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
-         let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
          if (self.getStorageName() != nil) {

@@ -72,7 +72,7 @@ public class UpdateRunRequest {
     }
 
     // Creates the api request data
-    public func createApiRequest() throws -> ApiRequest {
+    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/{name}/{paragraphPath}/runs/{index}";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -82,7 +82,7 @@ public class UpdateRunRequest {
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
-         let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
          if (self.getFolder() != nil) {
