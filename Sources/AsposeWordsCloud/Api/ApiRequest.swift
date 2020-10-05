@@ -31,8 +31,8 @@ import Foundation
 public struct ApiRequest {
     private let url : URL;
     private let method : String;
-    private let body : Data?;
-    private let headers : Dictionary<String, String>;
+    private var body : Data?;
+    private var headers : Dictionary<String, String>;
 
     public init(url : URL, method : String) {
         self.url = url;
