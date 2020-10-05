@@ -52,8 +52,8 @@ public class ClassifyRequest {
          let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         if (request.getBestClassesCount() != nil) {
-             queryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: request.getBestClassesCount()!)));
+         if (self.getBestClassesCount() != nil) {
+             queryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: self.getBestClassesCount()!)));
          }
 
          if (queryItems.count > 0) {
@@ -61,7 +61,7 @@ public class ClassifyRequest {
          }
 
          var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
-         result.setBody(body: try ObjectSerializer.serializeBody(value: request.getText()), contentType: "application/json");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getText()), contentType: "application/json");
          return result;
     }
 

@@ -50,19 +50,19 @@ public class DeleteFolderRequest {
     // Creates the api request data
     public func createApiRequest() throws -> ApiRequest {
          var rawPath = "/words/storage/folder/{path}";
-         rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: request.getPath()));
+         rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: self.getPath()));
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
          let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         if (request.getStorageName() != nil) {
-             queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: request.getStorageName()!)));
+         if (self.getStorageName() != nil) {
+             queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: self.getStorageName()!)));
          }
 
-         if (request.getRecursive() != nil) {
-             queryItems.append(URLQueryItem(name: "recursive", value: try ObjectSerializer.serializeToString(value: request.getRecursive()!)));
+         if (self.getRecursive() != nil) {
+             queryItems.append(URLQueryItem(name: "recursive", value: try ObjectSerializer.serializeToString(value: self.getRecursive()!)));
          }
 
          if (queryItems.count > 0) {

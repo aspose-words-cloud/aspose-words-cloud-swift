@@ -74,55 +74,55 @@ public class ExecuteMailMergeRequest {
     // Creates the api request data
     public func createApiRequest() throws -> ApiRequest {
          var rawPath = "/words/{name}/MailMerge";
-         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
          let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         if (request.getFolder() != nil) {
-             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: request.getFolder()!)));
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
          }
 
-         if (request.getStorage() != nil) {
-             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
          }
 
-         if (request.getLoadEncoding() != nil) {
-             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: request.getLoadEncoding()!)));
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
          }
 
-         if (request.getPassword() != nil) {
-             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: request.getPassword()!)));
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
          }
 
-         if (request.getWithRegions() != nil) {
-             queryItems.append(URLQueryItem(name: "withRegions", value: try ObjectSerializer.serializeToString(value: request.getWithRegions()!)));
+         if (self.getWithRegions() != nil) {
+             queryItems.append(URLQueryItem(name: "withRegions", value: try ObjectSerializer.serializeToString(value: self.getWithRegions()!)));
          }
 
-         if (request.getMailMergeDataFile() != nil) {
-             queryItems.append(URLQueryItem(name: "mailMergeDataFile", value: try ObjectSerializer.serializeToString(value: request.getMailMergeDataFile()!)));
+         if (self.getMailMergeDataFile() != nil) {
+             queryItems.append(URLQueryItem(name: "mailMergeDataFile", value: try ObjectSerializer.serializeToString(value: self.getMailMergeDataFile()!)));
          }
 
-         if (request.getCleanup() != nil) {
-             queryItems.append(URLQueryItem(name: "cleanup", value: try ObjectSerializer.serializeToString(value: request.getCleanup()!)));
+         if (self.getCleanup() != nil) {
+             queryItems.append(URLQueryItem(name: "cleanup", value: try ObjectSerializer.serializeToString(value: self.getCleanup()!)));
          }
 
-         if (request.getUseWholeParagraphAsRegion() != nil) {
-             queryItems.append(URLQueryItem(name: "useWholeParagraphAsRegion", value: try ObjectSerializer.serializeToString(value: request.getUseWholeParagraphAsRegion()!)));
+         if (self.getUseWholeParagraphAsRegion() != nil) {
+             queryItems.append(URLQueryItem(name: "useWholeParagraphAsRegion", value: try ObjectSerializer.serializeToString(value: self.getUseWholeParagraphAsRegion()!)));
          }
 
-         if (request.getDestFileName() != nil) {
-             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: request.getDestFileName()!)));
+         if (self.getDestFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
          }
 
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
          var formParams : [RequestFormParam] = [];
-         if (request.getData() != nil) {
-             formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: request.getData()!), contentType: "application/json"));
+         if (self.getData() != nil) {
+             formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: self.getData()!), contentType: "application/json"));
          }
 
 

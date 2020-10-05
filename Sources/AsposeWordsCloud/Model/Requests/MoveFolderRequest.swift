@@ -53,21 +53,21 @@ public class MoveFolderRequest {
     // Creates the api request data
     public func createApiRequest() throws -> ApiRequest {
          var rawPath = "/words/storage/folder/move/{srcPath}";
-         rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: request.getSrcPath()));
+         rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: self.getSrcPath()));
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
          let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         queryItems.append(URLQueryItem(name: "destPath", value: try ObjectSerializer.serializeToString(value: request.getDestPath())));
+         queryItems.append(URLQueryItem(name: "destPath", value: try ObjectSerializer.serializeToString(value: self.getDestPath())));
 
-         if (request.getSrcStorageName() != nil) {
-             queryItems.append(URLQueryItem(name: "srcStorageName", value: try ObjectSerializer.serializeToString(value: request.getSrcStorageName()!)));
+         if (self.getSrcStorageName() != nil) {
+             queryItems.append(URLQueryItem(name: "srcStorageName", value: try ObjectSerializer.serializeToString(value: self.getSrcStorageName()!)));
          }
 
-         if (request.getDestStorageName() != nil) {
-             queryItems.append(URLQueryItem(name: "destStorageName", value: try ObjectSerializer.serializeToString(value: request.getDestStorageName()!)));
+         if (self.getDestStorageName() != nil) {
+             queryItems.append(URLQueryItem(name: "destStorageName", value: try ObjectSerializer.serializeToString(value: self.getDestStorageName()!)));
          }
 
          if (queryItems.count > 0) {

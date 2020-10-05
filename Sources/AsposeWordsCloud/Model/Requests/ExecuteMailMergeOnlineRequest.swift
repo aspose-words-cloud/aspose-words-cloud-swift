@@ -61,25 +61,25 @@ public class ExecuteMailMergeOnlineRequest {
          let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         if (request.getWithRegions() != nil) {
-             queryItems.append(URLQueryItem(name: "withRegions", value: try ObjectSerializer.serializeToString(value: request.getWithRegions()!)));
+         if (self.getWithRegions() != nil) {
+             queryItems.append(URLQueryItem(name: "withRegions", value: try ObjectSerializer.serializeToString(value: self.getWithRegions()!)));
          }
 
-         if (request.getCleanup() != nil) {
-             queryItems.append(URLQueryItem(name: "cleanup", value: try ObjectSerializer.serializeToString(value: request.getCleanup()!)));
+         if (self.getCleanup() != nil) {
+             queryItems.append(URLQueryItem(name: "cleanup", value: try ObjectSerializer.serializeToString(value: self.getCleanup()!)));
          }
 
-         if (request.getDocumentFileName() != nil) {
-             queryItems.append(URLQueryItem(name: "documentFileName", value: try ObjectSerializer.serializeToString(value: request.getDocumentFileName()!)));
+         if (self.getDocumentFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "documentFileName", value: try ObjectSerializer.serializeToString(value: self.getDocumentFileName()!)));
          }
 
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
          var formParams : [RequestFormParam] = [];
-         formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: request.getTemplate()), contentType: "application/octet-stream"));
+         formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: self.getTemplate()), contentType: "application/octet-stream"));
 
-         formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serializeFile(value: request.getData()), contentType: "application/octet-stream"));
+         formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serializeFile(value: self.getData()), contentType: "application/octet-stream"));
 
 
          var result = ApiRequest(url: urlBuilder.url!, method: "PUT");

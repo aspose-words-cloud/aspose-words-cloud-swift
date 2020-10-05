@@ -52,8 +52,8 @@ public class LoadWebDocumentRequest {
          let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         if (request.getStorage() != nil) {
-             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: request.getStorage()!)));
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
          }
 
          if (queryItems.count > 0) {
@@ -61,7 +61,7 @@ public class LoadWebDocumentRequest {
          }
 
          var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
-         result.setBody(body: try ObjectSerializer.serializeBody(value: request.getData()), contentType: "application/json");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getData()), contentType: "application/json");
          return result;
     }
 

@@ -58,19 +58,19 @@ public class BuildReportOnlineRequest {
          let urlPath = (try self.configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         if (request.getDocumentFileName() != nil) {
-             queryItems.append(URLQueryItem(name: "documentFileName", value: try ObjectSerializer.serializeToString(value: request.getDocumentFileName()!)));
+         if (self.getDocumentFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "documentFileName", value: try ObjectSerializer.serializeToString(value: self.getDocumentFileName()!)));
          }
 
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
          var formParams : [RequestFormParam] = [];
-         formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: request.getTemplate()), contentType: "application/octet-stream"));
+         formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: self.getTemplate()), contentType: "application/octet-stream"));
 
-         formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: request.getData()), contentType: "application/json"));
+         formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: self.getData()), contentType: "application/json"));
 
-         formParams.append(RequestFormParam(name: "reportEngineSettings", body: try ObjectSerializer.serialize(value: request.getReportEngineSettings()), contentType: "application/json"));
+         formParams.append(RequestFormParam(name: "reportEngineSettings", body: try ObjectSerializer.serialize(value: self.getReportEngineSettings()), contentType: "application/json"));
 
 
          var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
