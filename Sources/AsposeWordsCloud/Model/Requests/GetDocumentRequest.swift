@@ -54,7 +54,7 @@ public class GetDocumentRequest {
     }
 
     // Creates the api request data
-    public createApiRequest() throws -> ApiRequest {
+    public func createApiRequest() throws -> ApiRequest {
          var rawPath = "/words/{documentName}";
          rawPath = rawPath.replacingOccurrences(of: "{documentName}", with: try ObjectSerializer.serializeToString(value: request.getDocumentName()));
 

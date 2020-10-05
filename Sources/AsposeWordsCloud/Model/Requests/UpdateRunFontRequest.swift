@@ -72,7 +72,7 @@ public class UpdateRunFontRequest {
     }
 
     // Creates the api request data
-    public createApiRequest() throws -> ApiRequest {
+    public func createApiRequest() throws -> ApiRequest {
          var rawPath = "/words/{name}/{paragraphPath}/runs/{index}/font";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 

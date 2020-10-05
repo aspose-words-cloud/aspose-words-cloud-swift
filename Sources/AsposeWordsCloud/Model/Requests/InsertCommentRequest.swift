@@ -66,7 +66,7 @@ public class InsertCommentRequest {
     }
 
     // Creates the api request data
-    public createApiRequest() throws -> ApiRequest {
+    public func createApiRequest() throws -> ApiRequest {
          var rawPath = "/words/{name}/comments";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: request.getName()));
 

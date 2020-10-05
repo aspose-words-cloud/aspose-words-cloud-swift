@@ -54,7 +54,7 @@ public class CopyFileRequest {
     }
 
     // Creates the api request data
-    public createApiRequest() throws -> ApiRequest {
+    public func createApiRequest() throws -> ApiRequest {
          var rawPath = "/words/storage/file/copy/{srcPath}";
          rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: request.getSrcPath()));
 

@@ -45,7 +45,7 @@ public class ClassifyRequest {
     }
 
     // Creates the api request data
-    public createApiRequest() throws -> ApiRequest {
+    public func createApiRequest() throws -> ApiRequest {
          var rawPath = "/words/classify";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 

@@ -54,7 +54,7 @@ public class ExecuteMailMergeOnlineRequest {
     }
 
     // Creates the api request data
-    public createApiRequest() throws -> ApiRequest {
+    public func createApiRequest() throws -> ApiRequest {
          var rawPath = "/words/MailMerge";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 

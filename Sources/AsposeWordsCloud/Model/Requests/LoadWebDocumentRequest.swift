@@ -45,7 +45,7 @@ public class LoadWebDocumentRequest {
     }
 
     // Creates the api request data
-    public createApiRequest() throws -> ApiRequest {
+    public func createApiRequest() throws -> ApiRequest {
          var rawPath = "/words/loadWebDocument";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 

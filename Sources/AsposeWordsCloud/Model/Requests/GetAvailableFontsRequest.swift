@@ -42,7 +42,7 @@ public class GetAvailableFontsRequest {
     }
 
     // Creates the api request data
-    public createApiRequest() throws -> ApiRequest {
+    public func createApiRequest() throws -> ApiRequest {
          var rawPath = "/words/fonts/available";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
