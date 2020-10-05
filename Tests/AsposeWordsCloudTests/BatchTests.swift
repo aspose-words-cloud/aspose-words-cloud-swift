@@ -61,7 +61,7 @@ class BatchTests: BaseTestContext {
         );
 
         let request3Body = ParagraphInsert();
-        request3Body.setText("This is a new paragraph for your document");
+        request3Body.setText(text: "This is a new paragraph for your document");
 
         let request3 = InsertParagraphRequest(
             name: remoteFileName,
