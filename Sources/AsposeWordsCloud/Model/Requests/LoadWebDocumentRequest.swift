@@ -44,6 +44,16 @@ public class LoadWebDocumentRequest {
         self.storage = storage;
     }
 
+    // Parameters of loading.
+    public func getData() -> LoadWebDocumentData {
+        return self.data;
+    }
+
+    // Original document storage.
+    public func getStorage() -> String? {
+        return self.storage;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/loadWebDocument";
@@ -63,15 +73,5 @@ public class LoadWebDocumentRequest {
          var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getData()), contentType: "application/json");
          return result;
-    }
-
-    // Parameters of loading.
-    public func getData() -> LoadWebDocumentData {
-        return self.data;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
     }
 }

@@ -56,6 +56,36 @@ public class ConvertDocumentRequest {
         self.fontsLocation = fontsLocation;
     }
 
+    // Converting document.
+    public func getDocument() -> InputStream {
+        return self.document;
+    }
+
+    // Format to convert.
+    public func getFormat() -> String {
+        return self.format;
+    }
+
+    // Original document storage.
+    public func getStorage() -> String? {
+        return self.storage;
+    }
+
+    // Path for saving operation result to the local storage.
+    public func getOutPath() -> String? {
+        return self.outPath;
+    }
+
+    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
+    public func getFileNameFieldValue() -> String? {
+        return self.fileNameFieldValue;
+    }
+
+    // Folder in filestorage with custom fonts.
+    public func getFontsLocation() -> String? {
+        return self.fontsLocation;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/convert";
@@ -92,35 +122,5 @@ public class ConvertDocumentRequest {
          var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
          result.setBody(formParams: formParams);
          return result;
-    }
-
-    // Converting document.
-    public func getDocument() -> InputStream {
-        return self.document;
-    }
-
-    // Format to convert.
-    public func getFormat() -> String {
-        return self.format;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
-    }
-
-    // Path for saving operation result to the local storage.
-    public func getOutPath() -> String? {
-        return self.outPath;
-    }
-
-    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
-    public func getFileNameFieldValue() -> String? {
-        return self.fileNameFieldValue;
-    }
-
-    // Folder in filestorage with custom fonts.
-    public func getFontsLocation() -> String? {
-        return self.fontsLocation;
     }
 }

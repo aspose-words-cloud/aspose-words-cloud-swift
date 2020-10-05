@@ -62,6 +62,46 @@ public class GetDocumentWithFormatRequest {
         self.fontsLocation = fontsLocation;
     }
 
+    // The document name.
+    public func getName() -> String {
+        return self.name;
+    }
+
+    // The destination format.
+    public func getFormat() -> String {
+        return self.format;
+    }
+
+    // Original document folder.
+    public func getFolder() -> String? {
+        return self.folder;
+    }
+
+    // Original document storage.
+    public func getStorage() -> String? {
+        return self.storage;
+    }
+
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password for opening an encrypted document.
+    public func getPassword() -> String? {
+        return self.password;
+    }
+
+    // Path to save the result.
+    public func getOutPath() -> String? {
+        return self.outPath;
+    }
+
+    // Folder in filestorage with custom fonts.
+    public func getFontsLocation() -> String? {
+        return self.fontsLocation;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/{name}";
@@ -104,45 +144,5 @@ public class GetDocumentWithFormatRequest {
 
          let result = ApiRequest(url: urlBuilder.url!, method: "GET");
          return result;
-    }
-
-    // The document name.
-    public func getName() -> String {
-        return self.name;
-    }
-
-    // The destination format.
-    public func getFormat() -> String {
-        return self.format;
-    }
-
-    // Original document folder.
-    public func getFolder() -> String? {
-        return self.folder;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
-    }
-
-    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
-        return self.loadEncoding;
-    }
-
-    // Password for opening an encrypted document.
-    public func getPassword() -> String? {
-        return self.password;
-    }
-
-    // Path to save the result.
-    public func getOutPath() -> String? {
-        return self.outPath;
-    }
-
-    // Folder in filestorage with custom fonts.
-    public func getFontsLocation() -> String? {
-        return self.fontsLocation;
     }
 }

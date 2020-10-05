@@ -41,6 +41,11 @@ public class GetAvailableFontsRequest {
         self.fontsLocation = fontsLocation;
     }
 
+    // Folder in filestorage with custom fonts.
+    public func getFontsLocation() -> String? {
+        return self.fontsLocation;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/fonts/available";
@@ -59,10 +64,5 @@ public class GetAvailableFontsRequest {
 
          let result = ApiRequest(url: urlBuilder.url!, method: "GET");
          return result;
-    }
-
-    // Folder in filestorage with custom fonts.
-    public func getFontsLocation() -> String? {
-        return self.fontsLocation;
     }
 }

@@ -29,4 +29,14 @@ import Foundation
 
 // Request model for resetCache operation.
 public class ResetCacheRequest {
+    // Creates the api request data
+    public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
+         var rawPath = "/words/fonts/cache";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+
+         let result = ApiRequest(url: urlPath, method: "DELETE");
+         return result;
+    }
 }

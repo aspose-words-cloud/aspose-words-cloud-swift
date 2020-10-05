@@ -44,6 +44,16 @@ public class CreateFolderRequest {
         self.storageName = storageName;
     }
 
+    // Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively.
+    public func getPath() -> String {
+        return self.path;
+    }
+
+    // Storage name.
+    public func getStorageName() -> String? {
+        return self.storageName;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/storage/folder/{path}";
@@ -64,15 +74,5 @@ public class CreateFolderRequest {
 
          let result = ApiRequest(url: urlBuilder.url!, method: "PUT");
          return result;
-    }
-
-    // Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively.
-    public func getPath() -> String {
-        return self.path;
-    }
-
-    // Storage name.
-    public func getStorageName() -> String? {
-        return self.storageName;
     }
 }

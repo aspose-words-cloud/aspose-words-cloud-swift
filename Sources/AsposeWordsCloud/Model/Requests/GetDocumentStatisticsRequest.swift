@@ -62,6 +62,46 @@ public class GetDocumentStatisticsRequest {
         self.includeTextInShapes = includeTextInShapes;
     }
 
+    // The document name.
+    public func getName() -> String {
+        return self.name;
+    }
+
+    // Original document folder.
+    public func getFolder() -> String? {
+        return self.folder;
+    }
+
+    // Original document storage.
+    public func getStorage() -> String? {
+        return self.storage;
+    }
+
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password for opening an encrypted document.
+    public func getPassword() -> String? {
+        return self.password;
+    }
+
+    // Support including/excluding comments from the WordCount. Default value is "false".
+    public func getIncludeComments() -> Bool? {
+        return self.includeComments;
+    }
+
+    // Support including/excluding footnotes from the WordCount. Default value is "false".
+    public func getIncludeFootnotes() -> Bool? {
+        return self.includeFootnotes;
+    }
+
+    // Support including/excluding shape's text from the WordCount. Default value is "false".
+    public func getIncludeTextInShapes() -> Bool? {
+        return self.includeTextInShapes;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/{name}/statistics";
@@ -106,45 +146,5 @@ public class GetDocumentStatisticsRequest {
 
          let result = ApiRequest(url: urlBuilder.url!, method: "GET");
          return result;
-    }
-
-    // The document name.
-    public func getName() -> String {
-        return self.name;
-    }
-
-    // Original document folder.
-    public func getFolder() -> String? {
-        return self.folder;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
-    }
-
-    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
-        return self.loadEncoding;
-    }
-
-    // Password for opening an encrypted document.
-    public func getPassword() -> String? {
-        return self.password;
-    }
-
-    // Support including/excluding comments from the WordCount. Default value is "false".
-    public func getIncludeComments() -> Bool? {
-        return self.includeComments;
-    }
-
-    // Support including/excluding footnotes from the WordCount. Default value is "false".
-    public func getIncludeFootnotes() -> Bool? {
-        return self.includeFootnotes;
-    }
-
-    // Support including/excluding shape's text from the WordCount. Default value is "false".
-    public func getIncludeTextInShapes() -> Bool? {
-        return self.includeTextInShapes;
     }
 }

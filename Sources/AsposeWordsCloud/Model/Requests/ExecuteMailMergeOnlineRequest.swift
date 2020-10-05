@@ -53,6 +53,31 @@ public class ExecuteMailMergeOnlineRequest {
         self.documentFileName = documentFileName;
     }
 
+    // File with template.
+    public func getTemplate() -> InputStream {
+        return self.template;
+    }
+
+    // File with mailmerge data.
+    public func getData() -> InputStream {
+        return self.data;
+    }
+
+    // With regions flag.
+    public func getWithRegions() -> Bool? {
+        return self.withRegions;
+    }
+
+    // Clean up options.
+    public func getCleanup() -> String? {
+        return self.cleanup;
+    }
+
+    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+    public func getDocumentFileName() -> String? {
+        return self.documentFileName;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/MailMerge";
@@ -85,30 +110,5 @@ public class ExecuteMailMergeOnlineRequest {
          var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
          result.setBody(formParams: formParams);
          return result;
-    }
-
-    // File with template.
-    public func getTemplate() -> InputStream {
-        return self.template;
-    }
-
-    // File with mailmerge data.
-    public func getData() -> InputStream {
-        return self.data;
-    }
-
-    // With regions flag.
-    public func getWithRegions() -> Bool? {
-        return self.withRegions;
-    }
-
-    // Clean up options.
-    public func getCleanup() -> String? {
-        return self.cleanup;
-    }
-
-    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
-    public func getDocumentFileName() -> String? {
-        return self.documentFileName;
     }
 }

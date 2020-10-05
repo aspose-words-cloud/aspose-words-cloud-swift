@@ -44,6 +44,16 @@ public class GetDocumentFieldNamesOnlineRequest {
         self.useNonMergeFields = useNonMergeFields;
     }
 
+    // File with template.
+    public func getTemplate() -> InputStream {
+        return self.template;
+    }
+
+    // Use non merge fields or not.
+    public func getUseNonMergeFields() -> Bool? {
+        return self.useNonMergeFields;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/mailMerge/FieldNames";
@@ -66,15 +76,5 @@ public class GetDocumentFieldNamesOnlineRequest {
          var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
          result.setBody(formParams: formParams);
          return result;
-    }
-
-    // File with template.
-    public func getTemplate() -> InputStream {
-        return self.template;
-    }
-
-    // Use non merge fields or not.
-    public func getUseNonMergeFields() -> Bool? {
-        return self.useNonMergeFields;
     }
 }

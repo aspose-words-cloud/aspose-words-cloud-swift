@@ -59,6 +59,41 @@ public class ClassifyDocumentRequest {
         self.taxonomy = taxonomy;
     }
 
+    // The document name.
+    public func getDocumentName() -> String {
+        return self.documentName;
+    }
+
+    // Original document folder.
+    public func getFolder() -> String? {
+        return self.folder;
+    }
+
+    // Original document storage.
+    public func getStorage() -> String? {
+        return self.storage;
+    }
+
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password for opening an encrypted document.
+    public func getPassword() -> String? {
+        return self.password;
+    }
+
+    // Count of the best classes to return.
+    public func getBestClassesCount() -> String? {
+        return self.bestClassesCount;
+    }
+
+    // Taxonomy to use for classification return.
+    public func getTaxonomy() -> String? {
+        return self.taxonomy;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/{documentName}/classify";
@@ -99,40 +134,5 @@ public class ClassifyDocumentRequest {
 
          let result = ApiRequest(url: urlBuilder.url!, method: "GET");
          return result;
-    }
-
-    // The document name.
-    public func getDocumentName() -> String {
-        return self.documentName;
-    }
-
-    // Original document folder.
-    public func getFolder() -> String? {
-        return self.folder;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
-    }
-
-    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
-        return self.loadEncoding;
-    }
-
-    // Password for opening an encrypted document.
-    public func getPassword() -> String? {
-        return self.password;
-    }
-
-    // Count of the best classes to return.
-    public func getBestClassesCount() -> String? {
-        return self.bestClassesCount;
-    }
-
-    // Taxonomy to use for classification return.
-    public func getTaxonomy() -> String? {
-        return self.taxonomy;
     }
 }

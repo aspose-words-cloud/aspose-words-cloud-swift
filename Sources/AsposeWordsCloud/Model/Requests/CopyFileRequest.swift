@@ -53,6 +53,31 @@ public class CopyFileRequest {
         self.versionId = versionId;
     }
 
+    // Destination file path.
+    public func getDestPath() -> String {
+        return self.destPath;
+    }
+
+    // Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'.
+    public func getSrcPath() -> String {
+        return self.srcPath;
+    }
+
+    // Source storage name.
+    public func getSrcStorageName() -> String? {
+        return self.srcStorageName;
+    }
+
+    // Destination storage name.
+    public func getDestStorageName() -> String? {
+        return self.destStorageName;
+    }
+
+    // File version ID to copy.
+    public func getVersionId() -> String? {
+        return self.versionId;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/storage/file/copy/{srcPath}";
@@ -83,30 +108,5 @@ public class CopyFileRequest {
 
          let result = ApiRequest(url: urlBuilder.url!, method: "PUT");
          return result;
-    }
-
-    // Destination file path.
-    public func getDestPath() -> String {
-        return self.destPath;
-    }
-
-    // Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'.
-    public func getSrcPath() -> String {
-        return self.srcPath;
-    }
-
-    // Source storage name.
-    public func getSrcStorageName() -> String? {
-        return self.srcStorageName;
-    }
-
-    // Destination storage name.
-    public func getDestStorageName() -> String? {
-        return self.destStorageName;
-    }
-
-    // File version ID to copy.
-    public func getVersionId() -> String? {
-        return self.versionId;
     }
 }

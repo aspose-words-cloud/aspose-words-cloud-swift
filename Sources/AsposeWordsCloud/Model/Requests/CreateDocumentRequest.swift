@@ -47,6 +47,21 @@ public class CreateDocumentRequest {
         self.folder = folder;
     }
 
+    // Original document storage.
+    public func getStorage() -> String? {
+        return self.storage;
+    }
+
+    // The document name.
+    public func getFileName() -> String? {
+        return self.fileName;
+    }
+
+    // The document folder.
+    public func getFolder() -> String? {
+        return self.folder;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/create";
@@ -73,20 +88,5 @@ public class CreateDocumentRequest {
 
          let result = ApiRequest(url: urlBuilder.url!, method: "PUT");
          return result;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
-    }
-
-    // The document name.
-    public func getFileName() -> String? {
-        return self.fileName;
-    }
-
-    // The document folder.
-    public func getFolder() -> String? {
-        return self.folder;
     }
 }

@@ -59,6 +59,41 @@ public class CompareDocumentRequest {
         self.destFileName = destFileName;
     }
 
+    // Original document name.
+    public func getName() -> String {
+        return self.name;
+    }
+
+    // CompareData with a document to compare.
+    public func getCompareData() -> CompareData {
+        return self.compareData;
+    }
+
+    // Original document folder.
+    public func getFolder() -> String? {
+        return self.folder;
+    }
+
+    // Original document storage.
+    public func getStorage() -> String? {
+        return self.storage;
+    }
+
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password for opening an encrypted document.
+    public func getPassword() -> String? {
+        return self.password;
+    }
+
+    // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+    public func getDestFileName() -> String? {
+        return self.destFileName;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/{name}/compareDocument";
@@ -96,40 +131,5 @@ public class CompareDocumentRequest {
          var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getCompareData()), contentType: "application/json");
          return result;
-    }
-
-    // Original document name.
-    public func getName() -> String {
-        return self.name;
-    }
-
-    // CompareData with a document to compare.
-    public func getCompareData() -> CompareData {
-        return self.compareData;
-    }
-
-    // Original document folder.
-    public func getFolder() -> String? {
-        return self.folder;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
-    }
-
-    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
-        return self.loadEncoding;
-    }
-
-    // Password for opening an encrypted document.
-    public func getPassword() -> String? {
-        return self.password;
-    }
-
-    // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-    public func getDestFileName() -> String? {
-        return self.destFileName;
     }
 }

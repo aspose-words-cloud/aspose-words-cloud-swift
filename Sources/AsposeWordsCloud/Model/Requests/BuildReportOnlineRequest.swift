@@ -50,6 +50,26 @@ public class BuildReportOnlineRequest {
         self.documentFileName = documentFileName;
     }
 
+    // File with template.
+    public func getTemplate() -> InputStream {
+        return self.template;
+    }
+
+    // A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv.
+    public func getData() -> String {
+        return self.data;
+    }
+
+    // An object providing a settings of report engine.
+    public func getReportEngineSettings() -> ReportEngineSettings {
+        return self.reportEngineSettings;
+    }
+
+    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+    public func getDocumentFileName() -> String? {
+        return self.documentFileName;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/buildReport";
@@ -76,25 +96,5 @@ public class BuildReportOnlineRequest {
          var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
          result.setBody(formParams: formParams);
          return result;
-    }
-
-    // File with template.
-    public func getTemplate() -> InputStream {
-        return self.template;
-    }
-
-    // A string providing a data to populate the specified template. The string must be of one of the following types: xml, json, csv.
-    public func getData() -> String {
-        return self.data;
-    }
-
-    // An object providing a settings of report engine.
-    public func getReportEngineSettings() -> ReportEngineSettings {
-        return self.reportEngineSettings;
-    }
-
-    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
-    public func getDocumentFileName() -> String? {
-        return self.documentFileName;
     }
 }

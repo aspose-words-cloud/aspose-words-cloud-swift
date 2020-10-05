@@ -47,6 +47,21 @@ public class DownloadFileRequest {
         self.versionId = versionId;
     }
 
+    // Path of the file including the file name and extension e.g. /folder1/file.ext.
+    public func getPath() -> String {
+        return self.path;
+    }
+
+    // Storage name.
+    public func getStorageName() -> String? {
+        return self.storageName;
+    }
+
+    // File version ID to download.
+    public func getVersionId() -> String? {
+        return self.versionId;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/storage/file/{path}";
@@ -71,20 +86,5 @@ public class DownloadFileRequest {
 
          let result = ApiRequest(url: urlBuilder.url!, method: "GET");
          return result;
-    }
-
-    // Path of the file including the file name and extension e.g. /folder1/file.ext.
-    public func getPath() -> String {
-        return self.path;
-    }
-
-    // Storage name.
-    public func getStorageName() -> String? {
-        return self.storageName;
-    }
-
-    // File version ID to download.
-    public func getVersionId() -> String? {
-        return self.versionId;
     }
 }

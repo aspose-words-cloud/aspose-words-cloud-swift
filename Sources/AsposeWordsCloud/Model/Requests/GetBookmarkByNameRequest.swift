@@ -56,6 +56,36 @@ public class GetBookmarkByNameRequest {
         self.password = password;
     }
 
+    // The document name.
+    public func getName() -> String {
+        return self.name;
+    }
+
+    // The bookmark name.
+    public func getBookmarkName() -> String {
+        return self.bookmarkName;
+    }
+
+    // Original document folder.
+    public func getFolder() -> String? {
+        return self.folder;
+    }
+
+    // Original document storage.
+    public func getStorage() -> String? {
+        return self.storage;
+    }
+
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password for opening an encrypted document.
+    public func getPassword() -> String? {
+        return self.password;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/{name}/bookmarks/{bookmarkName}";
@@ -90,35 +120,5 @@ public class GetBookmarkByNameRequest {
 
          let result = ApiRequest(url: urlBuilder.url!, method: "GET");
          return result;
-    }
-
-    // The document name.
-    public func getName() -> String {
-        return self.name;
-    }
-
-    // The bookmark name.
-    public func getBookmarkName() -> String {
-        return self.bookmarkName;
-    }
-
-    // Original document folder.
-    public func getFolder() -> String? {
-        return self.folder;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
-    }
-
-    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
-        return self.loadEncoding;
-    }
-
-    // Password for opening an encrypted document.
-    public func getPassword() -> String? {
-        return self.password;
     }
 }

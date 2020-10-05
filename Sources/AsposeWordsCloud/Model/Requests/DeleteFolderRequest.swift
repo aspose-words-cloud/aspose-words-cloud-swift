@@ -47,6 +47,21 @@ public class DeleteFolderRequest {
         self.recursive = recursive;
     }
 
+    // Folder path e.g. /Folder1s.
+    public func getPath() -> String {
+        return self.path;
+    }
+
+    // Storage name.
+    public func getStorageName() -> String? {
+        return self.storageName;
+    }
+
+    // Enable to delete folders, subfolders and files.
+    public func getRecursive() -> Bool? {
+        return self.recursive;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/storage/folder/{path}";
@@ -71,20 +86,5 @@ public class DeleteFolderRequest {
 
          let result = ApiRequest(url: urlBuilder.url!, method: "DELETE");
          return result;
-    }
-
-    // Folder path e.g. /Folder1s.
-    public func getPath() -> String {
-        return self.path;
-    }
-
-    // Storage name.
-    public func getStorageName() -> String? {
-        return self.storageName;
-    }
-
-    // Enable to delete folders, subfolders and files.
-    public func getRecursive() -> Bool? {
-        return self.recursive;
     }
 }

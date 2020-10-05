@@ -50,6 +50,26 @@ public class CopyFolderRequest {
         self.destStorageName = destStorageName;
     }
 
+    // Destination folder path e.g. '/dst'.
+    public func getDestPath() -> String {
+        return self.destPath;
+    }
+
+    // Source folder path e.g. /Folder1.
+    public func getSrcPath() -> String {
+        return self.srcPath;
+    }
+
+    // Source storage name.
+    public func getSrcStorageName() -> String? {
+        return self.srcStorageName;
+    }
+
+    // Destination storage name.
+    public func getDestStorageName() -> String? {
+        return self.destStorageName;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/storage/folder/copy/{srcPath}";
@@ -76,25 +96,5 @@ public class CopyFolderRequest {
 
          let result = ApiRequest(url: urlBuilder.url!, method: "PUT");
          return result;
-    }
-
-    // Destination folder path e.g. '/dst'.
-    public func getDestPath() -> String {
-        return self.destPath;
-    }
-
-    // Source folder path e.g. /Folder1.
-    public func getSrcPath() -> String {
-        return self.srcPath;
-    }
-
-    // Source storage name.
-    public func getSrcStorageName() -> String? {
-        return self.srcStorageName;
-    }
-
-    // Destination storage name.
-    public func getDestStorageName() -> String? {
-        return self.destStorageName;
     }
 }

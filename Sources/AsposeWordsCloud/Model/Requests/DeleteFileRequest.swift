@@ -47,6 +47,21 @@ public class DeleteFileRequest {
         self.versionId = versionId;
     }
 
+    // Path of the file including file name and extension e.g. /Folder1/file.ext.
+    public func getPath() -> String {
+        return self.path;
+    }
+
+    // Storage name.
+    public func getStorageName() -> String? {
+        return self.storageName;
+    }
+
+    // File version ID to delete.
+    public func getVersionId() -> String? {
+        return self.versionId;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/storage/file/{path}";
@@ -71,20 +86,5 @@ public class DeleteFileRequest {
 
          let result = ApiRequest(url: urlBuilder.url!, method: "DELETE");
          return result;
-    }
-
-    // Path of the file including file name and extension e.g. /Folder1/file.ext.
-    public func getPath() -> String {
-        return self.path;
-    }
-
-    // Storage name.
-    public func getStorageName() -> String? {
-        return self.storageName;
-    }
-
-    // File version ID to delete.
-    public func getVersionId() -> String? {
-        return self.versionId;
     }
 }

@@ -44,6 +44,16 @@ public class ClassifyRequest {
         self.bestClassesCount = bestClassesCount;
     }
 
+    // Text to classify.
+    public func getText() -> String {
+        return self.text;
+    }
+
+    // Number of the best classes to return.
+    public func getBestClassesCount() -> String? {
+        return self.bestClassesCount;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/classify";
@@ -63,15 +73,5 @@ public class ClassifyRequest {
          var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getText()), contentType: "application/json");
          return result;
-    }
-
-    // Text to classify.
-    public func getText() -> String {
-        return self.text;
-    }
-
-    // Number of the best classes to return.
-    public func getBestClassesCount() -> String? {
-        return self.bestClassesCount;
     }
 }

@@ -74,6 +74,66 @@ public class UpdateDrawingObjectRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
+    // The document name.
+    public func getName() -> String {
+        return self.name;
+    }
+
+    // Drawing object parameters.
+    public func getDrawingObject() -> DrawingObjectUpdate {
+        return self.drawingObject;
+    }
+
+    // File with image.
+    public func getImageFile() -> InputStream {
+        return self.imageFile;
+    }
+
+    // Object index.
+    public func getIndex() -> Int {
+        return self.index;
+    }
+
+    // Path to the node, which contains collection of drawing objects.
+    public func getNodePath() -> String? {
+        return self.nodePath;
+    }
+
+    // Original document folder.
+    public func getFolder() -> String? {
+        return self.folder;
+    }
+
+    // Original document storage.
+    public func getStorage() -> String? {
+        return self.storage;
+    }
+
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password for opening an encrypted document.
+    public func getPassword() -> String? {
+        return self.password;
+    }
+
+    // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+    public func getDestFileName() -> String? {
+        return self.destFileName;
+    }
+
+    // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
+    public func getRevisionAuthor() -> String? {
+        return self.revisionAuthor;
+    }
+
+    // The date and time to use for revisions.
+    public func getRevisionDateTime() -> String? {
+        return self.revisionDateTime;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/{name}/{nodePath}/drawingObjects/{index}";
@@ -133,65 +193,5 @@ public class UpdateDrawingObjectRequest {
          var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
          result.setBody(formParams: formParams);
          return result;
-    }
-
-    // The document name.
-    public func getName() -> String {
-        return self.name;
-    }
-
-    // Drawing object parameters.
-    public func getDrawingObject() -> DrawingObjectUpdate {
-        return self.drawingObject;
-    }
-
-    // File with image.
-    public func getImageFile() -> InputStream {
-        return self.imageFile;
-    }
-
-    // Object index.
-    public func getIndex() -> Int {
-        return self.index;
-    }
-
-    // Path to the node, which contains collection of drawing objects.
-    public func getNodePath() -> String? {
-        return self.nodePath;
-    }
-
-    // Original document folder.
-    public func getFolder() -> String? {
-        return self.folder;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
-    }
-
-    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
-        return self.loadEncoding;
-    }
-
-    // Password for opening an encrypted document.
-    public func getPassword() -> String? {
-        return self.password;
-    }
-
-    // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
-    public func getDestFileName() -> String? {
-        return self.destFileName;
-    }
-
-    // Initials of the author to use for revisions.If you set this parameter and then make some changes to the document programmatically, save the document and later open the document in MS Word you will see these changes as revisions.
-    public func getRevisionAuthor() -> String? {
-        return self.revisionAuthor;
-    }
-
-    // The date and time to use for revisions.
-    public func getRevisionDateTime() -> String? {
-        return self.revisionDateTime;
     }
 }

@@ -44,6 +44,16 @@ public class GetFilesListRequest {
         self.storageName = storageName;
     }
 
+    // Folder path e.g. /Folder1.
+    public func getPath() -> String {
+        return self.path;
+    }
+
+    // Storage name.
+    public func getStorageName() -> String? {
+        return self.storageName;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/storage/folder/{path}";
@@ -64,15 +74,5 @@ public class GetFilesListRequest {
 
          let result = ApiRequest(url: urlBuilder.url!, method: "GET");
          return result;
-    }
-
-    // Folder path e.g. /Folder1.
-    public func getPath() -> String {
-        return self.path;
-    }
-
-    // Storage name.
-    public func getStorageName() -> String? {
-        return self.storageName;
     }
 }

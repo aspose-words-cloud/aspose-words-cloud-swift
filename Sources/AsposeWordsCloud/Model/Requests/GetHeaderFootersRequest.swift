@@ -59,6 +59,41 @@ public class GetHeaderFootersRequest {
         self.filterByType = filterByType;
     }
 
+    // The document name.
+    public func getName() -> String {
+        return self.name;
+    }
+
+    // Path to parent section.
+    public func getSectionPath() -> String {
+        return self.sectionPath;
+    }
+
+    // Original document folder.
+    public func getFolder() -> String? {
+        return self.folder;
+    }
+
+    // Original document storage.
+    public func getStorage() -> String? {
+        return self.storage;
+    }
+
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password for opening an encrypted document.
+    public func getPassword() -> String? {
+        return self.password;
+    }
+
+    // List of types of headers and footers.
+    public func getFilterByType() -> String? {
+        return self.filterByType;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/{name}/{sectionPath}/headersfooters";
@@ -97,40 +132,5 @@ public class GetHeaderFootersRequest {
 
          let result = ApiRequest(url: urlBuilder.url!, method: "GET");
          return result;
-    }
-
-    // The document name.
-    public func getName() -> String {
-        return self.name;
-    }
-
-    // Path to parent section.
-    public func getSectionPath() -> String {
-        return self.sectionPath;
-    }
-
-    // Original document folder.
-    public func getFolder() -> String? {
-        return self.folder;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
-    }
-
-    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
-    public func getLoadEncoding() -> String? {
-        return self.loadEncoding;
-    }
-
-    // Password for opening an encrypted document.
-    public func getPassword() -> String? {
-        return self.password;
-    }
-
-    // List of types of headers and footers.
-    public func getFilterByType() -> String? {
-        return self.filterByType;
     }
 }

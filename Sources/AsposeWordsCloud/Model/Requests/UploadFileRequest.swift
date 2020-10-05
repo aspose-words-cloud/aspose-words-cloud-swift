@@ -47,6 +47,23 @@ public class UploadFileRequest {
         self.storageName = storageName;
     }
 
+    // File to upload.
+    public func getFileContent() -> InputStream {
+        return self.fileContent;
+    }
+
+    // Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext
+    // If the content is multipart and path does not contains the file name it tries to get them from filename parameter
+    // from Content-Disposition header.
+    public func getPath() -> String {
+        return self.path;
+    }
+
+    // Storage name.
+    public func getStorageName() -> String? {
+        return self.storageName;
+    }
+
     // Creates the api request data
     public func createApiRequest(configuration : Configuration) throws -> ApiRequest {
          var rawPath = "/words/storage/file/{path}";
@@ -71,22 +88,5 @@ public class UploadFileRequest {
          var result = ApiRequest(url: urlBuilder.url!, method: "PUT");
          result.setBody(formParams: formParams);
          return result;
-    }
-
-    // File to upload.
-    public func getFileContent() -> InputStream {
-        return self.fileContent;
-    }
-
-    // Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext
-    // If the content is multipart and path does not contains the file name it tries to get them from filename parameter
-    // from Content-Disposition header.
-    public func getPath() -> String {
-        return self.path;
-    }
-
-    // Storage name.
-    public func getStorageName() -> String? {
-        return self.storageName;
     }
 }
