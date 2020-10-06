@@ -137,27 +137,28 @@ class ObjectSerializer {
            throw WordsApiError.invalidMultipartResponse(message: "Boundary not found");
         }
 
-        let boundaryEndIndex = data.firstIndex(of: UInt8("\r")!);
-        if (boundaryEndIndex == nil) {
+        let newLineData = "\r\n".data(using: .utf8)!;
+        let boundaryEndIndex = data.range(of: newLineData);
+        if (boundaryEndIndex == nil || boundaryEndIndex!.isEmpty) {
             throw WordsApiError.invalidMultipartResponse(message: "Boundary not found");
         }
 
-        let boundary = data.subdata(in: 0..<boundaryEndIndex!);
+        let boundary = data.subdata(in: 0..<boundaryEndIndex!.lowerBound);
         let parts = ObjectSerializer.splitData(data: data, separator: boundary);
         let dispositionSeparator = "\r\n\r\n".data(using: .utf8)!;
 
         for part in parts {
             let partDataBounds = part.range(of: dispositionSeparator);
-            if (partDataBounds != nil && partDataBounds!.isEmpty == false) {
-                let contentDisposition = String(decoding: part[0..<partDataBounds!.lowerBound], as: UTF8.self);
-                let headers = [String : String]();
-
-                let partBody = part[partDataBounds!.upperBound...];
-                result.append(ResponseFormParam(body: partBody, headers: headers));
-            }
-            else {
+            if (partDataBounds == nil || partDataBounds!.isEmpty) {
                 throw WordsApiError.invalidMultipartResponse(message: "Part content not found");
             }
+
+            let headData = part.subdata(in: 0..<partDataBounds!.lowerBound);
+            let headContent = String(decoding: headData, as: UTF8.self);
+            let headers = [String : String]();
+
+            let bodyData = part.subdata(in: partDataBounds!.upperBound...);
+            result.append(ResponseFormParam(body: bodyData, headers: headers));
         }
 
         return result;
