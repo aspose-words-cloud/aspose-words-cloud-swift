@@ -6869,8 +6869,13 @@ public class WordsAPI {
             apiInvoker.invoke(
                 apiRequestData: apiBatchRequestData,
                 callback: { response, error in
-                    let parts = try ObjectSerializer.parseMultipart(data: response);
-                    callback([Any](), error);
+                    do {
+                        let parts = try ObjectSerializer.parseMultipart(data: response);
+                        callback([Any](), nil);
+                    }
+                    catch let error {
+                        callback(nil, error);
+                    }
                 }
             );
         }
