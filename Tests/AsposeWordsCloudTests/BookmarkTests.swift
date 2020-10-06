@@ -48,7 +48,7 @@ class BookmarkTests: BaseTestContext {
       let request = GetBookmarksRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getBookmarks(request: request);
       assert(actual.getBookmarks() != nil);
-      assert(3 == actual.getBookmarks()!.getBookmarkList().count);
+      assert(3 == actual.getBookmarks()!.getBookmarkList()!.count);
       assert(("aspose") == actual.getBookmarks()!.getBookmarkList()![1].getName());
     }
 
