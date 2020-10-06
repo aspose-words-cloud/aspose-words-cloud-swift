@@ -105,11 +105,15 @@ public struct WordsApiRequestData {
         return self.headers;
     }
 
-    public func toBatchPart(configuration : Configuration) -> Data {
+    public func toBatchPart(configuration : Configuration) throws -> Data {
+        let baseUrlSize = try configuration.getApiRootUrl().appendingPathComponent("words").absoluteString.count;
+        let fullUrl = self.getURL().absoluteString;
+        let relUrl = String(fullUrl[fullUrl.index(fullUrl.startIndex, offsetBy: baseUrlSize)..<fullUrl.endIndex]);
+
         var result = Data();
         result.append(self.getMethod().data(using: .utf8)!);
         result.append(" ".data(using: .utf8)!);
-        result.append(self.getURL().data(using: .utf8)!);
+        result.append(relUrl.data(using: .utf8)!);
         result.append(" \r\n".data(using: .utf8)!);
 
         for (key, value) in self.getHeaders() {
