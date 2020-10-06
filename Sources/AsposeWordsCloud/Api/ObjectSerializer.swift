@@ -143,7 +143,7 @@ class ObjectSerializer {
             throw WordsApiError.invalidMultipartResponse(message: "Boundary not found");
         }
 
-        let boundary = data.subdata(in: 0..<boundaryEndIndex!.lowerBound);
+        let boundary = data.subdata(in: data.startIndex..<boundaryEndIndex!.lowerBound);
         let parts = ObjectSerializer.splitData(data: data, separator: boundary);
         let dispositionSeparator = "\r\n\r\n".data(using: .utf8)!;
 
@@ -153,11 +153,11 @@ class ObjectSerializer {
                 throw WordsApiError.invalidMultipartResponse(message: "Part content not found");
             }
 
-            let headData = part.subdata(in: 0..<partDataBounds!.lowerBound);
+            let headData = part.subdata(in: part.startIndex..<partDataBounds!.lowerBound);
             let headContent = String(decoding: headData, as: UTF8.self);
             let headers = [String : String]();
 
-            let bodyData = part.subdata(in: partDataBounds!.upperBound...);
+            let bodyData = part.subdata(in: partDataBounds!.upperBound..<part.endIndex);
             result.append(ResponseFormParam(body: bodyData, headers: headers));
         }
 
