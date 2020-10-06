@@ -6869,7 +6869,7 @@ public class WordsAPI {
             apiInvoker.invoke(
                 apiRequestData: apiBatchRequestData,
                 callback: { response, error in
-                    callback([Any], error);
+                    callback([Any](), error);
                 }
             );
         }

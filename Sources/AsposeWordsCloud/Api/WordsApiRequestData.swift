@@ -68,7 +68,7 @@ public struct WordsApiRequestData {
             // Generate body for multipart requests
             var needsClrf = false;
             var formBody = Data();
-            let boundaryPrefix = "Somthing";
+            let boundaryPrefix = UUID().uuidString;
             for formParam in formParams {
                 if (needsClrf) {
                     formBody.append("\r\n".data(using: .utf8)!);
