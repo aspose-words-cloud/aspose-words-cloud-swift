@@ -6861,7 +6861,7 @@ public class WordsAPI {
     // Async representation of batch method
     public func batch(requests : [WordsApiRequest], callback : @escaping (_ response : [Any]?, _ error : Error?) -> ()) {
         do {
-            //var apiRequestDatas = [WordsApiRequestData](repeating: nil, count: requests.count);
+            var apiRequestDatas = try requests.map { try $0.createApiRequestData(self.configuration) }
             callback(nil, nil);
         }
         catch let error {
