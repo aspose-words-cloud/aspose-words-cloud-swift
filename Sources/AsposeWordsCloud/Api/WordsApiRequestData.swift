@@ -75,7 +75,9 @@ public struct WordsApiRequestData {
                 }
                 needsClrf = true;
 
-                formBody.append("--\(boundaryPrefix)\r\nContent-Disposition: form-data".data(using: .utf8)!);
+                formBody.append("--\(boundaryPrefix)\r\n".data(using: .utf8)!);
+                formBody.append("Content-Type: \(formParam.getContentType())\r\n".data(using: .utf8)!);
+                formBody.append("Content-Disposition: form-data".data(using: .utf8)!);
                 if (formParam.getName() != nil) {
                     formBody.append("; name=\"\(formParam.getName()!)\"".data(using: .utf8)!);
                 }
@@ -85,7 +87,7 @@ public struct WordsApiRequestData {
             formBody.append("\r\n--\(boundaryPrefix)--\r\n".data(using: .utf8)!);
 
             self.body = formBody;
-            self.setContentType(value: "multipart/form-data; boundary=\(boundaryPrefix)");
+            self.setContentType(value: "multipart/form-data; boundary=\"\(boundaryPrefix)\"");
         }
     }
 
