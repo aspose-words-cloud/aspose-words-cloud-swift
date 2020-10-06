@@ -29,17 +29,17 @@ import Foundation
 
 // Represent struct for using as form param in request
 public struct RequestFormParam {
-    private let name : String;
+    private let name : String?;
     private let body : Data;
     private let contentType : String;
 
-    public init(name : String, body : Data, contentType : String) {
+    public init(name : String?, body : Data, contentType : String) {
         self.name = name;
         self.body = body;
         self.contentType = contentType;
     }
 
-    public func getName() -> String {
+    public func getName() -> String? {
         return self.name;
     }
 

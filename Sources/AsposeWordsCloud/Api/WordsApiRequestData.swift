@@ -75,7 +75,11 @@ public struct WordsApiRequestData {
                 }
                 needsClrf = true;
 
-                formBody.append("--\(boundaryPrefix)\r\nContent-Disposition: form-data; name=\"\(formParam.getName())\"\r\n\r\n".data(using: .utf8)!);
+                formBody.append("--\(boundaryPrefix)\r\nContent-Disposition: form-data".data(using: .utf8)!);
+                if (formParam.getName() != nil) {
+                    formBody.append("; name=\"\(formParam.getName()!)\"".data(using: .utf8)!);
+                }
+                formBody.append("\r\n\r\n".data(using: .utf8)!);
                 formBody.append(formParam.getBody());
             }
             formBody.append("\r\n--\(boundaryPrefix)--\r\n".data(using: .utf8)!);
@@ -99,5 +103,28 @@ public struct WordsApiRequestData {
 
     public func getHeaders() -> Dictionary<String, String> {
         return self.headers;
+    }
+
+    public func toBatchPart(configuration : Configuration) -> Data {
+        var result = Data();
+        result.append(self.getMethod().data(using: .utf8)!);
+        result.append(" ".data(using: .utf8)!);
+        result.append(self.getURL().data(using: .utf8)!);
+        result.append(" \r\n".data(using: .utf8)!);
+
+        for (key, value) in self.getHeaders() {
+            result.append(key.data(using: .utf8)!);
+            result.append(": ".data(using: .utf8)!);
+            result.append(value.data(using: .utf8)!);
+            result.append("\r\n".data(using: .utf8)!);
+        }
+
+        result.append("\r\n".data(using: .utf8)!);
+
+        if (self.getBody() != nil) {
+            result.append(self.getBody()!);
+        }
+
+        return result;
     }
 }
