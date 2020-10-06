@@ -150,7 +150,7 @@ class ObjectSerializer {
             let partDataBounds = part.range(of: dispositionSeparator);
             if (partDataBounds != nil && partDataBounds!.isEmpty == false) {
                 let contentDisposition = String(decoding: part[0..<partDataBounds!.lowerBound], as: UTF8.self);
-                let headers = [String : String];
+                let headers = [String : String]();
 
                 let partBody = part[partDataBounds!.upperBound...];
                 result.append(ResponseFormParam(body: partBody, headers: headers));
