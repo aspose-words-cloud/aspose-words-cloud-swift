@@ -130,6 +130,60 @@ class ObjectSerializer {
         return try customDecoder.decode(type, from: data);
     }
 
+    // Deserialize an multipart response
+    public static func parseMultipart(data: Data) throws -> [ResponseFormParam] {
+        var result = [ResponseFormParam]();
+        if (!data.starts(with: "--".data(using: .utf8)!)) {
+           throw WordsApiError.invalidMultipartResponse(message: "Boundary not found");
+        }
+
+        let boundaryEndIndex = data.firstIndex(of: UInt8("\r")!);
+        if (boundaryEndIndex == nil) {
+            throw WordsApiError.invalidMultipartResponse(message: "Boundary not found");
+        }
+
+        let boundary = data.subdata(in: 0..<boundaryEndIndex!);
+        let parts = ObjectSerializer.splitData(data: data, separator: boundary);
+        let dispositionSeparator = "\r\n\r\n".data(using: .utf8)!;
+
+        for part in parts {
+            let partDataBounds = part.range(of: dispositionSeparator);
+            if (partDataBounds != nil && partDataBounds!.isEmpty == false) {
+                let contentDisposition = String(decoding: part[0..<partDataBounds!.lowerBound], as: UTF8.self);
+                let headers = [String : String];
+
+                let partBody = part[partDataBounds!.upperBound...];
+                result.append(ResponseFormParam(body: partBody, headers: headers));
+            }
+            else {
+                throw WordsApiError.invalidMultipartResponse(message: "Part content not found");
+            }
+        }
+
+        return result;
+    }
+
+    // Split data into parts
+    public static func splitData(data: Data, separator: Data) -> [Data] {
+        let endIndex = separator.count;
+        var chunks: [Data] = [];
+        var pos = 0;
+        while let r = data[pos...].range(of: separator) {
+            if (r.lowerBound > pos) {
+                chunks.append(data[pos..<r.lowerBound]);
+            }
+
+            pos = r.upperBound;
+        }
+
+        if (pos < endIndex) {
+            chunks.append(data[pos..<endIndex]);
+        }
+
+        return chunks;
+    }
+
+
     // Configuration for DateTime serialization/deserialization
     public static let customIso8601: DateFormatter = {
         let formatter = DateFormatter()

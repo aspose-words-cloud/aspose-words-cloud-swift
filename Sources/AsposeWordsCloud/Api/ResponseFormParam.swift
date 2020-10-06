@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="WordsApiError.swift">
+ * <copyright company="Aspose" file="ResponseFormParam.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,25 +27,21 @@
 
 import Foundation
 
-public enum WordsApiError : LocalizedError {
-    case requestError(errorCode: Int, message: String?)
-    case requiredArgumentError(argumentName: String)
-    case invalidTypeSerialization(typeName: String)
-    case invalidMultipartResponse(message: String)
-    case badHostAddress(hostName: String)
+// Represent struct for using as form param in request
+public struct ResponseFormParam {
+    private let body : Data;
+    private let headers : [String : String];
 
-    public var errorDescription: String? {
-        switch self {
-            case let .requestError(errorCode, message):
-                return "Request error: \(errorCode); Description: \(message ?? "")";
-            case let .requiredArgumentError(argumentName):
-                return "Required argument \(argumentName) not present.";
-            case let .invalidTypeSerialization(typeName):
-                return "Failed to serialize type '\(typeName)'.";
-            case let .invalidMultipartResponse(message):
-                return "Failed to parse multipart response: \(message).";
-            case let .badHostAddress(hostName):
-                return "Unable to resolve hostname address '\(hostName)' as url.";
-        }
+    public init(body : Data, headers : [String : String]) {
+        self.body = body;
+        self.headers = headers;
+    }
+
+    public func getBody() -> Data {
+        return self.body;
+    }
+
+    public func getHeaders() -> [String : String] {
+        return self.headers;
     }
 }
