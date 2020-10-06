@@ -106,7 +106,7 @@ public struct WordsApiRequestData {
     }
 
     public func toBatchPart(configuration : Configuration) throws -> Data {
-        let baseUrlSize = try configuration.getApiRootUrl().appendingPathComponent("words").absoluteString.count;
+        let baseUrlSize = try configuration.getApiRootUrl().appendingPathComponent("/words/").absoluteString.count;
         let fullUrl = self.getURL().absoluteString;
         let relUrl = String(fullUrl[fullUrl.index(fullUrl.startIndex, offsetBy: baseUrlSize)..<fullUrl.endIndex]);
 

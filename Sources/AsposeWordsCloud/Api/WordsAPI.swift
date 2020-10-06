@@ -6862,8 +6862,16 @@ public class WordsAPI {
     public func batch(requests : [WordsApiRequest], callback : @escaping (_ response : [Any]?, _ error : Error?) -> ()) {
         do {
             let apiRequestData = try requests.map { try $0.createApiRequestData(configuration: self.configuration) };
-            let fromParams = try apiRequestData.map { RequestFormParam(name: nil, body: try $0.toBatchPart(configuration: self.configuration), contentType: "application/http; msgtype=request") };
-            callback(nil, nil);
+            let formParams = try apiRequestData.map { RequestFormParam(name: nil, body: try $0.toBatchPart(configuration: self.configuration), contentType: "application/http; msgtype=request") };
+            let apiBatchUrl = (try self.configuration.getApiRootUrl()).appendingPathComponent("/words/batch");
+            var apiBatchRequestData = WordsApiRequestData(url: apiBatchUrl, method: "PUT");
+            apiBatchRequestData.setBody(formParams: formParams);
+            apiInvoker.invoke(
+                apiRequestData: apiBatchRequestData,
+                callback: { response, error in
+                    callback([Any], error);
+                }
+            );
         }
         catch let error {
             callback(nil, error);
