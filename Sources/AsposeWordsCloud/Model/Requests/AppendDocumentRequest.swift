@@ -156,4 +156,9 @@ public class AppendDocumentRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getDocumentList()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: DocumentResponse.self, from: data);
+    }
 }

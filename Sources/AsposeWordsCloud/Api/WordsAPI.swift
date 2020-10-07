@@ -6859,7 +6859,7 @@ public class WordsAPI {
     }
 
     // Async representation of batch method
-    public func batch(requests : [WordsApiRequest], callback : @escaping (_ response : [Any]?, _ error : Error?) -> ()) {
+    public func batch(requests : [WordsApiRequest], callback : @escaping (_ response : [Any?]?, _ error : Error?) -> ()) {
         do {
             let apiRequestData = try requests.map { try $0.createApiRequestData(configuration: self.configuration) };
             let formParams = try apiRequestData.map { RequestFormParam(name: nil, body: try $0.toBatchPart(configuration: self.configuration), contentType: "application/http; msgtype=request") };
@@ -6872,7 +6872,16 @@ public class WordsAPI {
                     if (response != nil) {
                         do {
                             let parts = try ObjectSerializer.parseMultipart(data: response!);
-                            callback([Any](), nil);
+                            if (parts.count != requests.count) {
+                                throw WordsApiError.invalidMultipartResponse(message: "Parts count of multipart request and response are mismatch.");
+                            }
+
+                            var result = [Any?]();
+                            for (index, part) in parts.enumerated() {
+                                result.append(try ObjectSerializer.deserializeBatchPart(request: requests[index], partData: part));
+                            }
+
+                            callback(result, nil);
                         }
                         catch let error {
                             callback(nil, error);
@@ -6889,9 +6898,9 @@ public class WordsAPI {
         }
     }
 
-    public func batch(requests : [WordsApiRequest]) throws -> [Any] {
+    public func batch(requests : [WordsApiRequest]) throws -> [Any?] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : [Any]? = nil;
+        var responseObject : [Any?]? = nil;
         var responseError : Error? = nil;
         self.batch(requests : requests, callback: { response, error in
             responseObject = response;

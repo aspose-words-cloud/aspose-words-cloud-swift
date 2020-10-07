@@ -183,4 +183,9 @@ public class InsertFieldRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getField()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: FieldResponse.self, from: data);
+    }
 }

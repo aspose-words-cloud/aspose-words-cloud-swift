@@ -166,4 +166,9 @@ public class UpdateBookmarkRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getBookmarkData()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: BookmarkResponse.self, from: data);
+    }
 }

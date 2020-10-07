@@ -181,4 +181,9 @@ public class UpdateFootnoteRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getFootnoteDto()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: FootnoteResponse.self, from: data);
+    }
 }

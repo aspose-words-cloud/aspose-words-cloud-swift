@@ -166,4 +166,9 @@ public class ApplyStyleToDocumentElementRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getStyleApply()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: WordsResponse.self, from: data);
+    }
 }

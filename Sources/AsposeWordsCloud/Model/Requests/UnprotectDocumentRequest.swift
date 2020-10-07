@@ -132,4 +132,9 @@ public class UnprotectDocumentRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getProtectionRequest()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: ProtectionDataResponse.self, from: data);
+    }
 }

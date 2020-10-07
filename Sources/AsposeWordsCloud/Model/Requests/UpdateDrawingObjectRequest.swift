@@ -194,4 +194,9 @@ public class UpdateDrawingObjectRequest : WordsApiRequest {
          result.setBody(formParams: formParams);
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: DrawingObjectResponse.self, from: data);
+    }
 }

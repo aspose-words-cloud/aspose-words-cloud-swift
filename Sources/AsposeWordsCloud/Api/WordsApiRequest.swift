@@ -30,4 +30,5 @@ import Foundation
 // General protocol for all models.
 public protocol WordsApiRequest {
     func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData;
+    func deserializeResponse(data : Data) throws -> Any?;
 }

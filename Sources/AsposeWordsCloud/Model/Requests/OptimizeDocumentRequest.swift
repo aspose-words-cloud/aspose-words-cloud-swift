@@ -156,4 +156,9 @@ public class OptimizeDocumentRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getOptions()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return nil;
+    }
 }

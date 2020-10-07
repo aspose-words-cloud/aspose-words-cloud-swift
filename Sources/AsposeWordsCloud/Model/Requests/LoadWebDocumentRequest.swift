@@ -74,4 +74,9 @@ public class LoadWebDocumentRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getData()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: SaveResponse.self, from: data);
+    }
 }

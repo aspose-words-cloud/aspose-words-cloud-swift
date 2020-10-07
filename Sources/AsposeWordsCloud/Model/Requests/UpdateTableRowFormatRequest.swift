@@ -176,4 +176,9 @@ public class UpdateTableRowFormatRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getFormat()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: TableRowFormatResponse.self, from: data);
+    }
 }

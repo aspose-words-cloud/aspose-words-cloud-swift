@@ -183,4 +183,9 @@ public class InsertParagraphRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getParagraph()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: ParagraphResponse.self, from: data);
+    }
 }

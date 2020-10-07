@@ -155,7 +155,7 @@ class ObjectSerializer {
 
             let headData = part.subdata(in: part.startIndex..<partDataBounds!.lowerBound);
             let headContent = String(decoding: headData, as: UTF8.self);
-            var headers = [String : String]();
+            let headers = [String : String]();
 
             for headerRawData in headContent.components(separatedBy: "\r\n") {
                 let headerData = headerRawData.trimmingCharacters(in: .whitespacesAndNewlines);
@@ -168,7 +168,7 @@ class ObjectSerializer {
                     }
                 }
             }
-            
+
             let bodyData = part.subdata(in: partDataBounds!.upperBound..<part.endIndex);
             result.append(ResponseFormParam(body: bodyData, headers: headers));
         }
@@ -196,6 +196,10 @@ class ObjectSerializer {
         return chunks;
     }
 
+    // Create an instance of T, from batch part data
+    public static func deserializeBatchPart(request: WordsApiRequest, partData: ResponseFormParam) throws -> Any {
+
+    }
 
     // Configuration for DateTime serialization/deserialization
     public static let customIso8601: DateFormatter = {

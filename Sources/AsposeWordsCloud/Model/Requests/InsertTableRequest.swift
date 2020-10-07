@@ -171,4 +171,9 @@ public class InsertTableRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getTable()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: TableResponse.self, from: data);
+    }
 }

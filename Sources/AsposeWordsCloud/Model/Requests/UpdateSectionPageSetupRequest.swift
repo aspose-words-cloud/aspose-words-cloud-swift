@@ -166,4 +166,9 @@ public class UpdateSectionPageSetupRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getPageSetup()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: SectionPageSetupResponse.self, from: data);
+    }
 }

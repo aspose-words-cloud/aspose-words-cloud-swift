@@ -166,4 +166,9 @@ public class UpdateStyleRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getStyleUpdate()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: StyleResponse.self, from: data);
+    }
 }

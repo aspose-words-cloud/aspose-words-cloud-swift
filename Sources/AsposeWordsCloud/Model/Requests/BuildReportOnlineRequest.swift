@@ -97,4 +97,9 @@ public class BuildReportOnlineRequest : WordsApiRequest {
          result.setBody(formParams: formParams);
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return data;
+    }
 }

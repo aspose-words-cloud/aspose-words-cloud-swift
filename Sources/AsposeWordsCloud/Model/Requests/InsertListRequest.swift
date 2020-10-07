@@ -156,4 +156,9 @@ public class InsertListRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getListInsert()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: ListResponse.self, from: data);
+    }
 }

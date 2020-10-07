@@ -136,4 +136,9 @@ public class GetParagraphListFormatRequest : WordsApiRequest {
          let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: ParagraphListFormatResponse.self, from: data);
+    }
 }

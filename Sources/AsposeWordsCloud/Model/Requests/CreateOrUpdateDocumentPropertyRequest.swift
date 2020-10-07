@@ -166,4 +166,9 @@ public class CreateOrUpdateDocumentPropertyRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getProperty()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: DocumentPropertyResponse.self, from: data);
+    }
 }

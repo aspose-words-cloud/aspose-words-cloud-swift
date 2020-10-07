@@ -181,4 +181,9 @@ public class UpdateBorderRequest : WordsApiRequest {
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getBorderProperties()), contentType: "application/json");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: BorderResponse.self, from: data);
+    }
 }

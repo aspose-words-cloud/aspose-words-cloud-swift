@@ -147,4 +147,9 @@ public class DeleteMacrosRequest : WordsApiRequest {
          let result = WordsApiRequestData(url: urlBuilder.url!, method: "DELETE");
          return result;
     }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return nil;
+    }
 }
