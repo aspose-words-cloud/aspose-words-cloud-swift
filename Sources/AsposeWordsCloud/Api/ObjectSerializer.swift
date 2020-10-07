@@ -155,8 +155,20 @@ class ObjectSerializer {
 
             let headData = part.subdata(in: part.startIndex..<partDataBounds!.lowerBound);
             let headContent = String(decoding: headData, as: UTF8.self);
-            let headers = [String : String]();
+            var headers = [String : String]();
 
+            for headerRawData in headContent.components(separatedBy: "\r\n") {
+                let headerData = headerRawData.trimmingCharacters(in: .whitespacesAndNewlines);
+                if (!headerData.isEmpty) {
+                    let headerParts = headerData.split(separator: ":");
+                    if (headerParts.count == 2) {
+                        let headerKey = headerParts[0].trimmingCharacters(in: .whitespaces);
+                        let headerValue = headerParts[1].trimmingCharacters(in: .whitespaces);
+                        headers[headerKey] = headerValue;
+                    }
+                }
+            }
+            
             let bodyData = part.subdata(in: partDataBounds!.upperBound..<part.endIndex);
             result.append(ResponseFormParam(body: bodyData, headers: headers));
         }
