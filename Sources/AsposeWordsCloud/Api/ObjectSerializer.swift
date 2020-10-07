@@ -155,7 +155,7 @@ class ObjectSerializer {
 
             let headData = part.subdata(in: part.startIndex..<partDataBounds!.lowerBound);
             let headContent = String(decoding: headData, as: UTF8.self);
-            let headers = [String : String]();
+            var headers = [String : String]();
 
             for headerRawData in headContent.components(separatedBy: "\r\n") {
                 let headerData = headerRawData.trimmingCharacters(in: .whitespacesAndNewlines);
@@ -197,8 +197,38 @@ class ObjectSerializer {
     }
 
     // Create an instance of T, from batch part data
-    public static func deserializeBatchPart(request: WordsApiRequest, partData: ResponseFormParam) throws -> Any {
-
+    public static func deserializeBatchPart(request: WordsApiRequest, partData: ResponseFormParam) throws -> Any? {
+        let separator = "\r\n\r\n".data(using: .utf8)!;
+        let data = partData.getBody();
+        let partDataBounds = data.range(of: separator);
+        if (partDataBounds == nil || partDataBounds!.isEmpty) {
+            throw WordsApiError.invalidMultipartResponse(message: "Body content not found");
+        }
+        
+        let headData = data.subdata(in: data.startIndex..<partDataBounds!.lowerBound);
+        let headContent = String(decoding: headData, as: UTF8.self);
+        let headParts = headContent.components(separatedBy: "\r\n");
+        if (headParts.count == 0) {
+            throw WordsApiError.invalidMultipartResponse(message: "Head content not found");
+        }
+        
+        let codeContent = headParts[0].split(separator: " ", maxSplits: 1, omittingEmptySubsequences: true);
+        if (codeContent.count != 2) {
+            throw WordsApiError.invalidMultipartResponse(message: "Head content not found");
+        }
+        
+        let codeStatus = Int(codeContent[0]);
+        if (codeStatus == nil) {
+            throw WordsApiError.invalidMultipartResponse(message: "Failed to parse head content");
+        }
+        
+        let bodyData = data.subdata(in: partDataBounds!.upperBound..<data.endIndex);
+        if (codeStatus != 200) {
+            let errorMessage = String(decoding: bodyData, as: UTF8.self);
+            return WordsApiError.requestError(errorCode: codeStatus!, message: errorMessage);
+        }
+        
+        return try request.deserializeResponse(data: bodyData);
     }
 
     // Configuration for DateTime serialization/deserialization
