@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for search operation.
-public class SearchRequest {
+public class SearchRequest : WordsApiRequest {
     private let name : String;
     private let pattern : String;
     private let folder : String?;
@@ -84,5 +84,46 @@ public class SearchRequest {
     // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{name}/search";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         queryItems.append(URLQueryItem(name: "pattern", value: try ObjectSerializer.serializeToString(value: self.getPattern())));
+
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: SearchResponse.self, from: data);
     }
 }

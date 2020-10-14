@@ -30,6 +30,7 @@ import XCTest
 #if !os(macOS)
 public func allTests() -> [XCTestCaseEntry] {
     return [
+        testCase(BatchTests.allTests),
         testCase(BookmarkTests.allTests),
         testCase(CompatibilityTests.allTests),
         testCase(AppendDocumentTests.allTests),

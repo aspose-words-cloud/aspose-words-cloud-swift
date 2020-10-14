@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for copyFile operation.
-public class CopyFileRequest {
+public class CopyFileRequest : WordsApiRequest {
     private let destPath : String;
     private let srcPath : String;
     private let srcStorageName : String?;
@@ -76,5 +76,42 @@ public class CopyFileRequest {
     // File version ID to copy.
     public func getVersionId() -> String? {
         return self.versionId;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/storage/file/copy/{srcPath}";
+         rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: self.getSrcPath()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         queryItems.append(URLQueryItem(name: "destPath", value: try ObjectSerializer.serializeToString(value: self.getDestPath())));
+
+         if (self.getSrcStorageName() != nil) {
+             queryItems.append(URLQueryItem(name: "srcStorageName", value: try ObjectSerializer.serializeToString(value: self.getSrcStorageName()!)));
+         }
+
+         if (self.getDestStorageName() != nil) {
+             queryItems.append(URLQueryItem(name: "destStorageName", value: try ObjectSerializer.serializeToString(value: self.getDestStorageName()!)));
+         }
+
+         if (self.getVersionId() != nil) {
+             queryItems.append(URLQueryItem(name: "versionId", value: try ObjectSerializer.serializeToString(value: self.getVersionId()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return nil;
     }
 }

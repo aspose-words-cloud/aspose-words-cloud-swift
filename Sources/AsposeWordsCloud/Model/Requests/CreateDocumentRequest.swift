@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for createDocument operation.
-public class CreateDocumentRequest {
+public class CreateDocumentRequest : WordsApiRequest {
     private let storage : String?;
     private let fileName : String?;
     private let folder : String?;
@@ -60,5 +60,38 @@ public class CreateDocumentRequest {
     // The document folder.
     public func getFolder() -> String? {
         return self.folder;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/create";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: self.getFileName()!)));
+         }
+
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: DocumentResponse.self, from: data);
     }
 }

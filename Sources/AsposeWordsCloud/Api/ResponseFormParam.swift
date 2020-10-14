@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="RequestFormParam.swift">
+ * <copyright company="Aspose" file="ResponseFormParam.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -28,26 +28,20 @@
 import Foundation
 
 // Represent struct for using as form param in request
-public struct RequestFormParam {
-    private let name : String?;
+public struct ResponseFormParam {
     private let body : Data;
-    private let contentType : String;
+    private let headers : [String : String];
 
-    public init(name : String?, body : Data, contentType : String) {
-        self.name = name;
+    public init(body : Data, headers : [String : String]) {
         self.body = body;
-        self.contentType = contentType;
-    }
-
-    public func getName() -> String? {
-        return self.name;
+        self.headers = headers;
     }
 
     public func getBody() -> Data {
         return self.body;
     }
 
-    public func getContentType() -> String {
-        return self.contentType;
+    public func getHeaders() -> [String : String] {
+        return self.headers;
     }
 }

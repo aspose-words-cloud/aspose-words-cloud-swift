@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for updateFormField operation.
-public class UpdateFormFieldRequest {
+public class UpdateFormFieldRequest : WordsApiRequest {
     private let name : String;
     private let formField : FormField;
     private let index : Int;
@@ -124,5 +124,66 @@ public class UpdateFormFieldRequest {
     // The date and time to use for revisions.
     public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{name}/{nodePath}/formfields/{index}";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: self.getIndex()));
+
+         if (self.getNodePath() != nil) {
+             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: self.getNodePath()!));
+         }
+         else {
+             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
+         }
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getDestFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+         }
+
+         if (self.getRevisionAuthor() != nil) {
+             queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
+         }
+
+         if (self.getRevisionDateTime() != nil) {
+             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getFormField()), contentType: "application/json");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: FormFieldResponse.self, from: data);
     }
 }

@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for splitDocument operation.
-public class SplitDocumentRequest {
+public class SplitDocumentRequest : WordsApiRequest {
     private let name : String;
     private let format : String;
     private let folder : String?;
@@ -124,5 +124,66 @@ public class SplitDocumentRequest {
     // Folder in filestorage with custom fonts.
     public func getFontsLocation() -> String? {
         return self.fontsLocation;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{name}/split";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: self.getFormat())));
+
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getDestFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+         }
+
+         if (self.getFrom() != nil) {
+             queryItems.append(URLQueryItem(name: "from", value: try ObjectSerializer.serializeToString(value: self.getFrom()!)));
+         }
+
+         if (self.getTo() != nil) {
+             queryItems.append(URLQueryItem(name: "to", value: try ObjectSerializer.serializeToString(value: self.getTo()!)));
+         }
+
+         if (self.getZipOutput() != nil) {
+             queryItems.append(URLQueryItem(name: "zipOutput", value: try ObjectSerializer.serializeToString(value: self.getZipOutput()!)));
+         }
+
+         if (self.getFontsLocation() != nil) {
+             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: SplitDocumentResponse.self, from: data);
     }
 }

@@ -47,9 +47,9 @@ class BookmarkTests: BaseTestContext {
 
       let request = GetBookmarksRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getBookmarks(request: request);
-      assert(actual.getBookmarks()! != nil);
+      assert(actual.getBookmarks() != nil);
       assert(3 == actual.getBookmarks()!.getBookmarkList()!.count);
-      assert(("aspose") == actual.getBookmarks()!.getBookmarkList()![1].getName()!);
+      assert(("aspose") == actual.getBookmarks()!.getBookmarkList()![1].getName());
     }
 
     // Test for getting bookmark by specified name.
@@ -61,8 +61,8 @@ class BookmarkTests: BaseTestContext {
 
       let request = GetBookmarkByNameRequest(name: remoteFileName, bookmarkName: bookmarkName, folder: remoteDataFolder);
       let actual = try super.getApi().getBookmarkByName(request: request);
-      assert(actual.getBookmark()! != nil);
-      assert((bookmarkName) == actual.getBookmark()!.getName()!);
+      assert(actual.getBookmark() != nil);
+      assert((bookmarkName) == actual.getBookmark()!.getName());
     }
 
     // Test for updating existed bookmark.
@@ -80,8 +80,8 @@ class BookmarkTests: BaseTestContext {
 
       let request = UpdateBookmarkRequest(name: remoteFileName, bookmarkData: requestBookmarkData, bookmarkName: bookmarkName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().updateBookmark(request: request);
-      assert(actual.getBookmark()! != nil);
-      assert((bookmarkName) == actual.getBookmark()!.getName()!);
-      assert((bookmarkText) == actual.getBookmark()!.getText()!);
+      assert(actual.getBookmark() != nil);
+      assert((bookmarkName) == actual.getBookmark()!.getName());
+      assert((bookmarkText) == actual.getBookmark()!.getText());
     }
 }
