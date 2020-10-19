@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for uploadFile operation.
-public class UploadFileRequest {
+public class UploadFileRequest : WordsApiRequest {
     private let fileContent : InputStream;
     private let path : String;
     private let storageName : String?;
@@ -62,5 +62,36 @@ public class UploadFileRequest {
     // Storage name.
     public func getStorageName() -> String? {
         return self.storageName;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/storage/file/{path}";
+         rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: self.getPath()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getStorageName() != nil) {
+             queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: self.getStorageName()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+         var formParams : [RequestFormParam] = [];
+         formParams.append(RequestFormParam(name: "fileContent", body: try ObjectSerializer.serializeFile(value: self.getFileContent()), contentType: "application/octet-stream"));
+
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         result.setBody(formParams: formParams);
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: FilesUploadResult.self, from: data);
     }
 }

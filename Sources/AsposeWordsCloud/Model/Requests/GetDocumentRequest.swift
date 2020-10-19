@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getDocument operation.
-public class GetDocumentRequest {
+public class GetDocumentRequest : WordsApiRequest {
     private let documentName : String;
     private let folder : String?;
     private let storage : String?;
@@ -76,5 +76,44 @@ public class GetDocumentRequest {
     // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{documentName}";
+         rawPath = rawPath.replacingOccurrences(of: "{documentName}", with: try ObjectSerializer.serializeToString(value: self.getDocumentName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: DocumentResponse.self, from: data);
     }
 }

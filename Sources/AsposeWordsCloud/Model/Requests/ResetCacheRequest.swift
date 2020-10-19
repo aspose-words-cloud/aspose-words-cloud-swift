@@ -28,5 +28,20 @@
 import Foundation
 
 // Request model for resetCache operation.
-public class ResetCacheRequest {
+public class ResetCacheRequest : WordsApiRequest {
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/fonts/cache";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+
+         let result = WordsApiRequestData(url: urlPath, method: "DELETE");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return nil;
+    }
 }

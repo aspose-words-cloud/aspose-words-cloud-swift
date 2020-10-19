@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getDocumentFieldNamesOnline operation.
-public class GetDocumentFieldNamesOnlineRequest {
+public class GetDocumentFieldNamesOnlineRequest : WordsApiRequest {
     private let template : InputStream;
     private let useNonMergeFields : Bool?;
 
@@ -52,5 +52,34 @@ public class GetDocumentFieldNamesOnlineRequest {
     // Use non merge fields or not.
     public func getUseNonMergeFields() -> Bool? {
         return self.useNonMergeFields;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/mailMerge/FieldNames";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getUseNonMergeFields() != nil) {
+             queryItems.append(URLQueryItem(name: "useNonMergeFields", value: try ObjectSerializer.serializeToString(value: self.getUseNonMergeFields()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+         var formParams : [RequestFormParam] = [];
+         formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: self.getTemplate()), contentType: "application/octet-stream"));
+
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         result.setBody(formParams: formParams);
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: FieldNamesResponse.self, from: data);
     }
 }

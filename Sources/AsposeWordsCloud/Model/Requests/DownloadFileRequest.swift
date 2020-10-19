@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for downloadFile operation.
-public class DownloadFileRequest {
+public class DownloadFileRequest : WordsApiRequest {
     private let path : String;
     private let storageName : String?;
     private let versionId : String?;
@@ -60,5 +60,36 @@ public class DownloadFileRequest {
     // File version ID to download.
     public func getVersionId() -> String? {
         return self.versionId;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/storage/file/{path}";
+         rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: self.getPath()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getStorageName() != nil) {
+             queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: self.getStorageName()!)));
+         }
+
+         if (self.getVersionId() != nil) {
+             queryItems.append(URLQueryItem(name: "versionId", value: try ObjectSerializer.serializeToString(value: self.getVersionId()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return data;
     }
 }

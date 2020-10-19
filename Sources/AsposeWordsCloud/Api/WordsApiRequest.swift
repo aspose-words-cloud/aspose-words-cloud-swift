@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="RequestFormParam.swift">
+ * <copyright company="Aspose" file="WordsApiRequest.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,27 +27,8 @@
 
 import Foundation
 
-// Represent struct for using as form param in request
-public struct RequestFormParam {
-    private let name : String?;
-    private let body : Data;
-    private let contentType : String;
-
-    public init(name : String?, body : Data, contentType : String) {
-        self.name = name;
-        self.body = body;
-        self.contentType = contentType;
-    }
-
-    public func getName() -> String? {
-        return self.name;
-    }
-
-    public func getBody() -> Data {
-        return self.body;
-    }
-
-    public func getContentType() -> String {
-        return self.contentType;
-    }
+// General protocol for all models.
+public protocol WordsApiRequest {
+    func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData;
+    func deserializeResponse(data : Data) throws -> Any?;
 }

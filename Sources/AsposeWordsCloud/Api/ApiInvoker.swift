@@ -71,59 +71,20 @@ public class ApiInvoker {
     }
 
     // Invoke request to the API with the specified set of arguments and execute callback after the request is completed
-    public func invoke(
-        url: URL,
-        method: String,
-        body: Data?,
-        headers: Dictionary<String, String>?,
-        formParams: [RequestFormParam]?,
-        contentType: String = "application/json",
-        callback: @escaping (_ response: Data?, _ error: Error?) -> ()
+    public func invoke(apiRequestData : WordsApiRequestData, callback: @escaping (_ response: Data?, _ error: Error?) -> ()
     ) {
         // Create URL request object
-        var request = URLRequest(url: url);
-        request.httpMethod = method;
+        var request = URLRequest(url: apiRequestData.getURL());
+        request.httpMethod = apiRequestData.getMethod();
 
         // Fill headers
-        if (headers != nil) {
-            for (key, value) in headers! {
-                request.setValue(value, forHTTPHeaderField: key);
-            }
+        for (key, value) in apiRequestData.getHeaders() {
+            request.setValue(value, forHTTPHeaderField: key);
         }
 
         // Process the request body
-        if (body != nil) {
-            request.httpBody = body;
-            request.setValue(contentType, forHTTPHeaderField: "Content-Type");
-        }
-        else if (formParams != nil && formParams!.count > 0) {
-            if (formParams?.count == 1) {
-                request.httpBody = (formParams!)[0].getBody();
-            }
-            else {
-                // Generate body for multiform requests
-                var needsClrf = false;
-                var formBody = Data();
-                let boundaryPrefix = "Somthing";
-                for formParam in formParams! {
-                    if (needsClrf) {
-                        formBody.append("\r\n".data(using: .utf8)!);
-                    }
-                    needsClrf = true;
-
-                    formBody.append("--\(boundaryPrefix)\r\nContent-Disposition: form-data; name=\"\(formParam.getName())\"\r\n\r\n".data(using: .utf8)!);
-                    formBody.append(formParam.getBody());
-                }
-                formBody.append("\r\n--\(boundaryPrefix)--\r\n".data(using: .utf8)!);
-
-                request.httpBody = formBody;
-                request.setValue("multipart/form-data; boundary=\(boundaryPrefix)", forHTTPHeaderField: "Content-Type");
-            }
-        }
-
-        // Set content length header
-        if (request.httpBody != nil) {
-            request.setValue(String(request.httpBody!.count), forHTTPHeaderField: "Content-Length");
+        if (apiRequestData.getBody() != nil) {
+            request.httpBody = apiRequestData.getBody();
         }
 
         // Request or get from cache authorization token

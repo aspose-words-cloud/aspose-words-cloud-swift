@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for createFolder operation.
-public class CreateFolderRequest {
+public class CreateFolderRequest : WordsApiRequest {
     private let path : String;
     private let storageName : String?;
 
@@ -52,5 +52,32 @@ public class CreateFolderRequest {
     // Storage name.
     public func getStorageName() -> String? {
         return self.storageName;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/storage/folder/{path}";
+         rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: self.getPath()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getStorageName() != nil) {
+             queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: self.getStorageName()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return nil;
     }
 }

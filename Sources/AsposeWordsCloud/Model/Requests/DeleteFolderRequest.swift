@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for deleteFolder operation.
-public class DeleteFolderRequest {
+public class DeleteFolderRequest : WordsApiRequest {
     private let path : String;
     private let storageName : String?;
     private let recursive : Bool?;
@@ -60,5 +60,36 @@ public class DeleteFolderRequest {
     // Enable to delete folders, subfolders and files.
     public func getRecursive() -> Bool? {
         return self.recursive;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/storage/folder/{path}";
+         rawPath = rawPath.replacingOccurrences(of: "{path}", with: try ObjectSerializer.serializeToString(value: self.getPath()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getStorageName() != nil) {
+             queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: self.getStorageName()!)));
+         }
+
+         if (self.getRecursive() != nil) {
+             queryItems.append(URLQueryItem(name: "recursive", value: try ObjectSerializer.serializeToString(value: self.getRecursive()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "DELETE");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return nil;
     }
 }

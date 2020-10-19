@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for moveFolder operation.
-public class MoveFolderRequest {
+public class MoveFolderRequest : WordsApiRequest {
     private let destPath : String;
     private let srcPath : String;
     private let srcStorageName : String?;
@@ -68,5 +68,38 @@ public class MoveFolderRequest {
     // Destination storage name.
     public func getDestStorageName() -> String? {
         return self.destStorageName;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/storage/folder/move/{srcPath}";
+         rawPath = rawPath.replacingOccurrences(of: "{srcPath}", with: try ObjectSerializer.serializeToString(value: self.getSrcPath()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         queryItems.append(URLQueryItem(name: "destPath", value: try ObjectSerializer.serializeToString(value: self.getDestPath())));
+
+         if (self.getSrcStorageName() != nil) {
+             queryItems.append(URLQueryItem(name: "srcStorageName", value: try ObjectSerializer.serializeToString(value: self.getSrcStorageName()!)));
+         }
+
+         if (self.getDestStorageName() != nil) {
+             queryItems.append(URLQueryItem(name: "destStorageName", value: try ObjectSerializer.serializeToString(value: self.getDestStorageName()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return nil;
     }
 }
