@@ -42,7 +42,7 @@ class BatchTests: BaseTestContext {
     func testBatch() throws {
         let remoteFileName = "TestGetDocumentParagraphByIndex.docx";
 
-        let request0 = UploadFileRequest(
+        try super.uploadFile(
             fileContent: InputStream(url: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, 
             path: remoteDataFolder + "/" + remoteFileName
         );
@@ -86,13 +86,12 @@ class BatchTests: BaseTestContext {
 
         let request5 = BuildReportOnlineRequest(template: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(reportingFolder + "/" + localDocumentFile, isDirectory: false))!, data: localDataFile, reportEngineSettings: requestReportEngineSettings);
 
-        let result = try super.getApi().batch(requests: [request0, request1, request2, request3, request4, request5]);
-        assert(result.count == 6);
-        assert(result[0] is FilesUploadResult);
-        assert(result[1] is ParagraphLinkCollectionResponse);
+        let result = try super.getApi().batch(requests: [request1, request2, request3, request4, request5]);
+        assert(result.count == 5);
+        assert(result[0] is ParagraphLinkCollectionResponse);
+        assert(result[1] is ParagraphResponse);
         assert(result[2] is ParagraphResponse);
-        assert(result[3] is ParagraphResponse);
-        assert(result[4] == nil);
-        assert(result[5] is Data);
+        assert(result[3] == nil);
+        assert(result[4] is Data);
     }
 }
