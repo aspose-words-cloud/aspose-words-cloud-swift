@@ -43,7 +43,7 @@ class BatchTests: BaseTestContext {
         let remoteFileName = "TestGetDocumentParagraphByIndex.docx";
 
         try super.uploadFile(
-            fileContent: InputStream(url: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, 
+            fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), 
             path: remoteDataFolder + "/" + remoteFileName
         );
 
