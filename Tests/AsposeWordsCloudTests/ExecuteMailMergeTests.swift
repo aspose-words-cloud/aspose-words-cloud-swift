@@ -56,6 +56,8 @@ class ExecuteMailMergeTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(mailMergeFolder + "/" + localDocumentFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = ExecuteMailMergeRequest(name: remoteFileName, data: localDataFile, folder: remoteDataFolder, withRegions: false, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().executeMailMerge(request: request);
+      let actual = try super.getApi().executeMailMerge(request: request);
+      assert(actual.getDocument() != nil);
+      assert(("TestExecuteMailMerge.docx") == actual.getDocument()!.getFileName());
     }
 }

@@ -50,7 +50,10 @@ class StylesTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetStylesRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getStyles(request: request);
+      let actual = try super.getApi().getStyles(request: request);
+      assert(actual.getStyles() != nil);
+      assert(22 == actual.getStyles()!.count);
+      assert(("Default Paragraph Font") == actual.getStyles()![0].getName());
     }
 
     // Test for getting style from document.
@@ -60,7 +63,9 @@ class StylesTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetStyleRequest(name: remoteFileName, styleName: "Heading 1", folder: remoteDataFolder);
-      _ = try super.getApi().getStyle(request: request);
+      let actual = try super.getApi().getStyle(request: request);
+      assert(actual.getStyle() != nil);
+      assert(("Heading 1") == actual.getStyle()!.getName());
     }
 
     // Test for updating style from document.
@@ -74,7 +79,9 @@ class StylesTests: BaseTestContext {
 
 
       let request = UpdateStyleRequest(name: remoteFileName, styleUpdate: requestStyleUpdate, styleName: "Heading 1", folder: remoteDataFolder);
-      _ = try super.getApi().updateStyle(request: request);
+      let actual = try super.getApi().updateStyle(request: request);
+      assert(actual.getStyle() != nil);
+      assert(("My Style") == actual.getStyle()!.getName());
     }
 
     // Test for inserting style from document.
@@ -89,7 +96,9 @@ class StylesTests: BaseTestContext {
 
 
       let request = InsertStyleRequest(name: remoteFileName, styleInsert: requestStyleInsert, folder: remoteDataFolder);
-      _ = try super.getApi().insertStyle(request: request);
+      let actual = try super.getApi().insertStyle(request: request);
+      assert(actual.getStyle() != nil);
+      assert(("My Style") == actual.getStyle()!.getName());
     }
 
     // Test for coping style from document.
@@ -103,7 +112,9 @@ class StylesTests: BaseTestContext {
 
 
       let request = CopyStyleRequest(name: remoteFileName, styleCopy: requestStyleCopy, folder: remoteDataFolder);
-      _ = try super.getApi().copyStyle(request: request);
+      let actual = try super.getApi().copyStyle(request: request);
+      assert(actual.getStyle() != nil);
+      assert(("Heading 1_0") == actual.getStyle()!.getName());
     }
 
     // Test for getting style from document element.
@@ -113,7 +124,9 @@ class StylesTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetStyleFromDocumentElementRequest(name: remoteFileName, styledNodePath: "paragraphs/1/paragraphFormat", folder: remoteDataFolder);
-      _ = try super.getApi().getStyleFromDocumentElement(request: request);
+      let actual = try super.getApi().getStyleFromDocumentElement(request: request);
+      assert(actual.getStyle() != nil);
+      assert(("TOC 1") == actual.getStyle()!.getName());
     }
 
     // Test for applying style to document element.

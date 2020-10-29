@@ -50,6 +50,9 @@ class LoadWebDocumentTests: BaseTestContext {
 
 
       let request = LoadWebDocumentRequest(data: requestData);
-      _ = try super.getApi().loadWebDocument(request: request);
+      let actual = try super.getApi().loadWebDocument(request: request);
+      assert(actual.getSaveResult() != nil);
+      assert(actual.getSaveResult()!.getDestDocument() != nil);
+      assert(("google.doc") == actual.getSaveResult()!.getDestDocument()!.getHref());
     }
 }

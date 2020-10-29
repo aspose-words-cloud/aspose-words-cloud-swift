@@ -45,7 +45,10 @@ class RevisionsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = AcceptAllRevisionsRequest(name: remoteFileName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().acceptAllRevisions(request: request);
+      let actual = try super.getApi().acceptAllRevisions(request: request);
+      assert(actual.getResult() != nil);
+      assert(actual.getResult()!.getDest() != nil);
+      assert(("TestOut/NET/TestAcceptAllRevisions.docx") == actual.getResult()!.getDest()!.getHref());
     }
 
     // Test for rejecting revisions in document.
@@ -55,6 +58,9 @@ class RevisionsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = RejectAllRevisionsRequest(name: remoteFileName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().rejectAllRevisions(request: request);
+      let actual = try super.getApi().rejectAllRevisions(request: request);
+      assert(actual.getResult() != nil);
+      assert(actual.getResult()!.getDest() != nil);
+      assert(("TestOut/NET/TestRejectAllRevisions.docx") == actual.getResult()!.getDest()!.getHref());
     }
 }

@@ -51,7 +51,11 @@ class MathObjectTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetOfficeMathObjectsRequest(name: remoteFileName, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().getOfficeMathObjects(request: request);
+      let actual = try super.getApi().getOfficeMathObjects(request: request);
+      assert(actual.getOfficeMathObjects() != nil);
+      assert(actual.getOfficeMathObjects()!.getList() != nil);
+      assert(16 == actual.getOfficeMathObjects()!.getList()!.count);
+      assert(("0.0.0.0") == actual.getOfficeMathObjects()!.getList()![0].getNodeId());
     }
 
     // Test for getting mathObjects without node path.
@@ -61,7 +65,11 @@ class MathObjectTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetOfficeMathObjectsRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getOfficeMathObjects(request: request);
+      let actual = try super.getApi().getOfficeMathObjects(request: request);
+      assert(actual.getOfficeMathObjects() != nil);
+      assert(actual.getOfficeMathObjects()!.getList() != nil);
+      assert(16 == actual.getOfficeMathObjects()!.getList()!.count);
+      assert(("0.0.0.0") == actual.getOfficeMathObjects()!.getList()![0].getNodeId());
     }
 
     // Test for getting mathObject.
@@ -71,7 +79,9 @@ class MathObjectTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetOfficeMathObjectRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().getOfficeMathObject(request: request);
+      let actual = try super.getApi().getOfficeMathObject(request: request);
+      assert(actual.getOfficeMathObject() != nil);
+      assert(("0.0.0.0") == actual.getOfficeMathObject()!.getNodeId());
     }
 
     // Test for getting mathObject without node path.
@@ -81,7 +91,9 @@ class MathObjectTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetOfficeMathObjectRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getOfficeMathObject(request: request);
+      let actual = try super.getApi().getOfficeMathObject(request: request);
+      assert(actual.getOfficeMathObject() != nil);
+      assert(("0.0.0.0") == actual.getOfficeMathObject()!.getNodeId());
     }
 
     // Test for rendering mathObject.

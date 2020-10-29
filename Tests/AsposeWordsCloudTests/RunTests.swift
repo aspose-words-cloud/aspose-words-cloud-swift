@@ -50,7 +50,9 @@ class RunTests: BaseTestContext {
 
 
       let request = UpdateRunRequest(name: remoteFileName, run: requestRun, paragraphPath: "paragraphs/1", index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().updateRun(request: request);
+      let actual = try super.getApi().updateRun(request: request);
+      assert(actual.getRun() != nil);
+      assert(("run with text") == actual.getRun()!.getText());
     }
 
     // Test for adding run.
@@ -64,7 +66,10 @@ class RunTests: BaseTestContext {
 
 
       let request = InsertRunRequest(name: remoteFileName, paragraphPath: "paragraphs/1", run: requestRun, folder: remoteDataFolder);
-      _ = try super.getApi().insertRun(request: request);
+      let actual = try super.getApi().insertRun(request: request);
+      assert(actual.getRun() != nil);
+      assert(("run with text") == actual.getRun()!.getText());
+      assert(("0.0.1.3") == actual.getRun()!.getNodeId());
     }
 
     // Test for deleting run.

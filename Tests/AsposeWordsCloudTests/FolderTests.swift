@@ -60,7 +60,8 @@ class FolderTests: BaseTestContext {
     // Test for get file list of folder.
     func testGetFilesList() throws {
       let request = GetFilesListRequest(path: remoteDataFolder);
-      _ = try super.getApi().getFilesList(request: request);
+      let actual = try super.getApi().getFilesList(request: request);
+      assert(actual.getValue() != nil);
     }
 
     // Test for copy folder.

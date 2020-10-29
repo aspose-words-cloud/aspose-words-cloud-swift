@@ -45,12 +45,13 @@ class TextTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestReplaceText = ReplaceTextParameters();
-      requestReplaceText.setOldValue(oldValue: "aspose");
-      requestReplaceText.setNewValue(newValue: "aspose new");
+      requestReplaceText.setOldValue(oldValue: "Testing");
+      requestReplaceText.setNewValue(newValue: "Aspose testing");
 
 
       let request = ReplaceTextRequest(name: remoteFileName, replaceText: requestReplaceText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().replaceText(request: request);
+      let actual = try super.getApi().replaceText(request: request);
+      assert(3 == actual.getMatches());
     }
 
     // Test for searching.
@@ -61,6 +62,11 @@ class TextTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = SearchRequest(name: remoteFileName, pattern: "aspose", folder: remoteDataFolder);
-      _ = try super.getApi().search(request: request);
+      let actual = try super.getApi().search(request: request);
+      assert(actual.getSearchResults() != nil);
+      assert(actual.getSearchResults()!.getResultsList() != nil);
+      assert(23 == actual.getSearchResults()!.getResultsList()!.count);
+      assert(actual.getSearchResults()!.getResultsList()![0].getRangeStart() != nil);
+      assert(65 == actual.getSearchResults()!.getResultsList()![0].getRangeStart()!.getOffset());
     }
 }

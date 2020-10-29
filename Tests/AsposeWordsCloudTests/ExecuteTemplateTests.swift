@@ -47,7 +47,9 @@ class ExecuteTemplateTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(mailMergeFolder + "/" + localDocumentFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = ExecuteMailMergeRequest(name: remoteFileName, data: localDataFile, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().executeMailMerge(request: request);
+      let actual = try super.getApi().executeMailMerge(request: request);
+      assert(actual.getDocument() != nil);
+      assert(("TestExecuteTemplate.docx") == actual.getDocument()!.getFileName());
     }
 
     // Test for execute template online.

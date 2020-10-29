@@ -48,7 +48,12 @@ class TableBorderTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetBordersRequest(name: remoteFileName, nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
-      _ = try super.getApi().getBorders(request: request);
+      let actual = try super.getApi().getBorders(request: request);
+      assert(actual.getBorders() != nil);
+      assert(actual.getBorders()!.getList() != nil);
+      assert(6 == actual.getBorders()!.getList()!.count);
+      assert(actual.getBorders()!.getList()![0].getColor() != nil);
+      assert(("#000000") == actual.getBorders()!.getList()![0].getColor()!.getWeb());
     }
 
     // Test for getting border.
@@ -58,7 +63,10 @@ class TableBorderTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetBorderRequest(name: remoteFileName, borderType: "left", nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
-      _ = try super.getApi().getBorder(request: request);
+      let actual = try super.getApi().getBorder(request: request);
+      assert(actual.getBorder() != nil);
+      assert(actual.getBorder()!.getColor() != nil);
+      assert(("#000000") == actual.getBorder()!.getColor()!.getWeb());
     }
 
     // Test for deleting borders.
@@ -68,7 +76,12 @@ class TableBorderTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = DeleteBordersRequest(name: remoteFileName, nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
-      _ = try super.getApi().deleteBorders(request: request);
+      let actual = try super.getApi().deleteBorders(request: request);
+      assert(actual.getBorders() != nil);
+      assert(actual.getBorders()!.getList() != nil);
+      assert(6 == actual.getBorders()!.getList()!.count);
+      assert(actual.getBorders()!.getList()![0].getColor() != nil);
+      assert(("") == actual.getBorders()!.getList()![0].getColor()!.getWeb());
     }
 
     // Test for deleting border.
@@ -78,7 +91,10 @@ class TableBorderTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = DeleteBorderRequest(name: remoteFileName, borderType: "left", nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
-      _ = try super.getApi().deleteBorder(request: request);
+      let actual = try super.getApi().deleteBorder(request: request);
+      assert(actual.getBorder() != nil);
+      assert(actual.getBorder()!.getColor() != nil);
+      assert(("") == actual.getBorder()!.getColor()!.getWeb());
     }
 
     // Test for updating border.
@@ -100,6 +116,12 @@ class TableBorderTests: BaseTestContext {
 
 
       let request = UpdateBorderRequest(name: remoteFileName, borderProperties: requestBorderProperties, borderType: "left", nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
-      _ = try super.getApi().updateBorder(request: request);
+      let actual = try super.getApi().updateBorder(request: request);
+      assert(actual.getBorder() != nil);
+      assert(actual.getBorder()!.getColor() != nil);
+      assert(("#000002") == actual.getBorder()!.getColor()!.getWeb());
+      assert(6 == actual.getBorder()!.getDistanceFromText());
+      assert(2 == actual.getBorder()!.getLineWidth());
+      assert(actual.getBorder()!.getShadow() == true);
     }
 }

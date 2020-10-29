@@ -45,7 +45,9 @@ class DocumentTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentRequest(documentName: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getDocument(request: request);
+      let actual = try super.getApi().getDocument(request: request);
+      assert(actual.getDocument() != nil);
+      assert(("TestGetDocument.docx") == actual.getDocument()!.getFileName());
     }
 
     // Test for creating word document.
@@ -53,6 +55,8 @@ class DocumentTests: BaseTestContext {
       let remoteFileName = "TestCreateDocument.doc";
 
       let request = CreateDocumentRequest(fileName: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().createDocument(request: request);
+      let actual = try super.getApi().createDocument(request: request);
+      assert(actual.getDocument() != nil);
+      assert(("TestCreateDocument.doc") == actual.getDocument()!.getFileName());
     }
 }

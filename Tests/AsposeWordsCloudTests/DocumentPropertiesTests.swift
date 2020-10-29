@@ -47,7 +47,13 @@ class DocumentPropertiesTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentPropertiesRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentProperties(request: request);
+      let actual = try super.getApi().getDocumentProperties(request: request);
+      assert(actual.getDocumentProperties() != nil);
+      assert(actual.getDocumentProperties()!.getList() != nil);
+      assert(24 == actual.getDocumentProperties()!.getList()!.count);
+      assert(actual.getDocumentProperties()!.getList()![0] != nil);
+      assert(("Author") == actual.getDocumentProperties()!.getList()![0].getName());
+      assert(("") == actual.getDocumentProperties()!.getList()![0].getValue());
     }
 
     // A test for GetDocumentProperty.
@@ -57,7 +63,10 @@ class DocumentPropertiesTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentPropertyRequest(name: remoteFileName, propertyName: "Author", folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentProperty(request: request);
+      let actual = try super.getApi().getDocumentProperty(request: request);
+      assert(actual.getDocumentProperty() != nil);
+      assert(("Author") == actual.getDocumentProperty()!.getName());
+      assert(("") == actual.getDocumentProperty()!.getValue());
     }
 
     // Test for deleting document property.
@@ -81,6 +90,9 @@ class DocumentPropertiesTests: BaseTestContext {
 
 
       let request = CreateOrUpdateDocumentPropertyRequest(name: remoteFileName, propertyName: "AsposeAuthor", property: requestProperty, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().createOrUpdateDocumentProperty(request: request);
+      let actual = try super.getApi().createOrUpdateDocumentProperty(request: request);
+      assert(actual.getDocumentProperty() != nil);
+      assert(("AsposeAuthor") == actual.getDocumentProperty()!.getName());
+      assert(("Imran Anwar") == actual.getDocumentProperty()!.getValue());
     }
 }

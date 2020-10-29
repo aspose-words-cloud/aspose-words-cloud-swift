@@ -43,7 +43,11 @@ class MailMergeFiledsTests: BaseTestContext {
       let localDocumentFile = "SampleExecuteTemplate.docx";
 
       let request = GetDocumentFieldNamesOnlineRequest(template: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(mailMergeFolder + "/" + localDocumentFile, isDirectory: false))!, useNonMergeFields: true);
-      _ = try super.getApi().getDocumentFieldNamesOnline(request: request);
+      let actual = try super.getApi().getDocumentFieldNamesOnline(request: request);
+      assert(actual.getFieldNames() != nil);
+      assert(actual.getFieldNames()!.getNames() != nil);
+      assert(15 == actual.getFieldNames()!.getNames()!.count);
+      assert(("TableStart:Order") == actual.getFieldNames()!.getNames()![0]);
     }
 
     // Test for getting mailmerge fields.
@@ -53,6 +57,9 @@ class MailMergeFiledsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("Common/test_multi_pages.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentFieldNamesRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentFieldNames(request: request);
+      let actual = try super.getApi().getDocumentFieldNames(request: request);
+      assert(actual.getFieldNames() != nil);
+      assert(actual.getFieldNames()!.getNames() != nil);
+      assert(0 == actual.getFieldNames()!.getNames()!.count);
     }
 }

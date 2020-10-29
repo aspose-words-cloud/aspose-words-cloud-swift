@@ -48,7 +48,9 @@ class WatermarkTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false), path: remoteImagePath);
 
       let request = InsertWatermarkImageRequest(name: remoteFileName, imageFile: nil, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName, image: remoteImagePath);
-      _ = try super.getApi().insertWatermarkImage(request: request);
+      let actual = try super.getApi().insertWatermarkImage(request: request);
+      assert(actual.getDocument() != nil);
+      assert(("TestInsertWatermarkImage.docx") == actual.getDocument()!.getFileName());
     }
 
     // Test for adding watermark text.
@@ -63,7 +65,9 @@ class WatermarkTests: BaseTestContext {
 
 
       let request = InsertWatermarkTextRequest(name: remoteFileName, watermarkText: requestWatermarkText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().insertWatermarkText(request: request);
+      let actual = try super.getApi().insertWatermarkText(request: request);
+      assert(actual.getDocument() != nil);
+      assert(("TestInsertWatermarkText.docx") == actual.getDocument()!.getFileName());
     }
 
     // Test for deleting watermark.
@@ -73,6 +77,8 @@ class WatermarkTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = DeleteWatermarkRequest(name: remoteFileName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().deleteWatermark(request: request);
+      let actual = try super.getApi().deleteWatermark(request: request);
+      assert(actual.getDocument() != nil);
+      assert(("TestDeleteWatermark.docx") == actual.getDocument()!.getFileName());
     }
 }

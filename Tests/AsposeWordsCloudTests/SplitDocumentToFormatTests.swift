@@ -44,6 +44,10 @@ class SplitDocumentToFormatTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = SplitDocumentRequest(name: remoteFileName, format: "text", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/TestSplitDocument.text", from: 1, to: 2);
-      _ = try super.getApi().splitDocument(request: request);
+      let actual = try super.getApi().splitDocument(request: request);
+      assert(actual.getSplitResult() != nil);
+      assert(actual.getSplitResult()!.getPages() != nil);
+      assert(2 == actual.getSplitResult()!.getPages()!.count);
+      assert(("TestOut/NET/TestSplitDocument_page1.text") == actual.getSplitResult()!.getPages()![0].getHref());
     }
 }

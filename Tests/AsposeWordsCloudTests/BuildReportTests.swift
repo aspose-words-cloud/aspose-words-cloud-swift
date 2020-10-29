@@ -68,6 +68,8 @@ class BuildReportTests: BaseTestContext {
 
 
       let request = BuildReportRequest(name: remoteFileName, data: localDataFile, reportEngineSettings: requestReportEngineSettings, folder: remoteDataFolder);
-      _ = try super.getApi().buildReport(request: request);
+      let actual = try super.getApi().buildReport(request: request);
+      assert(actual.getDocument() != nil);
+      assert(("TestBuildReport.docx") == actual.getDocument()!.getFileName());
     }
 }

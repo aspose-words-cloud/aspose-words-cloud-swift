@@ -60,7 +60,10 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentDrawingObjectsRequest(name: remoteFileName, nodePath: "sections/0", folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentDrawingObjects(request: request);
+      let actual = try super.getApi().getDocumentDrawingObjects(request: request);
+      assert(actual.getDrawingObjects() != nil);
+      assert(actual.getDrawingObjects()!.getList() != nil);
+      assert(1 == actual.getDrawingObjects()!.getList()!.count);
     }
 
     // Test for getting drawing objects from document without node path.
@@ -70,7 +73,10 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentDrawingObjectsRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentDrawingObjects(request: request);
+      let actual = try super.getApi().getDocumentDrawingObjects(request: request);
+      assert(actual.getDrawingObjects() != nil);
+      assert(actual.getDrawingObjects()!.getList() != nil);
+      assert(1 == actual.getDrawingObjects()!.getList()!.count);
     }
 
     // Test for getting drawing object by specified index.
@@ -80,7 +86,9 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentDrawingObjectByIndexRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentDrawingObjectByIndex(request: request);
+      let actual = try super.getApi().getDocumentDrawingObjectByIndex(request: request);
+      assert(actual.getDrawingObject() != nil);
+      assert(300 == actual.getDrawingObject()!.getHeight());
     }
 
     // Test for getting drawing object by specified index without node path.
@@ -90,7 +98,9 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentDrawingObjectByIndexRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentDrawingObjectByIndex(request: request);
+      let actual = try super.getApi().getDocumentDrawingObjectByIndex(request: request);
+      assert(actual.getDrawingObject() != nil);
+      assert(300 == actual.getDrawingObject()!.getHeight());
     }
 
     // Test for getting drawing object by specified index and format.
@@ -170,7 +180,9 @@ class DrawingObjectsTests: BaseTestContext {
 
 
       let request = InsertDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().insertDrawingObject(request: request);
+      let actual = try super.getApi().insertDrawingObject(request: request);
+      assert(actual.getDrawingObject() != nil);
+      assert(("0.3.7.1") == actual.getDrawingObject()!.getNodeId());
     }
 
     // Test for adding drawing object without node path.
@@ -190,7 +202,9 @@ class DrawingObjectsTests: BaseTestContext {
 
 
       let request = InsertDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, folder: remoteDataFolder);
-      _ = try super.getApi().insertDrawingObject(request: request);
+      let actual = try super.getApi().insertDrawingObject(request: request);
+      assert(actual.getDrawingObject() != nil);
+      assert(("0.3.7.1") == actual.getDrawingObject()!.getNodeId());
     }
 
     // Test for deleting drawing object.
@@ -220,11 +234,13 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestDrawingObject = DrawingObjectUpdate();
-      requestDrawingObject.setLeft(_left: 0);
+      requestDrawingObject.setLeft(_left: 1);
 
 
       let request = UpdateDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, index: 0, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().updateDrawingObject(request: request);
+      let actual = try super.getApi().updateDrawingObject(request: request);
+      assert(actual.getDrawingObject() != nil);
+      assert(1 == actual.getDrawingObject()!.getLeft());
     }
 
     // Test for updating drawing object without node path.
@@ -234,10 +250,12 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestDrawingObject = DrawingObjectUpdate();
-      requestDrawingObject.setLeft(_left: 0);
+      requestDrawingObject.setLeft(_left: 1);
 
 
       let request = UpdateDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().updateDrawingObject(request: request);
+      let actual = try super.getApi().updateDrawingObject(request: request);
+      assert(actual.getDrawingObject() != nil);
+      assert(1 == actual.getDrawingObject()!.getLeft());
     }
 }

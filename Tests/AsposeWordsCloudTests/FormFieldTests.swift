@@ -62,7 +62,10 @@ class FormFieldTests: BaseTestContext {
 
 
       let request = UpdateFormFieldRequest(name: remoteFileName, formField: requestFormField, index: 0, nodePath: "sections/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().updateFormField(request: request);
+      let actual = try super.getApi().updateFormField(request: request);
+      assert(actual.getFormField() != nil);
+      assert(("FullName") == actual.getFormField()!.getName());
+      assert(("") == actual.getFormField()!.getStatusText());
     }
 
     // Test for posting form field without node path.
@@ -81,7 +84,10 @@ class FormFieldTests: BaseTestContext {
 
 
       let request = UpdateFormFieldRequest(name: remoteFileName, formField: requestFormField, index: 0, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().updateFormField(request: request);
+      let actual = try super.getApi().updateFormField(request: request);
+      assert(actual.getFormField() != nil);
+      assert(("FullName") == actual.getFormField()!.getName());
+      assert(("") == actual.getFormField()!.getStatusText());
     }
 
     // Test for getting form field.
@@ -91,7 +97,9 @@ class FormFieldTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetFormFieldRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder);
-      _ = try super.getApi().getFormField(request: request);
+      let actual = try super.getApi().getFormField(request: request);
+      assert(actual.getFormField() != nil);
+      assert(("FullName") == actual.getFormField()!.getName());
     }
 
     // Test for getting form field without node path.
@@ -101,7 +109,9 @@ class FormFieldTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetFormFieldRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getFormField(request: request);
+      let actual = try super.getApi().getFormField(request: request);
+      assert(actual.getFormField() != nil);
+      assert(("FullName") == actual.getFormField()!.getName());
     }
 
     // Test for getting form fields.
@@ -111,7 +121,11 @@ class FormFieldTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetFormFieldsRequest(name: remoteFileName, nodePath: "sections/0", folder: remoteDataFolder);
-      _ = try super.getApi().getFormFields(request: request);
+      let actual = try super.getApi().getFormFields(request: request);
+      assert(actual.getFormFields() != nil);
+      assert(actual.getFormFields()!.getList() != nil);
+      assert(5 == actual.getFormFields()!.getList()!.count);
+      assert(("FullName") == actual.getFormFields()!.getList()![0].getName());
     }
 
     // Test for getting form fields without node path.
@@ -121,7 +135,11 @@ class FormFieldTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetFormFieldsRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getFormFields(request: request);
+      let actual = try super.getApi().getFormFields(request: request);
+      assert(actual.getFormFields() != nil);
+      assert(actual.getFormFields()!.getList() != nil);
+      assert(5 == actual.getFormFields()!.getList()!.count);
+      assert(("FullName") == actual.getFormFields()!.getList()![0].getName());
     }
 
     // Test for insert form field without node path.
@@ -141,7 +159,10 @@ class FormFieldTests: BaseTestContext {
 
 
       let request = InsertFormFieldRequest(name: remoteFileName, formField: requestFormField, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().insertFormField(request: request);
+      let actual = try super.getApi().insertFormField(request: request);
+      assert(actual.getFormField() != nil);
+      assert(("FullName") == actual.getFormField()!.getName());
+      assert(("") == actual.getFormField()!.getStatusText());
     }
 
     // Test for insert form field without node path.
@@ -161,7 +182,10 @@ class FormFieldTests: BaseTestContext {
 
 
       let request = InsertFormFieldRequest(name: remoteFileName, formField: requestFormField, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().insertFormField(request: request);
+      let actual = try super.getApi().insertFormField(request: request);
+      assert(actual.getFormField() != nil);
+      assert(("FullName") == actual.getFormField()!.getName());
+      assert(("") == actual.getFormField()!.getStatusText());
     }
 
     // Test for deleting form field.

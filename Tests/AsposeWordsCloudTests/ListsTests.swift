@@ -48,7 +48,11 @@ class ListsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetListsRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getLists(request: request);
+      let actual = try super.getApi().getLists(request: request);
+      assert(actual.getLists() != nil);
+      assert(actual.getLists()!.getListInfo() != nil);
+      assert(2 == actual.getLists()!.getListInfo()!.count);
+      assert(1 == actual.getLists()!.getListInfo()![0].getListId());
     }
 
     // Test for getting list from document.
@@ -58,7 +62,9 @@ class ListsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetListRequest(name: remoteFileName, listId: 1, folder: remoteDataFolder);
-      _ = try super.getApi().getList(request: request);
+      let actual = try super.getApi().getList(request: request);
+      assert(actual.getList() != nil);
+      assert(1 == actual.getList()!.getListId());
     }
 
     // Test for updating list from document.
@@ -72,7 +78,10 @@ class ListsTests: BaseTestContext {
 
 
       let request = UpdateListRequest(name: remoteFileName, listUpdate: requestListUpdate, listId: 1, folder: remoteDataFolder);
-      _ = try super.getApi().updateList(request: request);
+      let actual = try super.getApi().updateList(request: request);
+      assert(actual.getList() != nil);
+      assert(1 == actual.getList()!.getListId());
+      assert(actual.getList()!.getIsRestartAtEachSection() == true);
     }
 
     // Test for updating list level from document.
@@ -86,7 +95,12 @@ class ListsTests: BaseTestContext {
 
 
       let request = UpdateListLevelRequest(name: remoteFileName, listUpdate: requestListUpdate, listId: 1, listLevel: 1, folder: remoteDataFolder);
-      _ = try super.getApi().updateListLevel(request: request);
+      let actual = try super.getApi().updateListLevel(request: request);
+      assert(actual.getList() != nil);
+      assert(actual.getList()!.getListLevels() != nil);
+      assert(actual.getList()!.getListLevels()!.getListLevel() != nil);
+      assert(9 == actual.getList()!.getListLevels()!.getListLevel()!.count);
+
     }
 
     // Test for inserting list from document.
@@ -100,6 +114,8 @@ class ListsTests: BaseTestContext {
 
 
       let request = InsertListRequest(name: remoteFileName, listInsert: requestListInsert, folder: remoteDataFolder);
-      _ = try super.getApi().insertList(request: request);
+      let actual = try super.getApi().insertList(request: request);
+      assert(actual.getList() != nil);
+      assert(3 == actual.getList()!.getListId());
     }
 }

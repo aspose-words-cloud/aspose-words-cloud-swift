@@ -53,7 +53,10 @@ class ConvertDocumentTests: BaseTestContext {
 
 
       let request = SaveAsRequest(name: remoteName, saveOptionsData: requestSaveOptionsData, folder: remoteFolder);
-      _ = try super.getApi().saveAs(request: request);
+      let actual = try super.getApi().saveAs(request: request);
+      assert(actual.getSaveResult() != nil);
+      assert(actual.getSaveResult()!.getDestDocument() != nil);
+      assert(("Temp/SdkTests/NET/TestData/DocumentActions/ConvertDocument/TestOut/NET/TestSaveAs.pdf") == actual.getSaveResult()!.getDestDocument()!.getHref());
     }
 
     // Test for converting document to one of the available formats.
@@ -69,7 +72,10 @@ class ConvertDocumentTests: BaseTestContext {
 
 
       let request = SaveAsRequest(name: remoteName, saveOptionsData: requestSaveOptionsData, folder: remoteFolder);
-      _ = try super.getApi().saveAs(request: request);
+      let actual = try super.getApi().saveAs(request: request);
+      assert(actual.getSaveResult() != nil);
+      assert(actual.getSaveResult()!.getDestDocument() != nil);
+      assert(("Temp/SdkTests/NET/TestData/DocumentActions/ConvertDocument/TestOut/NET/TestSaveAsFromPdfToDoc.docx") == actual.getSaveResult()!.getDestDocument()!.getHref());
     }
 
     // Test for converting document to one of the available formats.
@@ -85,7 +91,10 @@ class ConvertDocumentTests: BaseTestContext {
 
 
       let request = SaveAsTiffRequest(name: remoteName, saveOptions: requestSaveOptions, folder: remoteFolder);
-      _ = try super.getApi().saveAsTiff(request: request);
+      let actual = try super.getApi().saveAsTiff(request: request);
+      assert(actual.getSaveResult() != nil);
+      assert(actual.getSaveResult()!.getDestDocument() != nil);
+      assert(("Temp/SdkTests/NET/TestData/DocumentActions/ConvertDocument/TestOut/NET/abc.tiff") == actual.getSaveResult()!.getDestDocument()!.getHref());
     }
 
     // A test for ConvertDocument.

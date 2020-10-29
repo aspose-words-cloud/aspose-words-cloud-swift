@@ -76,7 +76,9 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetParagraphRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder);
-      _ = try super.getApi().getParagraph(request: request);
+      let actual = try super.getApi().getParagraph(request: request);
+      assert(actual.getParagraph() != nil);
+      assert(("0.0.0") == actual.getParagraph()!.getNodeId());
     }
 
     // Test for getting paragraph without node path.
@@ -86,7 +88,9 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetParagraphRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getParagraph(request: request);
+      let actual = try super.getApi().getParagraph(request: request);
+      assert(actual.getParagraph() != nil);
+      assert(("0.0.0") == actual.getParagraph()!.getNodeId());
     }
 
     // Test for getting all paragraphs.
@@ -96,7 +100,11 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetParagraphsRequest(name: remoteFileName, nodePath: "sections/0", folder: remoteDataFolder);
-      _ = try super.getApi().getParagraphs(request: request);
+      let actual = try super.getApi().getParagraphs(request: request);
+      assert(actual.getParagraphs() != nil);
+      assert(actual.getParagraphs()!.getParagraphLinkList() != nil);
+      assert(15 == actual.getParagraphs()!.getParagraphLinkList()!.count);
+      assert(("Page 1 of 3") == actual.getParagraphs()!.getParagraphLinkList()![0].getText());
     }
 
     // Test for getting all paragraphs without node path.
@@ -106,7 +114,11 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetParagraphsRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getParagraphs(request: request);
+      let actual = try super.getApi().getParagraphs(request: request);
+      assert(actual.getParagraphs() != nil);
+      assert(actual.getParagraphs()!.getParagraphLinkList() != nil);
+      assert(15 == actual.getParagraphs()!.getParagraphLinkList()!.count);
+      assert(("Page 1 of 3") == actual.getParagraphs()!.getParagraphLinkList()![0].getText());
     }
 
     // Test for getting paragraph run.
@@ -116,7 +128,9 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetRunRequest(name: remoteFileName, paragraphPath: "paragraphs/0", index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getRun(request: request);
+      let actual = try super.getApi().getRun(request: request);
+      assert(actual.getRun() != nil);
+      assert(("Page ") == actual.getRun()!.getText());
     }
 
     // Test for getting paragraph run font.
@@ -126,7 +140,9 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetRunFontRequest(name: remoteFileName, paragraphPath: "paragraphs/0", index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getRunFont(request: request);
+      let actual = try super.getApi().getRunFont(request: request);
+      assert(actual.getFont() != nil);
+      assert(("Times New Roman") == actual.getFont()!.getName());
     }
 
     // Test for getting paragraph runs.
@@ -136,7 +152,11 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetRunsRequest(name: remoteFileName, paragraphPath: "sections/0/paragraphs/0", folder: remoteDataFolder);
-      _ = try super.getApi().getRuns(request: request);
+      let actual = try super.getApi().getRuns(request: request);
+      assert(actual.getRuns() != nil);
+      assert(actual.getRuns()!.getList() != nil);
+      assert(6 == actual.getRuns()!.getList()!.count);
+      assert(("Page ") == actual.getRuns()!.getList()![0].getText());
     }
 
     // Test for updating paragraph run font.
@@ -150,7 +170,9 @@ class ParagraphTests: BaseTestContext {
 
 
       let request = UpdateRunFontRequest(name: remoteFileName, fontDto: requestFontDto, paragraphPath: "paragraphs/0", index: 0, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().updateRunFont(request: request);
+      let actual = try super.getApi().updateRunFont(request: request);
+      assert(actual.getFont() != nil);
+      assert(actual.getFont()!.getBold() == true);
     }
 
     // Test for adding paragraph.
@@ -164,7 +186,9 @@ class ParagraphTests: BaseTestContext {
 
 
       let request = InsertParagraphRequest(name: remoteFileName, paragraph: requestParagraph, nodePath: "sections/0", folder: remoteDataFolder);
-      _ = try super.getApi().insertParagraph(request: request);
+      let actual = try super.getApi().insertParagraph(request: request);
+      assert(actual.getParagraph() != nil);
+      assert(("0.3.8") == actual.getParagraph()!.getNodeId());
     }
 
     // Test for adding paragraph without node path.
@@ -178,7 +202,9 @@ class ParagraphTests: BaseTestContext {
 
 
       let request = InsertParagraphRequest(name: remoteFileName, paragraph: requestParagraph, folder: remoteDataFolder);
-      _ = try super.getApi().insertParagraph(request: request);
+      let actual = try super.getApi().insertParagraph(request: request);
+      assert(actual.getParagraph() != nil);
+      assert(("0.3.8") == actual.getParagraph()!.getNodeId());
     }
 
     // Test for paragraph rendering.
@@ -208,7 +234,9 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetParagraphFormatRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().getParagraphFormat(request: request);
+      let actual = try super.getApi().getParagraphFormat(request: request);
+      assert(actual.getParagraphFormat() != nil);
+      assert(("Normal") == actual.getParagraphFormat()!.getStyleName());
     }
 
     // Test for getting paragraph format settings without node path.
@@ -218,7 +246,9 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetParagraphFormatRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getParagraphFormat(request: request);
+      let actual = try super.getApi().getParagraphFormat(request: request);
+      assert(actual.getParagraphFormat() != nil);
+      assert(("Normal") == actual.getParagraphFormat()!.getStyleName());
     }
 
     // Test for updating  paragraph format settings.
@@ -232,7 +262,9 @@ class ParagraphTests: BaseTestContext {
 
 
       let request = UpdateParagraphFormatRequest(name: remoteFileName, dto: requestDto, index: 0, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().updateParagraphFormat(request: request);
+      let actual = try super.getApi().updateParagraphFormat(request: request);
+      assert(actual.getParagraphFormat() != nil);
+
     }
 
     // Test for deleting  a paragraph.
@@ -262,7 +294,9 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(listFolder + "/ParagraphGetListFormat.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetParagraphListFormatRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().getParagraphListFormat(request: request);
+      let actual = try super.getApi().getParagraphListFormat(request: request);
+      assert(actual.getListFormat() != nil);
+      assert(1 == actual.getListFormat()!.getListId());
     }
 
     // Test for getting paragraph list format without node path.
@@ -272,7 +306,9 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(listFolder + "/ParagraphGetListFormat.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetParagraphListFormatRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getParagraphListFormat(request: request);
+      let actual = try super.getApi().getParagraphListFormat(request: request);
+      assert(actual.getListFormat() != nil);
+      assert(1 == actual.getListFormat()!.getListId());
     }
 
     // Test for updating paragraph list format.
@@ -286,7 +322,9 @@ class ParagraphTests: BaseTestContext {
 
 
       let request = UpdateParagraphListFormatRequest(name: remoteFileName, dto: requestDto, index: 0, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().updateParagraphListFormat(request: request);
+      let actual = try super.getApi().updateParagraphListFormat(request: request);
+      assert(actual.getListFormat() != nil);
+      assert(2 == actual.getListFormat()!.getListId());
     }
 
     // Test for updating paragraph list format without node path.
@@ -300,7 +338,9 @@ class ParagraphTests: BaseTestContext {
 
 
       let request = UpdateParagraphListFormatRequest(name: remoteFileName, dto: requestDto, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().updateParagraphListFormat(request: request);
+      let actual = try super.getApi().updateParagraphListFormat(request: request);
+      assert(actual.getListFormat() != nil);
+      assert(2 == actual.getListFormat()!.getListId());
     }
 
     // Test for deleting paragraph list format.
@@ -330,7 +370,10 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetParagraphTabStopsRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().getParagraphTabStops(request: request);
+      let actual = try super.getApi().getParagraphTabStops(request: request);
+      assert(actual.getTabStops() != nil);
+      assert(2 == actual.getTabStops()!.count);
+      assert(72 == actual.getTabStops()![0].getPosition());
     }
 
     // Test for getting paragraph tab stops without node path.
@@ -340,7 +383,10 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetParagraphTabStopsRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getParagraphTabStops(request: request);
+      let actual = try super.getApi().getParagraphTabStops(request: request);
+      assert(actual.getTabStops() != nil);
+      assert(2 == actual.getTabStops()!.count);
+      assert(72 == actual.getTabStops()![0].getPosition());
     }
 
     // Test for inserting paragraph tab stop.
@@ -352,11 +398,16 @@ class ParagraphTests: BaseTestContext {
       let requestDto = TabStopInsert();
       requestDto.setAlignment(alignment: TabStopInsert.Alignment._left);
       requestDto.setLeader(leader: TabStopInsert.Leader._none);
-      requestDto.setPosition(position: 72);
+      requestDto.setPosition(position: 100);
 
 
       let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, dto: requestDto, index: 0, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
+      let actual = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
+      assert(actual.getTabStops() != nil);
+      assert(3 == actual.getTabStops()!.count);
+      assert(100 == actual.getTabStops()![1].getPosition());
+
+
     }
 
     // Test for inserting paragraph tab stop without node path.
@@ -368,11 +419,16 @@ class ParagraphTests: BaseTestContext {
       let requestDto = TabStopInsert();
       requestDto.setAlignment(alignment: TabStopInsert.Alignment._left);
       requestDto.setLeader(leader: TabStopInsert.Leader._none);
-      requestDto.setPosition(position: 72);
+      requestDto.setPosition(position: 100);
 
 
       let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, dto: requestDto, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
+      let actual = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
+      assert(actual.getTabStops() != nil);
+      assert(3 == actual.getTabStops()!.count);
+      assert(100 == actual.getTabStops()![1].getPosition());
+
+
     }
 
     // Test for deleting all paragraph tab stops.
@@ -382,7 +438,9 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = DeleteAllParagraphTabStopsRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().deleteAllParagraphTabStops(request: request);
+      let actual = try super.getApi().deleteAllParagraphTabStops(request: request);
+      assert(actual.getTabStops() != nil);
+      assert(0 == actual.getTabStops()!.count);
     }
 
     // Test for deleting all paragraph tab stops without node path.
@@ -392,7 +450,9 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = DeleteAllParagraphTabStopsRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().deleteAllParagraphTabStops(request: request);
+      let actual = try super.getApi().deleteAllParagraphTabStops(request: request);
+      assert(actual.getTabStops() != nil);
+      assert(0 == actual.getTabStops()!.count);
     }
 
     // Test for deleting a tab stops.
@@ -402,7 +462,9 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = DeleteParagraphTabStopRequest(name: remoteFileName, position: 72, index: 0, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().deleteParagraphTabStop(request: request);
+      let actual = try super.getApi().deleteParagraphTabStop(request: request);
+      assert(actual.getTabStops() != nil);
+      assert(1 == actual.getTabStops()!.count);
     }
 
     // Test for deleting a tab stops without node path.
@@ -412,6 +474,8 @@ class ParagraphTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = DeleteParagraphTabStopRequest(name: remoteFileName, position: 72, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().deleteParagraphTabStop(request: request);
+      let actual = try super.getApi().deleteParagraphTabStop(request: request);
+      assert(actual.getTabStops() != nil);
+      assert(1 == actual.getTabStops()!.count);
     }
 }

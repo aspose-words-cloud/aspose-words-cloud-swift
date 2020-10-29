@@ -49,7 +49,10 @@ class HeaderFooterTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetHeaderFootersRequest(name: remoteFileName, sectionPath: "", folder: remoteDataFolder);
-      _ = try super.getApi().getHeaderFooters(request: request);
+      let actual = try super.getApi().getHeaderFooters(request: request);
+      assert(actual.getHeaderFooters() != nil);
+      assert(actual.getHeaderFooters()!.getList() != nil);
+      assert(6 == actual.getHeaderFooters()!.getList()!.count);
     }
 
     // Test for getting headerfooter.
@@ -59,7 +62,11 @@ class HeaderFooterTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetHeaderFooterRequest(name: remoteFileName, headerFooterIndex: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getHeaderFooter(request: request);
+      let actual = try super.getApi().getHeaderFooter(request: request);
+      assert(actual.getHeaderFooter() != nil);
+      assert(actual.getHeaderFooter()!.getChildNodes() != nil);
+      assert(1 == actual.getHeaderFooter()!.getChildNodes()!.count);
+      assert(("0.0.0") == actual.getHeaderFooter()!.getChildNodes()![0].getNodeId());
     }
 
     // Test for getting headerfooter of section.
@@ -69,7 +76,11 @@ class HeaderFooterTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetHeaderFooterOfSectionRequest(name: remoteFileName, headerFooterIndex: 0, sectionIndex: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getHeaderFooterOfSection(request: request);
+      let actual = try super.getApi().getHeaderFooterOfSection(request: request);
+      assert(actual.getHeaderFooter() != nil);
+      assert(actual.getHeaderFooter()!.getChildNodes() != nil);
+      assert(1 == actual.getHeaderFooter()!.getChildNodes()!.count);
+      assert(("0.0.0") == actual.getHeaderFooter()!.getChildNodes()![0].getNodeId());
     }
 
     // Test for deleting headerfooter.
@@ -99,6 +110,10 @@ class HeaderFooterTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = InsertHeaderFooterRequest(name: remoteFileName, headerFooterType: "FooterEven", sectionPath: "", folder: remoteDataFolder);
-      _ = try super.getApi().insertHeaderFooter(request: request);
+      let actual = try super.getApi().insertHeaderFooter(request: request);
+      assert(actual.getHeaderFooter() != nil);
+      assert(actual.getHeaderFooter()!.getChildNodes() != nil);
+      assert(1 == actual.getHeaderFooter()!.getChildNodes()!.count);
+      assert(("0.2.0") == actual.getHeaderFooter()!.getChildNodes()![0].getNodeId());
     }
 }
