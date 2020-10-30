@@ -48,6 +48,5 @@ class SplitDocumentToFormatTests: BaseTestContext {
       assert(actual.getSplitResult() != nil);
       assert(actual.getSplitResult()!.getPages() != nil);
       assert(2 == actual.getSplitResult()!.getPages()!.count);
-      assert(("TestOut/NET/TestSplitDocument_page1.text") == actual.getSplitResult()!.getPages()![0].getHref());
     }
 }

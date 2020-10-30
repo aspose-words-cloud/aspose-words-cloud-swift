@@ -49,7 +49,7 @@ class ExecuteTemplateTests: BaseTestContext {
       let request = ExecuteMailMergeRequest(name: remoteFileName, data: localDataFile, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().executeMailMerge(request: request);
       assert(actual.getDocument() != nil);
-      assert(("TestExecuteTemplate.docx") == actual.getDocument()!.getFileName());
+      assert( actual.getDocument()!.getFileName().hasPrefix("TestExecuteTemplate.docx") == true);
     }
 
     // Test for execute template online.

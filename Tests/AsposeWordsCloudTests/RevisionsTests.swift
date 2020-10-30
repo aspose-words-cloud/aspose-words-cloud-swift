@@ -48,7 +48,6 @@ class RevisionsTests: BaseTestContext {
       let actual = try super.getApi().acceptAllRevisions(request: request);
       assert(actual.getResult() != nil);
       assert(actual.getResult()!.getDest() != nil);
-      assert(("TestOut/NET/TestAcceptAllRevisions.docx") == actual.getResult()!.getDest()!.getHref());
     }
 
     // Test for rejecting revisions in document.
@@ -61,6 +60,5 @@ class RevisionsTests: BaseTestContext {
       let actual = try super.getApi().rejectAllRevisions(request: request);
       assert(actual.getResult() != nil);
       assert(actual.getResult()!.getDest() != nil);
-      assert(("TestOut/NET/TestRejectAllRevisions.docx") == actual.getResult()!.getDest()!.getHref());
     }
 }

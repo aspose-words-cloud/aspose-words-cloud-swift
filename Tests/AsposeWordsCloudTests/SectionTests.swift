@@ -50,7 +50,7 @@ class SectionTests: BaseTestContext {
       assert(actual.getSection() != nil);
       assert(actual.getSection()!.getChildNodes() != nil);
       assert(13 == actual.getSection()!.getChildNodes()!.count);
-      assert(("0.3.0") == actual.getSection()!.getChildNodes()![0].getNodeId());
+      assert( actual.getSection()!.getChildNodes()![0].getNodeId().hasPrefix("0.3.0") == true);
     }
 
     // Test for getting sections.
@@ -64,7 +64,7 @@ class SectionTests: BaseTestContext {
       assert(actual.getSections() != nil);
       assert(actual.getSections()!.getSectionLinkList() != nil);
       assert(1 == actual.getSections()!.getSectionLinkList()!.count);
-      assert(("0") == actual.getSections()!.getSectionLinkList()![0].getNodeId());
+      assert( actual.getSections()!.getSectionLinkList()![0].getNodeId().hasPrefix("0") == true);
     }
 
     // Test for delete a section.
