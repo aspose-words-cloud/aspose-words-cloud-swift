@@ -49,7 +49,7 @@ class FileTests: BaseTestContext {
       let actual = try super.getApi().uploadFile(request: request);
       assert(actual.getUploaded() != nil);
       assert(1 == actual.getUploaded()!.count);
-      assert( actual.getUploaded()![0]!.hasPrefix("TestUploadFile.docx") == true);
+      assert( (actual.getUploaded()![0] ?? "").hasPrefix("TestUploadFile.docx") == true);
     }
 
     // Test for copy file.

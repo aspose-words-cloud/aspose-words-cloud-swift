@@ -53,6 +53,6 @@ class LoadWebDocumentTests: BaseTestContext {
       let actual = try super.getApi().loadWebDocument(request: request);
       assert(actual.getSaveResult() != nil);
       assert(actual.getSaveResult()!.getDestDocument() != nil);
-      assert( actual.getSaveResult()!.getDestDocument()!.getHref()!.hasPrefix("google.doc") == true);
+      assert( (actual.getSaveResult()!.getDestDocument()!.getHref() ?? "").hasPrefix("google.doc") == true);
     }
 }

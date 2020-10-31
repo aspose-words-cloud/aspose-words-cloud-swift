@@ -47,7 +47,7 @@ class HyperlinkTests: BaseTestContext {
       let request = GetDocumentHyperlinkByIndexRequest(name: remoteFileName, hyperlinkIndex: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getDocumentHyperlinkByIndex(request: request);
       assert(actual.getHyperlink() != nil);
-      assert( actual.getHyperlink()!.getDisplayText()!.hasPrefix("Aspose") == true);
+      assert( (actual.getHyperlink()!.getDisplayText() ?? "").hasPrefix("Aspose") == true);
     }
 
     // Test for getting hyperlinks.
@@ -61,6 +61,6 @@ class HyperlinkTests: BaseTestContext {
       assert(actual.getHyperlinks() != nil);
       assert(actual.getHyperlinks()!.getHyperlinkList() != nil);
       assert(2 == actual.getHyperlinks()!.getHyperlinkList()!.count);
-      assert( actual.getHyperlinks()!.getHyperlinkList()![0].getDisplayText()!.hasPrefix("Aspose") == true);
+      assert( (actual.getHyperlinks()!.getHyperlinkList()![0].getDisplayText() ?? "").hasPrefix("Aspose") == true);
     }
 }

@@ -53,7 +53,7 @@ class StylesTests: BaseTestContext {
       let actual = try super.getApi().getStyles(request: request);
       assert(actual.getStyles() != nil);
       assert(22 == actual.getStyles()!.count);
-      assert( actual.getStyles()![0].getName()!.hasPrefix("Default Paragraph Font") == true);
+      assert( (actual.getStyles()![0].getName() ?? "").hasPrefix("Default Paragraph Font") == true);
     }
 
     // Test for getting style from document.
@@ -65,7 +65,7 @@ class StylesTests: BaseTestContext {
       let request = GetStyleRequest(name: remoteFileName, styleName: "Heading 1", folder: remoteDataFolder);
       let actual = try super.getApi().getStyle(request: request);
       assert(actual.getStyle() != nil);
-      assert( actual.getStyle()!.getName()!.hasPrefix("Heading 1") == true);
+      assert( (actual.getStyle()!.getName() ?? "").hasPrefix("Heading 1") == true);
     }
 
     // Test for updating style from document.
@@ -81,7 +81,7 @@ class StylesTests: BaseTestContext {
       let request = UpdateStyleRequest(name: remoteFileName, styleUpdate: requestStyleUpdate, styleName: "Heading 1", folder: remoteDataFolder);
       let actual = try super.getApi().updateStyle(request: request);
       assert(actual.getStyle() != nil);
-      assert( actual.getStyle()!.getName()!.hasPrefix("My Style") == true);
+      assert( (actual.getStyle()!.getName() ?? "").hasPrefix("My Style") == true);
     }
 
     // Test for inserting style from document.
@@ -98,7 +98,7 @@ class StylesTests: BaseTestContext {
       let request = InsertStyleRequest(name: remoteFileName, styleInsert: requestStyleInsert, folder: remoteDataFolder);
       let actual = try super.getApi().insertStyle(request: request);
       assert(actual.getStyle() != nil);
-      assert( actual.getStyle()!.getName()!.hasPrefix("My Style") == true);
+      assert( (actual.getStyle()!.getName() ?? "").hasPrefix("My Style") == true);
     }
 
     // Test for coping style from document.
@@ -114,7 +114,7 @@ class StylesTests: BaseTestContext {
       let request = CopyStyleRequest(name: remoteFileName, styleCopy: requestStyleCopy, folder: remoteDataFolder);
       let actual = try super.getApi().copyStyle(request: request);
       assert(actual.getStyle() != nil);
-      assert( actual.getStyle()!.getName()!.hasPrefix("Heading 1_0") == true);
+      assert( (actual.getStyle()!.getName() ?? "").hasPrefix("Heading 1_0") == true);
     }
 
     // Test for getting style from document element.
@@ -126,7 +126,7 @@ class StylesTests: BaseTestContext {
       let request = GetStyleFromDocumentElementRequest(name: remoteFileName, styledNodePath: "paragraphs/1/paragraphFormat", folder: remoteDataFolder);
       let actual = try super.getApi().getStyleFromDocumentElement(request: request);
       assert(actual.getStyle() != nil);
-      assert( actual.getStyle()!.getName()!.hasPrefix("TOC 1") == true);
+      assert( (actual.getStyle()!.getName() ?? "").hasPrefix("TOC 1") == true);
     }
 
     // Test for applying style to document element.
