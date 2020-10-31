@@ -47,7 +47,7 @@ class MailMergeFiledsTests: BaseTestContext {
       assert(actual.getFieldNames() != nil);
       assert(actual.getFieldNames()!.getNames() != nil);
       assert(15 == actual.getFieldNames()!.getNames()!.count);
-      assert( actual.getFieldNames()!.getNames()![0].hasPrefix("TableStart:Order") == true);
+      assert( actual.getFieldNames()!.getNames()![0].!.hasPrefix("TableStart:Order") == true);
     }
 
     // Test for getting mailmerge fields.

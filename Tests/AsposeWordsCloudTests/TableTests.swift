@@ -71,7 +71,7 @@ class TableTests: BaseTestContext {
       assert(actual.getTables() != nil);
       assert(actual.getTables()!.getTableLinkList() != nil);
       assert(5 == actual.getTables()!.getTableLinkList()!.count);
-      assert( actual.getTables()!.getTableLinkList()![0].getNodeId().hasPrefix("0.0.1") == true);
+      assert( actual.getTables()!.getTableLinkList()![0].getNodeId().!.hasPrefix("0.0.1") == true);
     }
 
     // Test for getting tables without node path.
@@ -85,7 +85,7 @@ class TableTests: BaseTestContext {
       assert(actual.getTables() != nil);
       assert(actual.getTables()!.getTableLinkList() != nil);
       assert(5 == actual.getTables()!.getTableLinkList()!.count);
-      assert( actual.getTables()!.getTableLinkList()![0].getNodeId().hasPrefix("0.0.1") == true);
+      assert( actual.getTables()!.getTableLinkList()![0].getNodeId().!.hasPrefix("0.0.1") == true);
     }
 
     // Test for getting table.
@@ -187,7 +187,7 @@ class TableTests: BaseTestContext {
       let request = GetTablePropertiesRequest(name: remoteFileName, index: 1, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getTableProperties(request: request);
       assert(actual.getProperties() != nil);
-      assert( actual.getProperties()!.getStyleName().hasPrefix("Table Grid") == true);
+      assert( actual.getProperties()!.getStyleName().!.hasPrefix("Table Grid") == true);
     }
 
     // Test for getting document properties without node path.
@@ -199,7 +199,7 @@ class TableTests: BaseTestContext {
       let request = GetTablePropertiesRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
       let actual = try super.getApi().getTableProperties(request: request);
       assert(actual.getProperties() != nil);
-      assert( actual.getProperties()!.getStyleName().hasPrefix("Table Grid") == true);
+      assert( actual.getProperties()!.getStyleName().!.hasPrefix("Table Grid") == true);
     }
 
     // Test for updating table properties.
@@ -332,7 +332,7 @@ class TableTests: BaseTestContext {
       let request = GetTableCellRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getTableCell(request: request);
       assert(actual.getCell() != nil);
-      assert( actual.getCell()!.getNodeId().hasPrefix("0.0.5.0.0") == true);
+      assert( actual.getCell()!.getNodeId().!.hasPrefix("0.0.5.0.0") == true);
     }
 
     // Test for deleting cell.
@@ -358,7 +358,7 @@ class TableTests: BaseTestContext {
       let request = InsertTableCellRequest(name: remoteFileName, cell: requestCell, tableRowPath: "sections/0/tables/2/rows/0", folder: remoteDataFolder);
       let actual = try super.getApi().insertTableCell(request: request);
       assert(actual.getCell() != nil);
-      assert( actual.getCell()!.getNodeId().hasPrefix("0.0.5.0.3") == true);
+      assert( actual.getCell()!.getNodeId().!.hasPrefix("0.0.5.0.3") == true);
     }
 
     // Test for getting cell format.

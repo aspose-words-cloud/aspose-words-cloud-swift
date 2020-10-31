@@ -55,7 +55,7 @@ class MathObjectTests: BaseTestContext {
       assert(actual.getOfficeMathObjects() != nil);
       assert(actual.getOfficeMathObjects()!.getList() != nil);
       assert(16 == actual.getOfficeMathObjects()!.getList()!.count);
-      assert( actual.getOfficeMathObjects()!.getList()![0].getNodeId().hasPrefix("0.0.0.0") == true);
+      assert( actual.getOfficeMathObjects()!.getList()![0].getNodeId().!.hasPrefix("0.0.0.0") == true);
     }
 
     // Test for getting mathObjects without node path.
@@ -69,7 +69,7 @@ class MathObjectTests: BaseTestContext {
       assert(actual.getOfficeMathObjects() != nil);
       assert(actual.getOfficeMathObjects()!.getList() != nil);
       assert(16 == actual.getOfficeMathObjects()!.getList()!.count);
-      assert( actual.getOfficeMathObjects()!.getList()![0].getNodeId().hasPrefix("0.0.0.0") == true);
+      assert( actual.getOfficeMathObjects()!.getList()![0].getNodeId().!.hasPrefix("0.0.0.0") == true);
     }
 
     // Test for getting mathObject.
@@ -81,7 +81,7 @@ class MathObjectTests: BaseTestContext {
       let request = GetOfficeMathObjectRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getOfficeMathObject(request: request);
       assert(actual.getOfficeMathObject() != nil);
-      assert( actual.getOfficeMathObject()!.getNodeId().hasPrefix("0.0.0.0") == true);
+      assert( actual.getOfficeMathObject()!.getNodeId().!.hasPrefix("0.0.0.0") == true);
     }
 
     // Test for getting mathObject without node path.
@@ -93,7 +93,7 @@ class MathObjectTests: BaseTestContext {
       let request = GetOfficeMathObjectRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getOfficeMathObject(request: request);
       assert(actual.getOfficeMathObject() != nil);
-      assert( actual.getOfficeMathObject()!.getNodeId().hasPrefix("0.0.0.0") == true);
+      assert( actual.getOfficeMathObject()!.getNodeId().!.hasPrefix("0.0.0.0") == true);
     }
 
     // Test for rendering mathObject.

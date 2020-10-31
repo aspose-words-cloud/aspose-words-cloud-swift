@@ -56,6 +56,6 @@ class CompareDocumentTests: BaseTestContext {
       let request = CompareDocumentRequest(name: remoteName1, compareData: requestCompareData, folder: remoteFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
       let actual = try super.getApi().compareDocument(request: request);
       assert(actual.getDocument() != nil);
-      assert( actual.getDocument()!.getFileName().hasPrefix("TestCompareDocumentOut.doc") == true);
+      assert( actual.getDocument()!.getFileName().!.hasPrefix("TestCompareDocumentOut.doc") == true);
     }
 }

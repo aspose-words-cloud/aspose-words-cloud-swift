@@ -48,7 +48,7 @@ class RangeTests: BaseTestContext {
 
       let request = GetRangeTextRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
       let actual = try super.getApi().getRangeText(request: request);
-      assert( actual.getText().hasPrefix("This is HEADER ") == true);
+      assert( actual.getText().!.hasPrefix("This is HEADER ") == true);
     }
 
     // Test for removing the text for range.
@@ -60,7 +60,7 @@ class RangeTests: BaseTestContext {
       let request = RemoveRangeRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
       let actual = try super.getApi().removeRange(request: request);
       assert(actual.getDocument() != nil);
-      assert( actual.getDocument()!.getFileName().hasPrefix("TestRemoveRange.docx") == true);
+      assert( actual.getDocument()!.getFileName().!.hasPrefix("TestRemoveRange.docx") == true);
     }
 
     // Test for saving a range as a new document.
@@ -76,7 +76,7 @@ class RangeTests: BaseTestContext {
       let request = SaveAsRangeRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", documentParameters: requestDocumentParameters, rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
       let actual = try super.getApi().saveAsRange(request: request);
       assert(actual.getDocument() != nil);
-      assert( actual.getDocument()!.getFileName().hasPrefix("NewDoc.docx") == true);
+      assert( actual.getDocument()!.getFileName().!.hasPrefix("NewDoc.docx") == true);
     }
 
     // Test for replacing text in range.
@@ -92,6 +92,6 @@ class RangeTests: BaseTestContext {
       let request = ReplaceWithTextRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", rangeText: requestRangeText, rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
       let actual = try super.getApi().replaceWithText(request: request);
       assert(actual.getDocument() != nil);
-      assert( actual.getDocument()!.getFileName().hasPrefix("TestReplaceWithText.docx") == true);
+      assert( actual.getDocument()!.getFileName().!.hasPrefix("TestReplaceWithText.docx") == true);
     }
 }

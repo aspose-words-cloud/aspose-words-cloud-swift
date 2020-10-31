@@ -50,7 +50,7 @@ class CommentTests: BaseTestContext {
       let request = GetCommentRequest(name: remoteFileName, commentIndex: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getComment(request: request);
       assert(actual.getComment() != nil);
-      assert( actual.getComment()!.getText().hasPrefix("Comment 1") == true);
+      assert( actual.getComment()!.getText().!.hasPrefix("Comment 1") == true);
     }
 
     // Test for getting all comments from document.
@@ -64,7 +64,7 @@ class CommentTests: BaseTestContext {
       assert(actual.getComments() != nil);
       assert(actual.getComments()!.getCommentList() != nil);
       assert(1 == actual.getComments()!.getCommentList()!.count);
-      assert( actual.getComments()!.getCommentList()![0].getText().hasPrefix("Comment 1") == true);
+      assert( actual.getComments()!.getCommentList()![0].getText().!.hasPrefix("Comment 1") == true);
     }
 
     // Test for adding comment.
@@ -98,10 +98,10 @@ class CommentTests: BaseTestContext {
       let request = InsertCommentRequest(name: remoteFileName, comment: requestComment, folder: remoteDataFolder);
       let actual = try super.getApi().insertComment(request: request);
       assert(actual.getComment() != nil);
-      assert( actual.getComment()!.getText().hasPrefix("A new Comment") == true);
+      assert( actual.getComment()!.getText().!.hasPrefix("A new Comment") == true);
       assert(actual.getComment()!.getRangeStart() != nil);
       assert(actual.getComment()!.getRangeStart()!.getNode() != nil);
-      assert( actual.getComment()!.getRangeStart()!.getNode()!.getNodeId().hasPrefix("0.3.0.4") == true);
+      assert( actual.getComment()!.getRangeStart()!.getNode()!.getNodeId().!.hasPrefix("0.3.0.4") == true);
     }
 
     // Test for updating comment.
@@ -135,10 +135,10 @@ class CommentTests: BaseTestContext {
       let request = UpdateCommentRequest(name: remoteFileName, commentIndex: 0, comment: requestComment, folder: remoteDataFolder);
       let actual = try super.getApi().updateComment(request: request);
       assert(actual.getComment() != nil);
-      assert( actual.getComment()!.getText().hasPrefix("A new Comment") == true);
+      assert( actual.getComment()!.getText().!.hasPrefix("A new Comment") == true);
       assert(actual.getComment()!.getRangeStart() != nil);
       assert(actual.getComment()!.getRangeStart()!.getNode() != nil);
-      assert( actual.getComment()!.getRangeStart()!.getNode()!.getNodeId().hasPrefix("0.3.0.1") == true);
+      assert( actual.getComment()!.getRangeStart()!.getNode()!.getNodeId().!.hasPrefix("0.3.0.1") == true);
     }
 
     // A test for DeleteComment.

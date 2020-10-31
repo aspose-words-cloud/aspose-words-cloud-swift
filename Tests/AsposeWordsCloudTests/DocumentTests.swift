@@ -47,7 +47,7 @@ class DocumentTests: BaseTestContext {
       let request = GetDocumentRequest(documentName: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getDocument(request: request);
       assert(actual.getDocument() != nil);
-      assert( actual.getDocument()!.getFileName().hasPrefix("TestGetDocument.docx") == true);
+      assert( actual.getDocument()!.getFileName().!.hasPrefix("TestGetDocument.docx") == true);
     }
 
     // Test for creating word document.
@@ -57,6 +57,6 @@ class DocumentTests: BaseTestContext {
       let request = CreateDocumentRequest(fileName: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().createDocument(request: request);
       assert(actual.getDocument() != nil);
-      assert( actual.getDocument()!.getFileName().hasPrefix("TestCreateDocument.doc") == true);
+      assert( actual.getDocument()!.getFileName().!.hasPrefix("TestCreateDocument.doc") == true);
     }
 }

@@ -52,8 +52,8 @@ class DocumentPropertiesTests: BaseTestContext {
       assert(actual.getDocumentProperties()!.getList() != nil);
       assert(24 == actual.getDocumentProperties()!.getList()!.count);
       assert(actual.getDocumentProperties()!.getList()![0] != nil);
-      assert( actual.getDocumentProperties()!.getList()![0].getName().hasPrefix("Author") == true);
-      assert( actual.getDocumentProperties()!.getList()![0].getValue().hasPrefix("") == true);
+      assert( actual.getDocumentProperties()!.getList()![0].getName().!.hasPrefix("Author") == true);
+      assert( actual.getDocumentProperties()!.getList()![0].getValue().!.hasPrefix("") == true);
     }
 
     // A test for GetDocumentProperty.
@@ -65,8 +65,8 @@ class DocumentPropertiesTests: BaseTestContext {
       let request = GetDocumentPropertyRequest(name: remoteFileName, propertyName: "Author", folder: remoteDataFolder);
       let actual = try super.getApi().getDocumentProperty(request: request);
       assert(actual.getDocumentProperty() != nil);
-      assert( actual.getDocumentProperty()!.getName().hasPrefix("Author") == true);
-      assert( actual.getDocumentProperty()!.getValue().hasPrefix("") == true);
+      assert( actual.getDocumentProperty()!.getName().!.hasPrefix("Author") == true);
+      assert( actual.getDocumentProperty()!.getValue().!.hasPrefix("") == true);
     }
 
     // Test for deleting document property.
@@ -92,7 +92,7 @@ class DocumentPropertiesTests: BaseTestContext {
       let request = CreateOrUpdateDocumentPropertyRequest(name: remoteFileName, propertyName: "AsposeAuthor", property: requestProperty, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().createOrUpdateDocumentProperty(request: request);
       assert(actual.getDocumentProperty() != nil);
-      assert( actual.getDocumentProperty()!.getName().hasPrefix("AsposeAuthor") == true);
-      assert( actual.getDocumentProperty()!.getValue().hasPrefix("Imran Anwar") == true);
+      assert( actual.getDocumentProperty()!.getName().!.hasPrefix("AsposeAuthor") == true);
+      assert( actual.getDocumentProperty()!.getValue().!.hasPrefix("Imran Anwar") == true);
     }
 }
