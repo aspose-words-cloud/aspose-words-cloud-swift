@@ -213,7 +213,7 @@ class TableTests: BaseTestContext {
       requestProperties.setAllowAutoFit(allowAutoFit: false);
       requestProperties.setBidi(bidi: true);
       requestProperties.setBottomPadding(bottomPadding: 1);
-      requestProperties.setCellSpacing(cellSpacing: 2);
+      requestProperties.setCellSpacing(cellSpacing: 2.0);
       requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
 
 
@@ -236,8 +236,8 @@ class TableTests: BaseTestContext {
       requestProperties.setAlignment(alignment: TableProperties.Alignment._right);
       requestProperties.setAllowAutoFit(allowAutoFit: false);
       requestProperties.setBidi(bidi: true);
-      requestProperties.setBottomPadding(bottomPadding: 1);
-      requestProperties.setCellSpacing(cellSpacing: 2);
+      requestProperties.setBottomPadding(bottomPadding: 1.0);
+      requestProperties.setCellSpacing(cellSpacing: 2.0);
       requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
 
 
@@ -311,7 +311,7 @@ class TableTests: BaseTestContext {
       let requestFormat = TableRowFormat();
       requestFormat.setAllowBreakAcrossPages(allowBreakAcrossPages: true);
       requestFormat.setHeadingFormat(headingFormat: true);
-      requestFormat.setHeight(height: 10);
+      requestFormat.setHeight(height: 10.0);
       requestFormat.setHeightRule(heightRule: TableRowFormat.HeightRule.exactly);
 
 
@@ -380,7 +380,7 @@ class TableTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestFormat = TableCellFormat();
-      requestFormat.setBottomPadding(bottomPadding: 5);
+      requestFormat.setBottomPadding(bottomPadding: 5.0);
       requestFormat.setFitText(fitText: true);
       requestFormat.setHorizontalMerge(horizontalMerge: TableCellFormat.HorizontalMerge.first);
       requestFormat.setWrapText(wrapText: true);

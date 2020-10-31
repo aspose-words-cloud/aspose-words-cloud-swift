@@ -60,7 +60,7 @@ class PageSetupTests: BaseTestContext {
 
       let requestPageSetup = PageSetup();
       requestPageSetup.setRtlGutter(rtlGutter: true);
-      requestPageSetup.setLeftMargin(leftMargin: 10);
+      requestPageSetup.setLeftMargin(leftMargin: 10.0);
       requestPageSetup.setOrientation(orientation: PageSetup.Orientation.landscape);
       requestPageSetup.setPaperSize(paperSize: PageSetup.PaperSize.a5);
 

@@ -170,10 +170,10 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestDrawingObject = DrawingObjectInsert();
-      requestDrawingObject.setHeight(height: 0);
-      requestDrawingObject.setLeft(_left: 0);
-      requestDrawingObject.setTop(top: 0);
-      requestDrawingObject.setWidth(width: 0);
+      requestDrawingObject.setHeight(height: 0.0);
+      requestDrawingObject.setLeft(_left: 0.0);
+      requestDrawingObject.setTop(top: 0.0);
+      requestDrawingObject.setWidth(width: 0.0);
       requestDrawingObject.setRelativeHorizontalPosition(relativeHorizontalPosition: DrawingObjectInsert.RelativeHorizontalPosition.margin);
       requestDrawingObject.setRelativeVerticalPosition(relativeVerticalPosition: DrawingObjectInsert.RelativeVerticalPosition.margin);
       requestDrawingObject.setWrapType(wrapType: DrawingObjectInsert.WrapType.inline);
@@ -192,10 +192,10 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestDrawingObject = DrawingObjectInsert();
-      requestDrawingObject.setHeight(height: 0);
-      requestDrawingObject.setLeft(_left: 0);
-      requestDrawingObject.setTop(top: 0);
-      requestDrawingObject.setWidth(width: 0);
+      requestDrawingObject.setHeight(height: 0.0);
+      requestDrawingObject.setLeft(_left: 0.0);
+      requestDrawingObject.setTop(top: 0.0);
+      requestDrawingObject.setWidth(width: 0.0);
       requestDrawingObject.setRelativeHorizontalPosition(relativeHorizontalPosition: DrawingObjectInsert.RelativeHorizontalPosition.margin);
       requestDrawingObject.setRelativeVerticalPosition(relativeVerticalPosition: DrawingObjectInsert.RelativeVerticalPosition.margin);
       requestDrawingObject.setWrapType(wrapType: DrawingObjectInsert.WrapType.inline);
@@ -234,7 +234,7 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestDrawingObject = DrawingObjectUpdate();
-      requestDrawingObject.setLeft(_left: 1);
+      requestDrawingObject.setLeft(_left: 1.0);
 
 
       let request = UpdateDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, index: 0, nodePath: "", folder: remoteDataFolder);
@@ -250,7 +250,7 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestDrawingObject = DrawingObjectUpdate();
-      requestDrawingObject.setLeft(_left: 1);
+      requestDrawingObject.setLeft(_left: 1.0);
 
 
       let request = UpdateDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, index: 0, folder: remoteDataFolder);

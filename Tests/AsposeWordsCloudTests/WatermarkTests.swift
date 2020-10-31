@@ -61,7 +61,7 @@ class WatermarkTests: BaseTestContext {
 
       let requestWatermarkText = WatermarkText();
       requestWatermarkText.setText(text: "This is the text");
-      requestWatermarkText.setRotationAngle(rotationAngle: 90);
+      requestWatermarkText.setRotationAngle(rotationAngle: 90.0);
 
 
       let request = InsertWatermarkTextRequest(name: remoteFileName, watermarkText: requestWatermarkText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);

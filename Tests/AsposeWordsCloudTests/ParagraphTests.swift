@@ -398,7 +398,7 @@ class ParagraphTests: BaseTestContext {
       let requestDto = TabStopInsert();
       requestDto.setAlignment(alignment: TabStopInsert.Alignment._left);
       requestDto.setLeader(leader: TabStopInsert.Leader._none);
-      requestDto.setPosition(position: 100);
+      requestDto.setPosition(position: 100.0);
 
 
       let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, dto: requestDto, index: 0, nodePath: "", folder: remoteDataFolder);
@@ -419,7 +419,7 @@ class ParagraphTests: BaseTestContext {
       let requestDto = TabStopInsert();
       requestDto.setAlignment(alignment: TabStopInsert.Alignment._left);
       requestDto.setLeader(leader: TabStopInsert.Leader._none);
-      requestDto.setPosition(position: 100);
+      requestDto.setPosition(position: 100.0);
 
 
       let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, dto: requestDto, index: 0, folder: remoteDataFolder);
@@ -461,7 +461,7 @@ class ParagraphTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteParagraphTabStopRequest(name: remoteFileName, position: 72, index: 0, nodePath: "", folder: remoteDataFolder);
+      let request = DeleteParagraphTabStopRequest(name: remoteFileName, position: 72.0, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().deleteParagraphTabStop(request: request);
       assert(actual.getTabStops() != nil);
       assert(1 == actual.getTabStops()!.count);
@@ -473,7 +473,7 @@ class ParagraphTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteParagraphTabStopRequest(name: remoteFileName, position: 72, index: 0, folder: remoteDataFolder);
+      let request = DeleteParagraphTabStopRequest(name: remoteFileName, position: 72.0, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().deleteParagraphTabStop(request: request);
       assert(actual.getTabStops() != nil);
       assert(1 == actual.getTabStops()!.count);

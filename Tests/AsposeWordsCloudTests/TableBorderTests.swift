@@ -109,9 +109,9 @@ class TableBorderTests: BaseTestContext {
       let requestBorderProperties = Border();
       requestBorderProperties.setBorderType(borderType: Border.BorderType._left);
       requestBorderProperties.setColor(color: requestBorderPropertiesColor);
-      requestBorderProperties.setDistanceFromText(distanceFromText: 6);
+      requestBorderProperties.setDistanceFromText(distanceFromText: 6.0);
       requestBorderProperties.setLineStyle(lineStyle: Border.LineStyle.dashDotStroker);
-      requestBorderProperties.setLineWidth(lineWidth: 2);
+      requestBorderProperties.setLineWidth(lineWidth: 2.0);
       requestBorderProperties.setShadow(shadow: true);
 
 
