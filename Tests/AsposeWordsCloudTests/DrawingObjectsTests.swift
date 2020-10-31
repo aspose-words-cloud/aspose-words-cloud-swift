@@ -182,7 +182,7 @@ class DrawingObjectsTests: BaseTestContext {
       let request = InsertDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().insertDrawingObject(request: request);
       assert(actual.getDrawingObject() != nil);
-      assert( actual.getDrawingObject()!.getNodeId().!.hasPrefix("0.3.7.1") == true);
+      assert( actual.getDrawingObject()!.getNodeId()!.hasPrefix("0.3.7.1") == true);
     }
 
     // Test for adding drawing object without node path.
@@ -204,7 +204,7 @@ class DrawingObjectsTests: BaseTestContext {
       let request = InsertDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, folder: remoteDataFolder);
       let actual = try super.getApi().insertDrawingObject(request: request);
       assert(actual.getDrawingObject() != nil);
-      assert( actual.getDrawingObject()!.getNodeId().!.hasPrefix("0.3.7.1") == true);
+      assert( actual.getDrawingObject()!.getNodeId()!.hasPrefix("0.3.7.1") == true);
     }
 
     // Test for deleting drawing object.
