@@ -259,7 +259,10 @@ class ObjectSerializer {
         decoder.dateDecodingStrategy = .formatted(customIso8601);
         decoder.keyDecodingStrategy = .custom { keys in
             let oldKey = keys.last!.stringValue;
-            let newKey = oldKey.prefix(1).lowercased() + oldKey.dropFirst();
+            var newKey = oldKey.prefix(1).lowercased() + oldKey.dropFirst();
+            if (newKey == "none" || newKey == "default" || newKey == "subscript" || newKey == "nil" || newKey == "left" || newKey == "right") {
+                newKey = "_" + newKey;
+            }
             return CustomKey(stringValue: newKey)!;
         };
         return decoder;

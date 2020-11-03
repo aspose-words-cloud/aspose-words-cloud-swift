@@ -53,7 +53,7 @@ class TableBorderTests: BaseTestContext {
       assert(actual.getBorders()!.getList() != nil);
       assert(6 == actual.getBorders()!.getList()!.count);
       assert(actual.getBorders()!.getList()![0].getColor() != nil);
-      assert( (actual.getBorders()!.getList()![0].getColor()!.getWeb() ?? "").hasPrefix("#000000") == true);
+      assert(("#000000") == actual.getBorders()!.getList()![0].getColor()!.getWeb());
     }
 
     // Test for getting border.
@@ -66,7 +66,7 @@ class TableBorderTests: BaseTestContext {
       let actual = try super.getApi().getBorder(request: request);
       assert(actual.getBorder() != nil);
       assert(actual.getBorder()!.getColor() != nil);
-      assert( (actual.getBorder()!.getColor()!.getWeb() ?? "").hasPrefix("#000000") == true);
+      assert(("#000000") == actual.getBorder()!.getColor()!.getWeb());
     }
 
     // Test for deleting borders.
@@ -81,7 +81,7 @@ class TableBorderTests: BaseTestContext {
       assert(actual.getBorders()!.getList() != nil);
       assert(6 == actual.getBorders()!.getList()!.count);
       assert(actual.getBorders()!.getList()![0].getColor() != nil);
-      assert( (actual.getBorders()!.getList()![0].getColor()!.getWeb() ?? "").hasPrefix("") == true);
+      assert(("") == actual.getBorders()!.getList()![0].getColor()!.getWeb());
     }
 
     // Test for deleting border.
@@ -94,7 +94,7 @@ class TableBorderTests: BaseTestContext {
       let actual = try super.getApi().deleteBorder(request: request);
       assert(actual.getBorder() != nil);
       assert(actual.getBorder()!.getColor() != nil);
-      assert( (actual.getBorder()!.getColor()!.getWeb() ?? "").hasPrefix("") == true);
+      assert(("") == actual.getBorder()!.getColor()!.getWeb());
     }
 
     // Test for updating border.
@@ -119,7 +119,7 @@ class TableBorderTests: BaseTestContext {
       let actual = try super.getApi().updateBorder(request: request);
       assert(actual.getBorder() != nil);
       assert(actual.getBorder()!.getColor() != nil);
-      assert( (actual.getBorder()!.getColor()!.getWeb() ?? "").hasPrefix("#000002") == true);
+      assert(("#000002") == actual.getBorder()!.getColor()!.getWeb());
       assert(6.0 == actual.getBorder()!.getDistanceFromText());
       assert(2.0 == actual.getBorder()!.getLineWidth());
       assert(actual.getBorder()!.getShadow() == true);
