@@ -120,8 +120,8 @@ class TableBorderTests: BaseTestContext {
       assert(actual.getBorder() != nil);
       assert(actual.getBorder()!.getColor() != nil);
       assert(("#000002") == actual.getBorder()!.getColor()!.getWeb());
-      // assert(6.0 == actual.getBorder()!.getDistanceFromText());
-      // assert(2.0 == actual.getBorder()!.getLineWidth());
+      assert(6.0 == actual.getBorder()!.getDistanceFromText());
+      assert(2.0 == actual.getBorder()!.getLineWidth());
       assert(actual.getBorder()!.getShadow() == true);
     }
 }
