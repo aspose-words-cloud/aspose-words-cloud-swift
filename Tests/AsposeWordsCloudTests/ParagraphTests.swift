@@ -373,7 +373,7 @@ class ParagraphTests: BaseTestContext {
       let actual = try super.getApi().getParagraphTabStops(request: request);
       assert(actual.getTabStops() != nil);
       assert(2 == actual.getTabStops()!.count);
-      assert(72.0 == actual.getTabStops()![0].getPosition());
+      assert(72.0 ==~ actual.getTabStops()![0].getPosition());
     }
 
     // Test for getting paragraph tab stops without node path.
@@ -386,7 +386,7 @@ class ParagraphTests: BaseTestContext {
       let actual = try super.getApi().getParagraphTabStops(request: request);
       assert(actual.getTabStops() != nil);
       assert(2 == actual.getTabStops()!.count);
-      assert(72.0 == actual.getTabStops()![0].getPosition());
+      assert(72.0 ==~ actual.getTabStops()![0].getPosition());
     }
 
     // Test for inserting paragraph tab stop.
@@ -405,7 +405,7 @@ class ParagraphTests: BaseTestContext {
       let actual = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
       assert(actual.getTabStops() != nil);
       assert(3 == actual.getTabStops()!.count);
-      assert(100.0 == actual.getTabStops()![1].getPosition());
+      assert(100.0 ==~ actual.getTabStops()![1].getPosition());
 
 
     }
@@ -426,7 +426,7 @@ class ParagraphTests: BaseTestContext {
       let actual = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
       assert(actual.getTabStops() != nil);
       assert(3 == actual.getTabStops()!.count);
-      assert(100.0 == actual.getTabStops()![1].getPosition());
+      assert(100.0 ==~ actual.getTabStops()![1].getPosition());
 
 
     }

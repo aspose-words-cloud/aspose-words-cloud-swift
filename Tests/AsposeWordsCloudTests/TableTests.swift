@@ -222,8 +222,8 @@ class TableTests: BaseTestContext {
       assert(actual.getProperties() != nil);
       assert(actual.getProperties()!.getAllowAutoFit() == false);
       assert(actual.getProperties()!.getBidi() == true);
-      assert(1.0 == actual.getProperties()!.getBottomPadding());
-      assert(2.0 == actual.getProperties()!.getCellSpacing());
+      assert(1.0 ==~ actual.getProperties()!.getBottomPadding());
+      assert(2.0 ==~ actual.getProperties()!.getCellSpacing());
     }
 
     // Test for updating table properties without node path.
@@ -246,8 +246,8 @@ class TableTests: BaseTestContext {
       assert(actual.getProperties() != nil);
       assert(actual.getProperties()!.getAllowAutoFit() == false);
       assert(actual.getProperties()!.getBidi() == true);
-      assert(1.0 == actual.getProperties()!.getBottomPadding());
-      assert(2.0 == actual.getProperties()!.getCellSpacing());
+      assert(1.0 ==~ actual.getProperties()!.getBottomPadding());
+      assert(2.0 ==~ actual.getProperties()!.getCellSpacing());
     }
 
     // Test for getting table row.
@@ -320,7 +320,7 @@ class TableTests: BaseTestContext {
       assert(actual.getRowFormat() != nil);
       assert(actual.getRowFormat()!.getAllowBreakAcrossPages() == true);
       assert(actual.getRowFormat()!.getHeadingFormat() == true);
-      assert(10.0 == actual.getRowFormat()!.getHeight());
+      assert(10.0 ==~ actual.getRowFormat()!.getHeight());
     }
 
     // Test for getting table cell.
@@ -389,7 +389,7 @@ class TableTests: BaseTestContext {
       let request = UpdateTableCellFormatRequest(name: remoteFileName, format: requestFormat, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableCellFormat(request: request);
       assert(actual.getCellFormat() != nil);
-      assert(5.0 == actual.getCellFormat()!.getBottomPadding());
+      assert(5.0 ==~ actual.getCellFormat()!.getBottomPadding());
       assert(actual.getCellFormat()!.getFitText() == true);
       assert(actual.getCellFormat()!.getWrapText() == true);
     }
