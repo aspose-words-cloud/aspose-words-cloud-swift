@@ -406,8 +406,6 @@ class ParagraphTests: BaseTestContext {
       assert(actual.getTabStops() != nil);
       assert(3 == actual.getTabStops()!.count);
       assert(100.0 == actual.getTabStops()![1].getPosition());
-
-
     }
 
     // Test for inserting paragraph tab stop without node path.
