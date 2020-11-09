@@ -50,7 +50,7 @@ class WatermarkTests: BaseTestContext {
       let request = InsertWatermarkImageRequest(name: remoteFileName, imageFile: nil, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName, image: remoteImagePath);
       let actual = try super.getApi().insertWatermarkImage(request: request);
       assert(actual.getDocument() != nil);
-      assert( (actual.getDocument()!.getFileName() ?? "").hasPrefix("TestInsertWatermarkImage.docx") == true);
+      assert(("TestInsertWatermarkImage.docx") == actual.getDocument()!.getFileName());
     }
 
     // Test for adding watermark text.
@@ -67,7 +67,7 @@ class WatermarkTests: BaseTestContext {
       let request = InsertWatermarkTextRequest(name: remoteFileName, watermarkText: requestWatermarkText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertWatermarkText(request: request);
       assert(actual.getDocument() != nil);
-      assert( (actual.getDocument()!.getFileName() ?? "").hasPrefix("TestInsertWatermarkText.docx") == true);
+      assert(("TestInsertWatermarkText.docx") == actual.getDocument()!.getFileName());
     }
 
     // Test for deleting watermark.
@@ -79,6 +79,6 @@ class WatermarkTests: BaseTestContext {
       let request = DeleteWatermarkRequest(name: remoteFileName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().deleteWatermark(request: request);
       assert(actual.getDocument() != nil);
-      assert( (actual.getDocument()!.getFileName() ?? "").hasPrefix("TestDeleteWatermark.docx") == true);
+      assert(("TestDeleteWatermark.docx") == actual.getDocument()!.getFileName());
     }
 }

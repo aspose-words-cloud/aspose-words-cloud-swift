@@ -60,8 +60,8 @@ class FootnoteTests: BaseTestContext {
       let request = InsertFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().insertFootnote(request: request);
       assert(actual.getFootnote() != nil);
-      assert( (actual.getFootnote()!.getNodeId() ?? "").hasPrefix("0.1.7.1") == true);
-      assert( (actual.getFootnote()!.getText() ?? "").hasPrefix(" test endnote") == true);
+      assert(("0.1.7.1") == actual.getFootnote()!.getNodeId());
+      assert((" test endnote" + "\r\n") == actual.getFootnote()!.getText());
     }
 
     // Test for adding footnote without node path.
@@ -78,8 +78,8 @@ class FootnoteTests: BaseTestContext {
       let request = InsertFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, folder: remoteDataFolder);
       let actual = try super.getApi().insertFootnote(request: request);
       assert(actual.getFootnote() != nil);
-      assert( (actual.getFootnote()!.getNodeId() ?? "").hasPrefix("0.1.7.1") == true);
-      assert( (actual.getFootnote()!.getText() ?? "").hasPrefix(" test endnote") == true);
+      assert(("0.1.7.1") == actual.getFootnote()!.getNodeId());
+      assert((" test endnote" + "\r\n") == actual.getFootnote()!.getText());
     }
 
     // Test for deleting footnote.
@@ -113,7 +113,7 @@ class FootnoteTests: BaseTestContext {
       assert(actual.getFootnotes() != nil);
       assert(actual.getFootnotes()!.getList() != nil);
       assert(6 == actual.getFootnotes()!.getList()!.count);
-      assert( (actual.getFootnotes()!.getList()![0].getText() ?? "").hasPrefix(" Footnote 1.") == true);
+      assert((" Footnote 1." + "\r\n") == actual.getFootnotes()!.getList()![0].getText());
     }
 
     // Test for getting footnotes without node path.
@@ -127,7 +127,7 @@ class FootnoteTests: BaseTestContext {
       assert(actual.getFootnotes() != nil);
       assert(actual.getFootnotes()!.getList() != nil);
       assert(6 == actual.getFootnotes()!.getList()!.count);
-      assert( (actual.getFootnotes()!.getList()![0].getText() ?? "").hasPrefix(" Footnote 1.") == true);
+      assert((" Footnote 1." + "\r\n") == actual.getFootnotes()!.getList()![0].getText());
     }
 
     // Test for getting footnote.
@@ -139,7 +139,7 @@ class FootnoteTests: BaseTestContext {
       let request = GetFootnoteRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getFootnote(request: request);
       assert(actual.getFootnote() != nil);
-      assert( (actual.getFootnote()!.getText() ?? "").hasPrefix(" Footnote 1.") == true);
+      assert((" Footnote 1." + "\r\n") == actual.getFootnote()!.getText());
     }
 
     // Test for getting footnote without node path.
@@ -151,7 +151,7 @@ class FootnoteTests: BaseTestContext {
       let request = GetFootnoteRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getFootnote(request: request);
       assert(actual.getFootnote() != nil);
-      assert( (actual.getFootnote()!.getText() ?? "").hasPrefix(" Footnote 1.") == true);
+      assert((" Footnote 1." + "\r\n") == actual.getFootnote()!.getText());
     }
 
     // Test for updating footnote.
@@ -167,7 +167,7 @@ class FootnoteTests: BaseTestContext {
       let request = UpdateFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateFootnote(request: request);
       assert(actual.getFootnote() != nil);
-      assert( (actual.getFootnote()!.getText() ?? "").hasPrefix(" new text is here") == true);
+      assert((" new text is here" + "\r\n") == actual.getFootnote()!.getText());
     }
 
     // Test for updating footnote without node path.
@@ -183,6 +183,6 @@ class FootnoteTests: BaseTestContext {
       let request = UpdateFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().updateFootnote(request: request);
       assert(actual.getFootnote() != nil);
-      assert( (actual.getFootnote()!.getText() ?? "").hasPrefix(" new text is here") == true);
+      assert((" new text is here" + "\r\n") == actual.getFootnote()!.getText());
     }
 }

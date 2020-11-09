@@ -78,7 +78,7 @@ class ParagraphTests: BaseTestContext {
       let request = GetParagraphRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder);
       let actual = try super.getApi().getParagraph(request: request);
       assert(actual.getParagraph() != nil);
-      assert( (actual.getParagraph()!.getNodeId() ?? "").hasPrefix("0.0.0") == true);
+      assert(("0.0.0") == actual.getParagraph()!.getNodeId());
     }
 
     // Test for getting paragraph without node path.
@@ -90,7 +90,7 @@ class ParagraphTests: BaseTestContext {
       let request = GetParagraphRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getParagraph(request: request);
       assert(actual.getParagraph() != nil);
-      assert( (actual.getParagraph()!.getNodeId() ?? "").hasPrefix("0.0.0") == true);
+      assert(("0.0.0") == actual.getParagraph()!.getNodeId());
     }
 
     // Test for getting all paragraphs.
@@ -104,7 +104,7 @@ class ParagraphTests: BaseTestContext {
       assert(actual.getParagraphs() != nil);
       assert(actual.getParagraphs()!.getParagraphLinkList() != nil);
       assert(15 == actual.getParagraphs()!.getParagraphLinkList()!.count);
-      assert( (actual.getParagraphs()!.getParagraphLinkList()![0].getText() ?? "").hasPrefix("Page 1 of 3") == true);
+      assert(("Page 1 of 3") == actual.getParagraphs()!.getParagraphLinkList()![0].getText());
     }
 
     // Test for getting all paragraphs without node path.
@@ -118,7 +118,7 @@ class ParagraphTests: BaseTestContext {
       assert(actual.getParagraphs() != nil);
       assert(actual.getParagraphs()!.getParagraphLinkList() != nil);
       assert(15 == actual.getParagraphs()!.getParagraphLinkList()!.count);
-      assert( (actual.getParagraphs()!.getParagraphLinkList()![0].getText() ?? "").hasPrefix("Page 1 of 3") == true);
+      assert(("Page 1 of 3") == actual.getParagraphs()!.getParagraphLinkList()![0].getText());
     }
 
     // Test for getting paragraph run.
@@ -130,7 +130,7 @@ class ParagraphTests: BaseTestContext {
       let request = GetRunRequest(name: remoteFileName, paragraphPath: "paragraphs/0", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getRun(request: request);
       assert(actual.getRun() != nil);
-      assert( (actual.getRun()!.getText() ?? "").hasPrefix("Page ") == true);
+      assert(("Page ") == actual.getRun()!.getText());
     }
 
     // Test for getting paragraph run font.
@@ -142,7 +142,7 @@ class ParagraphTests: BaseTestContext {
       let request = GetRunFontRequest(name: remoteFileName, paragraphPath: "paragraphs/0", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getRunFont(request: request);
       assert(actual.getFont() != nil);
-      assert( (actual.getFont()!.getName() ?? "").hasPrefix("Times New Roman") == true);
+      assert(("Times New Roman") == actual.getFont()!.getName());
     }
 
     // Test for getting paragraph runs.
@@ -156,7 +156,7 @@ class ParagraphTests: BaseTestContext {
       assert(actual.getRuns() != nil);
       assert(actual.getRuns()!.getList() != nil);
       assert(6 == actual.getRuns()!.getList()!.count);
-      assert( (actual.getRuns()!.getList()![0].getText() ?? "").hasPrefix("Page ") == true);
+      assert(("Page ") == actual.getRuns()!.getList()![0].getText());
     }
 
     // Test for updating paragraph run font.
@@ -188,7 +188,7 @@ class ParagraphTests: BaseTestContext {
       let request = InsertParagraphRequest(name: remoteFileName, paragraph: requestParagraph, nodePath: "sections/0", folder: remoteDataFolder);
       let actual = try super.getApi().insertParagraph(request: request);
       assert(actual.getParagraph() != nil);
-      assert( (actual.getParagraph()!.getNodeId() ?? "").hasPrefix("0.3.8") == true);
+      assert(("0.3.8") == actual.getParagraph()!.getNodeId());
     }
 
     // Test for adding paragraph without node path.
@@ -204,7 +204,7 @@ class ParagraphTests: BaseTestContext {
       let request = InsertParagraphRequest(name: remoteFileName, paragraph: requestParagraph, folder: remoteDataFolder);
       let actual = try super.getApi().insertParagraph(request: request);
       assert(actual.getParagraph() != nil);
-      assert( (actual.getParagraph()!.getNodeId() ?? "").hasPrefix("0.3.8") == true);
+      assert(("0.3.8") == actual.getParagraph()!.getNodeId());
     }
 
     // Test for paragraph rendering.
@@ -236,7 +236,7 @@ class ParagraphTests: BaseTestContext {
       let request = GetParagraphFormatRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphFormat(request: request);
       assert(actual.getParagraphFormat() != nil);
-      assert( (actual.getParagraphFormat()!.getStyleName() ?? "").hasPrefix("Normal") == true);
+      assert(("Normal") == actual.getParagraphFormat()!.getStyleName());
     }
 
     // Test for getting paragraph format settings without node path.
@@ -248,7 +248,7 @@ class ParagraphTests: BaseTestContext {
       let request = GetParagraphFormatRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphFormat(request: request);
       assert(actual.getParagraphFormat() != nil);
-      assert( (actual.getParagraphFormat()!.getStyleName() ?? "").hasPrefix("Normal") == true);
+      assert(("Normal") == actual.getParagraphFormat()!.getStyleName());
     }
 
     // Test for updating  paragraph format settings.

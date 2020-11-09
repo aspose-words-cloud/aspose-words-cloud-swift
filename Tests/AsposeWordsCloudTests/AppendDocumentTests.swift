@@ -56,6 +56,6 @@ class AppendDocumentTests: BaseTestContext {
       let request = AppendDocumentRequest(name: remoteFileName, documentList: requestDocumentList, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().appendDocument(request: request);
       assert(actual.getDocument() != nil);
-      assert( (actual.getDocument()!.getFileName() ?? "").hasPrefix("TestAppendDocument.docx") == true);
+      assert(("TestAppendDocument.docx") == actual.getDocument()!.getFileName());
     }
 }

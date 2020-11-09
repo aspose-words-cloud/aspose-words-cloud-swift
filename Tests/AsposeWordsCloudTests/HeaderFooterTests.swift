@@ -66,7 +66,7 @@ class HeaderFooterTests: BaseTestContext {
       assert(actual.getHeaderFooter() != nil);
       assert(actual.getHeaderFooter()!.getChildNodes() != nil);
       assert(1 == actual.getHeaderFooter()!.getChildNodes()!.count);
-      assert( (actual.getHeaderFooter()!.getChildNodes()![0].getNodeId() ?? "").hasPrefix("0.0.0") == true);
+      assert(("0.0.0") == actual.getHeaderFooter()!.getChildNodes()![0].getNodeId());
     }
 
     // Test for getting headerfooter of section.
@@ -80,7 +80,7 @@ class HeaderFooterTests: BaseTestContext {
       assert(actual.getHeaderFooter() != nil);
       assert(actual.getHeaderFooter()!.getChildNodes() != nil);
       assert(1 == actual.getHeaderFooter()!.getChildNodes()!.count);
-      assert( (actual.getHeaderFooter()!.getChildNodes()![0].getNodeId() ?? "").hasPrefix("0.0.0") == true);
+      assert(("0.0.0") == actual.getHeaderFooter()!.getChildNodes()![0].getNodeId());
     }
 
     // Test for deleting headerfooter.
@@ -114,6 +114,6 @@ class HeaderFooterTests: BaseTestContext {
       assert(actual.getHeaderFooter() != nil);
       assert(actual.getHeaderFooter()!.getChildNodes() != nil);
       assert(1 == actual.getHeaderFooter()!.getChildNodes()!.count);
-      assert( (actual.getHeaderFooter()!.getChildNodes()![0].getNodeId() ?? "").hasPrefix("0.2.0") == true);
+      assert(("0.2.0") == actual.getHeaderFooter()!.getChildNodes()![0].getNodeId());
     }
 }
