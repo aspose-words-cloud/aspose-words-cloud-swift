@@ -51,8 +51,8 @@ class LoadWebDocumentTests: BaseTestContext {
 
       let request = LoadWebDocumentRequest(data: requestData);
       let actual = try super.getApi().loadWebDocument(request: request);
-      assert(actual.getSaveResult() != nil);
-      assert(actual.getSaveResult()!.getDestDocument() != nil);
-      assert(("google.doc") == actual.getSaveResult()!.getDestDocument()!.getHref());
+      XCTAssertNotNil(actual.getSaveResult());
+      XCTAssertNotNil(actual.getSaveResult()!.getDestDocument());
+      XCTAssertEqual(actual.getSaveResult()!.getDestDocument()!.getHref(), "google.doc");
     }
 }

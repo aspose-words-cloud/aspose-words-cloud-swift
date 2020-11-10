@@ -59,9 +59,9 @@ class FootnoteTests: BaseTestContext {
 
       let request = InsertFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().insertFootnote(request: request);
-      assert(actual.getFootnote() != nil);
-      assert(("0.1.7.1") == actual.getFootnote()!.getNodeId());
-      assert((" test endnote" + "\r\n") == actual.getFootnote()!.getText());
+      XCTAssertNotNil(actual.getFootnote());
+      XCTAssertEqual(actual.getFootnote()!.getNodeId(), "0.1.7.1");
+      XCTAssertEqual(actual.getFootnote()!.getText(), " test endnote" + "\r\n");
     }
 
     // Test for adding footnote without node path.
@@ -77,9 +77,9 @@ class FootnoteTests: BaseTestContext {
 
       let request = InsertFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, folder: remoteDataFolder);
       let actual = try super.getApi().insertFootnote(request: request);
-      assert(actual.getFootnote() != nil);
-      assert(("0.1.7.1") == actual.getFootnote()!.getNodeId());
-      assert((" test endnote" + "\r\n") == actual.getFootnote()!.getText());
+      XCTAssertNotNil(actual.getFootnote());
+      XCTAssertEqual(actual.getFootnote()!.getNodeId(), "0.1.7.1");
+      XCTAssertEqual(actual.getFootnote()!.getText(), " test endnote" + "\r\n");
     }
 
     // Test for deleting footnote.
@@ -110,10 +110,10 @@ class FootnoteTests: BaseTestContext {
 
       let request = GetFootnotesRequest(name: remoteFileName, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getFootnotes(request: request);
-      assert(actual.getFootnotes() != nil);
-      assert(actual.getFootnotes()!.getList() != nil);
-      assert(6 == actual.getFootnotes()!.getList()!.count);
-      assert((" Footnote 1." + "\r\n") == actual.getFootnotes()!.getList()![0].getText());
+      XCTAssertNotNil(actual.getFootnotes());
+      XCTAssertNotNil(actual.getFootnotes()!.getList());
+      XCTAssertEqual(actual.getFootnotes()!.getList()!.count, 6);
+      XCTAssertEqual(actual.getFootnotes()!.getList()![0].getText(), " Footnote 1." + "\r\n");
     }
 
     // Test for getting footnotes without node path.
@@ -124,10 +124,10 @@ class FootnoteTests: BaseTestContext {
 
       let request = GetFootnotesRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getFootnotes(request: request);
-      assert(actual.getFootnotes() != nil);
-      assert(actual.getFootnotes()!.getList() != nil);
-      assert(6 == actual.getFootnotes()!.getList()!.count);
-      assert((" Footnote 1." + "\r\n") == actual.getFootnotes()!.getList()![0].getText());
+      XCTAssertNotNil(actual.getFootnotes());
+      XCTAssertNotNil(actual.getFootnotes()!.getList());
+      XCTAssertEqual(actual.getFootnotes()!.getList()!.count, 6);
+      XCTAssertEqual(actual.getFootnotes()!.getList()![0].getText(), " Footnote 1." + "\r\n");
     }
 
     // Test for getting footnote.
@@ -138,8 +138,8 @@ class FootnoteTests: BaseTestContext {
 
       let request = GetFootnoteRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getFootnote(request: request);
-      assert(actual.getFootnote() != nil);
-      assert((" Footnote 1." + "\r\n") == actual.getFootnote()!.getText());
+      XCTAssertNotNil(actual.getFootnote());
+      XCTAssertEqual(actual.getFootnote()!.getText(), " Footnote 1." + "\r\n");
     }
 
     // Test for getting footnote without node path.
@@ -150,8 +150,8 @@ class FootnoteTests: BaseTestContext {
 
       let request = GetFootnoteRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getFootnote(request: request);
-      assert(actual.getFootnote() != nil);
-      assert((" Footnote 1." + "\r\n") == actual.getFootnote()!.getText());
+      XCTAssertNotNil(actual.getFootnote());
+      XCTAssertEqual(actual.getFootnote()!.getText(), " Footnote 1." + "\r\n");
     }
 
     // Test for updating footnote.
@@ -166,8 +166,8 @@ class FootnoteTests: BaseTestContext {
 
       let request = UpdateFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateFootnote(request: request);
-      assert(actual.getFootnote() != nil);
-      assert((" new text is here" + "\r\n") == actual.getFootnote()!.getText());
+      XCTAssertNotNil(actual.getFootnote());
+      XCTAssertEqual(actual.getFootnote()!.getText(), " new text is here" + "\r\n");
     }
 
     // Test for updating footnote without node path.
@@ -182,7 +182,7 @@ class FootnoteTests: BaseTestContext {
 
       let request = UpdateFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().updateFootnote(request: request);
-      assert(actual.getFootnote() != nil);
-      assert((" new text is here" + "\r\n") == actual.getFootnote()!.getText());
+      XCTAssertNotNil(actual.getFootnote());
+      XCTAssertEqual(actual.getFootnote()!.getText(), " new text is here" + "\r\n");
     }
 }

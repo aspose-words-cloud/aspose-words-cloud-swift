@@ -57,7 +57,7 @@ class ExecuteMailMergeTests: BaseTestContext {
 
       let request = ExecuteMailMergeRequest(name: remoteFileName, data: localDataFile, folder: remoteDataFolder, withRegions: false, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().executeMailMerge(request: request);
-      assert(actual.getDocument() != nil);
-      assert(("TestExecuteMailMerge.docx") == actual.getDocument()!.getFileName());
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestExecuteMailMerge.docx");
     }
 }

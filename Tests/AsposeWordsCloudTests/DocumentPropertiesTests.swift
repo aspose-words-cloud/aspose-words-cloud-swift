@@ -48,12 +48,12 @@ class DocumentPropertiesTests: BaseTestContext {
 
       let request = GetDocumentPropertiesRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getDocumentProperties(request: request);
-      assert(actual.getDocumentProperties() != nil);
-      assert(actual.getDocumentProperties()!.getList() != nil);
-      assert(24 == actual.getDocumentProperties()!.getList()!.count);
-      assert(actual.getDocumentProperties()!.getList()![0] != nil);
-      assert(("Author") == actual.getDocumentProperties()!.getList()![0].getName());
-      assert(("") == actual.getDocumentProperties()!.getList()![0].getValue());
+      XCTAssertNotNil(actual.getDocumentProperties());
+      XCTAssertNotNil(actual.getDocumentProperties()!.getList());
+      XCTAssertEqual(actual.getDocumentProperties()!.getList()!.count, 24);
+      XCTAssertNotNil(actual.getDocumentProperties()!.getList()![0]);
+      XCTAssertEqual(actual.getDocumentProperties()!.getList()![0].getName(), "Author");
+      XCTAssertEqual(actual.getDocumentProperties()!.getList()![0].getValue(), "");
     }
 
     // A test for GetDocumentProperty.
@@ -64,9 +64,9 @@ class DocumentPropertiesTests: BaseTestContext {
 
       let request = GetDocumentPropertyRequest(name: remoteFileName, propertyName: "Author", folder: remoteDataFolder);
       let actual = try super.getApi().getDocumentProperty(request: request);
-      assert(actual.getDocumentProperty() != nil);
-      assert(("Author") == actual.getDocumentProperty()!.getName());
-      assert(("") == actual.getDocumentProperty()!.getValue());
+      XCTAssertNotNil(actual.getDocumentProperty());
+      XCTAssertEqual(actual.getDocumentProperty()!.getName(), "Author");
+      XCTAssertEqual(actual.getDocumentProperty()!.getValue(), "");
     }
 
     // Test for deleting document property.
@@ -91,8 +91,8 @@ class DocumentPropertiesTests: BaseTestContext {
 
       let request = CreateOrUpdateDocumentPropertyRequest(name: remoteFileName, propertyName: "AsposeAuthor", property: requestProperty, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().createOrUpdateDocumentProperty(request: request);
-      assert(actual.getDocumentProperty() != nil);
-      assert(("AsposeAuthor") == actual.getDocumentProperty()!.getName());
-      assert(("Imran Anwar") == actual.getDocumentProperty()!.getValue());
+      XCTAssertNotNil(actual.getDocumentProperty());
+      XCTAssertEqual(actual.getDocumentProperty()!.getName(), "AsposeAuthor");
+      XCTAssertEqual(actual.getDocumentProperty()!.getValue(), "Imran Anwar");
     }
 }

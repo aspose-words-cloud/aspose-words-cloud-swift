@@ -50,9 +50,9 @@ class HeaderFooterTests: BaseTestContext {
 
       let request = GetHeaderFootersRequest(name: remoteFileName, sectionPath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getHeaderFooters(request: request);
-      assert(actual.getHeaderFooters() != nil);
-      assert(actual.getHeaderFooters()!.getList() != nil);
-      assert(6 == actual.getHeaderFooters()!.getList()!.count);
+      XCTAssertNotNil(actual.getHeaderFooters());
+      XCTAssertNotNil(actual.getHeaderFooters()!.getList());
+      XCTAssertEqual(actual.getHeaderFooters()!.getList()!.count, 6);
     }
 
     // Test for getting headerfooter.
@@ -63,10 +63,10 @@ class HeaderFooterTests: BaseTestContext {
 
       let request = GetHeaderFooterRequest(name: remoteFileName, headerFooterIndex: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getHeaderFooter(request: request);
-      assert(actual.getHeaderFooter() != nil);
-      assert(actual.getHeaderFooter()!.getChildNodes() != nil);
-      assert(1 == actual.getHeaderFooter()!.getChildNodes()!.count);
-      assert(("0.0.0") == actual.getHeaderFooter()!.getChildNodes()![0].getNodeId());
+      XCTAssertNotNil(actual.getHeaderFooter());
+      XCTAssertNotNil(actual.getHeaderFooter()!.getChildNodes());
+      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()!.count, 1);
+      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()![0].getNodeId(), "0.0.0");
     }
 
     // Test for getting headerfooter of section.
@@ -77,10 +77,10 @@ class HeaderFooterTests: BaseTestContext {
 
       let request = GetHeaderFooterOfSectionRequest(name: remoteFileName, headerFooterIndex: 0, sectionIndex: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getHeaderFooterOfSection(request: request);
-      assert(actual.getHeaderFooter() != nil);
-      assert(actual.getHeaderFooter()!.getChildNodes() != nil);
-      assert(1 == actual.getHeaderFooter()!.getChildNodes()!.count);
-      assert(("0.0.0") == actual.getHeaderFooter()!.getChildNodes()![0].getNodeId());
+      XCTAssertNotNil(actual.getHeaderFooter());
+      XCTAssertNotNil(actual.getHeaderFooter()!.getChildNodes());
+      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()!.count, 1);
+      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()![0].getNodeId(), "0.0.0");
     }
 
     // Test for deleting headerfooter.
@@ -111,9 +111,9 @@ class HeaderFooterTests: BaseTestContext {
 
       let request = InsertHeaderFooterRequest(name: remoteFileName, headerFooterType: "FooterEven", sectionPath: "", folder: remoteDataFolder);
       let actual = try super.getApi().insertHeaderFooter(request: request);
-      assert(actual.getHeaderFooter() != nil);
-      assert(actual.getHeaderFooter()!.getChildNodes() != nil);
-      assert(1 == actual.getHeaderFooter()!.getChildNodes()!.count);
-      assert(("0.2.0") == actual.getHeaderFooter()!.getChildNodes()![0].getNodeId());
+      XCTAssertNotNil(actual.getHeaderFooter());
+      XCTAssertNotNil(actual.getHeaderFooter()!.getChildNodes());
+      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()!.count, 1);
+      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()![0].getNodeId(), "0.2.0");
     }
 }

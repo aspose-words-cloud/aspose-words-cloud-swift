@@ -47,10 +47,10 @@ class SectionTests: BaseTestContext {
 
       let request = GetSectionRequest(name: remoteFileName, sectionIndex: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getSection(request: request);
-      assert(actual.getSection() != nil);
-      assert(actual.getSection()!.getChildNodes() != nil);
-      assert(13 == actual.getSection()!.getChildNodes()!.count);
-      assert(("0.3.0") == actual.getSection()!.getChildNodes()![0].getNodeId());
+      XCTAssertNotNil(actual.getSection());
+      XCTAssertNotNil(actual.getSection()!.getChildNodes());
+      XCTAssertEqual(actual.getSection()!.getChildNodes()!.count, 13);
+      XCTAssertEqual(actual.getSection()!.getChildNodes()![0].getNodeId(), "0.3.0");
     }
 
     // Test for getting sections.
@@ -61,10 +61,10 @@ class SectionTests: BaseTestContext {
 
       let request = GetSectionsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getSections(request: request);
-      assert(actual.getSections() != nil);
-      assert(actual.getSections()!.getSectionLinkList() != nil);
-      assert(1 == actual.getSections()!.getSectionLinkList()!.count);
-      assert(("0") == actual.getSections()!.getSectionLinkList()![0].getNodeId());
+      XCTAssertNotNil(actual.getSections());
+      XCTAssertNotNil(actual.getSections()!.getSectionLinkList());
+      XCTAssertEqual(actual.getSections()!.getSectionLinkList()!.count, 1);
+      XCTAssertEqual(actual.getSections()!.getSectionLinkList()![0].getNodeId(), "0");
     }
 
     // Test for delete a section.

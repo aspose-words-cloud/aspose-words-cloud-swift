@@ -51,8 +51,8 @@ class RunTests: BaseTestContext {
 
       let request = UpdateRunRequest(name: remoteFileName, run: requestRun, paragraphPath: "paragraphs/1", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().updateRun(request: request);
-      assert(actual.getRun() != nil);
-      assert(("run with text") == actual.getRun()!.getText());
+      XCTAssertNotNil(actual.getRun());
+      XCTAssertEqual(actual.getRun()!.getText(), "run with text");
     }
 
     // Test for adding run.
@@ -67,9 +67,9 @@ class RunTests: BaseTestContext {
 
       let request = InsertRunRequest(name: remoteFileName, paragraphPath: "paragraphs/1", run: requestRun, folder: remoteDataFolder);
       let actual = try super.getApi().insertRun(request: request);
-      assert(actual.getRun() != nil);
-      assert(("run with text") == actual.getRun()!.getText());
-      assert(("0.0.1.3") == actual.getRun()!.getNodeId());
+      XCTAssertNotNil(actual.getRun());
+      XCTAssertEqual(actual.getRun()!.getText(), "run with text");
+      XCTAssertEqual(actual.getRun()!.getNodeId(), "0.0.1.3");
     }
 
     // Test for deleting run.

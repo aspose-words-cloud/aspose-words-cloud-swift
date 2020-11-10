@@ -46,8 +46,8 @@ class RevisionsTests: BaseTestContext {
 
       let request = AcceptAllRevisionsRequest(name: remoteFileName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().acceptAllRevisions(request: request);
-      assert(actual.getResult() != nil);
-      assert(actual.getResult()!.getDest() != nil);
+      XCTAssertNotNil(actual.getResult());
+      XCTAssertNotNil(actual.getResult()!.getDest());
     }
 
     // Test for rejecting revisions in document.
@@ -58,7 +58,7 @@ class RevisionsTests: BaseTestContext {
 
       let request = RejectAllRevisionsRequest(name: remoteFileName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().rejectAllRevisions(request: request);
-      assert(actual.getResult() != nil);
-      assert(actual.getResult()!.getDest() != nil);
+      XCTAssertNotNil(actual.getResult());
+      XCTAssertNotNil(actual.getResult()!.getDest());
     }
 }

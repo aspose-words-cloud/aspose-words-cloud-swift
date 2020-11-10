@@ -63,10 +63,10 @@ class FieldTests: BaseTestContext {
 
       let request = GetFieldsRequest(name: remoteFileName, nodePath: "sections/0", folder: remoteDataFolder);
       let actual = try super.getApi().getFields(request: request);
-      assert(actual.getFields() != nil);
-      assert(actual.getFields()!.getList() != nil);
-      assert(1 == actual.getFields()!.getList()!.count);
-      assert(("1") == actual.getFields()!.getList()![0].getResult());
+      XCTAssertNotNil(actual.getFields());
+      XCTAssertNotNil(actual.getFields()!.getList());
+      XCTAssertEqual(actual.getFields()!.getList()!.count, 1);
+      XCTAssertEqual(actual.getFields()!.getList()![0].getResult(), "1");
     }
 
     // Test for getting fields without node path.
@@ -78,10 +78,10 @@ class FieldTests: BaseTestContext {
 
       let request = GetFieldsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getFields(request: request);
-      assert(actual.getFields() != nil);
-      assert(actual.getFields()!.getList() != nil);
-      assert(1 == actual.getFields()!.getList()!.count);
-      assert(("1") == actual.getFields()!.getList()![0].getResult());
+      XCTAssertNotNil(actual.getFields());
+      XCTAssertNotNil(actual.getFields()!.getList());
+      XCTAssertEqual(actual.getFields()!.getList()!.count, 1);
+      XCTAssertEqual(actual.getFields()!.getList()![0].getResult(), "1");
     }
 
     // Test for getting field by index.
@@ -93,8 +93,8 @@ class FieldTests: BaseTestContext {
 
       let request = GetFieldRequest(name: remoteFileName, index: 0, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
       let actual = try super.getApi().getField(request: request);
-      assert(actual.getField() != nil);
-      assert(("1") == actual.getField()!.getResult());
+      XCTAssertNotNil(actual.getField());
+      XCTAssertEqual(actual.getField()!.getResult(), "1");
     }
 
     // Test for getting field by index without node path.
@@ -106,8 +106,8 @@ class FieldTests: BaseTestContext {
 
       let request = GetFieldRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getField(request: request);
-      assert(actual.getField() != nil);
-      assert(("1") == actual.getField()!.getResult());
+      XCTAssertNotNil(actual.getField());
+      XCTAssertEqual(actual.getField()!.getResult(), "1");
     }
 
     // Test for putting field.
@@ -123,9 +123,9 @@ class FieldTests: BaseTestContext {
 
       let request = InsertFieldRequest(name: remoteFileName, field: requestField, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
       let actual = try super.getApi().insertField(request: request);
-      assert(actual.getField() != nil);
-      assert(("{ NUMPAGES }") == actual.getField()!.getFieldCode());
-      assert(("0.0.0.1") == actual.getField()!.getNodeId());
+      XCTAssertNotNil(actual.getField());
+      XCTAssertEqual(actual.getField()!.getFieldCode(), "{ NUMPAGES }");
+      XCTAssertEqual(actual.getField()!.getNodeId(), "0.0.0.1");
     }
 
     // Test for putting field without node path.
@@ -141,9 +141,9 @@ class FieldTests: BaseTestContext {
 
       let request = InsertFieldRequest(name: remoteFileName, field: requestField, folder: remoteDataFolder);
       let actual = try super.getApi().insertField(request: request);
-      assert(actual.getField() != nil);
-      assert(("{ NUMPAGES }") == actual.getField()!.getFieldCode());
-      assert(("5.0.22.0") == actual.getField()!.getNodeId());
+      XCTAssertNotNil(actual.getField());
+      XCTAssertEqual(actual.getField()!.getFieldCode(), "{ NUMPAGES }");
+      XCTAssertEqual(actual.getField()!.getNodeId(), "5.0.22.0");
     }
 
     // Test for posting field.
@@ -159,9 +159,9 @@ class FieldTests: BaseTestContext {
 
       let request = UpdateFieldRequest(name: remoteFileName, field: requestField, index: 0, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
       let actual = try super.getApi().updateField(request: request);
-      assert(actual.getField() != nil);
-      assert(("{ NUMPAGES }") == actual.getField()!.getFieldCode());
-      assert(("0.0.0.0") == actual.getField()!.getNodeId());
+      XCTAssertNotNil(actual.getField());
+      XCTAssertEqual(actual.getField()!.getFieldCode(), "{ NUMPAGES }");
+      XCTAssertEqual(actual.getField()!.getNodeId(), "0.0.0.0");
     }
 
     // Test for inserting page numbers field.
@@ -178,8 +178,8 @@ class FieldTests: BaseTestContext {
 
       let request = InsertPageNumbersRequest(name: remoteFileName, pageNumber: requestPageNumber, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertPageNumbers(request: request);
-      assert(actual.getDocument() != nil);
-      assert(("TestInsertPageNumbers.docx") == actual.getDocument()!.getFileName());
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestInsertPageNumbers.docx");
     }
 
     // Test for deleting field.
@@ -279,7 +279,7 @@ class FieldTests: BaseTestContext {
 
       let request = UpdateFieldsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().updateFields(request: request);
-      assert(actual.getDocument() != nil);
-      assert(("TestUpdateDocumentFields.docx") == actual.getDocument()!.getFileName());
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestUpdateDocumentFields.docx");
     }
 }

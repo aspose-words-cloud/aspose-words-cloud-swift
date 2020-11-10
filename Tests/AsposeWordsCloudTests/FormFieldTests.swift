@@ -63,9 +63,9 @@ class FormFieldTests: BaseTestContext {
 
       let request = UpdateFormFieldRequest(name: remoteFileName, formField: requestFormField, index: 0, nodePath: "sections/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().updateFormField(request: request);
-      assert(actual.getFormField() != nil);
-      assert(("FullName") == actual.getFormField()!.getName());
-      assert(("") == actual.getFormField()!.getStatusText());
+      XCTAssertNotNil(actual.getFormField());
+      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
+      XCTAssertEqual(actual.getFormField()!.getStatusText(), "");
     }
 
     // Test for posting form field without node path.
@@ -85,9 +85,9 @@ class FormFieldTests: BaseTestContext {
 
       let request = UpdateFormFieldRequest(name: remoteFileName, formField: requestFormField, index: 0, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().updateFormField(request: request);
-      assert(actual.getFormField() != nil);
-      assert(("FullName") == actual.getFormField()!.getName());
-      assert(("") == actual.getFormField()!.getStatusText());
+      XCTAssertNotNil(actual.getFormField());
+      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
+      XCTAssertEqual(actual.getFormField()!.getStatusText(), "");
     }
 
     // Test for getting form field.
@@ -98,8 +98,8 @@ class FormFieldTests: BaseTestContext {
 
       let request = GetFormFieldRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder);
       let actual = try super.getApi().getFormField(request: request);
-      assert(actual.getFormField() != nil);
-      assert(("FullName") == actual.getFormField()!.getName());
+      XCTAssertNotNil(actual.getFormField());
+      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
     }
 
     // Test for getting form field without node path.
@@ -110,8 +110,8 @@ class FormFieldTests: BaseTestContext {
 
       let request = GetFormFieldRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getFormField(request: request);
-      assert(actual.getFormField() != nil);
-      assert(("FullName") == actual.getFormField()!.getName());
+      XCTAssertNotNil(actual.getFormField());
+      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
     }
 
     // Test for getting form fields.
@@ -122,10 +122,10 @@ class FormFieldTests: BaseTestContext {
 
       let request = GetFormFieldsRequest(name: remoteFileName, nodePath: "sections/0", folder: remoteDataFolder);
       let actual = try super.getApi().getFormFields(request: request);
-      assert(actual.getFormFields() != nil);
-      assert(actual.getFormFields()!.getList() != nil);
-      assert(5 == actual.getFormFields()!.getList()!.count);
-      assert(("FullName") == actual.getFormFields()!.getList()![0].getName());
+      XCTAssertNotNil(actual.getFormFields());
+      XCTAssertNotNil(actual.getFormFields()!.getList());
+      XCTAssertEqual(actual.getFormFields()!.getList()!.count, 5);
+      XCTAssertEqual(actual.getFormFields()!.getList()![0].getName(), "FullName");
     }
 
     // Test for getting form fields without node path.
@@ -136,10 +136,10 @@ class FormFieldTests: BaseTestContext {
 
       let request = GetFormFieldsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getFormFields(request: request);
-      assert(actual.getFormFields() != nil);
-      assert(actual.getFormFields()!.getList() != nil);
-      assert(5 == actual.getFormFields()!.getList()!.count);
-      assert(("FullName") == actual.getFormFields()!.getList()![0].getName());
+      XCTAssertNotNil(actual.getFormFields());
+      XCTAssertNotNil(actual.getFormFields()!.getList());
+      XCTAssertEqual(actual.getFormFields()!.getList()!.count, 5);
+      XCTAssertEqual(actual.getFormFields()!.getList()![0].getName(), "FullName");
     }
 
     // Test for insert form field without node path.
@@ -160,9 +160,9 @@ class FormFieldTests: BaseTestContext {
 
       let request = InsertFormFieldRequest(name: remoteFileName, formField: requestFormField, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertFormField(request: request);
-      assert(actual.getFormField() != nil);
-      assert(("FullName") == actual.getFormField()!.getName());
-      assert(("") == actual.getFormField()!.getStatusText());
+      XCTAssertNotNil(actual.getFormField());
+      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
+      XCTAssertEqual(actual.getFormField()!.getStatusText(), "");
     }
 
     // Test for insert form field without node path.
@@ -183,9 +183,9 @@ class FormFieldTests: BaseTestContext {
 
       let request = InsertFormFieldRequest(name: remoteFileName, formField: requestFormField, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertFormField(request: request);
-      assert(actual.getFormField() != nil);
-      assert(("FullName") == actual.getFormField()!.getName());
-      assert(("") == actual.getFormField()!.getStatusText());
+      XCTAssertNotNil(actual.getFormField());
+      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
+      XCTAssertEqual(actual.getFormField()!.getStatusText(), "");
     }
 
     // Test for deleting form field.

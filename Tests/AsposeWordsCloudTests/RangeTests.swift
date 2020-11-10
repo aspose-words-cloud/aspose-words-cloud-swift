@@ -48,7 +48,7 @@ class RangeTests: BaseTestContext {
 
       let request = GetRangeTextRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
       let actual = try super.getApi().getRangeText(request: request);
-      assert(("This is HEADER ") == actual.getText());
+      XCTAssertEqual(actual.getText(), "This is HEADER ");
     }
 
     // Test for removing the text for range.
@@ -59,8 +59,8 @@ class RangeTests: BaseTestContext {
 
       let request = RemoveRangeRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
       let actual = try super.getApi().removeRange(request: request);
-      assert(actual.getDocument() != nil);
-      assert(("TestRemoveRange.docx") == actual.getDocument()!.getFileName());
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestRemoveRange.docx");
     }
 
     // Test for saving a range as a new document.
@@ -75,8 +75,8 @@ class RangeTests: BaseTestContext {
 
       let request = SaveAsRangeRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", documentParameters: requestDocumentParameters, rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
       let actual = try super.getApi().saveAsRange(request: request);
-      assert(actual.getDocument() != nil);
-      assert(("NewDoc.docx") == actual.getDocument()!.getFileName());
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "NewDoc.docx");
     }
 
     // Test for replacing text in range.
@@ -91,7 +91,7 @@ class RangeTests: BaseTestContext {
 
       let request = ReplaceWithTextRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", rangeText: requestRangeText, rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
       let actual = try super.getApi().replaceWithText(request: request);
-      assert(actual.getDocument() != nil);
-      assert(("TestReplaceWithText.docx") == actual.getDocument()!.getFileName());
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestReplaceWithText.docx");
     }
 }

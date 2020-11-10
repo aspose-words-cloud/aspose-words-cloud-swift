@@ -46,8 +46,8 @@ class HyperlinkTests: BaseTestContext {
 
       let request = GetDocumentHyperlinkByIndexRequest(name: remoteFileName, hyperlinkIndex: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getDocumentHyperlinkByIndex(request: request);
-      assert(actual.getHyperlink() != nil);
-      assert(("Aspose") == actual.getHyperlink()!.getDisplayText());
+      XCTAssertNotNil(actual.getHyperlink());
+      XCTAssertEqual(actual.getHyperlink()!.getDisplayText(), "Aspose");
     }
 
     // Test for getting hyperlinks.
@@ -58,9 +58,9 @@ class HyperlinkTests: BaseTestContext {
 
       let request = GetDocumentHyperlinksRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getDocumentHyperlinks(request: request);
-      assert(actual.getHyperlinks() != nil);
-      assert(actual.getHyperlinks()!.getHyperlinkList() != nil);
-      assert(2 == actual.getHyperlinks()!.getHyperlinkList()!.count);
-      assert(("Aspose") == actual.getHyperlinks()!.getHyperlinkList()![0].getDisplayText());
+      XCTAssertNotNil(actual.getHyperlinks());
+      XCTAssertNotNil(actual.getHyperlinks()!.getHyperlinkList());
+      XCTAssertEqual(actual.getHyperlinks()!.getHyperlinkList()!.count, 2);
+      XCTAssertEqual(actual.getHyperlinks()!.getHyperlinkList()![0].getDisplayText(), "Aspose");
     }
 }

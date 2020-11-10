@@ -47,9 +47,9 @@ class FileTests: BaseTestContext {
 
       let request = UploadFileRequest(fileContent: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, path: remoteDataFolder + "/" + remoteFileName);
       let actual = try super.getApi().uploadFile(request: request);
-      assert(actual.getUploaded() != nil);
-      assert(1 == actual.getUploaded()!.count);
-      assert(("TestUploadFile.docx") == actual.getUploaded()![0]);
+      XCTAssertNotNil(actual.getUploaded());
+      XCTAssertEqual(actual.getUploaded()!.count, 1);
+      XCTAssertEqual(actual.getUploaded()![0], "TestUploadFile.docx");
     }
 
     // Test for copy file.

@@ -49,10 +49,10 @@ class ListsTests: BaseTestContext {
 
       let request = GetListsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getLists(request: request);
-      assert(actual.getLists() != nil);
-      assert(actual.getLists()!.getListInfo() != nil);
-      assert(2 == actual.getLists()!.getListInfo()!.count);
-      assert(1 == actual.getLists()!.getListInfo()![0].getListId());
+      XCTAssertNotNil(actual.getLists());
+      XCTAssertNotNil(actual.getLists()!.getListInfo());
+      XCTAssertEqual(actual.getLists()!.getListInfo()!.count, 2);
+      XCTAssertEqual(actual.getLists()!.getListInfo()![0].getListId(), 1);
     }
 
     // Test for getting list from document.
@@ -63,8 +63,8 @@ class ListsTests: BaseTestContext {
 
       let request = GetListRequest(name: remoteFileName, listId: 1, folder: remoteDataFolder);
       let actual = try super.getApi().getList(request: request);
-      assert(actual.getList() != nil);
-      assert(1 == actual.getList()!.getListId());
+      XCTAssertNotNil(actual.getList());
+      XCTAssertEqual(actual.getList()!.getListId(), 1);
     }
 
     // Test for updating list from document.
@@ -79,9 +79,9 @@ class ListsTests: BaseTestContext {
 
       let request = UpdateListRequest(name: remoteFileName, listUpdate: requestListUpdate, listId: 1, folder: remoteDataFolder);
       let actual = try super.getApi().updateList(request: request);
-      assert(actual.getList() != nil);
-      assert(1 == actual.getList()!.getListId());
-      assert(actual.getList()!.getIsRestartAtEachSection() == true);
+      XCTAssertNotNil(actual.getList());
+      XCTAssertEqual(actual.getList()!.getListId(), 1);
+      XCTAssertTrue(actual.getList()!.getIsRestartAtEachSection());
     }
 
     // Test for updating list level from document.
@@ -96,10 +96,10 @@ class ListsTests: BaseTestContext {
 
       let request = UpdateListLevelRequest(name: remoteFileName, listUpdate: requestListUpdate, listId: 1, listLevel: 1, folder: remoteDataFolder);
       let actual = try super.getApi().updateListLevel(request: request);
-      assert(actual.getList() != nil);
-      assert(actual.getList()!.getListLevels() != nil);
-      assert(actual.getList()!.getListLevels()!.getListLevel() != nil);
-      assert(9 == actual.getList()!.getListLevels()!.getListLevel()!.count);
+      XCTAssertNotNil(actual.getList());
+      XCTAssertNotNil(actual.getList()!.getListLevels());
+      XCTAssertNotNil(actual.getList()!.getListLevels()!.getListLevel());
+      XCTAssertEqual(actual.getList()!.getListLevels()!.getListLevel()!.count, 9);
 
     }
 
@@ -115,7 +115,7 @@ class ListsTests: BaseTestContext {
 
       let request = InsertListRequest(name: remoteFileName, listInsert: requestListInsert, folder: remoteDataFolder);
       let actual = try super.getApi().insertList(request: request);
-      assert(actual.getList() != nil);
-      assert(3 == actual.getList()!.getListId());
+      XCTAssertNotNil(actual.getList());
+      XCTAssertEqual(actual.getList()!.getListId(), 3);
     }
 }

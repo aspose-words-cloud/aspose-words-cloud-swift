@@ -77,8 +77,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder);
       let actual = try super.getApi().getParagraph(request: request);
-      assert(actual.getParagraph() != nil);
-      assert(("0.0.0") == actual.getParagraph()!.getNodeId());
+      XCTAssertNotNil(actual.getParagraph());
+      XCTAssertEqual(actual.getParagraph()!.getNodeId(), "0.0.0");
     }
 
     // Test for getting paragraph without node path.
@@ -89,8 +89,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getParagraph(request: request);
-      assert(actual.getParagraph() != nil);
-      assert(("0.0.0") == actual.getParagraph()!.getNodeId());
+      XCTAssertNotNil(actual.getParagraph());
+      XCTAssertEqual(actual.getParagraph()!.getNodeId(), "0.0.0");
     }
 
     // Test for getting all paragraphs.
@@ -101,10 +101,10 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphsRequest(name: remoteFileName, nodePath: "sections/0", folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphs(request: request);
-      assert(actual.getParagraphs() != nil);
-      assert(actual.getParagraphs()!.getParagraphLinkList() != nil);
-      assert(15 == actual.getParagraphs()!.getParagraphLinkList()!.count);
-      assert(("Page 1 of 3") == actual.getParagraphs()!.getParagraphLinkList()![0].getText());
+      XCTAssertNotNil(actual.getParagraphs());
+      XCTAssertNotNil(actual.getParagraphs()!.getParagraphLinkList());
+      XCTAssertEqual(actual.getParagraphs()!.getParagraphLinkList()!.count, 15);
+      XCTAssertEqual(actual.getParagraphs()!.getParagraphLinkList()![0].getText(), "Page 1 of 3");
     }
 
     // Test for getting all paragraphs without node path.
@@ -115,10 +115,10 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphs(request: request);
-      assert(actual.getParagraphs() != nil);
-      assert(actual.getParagraphs()!.getParagraphLinkList() != nil);
-      assert(15 == actual.getParagraphs()!.getParagraphLinkList()!.count);
-      assert(("Page 1 of 3") == actual.getParagraphs()!.getParagraphLinkList()![0].getText());
+      XCTAssertNotNil(actual.getParagraphs());
+      XCTAssertNotNil(actual.getParagraphs()!.getParagraphLinkList());
+      XCTAssertEqual(actual.getParagraphs()!.getParagraphLinkList()!.count, 15);
+      XCTAssertEqual(actual.getParagraphs()!.getParagraphLinkList()![0].getText(), "Page 1 of 3");
     }
 
     // Test for getting paragraph run.
@@ -129,8 +129,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetRunRequest(name: remoteFileName, paragraphPath: "paragraphs/0", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getRun(request: request);
-      assert(actual.getRun() != nil);
-      assert(("Page ") == actual.getRun()!.getText());
+      XCTAssertNotNil(actual.getRun());
+      XCTAssertEqual(actual.getRun()!.getText(), "Page ");
     }
 
     // Test for getting paragraph run font.
@@ -141,8 +141,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetRunFontRequest(name: remoteFileName, paragraphPath: "paragraphs/0", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getRunFont(request: request);
-      assert(actual.getFont() != nil);
-      assert(("Times New Roman") == actual.getFont()!.getName());
+      XCTAssertNotNil(actual.getFont());
+      XCTAssertEqual(actual.getFont()!.getName(), "Times New Roman");
     }
 
     // Test for getting paragraph runs.
@@ -153,10 +153,10 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetRunsRequest(name: remoteFileName, paragraphPath: "sections/0/paragraphs/0", folder: remoteDataFolder);
       let actual = try super.getApi().getRuns(request: request);
-      assert(actual.getRuns() != nil);
-      assert(actual.getRuns()!.getList() != nil);
-      assert(6 == actual.getRuns()!.getList()!.count);
-      assert(("Page ") == actual.getRuns()!.getList()![0].getText());
+      XCTAssertNotNil(actual.getRuns());
+      XCTAssertNotNil(actual.getRuns()!.getList());
+      XCTAssertEqual(actual.getRuns()!.getList()!.count, 6);
+      XCTAssertEqual(actual.getRuns()!.getList()![0].getText(), "Page ");
     }
 
     // Test for updating paragraph run font.
@@ -171,8 +171,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = UpdateRunFontRequest(name: remoteFileName, fontDto: requestFontDto, paragraphPath: "paragraphs/0", index: 0, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().updateRunFont(request: request);
-      assert(actual.getFont() != nil);
-      assert(actual.getFont()!.getBold() == true);
+      XCTAssertNotNil(actual.getFont());
+      XCTAssertTrue(actual.getFont()!.getBold());
     }
 
     // Test for adding paragraph.
@@ -187,8 +187,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = InsertParagraphRequest(name: remoteFileName, paragraph: requestParagraph, nodePath: "sections/0", folder: remoteDataFolder);
       let actual = try super.getApi().insertParagraph(request: request);
-      assert(actual.getParagraph() != nil);
-      assert(("0.3.8") == actual.getParagraph()!.getNodeId());
+      XCTAssertNotNil(actual.getParagraph());
+      XCTAssertEqual(actual.getParagraph()!.getNodeId(), "0.3.8");
     }
 
     // Test for adding paragraph without node path.
@@ -203,8 +203,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = InsertParagraphRequest(name: remoteFileName, paragraph: requestParagraph, folder: remoteDataFolder);
       let actual = try super.getApi().insertParagraph(request: request);
-      assert(actual.getParagraph() != nil);
-      assert(("0.3.8") == actual.getParagraph()!.getNodeId());
+      XCTAssertNotNil(actual.getParagraph());
+      XCTAssertEqual(actual.getParagraph()!.getNodeId(), "0.3.8");
     }
 
     // Test for paragraph rendering.
@@ -235,8 +235,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphFormatRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphFormat(request: request);
-      assert(actual.getParagraphFormat() != nil);
-      assert(("Normal") == actual.getParagraphFormat()!.getStyleName());
+      XCTAssertNotNil(actual.getParagraphFormat());
+      XCTAssertEqual(actual.getParagraphFormat()!.getStyleName(), "Normal");
     }
 
     // Test for getting paragraph format settings without node path.
@@ -247,8 +247,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphFormatRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphFormat(request: request);
-      assert(actual.getParagraphFormat() != nil);
-      assert(("Normal") == actual.getParagraphFormat()!.getStyleName());
+      XCTAssertNotNil(actual.getParagraphFormat());
+      XCTAssertEqual(actual.getParagraphFormat()!.getStyleName(), "Normal");
     }
 
     // Test for updating  paragraph format settings.
@@ -263,7 +263,7 @@ class ParagraphTests: BaseTestContext {
 
       let request = UpdateParagraphFormatRequest(name: remoteFileName, dto: requestDto, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateParagraphFormat(request: request);
-      assert(actual.getParagraphFormat() != nil);
+      XCTAssertNotNil(actual.getParagraphFormat());
 
     }
 
@@ -295,8 +295,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphListFormatRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphListFormat(request: request);
-      assert(actual.getListFormat() != nil);
-      assert(1 == actual.getListFormat()!.getListId());
+      XCTAssertNotNil(actual.getListFormat());
+      XCTAssertEqual(actual.getListFormat()!.getListId(), 1);
     }
 
     // Test for getting paragraph list format without node path.
@@ -307,8 +307,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphListFormatRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphListFormat(request: request);
-      assert(actual.getListFormat() != nil);
-      assert(1 == actual.getListFormat()!.getListId());
+      XCTAssertNotNil(actual.getListFormat());
+      XCTAssertEqual(actual.getListFormat()!.getListId(), 1);
     }
 
     // Test for updating paragraph list format.
@@ -323,8 +323,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = UpdateParagraphListFormatRequest(name: remoteFileName, dto: requestDto, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateParagraphListFormat(request: request);
-      assert(actual.getListFormat() != nil);
-      assert(2 == actual.getListFormat()!.getListId());
+      XCTAssertNotNil(actual.getListFormat());
+      XCTAssertEqual(actual.getListFormat()!.getListId(), 2);
     }
 
     // Test for updating paragraph list format without node path.
@@ -339,8 +339,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = UpdateParagraphListFormatRequest(name: remoteFileName, dto: requestDto, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().updateParagraphListFormat(request: request);
-      assert(actual.getListFormat() != nil);
-      assert(2 == actual.getListFormat()!.getListId());
+      XCTAssertNotNil(actual.getListFormat());
+      XCTAssertEqual(actual.getListFormat()!.getListId(), 2);
     }
 
     // Test for deleting paragraph list format.
@@ -371,9 +371,9 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphTabStopsRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphTabStops(request: request);
-      assert(actual.getTabStops() != nil);
-      assert(2 == actual.getTabStops()!.count);
-      assert(72.0 == actual.getTabStops()![0].getPosition());
+      XCTAssertNotNil(actual.getTabStops());
+      XCTAssertEqual(actual.getTabStops()!.count, 2);
+      XCTAssertEqual(actual.getTabStops()![0].getPosition(), 72.0);
     }
 
     // Test for getting paragraph tab stops without node path.
@@ -384,9 +384,9 @@ class ParagraphTests: BaseTestContext {
 
       let request = GetParagraphTabStopsRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getParagraphTabStops(request: request);
-      assert(actual.getTabStops() != nil);
-      assert(2 == actual.getTabStops()!.count);
-      assert(72.0 == actual.getTabStops()![0].getPosition());
+      XCTAssertNotNil(actual.getTabStops());
+      XCTAssertEqual(actual.getTabStops()!.count, 2);
+      XCTAssertEqual(actual.getTabStops()![0].getPosition(), 72.0);
     }
 
     // Test for inserting paragraph tab stop.
@@ -403,9 +403,9 @@ class ParagraphTests: BaseTestContext {
 
       let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, dto: requestDto, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
-      assert(actual.getTabStops() != nil);
-      assert(3 == actual.getTabStops()!.count);
-      assert(100.0 == actual.getTabStops()![1].getPosition());
+      XCTAssertNotNil(actual.getTabStops());
+      XCTAssertEqual(actual.getTabStops()!.count, 3);
+      XCTAssertEqual(actual.getTabStops()![1].getPosition(), 100.0);
 
 
     }
@@ -424,9 +424,9 @@ class ParagraphTests: BaseTestContext {
 
       let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, dto: requestDto, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
-      assert(actual.getTabStops() != nil);
-      assert(3 == actual.getTabStops()!.count);
-      assert(100.0 == actual.getTabStops()![1].getPosition());
+      XCTAssertNotNil(actual.getTabStops());
+      XCTAssertEqual(actual.getTabStops()!.count, 3);
+      XCTAssertEqual(actual.getTabStops()![1].getPosition(), 100.0);
 
 
     }
@@ -439,8 +439,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = DeleteAllParagraphTabStopsRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().deleteAllParagraphTabStops(request: request);
-      assert(actual.getTabStops() != nil);
-      assert(0 == actual.getTabStops()!.count);
+      XCTAssertNotNil(actual.getTabStops());
+      XCTAssertEqual(actual.getTabStops()!.count, 0);
     }
 
     // Test for deleting all paragraph tab stops without node path.
@@ -451,8 +451,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = DeleteAllParagraphTabStopsRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().deleteAllParagraphTabStops(request: request);
-      assert(actual.getTabStops() != nil);
-      assert(0 == actual.getTabStops()!.count);
+      XCTAssertNotNil(actual.getTabStops());
+      XCTAssertEqual(actual.getTabStops()!.count, 0);
     }
 
     // Test for deleting a tab stops.
@@ -463,8 +463,8 @@ class ParagraphTests: BaseTestContext {
 
       let request = DeleteParagraphTabStopRequest(name: remoteFileName, position: 72.0, index: 0, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().deleteParagraphTabStop(request: request);
-      assert(actual.getTabStops() != nil);
-      assert(1 == actual.getTabStops()!.count);
+      XCTAssertNotNil(actual.getTabStops());
+      XCTAssertEqual(actual.getTabStops()!.count, 1);
     }
 
     // Test for deleting a tab stops without node path.
@@ -475,7 +475,7 @@ class ParagraphTests: BaseTestContext {
 
       let request = DeleteParagraphTabStopRequest(name: remoteFileName, position: 72.0, index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().deleteParagraphTabStop(request: request);
-      assert(actual.getTabStops() != nil);
-      assert(1 == actual.getTabStops()!.count);
+      XCTAssertNotNil(actual.getTabStops());
+      XCTAssertEqual(actual.getTabStops()!.count, 1);
     }
 }

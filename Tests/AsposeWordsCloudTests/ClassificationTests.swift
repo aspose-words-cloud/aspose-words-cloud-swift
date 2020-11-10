@@ -42,9 +42,9 @@ class ClassificationTests: BaseTestContext {
     func testClassify() throws {
       let request = ClassifyRequest(text: "Try text classification", bestClassesCount: "3");
       let actual = try super.getApi().classify(request: request);
-      assert(("Science") == actual.getBestClassName());
-      assert(actual.getBestResults() != nil);
-      assert(3 == actual.getBestResults()!.count);
+      XCTAssertEqual(actual.getBestClassName(), "Science");
+      XCTAssertNotNil(actual.getBestResults());
+      XCTAssertEqual(actual.getBestResults()!.count, 3);
     }
 
     // Test for document classification.
@@ -55,8 +55,8 @@ class ClassificationTests: BaseTestContext {
 
       let request = ClassifyDocumentRequest(documentName: remoteFileName, folder: remoteDataFolder, bestClassesCount: "3");
       let actual = try super.getApi().classifyDocument(request: request);
-      assert(("Hobbies_&_Interests") == actual.getBestClassName());
-      assert(actual.getBestResults() != nil);
-      assert(3 == actual.getBestResults()!.count);
+      XCTAssertEqual(actual.getBestClassName(), "Hobbies_&_Interests");
+      XCTAssertNotNil(actual.getBestResults());
+      XCTAssertEqual(actual.getBestResults()!.count, 3);
     }
 }

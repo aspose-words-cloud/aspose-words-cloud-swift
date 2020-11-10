@@ -45,8 +45,8 @@ class SplitDocumentToFormatTests: BaseTestContext {
 
       let request = SplitDocumentRequest(name: remoteFileName, format: "text", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/TestSplitDocument.text", from: 1, to: 2);
       let actual = try super.getApi().splitDocument(request: request);
-      assert(actual.getSplitResult() != nil);
-      assert(actual.getSplitResult()!.getPages() != nil);
-      assert(2 == actual.getSplitResult()!.getPages()!.count);
+      XCTAssertNotNil(actual.getSplitResult());
+      XCTAssertNotNil(actual.getSplitResult()!.getPages());
+      XCTAssertEqual(actual.getSplitResult()!.getPages()!.count, 2);
     }
 }

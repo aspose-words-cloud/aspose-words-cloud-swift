@@ -54,8 +54,8 @@ class ConvertDocumentTests: BaseTestContext {
 
       let request = SaveAsRequest(name: remoteName, saveOptionsData: requestSaveOptionsData, folder: remoteFolder);
       let actual = try super.getApi().saveAs(request: request);
-      assert(actual.getSaveResult() != nil);
-      assert(actual.getSaveResult()!.getDestDocument() != nil);
+      XCTAssertNotNil(actual.getSaveResult());
+      XCTAssertNotNil(actual.getSaveResult()!.getDestDocument());
     }
 
     // Test for converting document to one of the available formats.
@@ -72,8 +72,8 @@ class ConvertDocumentTests: BaseTestContext {
 
       let request = SaveAsRequest(name: remoteName, saveOptionsData: requestSaveOptionsData, folder: remoteFolder);
       let actual = try super.getApi().saveAs(request: request);
-      assert(actual.getSaveResult() != nil);
-      assert(actual.getSaveResult()!.getDestDocument() != nil);
+      XCTAssertNotNil(actual.getSaveResult());
+      XCTAssertNotNil(actual.getSaveResult()!.getDestDocument());
     }
 
     // Test for converting document to one of the available formats.
@@ -90,8 +90,8 @@ class ConvertDocumentTests: BaseTestContext {
 
       let request = SaveAsTiffRequest(name: remoteName, saveOptions: requestSaveOptions, folder: remoteFolder);
       let actual = try super.getApi().saveAsTiff(request: request);
-      assert(actual.getSaveResult() != nil);
-      assert(actual.getSaveResult()!.getDestDocument() != nil);
+      XCTAssertNotNil(actual.getSaveResult());
+      XCTAssertNotNil(actual.getSaveResult()!.getDestDocument());
     }
 
     // A test for ConvertDocument.

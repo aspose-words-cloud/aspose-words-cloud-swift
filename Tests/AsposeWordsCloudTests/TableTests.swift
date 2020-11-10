@@ -68,10 +68,10 @@ class TableTests: BaseTestContext {
 
       let request = GetTablesRequest(name: remoteFileName, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getTables(request: request);
-      assert(actual.getTables() != nil);
-      assert(actual.getTables()!.getTableLinkList() != nil);
-      assert(5 == actual.getTables()!.getTableLinkList()!.count);
-      assert(("0.0.1") == actual.getTables()!.getTableLinkList()![0].getNodeId());
+      XCTAssertNotNil(actual.getTables());
+      XCTAssertNotNil(actual.getTables()!.getTableLinkList());
+      XCTAssertEqual(actual.getTables()!.getTableLinkList()!.count, 5);
+      XCTAssertEqual(actual.getTables()!.getTableLinkList()![0].getNodeId(), "0.0.1");
     }
 
     // Test for getting tables without node path.
@@ -82,10 +82,10 @@ class TableTests: BaseTestContext {
 
       let request = GetTablesRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getTables(request: request);
-      assert(actual.getTables() != nil);
-      assert(actual.getTables()!.getTableLinkList() != nil);
-      assert(5 == actual.getTables()!.getTableLinkList()!.count);
-      assert(("0.0.1") == actual.getTables()!.getTableLinkList()![0].getNodeId());
+      XCTAssertNotNil(actual.getTables());
+      XCTAssertNotNil(actual.getTables()!.getTableLinkList());
+      XCTAssertEqual(actual.getTables()!.getTableLinkList()!.count, 5);
+      XCTAssertEqual(actual.getTables()!.getTableLinkList()![0].getNodeId(), "0.0.1");
     }
 
     // Test for getting table.
@@ -96,11 +96,11 @@ class TableTests: BaseTestContext {
 
       let request = GetTableRequest(name: remoteFileName, index: 1, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getTable(request: request);
-      assert(actual.getTable() != nil);
-      assert(actual.getTable()!.getTableRowList() != nil);
-      assert(1 == actual.getTable()!.getTableRowList()!.count);
-      assert(actual.getTable()!.getTableRowList()![0].getTableCellList() != nil);
-      assert(2 == actual.getTable()!.getTableRowList()![0].getTableCellList()!.count);
+      XCTAssertNotNil(actual.getTable());
+      XCTAssertNotNil(actual.getTable()!.getTableRowList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()!.count, 1);
+      XCTAssertNotNil(actual.getTable()!.getTableRowList()![0].getTableCellList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()![0].getTableCellList()!.count, 2);
     }
 
     // Test for getting table without node path.
@@ -111,11 +111,11 @@ class TableTests: BaseTestContext {
 
       let request = GetTableRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
       let actual = try super.getApi().getTable(request: request);
-      assert(actual.getTable() != nil);
-      assert(actual.getTable()!.getTableRowList() != nil);
-      assert(1 == actual.getTable()!.getTableRowList()!.count);
-      assert(actual.getTable()!.getTableRowList()![0].getTableCellList() != nil);
-      assert(2 == actual.getTable()!.getTableRowList()![0].getTableCellList()!.count);
+      XCTAssertNotNil(actual.getTable());
+      XCTAssertNotNil(actual.getTable()!.getTableRowList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()!.count, 1);
+      XCTAssertNotNil(actual.getTable()!.getTableRowList()![0].getTableCellList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()![0].getTableCellList()!.count, 2);
     }
 
     // Test for deleting table.
@@ -151,11 +151,11 @@ class TableTests: BaseTestContext {
 
       let request = InsertTableRequest(name: remoteFileName, table: requestTable, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().insertTable(request: request);
-      assert(actual.getTable() != nil);
-      assert(actual.getTable()!.getTableRowList() != nil);
-      assert(4 == actual.getTable()!.getTableRowList()!.count);
-      assert(actual.getTable()!.getTableRowList()![0].getTableCellList() != nil);
-      assert(5 == actual.getTable()!.getTableRowList()![0].getTableCellList()!.count);
+      XCTAssertNotNil(actual.getTable());
+      XCTAssertNotNil(actual.getTable()!.getTableRowList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()!.count, 4);
+      XCTAssertNotNil(actual.getTable()!.getTableRowList()![0].getTableCellList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()![0].getTableCellList()!.count, 5);
     }
 
     // Test for adding table without node path.
@@ -171,11 +171,11 @@ class TableTests: BaseTestContext {
 
       let request = InsertTableRequest(name: remoteFileName, table: requestTable, folder: remoteDataFolder);
       let actual = try super.getApi().insertTable(request: request);
-      assert(actual.getTable() != nil);
-      assert(actual.getTable()!.getTableRowList() != nil);
-      assert(4 == actual.getTable()!.getTableRowList()!.count);
-      assert(actual.getTable()!.getTableRowList()![0].getTableCellList() != nil);
-      assert(5 == actual.getTable()!.getTableRowList()![0].getTableCellList()!.count);
+      XCTAssertNotNil(actual.getTable());
+      XCTAssertNotNil(actual.getTable()!.getTableRowList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()!.count, 4);
+      XCTAssertNotNil(actual.getTable()!.getTableRowList()![0].getTableCellList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()![0].getTableCellList()!.count, 5);
     }
 
     // Test for getting document properties.
@@ -186,8 +186,8 @@ class TableTests: BaseTestContext {
 
       let request = GetTablePropertiesRequest(name: remoteFileName, index: 1, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().getTableProperties(request: request);
-      assert(actual.getProperties() != nil);
-      assert(("Table Grid") == actual.getProperties()!.getStyleName());
+      XCTAssertNotNil(actual.getProperties());
+      XCTAssertEqual(actual.getProperties()!.getStyleName(), "Table Grid");
     }
 
     // Test for getting document properties without node path.
@@ -198,8 +198,8 @@ class TableTests: BaseTestContext {
 
       let request = GetTablePropertiesRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
       let actual = try super.getApi().getTableProperties(request: request);
-      assert(actual.getProperties() != nil);
-      assert(("Table Grid") == actual.getProperties()!.getStyleName());
+      XCTAssertNotNil(actual.getProperties());
+      XCTAssertEqual(actual.getProperties()!.getStyleName(), "Table Grid");
     }
 
     // Test for updating table properties.
@@ -219,11 +219,11 @@ class TableTests: BaseTestContext {
 
       let request = UpdateTablePropertiesRequest(name: remoteFileName, properties: requestProperties, index: 1, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateTableProperties(request: request);
-      assert(actual.getProperties() != nil);
-      assert(actual.getProperties()!.getAllowAutoFit() == false);
-      assert(actual.getProperties()!.getBidi() == true);
-      assert(1.0 == actual.getProperties()!.getBottomPadding());
-      assert(2.0 == actual.getProperties()!.getCellSpacing());
+      XCTAssertNotNil(actual.getProperties());
+      XCTAssertFalse(actual.getProperties()!.getAllowAutoFit() == false);
+      XCTAssertTrue(actual.getProperties()!.getBidi());
+      XCTAssertEqual(actual.getProperties()!.getBottomPadding(), 1.0);
+      XCTAssertEqual(actual.getProperties()!.getCellSpacing(), 2.0);
     }
 
     // Test for updating table properties without node path.
@@ -243,11 +243,11 @@ class TableTests: BaseTestContext {
 
       let request = UpdateTablePropertiesRequest(name: remoteFileName, properties: requestProperties, index: 1, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableProperties(request: request);
-      assert(actual.getProperties() != nil);
-      assert(actual.getProperties()!.getAllowAutoFit() == false);
-      assert(actual.getProperties()!.getBidi() == true);
-      assert(1.0 == actual.getProperties()!.getBottomPadding());
-      assert(2.0 == actual.getProperties()!.getCellSpacing());
+      XCTAssertNotNil(actual.getProperties());
+      XCTAssertFalse(actual.getProperties()!.getAllowAutoFit() == false);
+      XCTAssertTrue(actual.getProperties()!.getBidi());
+      XCTAssertEqual(actual.getProperties()!.getBottomPadding(), 1.0);
+      XCTAssertEqual(actual.getProperties()!.getCellSpacing(), 2.0);
     }
 
     // Test for getting table row.
@@ -258,9 +258,9 @@ class TableTests: BaseTestContext {
 
       let request = GetTableRowRequest(name: remoteFileName, tablePath: "tables/1", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getTableRow(request: request);
-      assert(actual.getRow() != nil);
-      assert(actual.getRow()!.getTableCellList() != nil);
-      assert(2 == actual.getRow()!.getTableCellList()!.count);
+      XCTAssertNotNil(actual.getRow());
+      XCTAssertNotNil(actual.getRow()!.getTableCellList());
+      XCTAssertEqual(actual.getRow()!.getTableCellList()!.count, 2);
     }
 
     // Test for deleting table row.
@@ -285,9 +285,9 @@ class TableTests: BaseTestContext {
 
       let request = InsertTableRowRequest(name: remoteFileName, row: requestRow, tablePath: "sections/0/tables/2", folder: remoteDataFolder);
       let actual = try super.getApi().insertTableRow(request: request);
-      assert(actual.getRow() != nil);
-      assert(actual.getRow()!.getTableCellList() != nil);
-      assert(5 == actual.getRow()!.getTableCellList()!.count);
+      XCTAssertNotNil(actual.getRow());
+      XCTAssertNotNil(actual.getRow()!.getTableCellList());
+      XCTAssertEqual(actual.getRow()!.getTableCellList()!.count, 5);
     }
 
     // Test for getting row format.
@@ -298,8 +298,8 @@ class TableTests: BaseTestContext {
 
       let request = GetTableRowFormatRequest(name: remoteFileName, tablePath: "sections/0/tables/2", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getTableRowFormat(request: request);
-      assert(actual.getRowFormat() != nil);
-      assert(actual.getRowFormat()!.getAllowBreakAcrossPages() == true);
+      XCTAssertNotNil(actual.getRowFormat());
+      XCTAssertTrue(actual.getRowFormat()!.getAllowBreakAcrossPages());
     }
 
     // Test updating row format.
@@ -317,10 +317,10 @@ class TableTests: BaseTestContext {
 
       let request = UpdateTableRowFormatRequest(name: remoteFileName, format: requestFormat, tablePath: "sections/0/tables/2", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableRowFormat(request: request);
-      assert(actual.getRowFormat() != nil);
-      assert(actual.getRowFormat()!.getAllowBreakAcrossPages() == true);
-      assert(actual.getRowFormat()!.getHeadingFormat() == true);
-      assert(10.0 == actual.getRowFormat()!.getHeight());
+      XCTAssertNotNil(actual.getRowFormat());
+      XCTAssertTrue(actual.getRowFormat()!.getAllowBreakAcrossPages());
+      XCTAssertTrue(actual.getRowFormat()!.getHeadingFormat());
+      XCTAssertEqual(actual.getRowFormat()!.getHeight(), 10.0);
     }
 
     // Test for getting table cell.
@@ -331,8 +331,8 @@ class TableTests: BaseTestContext {
 
       let request = GetTableCellRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getTableCell(request: request);
-      assert(actual.getCell() != nil);
-      assert(("0.0.5.0.0") == actual.getCell()!.getNodeId());
+      XCTAssertNotNil(actual.getCell());
+      XCTAssertEqual(actual.getCell()!.getNodeId(), "0.0.5.0.0");
     }
 
     // Test for deleting cell.
@@ -357,8 +357,8 @@ class TableTests: BaseTestContext {
 
       let request = InsertTableCellRequest(name: remoteFileName, cell: requestCell, tableRowPath: "sections/0/tables/2/rows/0", folder: remoteDataFolder);
       let actual = try super.getApi().insertTableCell(request: request);
-      assert(actual.getCell() != nil);
-      assert(("0.0.5.0.3") == actual.getCell()!.getNodeId());
+      XCTAssertNotNil(actual.getCell());
+      XCTAssertEqual(actual.getCell()!.getNodeId(), "0.0.5.0.3");
     }
 
     // Test for getting cell format.
@@ -369,8 +369,8 @@ class TableTests: BaseTestContext {
 
       let request = GetTableCellFormatRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getTableCellFormat(request: request);
-      assert(actual.getCellFormat() != nil);
-      assert(actual.getCellFormat()!.getWrapText() == true);
+      XCTAssertNotNil(actual.getCellFormat());
+      XCTAssertTrue(actual.getCellFormat()!.getWrapText());
     }
 
     // Test for updating cell format.
@@ -388,10 +388,10 @@ class TableTests: BaseTestContext {
 
       let request = UpdateTableCellFormatRequest(name: remoteFileName, format: requestFormat, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableCellFormat(request: request);
-      assert(actual.getCellFormat() != nil);
-      assert(5.0 == actual.getCellFormat()!.getBottomPadding());
-      assert(actual.getCellFormat()!.getFitText() == true);
-      assert(actual.getCellFormat()!.getWrapText() == true);
+      XCTAssertNotNil(actual.getCellFormat());
+      XCTAssertEqual(actual.getCellFormat()!.getBottomPadding(), 5.0);
+      XCTAssertTrue(actual.getCellFormat()!.getFitText());
+      XCTAssertTrue(actual.getCellFormat()!.getWrapText());
     }
 
     // Test for table rendering.

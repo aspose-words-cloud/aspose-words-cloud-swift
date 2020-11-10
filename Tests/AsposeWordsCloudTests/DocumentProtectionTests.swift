@@ -52,8 +52,8 @@ class DocumentProtectionTests: BaseTestContext {
 
       let request = ProtectDocumentRequest(name: remoteFileName, protectionRequest: requestProtectionRequest, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().protectDocument(request: request);
-      assert(actual.getProtectionData() != nil);
-      assert(("ReadOnly") == actual.getProtectionData()!.getProtectionType());
+      XCTAssertNotNil(actual.getProtectionData());
+      XCTAssertEqual(actual.getProtectionData()!.getProtectionType(), "ReadOnly");
     }
 
     // Test for getting document protection.
@@ -65,8 +65,8 @@ class DocumentProtectionTests: BaseTestContext {
 
       let request = GetDocumentProtectionRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getDocumentProtection(request: request);
-      assert(actual.getProtectionData() != nil);
-      assert(("ReadOnly") == actual.getProtectionData()!.getProtectionType());
+      XCTAssertNotNil(actual.getProtectionData());
+      XCTAssertEqual(actual.getProtectionData()!.getProtectionType(), "ReadOnly");
     }
 
     // Test for deleting unprotect document.
@@ -82,7 +82,7 @@ class DocumentProtectionTests: BaseTestContext {
 
       let request = UnprotectDocumentRequest(name: remoteFileName, protectionRequest: requestProtectionRequest, folder: remoteDataFolder);
       let actual = try super.getApi().unprotectDocument(request: request);
-      assert(actual.getProtectionData() != nil);
-      assert(("NoProtection") == actual.getProtectionData()!.getProtectionType());
+      XCTAssertNotNil(actual.getProtectionData());
+      XCTAssertEqual(actual.getProtectionData()!.getProtectionType(), "NoProtection");
     }
 }

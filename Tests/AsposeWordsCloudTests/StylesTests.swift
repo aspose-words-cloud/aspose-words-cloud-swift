@@ -51,9 +51,9 @@ class StylesTests: BaseTestContext {
 
       let request = GetStylesRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getStyles(request: request);
-      assert(actual.getStyles() != nil);
-      assert(22 == actual.getStyles()!.count);
-      assert(("Default Paragraph Font") == actual.getStyles()![0].getName());
+      XCTAssertNotNil(actual.getStyles());
+      XCTAssertEqual(actual.getStyles()!.count, 22);
+      XCTAssertEqual(actual.getStyles()![0].getName(), "Default Paragraph Font");
     }
 
     // Test for getting style from document.
@@ -64,8 +64,8 @@ class StylesTests: BaseTestContext {
 
       let request = GetStyleRequest(name: remoteFileName, styleName: "Heading 1", folder: remoteDataFolder);
       let actual = try super.getApi().getStyle(request: request);
-      assert(actual.getStyle() != nil);
-      assert(("Heading 1") == actual.getStyle()!.getName());
+      XCTAssertNotNil(actual.getStyle());
+      XCTAssertEqual(actual.getStyle()!.getName(), "Heading 1");
     }
 
     // Test for updating style from document.
@@ -80,8 +80,8 @@ class StylesTests: BaseTestContext {
 
       let request = UpdateStyleRequest(name: remoteFileName, styleUpdate: requestStyleUpdate, styleName: "Heading 1", folder: remoteDataFolder);
       let actual = try super.getApi().updateStyle(request: request);
-      assert(actual.getStyle() != nil);
-      assert(("My Style") == actual.getStyle()!.getName());
+      XCTAssertNotNil(actual.getStyle());
+      XCTAssertEqual(actual.getStyle()!.getName(), "My Style");
     }
 
     // Test for inserting style from document.
@@ -97,8 +97,8 @@ class StylesTests: BaseTestContext {
 
       let request = InsertStyleRequest(name: remoteFileName, styleInsert: requestStyleInsert, folder: remoteDataFolder);
       let actual = try super.getApi().insertStyle(request: request);
-      assert(actual.getStyle() != nil);
-      assert(("My Style") == actual.getStyle()!.getName());
+      XCTAssertNotNil(actual.getStyle());
+      XCTAssertEqual(actual.getStyle()!.getName(), "My Style");
     }
 
     // Test for coping style from document.
@@ -113,8 +113,8 @@ class StylesTests: BaseTestContext {
 
       let request = CopyStyleRequest(name: remoteFileName, styleCopy: requestStyleCopy, folder: remoteDataFolder);
       let actual = try super.getApi().copyStyle(request: request);
-      assert(actual.getStyle() != nil);
-      assert(("Heading 1_0") == actual.getStyle()!.getName());
+      XCTAssertNotNil(actual.getStyle());
+      XCTAssertEqual(actual.getStyle()!.getName(), "Heading 1_0");
     }
 
     // Test for getting style from document element.
@@ -125,8 +125,8 @@ class StylesTests: BaseTestContext {
 
       let request = GetStyleFromDocumentElementRequest(name: remoteFileName, styledNodePath: "paragraphs/1/paragraphFormat", folder: remoteDataFolder);
       let actual = try super.getApi().getStyleFromDocumentElement(request: request);
-      assert(actual.getStyle() != nil);
-      assert(("TOC 1") == actual.getStyle()!.getName());
+      XCTAssertNotNil(actual.getStyle());
+      XCTAssertEqual(actual.getStyle()!.getName(), "TOC 1");
     }
 
     // Test for applying style to document element.

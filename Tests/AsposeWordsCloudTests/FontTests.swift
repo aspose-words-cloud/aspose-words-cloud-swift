@@ -45,6 +45,6 @@ class FontTests: BaseTestContext {
     func testGetAvailableFonts() throws {
       let request = GetAvailableFontsRequest();
       let actual = try super.getApi().getAvailableFonts(request: request);
-      assert(actual.getSystemFonts() != nil);
+      XCTAssertNotNil(actual.getSystemFonts());
     }
 }

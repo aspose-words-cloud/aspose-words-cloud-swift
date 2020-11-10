@@ -46,8 +46,8 @@ class DocumentTests: BaseTestContext {
 
       let request = GetDocumentRequest(documentName: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getDocument(request: request);
-      assert(actual.getDocument() != nil);
-      assert(("TestGetDocument.docx") == actual.getDocument()!.getFileName());
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestGetDocument.docx");
     }
 
     // Test for creating word document.
@@ -56,7 +56,7 @@ class DocumentTests: BaseTestContext {
 
       let request = CreateDocumentRequest(fileName: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().createDocument(request: request);
-      assert(actual.getDocument() != nil);
-      assert(("TestCreateDocument.doc") == actual.getDocument()!.getFileName());
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestCreateDocument.doc");
     }
 }

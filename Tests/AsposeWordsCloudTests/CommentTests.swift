@@ -49,8 +49,8 @@ class CommentTests: BaseTestContext {
 
       let request = GetCommentRequest(name: remoteFileName, commentIndex: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getComment(request: request);
-      assert(actual.getComment() != nil);
-      assert(("Comment 1" + "\r\n\r\n") == actual.getComment()!.getText());
+      XCTAssertNotNil(actual.getComment());
+      XCTAssertEqual(actual.getComment()!.getText(), "Comment 1" + "\r\n\r\n");
     }
 
     // Test for getting all comments from document.
@@ -61,10 +61,10 @@ class CommentTests: BaseTestContext {
 
       let request = GetCommentsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getComments(request: request);
-      assert(actual.getComments() != nil);
-      assert(actual.getComments()!.getCommentList() != nil);
-      assert(1 == actual.getComments()!.getCommentList()!.count);
-      assert(("Comment 1" + "\r\n\r\n") == actual.getComments()!.getCommentList()![0].getText());
+      XCTAssertNotNil(actual.getComments());
+      XCTAssertNotNil(actual.getComments()!.getCommentList());
+      XCTAssertEqual(actual.getComments()!.getCommentList()!.count, 1);
+      XCTAssertEqual(actual.getComments()!.getCommentList()![0].getText(), "Comment 1" + "\r\n\r\n");
     }
 
     // Test for adding comment.
@@ -97,11 +97,11 @@ class CommentTests: BaseTestContext {
 
       let request = InsertCommentRequest(name: remoteFileName, comment: requestComment, folder: remoteDataFolder);
       let actual = try super.getApi().insertComment(request: request);
-      assert(actual.getComment() != nil);
-      assert(("A new Comment" + "\r\n") == actual.getComment()!.getText());
-      assert(actual.getComment()!.getRangeStart() != nil);
-      assert(actual.getComment()!.getRangeStart()!.getNode() != nil);
-      assert(("0.3.0.4") == actual.getComment()!.getRangeStart()!.getNode()!.getNodeId());
+      XCTAssertNotNil(actual.getComment());
+      XCTAssertEqual(actual.getComment()!.getText(), "A new Comment" + "\r\n");
+      XCTAssertNotNil(actual.getComment()!.getRangeStart());
+      XCTAssertNotNil(actual.getComment()!.getRangeStart()!.getNode());
+      XCTAssertEqual(actual.getComment()!.getRangeStart()!.getNode()!.getNodeId(), "0.3.0.4");
     }
 
     // Test for updating comment.
@@ -134,11 +134,11 @@ class CommentTests: BaseTestContext {
 
       let request = UpdateCommentRequest(name: remoteFileName, commentIndex: 0, comment: requestComment, folder: remoteDataFolder);
       let actual = try super.getApi().updateComment(request: request);
-      assert(actual.getComment() != nil);
-      assert(("A new Comment" + "\r\n") == actual.getComment()!.getText());
-      assert(actual.getComment()!.getRangeStart() != nil);
-      assert(actual.getComment()!.getRangeStart()!.getNode() != nil);
-      assert(("0.3.0.1") == actual.getComment()!.getRangeStart()!.getNode()!.getNodeId());
+      XCTAssertNotNil(actual.getComment());
+      XCTAssertEqual(actual.getComment()!.getText(), "A new Comment" + "\r\n");
+      XCTAssertNotNil(actual.getComment()!.getRangeStart());
+      XCTAssertNotNil(actual.getComment()!.getRangeStart()!.getNode());
+      XCTAssertEqual(actual.getComment()!.getRangeStart()!.getNode()!.getNodeId(), "0.3.0.1");
     }
 
     // A test for DeleteComment.

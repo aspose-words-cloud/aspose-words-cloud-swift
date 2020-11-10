@@ -45,7 +45,7 @@ class DocumentStatisticsTests: BaseTestContext {
 
       let request = GetDocumentStatisticsRequest(name: remoteFileName, folder: remoteDataFolder);
       let actual = try super.getApi().getDocumentStatistics(request: request);
-      assert(actual.getStatData() != nil);
-      assert(10 == actual.getStatData()!.getWordCount());
+      XCTAssertNotNil(actual.getStatData());
+      XCTAssertEqual(actual.getStatData()!.getWordCount(), 10);
     }
 }

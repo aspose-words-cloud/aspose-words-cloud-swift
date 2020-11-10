@@ -51,7 +51,7 @@ class TextTests: BaseTestContext {
 
       let request = ReplaceTextRequest(name: remoteFileName, replaceText: requestReplaceText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().replaceText(request: request);
-      assert(3 == actual.getMatches());
+      XCTAssertEqual(actual.getMatches(), 3);
     }
 
     // Test for searching.
@@ -63,10 +63,10 @@ class TextTests: BaseTestContext {
 
       let request = SearchRequest(name: remoteFileName, pattern: "aspose", folder: remoteDataFolder);
       let actual = try super.getApi().search(request: request);
-      assert(actual.getSearchResults() != nil);
-      assert(actual.getSearchResults()!.getResultsList() != nil);
-      assert(23 == actual.getSearchResults()!.getResultsList()!.count);
-      assert(actual.getSearchResults()!.getResultsList()![0].getRangeStart() != nil);
-      assert(65 == actual.getSearchResults()!.getResultsList()![0].getRangeStart()!.getOffset());
+      XCTAssertNotNil(actual.getSearchResults());
+      XCTAssertNotNil(actual.getSearchResults()!.getResultsList());
+      XCTAssertEqual(actual.getSearchResults()!.getResultsList()!.count, 23);
+      XCTAssertNotNil(actual.getSearchResults()!.getResultsList()![0].getRangeStart());
+      XCTAssertEqual(actual.getSearchResults()!.getResultsList()![0].getRangeStart()!.getOffset(), 65);
     }
 }
