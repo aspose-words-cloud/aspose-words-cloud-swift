@@ -59,7 +59,7 @@ public class Configuration : Codable {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.baseUrl = try container.decode(String.self, forKey: .baseUrl) ?? "https://api.aspose.cloud";
+        self.baseUrl = try container.decodeIfPresent(String.self, forKey: .baseUrl) ?? "https://api.aspose.cloud";
         self.appSid = try container.decode(String.self, forKey: .appSid);
         self.appKey = try container.decode(String.self, forKey: .appKey);
         self.debugMode = try container.decodeIfPresent(Bool.self, forKey: .debugMode);
