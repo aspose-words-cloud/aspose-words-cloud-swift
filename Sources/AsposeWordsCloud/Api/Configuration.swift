@@ -59,10 +59,20 @@ public class Configuration : Codable {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.baseUrl = try container.decode(String.self, forKey: .baseUrl);
+        self.baseUrl = try container.decode(String.self, forKey: .baseUrl) ?? "https://api.aspose.cloud";
         self.appSid = try container.decode(String.self, forKey: .appSid);
         self.appKey = try container.decode(String.self, forKey: .appKey);
         self.debugMode = try container.decodeIfPresent(Bool.self, forKey: .debugMode);
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.baseUrl, forKey: .baseUrl);
+        try container.encode(self.appSid, forKey: .appSid);
+        try container.encode(self.appKey, forKey: .appKey);
+        if (self.debugMode != nil) {
+            try container.encode(self.debugMode, forKey: .debugMode);
+        }
     }
 
     // Returns Aspose.Words for Cloud base URL
