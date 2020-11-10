@@ -220,8 +220,8 @@ class TableTests: BaseTestContext {
       let request = UpdateTablePropertiesRequest(name: remoteFileName, properties: requestProperties, index: 1, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateTableProperties(request: request);
       XCTAssertNotNil(actual.getProperties());
-      XCTAssertFalse(actual.getProperties()!.getAllowAutoFit() == false);
-      XCTAssertTrue(actual.getProperties()!.getBidi());
+      XCTAssertEqual(actual.getProperties()!.getAllowAutoFit(), false);
+      XCTAssertEqual(actual.getProperties()!.getBidi(), true);
       XCTAssertEqual(actual.getProperties()!.getBottomPadding(), 1.0);
       XCTAssertEqual(actual.getProperties()!.getCellSpacing(), 2.0);
     }
@@ -244,8 +244,8 @@ class TableTests: BaseTestContext {
       let request = UpdateTablePropertiesRequest(name: remoteFileName, properties: requestProperties, index: 1, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableProperties(request: request);
       XCTAssertNotNil(actual.getProperties());
-      XCTAssertFalse(actual.getProperties()!.getAllowAutoFit() == false);
-      XCTAssertTrue(actual.getProperties()!.getBidi());
+      XCTAssertEqual(actual.getProperties()!.getAllowAutoFit(), false);
+      XCTAssertEqual(actual.getProperties()!.getBidi(), true);
       XCTAssertEqual(actual.getProperties()!.getBottomPadding(), 1.0);
       XCTAssertEqual(actual.getProperties()!.getCellSpacing(), 2.0);
     }
@@ -299,7 +299,7 @@ class TableTests: BaseTestContext {
       let request = GetTableRowFormatRequest(name: remoteFileName, tablePath: "sections/0/tables/2", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getTableRowFormat(request: request);
       XCTAssertNotNil(actual.getRowFormat());
-      XCTAssertTrue(actual.getRowFormat()!.getAllowBreakAcrossPages());
+      XCTAssertEqual(actual.getRowFormat()!.getAllowBreakAcrossPages(), true);
     }
 
     // Test updating row format.
@@ -318,8 +318,8 @@ class TableTests: BaseTestContext {
       let request = UpdateTableRowFormatRequest(name: remoteFileName, format: requestFormat, tablePath: "sections/0/tables/2", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableRowFormat(request: request);
       XCTAssertNotNil(actual.getRowFormat());
-      XCTAssertTrue(actual.getRowFormat()!.getAllowBreakAcrossPages());
-      XCTAssertTrue(actual.getRowFormat()!.getHeadingFormat());
+      XCTAssertEqual(actual.getRowFormat()!.getAllowBreakAcrossPages(), true);
+      XCTAssertEqual(actual.getRowFormat()!.getHeadingFormat(), true);
       XCTAssertEqual(actual.getRowFormat()!.getHeight(), 10.0);
     }
 
@@ -370,7 +370,7 @@ class TableTests: BaseTestContext {
       let request = GetTableCellFormatRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
       let actual = try super.getApi().getTableCellFormat(request: request);
       XCTAssertNotNil(actual.getCellFormat());
-      XCTAssertTrue(actual.getCellFormat()!.getWrapText());
+      XCTAssertEqual(actual.getCellFormat()!.getWrapText(), true);
     }
 
     // Test for updating cell format.
@@ -390,8 +390,8 @@ class TableTests: BaseTestContext {
       let actual = try super.getApi().updateTableCellFormat(request: request);
       XCTAssertNotNil(actual.getCellFormat());
       XCTAssertEqual(actual.getCellFormat()!.getBottomPadding(), 5.0);
-      XCTAssertTrue(actual.getCellFormat()!.getFitText());
-      XCTAssertTrue(actual.getCellFormat()!.getWrapText());
+      XCTAssertEqual(actual.getCellFormat()!.getFitText(), true);
+      XCTAssertEqual(actual.getCellFormat()!.getWrapText(), true);
     }
 
     // Test for table rendering.

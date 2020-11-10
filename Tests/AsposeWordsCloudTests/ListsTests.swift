@@ -81,7 +81,7 @@ class ListsTests: BaseTestContext {
       let actual = try super.getApi().updateList(request: request);
       XCTAssertNotNil(actual.getList());
       XCTAssertEqual(actual.getList()!.getListId(), 1);
-      XCTAssertTrue(actual.getList()!.getIsRestartAtEachSection());
+      XCTAssertEqual(actual.getList()!.getIsRestartAtEachSection(), true);
     }
 
     // Test for updating list level from document.

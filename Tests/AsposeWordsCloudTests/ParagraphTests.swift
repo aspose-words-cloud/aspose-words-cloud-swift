@@ -172,7 +172,7 @@ class ParagraphTests: BaseTestContext {
       let request = UpdateRunFontRequest(name: remoteFileName, fontDto: requestFontDto, paragraphPath: "paragraphs/0", index: 0, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().updateRunFont(request: request);
       XCTAssertNotNil(actual.getFont());
-      XCTAssertTrue(actual.getFont()!.getBold());
+      XCTAssertEqual(actual.getFont()!.getBold(), true);
     }
 
     // Test for adding paragraph.

@@ -68,7 +68,7 @@ class PageSetupTests: BaseTestContext {
       let request = UpdateSectionPageSetupRequest(name: remoteFileName, sectionIndex: 0, pageSetup: requestPageSetup, folder: remoteDataFolder);
       let actual = try super.getApi().updateSectionPageSetup(request: request);
       XCTAssertNotNil(actual.getPageSetup());
-      XCTAssertTrue(actual.getPageSetup()!.getRtlGutter());
+      XCTAssertEqual(actual.getPageSetup()!.getRtlGutter(), true);
 
 
     }

@@ -122,6 +122,6 @@ class TableBorderTests: BaseTestContext {
       XCTAssertEqual(actual.getBorder()!.getColor()!.getWeb(), "#000002");
       XCTAssertEqual(actual.getBorder()!.getDistanceFromText(), 6.0);
       XCTAssertEqual(actual.getBorder()!.getLineWidth(), 2.0);
-      XCTAssertTrue(actual.getBorder()!.getShadow());
+      XCTAssertEqual(actual.getBorder()!.getShadow(), true);
     }
 }
