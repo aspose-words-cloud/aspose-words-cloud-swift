@@ -33,7 +33,7 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
     private var epubNavigationMapLevel : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case epubNavigationMapLevel;
+        case epubNavigationMapLevel = "EpubNavigationMapLevel";
         case invalidCodingKey;
     }
 

@@ -33,7 +33,7 @@ public class PsSaveOptionsData : FixedPageSaveOptionsData {
     private var useBookFoldPrintingSettings : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case useBookFoldPrintingSettings;
+        case useBookFoldPrintingSettings = "UseBookFoldPrintingSettings";
         case invalidCodingKey;
     }
 

@@ -33,7 +33,7 @@ public class SplitDocumentResponse : WordsResponse {
     private var splitResult : SplitDocumentResult?;
 
     private enum CodingKeys: String, CodingKey {
-        case splitResult;
+        case splitResult = "SplitResult";
         case invalidCodingKey;
     }
 

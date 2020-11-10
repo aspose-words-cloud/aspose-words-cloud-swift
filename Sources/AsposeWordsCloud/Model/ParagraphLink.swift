@@ -33,7 +33,7 @@ public class ParagraphLink : NodeLink {
     private var text : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case text;
+        case text = "Text";
         case invalidCodingKey;
     }
 

@@ -39,9 +39,9 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     private var simplifyListLabels : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case addBidiMarks;
-        case preserveTableLayout;
-        case simplifyListLabels;
+        case addBidiMarks = "AddBidiMarks";
+        case preserveTableLayout = "PreserveTableLayout";
+        case simplifyListLabels = "SimplifyListLabels";
         case invalidCodingKey;
     }
 

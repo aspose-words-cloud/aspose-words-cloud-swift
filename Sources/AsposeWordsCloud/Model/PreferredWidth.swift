@@ -49,8 +49,8 @@ public class PreferredWidth : Codable, WordsApiModel {
     private var value : Double?;
 
     private enum CodingKeys: String, CodingKey {
-        case type;
-        case value;
+        case type = "Type";
+        case value = "Value";
         case invalidCodingKey;
     }
 

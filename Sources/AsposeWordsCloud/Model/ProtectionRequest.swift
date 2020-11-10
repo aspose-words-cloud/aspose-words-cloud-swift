@@ -39,9 +39,9 @@ public class ProtectionRequest : Codable, WordsApiModel {
     private var protectionType : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case newPassword;
-        case password;
-        case protectionType;
+        case newPassword = "NewPassword";
+        case password = "Password";
+        case protectionType = "ProtectionType";
         case invalidCodingKey;
     }
 

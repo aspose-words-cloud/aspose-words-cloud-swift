@@ -36,8 +36,8 @@ public class XmlColor : Codable, WordsApiModel {
     private var web : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case alpha;
-        case web;
+        case alpha = "Alpha";
+        case web = "Web";
         case invalidCodingKey;
     }
 

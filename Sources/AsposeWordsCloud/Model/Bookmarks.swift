@@ -33,7 +33,7 @@ public class Bookmarks : LinkElement {
     private var bookmarkList : [Bookmark]?;
 
     private enum CodingKeys: String, CodingKey {
-        case bookmarkList;
+        case bookmarkList = "BookmarkList";
         case invalidCodingKey;
     }
 

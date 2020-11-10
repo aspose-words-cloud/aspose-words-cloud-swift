@@ -50,7 +50,7 @@ public class MarkdownSaveOptionsData : TxtSaveOptionsBaseData {
     private var tableContentAlignment : TableContentAlignment?;
 
     private enum CodingKeys: String, CodingKey {
-        case tableContentAlignment;
+        case tableContentAlignment = "TableContentAlignment";
         case invalidCodingKey;
     }
 

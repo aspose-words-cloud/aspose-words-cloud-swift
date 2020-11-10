@@ -42,10 +42,10 @@ public class DocSaveOptionsData : SaveOptionsData {
     private var saveRoutingSlip : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case alwaysCompressMetafiles;
-        case password;
-        case savePictureBullet;
-        case saveRoutingSlip;
+        case alwaysCompressMetafiles = "AlwaysCompressMetafiles";
+        case password = "Password";
+        case savePictureBullet = "SavePictureBullet";
+        case saveRoutingSlip = "SaveRoutingSlip";
         case invalidCodingKey;
     }
 

@@ -61,7 +61,7 @@ public class OptimizationOptions : Codable, WordsApiModel {
     private var msWordVersion : MsWordVersion?;
 
     private enum CodingKeys: String, CodingKey {
-        case msWordVersion;
+        case msWordVersion = "MsWordVersion";
         case invalidCodingKey;
     }
 

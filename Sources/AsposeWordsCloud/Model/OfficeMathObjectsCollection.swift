@@ -33,7 +33,7 @@ public class OfficeMathObjectsCollection : LinkElement {
     private var list : [OfficeMathObject]?;
 
     private enum CodingKeys: String, CodingKey {
-        case list;
+        case list = "List";
         case invalidCodingKey;
     }
 

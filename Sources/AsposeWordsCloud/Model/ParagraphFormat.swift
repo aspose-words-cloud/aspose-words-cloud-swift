@@ -36,8 +36,8 @@ public class ParagraphFormat : ParagraphFormatBase {
     private var isListItem : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case isHeading;
-        case isListItem;
+        case isHeading = "IsHeading";
+        case isListItem = "IsListItem";
         case invalidCodingKey;
     }
 

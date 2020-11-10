@@ -34,7 +34,7 @@ public class SectionResponse : WordsResponse {
     private var section : Section?;
 
     private enum CodingKeys: String, CodingKey {
-        case section;
+        case section = "Section";
         case invalidCodingKey;
     }
 

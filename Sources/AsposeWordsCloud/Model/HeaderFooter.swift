@@ -39,9 +39,9 @@ public class HeaderFooter : HeaderFooterLink {
     private var paragraphs : LinkElement?;
 
     private enum CodingKeys: String, CodingKey {
-        case childNodes;
-        case drawingObjects;
-        case paragraphs;
+        case childNodes = "ChildNodes";
+        case drawingObjects = "DrawingObjects";
+        case paragraphs = "Paragraphs";
         case invalidCodingKey;
     }
 

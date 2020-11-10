@@ -42,10 +42,10 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     private var userPassword : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case encryptionAlgorithm;
-        case ownerPassword;
-        case permissions;
-        case userPassword;
+        case encryptionAlgorithm = "EncryptionAlgorithm";
+        case ownerPassword = "OwnerPassword";
+        case permissions = "Permissions";
+        case userPassword = "UserPassword";
         case invalidCodingKey;
     }
 

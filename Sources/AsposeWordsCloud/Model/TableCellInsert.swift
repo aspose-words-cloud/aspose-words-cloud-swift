@@ -33,7 +33,7 @@ public class TableCellInsert : Codable, WordsApiModel {
     private var insertAfter : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case insertAfter;
+        case insertAfter = "InsertAfter";
         case invalidCodingKey;
     }
 

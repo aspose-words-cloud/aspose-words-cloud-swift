@@ -39,9 +39,9 @@ public class DocumentProperty : LinkElement {
     private var value : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case builtIn;
-        case name;
-        case value;
+        case builtIn = "BuiltIn";
+        case name = "Name";
+        case value = "Value";
         case invalidCodingKey;
     }
 

@@ -33,7 +33,7 @@ public class FootnoteCollection : LinkElement {
     private var list : [Footnote]?;
 
     private enum CodingKeys: String, CodingKey {
-        case list;
+        case list = "List";
         case invalidCodingKey;
     }
 

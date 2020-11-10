@@ -33,7 +33,7 @@ public class ListUpdate : Codable, WordsApiModel {
     private var isRestartAtEachSection : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case isRestartAtEachSection;
+        case isRestartAtEachSection = "IsRestartAtEachSection";
         case invalidCodingKey;
     }
 

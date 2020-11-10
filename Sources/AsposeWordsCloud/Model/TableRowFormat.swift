@@ -55,10 +55,10 @@ public class TableRowFormat : LinkElement {
     private var heightRule : HeightRule?;
 
     private enum CodingKeys: String, CodingKey {
-        case allowBreakAcrossPages;
-        case headingFormat;
-        case height;
-        case heightRule;
+        case allowBreakAcrossPages = "AllowBreakAcrossPages";
+        case headingFormat = "HeadingFormat";
+        case height = "Height";
+        case heightRule = "HeightRule";
         case invalidCodingKey;
     }
 

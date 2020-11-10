@@ -70,16 +70,16 @@ public class SaveOptionsData : Codable, WordsApiModel {
     private var zipOutput : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case dml3DEffectsRenderingMode;
-        case dmlEffectsRenderingMode;
-        case dmlRenderingMode;
-        case fileName;
-        case saveFormat;
-        case updateFields;
-        case updateLastPrintedProperty;
-        case updateLastSavedTimeProperty;
-        case updateSdtContent;
-        case zipOutput;
+        case dml3DEffectsRenderingMode = "Dml3DEffectsRenderingMode";
+        case dmlEffectsRenderingMode = "DmlEffectsRenderingMode";
+        case dmlRenderingMode = "DmlRenderingMode";
+        case fileName = "FileName";
+        case saveFormat = "SaveFormat";
+        case updateFields = "UpdateFields";
+        case updateLastPrintedProperty = "UpdateLastPrintedProperty";
+        case updateLastSavedTimeProperty = "UpdateLastSavedTimeProperty";
+        case updateSdtContent = "UpdateSdtContent";
+        case zipOutput = "ZipOutput";
         case invalidCodingKey;
     }
 

@@ -1202,17 +1202,17 @@ public class Style : LinkElement {
     private var type : ModelType?;
 
     private enum CodingKeys: String, CodingKey {
-        case aliases;
-        case baseStyleName;
-        case builtIn;
-        case font;
-        case isHeading;
-        case isQuickStyle;
-        case linkedStyleName;
-        case name;
-        case nextParagraphStyleName;
-        case styleIdentifier;
-        case type;
+        case aliases = "Aliases";
+        case baseStyleName = "BaseStyleName";
+        case builtIn = "BuiltIn";
+        case font = "Font";
+        case isHeading = "IsHeading";
+        case isQuickStyle = "IsQuickStyle";
+        case linkedStyleName = "LinkedStyleName";
+        case name = "Name";
+        case nextParagraphStyleName = "NextParagraphStyleName";
+        case styleIdentifier = "StyleIdentifier";
+        case type = "Type";
         case invalidCodingKey;
     }
 

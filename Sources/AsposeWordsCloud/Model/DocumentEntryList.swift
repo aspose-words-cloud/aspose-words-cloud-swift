@@ -36,8 +36,8 @@ public class DocumentEntryList : Codable, WordsApiModel {
     private var documentEntries : [DocumentEntry]?;
 
     private enum CodingKeys: String, CodingKey {
-        case applyBaseDocumentHeadersAndFootersToAppendingDocuments;
-        case documentEntries;
+        case applyBaseDocumentHeadersAndFootersToAppendingDocuments = "ApplyBaseDocumentHeadersAndFootersToAppendingDocuments";
+        case documentEntries = "DocumentEntries";
         case invalidCodingKey;
     }
 

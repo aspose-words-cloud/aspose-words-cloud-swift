@@ -34,7 +34,7 @@ public class RangeTextResponse : WordsResponse {
     private var text : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case text;
+        case text = "Text";
         case invalidCodingKey;
     }
 

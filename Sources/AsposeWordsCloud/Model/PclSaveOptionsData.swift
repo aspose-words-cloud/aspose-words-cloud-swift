@@ -36,8 +36,8 @@ public class PclSaveOptionsData : FixedPageSaveOptionsData {
     private var rasterizeTransformedElements : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case falllbackFontName;
-        case rasterizeTransformedElements;
+        case falllbackFontName = "FalllbackFontName";
+        case rasterizeTransformedElements = "RasterizeTransformedElements";
         case invalidCodingKey;
     }
 

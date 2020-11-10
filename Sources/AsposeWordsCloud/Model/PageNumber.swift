@@ -42,10 +42,10 @@ public class PageNumber : Codable, WordsApiModel {
     private var setPageNumberOnFirstPage : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case alignment;
-        case format;
-        case isTop;
-        case setPageNumberOnFirstPage;
+        case alignment = "Alignment";
+        case format = "Format";
+        case isTop = "IsTop";
+        case setPageNumberOnFirstPage = "SetPageNumberOnFirstPage";
         case invalidCodingKey;
     }
 

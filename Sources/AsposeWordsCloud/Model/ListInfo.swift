@@ -51,13 +51,13 @@ public class ListInfo : LinkElement {
     private var style : Style?;
 
     private enum CodingKeys: String, CodingKey {
-        case isListStyleDefinition;
-        case isListStyleReference;
-        case isMultiLevel;
-        case isRestartAtEachSection;
-        case listId;
-        case listLevels;
-        case style;
+        case isListStyleDefinition = "IsListStyleDefinition";
+        case isListStyleReference = "IsListStyleReference";
+        case isMultiLevel = "IsMultiLevel";
+        case isRestartAtEachSection = "IsRestartAtEachSection";
+        case listId = "ListId";
+        case listLevels = "ListLevels";
+        case style = "Style";
         case invalidCodingKey;
     }
 

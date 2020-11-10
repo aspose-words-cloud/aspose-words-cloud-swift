@@ -64,10 +64,10 @@ public class FormFieldTextInput : FormField {
     private var textInputType : TextInputType?;
 
     private enum CodingKeys: String, CodingKey {
-        case maxLength;
-        case textInputDefault;
-        case textInputFormat;
-        case textInputType;
+        case maxLength = "MaxLength";
+        case textInputDefault = "TextInputDefault";
+        case textInputFormat = "TextInputFormat";
+        case textInputType = "TextInputType";
         case invalidCodingKey;
     }
 

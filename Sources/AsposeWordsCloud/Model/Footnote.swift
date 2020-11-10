@@ -55,11 +55,11 @@ public class Footnote : FootnoteLink {
     private var text : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case content;
-        case footnoteType;
-        case position;
-        case referenceMark;
-        case text;
+        case content = "Content";
+        case footnoteType = "FootnoteType";
+        case position = "Position";
+        case referenceMark = "ReferenceMark";
+        case text = "Text";
         case invalidCodingKey;
     }
 

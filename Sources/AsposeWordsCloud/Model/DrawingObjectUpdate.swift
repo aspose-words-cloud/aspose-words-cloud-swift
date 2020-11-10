@@ -138,13 +138,13 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     private var wrapType : WrapType?;
 
     private enum CodingKeys: String, CodingKey {
-        case height;
-        case _left;
-        case relativeHorizontalPosition;
-        case relativeVerticalPosition;
-        case top;
-        case width;
-        case wrapType;
+        case height = "Height";
+        case _left = "Left";
+        case relativeHorizontalPosition = "RelativeHorizontalPosition";
+        case relativeVerticalPosition = "RelativeVerticalPosition";
+        case top = "Top";
+        case width = "Width";
+        case wrapType = "WrapType";
         case invalidCodingKey;
     }
 

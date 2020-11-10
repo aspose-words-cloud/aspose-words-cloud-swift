@@ -119,31 +119,31 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     private var zoomFactor : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case compliance;
-        case createNoteHyperlinks;
-        case customPropertiesExport;
-        case digitalSignatureDetails;
-        case displayDocTitle;
-        case downsampleOptions;
-        case embedFullFonts;
-        case encryptionDetails;
-        case escapeUri;
-        case exportDocumentStructure;
-        case fontEmbeddingMode;
-        case headerFooterBookmarksExportMode;
-        case imageColorSpaceExportMode;
-        case imageCompression;
-        case interpolateImages;
-        case openHyperlinksInNewWindow;
-        case outlineOptions;
-        case pageMode;
-        case preblendImages;
-        case preserveFormFields;
-        case textCompression;
-        case useBookFoldPrintingSettings;
-        case useCoreFonts;
-        case zoomBehavior;
-        case zoomFactor;
+        case compliance = "Compliance";
+        case createNoteHyperlinks = "CreateNoteHyperlinks";
+        case customPropertiesExport = "CustomPropertiesExport";
+        case digitalSignatureDetails = "DigitalSignatureDetails";
+        case displayDocTitle = "DisplayDocTitle";
+        case downsampleOptions = "DownsampleOptions";
+        case embedFullFonts = "EmbedFullFonts";
+        case encryptionDetails = "EncryptionDetails";
+        case escapeUri = "EscapeUri";
+        case exportDocumentStructure = "ExportDocumentStructure";
+        case fontEmbeddingMode = "FontEmbeddingMode";
+        case headerFooterBookmarksExportMode = "HeaderFooterBookmarksExportMode";
+        case imageColorSpaceExportMode = "ImageColorSpaceExportMode";
+        case imageCompression = "ImageCompression";
+        case interpolateImages = "InterpolateImages";
+        case openHyperlinksInNewWindow = "OpenHyperlinksInNewWindow";
+        case outlineOptions = "OutlineOptions";
+        case pageMode = "PageMode";
+        case preblendImages = "PreblendImages";
+        case preserveFormFields = "PreserveFormFields";
+        case textCompression = "TextCompression";
+        case useBookFoldPrintingSettings = "UseBookFoldPrintingSettings";
+        case useCoreFonts = "UseCoreFonts";
+        case zoomBehavior = "ZoomBehavior";
+        case zoomFactor = "ZoomFactor";
         case invalidCodingKey;
     }
 

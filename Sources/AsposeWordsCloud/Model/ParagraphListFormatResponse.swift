@@ -34,7 +34,7 @@ public class ParagraphListFormatResponse : WordsResponse {
     private var listFormat : ListFormat?;
 
     private enum CodingKeys: String, CodingKey {
-        case listFormat;
+        case listFormat = "ListFormat";
         case invalidCodingKey;
     }
 

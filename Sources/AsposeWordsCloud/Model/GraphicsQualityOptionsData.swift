@@ -155,12 +155,12 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
     private var textRenderingHint : TextRenderingHint?;
 
     private enum CodingKeys: String, CodingKey {
-        case compositingMode;
-        case compositingQuality;
-        case interpolationMode;
-        case smoothingMode;
-        case stringFormat;
-        case textRenderingHint;
+        case compositingMode = "CompositingMode";
+        case compositingQuality = "CompositingQuality";
+        case interpolationMode = "InterpolationMode";
+        case smoothingMode = "SmoothingMode";
+        case stringFormat = "StringFormat";
+        case textRenderingHint = "TextRenderingHint";
         case invalidCodingKey;
     }
 

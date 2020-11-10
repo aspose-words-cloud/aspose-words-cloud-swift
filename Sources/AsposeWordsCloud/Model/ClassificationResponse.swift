@@ -40,9 +40,9 @@ public class ClassificationResponse : WordsResponse {
     private var bestResults : [ClassificationResult]?;
 
     private enum CodingKeys: String, CodingKey {
-        case bestClassName;
-        case bestClassProbability;
-        case bestResults;
+        case bestClassName = "BestClassName";
+        case bestClassProbability = "BestClassProbability";
+        case bestResults = "BestResults";
         case invalidCodingKey;
     }
 

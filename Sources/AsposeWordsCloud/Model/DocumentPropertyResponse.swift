@@ -33,7 +33,7 @@ public class DocumentPropertyResponse : WordsResponse {
     private var documentProperty : DocumentProperty?;
 
     private enum CodingKeys: String, CodingKey {
-        case documentProperty;
+        case documentProperty = "DocumentProperty";
         case invalidCodingKey;
     }
 

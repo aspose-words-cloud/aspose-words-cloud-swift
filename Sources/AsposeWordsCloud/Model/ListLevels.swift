@@ -33,7 +33,7 @@ public class ListLevels : LinkElement {
     private var listLevel : [ListLevel]?;
 
     private enum CodingKeys: String, CodingKey {
-        case listLevel;
+        case listLevel = "ListLevel";
         case invalidCodingKey;
     }
 

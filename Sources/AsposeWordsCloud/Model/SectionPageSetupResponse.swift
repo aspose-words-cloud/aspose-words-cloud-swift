@@ -34,7 +34,7 @@ public class SectionPageSetupResponse : WordsResponse {
     private var pageSetup : PageSetup?;
 
     private enum CodingKeys: String, CodingKey {
-        case pageSetup;
+        case pageSetup = "PageSetup";
         case invalidCodingKey;
     }
 

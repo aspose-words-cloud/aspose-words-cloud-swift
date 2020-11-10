@@ -36,8 +36,8 @@ public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
     private var resourcesFolderAlias : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case resourcesFolder;
-        case resourcesFolderAlias;
+        case resourcesFolder = "ResourcesFolder";
+        case resourcesFolderAlias = "ResourcesFolderAlias";
         case invalidCodingKey;
     }
 

@@ -56,10 +56,10 @@ public class TxtSaveOptionsBaseData : SaveOptionsData {
     private var paragraphBreak : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case encoding;
-        case exportHeadersFootersMode;
-        case forcePageBreaks;
-        case paragraphBreak;
+        case encoding = "Encoding";
+        case exportHeadersFootersMode = "ExportHeadersFootersMode";
+        case forcePageBreaks = "ForcePageBreaks";
+        case paragraphBreak = "ParagraphBreak";
         case invalidCodingKey;
     }
 

@@ -42,10 +42,10 @@ public class InternalError : Codable, WordsApiModel {
     private var message : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case code;
-        case description;
-        case innerError;
-        case message;
+        case code = "Code";
+        case description = "Description";
+        case innerError = "InnerError";
+        case message = "Message";
         case invalidCodingKey;
     }
 

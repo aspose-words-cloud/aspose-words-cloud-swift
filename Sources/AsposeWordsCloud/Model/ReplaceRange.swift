@@ -46,8 +46,8 @@ public class ReplaceRange : Codable, WordsApiModel {
     private var textType : TextType?;
 
     private enum CodingKeys: String, CodingKey {
-        case text;
-        case textType;
+        case text = "Text";
+        case textType = "TextType";
         case invalidCodingKey;
     }
 

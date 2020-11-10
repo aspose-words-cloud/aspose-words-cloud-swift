@@ -34,7 +34,7 @@ public class RunResponse : WordsResponse {
     private var run : Run?;
 
     private enum CodingKeys: String, CodingKey {
-        case run;
+        case run = "Run";
         case invalidCodingKey;
     }
 

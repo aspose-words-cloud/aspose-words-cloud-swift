@@ -36,8 +36,8 @@ public class DocumentPosition : Codable, WordsApiModel {
     private var offset : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case node;
-        case offset;
+        case node = "Node";
+        case offset = "Offset";
         case invalidCodingKey;
     }
 

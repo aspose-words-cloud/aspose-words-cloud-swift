@@ -33,7 +33,7 @@ public class CommentsCollection : LinkElement {
     private var commentList : [Comment]?;
 
     private enum CodingKeys: String, CodingKey {
-        case commentList;
+        case commentList = "CommentList";
         case invalidCodingKey;
     }
 

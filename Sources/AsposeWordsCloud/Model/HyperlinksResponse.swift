@@ -33,7 +33,7 @@ public class HyperlinksResponse : WordsResponse {
     private var hyperlinks : Hyperlinks?;
 
     private enum CodingKeys: String, CodingKey {
-        case hyperlinks;
+        case hyperlinks = "Hyperlinks";
         case invalidCodingKey;
     }
 

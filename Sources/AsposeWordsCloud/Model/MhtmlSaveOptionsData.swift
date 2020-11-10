@@ -33,7 +33,7 @@ public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
     private var exportCidUrlsForMhtmlResources : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case exportCidUrlsForMhtmlResources;
+        case exportCidUrlsForMhtmlResources = "ExportCidUrlsForMhtmlResources";
         case invalidCodingKey;
     }
 

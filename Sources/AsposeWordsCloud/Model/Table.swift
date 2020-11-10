@@ -36,8 +36,8 @@ public class Table : NodeLink {
     private var tableRowList : [TableRow]?;
 
     private enum CodingKeys: String, CodingKey {
-        case tableProperties;
-        case tableRowList;
+        case tableProperties = "TableProperties";
+        case tableRowList = "TableRowList";
         case invalidCodingKey;
     }
 

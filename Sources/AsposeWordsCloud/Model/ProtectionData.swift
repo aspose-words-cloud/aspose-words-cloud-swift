@@ -33,7 +33,7 @@ public class ProtectionData : Codable, WordsApiModel {
     private var protectionType : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case protectionType;
+        case protectionType = "ProtectionType";
         case invalidCodingKey;
     }
 

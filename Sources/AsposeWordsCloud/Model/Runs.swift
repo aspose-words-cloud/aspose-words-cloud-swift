@@ -33,7 +33,7 @@ public class Runs : LinkElement {
     private var list : [Run]?;
 
     private enum CodingKeys: String, CodingKey {
-        case list;
+        case list = "List";
         case invalidCodingKey;
     }
 

@@ -205,9 +205,9 @@ public class Shading : Codable, WordsApiModel {
     private var texture : Texture?;
 
     private enum CodingKeys: String, CodingKey {
-        case backgroundPatternColor;
-        case foregroundPatternColor;
-        case texture;
+        case backgroundPatternColor = "BackgroundPatternColor";
+        case foregroundPatternColor = "ForegroundPatternColor";
+        case texture = "Texture";
         case invalidCodingKey;
     }
 

@@ -36,8 +36,8 @@ public class BookmarkData : Codable, WordsApiModel {
     private var text : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case name;
-        case text;
+        case name = "Name";
+        case text = "Text";
         case invalidCodingKey;
     }
 

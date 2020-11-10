@@ -1322,32 +1322,32 @@ public class ParagraphFormatBase : LinkElement {
     private var widowControl : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case addSpaceBetweenFarEastAndAlpha;
-        case addSpaceBetweenFarEastAndDigit;
-        case alignment;
-        case bidi;
-        case dropCapPosition;
-        case firstLineIndent;
-        case keepTogether;
-        case keepWithNext;
-        case leftIndent;
-        case lineSpacing;
-        case lineSpacingRule;
-        case linesToDrop;
-        case noSpaceBetweenParagraphsOfSameStyle;
-        case outlineLevel;
-        case pageBreakBefore;
-        case rightIndent;
-        case shading;
-        case spaceAfter;
-        case spaceAfterAuto;
-        case spaceBefore;
-        case spaceBeforeAuto;
-        case styleIdentifier;
-        case styleName;
-        case suppressAutoHyphens;
-        case suppressLineNumbers;
-        case widowControl;
+        case addSpaceBetweenFarEastAndAlpha = "AddSpaceBetweenFarEastAndAlpha";
+        case addSpaceBetweenFarEastAndDigit = "AddSpaceBetweenFarEastAndDigit";
+        case alignment = "Alignment";
+        case bidi = "Bidi";
+        case dropCapPosition = "DropCapPosition";
+        case firstLineIndent = "FirstLineIndent";
+        case keepTogether = "KeepTogether";
+        case keepWithNext = "KeepWithNext";
+        case leftIndent = "LeftIndent";
+        case lineSpacing = "LineSpacing";
+        case lineSpacingRule = "LineSpacingRule";
+        case linesToDrop = "LinesToDrop";
+        case noSpaceBetweenParagraphsOfSameStyle = "NoSpaceBetweenParagraphsOfSameStyle";
+        case outlineLevel = "OutlineLevel";
+        case pageBreakBefore = "PageBreakBefore";
+        case rightIndent = "RightIndent";
+        case shading = "Shading";
+        case spaceAfter = "SpaceAfter";
+        case spaceAfterAuto = "SpaceAfterAuto";
+        case spaceBefore = "SpaceBefore";
+        case spaceBeforeAuto = "SpaceBeforeAuto";
+        case styleIdentifier = "StyleIdentifier";
+        case styleName = "StyleName";
+        case suppressAutoHyphens = "SuppressAutoHyphens";
+        case suppressLineNumbers = "SuppressLineNumbers";
+        case widowControl = "WidowControl";
         case invalidCodingKey;
     }
 

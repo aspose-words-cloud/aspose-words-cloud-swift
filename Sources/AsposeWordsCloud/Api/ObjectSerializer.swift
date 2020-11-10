@@ -245,11 +245,6 @@ class ObjectSerializer {
     private static let customEncoder: JSONEncoder = {
         let encoder = JSONEncoder();
         encoder.dateEncodingStrategy = .formatted(customIso8601);
-        encoder.keyEncodingStrategy = .custom { keys in
-            let oldKey = keys.last!.stringValue;
-            let newKey = oldKey.prefix(1).uppercased() + oldKey.dropFirst();
-            return CustomKey(stringValue: newKey)!;
-        };
         return encoder;
     }();
 
@@ -257,14 +252,6 @@ class ObjectSerializer {
     private static let customDecoder: JSONDecoder = {
         let decoder = JSONDecoder();
         decoder.dateDecodingStrategy = .formatted(customIso8601);
-        decoder.keyDecodingStrategy = .custom { keys in
-            let oldKey = keys.last!.stringValue;
-            var newKey = oldKey.prefix(1).lowercased() + oldKey.dropFirst();
-            if (newKey == "none" || newKey == "default" || newKey == "subscript" || newKey == "nil" || newKey == "left" || newKey == "right") {
-                newKey = "_" + newKey;
-            }
-            return CustomKey(stringValue: newKey)!;
-        };
         return decoder;
     }();
 }

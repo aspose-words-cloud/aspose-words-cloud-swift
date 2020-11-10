@@ -55,7 +55,7 @@ public class HeaderFooterLink : LinkElement {
     private var type : ModelType?;
 
     private enum CodingKeys: String, CodingKey {
-        case type;
+        case type = "Type";
         case invalidCodingKey;
     }
 

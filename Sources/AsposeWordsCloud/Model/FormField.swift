@@ -57,15 +57,15 @@ public class FormField : NodeLink {
     private var statusText : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case calculateOnExit;
-        case enabled;
-        case entryMacro;
-        case exitMacro;
-        case helpText;
-        case name;
-        case ownHelp;
-        case ownStatus;
-        case statusText;
+        case calculateOnExit = "CalculateOnExit";
+        case enabled = "Enabled";
+        case entryMacro = "EntryMacro";
+        case exitMacro = "ExitMacro";
+        case helpText = "HelpText";
+        case name = "Name";
+        case ownHelp = "OwnHelp";
+        case ownStatus = "OwnStatus";
+        case statusText = "StatusText";
         case invalidCodingKey;
     }
 

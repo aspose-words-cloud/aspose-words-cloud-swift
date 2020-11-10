@@ -39,9 +39,9 @@ public class FormFieldCheckbox : FormField {
     private var isCheckBoxExactSize : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case checkBoxSize;
-        case checked;
-        case isCheckBoxExactSize;
+        case checkBoxSize = "CheckBoxSize";
+        case checked = "Checked";
+        case isCheckBoxExactSize = "IsCheckBoxExactSize";
         case invalidCodingKey;
     }
 

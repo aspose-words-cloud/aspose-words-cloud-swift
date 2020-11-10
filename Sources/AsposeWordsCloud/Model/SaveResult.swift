@@ -39,9 +39,9 @@ public class SaveResult : Codable, WordsApiModel {
     private var sourceDocument : FileLink?;
 
     private enum CodingKeys: String, CodingKey {
-        case additionalItems;
-        case destDocument;
-        case sourceDocument;
+        case additionalItems = "AdditionalItems";
+        case destDocument = "DestDocument";
+        case sourceDocument = "SourceDocument";
         case invalidCodingKey;
     }
 

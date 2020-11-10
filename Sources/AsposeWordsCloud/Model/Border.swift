@@ -164,12 +164,12 @@ public class Border : LinkElement {
     private var shadow : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case borderType;
-        case color;
-        case distanceFromText;
-        case lineStyle;
-        case lineWidth;
-        case shadow;
+        case borderType = "BorderType";
+        case color = "Color";
+        case distanceFromText = "DistanceFromText";
+        case lineStyle = "LineStyle";
+        case lineWidth = "LineWidth";
+        case shadow = "Shadow";
         case invalidCodingKey;
     }
 

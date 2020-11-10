@@ -127,18 +127,18 @@ public class TableCellFormat : LinkElement {
     private var wrapText : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case bottomPadding;
-        case fitText;
-        case horizontalMerge;
-        case leftPadding;
-        case orientation;
-        case preferredWidth;
-        case rightPadding;
-        case topPadding;
-        case verticalAlignment;
-        case verticalMerge;
-        case width;
-        case wrapText;
+        case bottomPadding = "BottomPadding";
+        case fitText = "FitText";
+        case horizontalMerge = "HorizontalMerge";
+        case leftPadding = "LeftPadding";
+        case orientation = "Orientation";
+        case preferredWidth = "PreferredWidth";
+        case rightPadding = "RightPadding";
+        case topPadding = "TopPadding";
+        case verticalAlignment = "VerticalAlignment";
+        case verticalMerge = "VerticalMerge";
+        case width = "Width";
+        case wrapText = "WrapText";
         case invalidCodingKey;
     }
 

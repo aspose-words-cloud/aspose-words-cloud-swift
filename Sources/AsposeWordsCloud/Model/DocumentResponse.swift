@@ -33,7 +33,7 @@ public class DocumentResponse : WordsResponse {
     private var document : Document?;
 
     private enum CodingKeys: String, CodingKey {
-        case document;
+        case document = "Document";
         case invalidCodingKey;
     }
 

@@ -36,8 +36,8 @@ public class FootnotesStatData : Codable, WordsApiModel {
     private var wordCount : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case paragraphCount;
-        case wordCount;
+        case paragraphCount = "ParagraphCount";
+        case wordCount = "WordCount";
         case invalidCodingKey;
     }
 

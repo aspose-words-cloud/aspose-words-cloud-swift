@@ -36,8 +36,8 @@ public class SearchResult : Codable, WordsApiModel {
     private var rangeStart : DocumentPosition?;
 
     private enum CodingKeys: String, CodingKey {
-        case rangeEnd;
-        case rangeStart;
+        case rangeEnd = "RangeEnd";
+        case rangeStart = "RangeStart";
         case invalidCodingKey;
     }
 

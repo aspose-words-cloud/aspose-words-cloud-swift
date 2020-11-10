@@ -33,7 +33,7 @@ public class TableCell : NodeLink {
     private var childNodes : [NodeLink]?;
 
     private enum CodingKeys: String, CodingKey {
-        case childNodes;
+        case childNodes = "ChildNodes";
         case invalidCodingKey;
     }
 

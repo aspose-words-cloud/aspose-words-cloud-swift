@@ -34,7 +34,7 @@ public class CommentsResponse : WordsResponse {
     private var comments : CommentsCollection?;
 
     private enum CodingKeys: String, CodingKey {
-        case comments;
+        case comments = "Comments";
         case invalidCodingKey;
     }
 

@@ -48,12 +48,12 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     private var textOutputMode : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case exportEmbeddedImages;
-        case fitToViewPort;
-        case resourcesFolder;
-        case resourcesFolderAlias;
-        case showPageBorder;
-        case textOutputMode;
+        case exportEmbeddedImages = "ExportEmbeddedImages";
+        case fitToViewPort = "FitToViewPort";
+        case resourcesFolder = "ResourcesFolder";
+        case resourcesFolderAlias = "ResourcesFolderAlias";
+        case showPageBorder = "ShowPageBorder";
+        case textOutputMode = "TextOutputMode";
         case invalidCodingKey;
     }
 

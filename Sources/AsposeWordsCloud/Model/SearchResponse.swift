@@ -37,8 +37,8 @@ public class SearchResponse : WordsResponse {
     private var searchResults : SearchResultsCollection?;
 
     private enum CodingKeys: String, CodingKey {
-        case searchingPattern;
-        case searchResults;
+        case searchingPattern = "SearchingPattern";
+        case searchResults = "SearchResults";
         case invalidCodingKey;
     }
 

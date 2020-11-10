@@ -86,9 +86,9 @@ public class TabStopBase : Codable, WordsApiModel {
     private var position : Double?;
 
     private enum CodingKeys: String, CodingKey {
-        case alignment;
-        case leader;
-        case position;
+        case alignment = "Alignment";
+        case leader = "Leader";
+        case position = "Position";
         case invalidCodingKey;
     }
 

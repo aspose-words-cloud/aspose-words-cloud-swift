@@ -39,9 +39,9 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     private var zippedPages : FileLink?;
 
     private enum CodingKeys: String, CodingKey {
-        case pages;
-        case sourceDocument;
-        case zippedPages;
+        case pages = "Pages";
+        case sourceDocument = "SourceDocument";
+        case zippedPages = "ZippedPages";
         case invalidCodingKey;
     }
 

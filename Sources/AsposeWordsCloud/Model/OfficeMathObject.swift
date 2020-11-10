@@ -169,10 +169,10 @@ public class OfficeMathObject : OfficeMathLink {
     private var mathObjectType : MathObjectType?;
 
     private enum CodingKeys: String, CodingKey {
-        case content;
-        case displayType;
-        case justification;
-        case mathObjectType;
+        case content = "Content";
+        case displayType = "DisplayType";
+        case justification = "Justification";
+        case mathObjectType = "MathObjectType";
         case invalidCodingKey;
     }
 

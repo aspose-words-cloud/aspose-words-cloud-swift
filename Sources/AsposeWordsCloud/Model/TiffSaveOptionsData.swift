@@ -39,9 +39,9 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     private var tiffCompression : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case thresholdForFloydSteinbergDithering;
-        case tiffBinarizationMethod;
-        case tiffCompression;
+        case thresholdForFloydSteinbergDithering = "ThresholdForFloydSteinbergDithering";
+        case tiffBinarizationMethod = "TiffBinarizationMethod";
+        case tiffCompression = "TiffCompression";
         case invalidCodingKey;
     }
 

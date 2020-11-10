@@ -36,8 +36,8 @@ public class ModificationOperationResult : Codable, WordsApiModel {
     private var source : FileLink?;
 
     private enum CodingKeys: String, CodingKey {
-        case dest;
-        case source;
+        case dest = "Dest";
+        case source = "Source";
         case invalidCodingKey;
     }
 

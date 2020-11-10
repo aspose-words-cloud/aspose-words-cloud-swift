@@ -34,7 +34,7 @@ public class TabStopsResponse : WordsResponse {
     private var tabStops : [TabStop]?;
 
     private enum CodingKeys: String, CodingKey {
-        case tabStops;
+        case tabStops = "TabStops";
         case invalidCodingKey;
     }
 

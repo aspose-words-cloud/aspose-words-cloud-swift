@@ -103,7 +103,7 @@ public class ListInsert : Codable, WordsApiModel {
     private var template : Template?;
 
     private enum CodingKeys: String, CodingKey {
-        case template;
+        case template = "Template";
         case invalidCodingKey;
     }
 

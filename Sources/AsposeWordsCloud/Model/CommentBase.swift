@@ -48,12 +48,12 @@ public class CommentBase : Codable, WordsApiModel {
     private var text : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case author;
-        case dateTime;
-        case initial;
-        case rangeEnd;
-        case rangeStart;
-        case text;
+        case author = "Author";
+        case dateTime = "DateTime";
+        case initial = "Initial";
+        case rangeEnd = "RangeEnd";
+        case rangeStart = "RangeStart";
+        case text = "Text";
         case invalidCodingKey;
     }
 

@@ -33,7 +33,7 @@ public class FieldLink : NodeLink {
     private var fieldCode : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case fieldCode;
+        case fieldCode = "FieldCode";
         case invalidCodingKey;
     }
 

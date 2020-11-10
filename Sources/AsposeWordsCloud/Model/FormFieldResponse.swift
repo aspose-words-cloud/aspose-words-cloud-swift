@@ -34,7 +34,7 @@ public class FormFieldResponse : WordsResponse {
     private var formField : FormField?;
 
     private enum CodingKeys: String, CodingKey {
-        case formField;
+        case formField = "FormField";
         case invalidCodingKey;
     }
 

@@ -34,7 +34,7 @@ public class TableLinkCollectionResponse : WordsResponse {
     private var tables : TableLinkCollection?;
 
     private enum CodingKeys: String, CodingKey {
-        case tables;
+        case tables = "Tables";
         case invalidCodingKey;
     }
 

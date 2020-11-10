@@ -34,7 +34,7 @@ public class SectionLinkCollectionResponse : WordsResponse {
     private var sections : SectionLinkCollection?;
 
     private enum CodingKeys: String, CodingKey {
-        case sections;
+        case sections = "Sections";
         case invalidCodingKey;
     }
 

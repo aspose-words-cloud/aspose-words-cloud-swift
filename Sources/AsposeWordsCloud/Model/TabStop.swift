@@ -33,7 +33,7 @@ public class TabStop : TabStopBase {
     private var isClear : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case isClear;
+        case isClear = "IsClear";
         case invalidCodingKey;
     }
 
