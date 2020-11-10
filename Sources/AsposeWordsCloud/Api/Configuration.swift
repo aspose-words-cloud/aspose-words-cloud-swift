@@ -41,12 +41,28 @@ public class Configuration : Codable {
     // Indicating whether debug mode
     private var debugMode: Bool?;
 
+    private enum CodingKeys: String, CodingKey {
+        case baseUrl = "BaseUrl";
+        case appSid = "AppSid";
+        case appKey = "AppKey";
+        case debugMode = "DebugMode";
+        case invalidCodingKey;
+    }
+
     // Initialize new instance of Aspose.Words for Cloud configuration object with given parameters
     public init(appSid: String, appKey: String, baseUrl: String = "https://api.aspose.cloud", debugMode: Bool = false) {
         self.appSid = appSid;
         self.appKey = appKey;
         self.baseUrl = baseUrl;
         self.debugMode = debugMode;
+    }
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.baseUrl = try container.decode(String.self, forKey: .baseUrl);
+        self.appSid = try container.decode(String.self, forKey: .appSid);
+        self.appKey = try container.decode(String.self, forKey: .appKey);
+        self.debugMode = try container.decodeIfPresent(Bool.self, forKey: .debugMode);
     }
 
     // Returns Aspose.Words for Cloud base URL
