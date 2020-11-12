@@ -34,7 +34,7 @@ public class StyleResponse : WordsResponse {
     private var style : Style?;
 
     private enum CodingKeys: String, CodingKey {
-        case style;
+        case style = "Style";
         case invalidCodingKey;
     }
 

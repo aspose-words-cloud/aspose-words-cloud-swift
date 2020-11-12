@@ -33,7 +33,7 @@ public class Lists : LinkElement {
     private var listInfo : [ListInfo]?;
 
     private enum CodingKeys: String, CodingKey {
-        case listInfo;
+        case listInfo = "ListInfo";
         case invalidCodingKey;
     }
 

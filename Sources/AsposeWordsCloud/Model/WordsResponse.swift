@@ -33,7 +33,7 @@ public class WordsResponse : Codable, WordsApiModel {
     private var requestId : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case requestId;
+        case requestId = "RequestId";
         case invalidCodingKey;
     }
 

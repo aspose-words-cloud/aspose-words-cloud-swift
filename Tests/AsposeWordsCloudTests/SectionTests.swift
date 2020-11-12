@@ -46,7 +46,11 @@ class SectionTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetSectionRequest(name: remoteFileName, sectionIndex: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getSection(request: request);
+      let actual = try super.getApi().getSection(request: request);
+      XCTAssertNotNil(actual.getSection());
+      XCTAssertNotNil(actual.getSection()!.getChildNodes());
+      XCTAssertEqual(actual.getSection()!.getChildNodes()!.count, 13);
+      XCTAssertEqual(actual.getSection()!.getChildNodes()![0].getNodeId(), "0.3.0");
     }
 
     // Test for getting sections.
@@ -56,7 +60,11 @@ class SectionTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetSectionsRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getSections(request: request);
+      let actual = try super.getApi().getSections(request: request);
+      XCTAssertNotNil(actual.getSections());
+      XCTAssertNotNil(actual.getSections()!.getSectionLinkList());
+      XCTAssertEqual(actual.getSections()!.getSectionLinkList()!.count, 1);
+      XCTAssertEqual(actual.getSections()!.getSectionLinkList()![0].getNodeId(), "0");
     }
 
     // Test for delete a section.

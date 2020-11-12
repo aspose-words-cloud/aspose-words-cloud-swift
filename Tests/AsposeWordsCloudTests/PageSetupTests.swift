@@ -47,7 +47,9 @@ class PageSetupTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetSectionPageSetupRequest(name: remoteFileName, sectionIndex: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getSectionPageSetup(request: request);
+      let actual = try super.getApi().getSectionPageSetup(request: request);
+      XCTAssertNotNil(actual.getPageSetup());
+      XCTAssertEqual(actual.getPageSetup()!.getLineStartingNumber(), 1);
     }
 
     // Test for updating page settings.
@@ -58,13 +60,17 @@ class PageSetupTests: BaseTestContext {
 
       let requestPageSetup = PageSetup();
       requestPageSetup.setRtlGutter(rtlGutter: true);
-      requestPageSetup.setLeftMargin(leftMargin: 10);
+      requestPageSetup.setLeftMargin(leftMargin: 10.0);
       requestPageSetup.setOrientation(orientation: PageSetup.Orientation.landscape);
       requestPageSetup.setPaperSize(paperSize: PageSetup.PaperSize.a5);
 
 
       let request = UpdateSectionPageSetupRequest(name: remoteFileName, sectionIndex: 0, pageSetup: requestPageSetup, folder: remoteDataFolder);
-      _ = try super.getApi().updateSectionPageSetup(request: request);
+      let actual = try super.getApi().updateSectionPageSetup(request: request);
+      XCTAssertNotNil(actual.getPageSetup());
+      XCTAssertEqual(actual.getPageSetup()!.getRtlGutter(), true);
+
+
     }
 
     // Test for page rendering.

@@ -33,7 +33,7 @@ public class DrawingObjectsResponse : WordsResponse {
     private var drawingObjects : DrawingObjectCollection?;
 
     private enum CodingKeys: String, CodingKey {
-        case drawingObjects;
+        case drawingObjects = "DrawingObjects";
         case invalidCodingKey;
     }
 

@@ -67,7 +67,11 @@ class TableTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetTablesRequest(name: remoteFileName, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().getTables(request: request);
+      let actual = try super.getApi().getTables(request: request);
+      XCTAssertNotNil(actual.getTables());
+      XCTAssertNotNil(actual.getTables()!.getTableLinkList());
+      XCTAssertEqual(actual.getTables()!.getTableLinkList()!.count, 5);
+      XCTAssertEqual(actual.getTables()!.getTableLinkList()![0].getNodeId(), "0.0.1");
     }
 
     // Test for getting tables without node path.
@@ -77,7 +81,11 @@ class TableTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetTablesRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getTables(request: request);
+      let actual = try super.getApi().getTables(request: request);
+      XCTAssertNotNil(actual.getTables());
+      XCTAssertNotNil(actual.getTables()!.getTableLinkList());
+      XCTAssertEqual(actual.getTables()!.getTableLinkList()!.count, 5);
+      XCTAssertEqual(actual.getTables()!.getTableLinkList()![0].getNodeId(), "0.0.1");
     }
 
     // Test for getting table.
@@ -87,7 +95,12 @@ class TableTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetTableRequest(name: remoteFileName, index: 1, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().getTable(request: request);
+      let actual = try super.getApi().getTable(request: request);
+      XCTAssertNotNil(actual.getTable());
+      XCTAssertNotNil(actual.getTable()!.getTableRowList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()!.count, 1);
+      XCTAssertNotNil(actual.getTable()!.getTableRowList()![0].getTableCellList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()![0].getTableCellList()!.count, 2);
     }
 
     // Test for getting table without node path.
@@ -97,7 +110,12 @@ class TableTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetTableRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
-      _ = try super.getApi().getTable(request: request);
+      let actual = try super.getApi().getTable(request: request);
+      XCTAssertNotNil(actual.getTable());
+      XCTAssertNotNil(actual.getTable()!.getTableRowList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()!.count, 1);
+      XCTAssertNotNil(actual.getTable()!.getTableRowList()![0].getTableCellList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()![0].getTableCellList()!.count, 2);
     }
 
     // Test for deleting table.
@@ -132,7 +150,12 @@ class TableTests: BaseTestContext {
 
 
       let request = InsertTableRequest(name: remoteFileName, table: requestTable, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().insertTable(request: request);
+      let actual = try super.getApi().insertTable(request: request);
+      XCTAssertNotNil(actual.getTable());
+      XCTAssertNotNil(actual.getTable()!.getTableRowList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()!.count, 4);
+      XCTAssertNotNil(actual.getTable()!.getTableRowList()![0].getTableCellList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()![0].getTableCellList()!.count, 5);
     }
 
     // Test for adding table without node path.
@@ -147,7 +170,12 @@ class TableTests: BaseTestContext {
 
 
       let request = InsertTableRequest(name: remoteFileName, table: requestTable, folder: remoteDataFolder);
-      _ = try super.getApi().insertTable(request: request);
+      let actual = try super.getApi().insertTable(request: request);
+      XCTAssertNotNil(actual.getTable());
+      XCTAssertNotNil(actual.getTable()!.getTableRowList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()!.count, 4);
+      XCTAssertNotNil(actual.getTable()!.getTableRowList()![0].getTableCellList());
+      XCTAssertEqual(actual.getTable()!.getTableRowList()![0].getTableCellList()!.count, 5);
     }
 
     // Test for getting document properties.
@@ -157,7 +185,9 @@ class TableTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetTablePropertiesRequest(name: remoteFileName, index: 1, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().getTableProperties(request: request);
+      let actual = try super.getApi().getTableProperties(request: request);
+      XCTAssertNotNil(actual.getProperties());
+      XCTAssertEqual(actual.getProperties()!.getStyleName(), "Table Grid");
     }
 
     // Test for getting document properties without node path.
@@ -167,7 +197,9 @@ class TableTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetTablePropertiesRequest(name: remoteFileName, index: 1, folder: remoteDataFolder);
-      _ = try super.getApi().getTableProperties(request: request);
+      let actual = try super.getApi().getTableProperties(request: request);
+      XCTAssertNotNil(actual.getProperties());
+      XCTAssertEqual(actual.getProperties()!.getStyleName(), "Table Grid");
     }
 
     // Test for updating table properties.
@@ -181,12 +213,17 @@ class TableTests: BaseTestContext {
       requestProperties.setAllowAutoFit(allowAutoFit: false);
       requestProperties.setBidi(bidi: true);
       requestProperties.setBottomPadding(bottomPadding: 1);
-      requestProperties.setCellSpacing(cellSpacing: 2);
+      requestProperties.setCellSpacing(cellSpacing: 2.0);
       requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
 
 
       let request = UpdateTablePropertiesRequest(name: remoteFileName, properties: requestProperties, index: 1, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().updateTableProperties(request: request);
+      let actual = try super.getApi().updateTableProperties(request: request);
+      XCTAssertNotNil(actual.getProperties());
+      XCTAssertEqual(actual.getProperties()!.getAllowAutoFit(), false);
+      XCTAssertEqual(actual.getProperties()!.getBidi(), true);
+      XCTAssertEqual(actual.getProperties()!.getBottomPadding(), 1.0);
+      XCTAssertEqual(actual.getProperties()!.getCellSpacing(), 2.0);
     }
 
     // Test for updating table properties without node path.
@@ -199,13 +236,18 @@ class TableTests: BaseTestContext {
       requestProperties.setAlignment(alignment: TableProperties.Alignment._right);
       requestProperties.setAllowAutoFit(allowAutoFit: false);
       requestProperties.setBidi(bidi: true);
-      requestProperties.setBottomPadding(bottomPadding: 1);
-      requestProperties.setCellSpacing(cellSpacing: 2);
+      requestProperties.setBottomPadding(bottomPadding: 1.0);
+      requestProperties.setCellSpacing(cellSpacing: 2.0);
       requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
 
 
       let request = UpdateTablePropertiesRequest(name: remoteFileName, properties: requestProperties, index: 1, folder: remoteDataFolder);
-      _ = try super.getApi().updateTableProperties(request: request);
+      let actual = try super.getApi().updateTableProperties(request: request);
+      XCTAssertNotNil(actual.getProperties());
+      XCTAssertEqual(actual.getProperties()!.getAllowAutoFit(), false);
+      XCTAssertEqual(actual.getProperties()!.getBidi(), true);
+      XCTAssertEqual(actual.getProperties()!.getBottomPadding(), 1.0);
+      XCTAssertEqual(actual.getProperties()!.getCellSpacing(), 2.0);
     }
 
     // Test for getting table row.
@@ -215,7 +257,10 @@ class TableTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetTableRowRequest(name: remoteFileName, tablePath: "tables/1", index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getTableRow(request: request);
+      let actual = try super.getApi().getTableRow(request: request);
+      XCTAssertNotNil(actual.getRow());
+      XCTAssertNotNil(actual.getRow()!.getTableCellList());
+      XCTAssertEqual(actual.getRow()!.getTableCellList()!.count, 2);
     }
 
     // Test for deleting table row.
@@ -239,7 +284,10 @@ class TableTests: BaseTestContext {
 
 
       let request = InsertTableRowRequest(name: remoteFileName, row: requestRow, tablePath: "sections/0/tables/2", folder: remoteDataFolder);
-      _ = try super.getApi().insertTableRow(request: request);
+      let actual = try super.getApi().insertTableRow(request: request);
+      XCTAssertNotNil(actual.getRow());
+      XCTAssertNotNil(actual.getRow()!.getTableCellList());
+      XCTAssertEqual(actual.getRow()!.getTableCellList()!.count, 5);
     }
 
     // Test for getting row format.
@@ -249,7 +297,9 @@ class TableTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetTableRowFormatRequest(name: remoteFileName, tablePath: "sections/0/tables/2", index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getTableRowFormat(request: request);
+      let actual = try super.getApi().getTableRowFormat(request: request);
+      XCTAssertNotNil(actual.getRowFormat());
+      XCTAssertEqual(actual.getRowFormat()!.getAllowBreakAcrossPages(), true);
     }
 
     // Test updating row format.
@@ -261,12 +311,16 @@ class TableTests: BaseTestContext {
       let requestFormat = TableRowFormat();
       requestFormat.setAllowBreakAcrossPages(allowBreakAcrossPages: true);
       requestFormat.setHeadingFormat(headingFormat: true);
-      requestFormat.setHeight(height: 10);
-      requestFormat.setHeightRule(heightRule: TableRowFormat.HeightRule.auto);
+      requestFormat.setHeight(height: 10.0);
+      requestFormat.setHeightRule(heightRule: TableRowFormat.HeightRule.exactly);
 
 
       let request = UpdateTableRowFormatRequest(name: remoteFileName, format: requestFormat, tablePath: "sections/0/tables/2", index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().updateTableRowFormat(request: request);
+      let actual = try super.getApi().updateTableRowFormat(request: request);
+      XCTAssertNotNil(actual.getRowFormat());
+      XCTAssertEqual(actual.getRowFormat()!.getAllowBreakAcrossPages(), true);
+      XCTAssertEqual(actual.getRowFormat()!.getHeadingFormat(), true);
+      XCTAssertEqual(actual.getRowFormat()!.getHeight(), 10.0);
     }
 
     // Test for getting table cell.
@@ -276,7 +330,9 @@ class TableTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetTableCellRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getTableCell(request: request);
+      let actual = try super.getApi().getTableCell(request: request);
+      XCTAssertNotNil(actual.getCell());
+      XCTAssertEqual(actual.getCell()!.getNodeId(), "0.0.5.0.0");
     }
 
     // Test for deleting cell.
@@ -300,7 +356,9 @@ class TableTests: BaseTestContext {
 
 
       let request = InsertTableCellRequest(name: remoteFileName, cell: requestCell, tableRowPath: "sections/0/tables/2/rows/0", folder: remoteDataFolder);
-      _ = try super.getApi().insertTableCell(request: request);
+      let actual = try super.getApi().insertTableCell(request: request);
+      XCTAssertNotNil(actual.getCell());
+      XCTAssertEqual(actual.getCell()!.getNodeId(), "0.0.5.0.3");
     }
 
     // Test for getting cell format.
@@ -310,7 +368,9 @@ class TableTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetTableCellFormatRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getTableCellFormat(request: request);
+      let actual = try super.getApi().getTableCellFormat(request: request);
+      XCTAssertNotNil(actual.getCellFormat());
+      XCTAssertEqual(actual.getCellFormat()!.getWrapText(), true);
     }
 
     // Test for updating cell format.
@@ -320,14 +380,18 @@ class TableTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestFormat = TableCellFormat();
-      requestFormat.setBottomPadding(bottomPadding: 5);
+      requestFormat.setBottomPadding(bottomPadding: 5.0);
       requestFormat.setFitText(fitText: true);
       requestFormat.setHorizontalMerge(horizontalMerge: TableCellFormat.HorizontalMerge.first);
       requestFormat.setWrapText(wrapText: true);
 
 
       let request = UpdateTableCellFormatRequest(name: remoteFileName, format: requestFormat, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().updateTableCellFormat(request: request);
+      let actual = try super.getApi().updateTableCellFormat(request: request);
+      XCTAssertNotNil(actual.getCellFormat());
+      XCTAssertEqual(actual.getCellFormat()!.getBottomPadding(), 5.0);
+      XCTAssertEqual(actual.getCellFormat()!.getFitText(), true);
+      XCTAssertEqual(actual.getCellFormat()!.getWrapText(), true);
     }
 
     // Test for table rendering.

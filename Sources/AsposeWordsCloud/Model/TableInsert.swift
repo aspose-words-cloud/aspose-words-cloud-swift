@@ -39,9 +39,9 @@ public class TableInsert : Codable, WordsApiModel {
     private var rowsCount : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case columnsCount;
-        case position;
-        case rowsCount;
+        case columnsCount = "ColumnsCount";
+        case position = "Position";
+        case rowsCount = "RowsCount";
         case invalidCodingKey;
     }
 

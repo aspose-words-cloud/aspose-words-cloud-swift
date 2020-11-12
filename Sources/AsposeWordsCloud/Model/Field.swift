@@ -36,8 +36,8 @@ public class Field : FieldLink {
     private var result : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case localeId;
-        case result;
+        case localeId = "LocaleId";
+        case result = "Result";
         case invalidCodingKey;
     }
 

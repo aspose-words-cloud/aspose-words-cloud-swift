@@ -33,7 +33,7 @@ public class RevisionsModificationResponse : WordsResponse {
     private var result : ModificationOperationResult?;
 
     private enum CodingKeys: String, CodingKey {
-        case result;
+        case result = "Result";
         case invalidCodingKey;
     }
 

@@ -36,8 +36,8 @@ public class ProtectionDataResponse : WordsResponse {
     private var protectionData : ProtectionData?;
 
     private enum CodingKeys: String, CodingKey {
-        case documentLink;
-        case protectionData;
+        case documentLink = "DocumentLink";
+        case protectionData = "ProtectionData";
         case invalidCodingKey;
     }
 

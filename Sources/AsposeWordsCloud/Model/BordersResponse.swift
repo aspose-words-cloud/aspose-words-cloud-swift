@@ -34,7 +34,7 @@ public class BordersResponse : WordsResponse {
     private var borders : BordersCollection?;
 
     private enum CodingKeys: String, CodingKey {
-        case borders;
+        case borders = "Borders";
         case invalidCodingKey;
     }
 

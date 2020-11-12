@@ -33,7 +33,7 @@ public class RangeDocument : Codable, WordsApiModel {
     private var documentName : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case documentName;
+        case documentName = "DocumentName";
         case invalidCodingKey;
     }
 

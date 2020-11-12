@@ -33,7 +33,7 @@ public class LinkElement : Codable, WordsApiModel {
     private var link : WordsApiLink?;
 
     private enum CodingKeys: String, CodingKey {
-        case link;
+        case link = "Link";
         case invalidCodingKey;
     }
 

@@ -48,12 +48,12 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     private var headingsOutlineLevels : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case bookmarksOutlineLevels;
-        case createMissingOutlineLevels;
-        case createOutlinesForHeadingsInTables;
-        case defaultBookmarksOutlineLevel;
-        case expandedOutlineLevels;
-        case headingsOutlineLevels;
+        case bookmarksOutlineLevels = "BookmarksOutlineLevels";
+        case createMissingOutlineLevels = "CreateMissingOutlineLevels";
+        case createOutlinesForHeadingsInTables = "CreateOutlinesForHeadingsInTables";
+        case defaultBookmarksOutlineLevel = "DefaultBookmarksOutlineLevel";
+        case expandedOutlineLevels = "ExpandedOutlineLevels";
+        case headingsOutlineLevels = "HeadingsOutlineLevels";
         case invalidCodingKey;
     }
 

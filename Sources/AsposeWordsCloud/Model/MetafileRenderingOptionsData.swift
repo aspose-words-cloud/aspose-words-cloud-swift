@@ -45,11 +45,11 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     private var useEmfEmbeddedToWmf : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case emfPlusDualRenderingMode;
-        case emulateRasterOperations;
-        case renderingMode;
-        case scaleWmfFontsToMetafileSize;
-        case useEmfEmbeddedToWmf;
+        case emfPlusDualRenderingMode = "EmfPlusDualRenderingMode";
+        case emulateRasterOperations = "EmulateRasterOperations";
+        case renderingMode = "RenderingMode";
+        case scaleWmfFontsToMetafileSize = "ScaleWmfFontsToMetafileSize";
+        case useEmfEmbeddedToWmf = "UseEmfEmbeddedToWmf";
         case invalidCodingKey;
     }
 

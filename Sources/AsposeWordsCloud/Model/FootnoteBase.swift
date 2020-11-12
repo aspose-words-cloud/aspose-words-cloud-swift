@@ -52,10 +52,10 @@ public class FootnoteBase : Codable, WordsApiModel {
     private var text : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case footnoteType;
-        case position;
-        case referenceMark;
-        case text;
+        case footnoteType = "FootnoteType";
+        case position = "Position";
+        case referenceMark = "ReferenceMark";
+        case text = "Text";
         case invalidCodingKey;
     }
 

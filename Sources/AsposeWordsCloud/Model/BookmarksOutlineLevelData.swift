@@ -36,8 +36,8 @@ public class BookmarksOutlineLevelData : Codable, WordsApiModel {
     private var name : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case bookmarksOutlineLevel;
-        case name;
+        case bookmarksOutlineLevel = "BookmarksOutlineLevel";
+        case name = "Name";
         case invalidCodingKey;
     }
 

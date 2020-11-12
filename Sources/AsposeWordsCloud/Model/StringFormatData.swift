@@ -137,11 +137,11 @@ public class StringFormatData : Codable, WordsApiModel {
     private var trimming : Trimming?;
 
     private enum CodingKeys: String, CodingKey {
-        case alignment;
-        case formatFlags;
-        case hotkeyPrefix;
-        case lineAlignment;
-        case trimming;
+        case alignment = "Alignment";
+        case formatFlags = "FormatFlags";
+        case hotkeyPrefix = "HotkeyPrefix";
+        case lineAlignment = "LineAlignment";
+        case trimming = "Trimming";
         case invalidCodingKey;
     }
 

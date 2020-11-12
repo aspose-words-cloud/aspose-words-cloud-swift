@@ -34,7 +34,7 @@ public class HeaderFooterResponse : WordsResponse {
     private var headerFooter : HeaderFooter?;
 
     private enum CodingKeys: String, CodingKey {
-        case headerFooter;
+        case headerFooter = "HeaderFooter";
         case invalidCodingKey;
     }
 

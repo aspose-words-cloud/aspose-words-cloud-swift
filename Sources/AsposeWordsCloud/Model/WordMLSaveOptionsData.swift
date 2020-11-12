@@ -33,7 +33,7 @@ public class WordMLSaveOptionsData : SaveOptionsData {
     private var prettyFormat : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case prettyFormat;
+        case prettyFormat = "PrettyFormat";
         case invalidCodingKey;
     }
 

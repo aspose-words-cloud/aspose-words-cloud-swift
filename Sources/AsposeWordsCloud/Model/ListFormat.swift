@@ -39,9 +39,9 @@ public class ListFormat : LinkElement {
     private var listLevelNumber : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case isListItem;
-        case listId;
-        case listLevelNumber;
+        case isListItem = "IsListItem";
+        case listId = "ListId";
+        case listLevelNumber = "ListLevelNumber";
         case invalidCodingKey;
     }
 

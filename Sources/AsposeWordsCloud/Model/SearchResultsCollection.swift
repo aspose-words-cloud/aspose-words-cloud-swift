@@ -33,7 +33,7 @@ public class SearchResultsCollection : LinkElement {
     private var resultsList : [SearchResult]?;
 
     private enum CodingKeys: String, CodingKey {
-        case resultsList;
+        case resultsList = "ResultsList";
         case invalidCodingKey;
     }
 

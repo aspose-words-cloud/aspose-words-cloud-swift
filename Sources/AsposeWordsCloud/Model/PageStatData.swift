@@ -42,10 +42,10 @@ public class PageStatData : Codable, WordsApiModel {
     private var wordCount : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case footnotesStatData;
-        case pageNumber;
-        case paragraphCount;
-        case wordCount;
+        case footnotesStatData = "FootnotesStatData";
+        case pageNumber = "PageNumber";
+        case paragraphCount = "ParagraphCount";
+        case wordCount = "WordCount";
         case invalidCodingKey;
     }
 

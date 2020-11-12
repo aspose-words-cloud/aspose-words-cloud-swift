@@ -42,10 +42,10 @@ public class CompareData : Codable, WordsApiModel {
     private var dateTime : Date?;
 
     private enum CodingKeys: String, CodingKey {
-        case author;
-        case compareOptions;
-        case comparingWithDocument;
-        case dateTime;
+        case author = "Author";
+        case compareOptions = "CompareOptions";
+        case comparingWithDocument = "ComparingWithDocument";
+        case dateTime = "DateTime";
         case invalidCodingKey;
     }
 

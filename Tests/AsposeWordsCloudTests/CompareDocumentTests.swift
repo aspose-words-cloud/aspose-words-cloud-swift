@@ -54,6 +54,8 @@ class CompareDocumentTests: BaseTestContext {
 
 
       let request = CompareDocumentRequest(name: remoteName1, compareData: requestCompareData, folder: remoteFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
-      _ = try super.getApi().compareDocument(request: request);
+      let actual = try super.getApi().compareDocument(request: request);
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestCompareDocumentOut.doc");
     }
 }

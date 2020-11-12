@@ -33,7 +33,7 @@ public class BordersCollection : LinkElement {
     private var list : [Border]?;
 
     private enum CodingKeys: String, CodingKey {
-        case list;
+        case list = "List";
         case invalidCodingKey;
     }
 

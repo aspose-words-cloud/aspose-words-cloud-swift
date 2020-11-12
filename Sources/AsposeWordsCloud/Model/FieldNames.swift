@@ -33,7 +33,7 @@ public class FieldNames : LinkElement {
     private var names : [String]?;
 
     private enum CodingKeys: String, CodingKey {
-        case names;
+        case names = "Names";
         case invalidCodingKey;
     }
 

@@ -36,8 +36,8 @@ public class ReplaceTextResponse : WordsResponse {
     private var matches : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case documentLink;
-        case matches;
+        case documentLink = "DocumentLink";
+        case matches = "Matches";
         case invalidCodingKey;
     }
 

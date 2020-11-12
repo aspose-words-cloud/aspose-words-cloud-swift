@@ -33,7 +33,7 @@ public class Hyperlinks : LinkElement {
     private var hyperlinkList : [Hyperlink]?;
 
     private enum CodingKeys: String, CodingKey {
-        case hyperlinkList;
+        case hyperlinkList = "HyperlinkList";
         case invalidCodingKey;
     }
 

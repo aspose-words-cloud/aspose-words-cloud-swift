@@ -33,7 +33,7 @@ public class FieldNamesResponse : WordsResponse {
     private var fieldNames : FieldNames?;
 
     private enum CodingKeys: String, CodingKey {
-        case fieldNames;
+        case fieldNames = "FieldNames";
         case invalidCodingKey;
     }
 

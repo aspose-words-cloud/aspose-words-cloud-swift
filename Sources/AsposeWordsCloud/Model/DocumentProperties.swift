@@ -33,7 +33,7 @@ public class DocumentProperties : LinkElement {
     private var list : [DocumentProperty]?;
 
     private enum CodingKeys: String, CodingKey {
-        case list;
+        case list = "List";
         case invalidCodingKey;
     }
 

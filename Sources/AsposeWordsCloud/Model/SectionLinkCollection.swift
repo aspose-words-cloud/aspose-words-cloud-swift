@@ -33,7 +33,7 @@ public class SectionLinkCollection : LinkElement {
     private var sectionLinkList : [SectionLink]?;
 
     private enum CodingKeys: String, CodingKey {
-        case sectionLinkList;
+        case sectionLinkList = "SectionLinkList";
         case invalidCodingKey;
     }
 

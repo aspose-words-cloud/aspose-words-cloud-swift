@@ -36,8 +36,8 @@ public class TableRow : NodeLink {
     private var tableCellList : [TableCell]?;
 
     private enum CodingKeys: String, CodingKey {
-        case rowFormat;
-        case tableCellList;
+        case rowFormat = "RowFormat";
+        case tableCellList = "TableCellList";
         case invalidCodingKey;
     }
 

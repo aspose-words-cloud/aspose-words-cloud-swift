@@ -34,7 +34,7 @@ public class TableCellResponse : WordsResponse {
     private var cell : TableCell?;
 
     private enum CodingKeys: String, CodingKey {
-        case cell;
+        case cell = "Cell";
         case invalidCodingKey;
     }
 

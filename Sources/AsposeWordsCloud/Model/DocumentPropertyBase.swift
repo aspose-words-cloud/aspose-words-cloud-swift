@@ -33,7 +33,7 @@ public class DocumentPropertyBase : Codable, WordsApiModel {
     private var value : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case value;
+        case value = "Value";
         case invalidCodingKey;
     }
 

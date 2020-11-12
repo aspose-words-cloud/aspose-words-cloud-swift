@@ -51,13 +51,13 @@ public class Comment : CommentLink {
     private var text : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case author;
-        case content;
-        case dateTime;
-        case initial;
-        case rangeEnd;
-        case rangeStart;
-        case text;
+        case author = "Author";
+        case content = "Content";
+        case dateTime = "DateTime";
+        case initial = "Initial";
+        case rangeEnd = "RangeEnd";
+        case rangeStart = "RangeStart";
+        case text = "Text";
         case invalidCodingKey;
     }
 

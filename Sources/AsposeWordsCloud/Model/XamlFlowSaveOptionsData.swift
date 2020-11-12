@@ -36,8 +36,8 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
     private var imagesFolderAlias : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case imagesFolder;
-        case imagesFolderAlias;
+        case imagesFolder = "ImagesFolder";
+        case imagesFolderAlias = "ImagesFolderAlias";
         case invalidCodingKey;
     }
 

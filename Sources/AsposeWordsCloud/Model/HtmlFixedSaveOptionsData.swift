@@ -72,20 +72,20 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     private var useTargetMachineFonts : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case cssClassNamesPrefix;
-        case encoding;
-        case exportEmbeddedCss;
-        case exportEmbeddedFonts;
-        case exportEmbeddedImages;
-        case exportFormFields;
-        case fontFormat;
-        case pageHorizontalAlignment;
-        case pageMargins;
-        case resourcesFolder;
-        case resourcesFolderAlias;
-        case saveFontFaceCssSeparately;
-        case showPageBorder;
-        case useTargetMachineFonts;
+        case cssClassNamesPrefix = "CssClassNamesPrefix";
+        case encoding = "Encoding";
+        case exportEmbeddedCss = "ExportEmbeddedCss";
+        case exportEmbeddedFonts = "ExportEmbeddedFonts";
+        case exportEmbeddedImages = "ExportEmbeddedImages";
+        case exportFormFields = "ExportFormFields";
+        case fontFormat = "FontFormat";
+        case pageHorizontalAlignment = "PageHorizontalAlignment";
+        case pageMargins = "PageMargins";
+        case resourcesFolder = "ResourcesFolder";
+        case resourcesFolderAlias = "ResourcesFolderAlias";
+        case saveFontFaceCssSeparately = "SaveFontFaceCssSeparately";
+        case showPageBorder = "ShowPageBorder";
+        case useTargetMachineFonts = "UseTargetMachineFonts";
         case invalidCodingKey;
     }
 

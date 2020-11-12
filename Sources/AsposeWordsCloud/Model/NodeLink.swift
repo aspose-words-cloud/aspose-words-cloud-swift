@@ -33,7 +33,7 @@ public class NodeLink : LinkElement {
     private var nodeId : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case nodeId;
+        case nodeId = "NodeId";
         case invalidCodingKey;
     }
 

@@ -62,7 +62,11 @@ class FieldTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetFieldsRequest(name: remoteFileName, nodePath: "sections/0", folder: remoteDataFolder);
-      _ = try super.getApi().getFields(request: request);
+      let actual = try super.getApi().getFields(request: request);
+      XCTAssertNotNil(actual.getFields());
+      XCTAssertNotNil(actual.getFields()!.getList());
+      XCTAssertEqual(actual.getFields()!.getList()!.count, 1);
+      XCTAssertEqual(actual.getFields()!.getList()![0].getResult(), "1");
     }
 
     // Test for getting fields without node path.
@@ -73,7 +77,11 @@ class FieldTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetFieldsRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getFields(request: request);
+      let actual = try super.getApi().getFields(request: request);
+      XCTAssertNotNil(actual.getFields());
+      XCTAssertNotNil(actual.getFields()!.getList());
+      XCTAssertEqual(actual.getFields()!.getList()!.count, 1);
+      XCTAssertEqual(actual.getFields()!.getList()![0].getResult(), "1");
     }
 
     // Test for getting field by index.
@@ -84,7 +92,9 @@ class FieldTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetFieldRequest(name: remoteFileName, index: 0, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
-      _ = try super.getApi().getField(request: request);
+      let actual = try super.getApi().getField(request: request);
+      XCTAssertNotNil(actual.getField());
+      XCTAssertEqual(actual.getField()!.getResult(), "1");
     }
 
     // Test for getting field by index without node path.
@@ -95,7 +105,9 @@ class FieldTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetFieldRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getField(request: request);
+      let actual = try super.getApi().getField(request: request);
+      XCTAssertNotNil(actual.getField());
+      XCTAssertEqual(actual.getField()!.getResult(), "1");
     }
 
     // Test for putting field.
@@ -110,7 +122,10 @@ class FieldTests: BaseTestContext {
 
 
       let request = InsertFieldRequest(name: remoteFileName, field: requestField, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
-      _ = try super.getApi().insertField(request: request);
+      let actual = try super.getApi().insertField(request: request);
+      XCTAssertNotNil(actual.getField());
+      XCTAssertEqual(actual.getField()!.getFieldCode(), "{ NUMPAGES }");
+      XCTAssertEqual(actual.getField()!.getNodeId(), "0.0.0.1");
     }
 
     // Test for putting field without node path.
@@ -125,7 +140,10 @@ class FieldTests: BaseTestContext {
 
 
       let request = InsertFieldRequest(name: remoteFileName, field: requestField, folder: remoteDataFolder);
-      _ = try super.getApi().insertField(request: request);
+      let actual = try super.getApi().insertField(request: request);
+      XCTAssertNotNil(actual.getField());
+      XCTAssertEqual(actual.getField()!.getFieldCode(), "{ NUMPAGES }");
+      XCTAssertEqual(actual.getField()!.getNodeId(), "5.0.22.0");
     }
 
     // Test for posting field.
@@ -140,7 +158,10 @@ class FieldTests: BaseTestContext {
 
 
       let request = UpdateFieldRequest(name: remoteFileName, field: requestField, index: 0, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
-      _ = try super.getApi().updateField(request: request);
+      let actual = try super.getApi().updateField(request: request);
+      XCTAssertNotNil(actual.getField());
+      XCTAssertEqual(actual.getField()!.getFieldCode(), "{ NUMPAGES }");
+      XCTAssertEqual(actual.getField()!.getNodeId(), "0.0.0.0");
     }
 
     // Test for inserting page numbers field.
@@ -156,7 +177,9 @@ class FieldTests: BaseTestContext {
 
 
       let request = InsertPageNumbersRequest(name: remoteFileName, pageNumber: requestPageNumber, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().insertPageNumbers(request: request);
+      let actual = try super.getApi().insertPageNumbers(request: request);
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestInsertPageNumbers.docx");
     }
 
     // Test for deleting field.
@@ -255,6 +278,8 @@ class FieldTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("Common/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = UpdateFieldsRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().updateFields(request: request);
+      let actual = try super.getApi().updateFields(request: request);
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestUpdateDocumentFields.docx");
     }
 }

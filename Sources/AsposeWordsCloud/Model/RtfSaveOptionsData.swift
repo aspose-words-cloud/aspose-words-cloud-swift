@@ -42,10 +42,10 @@ public class RtfSaveOptionsData : SaveOptionsData {
     private var saveImagesAsWmf : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case exportCompactSize;
-        case exportImagesForOldReaders;
-        case prettyFormat;
-        case saveImagesAsWmf;
+        case exportCompactSize = "ExportCompactSize";
+        case exportImagesForOldReaders = "ExportImagesForOldReaders";
+        case prettyFormat = "PrettyFormat";
+        case saveImagesAsWmf = "SaveImagesAsWmf";
         case invalidCodingKey;
     }
 

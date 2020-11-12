@@ -42,10 +42,10 @@ public class StyleUpdate : Codable, WordsApiModel {
     private var nextParagraphStyleName : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case baseStyleName;
-        case isQuickStyle;
-        case name;
-        case nextParagraphStyleName;
+        case baseStyleName = "BaseStyleName";
+        case isQuickStyle = "IsQuickStyle";
+        case name = "Name";
+        case nextParagraphStyleName = "NextParagraphStyleName";
         case invalidCodingKey;
     }
 

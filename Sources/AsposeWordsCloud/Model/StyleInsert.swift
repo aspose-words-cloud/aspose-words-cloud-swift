@@ -52,8 +52,8 @@ public class StyleInsert : Codable, WordsApiModel {
     private var styleType : StyleType?;
 
     private enum CodingKeys: String, CodingKey {
-        case styleName;
-        case styleType;
+        case styleName = "StyleName";
+        case styleType = "StyleType";
         case invalidCodingKey;
     }
 

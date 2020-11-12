@@ -34,7 +34,7 @@ public class OfficeMathObjectsResponse : WordsResponse {
     private var officeMathObjects : OfficeMathObjectsCollection?;
 
     private enum CodingKeys: String, CodingKey {
-        case officeMathObjects;
+        case officeMathObjects = "OfficeMathObjects";
         case invalidCodingKey;
     }
 

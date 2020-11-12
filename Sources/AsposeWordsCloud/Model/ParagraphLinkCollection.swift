@@ -33,7 +33,7 @@ public class ParagraphLinkCollection : LinkElement {
     private var paragraphLinkList : [ParagraphLink]?;
 
     private enum CodingKeys: String, CodingKey {
-        case paragraphLinkList;
+        case paragraphLinkList = "ParagraphLinkList";
         case invalidCodingKey;
     }
 

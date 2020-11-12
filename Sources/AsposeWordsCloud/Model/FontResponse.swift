@@ -34,7 +34,7 @@ public class FontResponse : WordsResponse {
     private var font : Font?;
 
     private enum CodingKeys: String, CodingKey {
-        case font;
+        case font = "Font";
         case invalidCodingKey;
     }
 

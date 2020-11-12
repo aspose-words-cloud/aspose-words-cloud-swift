@@ -276,16 +276,16 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     private var trailingCharacter : TrailingCharacter?;
 
     private enum CodingKeys: String, CodingKey {
-        case alignment;
-        case isLegal;
-        case numberFormat;
-        case numberPosition;
-        case numberStyle;
-        case restartAfterLevel;
-        case startAt;
-        case tabPosition;
-        case textPosition;
-        case trailingCharacter;
+        case alignment = "Alignment";
+        case isLegal = "IsLegal";
+        case numberFormat = "NumberFormat";
+        case numberPosition = "NumberPosition";
+        case numberStyle = "NumberStyle";
+        case restartAfterLevel = "RestartAfterLevel";
+        case startAt = "StartAt";
+        case tabPosition = "TabPosition";
+        case textPosition = "TextPosition";
+        case trailingCharacter = "TrailingCharacter";
         case invalidCodingKey;
     }
 

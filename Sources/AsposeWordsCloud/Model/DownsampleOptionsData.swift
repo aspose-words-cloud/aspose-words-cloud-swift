@@ -39,9 +39,9 @@ public class DownsampleOptionsData : Codable, WordsApiModel {
     private var resolutionThreshold : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case downsampleImages;
-        case resolution;
-        case resolutionThreshold;
+        case downsampleImages = "DownsampleImages";
+        case resolution = "Resolution";
+        case resolutionThreshold = "ResolutionThreshold";
         case invalidCodingKey;
     }
 

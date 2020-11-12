@@ -33,7 +33,7 @@ public class BookmarksResponse : WordsResponse {
     private var bookmarks : Bookmarks?;
 
     private enum CodingKeys: String, CodingKey {
-        case bookmarks;
+        case bookmarks = "Bookmarks";
         case invalidCodingKey;
     }
 

@@ -1252,20 +1252,20 @@ public class TableProperties : LinkElement {
     private var topPadding : Double?;
 
     private enum CodingKeys: String, CodingKey {
-        case alignment;
-        case allowAutoFit;
-        case bidi;
-        case bottomPadding;
-        case cellSpacing;
-        case leftIndent;
-        case leftPadding;
-        case preferredWidth;
-        case rightPadding;
-        case styleIdentifier;
-        case styleName;
-        case styleOptions;
-        case textWrapping;
-        case topPadding;
+        case alignment = "Alignment";
+        case allowAutoFit = "AllowAutoFit";
+        case bidi = "Bidi";
+        case bottomPadding = "BottomPadding";
+        case cellSpacing = "CellSpacing";
+        case leftIndent = "LeftIndent";
+        case leftPadding = "LeftPadding";
+        case preferredWidth = "PreferredWidth";
+        case rightPadding = "RightPadding";
+        case styleIdentifier = "StyleIdentifier";
+        case styleName = "StyleName";
+        case styleOptions = "StyleOptions";
+        case textWrapping = "TextWrapping";
+        case topPadding = "TopPadding";
         case invalidCodingKey;
     }
 

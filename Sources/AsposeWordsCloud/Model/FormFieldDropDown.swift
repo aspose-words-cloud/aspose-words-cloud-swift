@@ -36,8 +36,8 @@ public class FormFieldDropDown : FormField {
     private var dropDownSelectedIndex : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case dropDownItems;
-        case dropDownSelectedIndex;
+        case dropDownItems = "DropDownItems";
+        case dropDownSelectedIndex = "DropDownSelectedIndex";
         case invalidCodingKey;
     }
 

@@ -36,8 +36,8 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
     private var saveOptions : SaveOptionsData?;
 
     private enum CodingKeys: String, CodingKey {
-        case loadingDocumentUrl;
-        case saveOptions;
+        case loadingDocumentUrl = "LoadingDocumentUrl";
+        case saveOptions = "SaveOptions";
         case invalidCodingKey;
     }
 

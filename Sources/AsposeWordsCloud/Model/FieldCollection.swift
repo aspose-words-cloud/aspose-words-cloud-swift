@@ -33,7 +33,7 @@ public class FieldCollection : LinkElement {
     private var list : [Field]?;
 
     private enum CodingKeys: String, CodingKey {
-        case list;
+        case list = "List";
         case invalidCodingKey;
     }
 

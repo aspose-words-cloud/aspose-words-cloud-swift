@@ -45,11 +45,11 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     private var oldValue : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case isMatchCase;
-        case isMatchWholeWord;
-        case isOldValueRegex;
-        case newValue;
-        case oldValue;
+        case isMatchCase = "IsMatchCase";
+        case isMatchWholeWord = "IsMatchWholeWord";
+        case isOldValueRegex = "IsOldValueRegex";
+        case newValue = "NewValue";
+        case oldValue = "OldValue";
         case invalidCodingKey;
     }
 

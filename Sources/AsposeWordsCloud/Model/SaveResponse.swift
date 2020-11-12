@@ -33,7 +33,7 @@ public class SaveResponse : WordsResponse {
     private var saveResult : SaveResult?;
 
     private enum CodingKeys: String, CodingKey {
-        case saveResult;
+        case saveResult = "SaveResult";
         case invalidCodingKey;
     }
 

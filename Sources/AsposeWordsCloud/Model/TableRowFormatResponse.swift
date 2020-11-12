@@ -34,7 +34,7 @@ public class TableRowFormatResponse : WordsResponse {
     private var rowFormat : TableRowFormat?;
 
     private enum CodingKeys: String, CodingKey {
-        case rowFormat;
+        case rowFormat = "RowFormat";
         case invalidCodingKey;
     }
 

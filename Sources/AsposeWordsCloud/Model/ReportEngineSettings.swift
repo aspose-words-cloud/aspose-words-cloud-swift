@@ -55,10 +55,10 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     private var reportBuildOptions : [ReportBuildOptions]?;
 
     private enum CodingKeys: String, CodingKey {
-        case csvDataLoadOptions;
-        case dataSourceName;
-        case dataSourceType;
-        case reportBuildOptions;
+        case csvDataLoadOptions = "CsvDataLoadOptions";
+        case dataSourceName = "DataSourceName";
+        case dataSourceType = "DataSourceType";
+        case reportBuildOptions = "ReportBuildOptions";
         case invalidCodingKey;
     }
 

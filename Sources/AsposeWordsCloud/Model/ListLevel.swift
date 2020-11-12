@@ -282,18 +282,18 @@ public class ListLevel : LinkElement {
     private var trailingCharacter : TrailingCharacter?;
 
     private enum CodingKeys: String, CodingKey {
-        case alignment;
-        case font;
-        case isLegal;
-        case linkedStyle;
-        case numberFormat;
-        case numberPosition;
-        case numberStyle;
-        case restartAfterLevel;
-        case startAt;
-        case tabPosition;
-        case textPosition;
-        case trailingCharacter;
+        case alignment = "Alignment";
+        case font = "Font";
+        case isLegal = "IsLegal";
+        case linkedStyle = "LinkedStyle";
+        case numberFormat = "NumberFormat";
+        case numberPosition = "NumberPosition";
+        case numberStyle = "NumberStyle";
+        case restartAfterLevel = "RestartAfterLevel";
+        case startAt = "StartAt";
+        case tabPosition = "TabPosition";
+        case textPosition = "TextPosition";
+        case trailingCharacter = "TrailingCharacter";
         case invalidCodingKey;
     }
 

@@ -51,13 +51,13 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     private var pageIndex : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case colorMode;
-        case jpegQuality;
-        case metafileRenderingOptions;
-        case numeralFormat;
-        case optimizeOutput;
-        case pageCount;
-        case pageIndex;
+        case colorMode = "ColorMode";
+        case jpegQuality = "JpegQuality";
+        case metafileRenderingOptions = "MetafileRenderingOptions";
+        case numeralFormat = "NumeralFormat";
+        case optimizeOutput = "OptimizeOutput";
+        case pageCount = "PageCount";
+        case pageIndex = "PageIndex";
         case invalidCodingKey;
     }
 

@@ -39,9 +39,9 @@ public class AvailableFontsResponse : WordsResponse {
     private var systemFonts : [FontInfo]?;
 
     private enum CodingKeys: String, CodingKey {
-        case additionalFonts;
-        case customFonts;
-        case systemFonts;
+        case additionalFonts = "AdditionalFonts";
+        case customFonts = "CustomFonts";
+        case systemFonts = "SystemFonts";
         case invalidCodingKey;
     }
 

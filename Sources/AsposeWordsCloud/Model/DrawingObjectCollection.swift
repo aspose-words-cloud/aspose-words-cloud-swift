@@ -33,7 +33,7 @@ public class DrawingObjectCollection : LinkElement {
     private var list : [LinkElement]?;
 
     private enum CodingKeys: String, CodingKey {
-        case list;
+        case list = "List";
         case invalidCodingKey;
     }
 

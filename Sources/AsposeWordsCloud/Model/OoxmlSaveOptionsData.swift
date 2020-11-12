@@ -58,10 +58,10 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     private var prettyFormat : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case compliance;
-        case compressionLevel;
-        case password;
-        case prettyFormat;
+        case compliance = "Compliance";
+        case compressionLevel = "CompressionLevel";
+        case password = "Password";
+        case prettyFormat = "PrettyFormat";
         case invalidCodingKey;
     }
 

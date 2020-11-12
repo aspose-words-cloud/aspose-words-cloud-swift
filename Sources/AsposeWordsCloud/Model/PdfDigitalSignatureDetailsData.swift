@@ -45,11 +45,11 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     private var signatureDate : Date?;
 
     private enum CodingKeys: String, CodingKey {
-        case certificateFilename;
-        case hashAlgorithm;
-        case location;
-        case reason;
-        case signatureDate;
+        case certificateFilename = "CertificateFilename";
+        case hashAlgorithm = "HashAlgorithm";
+        case location = "Location";
+        case reason = "Reason";
+        case signatureDate = "SignatureDate";
         case invalidCodingKey;
     }
 

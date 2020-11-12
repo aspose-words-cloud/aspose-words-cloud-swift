@@ -33,7 +33,7 @@ public class HeaderFooterLinkCollection : LinkElement {
     private var list : [HeaderFooterLink]?;
 
     private enum CodingKeys: String, CodingKey {
-        case list;
+        case list = "List";
         case invalidCodingKey;
     }
 

@@ -36,8 +36,8 @@ public class TableRowInsert : Codable, WordsApiModel {
     private var insertAfter : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case columnsCount;
-        case insertAfter;
+        case columnsCount = "ColumnsCount";
+        case insertAfter = "InsertAfter";
         case invalidCodingKey;
     }
 

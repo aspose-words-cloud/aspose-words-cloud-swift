@@ -147,16 +147,16 @@ public class DrawingObject : DrawingObjectLink {
     private var wrapType : WrapType?;
 
     private enum CodingKeys: String, CodingKey {
-        case height;
-        case imageDataLink;
-        case _left;
-        case oleDataLink;
-        case relativeHorizontalPosition;
-        case relativeVerticalPosition;
-        case renderLinks;
-        case top;
-        case width;
-        case wrapType;
+        case height = "Height";
+        case imageDataLink = "ImageDataLink";
+        case _left = "Left";
+        case oleDataLink = "OleDataLink";
+        case relativeHorizontalPosition = "RelativeHorizontalPosition";
+        case relativeVerticalPosition = "RelativeVerticalPosition";
+        case renderLinks = "RenderLinks";
+        case top = "Top";
+        case width = "Width";
+        case wrapType = "WrapType";
         case invalidCodingKey;
     }
 

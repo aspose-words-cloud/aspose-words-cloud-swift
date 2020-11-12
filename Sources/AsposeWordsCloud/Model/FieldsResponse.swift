@@ -34,7 +34,7 @@ public class FieldsResponse : WordsResponse {
     private var fields : FieldCollection?;
 
     private enum CodingKeys: String, CodingKey {
-        case fields;
+        case fields = "Fields";
         case invalidCodingKey;
     }
 

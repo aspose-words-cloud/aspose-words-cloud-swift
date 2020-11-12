@@ -36,8 +36,8 @@ public class StatDataResponse : WordsResponse {
     private var statData : DocumentStatData?;
 
     private enum CodingKeys: String, CodingKey {
-        case documentLink;
-        case statData;
+        case documentLink = "DocumentLink";
+        case statData = "StatData";
         case invalidCodingKey;
     }
 

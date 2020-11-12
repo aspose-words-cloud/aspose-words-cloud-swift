@@ -42,10 +42,10 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     private var useBookFoldPrintingSettings : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case bookmarksOutlineLevel;
-        case headingsOutlineLevels;
-        case outlineOptions;
-        case useBookFoldPrintingSettings;
+        case bookmarksOutlineLevel = "BookmarksOutlineLevel";
+        case headingsOutlineLevels = "HeadingsOutlineLevels";
+        case outlineOptions = "OutlineOptions";
+        case useBookFoldPrintingSettings = "UseBookFoldPrintingSettings";
         case invalidCodingKey;
     }
 

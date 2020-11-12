@@ -43,10 +43,10 @@ public class Link : Codable, WordsApiModel {
     private var type : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case href;
-        case rel;
-        case title;
-        case type;
+        case href = "Href";
+        case rel = "Rel";
+        case title = "Title";
+        case type = "Type";
         case invalidCodingKey;
     }
 

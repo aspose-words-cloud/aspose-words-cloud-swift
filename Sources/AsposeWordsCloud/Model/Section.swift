@@ -45,11 +45,11 @@ public class Section : LinkElement {
     private var tables : LinkElement?;
 
     private enum CodingKeys: String, CodingKey {
-        case childNodes;
-        case headerFooters;
-        case pageSetup;
-        case paragraphs;
-        case tables;
+        case childNodes = "ChildNodes";
+        case headerFooters = "HeaderFooters";
+        case pageSetup = "PageSetup";
+        case paragraphs = "Paragraphs";
+        case tables = "Tables";
         case invalidCodingKey;
     }
 

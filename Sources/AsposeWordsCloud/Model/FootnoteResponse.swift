@@ -34,7 +34,7 @@ public class FootnoteResponse : WordsResponse {
     private var footnote : Footnote?;
 
     private enum CodingKeys: String, CodingKey {
-        case footnote;
+        case footnote = "Footnote";
         case invalidCodingKey;
     }
 

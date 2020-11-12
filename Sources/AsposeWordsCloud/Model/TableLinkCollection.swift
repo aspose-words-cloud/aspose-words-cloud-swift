@@ -33,7 +33,7 @@ public class TableLinkCollection : LinkElement {
     private var tableLinkList : [TableLink]?;
 
     private enum CodingKeys: String, CodingKey {
-        case tableLinkList;
+        case tableLinkList = "TableLinkList";
         case invalidCodingKey;
     }
 

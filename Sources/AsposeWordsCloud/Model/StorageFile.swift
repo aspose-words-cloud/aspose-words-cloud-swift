@@ -45,11 +45,11 @@ public class StorageFile : Codable, WordsApiModel {
     private var size : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case isFolder;
-        case modifiedDate;
-        case name;
-        case path;
-        case size;
+        case isFolder = "IsFolder";
+        case modifiedDate = "ModifiedDate";
+        case name = "Name";
+        case path = "Path";
+        case size = "Size";
         case invalidCodingKey;
     }
 

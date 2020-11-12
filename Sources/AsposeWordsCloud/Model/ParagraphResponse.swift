@@ -34,7 +34,7 @@ public class ParagraphResponse : WordsResponse {
     private var paragraph : Paragraph?;
 
     private enum CodingKeys: String, CodingKey {
-        case paragraph;
+        case paragraph = "Paragraph";
         case invalidCodingKey;
     }
 

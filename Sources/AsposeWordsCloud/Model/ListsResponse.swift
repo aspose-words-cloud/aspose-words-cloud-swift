@@ -34,7 +34,7 @@ public class ListsResponse : WordsResponse {
     private var lists : Lists?;
 
     private enum CodingKeys: String, CodingKey {
-        case lists;
+        case lists = "Lists";
         case invalidCodingKey;
     }
 

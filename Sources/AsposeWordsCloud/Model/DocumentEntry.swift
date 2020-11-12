@@ -36,8 +36,8 @@ public class DocumentEntry : Codable, WordsApiModel {
     private var importFormatMode : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case href;
-        case importFormatMode;
+        case href = "Href";
+        case importFormatMode = "ImportFormatMode";
         case invalidCodingKey;
     }
 

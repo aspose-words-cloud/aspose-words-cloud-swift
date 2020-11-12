@@ -115,12 +115,12 @@ public class Document : Codable, WordsApiModel {
     private var sourceFormat : SourceFormat?;
 
     private enum CodingKeys: String, CodingKey {
-        case documentProperties;
-        case fileName;
-        case isEncrypted;
-        case isSigned;
-        case links;
-        case sourceFormat;
+        case documentProperties = "DocumentProperties";
+        case fileName = "FileName";
+        case isEncrypted = "IsEncrypted";
+        case isSigned = "IsSigned";
+        case links = "Links";
+        case sourceFormat = "SourceFormat";
         case invalidCodingKey;
     }
 

@@ -34,7 +34,7 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
     private var paragraphs : ParagraphLinkCollection?;
 
     private enum CodingKeys: String, CodingKey {
-        case paragraphs;
+        case paragraphs = "Paragraphs";
         case invalidCodingKey;
     }
 

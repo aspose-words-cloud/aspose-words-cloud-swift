@@ -42,10 +42,10 @@ public class FontInfo : Codable, WordsApiModel {
     private var version : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case filePath;
-        case fontFamilyName;
-        case fullFontName;
-        case version;
+        case filePath = "FilePath";
+        case fontFamilyName = "FontFamilyName";
+        case fullFontName = "FullFontName";
+        case version = "Version";
         case invalidCodingKey;
     }
 

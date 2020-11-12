@@ -45,11 +45,11 @@ public class ApiError : Codable, WordsApiModel {
     private var message : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case code;
-        case dateTime;
-        case description;
-        case innerError;
-        case message;
+        case code = "Code";
+        case dateTime = "DateTime";
+        case description = "Description";
+        case innerError = "InnerError";
+        case message = "Message";
         case invalidCodingKey;
     }
 

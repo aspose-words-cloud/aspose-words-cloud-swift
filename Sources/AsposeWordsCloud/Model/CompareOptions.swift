@@ -67,15 +67,15 @@ public class CompareOptions : Codable, WordsApiModel {
     private var target : Target?;
 
     private enum CodingKeys: String, CodingKey {
-        case ignoreCaseChanges;
-        case ignoreComments;
-        case ignoreFields;
-        case ignoreFootnotes;
-        case ignoreFormatting;
-        case ignoreHeadersAndFooters;
-        case ignoreTables;
-        case ignoreTextboxes;
-        case target;
+        case ignoreCaseChanges = "IgnoreCaseChanges";
+        case ignoreComments = "IgnoreComments";
+        case ignoreFields = "IgnoreFields";
+        case ignoreFootnotes = "IgnoreFootnotes";
+        case ignoreFormatting = "IgnoreFormatting";
+        case ignoreHeadersAndFooters = "IgnoreHeadersAndFooters";
+        case ignoreTables = "IgnoreTables";
+        case ignoreTextboxes = "IgnoreTextboxes";
+        case target = "Target";
         case invalidCodingKey;
     }
 

@@ -69,19 +69,19 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     private var verticalResolution : Double?;
 
     private enum CodingKeys: String, CodingKey {
-        case graphicsQualityOptions;
-        case horizontalResolution;
-        case imageBrightness;
-        case imageColorMode;
-        case imageContrast;
-        case paperColor;
-        case pixelFormat;
-        case resolution;
-        case scale;
-        case useAntiAliasing;
-        case useGdiEmfRenderer;
-        case useHighQualityRendering;
-        case verticalResolution;
+        case graphicsQualityOptions = "GraphicsQualityOptions";
+        case horizontalResolution = "HorizontalResolution";
+        case imageBrightness = "ImageBrightness";
+        case imageColorMode = "ImageColorMode";
+        case imageContrast = "ImageContrast";
+        case paperColor = "PaperColor";
+        case pixelFormat = "PixelFormat";
+        case resolution = "Resolution";
+        case scale = "Scale";
+        case useAntiAliasing = "UseAntiAliasing";
+        case useGdiEmfRenderer = "UseGdiEmfRenderer";
+        case useHighQualityRendering = "UseHighQualityRendering";
+        case verticalResolution = "VerticalResolution";
         case invalidCodingKey;
     }
 

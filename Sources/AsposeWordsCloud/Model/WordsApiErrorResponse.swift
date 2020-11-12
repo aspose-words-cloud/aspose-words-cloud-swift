@@ -33,7 +33,7 @@ public class WordsApiErrorResponse : WordsResponse {
     private var error : ApiError?;
 
     private enum CodingKeys: String, CodingKey {
-        case error;
+        case error = "Error";
         case invalidCodingKey;
     }
 

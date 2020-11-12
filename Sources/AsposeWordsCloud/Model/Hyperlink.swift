@@ -36,8 +36,8 @@ public class Hyperlink : LinkElement {
     private var value : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case displayText;
-        case value;
+        case displayText = "DisplayText";
+        case value = "Value";
         case invalidCodingKey;
     }
 

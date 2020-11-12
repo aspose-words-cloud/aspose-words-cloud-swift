@@ -36,8 +36,8 @@ public class ErrorDetails : Codable, WordsApiModel {
     private var requestId : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case errorDateTime;
-        case requestId;
+        case errorDateTime = "ErrorDateTime";
+        case requestId = "RequestId";
         case invalidCodingKey;
     }
 

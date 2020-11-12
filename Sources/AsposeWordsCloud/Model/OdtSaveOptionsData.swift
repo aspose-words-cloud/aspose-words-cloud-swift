@@ -53,10 +53,10 @@ public class OdtSaveOptionsData : SaveOptionsData {
     private var prettyFormat : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case isStrictSchema11;
-        case measureUnit;
-        case password;
-        case prettyFormat;
+        case isStrictSchema11 = "IsStrictSchema11";
+        case measureUnit = "MeasureUnit";
+        case password = "Password";
+        case prettyFormat = "PrettyFormat";
         case invalidCodingKey;
     }
 

@@ -36,8 +36,8 @@ public class FieldBase : Codable, WordsApiModel {
     private var localeId : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case fieldCode;
-        case localeId;
+        case fieldCode = "FieldCode";
+        case localeId = "LocaleId";
         case invalidCodingKey;
     }
 
