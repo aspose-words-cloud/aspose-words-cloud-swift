@@ -38,9 +38,9 @@ public class WordsAPI {
         self.apiInvoker = ApiInvoker(configuration: configuration);
     }
 
-    // Initializes a new instance of the WordsAPI class based on AppSid and AppKey.
-    public init(appSid: String, appKey: String) {
-        self.configuration = Configuration(appSid: appSid, appKey: appKey);
+    // Initializes a new instance of the WordsAPI class based on ClientId and clientSecret.
+    public init(clientId: String, clientSecret: String) {
+        self.configuration = Configuration(clientId: clientId, clientSecret: clientSecret);
         self.apiInvoker = ApiInvoker(configuration: configuration);
     }
 

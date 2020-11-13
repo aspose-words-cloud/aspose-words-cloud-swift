@@ -127,7 +127,7 @@ pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-wo
 import Foundation;
 import AsposeWordsCloud;
 
-let wordsApi = WordsAPI(appSid: "YOUR_APP_SID", appKey: "YOUR_APP_KEY");
+let wordsApi = WordsAPI(clientId: "YOUR_APP_SID", clientSecret: "YOUR_APP_KEY");
 let fileName = "TestCreateDocument.doc";
 let request = CreateDocumentRequest(fileName: fileName);
 let response = try wordsApi.createDocument(request: request);
