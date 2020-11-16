@@ -55,12 +55,12 @@ public class FieldNames : LinkElement {
         }
     }
 
-    // Sets names. Gets or sets collection of fields names.
+    // Sets names. Gets or sets the collection of fields names.
     public func setNames(names : [String]?) {
         self.names = names;
     }
 
-    // Gets names. Gets or sets collection of fields names.
+    // Gets names. Gets or sets the collection of fields names.
     public func getNames() -> [String]? {
         return self.names;
     }

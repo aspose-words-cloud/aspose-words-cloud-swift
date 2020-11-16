@@ -56,12 +56,12 @@ public class GetSectionPageSetupRequest : WordsApiRequest {
         self.password = password;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Section index.
+    // The index of the section.
     public func getSectionIndex() -> Int {
         return self.sectionIndex;
     }

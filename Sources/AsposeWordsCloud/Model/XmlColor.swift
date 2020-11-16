@@ -60,22 +60,22 @@ public class XmlColor : Codable, WordsApiModel {
         }
     }
 
-    // Sets alpha. Gets or sets alpha component of color structure.
+    // Sets alpha. Gets or sets the Alpha component of color structure.
     public func setAlpha(alpha : Int?) {
         self.alpha = alpha;
     }
 
-    // Gets alpha. Gets or sets alpha component of color structure.
+    // Gets alpha. Gets or sets the Alpha component of color structure.
     public func getAlpha() -> Int? {
         return self.alpha;
     }
 
-    // Sets web. Gets or sets hTML string color representation.
+    // Sets web. Gets or sets the HTML string color representation.
     public func setWeb(web : String?) {
         self.web = web;
     }
 
-    // Gets web. Gets or sets hTML string color representation.
+    // Gets web. Gets or sets the HTML string color representation.
     public func getWeb() -> String? {
         return self.web;
     }

@@ -29,7 +29,7 @@ import Foundation
 
 // Allows to specify additional System.Drawing.Graphics quality options.
 public class GraphicsQualityOptionsData : Codable, WordsApiModel {
-    // Gets or sets a value that specifies how composited images are drawn to this Graphics.
+    // Gets or sets the value, that specifies how composited images are drawn to this Graphics.
     public enum CompositingMode : String, Codable
     {
         // Enum value "sourceOver"
@@ -199,12 +199,12 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
         }
     }
 
-    // Sets compositingMode. Gets or sets a value that specifies how composited images are drawn to this Graphics.
+    // Sets compositingMode. Gets or sets the value, that specifies how composited images are drawn to this Graphics.
     public func setCompositingMode(compositingMode : CompositingMode?) {
         self.compositingMode = compositingMode;
     }
 
-    // Gets compositingMode. Gets or sets a value that specifies how composited images are drawn to this Graphics.
+    // Gets compositingMode. Gets or sets the value, that specifies how composited images are drawn to this Graphics.
     public func getCompositingMode() -> CompositingMode? {
         return self.compositingMode;
     }

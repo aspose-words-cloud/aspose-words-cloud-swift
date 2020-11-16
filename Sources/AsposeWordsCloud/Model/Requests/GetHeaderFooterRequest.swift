@@ -59,12 +59,12 @@ public class GetHeaderFooterRequest : WordsApiRequest {
         self.filterByType = filterByType;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Header/footer index.
+    // The index of the HeaderFooter object.
     public func getHeaderFooterIndex() -> Int {
         return self.headerFooterIndex;
     }
@@ -89,7 +89,7 @@ public class GetHeaderFooterRequest : WordsApiRequest {
         return self.password;
     }
 
-    // List of types of headers and footers.
+    // The list of HeaderFooter types.
     public func getFilterByType() -> String? {
         return self.filterByType;
     }

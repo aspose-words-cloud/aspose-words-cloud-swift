@@ -27,9 +27,9 @@
 
 import Foundation
 
-// Represents DTO for collection of fields.
+// DTO container with a collection of fields.
 public class FieldCollection : LinkElement {
-    // Field of list. Represents DTO for collection of fields.
+    // Field of list. DTO container with a collection of fields.
     private var list : [Field]?;
 
     private enum CodingKeys: String, CodingKey {
@@ -55,12 +55,12 @@ public class FieldCollection : LinkElement {
         }
     }
 
-    // Sets list. Gets or sets collection of fields.
+    // Sets list. Gets or sets the collection of fields.
     public func setList(list : [Field]?) {
         self.list = list;
     }
 
-    // Gets list. Gets or sets collection of fields.
+    // Gets list. Gets or sets the collection of fields.
     public func getList() -> [Field]? {
         return self.list;
     }

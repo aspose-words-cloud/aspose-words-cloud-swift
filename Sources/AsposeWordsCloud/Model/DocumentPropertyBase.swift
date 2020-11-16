@@ -52,12 +52,12 @@ public class DocumentPropertyBase : Codable, WordsApiModel {
         }
     }
 
-    // Sets value. Gets or sets string value of the document property.
+    // Sets value. Gets or sets the value of the document property.
     public func setValue(value : String?) {
         self.value = value;
     }
 
-    // Gets value. Gets or sets string value of the document property.
+    // Gets value. Gets or sets the value of the document property.
     public func getValue() -> String? {
         return self.value;
     }

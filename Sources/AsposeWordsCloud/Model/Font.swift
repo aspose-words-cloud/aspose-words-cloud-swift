@@ -27,7 +27,7 @@
 
 import Foundation
 
-// Font element.
+// DTO container with a font element.
 public class Font : LinkElement {
     // Gets or sets the locale independent style identifier of the character style applied to this formatting.
     public enum StyleIdentifier : String, Codable
@@ -1235,124 +1235,124 @@ public class Font : LinkElement {
         case dashLongHeavy = "DashLongHeavy"
     }
 
-    // Field of allCaps. Font element.
+    // Field of allCaps. DTO container with a font element.
     private var allCaps : Bool?;
 
-    // Field of bidi. Font element.
+    // Field of bidi. DTO container with a font element.
     private var bidi : Bool?;
 
-    // Field of bold. Font element.
+    // Field of bold. DTO container with a font element.
     private var bold : Bool?;
 
-    // Field of boldBi. Font element.
+    // Field of boldBi. DTO container with a font element.
     private var boldBi : Bool?;
 
-    // Field of border. Font element.
+    // Field of border. DTO container with a font element.
     private var border : Border?;
 
-    // Field of color. Font element.
+    // Field of color. DTO container with a font element.
     private var color : XmlColor?;
 
-    // Field of complexScript. Font element.
+    // Field of complexScript. DTO container with a font element.
     private var complexScript : Bool?;
 
-    // Field of doubleStrikeThrough. Font element.
+    // Field of doubleStrikeThrough. DTO container with a font element.
     private var doubleStrikeThrough : Bool?;
 
-    // Field of emboss. Font element.
+    // Field of emboss. DTO container with a font element.
     private var emboss : Bool?;
 
-    // Field of engrave. Font element.
+    // Field of engrave. DTO container with a font element.
     private var engrave : Bool?;
 
-    // Field of hidden. Font element.
+    // Field of hidden. DTO container with a font element.
     private var hidden : Bool?;
 
-    // Field of highlightColor. Font element.
+    // Field of highlightColor. DTO container with a font element.
     private var highlightColor : XmlColor?;
 
-    // Field of italic. Font element.
+    // Field of italic. DTO container with a font element.
     private var italic : Bool?;
 
-    // Field of italicBi. Font element.
+    // Field of italicBi. DTO container with a font element.
     private var italicBi : Bool?;
 
-    // Field of kerning. Font element.
+    // Field of kerning. DTO container with a font element.
     private var kerning : Double?;
 
-    // Field of localeId. Font element.
+    // Field of localeId. DTO container with a font element.
     private var localeId : Int?;
 
-    // Field of localeIdBi. Font element.
+    // Field of localeIdBi. DTO container with a font element.
     private var localeIdBi : Int?;
 
-    // Field of localeIdFarEast. Font element.
+    // Field of localeIdFarEast. DTO container with a font element.
     private var localeIdFarEast : Int?;
 
-    // Field of name. Font element.
+    // Field of name. DTO container with a font element.
     private var name : String?;
 
-    // Field of nameAscii. Font element.
+    // Field of nameAscii. DTO container with a font element.
     private var nameAscii : String?;
 
-    // Field of nameBi. Font element.
+    // Field of nameBi. DTO container with a font element.
     private var nameBi : String?;
 
-    // Field of nameFarEast. Font element.
+    // Field of nameFarEast. DTO container with a font element.
     private var nameFarEast : String?;
 
-    // Field of nameOther. Font element.
+    // Field of nameOther. DTO container with a font element.
     private var nameOther : String?;
 
-    // Field of noProofing. Font element.
+    // Field of noProofing. DTO container with a font element.
     private var noProofing : Bool?;
 
-    // Field of outline. Font element.
+    // Field of outline. DTO container with a font element.
     private var outline : Bool?;
 
-    // Field of position. Font element.
+    // Field of position. DTO container with a font element.
     private var position : Double?;
 
-    // Field of scaling. Font element.
+    // Field of scaling. DTO container with a font element.
     private var scaling : Int?;
 
-    // Field of shadow. Font element.
+    // Field of shadow. DTO container with a font element.
     private var shadow : Bool?;
 
-    // Field of size. Font element.
+    // Field of size. DTO container with a font element.
     private var size : Double?;
 
-    // Field of sizeBi. Font element.
+    // Field of sizeBi. DTO container with a font element.
     private var sizeBi : Double?;
 
-    // Field of smallCaps. Font element.
+    // Field of smallCaps. DTO container with a font element.
     private var smallCaps : Bool?;
 
-    // Field of spacing. Font element.
+    // Field of spacing. DTO container with a font element.
     private var spacing : Double?;
 
-    // Field of strikeThrough. Font element.
+    // Field of strikeThrough. DTO container with a font element.
     private var strikeThrough : Bool?;
 
-    // Field of styleIdentifier. Font element.
+    // Field of styleIdentifier. DTO container with a font element.
     private var styleIdentifier : StyleIdentifier?;
 
-    // Field of styleName. Font element.
+    // Field of styleName. DTO container with a font element.
     private var styleName : String?;
 
-    // Field of _subscript. Font element.
+    // Field of _subscript. DTO container with a font element.
     private var _subscript : Bool?;
 
-    // Field of superscript. Font element.
+    // Field of superscript. DTO container with a font element.
     private var superscript : Bool?;
 
-    // Field of textEffect. Font element.
+    // Field of textEffect. DTO container with a font element.
     private var textEffect : TextEffect?;
 
-    // Field of underline. Font element.
+    // Field of underline. DTO container with a font element.
     private var underline : Underline?;
 
-    // Field of underlineColor. Font element.
+    // Field of underlineColor. DTO container with a font element.
     private var underlineColor : XmlColor?;
 
     private enum CodingKeys: String, CodingKey {
@@ -1573,52 +1573,52 @@ public class Font : LinkElement {
         }
     }
 
-    // Sets allCaps. Gets or sets true if the font is formatted as all capital letters.
+    // Sets allCaps. Gets or sets a value indicating whether the font is formatted as all capital letters.
     public func setAllCaps(allCaps : Bool?) {
         self.allCaps = allCaps;
     }
 
-    // Gets allCaps. Gets or sets true if the font is formatted as all capital letters.
+    // Gets allCaps. Gets or sets a value indicating whether the font is formatted as all capital letters.
     public func getAllCaps() -> Bool? {
         return self.allCaps;
     }
 
-    // Sets bidi. Gets or sets specifies whether the contents of this run shall have right-to-left characteristics.
+    // Sets bidi. Gets or sets a value indicating whether the contents of this run shall have right-to-left characteristics.
     public func setBidi(bidi : Bool?) {
         self.bidi = bidi;
     }
 
-    // Gets bidi. Gets or sets specifies whether the contents of this run shall have right-to-left characteristics.
+    // Gets bidi. Gets or sets a value indicating whether the contents of this run shall have right-to-left characteristics.
     public func getBidi() -> Bool? {
         return self.bidi;
     }
 
-    // Sets bold. Gets or sets true if the font is formatted as bold.
+    // Sets bold. Gets or sets a value indicating whether the font is formatted as bold.
     public func setBold(bold : Bool?) {
         self.bold = bold;
     }
 
-    // Gets bold. Gets or sets true if the font is formatted as bold.
+    // Gets bold. Gets or sets a value indicating whether the font is formatted as bold.
     public func getBold() -> Bool? {
         return self.bold;
     }
 
-    // Sets boldBi. Gets or sets true if the right-to-left text is formatted as bold.
+    // Sets boldBi. Gets or sets a value indicating whether the right-to-left text is formatted as bold.
     public func setBoldBi(boldBi : Bool?) {
         self.boldBi = boldBi;
     }
 
-    // Gets boldBi. Gets or sets true if the right-to-left text is formatted as bold.
+    // Gets boldBi. Gets or sets a value indicating whether the right-to-left text is formatted as bold.
     public func getBoldBi() -> Bool? {
         return self.boldBi;
     }
 
-    // Sets border. Gets or sets border object that specifies border for the font.
+    // Sets border. Gets or sets the border object, that specifies border for the font.
     public func setBorder(border : Border?) {
         self.border = border;
     }
 
-    // Gets border. Gets or sets border object that specifies border for the font.
+    // Gets border. Gets or sets the border object, that specifies border for the font.
     public func getBorder() -> Border? {
         return self.border;
     }
@@ -1633,52 +1633,52 @@ public class Font : LinkElement {
         return self.color;
     }
 
-    // Sets complexScript. Gets or sets specifies whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.
+    // Sets complexScript. Gets or sets a value indicating whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.
     public func setComplexScript(complexScript : Bool?) {
         self.complexScript = complexScript;
     }
 
-    // Gets complexScript. Gets or sets specifies whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.
+    // Gets complexScript. Gets or sets a value indicating whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.
     public func getComplexScript() -> Bool? {
         return self.complexScript;
     }
 
-    // Sets doubleStrikeThrough. Gets or sets true if the font is formatted as double strikethrough text.
+    // Sets doubleStrikeThrough. Gets or sets a value indicating whether the font is formatted as double strikethrough text.
     public func setDoubleStrikeThrough(doubleStrikeThrough : Bool?) {
         self.doubleStrikeThrough = doubleStrikeThrough;
     }
 
-    // Gets doubleStrikeThrough. Gets or sets true if the font is formatted as double strikethrough text.
+    // Gets doubleStrikeThrough. Gets or sets a value indicating whether the font is formatted as double strikethrough text.
     public func getDoubleStrikeThrough() -> Bool? {
         return self.doubleStrikeThrough;
     }
 
-    // Sets emboss. Gets or sets true if the font is formatted as embossed.
+    // Sets emboss. Gets or sets a value indicating whether the font is formatted as embossed.
     public func setEmboss(emboss : Bool?) {
         self.emboss = emboss;
     }
 
-    // Gets emboss. Gets or sets true if the font is formatted as embossed.
+    // Gets emboss. Gets or sets a value indicating whether the font is formatted as embossed.
     public func getEmboss() -> Bool? {
         return self.emboss;
     }
 
-    // Sets engrave. Gets or sets true if the font is formatted as engraved.
+    // Sets engrave. Gets or sets a value indicating whether the font is formatted as engraved.
     public func setEngrave(engrave : Bool?) {
         self.engrave = engrave;
     }
 
-    // Gets engrave. Gets or sets true if the font is formatted as engraved.
+    // Gets engrave. Gets or sets a value indicating whether the font is formatted as engraved.
     public func getEngrave() -> Bool? {
         return self.engrave;
     }
 
-    // Sets hidden. Gets or sets true if the font is formatted as hidden text.
+    // Sets hidden. Gets or sets a value indicating whether the font is formatted as hidden text.
     public func setHidden(hidden : Bool?) {
         self.hidden = hidden;
     }
 
-    // Gets hidden. Gets or sets true if the font is formatted as hidden text.
+    // Gets hidden. Gets or sets a value indicating whether the font is formatted as hidden text.
     public func getHidden() -> Bool? {
         return self.hidden;
     }
@@ -1693,22 +1693,22 @@ public class Font : LinkElement {
         return self.highlightColor;
     }
 
-    // Sets italic. Gets or sets true if the font is formatted as italic.
+    // Sets italic. Gets or sets a value indicating whether the font is formatted as italic.
     public func setItalic(italic : Bool?) {
         self.italic = italic;
     }
 
-    // Gets italic. Gets or sets true if the font is formatted as italic.
+    // Gets italic. Gets or sets a value indicating whether the font is formatted as italic.
     public func getItalic() -> Bool? {
         return self.italic;
     }
 
-    // Sets italicBi. Gets or sets true if the right-to-left text is formatted as italic.
+    // Sets italicBi. Gets or sets a value indicating whether the right-to-left text is formatted as italic.
     public func setItalicBi(italicBi : Bool?) {
         self.italicBi = italicBi;
     }
 
-    // Gets italicBi. Gets or sets true if the right-to-left text is formatted as italic.
+    // Gets italicBi. Gets or sets a value indicating whether the right-to-left text is formatted as italic.
     public func getItalicBi() -> Bool? {
         return self.italicBi;
     }
@@ -1763,62 +1763,62 @@ public class Font : LinkElement {
         return self.name;
     }
 
-    // Sets nameAscii. Gets or sets returns or sets the font used for Latin text (characters with character codes from 0 (zero) through 127).
+    // Sets nameAscii. Gets or sets the font used for Latin text (characters with character codes from 0 (zero) through 127).
     public func setNameAscii(nameAscii : String?) {
         self.nameAscii = nameAscii;
     }
 
-    // Gets nameAscii. Gets or sets returns or sets the font used for Latin text (characters with character codes from 0 (zero) through 127).
+    // Gets nameAscii. Gets or sets the font used for Latin text (characters with character codes from 0 (zero) through 127).
     public func getNameAscii() -> String? {
         return self.nameAscii;
     }
 
-    // Sets nameBi. Gets or sets returns or sets the name of the font in a right-to-left language document.
+    // Sets nameBi. Gets or sets the name of the font in a right-to-left language document.
     public func setNameBi(nameBi : String?) {
         self.nameBi = nameBi;
     }
 
-    // Gets nameBi. Gets or sets returns or sets the name of the font in a right-to-left language document.
+    // Gets nameBi. Gets or sets the name of the font in a right-to-left language document.
     public func getNameBi() -> String? {
         return self.nameBi;
     }
 
-    // Sets nameFarEast. Gets or sets returns or sets an East Asian font name.
+    // Sets nameFarEast. Gets or sets the East Asian font name.
     public func setNameFarEast(nameFarEast : String?) {
         self.nameFarEast = nameFarEast;
     }
 
-    // Gets nameFarEast. Gets or sets returns or sets an East Asian font name.
+    // Gets nameFarEast. Gets or sets the East Asian font name.
     public func getNameFarEast() -> String? {
         return self.nameFarEast;
     }
 
-    // Sets nameOther. Gets or sets returns or sets the font used for characters with character codes from 128 through 255.
+    // Sets nameOther. Gets or sets the font used for characters with character codes from 128 through 255.
     public func setNameOther(nameOther : String?) {
         self.nameOther = nameOther;
     }
 
-    // Gets nameOther. Gets or sets returns or sets the font used for characters with character codes from 128 through 255.
+    // Gets nameOther. Gets or sets the font used for characters with character codes from 128 through 255.
     public func getNameOther() -> String? {
         return self.nameOther;
     }
 
-    // Sets noProofing. Gets or sets true when the formatted characters are not to be spell checked.
+    // Sets noProofing. Gets or sets a value indicating whether the formatted characters are not to be spell checked.
     public func setNoProofing(noProofing : Bool?) {
         self.noProofing = noProofing;
     }
 
-    // Gets noProofing. Gets or sets true when the formatted characters are not to be spell checked.
+    // Gets noProofing. Gets or sets a value indicating whether the formatted characters are not to be spell checked.
     public func getNoProofing() -> Bool? {
         return self.noProofing;
     }
 
-    // Sets outline. Gets or sets true if the font is formatted as outline.
+    // Sets outline. Gets or sets a value indicating whether the font is formatted as outline.
     public func setOutline(outline : Bool?) {
         self.outline = outline;
     }
 
-    // Gets outline. Gets or sets true if the font is formatted as outline.
+    // Gets outline. Gets or sets a value indicating whether the font is formatted as outline.
     public func getOutline() -> Bool? {
         return self.outline;
     }
@@ -1843,12 +1843,12 @@ public class Font : LinkElement {
         return self.scaling;
     }
 
-    // Sets shadow. Gets or sets true if the font is formatted as shadowed.
+    // Sets shadow. Gets or sets a value indicating whether the font is formatted as shadowed.
     public func setShadow(shadow : Bool?) {
         self.shadow = shadow;
     }
 
-    // Gets shadow. Gets or sets true if the font is formatted as shadowed.
+    // Gets shadow. Gets or sets a value indicating whether the font is formatted as shadowed.
     public func getShadow() -> Bool? {
         return self.shadow;
     }
@@ -1873,32 +1873,32 @@ public class Font : LinkElement {
         return self.sizeBi;
     }
 
-    // Sets smallCaps. Gets or sets true if the font is formatted as small capital letters.
+    // Sets smallCaps. Gets or sets a value indicating whether the font is formatted as small capital letters.
     public func setSmallCaps(smallCaps : Bool?) {
         self.smallCaps = smallCaps;
     }
 
-    // Gets smallCaps. Gets or sets true if the font is formatted as small capital letters.
+    // Gets smallCaps. Gets or sets a value indicating whether the font is formatted as small capital letters.
     public func getSmallCaps() -> Bool? {
         return self.smallCaps;
     }
 
-    // Sets spacing. Gets or sets returns or sets the spacing (in points) between characters.
+    // Sets spacing. Gets or sets the spacing (in points) between characters.
     public func setSpacing(spacing : Double?) {
         self.spacing = spacing;
     }
 
-    // Gets spacing. Gets or sets returns or sets the spacing (in points) between characters.
+    // Gets spacing. Gets or sets the spacing (in points) between characters.
     public func getSpacing() -> Double? {
         return self.spacing;
     }
 
-    // Sets strikeThrough. Gets or sets true if the font is formatted as strikethrough text.
+    // Sets strikeThrough. Gets or sets a value indicating whether the font is formatted as strikethrough text.
     public func setStrikeThrough(strikeThrough : Bool?) {
         self.strikeThrough = strikeThrough;
     }
 
-    // Gets strikeThrough. Gets or sets true if the font is formatted as strikethrough text.
+    // Gets strikeThrough. Gets or sets a value indicating whether the font is formatted as strikethrough text.
     public func getStrikeThrough() -> Bool? {
         return self.strikeThrough;
     }
@@ -1923,22 +1923,22 @@ public class Font : LinkElement {
         return self.styleName;
     }
 
-    // Sets _subscript. Gets or sets true if the font is formatted as subscript.
+    // Sets _subscript. Gets or sets a value indicating whether the font is formatted as subscript.
     public func setSubscript(_subscript : Bool?) {
         self._subscript = _subscript;
     }
 
-    // Gets _subscript. Gets or sets true if the font is formatted as subscript.
+    // Gets _subscript. Gets or sets a value indicating whether the font is formatted as subscript.
     public func getSubscript() -> Bool? {
         return self._subscript;
     }
 
-    // Sets superscript. Gets or sets true if the font is formatted as superscript.
+    // Sets superscript. Gets or sets a value indicating whether the font is formatted as superscript.
     public func setSuperscript(superscript : Bool?) {
         self.superscript = superscript;
     }
 
-    // Gets superscript. Gets or sets true if the font is formatted as superscript.
+    // Gets superscript. Gets or sets a value indicating whether the font is formatted as superscript.
     public func getSuperscript() -> Bool? {
         return self.superscript;
     }

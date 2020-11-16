@@ -27,10 +27,9 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/OfficeMathObjects.
+// The REST response with a collection of OfficeMath objects.
 public class OfficeMathObjectsResponse : WordsResponse {
-    // Field of officeMathObjects. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/OfficeMathObjects.
+    // Field of officeMathObjects. The REST response with a collection of OfficeMath objects.
     private var officeMathObjects : OfficeMathObjectsCollection?;
 
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +55,12 @@ public class OfficeMathObjectsResponse : WordsResponse {
         }
     }
 
-    // Sets officeMathObjects. Gets or sets collection of OfficeMath objects.
+    // Sets officeMathObjects. Gets or sets the collection of OfficeMath objects.
     public func setOfficeMathObjects(officeMathObjects : OfficeMathObjectsCollection?) {
         self.officeMathObjects = officeMathObjects;
     }
 
-    // Gets officeMathObjects. Gets or sets collection of OfficeMath objects.
+    // Gets officeMathObjects. Gets or sets the collection of OfficeMath objects.
     public func getOfficeMathObjects() -> OfficeMathObjectsCollection? {
         return self.officeMathObjects;
     }

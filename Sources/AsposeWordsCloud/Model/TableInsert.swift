@@ -27,15 +27,15 @@
 
 import Foundation
 
-// Table element.
+// DTO container with a table element.
 public class TableInsert : Codable, WordsApiModel {
-    // Field of columnsCount. Table element.
+    // Field of columnsCount. DTO container with a table element.
     private var columnsCount : Int?;
 
-    // Field of position. Table element.
+    // Field of position. DTO container with a table element.
     private var position : DocumentPosition?;
 
-    // Field of rowsCount. Table element.
+    // Field of rowsCount. DTO container with a table element.
     private var rowsCount : Int?;
 
     private enum CodingKeys: String, CodingKey {
@@ -68,32 +68,32 @@ public class TableInsert : Codable, WordsApiModel {
         }
     }
 
-    // Sets columnsCount. Gets or sets count of columns. Default is 2.
+    // Sets columnsCount. Gets or sets the number of columns. The default value is 2.
     public func setColumnsCount(columnsCount : Int?) {
         self.columnsCount = columnsCount;
     }
 
-    // Gets columnsCount. Gets or sets count of columns. Default is 2.
+    // Gets columnsCount. Gets or sets the number of columns. The default value is 2.
     public func getColumnsCount() -> Int? {
         return self.columnsCount;
     }
 
-    // Sets position. Gets or sets table will be inserted before specified position.
+    // Sets position. Gets or sets the position to insert the table. The table will be inserted before the specified position.
     public func setPosition(position : DocumentPosition?) {
         self.position = position;
     }
 
-    // Gets position. Gets or sets table will be inserted before specified position.
+    // Gets position. Gets or sets the position to insert the table. The table will be inserted before the specified position.
     public func getPosition() -> DocumentPosition? {
         return self.position;
     }
 
-    // Sets rowsCount. Gets or sets count of rows. Default is 2.
+    // Sets rowsCount. Gets or sets the number of rows. The default value is 2.
     public func setRowsCount(rowsCount : Int?) {
         self.rowsCount = rowsCount;
     }
 
-    // Gets rowsCount. Gets or sets count of rows. Default is 2.
+    // Gets rowsCount. Gets or sets the number of rows. The default value is 2.
     public func getRowsCount() -> Int? {
         return self.rowsCount;
     }

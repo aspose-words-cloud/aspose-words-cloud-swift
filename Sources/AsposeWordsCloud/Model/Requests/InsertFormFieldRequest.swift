@@ -71,17 +71,17 @@ public class InsertFormFieldRequest : WordsApiRequest {
         self.insertBeforeNode = insertBeforeNode;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // From field data.
+    // The properties of the form field.
     public func getFormField() -> FormField {
         return self.formField;
     }
 
-    // Path to the node that contains collection of formfields.
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }
@@ -121,7 +121,7 @@ public class InsertFormFieldRequest : WordsApiRequest {
         return self.revisionDateTime;
     }
 
-    // Form field will be inserted before node with index.
+    // The index of the node. A new form field will be inserted before the node with the specified node Id.
     public func getInsertBeforeNode() -> String? {
         return self.insertBeforeNode;
     }

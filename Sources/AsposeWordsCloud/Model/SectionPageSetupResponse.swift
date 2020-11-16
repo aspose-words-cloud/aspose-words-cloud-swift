@@ -27,10 +27,9 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}/PageSetup.
+// The REST response with a page setup of a section.
 public class SectionPageSetupResponse : WordsResponse {
-    // Field of pageSetup. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}/PageSetup.
+    // Field of pageSetup. The REST response with a page setup of a section.
     private var pageSetup : PageSetup?;
 
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +55,12 @@ public class SectionPageSetupResponse : WordsResponse {
         }
     }
 
-    // Sets pageSetup. Gets or sets section.
+    // Sets pageSetup. Gets or sets the page setup of a section.
     public func setPageSetup(pageSetup : PageSetup?) {
         self.pageSetup = pageSetup;
     }
 
-    // Gets pageSetup. Gets or sets section.
+    // Gets pageSetup. Gets or sets the page setup of a section.
     public func getPageSetup() -> PageSetup? {
         return self.pageSetup;
     }

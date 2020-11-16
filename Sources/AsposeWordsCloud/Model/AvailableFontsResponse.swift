@@ -27,15 +27,15 @@
 
 import Foundation
 
-// The list of fonts, available for document processing.
+// The REST response with data on system, additional and custom fonts, available for document processing.
 public class AvailableFontsResponse : WordsResponse {
-    // Field of additionalFonts. The list of fonts, available for document processing.
+    // Field of additionalFonts. The REST response with data on system, additional and custom fonts, available for document processing.
     private var additionalFonts : [FontInfo]?;
 
-    // Field of customFonts. The list of fonts, available for document processing.
+    // Field of customFonts. The REST response with data on system, additional and custom fonts, available for document processing.
     private var customFonts : [FontInfo]?;
 
-    // Field of systemFonts. The list of fonts, available for document processing.
+    // Field of systemFonts. The REST response with data on system, additional and custom fonts, available for document processing.
     private var systemFonts : [FontInfo]?;
 
     private enum CodingKeys: String, CodingKey {
@@ -71,32 +71,32 @@ public class AvailableFontsResponse : WordsResponse {
         }
     }
 
-    // Sets additionalFonts. Gets or sets the list of addititional fonts, provided by aspose team.
+    // Sets additionalFonts. Gets or sets the list of additional fonts, provided by Aspose team.
     public func setAdditionalFonts(additionalFonts : [FontInfo]?) {
         self.additionalFonts = additionalFonts;
     }
 
-    // Gets additionalFonts. Gets or sets the list of addititional fonts, provided by aspose team.
+    // Gets additionalFonts. Gets or sets the list of additional fonts, provided by Aspose team.
     public func getAdditionalFonts() -> [FontInfo]? {
         return self.additionalFonts;
     }
 
-    // Sets customFonts. Gets or sets custom user fonts (from user file storage). To use them, you should specify "fontsLocation" parameter in any request.
+    // Sets customFonts. Gets or sets the list of custom user fonts from user cloud storage. To use them, you should specify "fontsLocation" parameter in any request.
     public func setCustomFonts(customFonts : [FontInfo]?) {
         self.customFonts = customFonts;
     }
 
-    // Gets customFonts. Gets or sets custom user fonts (from user file storage). To use them, you should specify "fontsLocation" parameter in any request.
+    // Gets customFonts. Gets or sets the list of custom user fonts from user cloud storage. To use them, you should specify "fontsLocation" parameter in any request.
     public func getCustomFonts() -> [FontInfo]? {
         return self.customFonts;
     }
 
-    // Sets systemFonts. Gets or sets the list of system fonts, availiable on the server.
+    // Sets systemFonts. Gets or sets the list of system fonts, available on the server.
     public func setSystemFonts(systemFonts : [FontInfo]?) {
         self.systemFonts = systemFonts;
     }
 
-    // Gets systemFonts. Gets or sets the list of system fonts, availiable on the server.
+    // Gets systemFonts. Gets or sets the list of system fonts, available on the server.
     public func getSystemFonts() -> [FontInfo]? {
         return self.systemFonts;
     }

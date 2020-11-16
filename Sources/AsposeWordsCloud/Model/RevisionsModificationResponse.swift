@@ -27,9 +27,9 @@
 
 import Foundation
 
-// response of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
+// The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
 public class RevisionsModificationResponse : WordsResponse {
-    // Field of result. response of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
+    // Field of result. The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
     private var result : ModificationOperationResult?;
 
     private enum CodingKeys: String, CodingKey {
@@ -55,12 +55,12 @@ public class RevisionsModificationResponse : WordsResponse {
         }
     }
 
-    // Sets result. Gets or sets result of the modification operations for the revisions collection.
+    // Sets result. Gets or sets the result of the modification operations for the revisions collection.
     public func setResult(result : ModificationOperationResult?) {
         self.result = result;
     }
 
-    // Gets result. Gets or sets result of the modification operations for the revisions collection.
+    // Gets result. Gets or sets the result of the modification operations for the revisions collection.
     public func getResult() -> ModificationOperationResult? {
         return self.result;
     }

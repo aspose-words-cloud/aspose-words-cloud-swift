@@ -56,12 +56,12 @@ public class GetDocumentHyperlinkByIndexRequest : WordsApiRequest {
         self.password = password;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // The hyperlink index.
+    // The index of the hyperlink.
     public func getHyperlinkIndex() -> Int {
         return self.hyperlinkIndex;
     }

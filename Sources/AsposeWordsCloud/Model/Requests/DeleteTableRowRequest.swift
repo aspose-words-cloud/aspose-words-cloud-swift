@@ -68,12 +68,12 @@ public class DeleteTableRowRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Path to table.
+    // The path to the table in the document tree.
     public func getTablePath() -> String {
         return self.tablePath;
     }

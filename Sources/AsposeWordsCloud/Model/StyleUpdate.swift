@@ -76,22 +76,22 @@ public class StyleUpdate : Codable, WordsApiModel {
         }
     }
 
-    // Sets baseStyleName. Gets or sets /sets the name of the style this style is based on.
+    // Sets baseStyleName. Gets or sets the name of the style this style is based on.
     public func setBaseStyleName(baseStyleName : String?) {
         self.baseStyleName = baseStyleName;
     }
 
-    // Gets baseStyleName. Gets or sets /sets the name of the style this style is based on.
+    // Gets baseStyleName. Gets or sets the name of the style this style is based on.
     public func getBaseStyleName() -> String? {
         return self.baseStyleName;
     }
 
-    // Sets isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.
+    // Sets isQuickStyle. Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
     public func setIsQuickStyle(isQuickStyle : Bool?) {
         self.isQuickStyle = isQuickStyle;
     }
 
-    // Gets isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.
+    // Gets isQuickStyle. Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
     public func getIsQuickStyle() -> Bool? {
         return self.isQuickStyle;
     }
@@ -106,12 +106,12 @@ public class StyleUpdate : Codable, WordsApiModel {
         return self.name;
     }
 
-    // Sets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
+    // Sets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
     public func setNextParagraphStyleName(nextParagraphStyleName : String?) {
         self.nextParagraphStyleName = nextParagraphStyleName;
     }
 
-    // Gets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
+    // Gets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
     public func getNextParagraphStyleName() -> String? {
         return self.nextParagraphStyleName;
     }

@@ -59,7 +59,7 @@ public class ClassifyDocumentRequest : WordsApiRequest {
         self.taxonomy = taxonomy;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getDocumentName() -> String {
         return self.documentName;
     }
@@ -84,12 +84,12 @@ public class ClassifyDocumentRequest : WordsApiRequest {
         return self.password;
     }
 
-    // Count of the best classes to return.
+    // The number of the best classes to return.
     public func getBestClassesCount() -> String? {
         return self.bestClassesCount;
     }
 
-    // Taxonomy to use for classification return.
+    // The taxonomy to use.
     public func getTaxonomy() -> String? {
         return self.taxonomy;
     }

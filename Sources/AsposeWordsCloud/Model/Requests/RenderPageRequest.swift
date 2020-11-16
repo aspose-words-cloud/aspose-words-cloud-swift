@@ -62,12 +62,12 @@ public class RenderPageRequest : WordsApiRequest {
         self.fontsLocation = fontsLocation;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Comment index.
+    // The index of the page.
     public func getPageIndex() -> Int {
         return self.pageIndex;
     }

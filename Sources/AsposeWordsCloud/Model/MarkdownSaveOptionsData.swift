@@ -29,7 +29,7 @@ import Foundation
 
 // Container class for markdown save options.
 public class MarkdownSaveOptionsData : TxtSaveOptionsBaseData {
-    // Gets or sets a value that specifies how to align contents in tables when exporting into the Markdown format.
+    // Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format.
     // The default value is Auto.
     public enum TableContentAlignment : String, Codable
     {
@@ -72,12 +72,12 @@ public class MarkdownSaveOptionsData : TxtSaveOptionsBaseData {
         }
     }
 
-    // Sets tableContentAlignment. Gets or sets a value that specifies how to align contents in tables when exporting into the Markdown format. The default value is Auto.
+    // Sets tableContentAlignment. Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format. The default value is Auto.
     public func setTableContentAlignment(tableContentAlignment : TableContentAlignment?) {
         self.tableContentAlignment = tableContentAlignment;
     }
 
-    // Gets tableContentAlignment. Gets or sets a value that specifies how to align contents in tables when exporting into the Markdown format. The default value is Auto.
+    // Gets tableContentAlignment. Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format. The default value is Auto.
     public func getTableContentAlignment() -> TableContentAlignment? {
         return self.tableContentAlignment;
     }

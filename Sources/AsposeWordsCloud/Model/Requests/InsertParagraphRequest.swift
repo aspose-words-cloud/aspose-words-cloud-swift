@@ -71,17 +71,17 @@ public class InsertParagraphRequest : WordsApiRequest {
         self.insertBeforeNode = insertBeforeNode;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Paragraph data.
+    // The properties of the paragraph.
     public func getParagraph() -> ParagraphInsert {
         return self.paragraph;
     }
 
-    // Path to the node which contains paragraphs.
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }
@@ -121,7 +121,7 @@ public class InsertParagraphRequest : WordsApiRequest {
         return self.revisionDateTime;
     }
 
-    // Paragraph will be inserted before node with index.
+    // The index of the node. A new paragraph will be inserted before the node with the specified index.
     public func getInsertBeforeNode() -> String? {
         return self.insertBeforeNode;
     }

@@ -76,42 +76,42 @@ public class PageStatData : Codable, WordsApiModel {
         }
     }
 
-    // Sets footnotesStatData. Gets or sets detailed statistics of footnotes.
+    // Sets footnotesStatData. Gets or sets the detailed statistics on the footnotes.
     public func setFootnotesStatData(footnotesStatData : FootnotesStatData?) {
         self.footnotesStatData = footnotesStatData;
     }
 
-    // Gets footnotesStatData. Gets or sets detailed statistics of footnotes.
+    // Gets footnotesStatData. Gets or sets the detailed statistics on the footnotes.
     public func getFootnotesStatData() -> FootnotesStatData? {
         return self.footnotesStatData;
     }
 
-    // Sets pageNumber. Gets or sets page number.
+    // Sets pageNumber. Gets or sets the page number.
     public func setPageNumber(pageNumber : Int?) {
         self.pageNumber = pageNumber;
     }
 
-    // Gets pageNumber. Gets or sets page number.
+    // Gets pageNumber. Gets or sets the page number.
     public func getPageNumber() -> Int? {
         return self.pageNumber;
     }
 
-    // Sets paragraphCount. Gets or sets total count of paragraphs in the page.
+    // Sets paragraphCount. Gets or sets the total count of paragraphs in the page.
     public func setParagraphCount(paragraphCount : Int?) {
         self.paragraphCount = paragraphCount;
     }
 
-    // Gets paragraphCount. Gets or sets total count of paragraphs in the page.
+    // Gets paragraphCount. Gets or sets the total count of paragraphs in the page.
     public func getParagraphCount() -> Int? {
         return self.paragraphCount;
     }
 
-    // Sets wordCount. Gets or sets total count of words in the page.
+    // Sets wordCount. Gets or sets the total count of words in the page.
     public func setWordCount(wordCount : Int?) {
         self.wordCount = wordCount;
     }
 
-    // Gets wordCount. Gets or sets total count of words in the page.
+    // Gets wordCount. Gets or sets the total count of words in the page.
     public func getWordCount() -> Int? {
         return self.wordCount;
     }

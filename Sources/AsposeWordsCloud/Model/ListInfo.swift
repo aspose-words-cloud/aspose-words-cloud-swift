@@ -27,27 +27,27 @@
 
 import Foundation
 
-// Represents a single document list.
+// DTO container with a single document list.
 public class ListInfo : LinkElement {
-    // Field of isListStyleDefinition. Represents a single document list.
+    // Field of isListStyleDefinition. DTO container with a single document list.
     private var isListStyleDefinition : Bool?;
 
-    // Field of isListStyleReference. Represents a single document list.
+    // Field of isListStyleReference. DTO container with a single document list.
     private var isListStyleReference : Bool?;
 
-    // Field of isMultiLevel. Represents a single document list.
+    // Field of isMultiLevel. DTO container with a single document list.
     private var isMultiLevel : Bool?;
 
-    // Field of isRestartAtEachSection. Represents a single document list.
+    // Field of isRestartAtEachSection. DTO container with a single document list.
     private var isRestartAtEachSection : Bool?;
 
-    // Field of listId. Represents a single document list.
+    // Field of listId. DTO container with a single document list.
     private var listId : Int?;
 
-    // Field of listLevels. Represents a single document list.
+    // Field of listLevels. DTO container with a single document list.
     private var listLevels : ListLevels?;
 
-    // Field of style. Represents a single document list.
+    // Field of style. DTO container with a single document list.
     private var style : Style?;
 
     private enum CodingKeys: String, CodingKey {
@@ -103,42 +103,42 @@ public class ListInfo : LinkElement {
         }
     }
 
-    // Sets isListStyleDefinition. Gets or sets a value indicating whether returns true if this list is a definition of a list style.
+    // Sets isListStyleDefinition. Gets or sets a value indicating whether this list is a definition of a list style.
     public func setIsListStyleDefinition(isListStyleDefinition : Bool?) {
         self.isListStyleDefinition = isListStyleDefinition;
     }
 
-    // Gets isListStyleDefinition. Gets or sets a value indicating whether returns true if this list is a definition of a list style.
+    // Gets isListStyleDefinition. Gets or sets a value indicating whether this list is a definition of a list style.
     public func getIsListStyleDefinition() -> Bool? {
         return self.isListStyleDefinition;
     }
 
-    // Sets isListStyleReference. Gets or sets a value indicating whether returns true if this list is a reference to a list style.
+    // Sets isListStyleReference. Gets or sets a value indicating whether this list is a reference to a list style.
     public func setIsListStyleReference(isListStyleReference : Bool?) {
         self.isListStyleReference = isListStyleReference;
     }
 
-    // Gets isListStyleReference. Gets or sets a value indicating whether returns true if this list is a reference to a list style.
+    // Gets isListStyleReference. Gets or sets a value indicating whether this list is a reference to a list style.
     public func getIsListStyleReference() -> Bool? {
         return self.isListStyleReference;
     }
 
-    // Sets isMultiLevel. Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.
+    // Sets isMultiLevel. Gets or sets a value indicating whether the list contains 9 levels; false when 1 level.
     public func setIsMultiLevel(isMultiLevel : Bool?) {
         self.isMultiLevel = isMultiLevel;
     }
 
-    // Gets isMultiLevel. Gets or sets a value indicating whether returns true when the list contains 9 levels; false when 1 level.
+    // Gets isMultiLevel. Gets or sets a value indicating whether the list contains 9 levels; false when 1 level.
     public func getIsMultiLevel() -> Bool? {
         return self.isMultiLevel;
     }
 
-    // Sets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+    // Sets isRestartAtEachSection. Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
     public func setIsRestartAtEachSection(isRestartAtEachSection : Bool?) {
         self.isRestartAtEachSection = isRestartAtEachSection;
     }
 
-    // Gets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+    // Gets isRestartAtEachSection. Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
     public func getIsRestartAtEachSection() -> Bool? {
         return self.isRestartAtEachSection;
     }

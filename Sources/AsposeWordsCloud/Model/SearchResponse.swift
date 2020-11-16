@@ -27,13 +27,12 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/search.
+// The REST response with a regular expression pattern and a collection of search results.
 public class SearchResponse : WordsResponse {
-    // Field of searchingPattern. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/search.
+    // Field of searchingPattern. The REST response with a regular expression pattern and a collection of search results.
     private var searchingPattern : String?;
 
-    // Field of searchResults. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/search.
+    // Field of searchResults. The REST response with a regular expression pattern and a collection of search results.
     private var searchResults : SearchResultsCollection?;
 
     private enum CodingKeys: String, CodingKey {
@@ -64,22 +63,22 @@ public class SearchResponse : WordsResponse {
         }
     }
 
-    // Sets searchingPattern. Gets or sets a regular expression pattern used to find matches.
+    // Sets searchingPattern. Gets or sets the regular expression pattern used to find matches.
     public func setSearchingPattern(searchingPattern : String?) {
         self.searchingPattern = searchingPattern;
     }
 
-    // Gets searchingPattern. Gets or sets a regular expression pattern used to find matches.
+    // Gets searchingPattern. Gets or sets the regular expression pattern used to find matches.
     public func getSearchingPattern() -> String? {
         return self.searchingPattern;
     }
 
-    // Sets searchResults. Gets or sets collection of search results.
+    // Sets searchResults. Gets or sets the collection of search results.
     public func setSearchResults(searchResults : SearchResultsCollection?) {
         self.searchResults = searchResults;
     }
 
-    // Gets searchResults. Gets or sets collection of search results.
+    // Gets searchResults. Gets or sets the collection of search results.
     public func getSearchResults() -> SearchResultsCollection? {
         return self.searchResults;
     }

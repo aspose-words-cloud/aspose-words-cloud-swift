@@ -27,10 +27,9 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/styles.
+// The REST response with an array of styles.
 public class StylesResponse : WordsResponse {
-    // Field of styles. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/styles.
+    // Field of styles. The REST response with an array of styles.
     private var styles : [Style]?;
 
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +55,12 @@ public class StylesResponse : WordsResponse {
         }
     }
 
-    // Sets styles. Gets or sets styles which are contained in document.
+    // Sets styles. Gets or sets the array of styles.
     public func setStyles(styles : [Style]?) {
         self.styles = styles;
     }
 
-    // Gets styles. Gets or sets styles which are contained in document.
+    // Gets styles. Gets or sets the array of styles.
     public func getStyles() -> [Style]? {
         return self.styles;
     }

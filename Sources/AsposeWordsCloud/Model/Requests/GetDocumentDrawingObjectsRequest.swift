@@ -56,12 +56,12 @@ public class GetDocumentDrawingObjectsRequest : WordsApiRequest {
         self.password = password;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Path to the node, which contains collection of drawing objects.
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }

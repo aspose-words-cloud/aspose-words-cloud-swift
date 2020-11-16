@@ -62,7 +62,7 @@ public class GetDocumentStatisticsRequest : WordsApiRequest {
         self.includeTextInShapes = includeTextInShapes;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
@@ -87,17 +87,17 @@ public class GetDocumentStatisticsRequest : WordsApiRequest {
         return self.password;
     }
 
-    // Support including/excluding comments from the WordCount. Default value is "false".
+    // The flag indicating whether to include comments from the WordCount. The default value is "false".
     public func getIncludeComments() -> Bool? {
         return self.includeComments;
     }
 
-    // Support including/excluding footnotes from the WordCount. Default value is "false".
+    // The flag indicating whether to include footnotes from the WordCount. The default value is "false".
     public func getIncludeFootnotes() -> Bool? {
         return self.includeFootnotes;
     }
 
-    // Support including/excluding shape's text from the WordCount. Default value is "false".
+    // The flag indicating whether to include shape's text from the WordCount. The default value is "false".
     public func getIncludeTextInShapes() -> Bool? {
         return self.includeTextInShapes;
     }

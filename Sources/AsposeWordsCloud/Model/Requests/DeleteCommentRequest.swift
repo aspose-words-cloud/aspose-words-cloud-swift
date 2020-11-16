@@ -65,12 +65,12 @@ public class DeleteCommentRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // The comment index.
+    // The index of the comment.
     public func getCommentIndex() -> Int {
         return self.commentIndex;
     }

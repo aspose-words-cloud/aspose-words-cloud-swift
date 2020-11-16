@@ -27,10 +27,9 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/footnote/0.
+// The REST response with a footnote.
 public class FootnoteResponse : WordsResponse {
-    // Field of footnote. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/footnote/0.
+    // Field of footnote. The REST response with a footnote.
     private var footnote : Footnote?;
 
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +55,12 @@ public class FootnoteResponse : WordsResponse {
         }
     }
 
-    // Sets footnote. Gets or sets footnote information.
+    // Sets footnote. Gets or sets the footnote.
     public func setFootnote(footnote : Footnote?) {
         self.footnote = footnote;
     }
 
-    // Gets footnote. Gets or sets footnote information.
+    // Gets footnote. Gets or sets the footnote.
     public func getFootnote() -> Footnote? {
         return self.footnote;
     }

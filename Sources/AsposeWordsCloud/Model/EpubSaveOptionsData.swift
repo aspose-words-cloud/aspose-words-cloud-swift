@@ -55,12 +55,12 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
         }
     }
 
-    // Sets epubNavigationMapLevel. Gets or sets specifies the maximum level of headings populated to the navigation map when exporting.
+    // Sets epubNavigationMapLevel. Gets or sets the maximum level of headings populated to the navigation map when exporting.
     public func setEpubNavigationMapLevel(epubNavigationMapLevel : Int?) {
         self.epubNavigationMapLevel = epubNavigationMapLevel;
     }
 
-    // Gets epubNavigationMapLevel. Gets or sets specifies the maximum level of headings populated to the navigation map when exporting.
+    // Gets epubNavigationMapLevel. Gets or sets the maximum level of headings populated to the navigation map when exporting.
     public func getEpubNavigationMapLevel() -> Int? {
         return self.epubNavigationMapLevel;
     }

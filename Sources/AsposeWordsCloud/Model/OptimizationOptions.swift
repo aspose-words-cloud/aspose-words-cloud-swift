@@ -29,7 +29,7 @@ import Foundation
 
 // Container class for the document optimization options.
 public class OptimizationOptions : Codable, WordsApiModel {
-    // Gets or sets specific MSWord version.
+    // Gets or sets the specific MSWord version.
     public enum MsWordVersion : String, Codable
     {
         // Enum value "word2000"
@@ -80,12 +80,12 @@ public class OptimizationOptions : Codable, WordsApiModel {
         }
     }
 
-    // Sets msWordVersion. Gets or sets specific MSWord version.
+    // Sets msWordVersion. Gets or sets the specific MSWord version.
     public func setMsWordVersion(msWordVersion : MsWordVersion?) {
         self.msWordVersion = msWordVersion;
     }
 
-    // Gets msWordVersion. Gets or sets specific MSWord version.
+    // Gets msWordVersion. Gets or sets the specific MSWord version.
     public func getMsWordVersion() -> MsWordVersion? {
         return self.msWordVersion;
     }

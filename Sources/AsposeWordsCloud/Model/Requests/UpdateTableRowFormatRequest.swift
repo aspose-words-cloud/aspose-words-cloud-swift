@@ -71,17 +71,17 @@ public class UpdateTableRowFormatRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Table row format.
+    // The row format.
     public func getFormat() -> TableRowFormat {
         return self.format;
     }
 
-    // Path to table.
+    // The path to the table in the document tree.
     public func getTablePath() -> String {
         return self.tablePath;
     }

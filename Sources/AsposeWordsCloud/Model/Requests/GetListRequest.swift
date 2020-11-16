@@ -56,12 +56,12 @@ public class GetListRequest : WordsApiRequest {
         self.password = password;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // List unique identifier.
+    // The list Id.
     public func getListId() -> Int {
         return self.listId;
     }

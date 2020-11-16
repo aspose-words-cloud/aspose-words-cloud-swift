@@ -81,12 +81,12 @@ public class CompareData : Codable, WordsApiModel {
         }
     }
 
-    // Sets author. Gets or sets initials of the author to use for revisions.
+    // Sets author. Gets or sets the initials of the author to use for revisions.
     public func setAuthor(author : String?) {
         self.author = author;
     }
 
-    // Gets author. Gets or sets initials of the author to use for revisions.
+    // Gets author. Gets or sets the initials of the author to use for revisions.
     public func getAuthor() -> String? {
         return self.author;
     }
@@ -101,12 +101,12 @@ public class CompareData : Codable, WordsApiModel {
         return self.compareOptions;
     }
 
-    // Sets comparingWithDocument. Gets or sets path to document to compare at the server.
+    // Sets comparingWithDocument. Gets or sets the path to document to compare at the server.
     public func setComparingWithDocument(comparingWithDocument : String?) {
         self.comparingWithDocument = comparingWithDocument;
     }
 
-    // Gets comparingWithDocument. Gets or sets path to document to compare at the server.
+    // Gets comparingWithDocument. Gets or sets the path to document to compare at the server.
     public func getComparingWithDocument() -> String? {
         return self.comparingWithDocument;
     }

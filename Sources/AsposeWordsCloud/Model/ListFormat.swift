@@ -27,15 +27,15 @@
 
 import Foundation
 
-// Paragraph list format element.
+// DTO container with a paragraph list format element.
 public class ListFormat : LinkElement {
-    // Field of isListItem. Paragraph list format element.
+    // Field of isListItem. DTO container with a paragraph list format element.
     private var isListItem : Bool?;
 
-    // Field of listId. Paragraph list format element.
+    // Field of listId. DTO container with a paragraph list format element.
     private var listId : Int?;
 
-    // Field of listLevelNumber. Paragraph list format element.
+    // Field of listLevelNumber. DTO container with a paragraph list format element.
     private var listLevelNumber : Int?;
 
     private enum CodingKeys: String, CodingKey {

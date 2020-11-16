@@ -60,22 +60,22 @@ public class FootnotesStatData : Codable, WordsApiModel {
         }
     }
 
-    // Sets paragraphCount. Gets or sets total count of paragraphs in footnotes.
+    // Sets paragraphCount. Gets or sets the total count of paragraphs in footnotes.
     public func setParagraphCount(paragraphCount : Int?) {
         self.paragraphCount = paragraphCount;
     }
 
-    // Gets paragraphCount. Gets or sets total count of paragraphs in footnotes.
+    // Gets paragraphCount. Gets or sets the total count of paragraphs in footnotes.
     public func getParagraphCount() -> Int? {
         return self.paragraphCount;
     }
 
-    // Sets wordCount. Gets or sets total count of words in footnotes.
+    // Sets wordCount. Gets or sets the total count of words in footnotes.
     public func setWordCount(wordCount : Int?) {
         self.wordCount = wordCount;
     }
 
-    // Gets wordCount. Gets or sets total count of words in footnotes.
+    // Gets wordCount. Gets or sets the total count of words in footnotes.
     public func getWordCount() -> Int? {
         return self.wordCount;
     }

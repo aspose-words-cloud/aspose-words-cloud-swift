@@ -231,12 +231,12 @@ public class Border : LinkElement {
         return self.color;
     }
 
-    // Sets distanceFromText. Gets or sets distance of the border from text or from the page edge in points.
+    // Sets distanceFromText. Gets or sets the distance of the border from text or from the page edge in points.
     public func setDistanceFromText(distanceFromText : Double?) {
         self.distanceFromText = distanceFromText;
     }
 
-    // Gets distanceFromText. Gets or sets distance of the border from text or from the page edge in points.
+    // Gets distanceFromText. Gets or sets the distance of the border from text or from the page edge in points.
     public func getDistanceFromText() -> Double? {
         return self.distanceFromText;
     }

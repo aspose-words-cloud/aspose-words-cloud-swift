@@ -27,9 +27,9 @@
 
 import Foundation
 
-// Represents an array of document lists.
+// DTO container with an array of document lists.
 public class Lists : LinkElement {
-    // Field of listInfo. Represents an array of document lists.
+    // Field of listInfo. DTO container with an array of document lists.
     private var listInfo : [ListInfo]?;
 
     private enum CodingKeys: String, CodingKey {
@@ -55,12 +55,12 @@ public class Lists : LinkElement {
         }
     }
 
-    // Sets listInfo. Gets or sets array of document lists.
+    // Sets listInfo. Gets or sets the array of document lists.
     public func setListInfo(listInfo : [ListInfo]?) {
         self.listInfo = listInfo;
     }
 
-    // Gets listInfo. Gets or sets array of document lists.
+    // Gets listInfo. Gets or sets the array of document lists.
     public func getListInfo() -> [ListInfo]? {
         return self.listInfo;
     }

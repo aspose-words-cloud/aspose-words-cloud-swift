@@ -56,12 +56,12 @@ public class GetStyleFromDocumentElementRequest : WordsApiRequest {
         self.password = password;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
+    // The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
     public func getStyledNodePath() -> String {
         return self.styledNodePath;
     }

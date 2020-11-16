@@ -71,12 +71,12 @@ public class UpdateParagraphFormatRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Paragraph format object.
+    // The formatting properties of a paragraph.
     public func getDto() -> ParagraphFormatUpdate {
         return self.dto;
     }
@@ -86,7 +86,7 @@ public class UpdateParagraphFormatRequest : WordsApiRequest {
         return self.index;
     }
 
-    // Path to the node which contains paragraphs.
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }

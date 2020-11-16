@@ -27,9 +27,9 @@
 
 import Foundation
 
-// Save response.
+// The REST response with a save result.
 public class SaveResponse : WordsResponse {
-    // Field of saveResult. Save response.
+    // Field of saveResult. The REST response with a save result.
     private var saveResult : SaveResult?;
 
     private enum CodingKeys: String, CodingKey {
@@ -55,12 +55,12 @@ public class SaveResponse : WordsResponse {
         }
     }
 
-    // Sets saveResult. Gets or sets save result.
+    // Sets saveResult. Gets or sets the save result.
     public func setSaveResult(saveResult : SaveResult?) {
         self.saveResult = saveResult;
     }
 
-    // Gets saveResult. Gets or sets save result.
+    // Gets saveResult. Gets or sets the save result.
     public func getSaveResult() -> SaveResult? {
         return self.saveResult;
     }

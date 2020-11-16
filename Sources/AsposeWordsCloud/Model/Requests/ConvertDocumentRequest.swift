@@ -61,7 +61,7 @@ public class ConvertDocumentRequest : WordsApiRequest {
         return self.document;
     }
 
-    // Format to convert.
+    // The format to convert.
     public func getFormat() -> String {
         return self.format;
     }
@@ -71,12 +71,12 @@ public class ConvertDocumentRequest : WordsApiRequest {
         return self.storage;
     }
 
-    // Path for saving operation result to the local storage.
+    // The path to the output document on a local storage.
     public func getOutPath() -> String? {
         return self.outPath;
     }
 
-    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
+    // The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "sourceFilename" will be used instead.
     public func getFileNameFieldValue() -> String? {
         return self.fileNameFieldValue;
     }

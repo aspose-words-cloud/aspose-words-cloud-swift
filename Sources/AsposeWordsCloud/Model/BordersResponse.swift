@@ -27,10 +27,9 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET {nodeWithBorders}/borders.
+// The REST response with a collection of borders.
 public class BordersResponse : WordsResponse {
-    // Field of borders. This response should be returned by the service when handling: GET {nodeWithBorders}/borders.
+    // Field of borders. The REST response with a collection of borders.
     private var borders : BordersCollection?;
 
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +55,12 @@ public class BordersResponse : WordsResponse {
         }
     }
 
-    // Sets borders. Gets or sets table.
+    // Sets borders. Gets or sets the collection of borders.
     public func setBorders(borders : BordersCollection?) {
         self.borders = borders;
     }
 
-    // Gets borders. Gets or sets table.
+    // Gets borders. Gets or sets the collection of borders.
     public func getBorders() -> BordersCollection? {
         return self.borders;
     }

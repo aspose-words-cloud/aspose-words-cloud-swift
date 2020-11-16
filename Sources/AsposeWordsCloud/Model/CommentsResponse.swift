@@ -27,10 +27,9 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/comments.
+// The REST response with a collection of comments.
 public class CommentsResponse : WordsResponse {
-    // Field of comments. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/comments.
+    // Field of comments. The REST response with a collection of comments.
     private var comments : CommentsCollection?;
 
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +55,12 @@ public class CommentsResponse : WordsResponse {
         }
     }
 
-    // Sets comments. Gets or sets collection of comments.
+    // Sets comments. Gets or sets the collection of comments.
     public func setComments(comments : CommentsCollection?) {
         self.comments = comments;
     }
 
-    // Gets comments. Gets or sets collection of comments.
+    // Gets comments. Gets or sets the collection of comments.
     public func getComments() -> CommentsCollection? {
         return self.comments;
     }

@@ -29,7 +29,7 @@ import Foundation
 
 // HeaderFooter link element.
 public class HeaderFooterLink : LinkElement {
-    // Gets or sets paragraph's text.
+    // Gets or sets the paragraph's text.
     public enum ModelType : String, Codable
     {
         // Enum value "headerEven"
@@ -77,12 +77,12 @@ public class HeaderFooterLink : LinkElement {
         }
     }
 
-    // Sets type. Gets or sets paragraph's text.
+    // Sets type. Gets or sets the paragraph's text.
     public func setType(type : ModelType?) {
         self.type = type;
     }
 
-    // Gets type. Gets or sets paragraph's text.
+    // Gets type. Gets or sets the paragraph's text.
     public func getType() -> ModelType? {
         return self.type;
     }

@@ -89,22 +89,22 @@ public class ReportEngineSettings : Codable, WordsApiModel {
         }
     }
 
-    // Sets csvDataLoadOptions. Gets or sets options for parsing CSV data.
+    // Sets csvDataLoadOptions. Gets or sets the options for parsing CSV data.
     public func setCsvDataLoadOptions(csvDataLoadOptions : CsvDataLoadOptions?) {
         self.csvDataLoadOptions = csvDataLoadOptions;
     }
 
-    // Gets csvDataLoadOptions. Gets or sets options for parsing CSV data.
+    // Gets csvDataLoadOptions. Gets or sets the options for parsing CSV data.
     public func getCsvDataLoadOptions() -> CsvDataLoadOptions? {
         return self.csvDataLoadOptions;
     }
 
-    // Sets dataSourceName. Gets or sets a name to reference the data source object in the template.
+    // Sets dataSourceName. Gets or sets the name to reference the data source object in the template.
     public func setDataSourceName(dataSourceName : String?) {
         self.dataSourceName = dataSourceName;
     }
 
-    // Gets dataSourceName. Gets or sets a name to reference the data source object in the template.
+    // Gets dataSourceName. Gets or sets the name to reference the data source object in the template.
     public func getDataSourceName() -> String? {
         return self.dataSourceName;
     }

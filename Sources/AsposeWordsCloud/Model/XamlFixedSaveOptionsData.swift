@@ -27,12 +27,12 @@
 
 import Foundation
 
-// container class for xaml fixed save options.
+// Container class for xaml fixed save options.
 public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
-    // Field of resourcesFolder. container class for xaml fixed save options.
+    // Field of resourcesFolder. Container class for xaml fixed save options.
     private var resourcesFolder : String?;
 
-    // Field of resourcesFolderAlias. container class for xaml fixed save options.
+    // Field of resourcesFolderAlias. Container class for xaml fixed save options.
     private var resourcesFolderAlias : String?;
 
     private enum CodingKeys: String, CodingKey {
@@ -63,22 +63,22 @@ public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
-    // Sets resourcesFolder. Gets or sets specifies the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format. Default is null.
+    // Sets resourcesFolder. Gets or sets the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format. The default value is null.
     public func setResourcesFolder(resourcesFolder : String?) {
         self.resourcesFolder = resourcesFolder;
     }
 
-    // Gets resourcesFolder. Gets or sets specifies the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format. Default is null.
+    // Gets resourcesFolder. Gets or sets the physical folder where resources (images and fonts) are saved when exporting a document to fixed page Xaml format. The default value is null.
     public func getResourcesFolder() -> String? {
         return self.resourcesFolder;
     }
 
-    // Sets resourcesFolderAlias. Gets or sets specifies the name of the folder used to construct image URIs written into an fixed page Xaml document. Default is null.
+    // Sets resourcesFolderAlias. Gets or sets the name of the folder used to construct image URIs written into an fixed page Xaml document. The default value is null.
     public func setResourcesFolderAlias(resourcesFolderAlias : String?) {
         self.resourcesFolderAlias = resourcesFolderAlias;
     }
 
-    // Gets resourcesFolderAlias. Gets or sets specifies the name of the folder used to construct image URIs written into an fixed page Xaml document. Default is null.
+    // Gets resourcesFolderAlias. Gets or sets the name of the folder used to construct image URIs written into an fixed page Xaml document. The default value is null.
     public func getResourcesFolderAlias() -> String? {
         return self.resourcesFolderAlias;
     }

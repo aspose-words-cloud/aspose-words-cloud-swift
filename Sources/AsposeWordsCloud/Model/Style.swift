@@ -27,7 +27,7 @@
 
 import Foundation
 
-// Represents a single document style.
+// DTO container with a single document style.
 public class Style : LinkElement {
     // Gets or sets the locale independent style identifier for a built-in style.
     public enum StyleIdentifier : String, Codable
@@ -1168,37 +1168,37 @@ public class Style : LinkElement {
         case list = "List"
     }
 
-    // Field of aliases. Represents a single document style.
+    // Field of aliases. DTO container with a single document style.
     private var aliases : [String]?;
 
-    // Field of baseStyleName. Represents a single document style.
+    // Field of baseStyleName. DTO container with a single document style.
     private var baseStyleName : String?;
 
-    // Field of builtIn. Represents a single document style.
+    // Field of builtIn. DTO container with a single document style.
     private var builtIn : Bool?;
 
-    // Field of font. Represents a single document style.
+    // Field of font. DTO container with a single document style.
     private var font : Font?;
 
-    // Field of isHeading. Represents a single document style.
+    // Field of isHeading. DTO container with a single document style.
     private var isHeading : Bool?;
 
-    // Field of isQuickStyle. Represents a single document style.
+    // Field of isQuickStyle. DTO container with a single document style.
     private var isQuickStyle : Bool?;
 
-    // Field of linkedStyleName. Represents a single document style.
+    // Field of linkedStyleName. DTO container with a single document style.
     private var linkedStyleName : String?;
 
-    // Field of name. Represents a single document style.
+    // Field of name. DTO container with a single document style.
     private var name : String?;
 
-    // Field of nextParagraphStyleName. Represents a single document style.
+    // Field of nextParagraphStyleName. DTO container with a single document style.
     private var nextParagraphStyleName : String?;
 
-    // Field of styleIdentifier. Represents a single document style.
+    // Field of styleIdentifier. DTO container with a single document style.
     private var styleIdentifier : StyleIdentifier?;
 
-    // Field of type. Represents a single document style.
+    // Field of type. DTO container with a single document style.
     private var type : ModelType?;
 
     private enum CodingKeys: String, CodingKey {
@@ -1284,22 +1284,22 @@ public class Style : LinkElement {
         return self.aliases;
     }
 
-    // Sets baseStyleName. Gets or sets /sets the name of the style this style is based on.
+    // Sets baseStyleName. Gets or sets the name of the style this style is based on.
     public func setBaseStyleName(baseStyleName : String?) {
         self.baseStyleName = baseStyleName;
     }
 
-    // Gets baseStyleName. Gets or sets /sets the name of the style this style is based on.
+    // Gets baseStyleName. Gets or sets the name of the style this style is based on.
     public func getBaseStyleName() -> String? {
         return self.baseStyleName;
     }
 
-    // Sets builtIn. Gets or sets a value indicating whether true if this style is one of the built-in styles in MS Word.
+    // Sets builtIn. Gets or sets a value indicating whether this style is one of the built-in styles in MS Word.
     public func setBuiltIn(builtIn : Bool?) {
         self.builtIn = builtIn;
     }
 
-    // Gets builtIn. Gets or sets a value indicating whether true if this style is one of the built-in styles in MS Word.
+    // Gets builtIn. Gets or sets a value indicating whether this style is one of the built-in styles in MS Word.
     public func getBuiltIn() -> Bool? {
         return self.builtIn;
     }
@@ -1314,22 +1314,22 @@ public class Style : LinkElement {
         return self.font;
     }
 
-    // Sets isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.
+    // Sets isHeading. Gets or sets a value indicating whether the style is one of the built-in Heading styles.
     public func setIsHeading(isHeading : Bool?) {
         self.isHeading = isHeading;
     }
 
-    // Gets isHeading. Gets or sets a value indicating whether true when the style is one of the built-in Heading styles.
+    // Gets isHeading. Gets or sets a value indicating whether the style is one of the built-in Heading styles.
     public func getIsHeading() -> Bool? {
         return self.isHeading;
     }
 
-    // Sets isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.
+    // Sets isQuickStyle. Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
     public func setIsQuickStyle(isQuickStyle : Bool?) {
         self.isQuickStyle = isQuickStyle;
     }
 
-    // Gets isQuickStyle. Gets or sets a value indicating whether specifies whether this style is shown in the Quick Style gallery inside MS Word UI.
+    // Gets isQuickStyle. Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
     public func getIsQuickStyle() -> Bool? {
         return self.isQuickStyle;
     }
@@ -1354,12 +1354,12 @@ public class Style : LinkElement {
         return self.name;
     }
 
-    // Sets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
+    // Sets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
     public func setNextParagraphStyleName(nextParagraphStyleName : String?) {
         self.nextParagraphStyleName = nextParagraphStyleName;
     }
 
-    // Gets nextParagraphStyleName. Gets or sets /sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
+    // Gets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
     public func getNextParagraphStyleName() -> String? {
         return self.nextParagraphStyleName;
     }

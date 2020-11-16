@@ -65,12 +65,12 @@ public class DeleteBordersRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Path to the node with borders(node should be paragraph, cell or row).
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }

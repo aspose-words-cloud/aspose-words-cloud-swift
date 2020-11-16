@@ -27,7 +27,7 @@
 
 import Foundation
 
-// container class for png save options.
+// Container class for png save options.
 public class PngSaveOptionsData : ImageSaveOptionsData {
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;

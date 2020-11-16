@@ -29,7 +29,7 @@ import Foundation
 
 // base container class for save options data.
 public class SaveOptionsData : Codable, WordsApiModel {
-    // Gets or sets a value determining how 3D effects are rendered.
+    // Gets or sets the value determining how 3D effects are rendered.
     public enum Dml3DEffectsRenderingMode : String, Codable
     {
         // Enum value "basic"
@@ -134,102 +134,102 @@ public class SaveOptionsData : Codable, WordsApiModel {
         }
     }
 
-    // Sets dml3DEffectsRenderingMode. Gets or sets a value determining how 3D effects are rendered.
+    // Sets dml3DEffectsRenderingMode. Gets or sets the value determining how 3D effects are rendered.
     public func setDml3DEffectsRenderingMode(dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?) {
         self.dml3DEffectsRenderingMode = dml3DEffectsRenderingMode;
     }
 
-    // Gets dml3DEffectsRenderingMode. Gets or sets a value determining how 3D effects are rendered.
+    // Gets dml3DEffectsRenderingMode. Gets or sets the value determining how 3D effects are rendered.
     public func getDml3DEffectsRenderingMode() -> Dml3DEffectsRenderingMode? {
         return self.dml3DEffectsRenderingMode;
     }
 
-    // Sets dmlEffectsRenderingMode. Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }.
+    // Sets dmlEffectsRenderingMode. Gets or sets the value determining how DrawingML effects are rendered. { Simplified | None | Fine }.
     public func setDmlEffectsRenderingMode(dmlEffectsRenderingMode : String?) {
         self.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
     }
 
-    // Gets dmlEffectsRenderingMode. Gets or sets a value determining how DrawingML effects are rendered. { Simplified | None | Fine }.
+    // Gets dmlEffectsRenderingMode. Gets or sets the value determining how DrawingML effects are rendered. { Simplified | None | Fine }.
     public func getDmlEffectsRenderingMode() -> String? {
         return self.dmlEffectsRenderingMode;
     }
 
-    // Sets dmlRenderingMode. Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }.
+    // Sets dmlRenderingMode. Gets or sets the option that controls how DrawingML shapes are rendered.
     public func setDmlRenderingMode(dmlRenderingMode : String?) {
         self.dmlRenderingMode = dmlRenderingMode;
     }
 
-    // Gets dmlRenderingMode. Gets or sets a value determining how DrawingML shapes are rendered. { Fallback | DrawingML }.
+    // Gets dmlRenderingMode. Gets or sets the option that controls how DrawingML shapes are rendered.
     public func getDmlRenderingMode() -> String? {
         return self.dmlRenderingMode;
     }
 
-    // Sets fileName. Gets or sets name of destination file.
+    // Sets fileName. Gets or sets the name of destination file.
     public func setFileName(fileName : String?) {
         self.fileName = fileName;
     }
 
-    // Gets fileName. Gets or sets name of destination file.
+    // Gets fileName. Gets or sets the name of destination file.
     public func getFileName() -> String? {
         return self.fileName;
     }
 
-    // Sets saveFormat. Gets or sets format of save.
+    // Sets saveFormat. Gets or sets the format of save.
     public func setSaveFormat(saveFormat : String?) {
         self.saveFormat = saveFormat;
     }
 
-    // Gets saveFormat. Gets or sets format of save.
+    // Gets saveFormat. Gets or sets the format of save.
     public func getSaveFormat() -> String? {
         return self.saveFormat;
     }
 
-    // Sets updateFields. Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true.
+    // Sets updateFields. Gets or sets a value indicating whether fields should be updated before saving the document to a fixed page format. The default value is true.
     public func setUpdateFields(updateFields : Bool?) {
         self.updateFields = updateFields;
     }
 
-    // Gets updateFields. Gets or sets a value determining if fields should be updated before saving the document to a fixed page format. Default value for this property is. true.
+    // Gets updateFields. Gets or sets a value indicating whether fields should be updated before saving the document to a fixed page format. The default value is true.
     public func getUpdateFields() -> Bool? {
         return self.updateFields;
     }
 
-    // Sets updateLastPrintedProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.
+    // Sets updateLastPrintedProperty. Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.
     public func setUpdateLastPrintedProperty(updateLastPrintedProperty : Bool?) {
         self.updateLastPrintedProperty = updateLastPrintedProperty;
     }
 
-    // Gets updateLastPrintedProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.
+    // Gets updateLastPrintedProperty. Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.
     public func getUpdateLastPrintedProperty() -> Bool? {
         return self.updateLastPrintedProperty;
     }
 
-    // Sets updateLastSavedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
+    // Sets updateLastSavedTimeProperty. Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
     public func setUpdateLastSavedTimeProperty(updateLastSavedTimeProperty : Bool?) {
         self.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
     }
 
-    // Gets updateLastSavedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
+    // Gets updateLastSavedTimeProperty. Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
     public func getUpdateLastSavedTimeProperty() -> Bool? {
         return self.updateLastSavedTimeProperty;
     }
 
-    // Sets updateSdtContent. Gets or sets value determining whether content of StructuredDocumentTag is updated before saving.
+    // Sets updateSdtContent. Gets or sets a value indicating whether content of StructuredDocumentTag is updated before saving.
     public func setUpdateSdtContent(updateSdtContent : Bool?) {
         self.updateSdtContent = updateSdtContent;
     }
 
-    // Gets updateSdtContent. Gets or sets value determining whether content of StructuredDocumentTag is updated before saving.
+    // Gets updateSdtContent. Gets or sets a value indicating whether content of StructuredDocumentTag is updated before saving.
     public func getUpdateSdtContent() -> Bool? {
         return self.updateSdtContent;
     }
 
-    // Sets zipOutput. Gets or sets controls zip output or not. Default value is false.
+    // Sets zipOutput. Gets or sets a value indicating whether to zip output or not. The default value is false.
     public func setZipOutput(zipOutput : Bool?) {
         self.zipOutput = zipOutput;
     }
 
-    // Gets zipOutput. Gets or sets controls zip output or not. Default value is false.
+    // Gets zipOutput. Gets or sets a value indicating whether to zip output or not. The default value is false.
     public func getZipOutput() -> Bool? {
         return self.zipOutput;
     }

@@ -65,12 +65,12 @@ public class DeleteDocumentPropertyRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // The property name.
+    // The name of the property.
     public func getPropertyName() -> String {
         return self.propertyName;
     }

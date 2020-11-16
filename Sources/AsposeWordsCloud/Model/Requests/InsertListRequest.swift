@@ -65,12 +65,12 @@ public class InsertListRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // List to insert.
+    // The properties of the list.
     public func getListInsert() -> ListInsert {
         return self.listInsert;
     }

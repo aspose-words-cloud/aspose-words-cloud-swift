@@ -27,9 +27,9 @@
 
 import Foundation
 
-// Container class for compare documents options.
+// DTO container with compare documents options.
 public class CompareOptions : Codable, WordsApiModel {
-    // Gets or sets specifies which document shall be used as a target during comparison.
+    // Gets or sets the option that controls which document shall be used as a target during comparison.
     public enum Target : String, Codable
     {
         // Enum value "current"
@@ -39,31 +39,31 @@ public class CompareOptions : Codable, WordsApiModel {
         case new = "New"
     }
 
-    // Field of ignoreCaseChanges. Container class for compare documents options.
+    // Field of ignoreCaseChanges. DTO container with compare documents options.
     private var ignoreCaseChanges : Bool?;
 
-    // Field of ignoreComments. Container class for compare documents options.
+    // Field of ignoreComments. DTO container with compare documents options.
     private var ignoreComments : Bool?;
 
-    // Field of ignoreFields. Container class for compare documents options.
+    // Field of ignoreFields. DTO container with compare documents options.
     private var ignoreFields : Bool?;
 
-    // Field of ignoreFootnotes. Container class for compare documents options.
+    // Field of ignoreFootnotes. DTO container with compare documents options.
     private var ignoreFootnotes : Bool?;
 
-    // Field of ignoreFormatting. Container class for compare documents options.
+    // Field of ignoreFormatting. DTO container with compare documents options.
     private var ignoreFormatting : Bool?;
 
-    // Field of ignoreHeadersAndFooters. Container class for compare documents options.
+    // Field of ignoreHeadersAndFooters. DTO container with compare documents options.
     private var ignoreHeadersAndFooters : Bool?;
 
-    // Field of ignoreTables. Container class for compare documents options.
+    // Field of ignoreTables. DTO container with compare documents options.
     private var ignoreTables : Bool?;
 
-    // Field of ignoreTextboxes. Container class for compare documents options.
+    // Field of ignoreTextboxes. DTO container with compare documents options.
     private var ignoreTextboxes : Bool?;
 
-    // Field of target. Container class for compare documents options.
+    // Field of target. DTO container with compare documents options.
     private var target : Target?;
 
     private enum CodingKeys: String, CodingKey {
@@ -126,92 +126,92 @@ public class CompareOptions : Codable, WordsApiModel {
         }
     }
 
-    // Sets ignoreCaseChanges. Gets or sets a value indicating whether true indicates that documents comparison is case insensitive. By default comparison is case sensitive.
+    // Sets ignoreCaseChanges. Gets or sets a value indicating whether documents comparison is case insensitive. By default comparison is case sensitive.
     public func setIgnoreCaseChanges(ignoreCaseChanges : Bool?) {
         self.ignoreCaseChanges = ignoreCaseChanges;
     }
 
-    // Gets ignoreCaseChanges. Gets or sets a value indicating whether true indicates that documents comparison is case insensitive. By default comparison is case sensitive.
+    // Gets ignoreCaseChanges. Gets or sets a value indicating whether documents comparison is case insensitive. By default comparison is case sensitive.
     public func getIgnoreCaseChanges() -> Bool? {
         return self.ignoreCaseChanges;
     }
 
-    // Sets ignoreComments. Gets or sets a value indicating whether specifies whether to compare differences in comments. By default comments are not ignored.
+    // Sets ignoreComments. Gets or sets a value indicating whether comments content is ignored. By default comments are not ignored.
     public func setIgnoreComments(ignoreComments : Bool?) {
         self.ignoreComments = ignoreComments;
     }
 
-    // Gets ignoreComments. Gets or sets a value indicating whether specifies whether to compare differences in comments. By default comments are not ignored.
+    // Gets ignoreComments. Gets or sets a value indicating whether comments content is ignored. By default comments are not ignored.
     public func getIgnoreComments() -> Bool? {
         return self.ignoreComments;
     }
 
-    // Sets ignoreFields. Gets or sets a value indicating whether specifies whether to compare differences in fields. By default fields are not ignored.
+    // Sets ignoreFields. Gets or sets a value indicating whether fields content is ignored. By default fields are not ignored.
     public func setIgnoreFields(ignoreFields : Bool?) {
         self.ignoreFields = ignoreFields;
     }
 
-    // Gets ignoreFields. Gets or sets a value indicating whether specifies whether to compare differences in fields. By default fields are not ignored.
+    // Gets ignoreFields. Gets or sets a value indicating whether fields content is ignored. By default fields are not ignored.
     public func getIgnoreFields() -> Bool? {
         return self.ignoreFields;
     }
 
-    // Sets ignoreFootnotes. Gets or sets a value indicating whether specifies whether to compare differences in footnotes and endnotes. By default footnotes are not ignored.
+    // Sets ignoreFootnotes. Gets or sets a value indicating whether footnotes/endnotes content is ignored. By default footnotes/endnotes are not ignored.
     public func setIgnoreFootnotes(ignoreFootnotes : Bool?) {
         self.ignoreFootnotes = ignoreFootnotes;
     }
 
-    // Gets ignoreFootnotes. Gets or sets a value indicating whether specifies whether to compare differences in footnotes and endnotes. By default footnotes are not ignored.
+    // Gets ignoreFootnotes. Gets or sets a value indicating whether footnotes/endnotes content is ignored. By default footnotes/endnotes are not ignored.
     public func getIgnoreFootnotes() -> Bool? {
         return self.ignoreFootnotes;
     }
 
-    // Sets ignoreFormatting. Gets or sets a value indicating whether true indicates that formatting is ignored. By default document formatting is not ignored.
+    // Sets ignoreFormatting. Gets or sets a value indicating whether formatting is ignored. By default document formatting is not ignored.
     public func setIgnoreFormatting(ignoreFormatting : Bool?) {
         self.ignoreFormatting = ignoreFormatting;
     }
 
-    // Gets ignoreFormatting. Gets or sets a value indicating whether true indicates that formatting is ignored. By default document formatting is not ignored.
+    // Gets ignoreFormatting. Gets or sets a value indicating whether formatting is ignored. By default document formatting is not ignored.
     public func getIgnoreFormatting() -> Bool? {
         return self.ignoreFormatting;
     }
 
-    // Sets ignoreHeadersAndFooters. Gets or sets a value indicating whether true indicates that headers and footers content is ignored. By default headers and footers are not ignored.
+    // Sets ignoreHeadersAndFooters. Gets or sets a value indicating whether headers and footers content is ignored. By default headers and footers are not ignored.
     public func setIgnoreHeadersAndFooters(ignoreHeadersAndFooters : Bool?) {
         self.ignoreHeadersAndFooters = ignoreHeadersAndFooters;
     }
 
-    // Gets ignoreHeadersAndFooters. Gets or sets a value indicating whether true indicates that headers and footers content is ignored. By default headers and footers are not ignored.
+    // Gets ignoreHeadersAndFooters. Gets or sets a value indicating whether headers and footers content is ignored. By default headers and footers are not ignored.
     public func getIgnoreHeadersAndFooters() -> Bool? {
         return self.ignoreHeadersAndFooters;
     }
 
-    // Sets ignoreTables. Gets or sets a value indicating whether specifies whether to compare the differences in data contained in tables. By default tables are not ignored.
+    // Sets ignoreTables. Gets or sets a value indicating whether tables content is ignored. By default tables are not ignored.
     public func setIgnoreTables(ignoreTables : Bool?) {
         self.ignoreTables = ignoreTables;
     }
 
-    // Gets ignoreTables. Gets or sets a value indicating whether specifies whether to compare the differences in data contained in tables. By default tables are not ignored.
+    // Gets ignoreTables. Gets or sets a value indicating whether tables content is ignored. By default tables are not ignored.
     public func getIgnoreTables() -> Bool? {
         return self.ignoreTables;
     }
 
-    // Sets ignoreTextboxes. Gets or sets a value indicating whether specifies whether to compare differences in the data contained within text boxes. By default textboxes are not ignored.
+    // Sets ignoreTextboxes. Gets or sets a value indicating whether textboxes content is ignored. By default textboxes are not ignored.
     public func setIgnoreTextboxes(ignoreTextboxes : Bool?) {
         self.ignoreTextboxes = ignoreTextboxes;
     }
 
-    // Gets ignoreTextboxes. Gets or sets a value indicating whether specifies whether to compare differences in the data contained within text boxes. By default textboxes are not ignored.
+    // Gets ignoreTextboxes. Gets or sets a value indicating whether textboxes content is ignored. By default textboxes are not ignored.
     public func getIgnoreTextboxes() -> Bool? {
         return self.ignoreTextboxes;
     }
 
-    // Sets target. Gets or sets specifies which document shall be used as a target during comparison.
+    // Sets target. Gets or sets the option that controls which document shall be used as a target during comparison.
     public func setTarget(target : Target?) {
         self.target = target;
     }
 
-    // Gets target. Gets or sets specifies which document shall be used as a target during comparison.
+    // Gets target. Gets or sets the option that controls which document shall be used as a target during comparison.
     public func getTarget() -> Target? {
         return self.target;
     }

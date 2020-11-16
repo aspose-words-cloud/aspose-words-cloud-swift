@@ -71,12 +71,12 @@ public class UpdateTablePropertiesRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // The properties.
+    // The properties of the table.
     public func getProperties() -> TableProperties {
         return self.properties;
     }
@@ -86,7 +86,7 @@ public class UpdateTablePropertiesRequest : WordsApiRequest {
         return self.index;
     }
 
-    // Path to the node, which contains tables.
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }

@@ -79,42 +79,42 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
-    // Sets bookmarksOutlineLevel. Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.
+    // Sets bookmarksOutlineLevel. Gets or sets the level in the XPS document outline at which to display Word bookmarks.
     public func setBookmarksOutlineLevel(bookmarksOutlineLevel : Int?) {
         self.bookmarksOutlineLevel = bookmarksOutlineLevel;
     }
 
-    // Gets bookmarksOutlineLevel. Gets or sets specifies the level in the XPS document outline at which to display Word bookmarks.
+    // Gets bookmarksOutlineLevel. Gets or sets the level in the XPS document outline at which to display Word bookmarks.
     public func getBookmarksOutlineLevel() -> Int? {
         return self.bookmarksOutlineLevel;
     }
 
-    // Sets headingsOutlineLevels. Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.
+    // Sets headingsOutlineLevels. Gets or sets the number of heading levels (paragraphs formatted with the Heading styles) to include in the XPS document outline.
     public func setHeadingsOutlineLevels(headingsOutlineLevels : Int?) {
         self.headingsOutlineLevels = headingsOutlineLevels;
     }
 
-    // Gets headingsOutlineLevels. Gets or sets specifies how many levels of headings (paragraphs formatted with the Heading styles) to include in the XPS document outline.
+    // Gets headingsOutlineLevels. Gets or sets the number of heading levels (paragraphs formatted with the Heading styles) to include in the XPS document outline.
     public func getHeadingsOutlineLevels() -> Int? {
         return self.headingsOutlineLevels;
     }
 
-    // Sets outlineOptions. Gets or sets allows to specify outline options.
+    // Sets outlineOptions. Gets or sets the outline options.
     public func setOutlineOptions(outlineOptions : OutlineOptionsData?) {
         self.outlineOptions = outlineOptions;
     }
 
-    // Gets outlineOptions. Gets or sets allows to specify outline options.
+    // Gets outlineOptions. Gets or sets the outline options.
     public func getOutlineOptions() -> OutlineOptionsData? {
         return self.outlineOptions;
     }
 
-    // Sets useBookFoldPrintingSettings. Gets or sets determines whether the document should be saved using a booklet printing layout.
+    // Sets useBookFoldPrintingSettings. Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
     public func setUseBookFoldPrintingSettings(useBookFoldPrintingSettings : Bool?) {
         self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
     }
 
-    // Gets useBookFoldPrintingSettings. Gets or sets determines whether the document should be saved using a booklet printing layout.
+    // Gets useBookFoldPrintingSettings. Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
     public func getUseBookFoldPrintingSettings() -> Bool? {
         return self.useBookFoldPrintingSettings;
     }

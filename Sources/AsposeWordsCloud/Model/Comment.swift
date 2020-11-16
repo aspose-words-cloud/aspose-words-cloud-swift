@@ -27,27 +27,27 @@
 
 import Foundation
 
-// Comment.
+// DTO container with a comment.
 public class Comment : CommentLink {
-    // Field of author. Comment.
+    // Field of author. DTO container with a comment.
     private var author : String?;
 
-    // Field of content. Comment.
+    // Field of content. DTO container with a comment.
     private var content : StoryChildNodes?;
 
-    // Field of dateTime. Comment.
+    // Field of dateTime. DTO container with a comment.
     private var dateTime : Date?;
 
-    // Field of initial. Comment.
+    // Field of initial. DTO container with a comment.
     private var initial : String?;
 
-    // Field of rangeEnd. Comment.
+    // Field of rangeEnd. DTO container with a comment.
     private var rangeEnd : DocumentPosition?;
 
-    // Field of rangeStart. Comment.
+    // Field of rangeStart. DTO container with a comment.
     private var rangeStart : DocumentPosition?;
 
-    // Field of text. Comment.
+    // Field of text. DTO container with a comment.
     private var text : String?;
 
     private enum CodingKeys: String, CodingKey {
@@ -108,22 +108,22 @@ public class Comment : CommentLink {
         }
     }
 
-    // Sets author. Gets or sets returns or sets the author name for a comment.
+    // Sets author. Gets or sets the author name for a comment.
     public func setAuthor(author : String?) {
         self.author = author;
     }
 
-    // Gets author. Gets or sets returns or sets the author name for a comment.
+    // Gets author. Gets or sets the author name for a comment.
     public func getAuthor() -> String? {
         return self.author;
     }
 
-    // Sets content. Gets or sets content of comment.
+    // Sets content. Gets or sets the content of the comment.
     public func setContent(content : StoryChildNodes?) {
         self.content = content;
     }
 
-    // Gets content. Gets or sets content of comment.
+    // Gets content. Gets or sets the content of the comment.
     public func getContent() -> StoryChildNodes? {
         return self.content;
     }
@@ -138,42 +138,42 @@ public class Comment : CommentLink {
         return self.dateTime;
     }
 
-    // Sets initial. Gets or sets returns or sets the initials of the user associated with a specific comment.
+    // Sets initial. Gets or sets the initials of the user associated with a specific comment.
     public func setInitial(initial : String?) {
         self.initial = initial;
     }
 
-    // Gets initial. Gets or sets returns or sets the initials of the user associated with a specific comment.
+    // Gets initial. Gets or sets the initials of the user associated with a specific comment.
     public func getInitial() -> String? {
         return self.initial;
     }
 
-    // Sets rangeEnd. Gets or sets link to comment range end node.
+    // Sets rangeEnd. Gets or sets the link to comment range end node.
     public func setRangeEnd(rangeEnd : DocumentPosition?) {
         self.rangeEnd = rangeEnd;
     }
 
-    // Gets rangeEnd. Gets or sets link to comment range end node.
+    // Gets rangeEnd. Gets or sets the link to comment range end node.
     public func getRangeEnd() -> DocumentPosition? {
         return self.rangeEnd;
     }
 
-    // Sets rangeStart. Gets or sets link to comment range start node.
+    // Sets rangeStart. Gets or sets the link to comment range start node.
     public func setRangeStart(rangeStart : DocumentPosition?) {
         self.rangeStart = rangeStart;
     }
 
-    // Gets rangeStart. Gets or sets link to comment range start node.
+    // Gets rangeStart. Gets or sets the link to comment range start node.
     public func getRangeStart() -> DocumentPosition? {
         return self.rangeStart;
     }
 
-    // Sets text. Gets or sets this is a convenience property that allows to easily get or set text of the comment.
+    // Sets text. Gets or sets text of the comment.
     public func setText(text : String?) {
         self.text = text;
     }
 
-    // Gets text. Gets or sets this is a convenience property that allows to easily get or set text of the comment.
+    // Gets text. Gets or sets text of the comment.
     public func getText() -> String? {
         return self.text;
     }

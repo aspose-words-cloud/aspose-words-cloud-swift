@@ -29,7 +29,7 @@ import Foundation
 
 // Insert document to document list.
 public class ListInsert : Codable, WordsApiModel {
-    // Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+    // Gets or sets the option that controls how list should be restarted at each section.
     public enum Template : String, Codable
     {
         // Enum value "bulletDefault"
@@ -122,12 +122,12 @@ public class ListInsert : Codable, WordsApiModel {
         }
     }
 
-    // Sets template. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+    // Sets template. Gets or sets the option that controls how list should be restarted at each section.
     public func setTemplate(template : Template?) {
         self.template = template;
     }
 
-    // Gets template. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+    // Gets template. Gets or sets the option that controls how list should be restarted at each section.
     public func getTemplate() -> Template? {
         return self.template;
     }

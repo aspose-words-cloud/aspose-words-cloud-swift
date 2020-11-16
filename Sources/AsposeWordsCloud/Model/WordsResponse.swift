@@ -27,9 +27,9 @@
 
 import Foundation
 
-// Base class for all responses.
+// The base class for all responses.
 public class WordsResponse : Codable, WordsApiModel {
-    // Field of requestId. Base class for all responses.
+    // Field of requestId. The base class for all responses.
     private var requestId : String?;
 
     private enum CodingKeys: String, CodingKey {
@@ -52,12 +52,12 @@ public class WordsResponse : Codable, WordsApiModel {
         }
     }
 
-    // Sets requestId. Gets or sets request Id.
+    // Sets requestId. Gets or sets the request Id.
     public func setRequestId(requestId : String?) {
         self.requestId = requestId;
     }
 
-    // Gets requestId. Gets or sets request Id.
+    // Gets requestId. Gets or sets the request Id.
     public func getRequestId() -> String? {
         return self.requestId;
     }

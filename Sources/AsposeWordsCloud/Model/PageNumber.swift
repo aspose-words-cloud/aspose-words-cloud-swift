@@ -86,12 +86,12 @@ public class PageNumber : Codable, WordsApiModel {
         return self.alignment;
     }
 
-    // Sets format. Gets or sets page number format, e.g. "{PAGE} of {NUMPAGES}".
+    // Sets format. Gets or sets the page number format, e.g. "{PAGE} of {NUMPAGES}".
     public func setFormat(format : String?) {
         self.format = format;
     }
 
-    // Gets format. Gets or sets page number format, e.g. "{PAGE} of {NUMPAGES}".
+    // Gets format. Gets or sets the page number format, e.g. "{PAGE} of {NUMPAGES}".
     public func getFormat() -> String? {
         return self.format;
     }

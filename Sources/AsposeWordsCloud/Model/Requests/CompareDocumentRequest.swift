@@ -59,12 +59,12 @@ public class CompareDocumentRequest : WordsApiRequest {
         self.destFileName = destFileName;
     }
 
-    // Original document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // CompareData with a document to compare.
+    // The properties of the document to compare with.
     public func getCompareData() -> CompareData {
         return self.compareData;
     }

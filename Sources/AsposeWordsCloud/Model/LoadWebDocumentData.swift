@@ -60,22 +60,22 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
         }
     }
 
-    // Sets loadingDocumentUrl. Gets or sets web document url.
+    // Sets loadingDocumentUrl. Gets or sets the web document URL.
     public func setLoadingDocumentUrl(loadingDocumentUrl : String?) {
         self.loadingDocumentUrl = loadingDocumentUrl;
     }
 
-    // Gets loadingDocumentUrl. Gets or sets web document url.
+    // Gets loadingDocumentUrl. Gets or sets the web document URL.
     public func getLoadingDocumentUrl() -> String? {
         return self.loadingDocumentUrl;
     }
 
-    // Sets saveOptions. Gets or sets save options.
+    // Sets saveOptions. Gets or sets the save options.
     public func setSaveOptions(saveOptions : SaveOptionsData?) {
         self.saveOptions = saveOptions;
     }
 
-    // Gets saveOptions. Gets or sets save options.
+    // Gets saveOptions. Gets or sets the save options.
     public func getSaveOptions() -> SaveOptionsData? {
         return self.saveOptions;
     }

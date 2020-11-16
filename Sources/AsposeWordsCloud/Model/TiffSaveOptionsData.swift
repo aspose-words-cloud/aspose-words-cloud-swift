@@ -81,22 +81,22 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
         return self.thresholdForFloydSteinbergDithering;
     }
 
-    // Sets tiffBinarizationMethod. Gets or sets specifies method used while converting images to 1 bpp format.
+    // Sets tiffBinarizationMethod. Gets or sets the method used while converting images to 1 bpp format.
     public func setTiffBinarizationMethod(tiffBinarizationMethod : String?) {
         self.tiffBinarizationMethod = tiffBinarizationMethod;
     }
 
-    // Gets tiffBinarizationMethod. Gets or sets specifies method used while converting images to 1 bpp format.
+    // Gets tiffBinarizationMethod. Gets or sets the method used while converting images to 1 bpp format.
     public func getTiffBinarizationMethod() -> String? {
         return self.tiffBinarizationMethod;
     }
 
-    // Sets tiffCompression. Gets or sets type of compression.
+    // Sets tiffCompression. Gets or sets the type of compression.
     public func setTiffCompression(tiffCompression : String?) {
         self.tiffCompression = tiffCompression;
     }
 
-    // Gets tiffCompression. Gets or sets type of compression.
+    // Gets tiffCompression. Gets or sets the type of compression.
     public func getTiffCompression() -> String? {
         return self.tiffCompression;
     }

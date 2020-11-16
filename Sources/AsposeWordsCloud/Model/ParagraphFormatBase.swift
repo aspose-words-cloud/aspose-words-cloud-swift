@@ -86,7 +86,7 @@ public class ParagraphFormatBase : LinkElement {
         case multiple = "Multiple"
     }
 
-    // Gets or sets specifies the outline level of the paragraph in the document.
+    // Gets or sets the outline level of the paragraph in the document.
     public enum OutlineLevel : String, Codable
     {
         // Enum value "level1"
@@ -1469,22 +1469,22 @@ public class ParagraphFormatBase : LinkElement {
         }
     }
 
-    // Sets addSpaceBetweenFarEastAndAlpha. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.
+    // Sets addSpaceBetweenFarEastAndAlpha. Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.
     public func setAddSpaceBetweenFarEastAndAlpha(addSpaceBetweenFarEastAndAlpha : Bool?) {
         self.addSpaceBetweenFarEastAndAlpha = addSpaceBetweenFarEastAndAlpha;
     }
 
-    // Gets addSpaceBetweenFarEastAndAlpha. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.
+    // Gets addSpaceBetweenFarEastAndAlpha. Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of Latin text and regions of East Asian text in the current paragraph.
     public func getAddSpaceBetweenFarEastAndAlpha() -> Bool? {
         return self.addSpaceBetweenFarEastAndAlpha;
     }
 
-    // Sets addSpaceBetweenFarEastAndDigit. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.
+    // Sets addSpaceBetweenFarEastAndDigit. Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.
     public func setAddSpaceBetweenFarEastAndDigit(addSpaceBetweenFarEastAndDigit : Bool?) {
         self.addSpaceBetweenFarEastAndDigit = addSpaceBetweenFarEastAndDigit;
     }
 
-    // Gets addSpaceBetweenFarEastAndDigit. Gets or sets a flag indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.
+    // Gets addSpaceBetweenFarEastAndDigit. Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.
     public func getAddSpaceBetweenFarEastAndDigit() -> Bool? {
         return self.addSpaceBetweenFarEastAndDigit;
     }
@@ -1499,12 +1499,12 @@ public class ParagraphFormatBase : LinkElement {
         return self.alignment;
     }
 
-    // Sets bidi. Gets or sets whether this is a right-to-left paragraph.
+    // Sets bidi. Gets or sets a value indicating whether this is a right-to-left paragraph.
     public func setBidi(bidi : Bool?) {
         self.bidi = bidi;
     }
 
-    // Gets bidi. Gets or sets whether this is a right-to-left paragraph.
+    // Gets bidi. Gets or sets a value indicating whether this is a right-to-left paragraph.
     public func getBidi() -> Bool? {
         return self.bidi;
     }
@@ -1529,32 +1529,32 @@ public class ParagraphFormatBase : LinkElement {
         return self.firstLineIndent;
     }
 
-    // Sets keepTogether. Gets or sets true if all lines in the paragraph are to remain on the same page.
+    // Sets keepTogether. Gets or sets a value indicating whether all lines in the paragraph are to remain on the same page.
     public func setKeepTogether(keepTogether : Bool?) {
         self.keepTogether = keepTogether;
     }
 
-    // Gets keepTogether. Gets or sets true if all lines in the paragraph are to remain on the same page.
+    // Gets keepTogether. Gets or sets a value indicating whether all lines in the paragraph are to remain on the same page.
     public func getKeepTogether() -> Bool? {
         return self.keepTogether;
     }
 
-    // Sets keepWithNext. Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.
+    // Sets keepWithNext. Gets or sets a value indicating whether the paragraph is to remains on the same page as the paragraph that follows it.
     public func setKeepWithNext(keepWithNext : Bool?) {
         self.keepWithNext = keepWithNext;
     }
 
-    // Gets keepWithNext. Gets or sets true if the paragraph is to remains on the same page as the paragraph that follows it.
+    // Gets keepWithNext. Gets or sets a value indicating whether the paragraph is to remains on the same page as the paragraph that follows it.
     public func getKeepWithNext() -> Bool? {
         return self.keepWithNext;
     }
 
-    // Sets leftIndent. Gets or sets the value (in points) that represents the left indent for paragraph.
+    // Sets leftIndent. Gets or sets the value (in points), that represents the left indent for paragraph.
     public func setLeftIndent(leftIndent : Double?) {
         self.leftIndent = leftIndent;
     }
 
-    // Gets leftIndent. Gets or sets the value (in points) that represents the left indent for paragraph.
+    // Gets leftIndent. Gets or sets the value (in points), that represents the left indent for paragraph.
     public func getLeftIndent() -> Double? {
         return self.leftIndent;
     }
@@ -1589,32 +1589,32 @@ public class ParagraphFormatBase : LinkElement {
         return self.linesToDrop;
     }
 
-    // Sets noSpaceBetweenParagraphsOfSameStyle. Gets or sets when true, SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.
+    // Sets noSpaceBetweenParagraphsOfSameStyle. Gets or sets a value indicating whether SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.
     public func setNoSpaceBetweenParagraphsOfSameStyle(noSpaceBetweenParagraphsOfSameStyle : Bool?) {
         self.noSpaceBetweenParagraphsOfSameStyle = noSpaceBetweenParagraphsOfSameStyle;
     }
 
-    // Gets noSpaceBetweenParagraphsOfSameStyle. Gets or sets when true, SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.
+    // Gets noSpaceBetweenParagraphsOfSameStyle. Gets or sets a value indicating whether SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.
     public func getNoSpaceBetweenParagraphsOfSameStyle() -> Bool? {
         return self.noSpaceBetweenParagraphsOfSameStyle;
     }
 
-    // Sets outlineLevel. Gets or sets specifies the outline level of the paragraph in the document.
+    // Sets outlineLevel. Gets or sets the outline level of the paragraph in the document.
     public func setOutlineLevel(outlineLevel : OutlineLevel?) {
         self.outlineLevel = outlineLevel;
     }
 
-    // Gets outlineLevel. Gets or sets specifies the outline level of the paragraph in the document.
+    // Gets outlineLevel. Gets or sets the outline level of the paragraph in the document.
     public func getOutlineLevel() -> OutlineLevel? {
         return self.outlineLevel;
     }
 
-    // Sets pageBreakBefore. Gets or sets true if a page break is forced before the paragraph.
+    // Sets pageBreakBefore. Gets or sets a value indicating whether a page break is forced before the paragraph.
     public func setPageBreakBefore(pageBreakBefore : Bool?) {
         self.pageBreakBefore = pageBreakBefore;
     }
 
-    // Gets pageBreakBefore. Gets or sets true if a page break is forced before the paragraph.
+    // Gets pageBreakBefore. Gets or sets a value indicating whether a page break is forced before the paragraph.
     public func getPageBreakBefore() -> Bool? {
         return self.pageBreakBefore;
     }
@@ -1629,12 +1629,12 @@ public class ParagraphFormatBase : LinkElement {
         return self.rightIndent;
     }
 
-    // Sets shading. Gets or sets a Shading object that refers to the shading formatting for the paragraph.
+    // Sets shading. Gets or sets the Shading object, that refers to the shading formatting for the paragraph.
     public func setShading(shading : Shading?) {
         self.shading = shading;
     }
 
-    // Gets shading. Gets or sets a Shading object that refers to the shading formatting for the paragraph.
+    // Gets shading. Gets or sets the Shading object, that refers to the shading formatting for the paragraph.
     public func getShading() -> Shading? {
         return self.shading;
     }
@@ -1649,12 +1649,12 @@ public class ParagraphFormatBase : LinkElement {
         return self.spaceAfter;
     }
 
-    // Sets spaceAfterAuto. Gets or sets true if the amount of spacing after the paragraph is set automatically.
+    // Sets spaceAfterAuto. Gets or sets a value indicating whether the amount of spacing after the paragraph is set automatically.
     public func setSpaceAfterAuto(spaceAfterAuto : Bool?) {
         self.spaceAfterAuto = spaceAfterAuto;
     }
 
-    // Gets spaceAfterAuto. Gets or sets true if the amount of spacing after the paragraph is set automatically.
+    // Gets spaceAfterAuto. Gets or sets a value indicating whether the amount of spacing after the paragraph is set automatically.
     public func getSpaceAfterAuto() -> Bool? {
         return self.spaceAfterAuto;
     }
@@ -1669,12 +1669,12 @@ public class ParagraphFormatBase : LinkElement {
         return self.spaceBefore;
     }
 
-    // Sets spaceBeforeAuto. Gets or sets true if the amount of spacing before the paragraph is set automatically.
+    // Sets spaceBeforeAuto. Gets or sets a value indicating whether the amount of spacing before the paragraph is set automatically.
     public func setSpaceBeforeAuto(spaceBeforeAuto : Bool?) {
         self.spaceBeforeAuto = spaceBeforeAuto;
     }
 
-    // Gets spaceBeforeAuto. Gets or sets true if the amount of spacing before the paragraph is set automatically.
+    // Gets spaceBeforeAuto. Gets or sets a value indicating whether the amount of spacing before the paragraph is set automatically.
     public func getSpaceBeforeAuto() -> Bool? {
         return self.spaceBeforeAuto;
     }
@@ -1699,32 +1699,32 @@ public class ParagraphFormatBase : LinkElement {
         return self.styleName;
     }
 
-    // Sets suppressAutoHyphens. Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.
+    // Sets suppressAutoHyphens. Gets or sets a value indicating whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.
     public func setSuppressAutoHyphens(suppressAutoHyphens : Bool?) {
         self.suppressAutoHyphens = suppressAutoHyphens;
     }
 
-    // Gets suppressAutoHyphens. Gets or sets specifies whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.
+    // Gets suppressAutoHyphens. Gets or sets a value indicating whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.
     public func getSuppressAutoHyphens() -> Bool? {
         return self.suppressAutoHyphens;
     }
 
-    // Sets suppressLineNumbers. Gets or sets specifies whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.
+    // Sets suppressLineNumbers. Gets or sets a value indicating whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.
     public func setSuppressLineNumbers(suppressLineNumbers : Bool?) {
         self.suppressLineNumbers = suppressLineNumbers;
     }
 
-    // Gets suppressLineNumbers. Gets or sets specifies whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.
+    // Gets suppressLineNumbers. Gets or sets a value indicating whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.
     public func getSuppressLineNumbers() -> Bool? {
         return self.suppressLineNumbers;
     }
 
-    // Sets widowControl. Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.
+    // Sets widowControl. Gets or sets a value indicating whether the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.
     public func setWidowControl(widowControl : Bool?) {
         self.widowControl = widowControl;
     }
 
-    // Gets widowControl. Gets or sets true if the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.
+    // Gets widowControl. Gets or sets a value indicating whether the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.
     public func getWidowControl() -> Bool? {
         return self.widowControl;
     }

@@ -56,12 +56,12 @@ public class GetBookmarkByNameRequest : WordsApiRequest {
         self.password = password;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // The bookmark name.
+    // The name of the bookmark.
     public func getBookmarkName() -> String {
         return self.bookmarkName;
     }

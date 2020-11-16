@@ -45,7 +45,7 @@ public class WordsAPI {
     }
 
     // Async representation of acceptAllRevisions method
-    // Accepts all revisions in document.
+    // Accepts all revisions in the document.
     public func acceptAllRevisions(request : AcceptAllRevisionsRequest, callback : @escaping (_ response : RevisionsModificationResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -71,7 +71,7 @@ public class WordsAPI {
     }
 
     // Sync representation of acceptAllRevisions method
-    // Accepts all revisions in document.
+    // Accepts all revisions in the document.
     public func acceptAllRevisions(request : AcceptAllRevisionsRequest) throws -> RevisionsModificationResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : RevisionsModificationResponse? = nil;
@@ -91,7 +91,7 @@ public class WordsAPI {
     }
 
     // Async representation of appendDocument method
-    // Appends documents to original document.
+    // Appends documents to the original document.
     public func appendDocument(request : AppendDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -117,7 +117,7 @@ public class WordsAPI {
     }
 
     // Sync representation of appendDocument method
-    // Appends documents to original document.
+    // Appends documents to the original document.
     public func appendDocument(request : AppendDocumentRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
@@ -137,7 +137,7 @@ public class WordsAPI {
     }
 
     // Async representation of applyStyleToDocumentElement method
-    // Apply a style to the document node.
+    // Applies a style to the document node.
     public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest, callback : @escaping (_ response : WordsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -163,7 +163,7 @@ public class WordsAPI {
     }
 
     // Sync representation of applyStyleToDocumentElement method
-    // Apply a style to the document node.
+    // Applies a style to the document node.
     public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest) throws -> WordsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : WordsResponse? = nil;
@@ -183,7 +183,7 @@ public class WordsAPI {
     }
 
     // Async representation of buildReport method
-    // Executes document "build report" operation.
+    // Executes the report generation process using the specified document template and the external data source in XML, JSON or CSV format.
     public func buildReport(request : BuildReportRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -209,7 +209,7 @@ public class WordsAPI {
     }
 
     // Sync representation of buildReport method
-    // Executes document "build report" operation.
+    // Executes the report generation process using the specified document template and the external data source in XML, JSON or CSV format.
     public func buildReport(request : BuildReportRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
@@ -229,7 +229,7 @@ public class WordsAPI {
     }
 
     // Async representation of buildReportOnline method
-    // Executes document "build report" online operation.
+    // Executes the report generation process online using the specified document template and the external data source in XML, JSON or CSV format.
     public func buildReportOnline(request : BuildReportOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -245,7 +245,7 @@ public class WordsAPI {
     }
 
     // Sync representation of buildReportOnline method
-    // Executes document "build report" online operation.
+    // Executes the report generation process online using the specified document template and the external data source in XML, JSON or CSV format.
     public func buildReportOnline(request : BuildReportOnlineRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : Data? = nil;
@@ -265,7 +265,7 @@ public class WordsAPI {
     }
 
     // Async representation of classify method
-    // Classifies raw text.
+    // Runs a multi-class text classification for the specified raw text.
     public func classify(request : ClassifyRequest, callback : @escaping (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -291,7 +291,7 @@ public class WordsAPI {
     }
 
     // Sync representation of classify method
-    // Classifies raw text.
+    // Runs a multi-class text classification for the specified raw text.
     public func classify(request : ClassifyRequest) throws -> ClassificationResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ClassificationResponse? = nil;
@@ -311,7 +311,7 @@ public class WordsAPI {
     }
 
     // Async representation of classifyDocument method
-    // Classifies document.
+    // Runs a multi-class text classification for the document.
     public func classifyDocument(request : ClassifyDocumentRequest, callback : @escaping (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -337,7 +337,7 @@ public class WordsAPI {
     }
 
     // Sync representation of classifyDocument method
-    // Classifies document.
+    // Runs a multi-class text classification for the document.
     public func classifyDocument(request : ClassifyDocumentRequest) throws -> ClassificationResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ClassificationResponse? = nil;
@@ -357,7 +357,7 @@ public class WordsAPI {
     }
 
     // Async representation of compareDocument method
-    // Compares document with original document.
+    // Compares two documents.
     public func compareDocument(request : CompareDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -383,7 +383,7 @@ public class WordsAPI {
     }
 
     // Sync representation of compareDocument method
-    // Compares document with original document.
+    // Compares two documents.
     public func compareDocument(request : CompareDocumentRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
@@ -403,7 +403,7 @@ public class WordsAPI {
     }
 
     // Async representation of convertDocument method
-    // Converts document from the request's content to the specified format.
+    // Converts a document on a local drive to the specified format.
     public func convertDocument(request : ConvertDocumentRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -419,7 +419,7 @@ public class WordsAPI {
     }
 
     // Sync representation of convertDocument method
-    // Converts document from the request's content to the specified format.
+    // Converts a document on a local drive to the specified format.
     public func convertDocument(request : ConvertDocumentRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : Data? = nil;
@@ -505,7 +505,7 @@ public class WordsAPI {
     }
 
     // Async representation of copyStyle method
-    // Copy and insert a new style to the document, returns a copied style.
+    // Makes a copy of the style in the document.
     public func copyStyle(request : CopyStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -531,7 +531,7 @@ public class WordsAPI {
     }
 
     // Sync representation of copyStyle method
-    // Copy and insert a new style to the document, returns a copied style.
+    // Makes a copy of the style in the document.
     public func copyStyle(request : CopyStyleRequest) throws -> StyleResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : StyleResponse? = nil;
@@ -551,8 +551,6 @@ public class WordsAPI {
     }
 
     // Async representation of createDocument method
-    // Creates new document.
-    // Document is created with format which is recognized from file extensions.
     // Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
     public func createDocument(request : CreateDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
@@ -579,8 +577,6 @@ public class WordsAPI {
     }
 
     // Sync representation of createDocument method
-    // Creates new document.
-    // Document is created with format which is recognized from file extensions.
     // Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
     public func createDocument(request : CreateDocumentRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
@@ -634,7 +630,7 @@ public class WordsAPI {
     }
 
     // Async representation of createOrUpdateDocumentProperty method
-    // Adds new or update existing document property.
+    // Adds a new or updates an existing document property.
     public func createOrUpdateDocumentProperty(request : CreateOrUpdateDocumentPropertyRequest, callback : @escaping (_ response : DocumentPropertyResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -660,7 +656,7 @@ public class WordsAPI {
     }
 
     // Sync representation of createOrUpdateDocumentProperty method
-    // Adds new or update existing document property.
+    // Adds a new or updates an existing document property.
     public func createOrUpdateDocumentProperty(request : CreateOrUpdateDocumentPropertyRequest) throws -> DocumentPropertyResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentPropertyResponse? = nil;
@@ -680,7 +676,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteAllParagraphTabStops method
-    // Remove all tab stops.
+    // Removes paragraph tab stops from the document node.
     public func deleteAllParagraphTabStops(request : DeleteAllParagraphTabStopsRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -706,7 +702,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteAllParagraphTabStops method
-    // Remove all tab stops.
+    // Removes paragraph tab stops from the document node.
     public func deleteAllParagraphTabStops(request : DeleteAllParagraphTabStopsRequest) throws -> TabStopsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TabStopsResponse? = nil;
@@ -726,7 +722,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteBorder method
-    // 'nodePath' should refer to paragraph, cell or row.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func deleteBorder(request : DeleteBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -752,7 +748,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteBorder method
-    // 'nodePath' should refer to paragraph, cell or row.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func deleteBorder(request : DeleteBorderRequest) throws -> BorderResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : BorderResponse? = nil;
@@ -772,7 +768,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteBorders method
-    // 'nodePath' should refer to paragraph, cell or row.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func deleteBorders(request : DeleteBordersRequest, callback : @escaping (_ response : BordersResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -798,7 +794,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteBorders method
-    // 'nodePath' should refer to paragraph, cell or row.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func deleteBorders(request : DeleteBordersRequest) throws -> BordersResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : BordersResponse? = nil;
@@ -818,7 +814,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteComment method
-    // Removes comment from document.
+    // Removes a comment from the document.
     public func deleteComment(request : DeleteCommentRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -834,7 +830,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteComment method
-    // Removes comment from document.
+    // Removes a comment from the document.
     public func deleteComment(request : DeleteCommentRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -851,7 +847,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteDocumentProperty method
-    // Deletes document property.
+    // Removes a document property.
     public func deleteDocumentProperty(request : DeleteDocumentPropertyRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -867,7 +863,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteDocumentProperty method
-    // Deletes document property.
+    // Removes a document property.
     public func deleteDocumentProperty(request : DeleteDocumentPropertyRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -884,7 +880,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteDrawingObject method
-    // Removes drawing object from document.
+    // Removes a DrawingObject from the document node.
     public func deleteDrawingObject(request : DeleteDrawingObjectRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -900,7 +896,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteDrawingObject method
-    // Removes drawing object from document.
+    // Removes a DrawingObject from the document node.
     public func deleteDrawingObject(request : DeleteDrawingObjectRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -917,7 +913,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteField method
-    // Deletes field from document.
+    // Removes a field from the document node.
     public func deleteField(request : DeleteFieldRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -933,7 +929,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteField method
-    // Deletes field from document.
+    // Removes a field from the document node.
     public func deleteField(request : DeleteFieldRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -950,7 +946,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteFields method
-    // Removes fields from section paragraph.
+    // Removes fields from the document node.
     public func deleteFields(request : DeleteFieldsRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -966,7 +962,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteFields method
-    // Removes fields from section paragraph.
+    // Removes fields from the document node.
     public func deleteFields(request : DeleteFieldsRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -1049,7 +1045,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteFootnote method
-    // Removes footnote from document.
+    // Removes a footnote from the document node.
     public func deleteFootnote(request : DeleteFootnoteRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1065,7 +1061,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteFootnote method
-    // Removes footnote from document.
+    // Removes a footnote from the document node.
     public func deleteFootnote(request : DeleteFootnoteRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -1082,7 +1078,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteFormField method
-    // Removes form field from document.
+    // Removes a form field from the document node.
     public func deleteFormField(request : DeleteFormFieldRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1098,7 +1094,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteFormField method
-    // Removes form field from document.
+    // Removes a form field from the document node.
     public func deleteFormField(request : DeleteFormFieldRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -1115,7 +1111,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteHeaderFooter method
-    // Deletes header/footer from document.
+    // Removes a HeaderFooter object from the document section.
     public func deleteHeaderFooter(request : DeleteHeaderFooterRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1131,7 +1127,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteHeaderFooter method
-    // Deletes header/footer from document.
+    // Removes a HeaderFooter object from the document section.
     public func deleteHeaderFooter(request : DeleteHeaderFooterRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -1148,7 +1144,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteHeadersFooters method
-    // Deletes document headers and footers.
+    // Removes HeaderFooter objects from the document section.
     public func deleteHeadersFooters(request : DeleteHeadersFootersRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1164,7 +1160,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteHeadersFooters method
-    // Deletes document headers and footers.
+    // Removes HeaderFooter objects from the document section.
     public func deleteHeadersFooters(request : DeleteHeadersFootersRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -1181,7 +1177,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteMacros method
-    // Removes macros from document.
+    // Removes macros from the document.
     public func deleteMacros(request : DeleteMacrosRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1197,7 +1193,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteMacros method
-    // Removes macros from document.
+    // Removes macros from the document.
     public func deleteMacros(request : DeleteMacrosRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -1214,7 +1210,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteOfficeMathObject method
-    // Removes OfficeMath object from document.
+    // Removes an OfficeMath object from the document node.
     public func deleteOfficeMathObject(request : DeleteOfficeMathObjectRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1230,7 +1226,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteOfficeMathObject method
-    // Removes OfficeMath object from document.
+    // Removes an OfficeMath object from the document node.
     public func deleteOfficeMathObject(request : DeleteOfficeMathObjectRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -1247,7 +1243,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteParagraph method
-    // Removes paragraph from section.
+    // Removes a paragraph from the document node.
     public func deleteParagraph(request : DeleteParagraphRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1263,7 +1259,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteParagraph method
-    // Removes paragraph from section.
+    // Removes a paragraph from the document node.
     public func deleteParagraph(request : DeleteParagraphRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -1280,7 +1276,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteParagraphListFormat method
-    // Delete paragraph list format, returns updated list format properties.
+    // Removes the formatting properties of a paragraph list from the document node.
     public func deleteParagraphListFormat(request : DeleteParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1306,7 +1302,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteParagraphListFormat method
-    // Delete paragraph list format, returns updated list format properties.
+    // Removes the formatting properties of a paragraph list from the document node.
     public func deleteParagraphListFormat(request : DeleteParagraphListFormatRequest) throws -> ParagraphListFormatResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ParagraphListFormatResponse? = nil;
@@ -1326,7 +1322,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteParagraphTabStop method
-    // Remove the i-th tab stop.
+    // Removes a paragraph tab stop from the document node.
     public func deleteParagraphTabStop(request : DeleteParagraphTabStopRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1352,7 +1348,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteParagraphTabStop method
-    // Remove the i-th tab stop.
+    // Removes a paragraph tab stop from the document node.
     public func deleteParagraphTabStop(request : DeleteParagraphTabStopRequest) throws -> TabStopsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TabStopsResponse? = nil;
@@ -1372,7 +1368,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteRun method
-    // Removes run from document.
+    // Removes a Run object from the paragraph.
     public func deleteRun(request : DeleteRunRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1388,7 +1384,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteRun method
-    // Removes run from document.
+    // Removes a Run object from the paragraph.
     public func deleteRun(request : DeleteRunRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -1405,7 +1401,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteSection method
-    // Removes section from document.
+    // Removes a section from the document.
     public func deleteSection(request : DeleteSectionRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1421,7 +1417,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteSection method
-    // Removes section from document.
+    // Removes a section from the document.
     public func deleteSection(request : DeleteSectionRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -1438,7 +1434,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteTable method
-    // Deletes a table.
+    // Removes a table from the document node.
     public func deleteTable(request : DeleteTableRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1454,7 +1450,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteTable method
-    // Deletes a table.
+    // Removes a table from the document node.
     public func deleteTable(request : DeleteTableRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -1471,7 +1467,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteTableCell method
-    // Deletes a table cell.
+    // Removes a cell from the table row.
     public func deleteTableCell(request : DeleteTableCellRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1487,7 +1483,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteTableCell method
-    // Deletes a table cell.
+    // Removes a cell from the table row.
     public func deleteTableCell(request : DeleteTableCellRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -1504,7 +1500,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteTableRow method
-    // Deletes a table row.
+    // Removes a row from the table.
     public func deleteTableRow(request : DeleteTableRowRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1520,7 +1516,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteTableRow method
-    // Deletes a table row.
+    // Removes a row from the table.
     public func deleteTableRow(request : DeleteTableRowRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -1537,7 +1533,7 @@ public class WordsAPI {
     }
 
     // Async representation of deleteWatermark method
-    // Deletes watermark (for deleting last watermark from the document).
+    // Removes a watermark from the document.
     public func deleteWatermark(request : DeleteWatermarkRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1563,7 +1559,7 @@ public class WordsAPI {
     }
 
     // Sync representation of deleteWatermark method
-    // Deletes watermark (for deleting last watermark from the document).
+    // Removes a watermark from the document.
     public func deleteWatermark(request : DeleteWatermarkRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
@@ -1619,7 +1615,7 @@ public class WordsAPI {
     }
 
     // Async representation of executeMailMerge method
-    // Executes document mail merge operation.
+    // Executes a Mail Merge operation.
     public func executeMailMerge(request : ExecuteMailMergeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1645,7 +1641,7 @@ public class WordsAPI {
     }
 
     // Sync representation of executeMailMerge method
-    // Executes document mail merge operation.
+    // Executes a Mail Merge operation.
     public func executeMailMerge(request : ExecuteMailMergeRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
@@ -1665,7 +1661,7 @@ public class WordsAPI {
     }
 
     // Async representation of executeMailMergeOnline method
-    // Executes document mail merge online.
+    // Executes a Mail Merge operation online.
     public func executeMailMergeOnline(request : ExecuteMailMergeOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1681,7 +1677,7 @@ public class WordsAPI {
     }
 
     // Sync representation of executeMailMergeOnline method
-    // Executes document mail merge online.
+    // Executes a Mail Merge operation online.
     public func executeMailMergeOnline(request : ExecuteMailMergeOnlineRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : Data? = nil;
@@ -1701,7 +1697,7 @@ public class WordsAPI {
     }
 
     // Async representation of getAvailableFonts method
-    // Gets the list of fonts, available for document processing.
+    // Reads available fonts from the document.
     public func getAvailableFonts(request : GetAvailableFontsRequest, callback : @escaping (_ response : AvailableFontsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1727,7 +1723,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getAvailableFonts method
-    // Gets the list of fonts, available for document processing.
+    // Reads available fonts from the document.
     public func getAvailableFonts(request : GetAvailableFontsRequest) throws -> AvailableFontsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : AvailableFontsResponse? = nil;
@@ -1747,7 +1743,7 @@ public class WordsAPI {
     }
 
     // Async representation of getBookmarkByName method
-    // Reads document bookmark data by its name.
+    // Reads a bookmark, specified by name, from the document.
     public func getBookmarkByName(request : GetBookmarkByNameRequest, callback : @escaping (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1773,7 +1769,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getBookmarkByName method
-    // Reads document bookmark data by its name.
+    // Reads a bookmark, specified by name, from the document.
     public func getBookmarkByName(request : GetBookmarkByNameRequest) throws -> BookmarkResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : BookmarkResponse? = nil;
@@ -1793,7 +1789,7 @@ public class WordsAPI {
     }
 
     // Async representation of getBookmarks method
-    // Reads document bookmarks common info.
+    // Reads bookmarks from the document.
     public func getBookmarks(request : GetBookmarksRequest, callback : @escaping (_ response : BookmarksResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1819,7 +1815,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getBookmarks method
-    // Reads document bookmarks common info.
+    // Reads bookmarks from the document.
     public func getBookmarks(request : GetBookmarksRequest) throws -> BookmarksResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : BookmarksResponse? = nil;
@@ -1839,7 +1835,7 @@ public class WordsAPI {
     }
 
     // Async representation of getBorder method
-    // 'nodePath' should refer to paragraph, cell or row.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func getBorder(request : GetBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1865,7 +1861,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getBorder method
-    // 'nodePath' should refer to paragraph, cell or row.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func getBorder(request : GetBorderRequest) throws -> BorderResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : BorderResponse? = nil;
@@ -1885,7 +1881,7 @@ public class WordsAPI {
     }
 
     // Async representation of getBorders method
-    // 'nodePath' should refer to paragraph, cell or row.
+    // Reads borders from the document node.
     public func getBorders(request : GetBordersRequest, callback : @escaping (_ response : BordersResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1911,7 +1907,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getBorders method
-    // 'nodePath' should refer to paragraph, cell or row.
+    // Reads borders from the document node.
     public func getBorders(request : GetBordersRequest) throws -> BordersResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : BordersResponse? = nil;
@@ -1931,7 +1927,7 @@ public class WordsAPI {
     }
 
     // Async representation of getComment method
-    // Gets comment from document.
+    // Reads a comment from the document.
     public func getComment(request : GetCommentRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -1957,7 +1953,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getComment method
-    // Gets comment from document.
+    // Reads a comment from the document.
     public func getComment(request : GetCommentRequest) throws -> CommentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : CommentResponse? = nil;
@@ -1977,7 +1973,7 @@ public class WordsAPI {
     }
 
     // Async representation of getComments method
-    // Gets comments from document.
+    // Reads comments from the document.
     public func getComments(request : GetCommentsRequest, callback : @escaping (_ response : CommentsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2003,7 +1999,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getComments method
-    // Gets comments from document.
+    // Reads comments from the document.
     public func getComments(request : GetCommentsRequest) throws -> CommentsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : CommentsResponse? = nil;
@@ -2023,7 +2019,7 @@ public class WordsAPI {
     }
 
     // Async representation of getDocument method
-    // Reads document common info.
+    // Reads common information from the document.
     public func getDocument(request : GetDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2049,7 +2045,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getDocument method
-    // Reads document common info.
+    // Reads common information from the document.
     public func getDocument(request : GetDocumentRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
@@ -2069,7 +2065,7 @@ public class WordsAPI {
     }
 
     // Async representation of getDocumentDrawingObjectByIndex method
-    // Reads document drawing object common info by its index or convert to format specified.
+    // Reads a DrawingObject from the document node.
     public func getDocumentDrawingObjectByIndex(request : GetDocumentDrawingObjectByIndexRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2095,7 +2091,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getDocumentDrawingObjectByIndex method
-    // Reads document drawing object common info by its index or convert to format specified.
+    // Reads a DrawingObject from the document node.
     public func getDocumentDrawingObjectByIndex(request : GetDocumentDrawingObjectByIndexRequest) throws -> DrawingObjectResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DrawingObjectResponse? = nil;
@@ -2115,7 +2111,7 @@ public class WordsAPI {
     }
 
     // Async representation of getDocumentDrawingObjectImageData method
-    // Reads drawing object image data.
+    // Reads image data of a DrawingObject from the document node.
     public func getDocumentDrawingObjectImageData(request : GetDocumentDrawingObjectImageDataRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2131,7 +2127,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getDocumentDrawingObjectImageData method
-    // Reads drawing object image data.
+    // Reads image data of a DrawingObject from the document node.
     public func getDocumentDrawingObjectImageData(request : GetDocumentDrawingObjectImageDataRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : Data? = nil;
@@ -2151,7 +2147,7 @@ public class WordsAPI {
     }
 
     // Async representation of getDocumentDrawingObjectOleData method
-    // Gets drawing object OLE data.
+    // Reads OLE data of a DrawingObject from the document node.
     public func getDocumentDrawingObjectOleData(request : GetDocumentDrawingObjectOleDataRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2167,7 +2163,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getDocumentDrawingObjectOleData method
-    // Gets drawing object OLE data.
+    // Reads OLE data of a DrawingObject from the document node.
     public func getDocumentDrawingObjectOleData(request : GetDocumentDrawingObjectOleDataRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : Data? = nil;
@@ -2187,7 +2183,7 @@ public class WordsAPI {
     }
 
     // Async representation of getDocumentDrawingObjects method
-    // Reads document drawing objects common info.
+    // Reads DrawingObjects from the document node.
     public func getDocumentDrawingObjects(request : GetDocumentDrawingObjectsRequest, callback : @escaping (_ response : DrawingObjectsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2213,7 +2209,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getDocumentDrawingObjects method
-    // Reads document drawing objects common info.
+    // Reads DrawingObjects from the document node.
     public func getDocumentDrawingObjects(request : GetDocumentDrawingObjectsRequest) throws -> DrawingObjectsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DrawingObjectsResponse? = nil;
@@ -2233,7 +2229,7 @@ public class WordsAPI {
     }
 
     // Async representation of getDocumentFieldNames method
-    // Reads document field names.
+    // Reads merge field names from the document.
     public func getDocumentFieldNames(request : GetDocumentFieldNamesRequest, callback : @escaping (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2259,7 +2255,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getDocumentFieldNames method
-    // Reads document field names.
+    // Reads merge field names from the document.
     public func getDocumentFieldNames(request : GetDocumentFieldNamesRequest) throws -> FieldNamesResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FieldNamesResponse? = nil;
@@ -2279,7 +2275,7 @@ public class WordsAPI {
     }
 
     // Async representation of getDocumentFieldNamesOnline method
-    // Reads document field names.
+    // Reads merge field names from the document.
     public func getDocumentFieldNamesOnline(request : GetDocumentFieldNamesOnlineRequest, callback : @escaping (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2305,7 +2301,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getDocumentFieldNamesOnline method
-    // Reads document field names.
+    // Reads merge field names from the document.
     public func getDocumentFieldNamesOnline(request : GetDocumentFieldNamesOnlineRequest) throws -> FieldNamesResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FieldNamesResponse? = nil;
@@ -2325,7 +2321,7 @@ public class WordsAPI {
     }
 
     // Async representation of getDocumentHyperlinkByIndex method
-    // Reads document hyperlink by its index.
+    // Reads a hyperlink from the document.
     public func getDocumentHyperlinkByIndex(request : GetDocumentHyperlinkByIndexRequest, callback : @escaping (_ response : HyperlinkResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2351,7 +2347,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getDocumentHyperlinkByIndex method
-    // Reads document hyperlink by its index.
+    // Reads a hyperlink from the document.
     public func getDocumentHyperlinkByIndex(request : GetDocumentHyperlinkByIndexRequest) throws -> HyperlinkResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : HyperlinkResponse? = nil;
@@ -2371,7 +2367,7 @@ public class WordsAPI {
     }
 
     // Async representation of getDocumentHyperlinks method
-    // Reads document hyperlinks common info.
+    // Reads hyperlinks from the document.
     public func getDocumentHyperlinks(request : GetDocumentHyperlinksRequest, callback : @escaping (_ response : HyperlinksResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2397,7 +2393,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getDocumentHyperlinks method
-    // Reads document hyperlinks common info.
+    // Reads hyperlinks from the document.
     public func getDocumentHyperlinks(request : GetDocumentHyperlinksRequest) throws -> HyperlinksResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : HyperlinksResponse? = nil;
@@ -2417,7 +2413,7 @@ public class WordsAPI {
     }
 
     // Async representation of getDocumentProperties method
-    // Reads document properties info.
+    // Reads document properties.
     public func getDocumentProperties(request : GetDocumentPropertiesRequest, callback : @escaping (_ response : DocumentPropertiesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2443,7 +2439,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getDocumentProperties method
-    // Reads document properties info.
+    // Reads document properties.
     public func getDocumentProperties(request : GetDocumentPropertiesRequest) throws -> DocumentPropertiesResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentPropertiesResponse? = nil;
@@ -2463,7 +2459,7 @@ public class WordsAPI {
     }
 
     // Async representation of getDocumentProperty method
-    // Reads document property info by the property name.
+    // Reads a document property.
     public func getDocumentProperty(request : GetDocumentPropertyRequest, callback : @escaping (_ response : DocumentPropertyResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2489,7 +2485,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getDocumentProperty method
-    // Reads document property info by the property name.
+    // Reads a document property.
     public func getDocumentProperty(request : GetDocumentPropertyRequest) throws -> DocumentPropertyResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentPropertyResponse? = nil;
@@ -2509,7 +2505,7 @@ public class WordsAPI {
     }
 
     // Async representation of getDocumentProtection method
-    // Reads document protection common info.
+    // Reads protection properties from the document.
     public func getDocumentProtection(request : GetDocumentProtectionRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2535,7 +2531,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getDocumentProtection method
-    // Reads document protection common info.
+    // Reads protection properties from the document.
     public func getDocumentProtection(request : GetDocumentProtectionRequest) throws -> ProtectionDataResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ProtectionDataResponse? = nil;
@@ -2601,7 +2597,7 @@ public class WordsAPI {
     }
 
     // Async representation of getDocumentWithFormat method
-    // Exports the document into the specified format.
+    // Converts a document in cloud storage to the specified format.
     public func getDocumentWithFormat(request : GetDocumentWithFormatRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2617,7 +2613,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getDocumentWithFormat method
-    // Exports the document into the specified format.
+    // Converts a document in cloud storage to the specified format.
     public func getDocumentWithFormat(request : GetDocumentWithFormatRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : Data? = nil;
@@ -2637,7 +2633,7 @@ public class WordsAPI {
     }
 
     // Async representation of getField method
-    // Gets field from document.
+    // Reads a field from the document node.
     public func getField(request : GetFieldRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2663,7 +2659,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getField method
-    // Gets field from document.
+    // Reads a field from the document node.
     public func getField(request : GetFieldRequest) throws -> FieldResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FieldResponse? = nil;
@@ -2683,7 +2679,7 @@ public class WordsAPI {
     }
 
     // Async representation of getFields method
-    // Get fields from document.
+    // Reads fields from the document node.
     public func getFields(request : GetFieldsRequest, callback : @escaping (_ response : FieldsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2709,7 +2705,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getFields method
-    // Get fields from document.
+    // Reads fields from the document node.
     public func getFields(request : GetFieldsRequest) throws -> FieldsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FieldsResponse? = nil;
@@ -2775,7 +2771,7 @@ public class WordsAPI {
     }
 
     // Async representation of getFootnote method
-    // Reads footnote by index.
+    // Reads a footnote from the document node.
     public func getFootnote(request : GetFootnoteRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2801,7 +2797,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getFootnote method
-    // Reads footnote by index.
+    // Reads a footnote from the document node.
     public func getFootnote(request : GetFootnoteRequest) throws -> FootnoteResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FootnoteResponse? = nil;
@@ -2821,7 +2817,7 @@ public class WordsAPI {
     }
 
     // Async representation of getFootnotes method
-    // Gets footnotes from document.
+    // Reads footnotes from the document node.
     public func getFootnotes(request : GetFootnotesRequest, callback : @escaping (_ response : FootnotesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2847,7 +2843,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getFootnotes method
-    // Gets footnotes from document.
+    // Reads footnotes from the document node.
     public func getFootnotes(request : GetFootnotesRequest) throws -> FootnotesResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FootnotesResponse? = nil;
@@ -2867,7 +2863,7 @@ public class WordsAPI {
     }
 
     // Async representation of getFormField method
-    // Returns representation of an one of the form field.
+    // Reads a form field from the document node.
     public func getFormField(request : GetFormFieldRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2893,7 +2889,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getFormField method
-    // Returns representation of an one of the form field.
+    // Reads a form field from the document node.
     public func getFormField(request : GetFormFieldRequest) throws -> FormFieldResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FormFieldResponse? = nil;
@@ -2913,7 +2909,7 @@ public class WordsAPI {
     }
 
     // Async representation of getFormFields method
-    // Gets form fields from document.
+    // Reads form fields from the document node.
     public func getFormFields(request : GetFormFieldsRequest, callback : @escaping (_ response : FormFieldsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2939,7 +2935,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getFormFields method
-    // Gets form fields from document.
+    // Reads form fields from the document node.
     public func getFormFields(request : GetFormFieldsRequest) throws -> FormFieldsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FormFieldsResponse? = nil;
@@ -2959,7 +2955,7 @@ public class WordsAPI {
     }
 
     // Async representation of getHeaderFooter method
-    // Returns a header/footer from the document by index.
+    // Reads a HeaderFooter object from the document.
     public func getHeaderFooter(request : GetHeaderFooterRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -2985,7 +2981,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getHeaderFooter method
-    // Returns a header/footer from the document by index.
+    // Reads a HeaderFooter object from the document.
     public func getHeaderFooter(request : GetHeaderFooterRequest) throws -> HeaderFooterResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : HeaderFooterResponse? = nil;
@@ -3005,7 +3001,7 @@ public class WordsAPI {
     }
 
     // Async representation of getHeaderFooterOfSection method
-    // Returns a header/footer from the document section.
+    // Reads a HeaderFooter object from the document section.
     public func getHeaderFooterOfSection(request : GetHeaderFooterOfSectionRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3031,7 +3027,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getHeaderFooterOfSection method
-    // Returns a header/footer from the document section.
+    // Reads a HeaderFooter object from the document section.
     public func getHeaderFooterOfSection(request : GetHeaderFooterOfSectionRequest) throws -> HeaderFooterResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : HeaderFooterResponse? = nil;
@@ -3051,7 +3047,7 @@ public class WordsAPI {
     }
 
     // Async representation of getHeaderFooters method
-    // Returns a list of header/footers from the document.
+    // Reads HeaderFooter objects from the document section.
     public func getHeaderFooters(request : GetHeaderFootersRequest, callback : @escaping (_ response : HeaderFootersResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3077,7 +3073,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getHeaderFooters method
-    // Returns a list of header/footers from the document.
+    // Reads HeaderFooter objects from the document section.
     public func getHeaderFooters(request : GetHeaderFootersRequest) throws -> HeaderFootersResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : HeaderFootersResponse? = nil;
@@ -3097,7 +3093,7 @@ public class WordsAPI {
     }
 
     // Async representation of getList method
-    // This resource represents one of the lists contained in the document.
+    // Reads a list from the document.
     public func getList(request : GetListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3123,7 +3119,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getList method
-    // This resource represents one of the lists contained in the document.
+    // Reads a list from the document.
     public func getList(request : GetListRequest) throws -> ListResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ListResponse? = nil;
@@ -3143,7 +3139,7 @@ public class WordsAPI {
     }
 
     // Async representation of getLists method
-    // Returns a list of lists that are contained in the document.
+    // Reads lists from the document.
     public func getLists(request : GetListsRequest, callback : @escaping (_ response : ListsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3169,7 +3165,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getLists method
-    // Returns a list of lists that are contained in the document.
+    // Reads lists from the document.
     public func getLists(request : GetListsRequest) throws -> ListsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ListsResponse? = nil;
@@ -3189,7 +3185,7 @@ public class WordsAPI {
     }
 
     // Async representation of getOfficeMathObject method
-    // Reads OfficeMath object by index.
+    // Reads an OfficeMath object from the document node.
     public func getOfficeMathObject(request : GetOfficeMathObjectRequest, callback : @escaping (_ response : OfficeMathObjectResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3215,7 +3211,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getOfficeMathObject method
-    // Reads OfficeMath object by index.
+    // Reads an OfficeMath object from the document node.
     public func getOfficeMathObject(request : GetOfficeMathObjectRequest) throws -> OfficeMathObjectResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : OfficeMathObjectResponse? = nil;
@@ -3235,7 +3231,7 @@ public class WordsAPI {
     }
 
     // Async representation of getOfficeMathObjects method
-    // Gets OfficeMath objects from document.
+    // Reads OfficeMath objects from the document node.
     public func getOfficeMathObjects(request : GetOfficeMathObjectsRequest, callback : @escaping (_ response : OfficeMathObjectsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3261,7 +3257,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getOfficeMathObjects method
-    // Gets OfficeMath objects from document.
+    // Reads OfficeMath objects from the document node.
     public func getOfficeMathObjects(request : GetOfficeMathObjectsRequest) throws -> OfficeMathObjectsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : OfficeMathObjectsResponse? = nil;
@@ -3281,7 +3277,7 @@ public class WordsAPI {
     }
 
     // Async representation of getParagraph method
-    // This resource represents one of the paragraphs contained in the document.
+    // Reads a paragraph from the document node.
     public func getParagraph(request : GetParagraphRequest, callback : @escaping (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3307,7 +3303,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getParagraph method
-    // This resource represents one of the paragraphs contained in the document.
+    // Reads a paragraph from the document node.
     public func getParagraph(request : GetParagraphRequest) throws -> ParagraphResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ParagraphResponse? = nil;
@@ -3327,7 +3323,7 @@ public class WordsAPI {
     }
 
     // Async representation of getParagraphFormat method
-    // Represents all the formatting for a paragraph.
+    // Reads the formatting properties of a paragraph from the document node.
     public func getParagraphFormat(request : GetParagraphFormatRequest, callback : @escaping (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3353,7 +3349,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getParagraphFormat method
-    // Represents all the formatting for a paragraph.
+    // Reads the formatting properties of a paragraph from the document node.
     public func getParagraphFormat(request : GetParagraphFormatRequest) throws -> ParagraphFormatResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ParagraphFormatResponse? = nil;
@@ -3373,7 +3369,7 @@ public class WordsAPI {
     }
 
     // Async representation of getParagraphListFormat method
-    // Represents list format for a paragraph.
+    // Reads the formatting properties of a paragraph list from the document node.
     public func getParagraphListFormat(request : GetParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3399,7 +3395,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getParagraphListFormat method
-    // Represents list format for a paragraph.
+    // Reads the formatting properties of a paragraph list from the document node.
     public func getParagraphListFormat(request : GetParagraphListFormatRequest) throws -> ParagraphListFormatResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ParagraphListFormatResponse? = nil;
@@ -3419,7 +3415,7 @@ public class WordsAPI {
     }
 
     // Async representation of getParagraphs method
-    // Returns a list of paragraphs that are contained in the document.
+    // Reads paragraphs from the document node.
     public func getParagraphs(request : GetParagraphsRequest, callback : @escaping (_ response : ParagraphLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3445,7 +3441,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getParagraphs method
-    // Returns a list of paragraphs that are contained in the document.
+    // Reads paragraphs from the document node.
     public func getParagraphs(request : GetParagraphsRequest) throws -> ParagraphLinkCollectionResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ParagraphLinkCollectionResponse? = nil;
@@ -3465,7 +3461,7 @@ public class WordsAPI {
     }
 
     // Async representation of getParagraphTabStops method
-    // Get all tab stops for the paragraph.
+    // Reads paragraph tab stops from the document node.
     public func getParagraphTabStops(request : GetParagraphTabStopsRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3491,7 +3487,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getParagraphTabStops method
-    // Get all tab stops for the paragraph.
+    // Reads paragraph tab stops from the document node.
     public func getParagraphTabStops(request : GetParagraphTabStopsRequest) throws -> TabStopsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TabStopsResponse? = nil;
@@ -3511,7 +3507,7 @@ public class WordsAPI {
     }
 
     // Async representation of getRangeText method
-    // Gets the text from the range.
+    // Reads range text from the document.
     public func getRangeText(request : GetRangeTextRequest, callback : @escaping (_ response : RangeTextResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3537,7 +3533,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getRangeText method
-    // Gets the text from the range.
+    // Reads range text from the document.
     public func getRangeText(request : GetRangeTextRequest) throws -> RangeTextResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : RangeTextResponse? = nil;
@@ -3557,7 +3553,7 @@ public class WordsAPI {
     }
 
     // Async representation of getRun method
-    // This resource represents run of text contained in the document.
+    // Reads a Run object from the paragraph.
     public func getRun(request : GetRunRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3583,7 +3579,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getRun method
-    // This resource represents run of text contained in the document.
+    // Reads a Run object from the paragraph.
     public func getRun(request : GetRunRequest) throws -> RunResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : RunResponse? = nil;
@@ -3603,7 +3599,7 @@ public class WordsAPI {
     }
 
     // Async representation of getRunFont method
-    // This resource represents font of run.
+    // Reads the font properties of a Run object from the paragraph.
     public func getRunFont(request : GetRunFontRequest, callback : @escaping (_ response : FontResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3629,7 +3625,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getRunFont method
-    // This resource represents font of run.
+    // Reads the font properties of a Run object from the paragraph.
     public func getRunFont(request : GetRunFontRequest) throws -> FontResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FontResponse? = nil;
@@ -3649,7 +3645,7 @@ public class WordsAPI {
     }
 
     // Async representation of getRuns method
-    // This resource represents collection of runs in the paragraph.
+    // Reads Run objects from the paragraph.
     public func getRuns(request : GetRunsRequest, callback : @escaping (_ response : RunsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3675,7 +3671,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getRuns method
-    // This resource represents collection of runs in the paragraph.
+    // Reads Run objects from the paragraph.
     public func getRuns(request : GetRunsRequest) throws -> RunsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : RunsResponse? = nil;
@@ -3695,7 +3691,7 @@ public class WordsAPI {
     }
 
     // Async representation of getSection method
-    // Gets document section by index.
+    // Reads a section from the document.
     public func getSection(request : GetSectionRequest, callback : @escaping (_ response : SectionResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3721,7 +3717,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getSection method
-    // Gets document section by index.
+    // Reads a section from the document.
     public func getSection(request : GetSectionRequest) throws -> SectionResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SectionResponse? = nil;
@@ -3741,7 +3737,7 @@ public class WordsAPI {
     }
 
     // Async representation of getSectionPageSetup method
-    // Gets page setup of section.
+    // Reads the page setup of a section from the document.
     public func getSectionPageSetup(request : GetSectionPageSetupRequest, callback : @escaping (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3767,7 +3763,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getSectionPageSetup method
-    // Gets page setup of section.
+    // Reads the page setup of a section from the document.
     public func getSectionPageSetup(request : GetSectionPageSetupRequest) throws -> SectionPageSetupResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SectionPageSetupResponse? = nil;
@@ -3787,7 +3783,7 @@ public class WordsAPI {
     }
 
     // Async representation of getSections method
-    // Returns a list of sections that are contained in the document.
+    // Reads sections from the document.
     public func getSections(request : GetSectionsRequest, callback : @escaping (_ response : SectionLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3813,7 +3809,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getSections method
-    // Returns a list of sections that are contained in the document.
+    // Reads sections from the document.
     public func getSections(request : GetSectionsRequest) throws -> SectionLinkCollectionResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SectionLinkCollectionResponse? = nil;
@@ -3833,7 +3829,7 @@ public class WordsAPI {
     }
 
     // Async representation of getStyle method
-    // This resource represents one of the styles contained in the document.
+    // Reads a style from the document.
     public func getStyle(request : GetStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3859,7 +3855,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getStyle method
-    // This resource represents one of the styles contained in the document.
+    // Reads a style from the document.
     public func getStyle(request : GetStyleRequest) throws -> StyleResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : StyleResponse? = nil;
@@ -3879,7 +3875,7 @@ public class WordsAPI {
     }
 
     // Async representation of getStyleFromDocumentElement method
-    // Gets a style from the document node.
+    // Reads a style from the document node.
     public func getStyleFromDocumentElement(request : GetStyleFromDocumentElementRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3905,7 +3901,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getStyleFromDocumentElement method
-    // Gets a style from the document node.
+    // Reads a style from the document node.
     public func getStyleFromDocumentElement(request : GetStyleFromDocumentElementRequest) throws -> StyleResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : StyleResponse? = nil;
@@ -3925,7 +3921,7 @@ public class WordsAPI {
     }
 
     // Async representation of getStyles method
-    // Returns a list of styles contained in the document.
+    // Reads styles from the document.
     public func getStyles(request : GetStylesRequest, callback : @escaping (_ response : StylesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3951,7 +3947,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getStyles method
-    // Returns a list of styles contained in the document.
+    // Reads styles from the document.
     public func getStyles(request : GetStylesRequest) throws -> StylesResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : StylesResponse? = nil;
@@ -3971,7 +3967,7 @@ public class WordsAPI {
     }
 
     // Async representation of getTable method
-    // Returns a table.
+    // Reads a table from the document node.
     public func getTable(request : GetTableRequest, callback : @escaping (_ response : TableResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -3997,7 +3993,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getTable method
-    // Returns a table.
+    // Reads a table from the document node.
     public func getTable(request : GetTableRequest) throws -> TableResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TableResponse? = nil;
@@ -4017,7 +4013,7 @@ public class WordsAPI {
     }
 
     // Async representation of getTableCell method
-    // Returns a table cell.
+    // Reads a cell from the table row.
     public func getTableCell(request : GetTableCellRequest, callback : @escaping (_ response : TableCellResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4043,7 +4039,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getTableCell method
-    // Returns a table cell.
+    // Reads a cell from the table row.
     public func getTableCell(request : GetTableCellRequest) throws -> TableCellResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TableCellResponse? = nil;
@@ -4063,7 +4059,7 @@ public class WordsAPI {
     }
 
     // Async representation of getTableCellFormat method
-    // Returns a table cell format.
+    // Reads the formatting properties of a table cell.
     public func getTableCellFormat(request : GetTableCellFormatRequest, callback : @escaping (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4089,7 +4085,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getTableCellFormat method
-    // Returns a table cell format.
+    // Reads the formatting properties of a table cell.
     public func getTableCellFormat(request : GetTableCellFormatRequest) throws -> TableCellFormatResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TableCellFormatResponse? = nil;
@@ -4109,7 +4105,7 @@ public class WordsAPI {
     }
 
     // Async representation of getTableProperties method
-    // Returns a table properties.
+    // Reads properties of a table from the document node.
     public func getTableProperties(request : GetTablePropertiesRequest, callback : @escaping (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4135,7 +4131,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getTableProperties method
-    // Returns a table properties.
+    // Reads properties of a table from the document node.
     public func getTableProperties(request : GetTablePropertiesRequest) throws -> TablePropertiesResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TablePropertiesResponse? = nil;
@@ -4155,7 +4151,7 @@ public class WordsAPI {
     }
 
     // Async representation of getTableRow method
-    // Returns a table row.
+    // Reads a row from the table.
     public func getTableRow(request : GetTableRowRequest, callback : @escaping (_ response : TableRowResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4181,7 +4177,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getTableRow method
-    // Returns a table row.
+    // Reads a row from the table.
     public func getTableRow(request : GetTableRowRequest) throws -> TableRowResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TableRowResponse? = nil;
@@ -4201,7 +4197,7 @@ public class WordsAPI {
     }
 
     // Async representation of getTableRowFormat method
-    // Returns a table row format.
+    // Reads the formatting properties of a table row.
     public func getTableRowFormat(request : GetTableRowFormatRequest, callback : @escaping (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4227,7 +4223,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getTableRowFormat method
-    // Returns a table row format.
+    // Reads the formatting properties of a table row.
     public func getTableRowFormat(request : GetTableRowFormatRequest) throws -> TableRowFormatResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TableRowFormatResponse? = nil;
@@ -4247,7 +4243,7 @@ public class WordsAPI {
     }
 
     // Async representation of getTables method
-    // Returns a list of tables that are contained in the document.
+    // Reads tables from the document node.
     public func getTables(request : GetTablesRequest, callback : @escaping (_ response : TableLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4273,7 +4269,7 @@ public class WordsAPI {
     }
 
     // Sync representation of getTables method
-    // Returns a list of tables that are contained in the document.
+    // Reads tables from the document node.
     public func getTables(request : GetTablesRequest) throws -> TableLinkCollectionResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TableLinkCollectionResponse? = nil;
@@ -4293,7 +4289,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertComment method
-    // Adds comment to document, returns inserted comment data.
+    // Inserts a new comment to the document.
     public func insertComment(request : InsertCommentRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4319,7 +4315,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertComment method
-    // Adds comment to document, returns inserted comment data.
+    // Inserts a new comment to the document.
     public func insertComment(request : InsertCommentRequest) throws -> CommentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : CommentResponse? = nil;
@@ -4339,7 +4335,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertDrawingObject method
-    // Adds drawing object to document, returns added  drawing object's data.
+    // Inserts a new DrawingObject to the document node.
     public func insertDrawingObject(request : InsertDrawingObjectRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4365,7 +4361,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertDrawingObject method
-    // Adds drawing object to document, returns added  drawing object's data.
+    // Inserts a new DrawingObject to the document node.
     public func insertDrawingObject(request : InsertDrawingObjectRequest) throws -> DrawingObjectResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DrawingObjectResponse? = nil;
@@ -4385,7 +4381,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertField method
-    // Adds field to document, returns inserted field's data.
+    // Inserts a new field to the document node.
     public func insertField(request : InsertFieldRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4411,7 +4407,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertField method
-    // Adds field to document, returns inserted field's data.
+    // Inserts a new field to the document node.
     public func insertField(request : InsertFieldRequest) throws -> FieldResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FieldResponse? = nil;
@@ -4431,7 +4427,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertFootnote method
-    // Adds footnote to document, returns added footnote's data.
+    // Inserts a new footnote to the document node.
     public func insertFootnote(request : InsertFootnoteRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4457,7 +4453,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertFootnote method
-    // Adds footnote to document, returns added footnote's data.
+    // Inserts a new footnote to the document node.
     public func insertFootnote(request : InsertFootnoteRequest) throws -> FootnoteResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FootnoteResponse? = nil;
@@ -4477,7 +4473,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertFormField method
-    // Adds form field to paragraph, returns added form field's data.
+    // Inserts a new form field to the document node.
     public func insertFormField(request : InsertFormFieldRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4503,7 +4499,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertFormField method
-    // Adds form field to paragraph, returns added form field's data.
+    // Inserts a new form field to the document node.
     public func insertFormField(request : InsertFormFieldRequest) throws -> FormFieldResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FormFieldResponse? = nil;
@@ -4523,7 +4519,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertHeaderFooter method
-    // Inserts to document header or footer.
+    // Inserts a new HeaderFooter object to the document section.
     public func insertHeaderFooter(request : InsertHeaderFooterRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4549,7 +4545,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertHeaderFooter method
-    // Inserts to document header or footer.
+    // Inserts a new HeaderFooter object to the document section.
     public func insertHeaderFooter(request : InsertHeaderFooterRequest) throws -> HeaderFooterResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : HeaderFooterResponse? = nil;
@@ -4569,7 +4565,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertList method
-    // Adds list to document, returns added list's data.
+    // Inserts a new list to the document.
     public func insertList(request : InsertListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4595,7 +4591,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertList method
-    // Adds list to document, returns added list's data.
+    // Inserts a new list to the document.
     public func insertList(request : InsertListRequest) throws -> ListResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ListResponse? = nil;
@@ -4615,7 +4611,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertOrUpdateParagraphTabStop method
-    // Insert or resplace tab stop if a tab stop with the position exists.
+    // Inserts a new or updates an existing paragraph tab stop in the document node.
     public func insertOrUpdateParagraphTabStop(request : InsertOrUpdateParagraphTabStopRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4641,7 +4637,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertOrUpdateParagraphTabStop method
-    // Insert or resplace tab stop if a tab stop with the position exists.
+    // Inserts a new or updates an existing paragraph tab stop in the document node.
     public func insertOrUpdateParagraphTabStop(request : InsertOrUpdateParagraphTabStopRequest) throws -> TabStopsResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TabStopsResponse? = nil;
@@ -4661,7 +4657,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertPageNumbers method
-    // Inserts document page numbers.
+    // Inserts page numbers to the document.
     public func insertPageNumbers(request : InsertPageNumbersRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4687,7 +4683,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertPageNumbers method
-    // Inserts document page numbers.
+    // Inserts page numbers to the document.
     public func insertPageNumbers(request : InsertPageNumbersRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
@@ -4707,7 +4703,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertParagraph method
-    // Adds paragraph to document, returns added paragraph's data.
+    // Inserts a new paragraph to the document node.
     public func insertParagraph(request : InsertParagraphRequest, callback : @escaping (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4733,7 +4729,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertParagraph method
-    // Adds paragraph to document, returns added paragraph's data.
+    // Inserts a new paragraph to the document node.
     public func insertParagraph(request : InsertParagraphRequest) throws -> ParagraphResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ParagraphResponse? = nil;
@@ -4753,7 +4749,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertRun method
-    // Adds run to document, returns added paragraph's data.
+    // Inserts a new Run object to the paragraph.
     public func insertRun(request : InsertRunRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4779,7 +4775,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertRun method
-    // Adds run to document, returns added paragraph's data.
+    // Inserts a new Run object to the paragraph.
     public func insertRun(request : InsertRunRequest) throws -> RunResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : RunResponse? = nil;
@@ -4799,7 +4795,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertStyle method
-    // Adds a style to the document, returns an added style.
+    // Inserts a new style to the document.
     public func insertStyle(request : InsertStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4825,7 +4821,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertStyle method
-    // Adds a style to the document, returns an added style.
+    // Inserts a new style to the document.
     public func insertStyle(request : InsertStyleRequest) throws -> StyleResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : StyleResponse? = nil;
@@ -4845,7 +4841,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertTable method
-    // Adds table to document, returns added table's data.
+    // Inserts a new table to the document node.
     public func insertTable(request : InsertTableRequest, callback : @escaping (_ response : TableResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4871,7 +4867,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertTable method
-    // Adds table to document, returns added table's data.
+    // Inserts a new table to the document node.
     public func insertTable(request : InsertTableRequest) throws -> TableResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TableResponse? = nil;
@@ -4891,7 +4887,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertTableCell method
-    // Adds table cell to table, returns added cell's data.
+    // Inserts a new cell to the table row.
     public func insertTableCell(request : InsertTableCellRequest, callback : @escaping (_ response : TableCellResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4917,7 +4913,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertTableCell method
-    // Adds table cell to table, returns added cell's data.
+    // Inserts a new cell to the table row.
     public func insertTableCell(request : InsertTableCellRequest) throws -> TableCellResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TableCellResponse? = nil;
@@ -4937,7 +4933,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertTableRow method
-    // Adds table row to table, returns added row's data.
+    // Inserts a new row to the table.
     public func insertTableRow(request : InsertTableRowRequest, callback : @escaping (_ response : TableRowResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -4963,7 +4959,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertTableRow method
-    // Adds table row to table, returns added row's data.
+    // Inserts a new row to the table.
     public func insertTableRow(request : InsertTableRowRequest) throws -> TableRowResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TableRowResponse? = nil;
@@ -4983,7 +4979,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertWatermarkImage method
-    // Inserts document watermark image.
+    // Inserts a new watermark image to the document.
     public func insertWatermarkImage(request : InsertWatermarkImageRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5009,7 +5005,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertWatermarkImage method
-    // Inserts document watermark image.
+    // Inserts a new watermark image to the document.
     public func insertWatermarkImage(request : InsertWatermarkImageRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
@@ -5029,7 +5025,7 @@ public class WordsAPI {
     }
 
     // Async representation of insertWatermarkText method
-    // Inserts document watermark text.
+    // Inserts a new watermark text to the document.
     public func insertWatermarkText(request : InsertWatermarkTextRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5055,7 +5051,7 @@ public class WordsAPI {
     }
 
     // Sync representation of insertWatermarkText method
-    // Inserts document watermark text.
+    // Inserts a new watermark text to the document.
     public func insertWatermarkText(request : InsertWatermarkTextRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
@@ -5075,7 +5071,7 @@ public class WordsAPI {
     }
 
     // Async representation of loadWebDocument method
-    // Loads new document from web into the file with any supported format of data.
+    // Downloads a document from the Web using URL and saves it to cloud storage in the specified format.
     public func loadWebDocument(request : LoadWebDocumentRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5101,7 +5097,7 @@ public class WordsAPI {
     }
 
     // Sync representation of loadWebDocument method
-    // Loads new document from web into the file with any supported format of data.
+    // Downloads a document from the Web using URL and saves it to cloud storage in the specified format.
     public func loadWebDocument(request : LoadWebDocumentRequest) throws -> SaveResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SaveResponse? = nil;
@@ -5187,7 +5183,7 @@ public class WordsAPI {
     }
 
     // Async representation of optimizeDocument method
-    // Allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word.
+    // Applies document content optimization options, specific to a particular versions of Microsoft Word.
     public func optimizeDocument(request : OptimizeDocumentRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5203,7 +5199,7 @@ public class WordsAPI {
     }
 
     // Sync representation of optimizeDocument method
-    // Allows to optimize the document contents as well as default Aspose.Words behavior to a particular versions of MS Word.
+    // Applies document content optimization options, specific to a particular versions of Microsoft Word.
     public func optimizeDocument(request : OptimizeDocumentRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -5220,7 +5216,7 @@ public class WordsAPI {
     }
 
     // Async representation of protectDocument method
-    // Protects document.
+    // Adds protection to the document.
     public func protectDocument(request : ProtectDocumentRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5246,7 +5242,7 @@ public class WordsAPI {
     }
 
     // Sync representation of protectDocument method
-    // Protects document.
+    // Adds protection to the document.
     public func protectDocument(request : ProtectDocumentRequest) throws -> ProtectionDataResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ProtectionDataResponse? = nil;
@@ -5266,7 +5262,7 @@ public class WordsAPI {
     }
 
     // Async representation of rejectAllRevisions method
-    // Rejects all revisions in document.
+    // Rejects all revisions in the document.
     public func rejectAllRevisions(request : RejectAllRevisionsRequest, callback : @escaping (_ response : RevisionsModificationResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5292,7 +5288,7 @@ public class WordsAPI {
     }
 
     // Sync representation of rejectAllRevisions method
-    // Rejects all revisions in document.
+    // Rejects all revisions in the document.
     public func rejectAllRevisions(request : RejectAllRevisionsRequest) throws -> RevisionsModificationResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : RevisionsModificationResponse? = nil;
@@ -5312,7 +5308,7 @@ public class WordsAPI {
     }
 
     // Async representation of removeRange method
-    // Removes the range from the document.
+    // Removes a range from the document.
     public func removeRange(request : RemoveRangeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5338,7 +5334,7 @@ public class WordsAPI {
     }
 
     // Sync representation of removeRange method
-    // Removes the range from the document.
+    // Removes a range from the document.
     public func removeRange(request : RemoveRangeRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
@@ -5358,7 +5354,7 @@ public class WordsAPI {
     }
 
     // Async representation of renderDrawingObject method
-    // Renders drawing object to specified format.
+    // Renders a DrawingObject to the specified format.
     public func renderDrawingObject(request : RenderDrawingObjectRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5374,7 +5370,7 @@ public class WordsAPI {
     }
 
     // Sync representation of renderDrawingObject method
-    // Renders drawing object to specified format.
+    // Renders a DrawingObject to the specified format.
     public func renderDrawingObject(request : RenderDrawingObjectRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : Data? = nil;
@@ -5394,7 +5390,7 @@ public class WordsAPI {
     }
 
     // Async representation of renderMathObject method
-    // Renders math object to specified format.
+    // Renders an OfficeMath object to the specified format.
     public func renderMathObject(request : RenderMathObjectRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5410,7 +5406,7 @@ public class WordsAPI {
     }
 
     // Sync representation of renderMathObject method
-    // Renders math object to specified format.
+    // Renders an OfficeMath object to the specified format.
     public func renderMathObject(request : RenderMathObjectRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : Data? = nil;
@@ -5430,7 +5426,7 @@ public class WordsAPI {
     }
 
     // Async representation of renderPage method
-    // Renders page to specified format.
+    // Renders a page to the specified format.
     public func renderPage(request : RenderPageRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5446,7 +5442,7 @@ public class WordsAPI {
     }
 
     // Sync representation of renderPage method
-    // Renders page to specified format.
+    // Renders a page to the specified format.
     public func renderPage(request : RenderPageRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : Data? = nil;
@@ -5466,7 +5462,7 @@ public class WordsAPI {
     }
 
     // Async representation of renderParagraph method
-    // Renders paragraph to specified format.
+    // Renders a paragraph to the specified format.
     public func renderParagraph(request : RenderParagraphRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5482,7 +5478,7 @@ public class WordsAPI {
     }
 
     // Sync representation of renderParagraph method
-    // Renders paragraph to specified format.
+    // Renders a paragraph to the specified format.
     public func renderParagraph(request : RenderParagraphRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : Data? = nil;
@@ -5502,7 +5498,7 @@ public class WordsAPI {
     }
 
     // Async representation of renderTable method
-    // Renders table to specified format.
+    // Renders a table to the specified format.
     public func renderTable(request : RenderTableRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5518,7 +5514,7 @@ public class WordsAPI {
     }
 
     // Sync representation of renderTable method
-    // Renders table to specified format.
+    // Renders a table to the specified format.
     public func renderTable(request : RenderTableRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : Data? = nil;
@@ -5538,7 +5534,7 @@ public class WordsAPI {
     }
 
     // Async representation of replaceText method
-    // Replaces document text.
+    // Replaces text in the document.
     public func replaceText(request : ReplaceTextRequest, callback : @escaping (_ response : ReplaceTextResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5564,7 +5560,7 @@ public class WordsAPI {
     }
 
     // Sync representation of replaceText method
-    // Replaces document text.
+    // Replaces text in the document.
     public func replaceText(request : ReplaceTextRequest) throws -> ReplaceTextResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ReplaceTextResponse? = nil;
@@ -5584,7 +5580,7 @@ public class WordsAPI {
     }
 
     // Async representation of replaceWithText method
-    // Replaces the content in the range.
+    // Replaces a range with text in the document.
     public func replaceWithText(request : ReplaceWithTextRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5610,7 +5606,7 @@ public class WordsAPI {
     }
 
     // Sync representation of replaceWithText method
-    // Replaces the content in the range.
+    // Replaces a range with text in the document.
     public func replaceWithText(request : ReplaceWithTextRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
@@ -5630,7 +5626,7 @@ public class WordsAPI {
     }
 
     // Async representation of resetCache method
-    // Resets font's cache.
+    // Clears the font cache.
     public func resetCache(request : ResetCacheRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5646,7 +5642,7 @@ public class WordsAPI {
     }
 
     // Sync representation of resetCache method
-    // Resets font's cache.
+    // Clears the font cache.
     public func resetCache(request : ResetCacheRequest) throws {
         let semaphore = DispatchSemaphore(value: 0);
         var responseError : Error? = nil;
@@ -5663,7 +5659,7 @@ public class WordsAPI {
     }
 
     // Async representation of saveAs method
-    // Converts document to destination format with detailed settings and saves result to storage.
+    // Converts a document in cloud storage to the specified format.
     public func saveAs(request : SaveAsRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5689,7 +5685,7 @@ public class WordsAPI {
     }
 
     // Sync representation of saveAs method
-    // Converts document to destination format with detailed settings and saves result to storage.
+    // Converts a document in cloud storage to the specified format.
     public func saveAs(request : SaveAsRequest) throws -> SaveResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SaveResponse? = nil;
@@ -5709,7 +5705,7 @@ public class WordsAPI {
     }
 
     // Async representation of saveAsRange method
-    // Saves the selected range as a new document.
+    // Saves a range as a new document.
     public func saveAsRange(request : SaveAsRangeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5735,7 +5731,7 @@ public class WordsAPI {
     }
 
     // Sync representation of saveAsRange method
-    // Saves the selected range as a new document.
+    // Saves a range as a new document.
     public func saveAsRange(request : SaveAsRangeRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
@@ -5755,7 +5751,7 @@ public class WordsAPI {
     }
 
     // Async representation of saveAsTiff method
-    // Converts document to tiff with detailed settings and saves result to storage.
+    // Converts a document in cloud storage to TIFF format using detailed conversion settings.
     public func saveAsTiff(request : SaveAsTiffRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5781,7 +5777,7 @@ public class WordsAPI {
     }
 
     // Sync representation of saveAsTiff method
-    // Converts document to tiff with detailed settings and saves result to storage.
+    // Converts a document in cloud storage to TIFF format using detailed conversion settings.
     public func saveAsTiff(request : SaveAsTiffRequest) throws -> SaveResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SaveResponse? = nil;
@@ -5801,7 +5797,7 @@ public class WordsAPI {
     }
 
     // Async representation of search method
-    // Searches text in document.
+    // Searches text, specified by the regular expression, in the document.
     public func search(request : SearchRequest, callback : @escaping (_ response : SearchResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5827,7 +5823,7 @@ public class WordsAPI {
     }
 
     // Sync representation of search method
-    // Searches text in document.
+    // Searches text, specified by the regular expression, in the document.
     public func search(request : SearchRequest) throws -> SearchResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SearchResponse? = nil;
@@ -5847,7 +5843,7 @@ public class WordsAPI {
     }
 
     // Async representation of splitDocument method
-    // Splits document.
+    // Splits a document into parts and saves them in the specified format.
     public func splitDocument(request : SplitDocumentRequest, callback : @escaping (_ response : SplitDocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5873,7 +5869,7 @@ public class WordsAPI {
     }
 
     // Sync representation of splitDocument method
-    // Splits document.
+    // Splits a document into parts and saves them in the specified format.
     public func splitDocument(request : SplitDocumentRequest) throws -> SplitDocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SplitDocumentResponse? = nil;
@@ -5893,7 +5889,7 @@ public class WordsAPI {
     }
 
     // Async representation of unprotectDocument method
-    // Unprotects document.
+    // Removes protection from the document.
     public func unprotectDocument(request : UnprotectDocumentRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5919,7 +5915,7 @@ public class WordsAPI {
     }
 
     // Sync representation of unprotectDocument method
-    // Unprotects document.
+    // Removes protection from the document.
     public func unprotectDocument(request : UnprotectDocumentRequest) throws -> ProtectionDataResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ProtectionDataResponse? = nil;
@@ -5939,7 +5935,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateBookmark method
-    // Updates document bookmark.
+    // Updates a bookmark in the document.
     public func updateBookmark(request : UpdateBookmarkRequest, callback : @escaping (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -5965,7 +5961,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateBookmark method
-    // Updates document bookmark.
+    // Updates a bookmark in the document.
     public func updateBookmark(request : UpdateBookmarkRequest) throws -> BookmarkResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : BookmarkResponse? = nil;
@@ -5985,7 +5981,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateBorder method
-    // 'nodePath' should refer to paragraph, cell or row.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func updateBorder(request : UpdateBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6011,7 +6007,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateBorder method
-    // 'nodePath' should refer to paragraph, cell or row.
+    // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
     public func updateBorder(request : UpdateBorderRequest) throws -> BorderResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : BorderResponse? = nil;
@@ -6031,7 +6027,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateComment method
-    // Updates the comment, returns updated comment data.
+    // Updates a comment in the document.
     public func updateComment(request : UpdateCommentRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6057,7 +6053,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateComment method
-    // Updates the comment, returns updated comment data.
+    // Updates a comment in the document.
     public func updateComment(request : UpdateCommentRequest) throws -> CommentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : CommentResponse? = nil;
@@ -6077,7 +6073,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateDrawingObject method
-    // Updates drawing object, returns updated  drawing object's data.
+    // Updates a DrawingObject in the document node.
     public func updateDrawingObject(request : UpdateDrawingObjectRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6103,7 +6099,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateDrawingObject method
-    // Updates drawing object, returns updated  drawing object's data.
+    // Updates a DrawingObject in the document node.
     public func updateDrawingObject(request : UpdateDrawingObjectRequest) throws -> DrawingObjectResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DrawingObjectResponse? = nil;
@@ -6123,7 +6119,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateField method
-    // Updates field's properties, returns updated field's data.
+    // Updates a field in the document node.
     public func updateField(request : UpdateFieldRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6149,7 +6145,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateField method
-    // Updates field's properties, returns updated field's data.
+    // Updates a field in the document node.
     public func updateField(request : UpdateFieldRequest) throws -> FieldResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FieldResponse? = nil;
@@ -6169,7 +6165,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateFields method
-    // Updates (reevaluate) fields in document.
+    // Reevaluates field values in the document.
     public func updateFields(request : UpdateFieldsRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6195,7 +6191,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateFields method
-    // Updates (reevaluate) fields in document.
+    // Reevaluates field values in the document.
     public func updateFields(request : UpdateFieldsRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : DocumentResponse? = nil;
@@ -6215,7 +6211,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateFootnote method
-    // Updates footnote's properties, returns updated run's data.
+    // Updates a footnote in the document node.
     public func updateFootnote(request : UpdateFootnoteRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6241,7 +6237,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateFootnote method
-    // Updates footnote's properties, returns updated run's data.
+    // Updates a footnote in the document node.
     public func updateFootnote(request : UpdateFootnoteRequest) throws -> FootnoteResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FootnoteResponse? = nil;
@@ -6261,7 +6257,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateFormField method
-    // Updates properties of form field, returns updated form field.
+    // Updates a form field in the document node.
     public func updateFormField(request : UpdateFormFieldRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6287,7 +6283,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateFormField method
-    // Updates properties of form field, returns updated form field.
+    // Updates a form field in the document node.
     public func updateFormField(request : UpdateFormFieldRequest) throws -> FormFieldResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FormFieldResponse? = nil;
@@ -6307,7 +6303,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateList method
-    // Updates list properties, returns updated list.
+    // Updates a list in the document.
     public func updateList(request : UpdateListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6333,7 +6329,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateList method
-    // Updates list properties, returns updated list.
+    // Updates a list in the document.
     public func updateList(request : UpdateListRequest) throws -> ListResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ListResponse? = nil;
@@ -6353,7 +6349,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateListLevel method
-    // Updates list level in document list, returns updated list.
+    // Updates the level of a List element in the document.
     public func updateListLevel(request : UpdateListLevelRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6379,7 +6375,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateListLevel method
-    // Updates list level in document list, returns updated list.
+    // Updates the level of a List element in the document.
     public func updateListLevel(request : UpdateListLevelRequest) throws -> ListResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ListResponse? = nil;
@@ -6399,7 +6395,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateParagraphFormat method
-    // Updates paragraph format properties, returns updated format properties.
+    // Updates the formatting properties of a paragraph in the document node.
     public func updateParagraphFormat(request : UpdateParagraphFormatRequest, callback : @escaping (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6425,7 +6421,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateParagraphFormat method
-    // Updates paragraph format properties, returns updated format properties.
+    // Updates the formatting properties of a paragraph in the document node.
     public func updateParagraphFormat(request : UpdateParagraphFormatRequest) throws -> ParagraphFormatResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ParagraphFormatResponse? = nil;
@@ -6445,7 +6441,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateParagraphListFormat method
-    // Updates paragraph list format properties, returns updated list format properties.
+    // Updates the formatting properties of a paragraph list in the document node.
     public func updateParagraphListFormat(request : UpdateParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6471,7 +6467,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateParagraphListFormat method
-    // Updates paragraph list format properties, returns updated list format properties.
+    // Updates the formatting properties of a paragraph list in the document node.
     public func updateParagraphListFormat(request : UpdateParagraphListFormatRequest) throws -> ParagraphListFormatResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : ParagraphListFormatResponse? = nil;
@@ -6491,7 +6487,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateRun method
-    // Updates run's properties, returns updated run's data.
+    // Updates a Run object in the paragraph.
     public func updateRun(request : UpdateRunRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6517,7 +6513,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateRun method
-    // Updates run's properties, returns updated run's data.
+    // Updates a Run object in the paragraph.
     public func updateRun(request : UpdateRunRequest) throws -> RunResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : RunResponse? = nil;
@@ -6537,7 +6533,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateRunFont method
-    // Updates font properties, returns updated font data.
+    // Updates the font properties of a Run object in the paragraph.
     public func updateRunFont(request : UpdateRunFontRequest, callback : @escaping (_ response : FontResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6563,7 +6559,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateRunFont method
-    // Updates font properties, returns updated font data.
+    // Updates the font properties of a Run object in the paragraph.
     public func updateRunFont(request : UpdateRunFontRequest) throws -> FontResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : FontResponse? = nil;
@@ -6583,7 +6579,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateSectionPageSetup method
-    // Updates page setup of section.
+    // Updates the page setup of a section in the document.
     public func updateSectionPageSetup(request : UpdateSectionPageSetupRequest, callback : @escaping (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6609,7 +6605,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateSectionPageSetup method
-    // Updates page setup of section.
+    // Updates the page setup of a section in the document.
     public func updateSectionPageSetup(request : UpdateSectionPageSetupRequest) throws -> SectionPageSetupResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SectionPageSetupResponse? = nil;
@@ -6629,7 +6625,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateStyle method
-    // Updates style properties, returns an updated style.
+    // Updates a style in the document.
     public func updateStyle(request : UpdateStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6655,7 +6651,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateStyle method
-    // Updates style properties, returns an updated style.
+    // Updates a style in the document.
     public func updateStyle(request : UpdateStyleRequest) throws -> StyleResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : StyleResponse? = nil;
@@ -6675,7 +6671,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateTableCellFormat method
-    // Updates a table cell format.
+    // Updates the formatting properties of a cell in the table row.
     public func updateTableCellFormat(request : UpdateTableCellFormatRequest, callback : @escaping (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6701,7 +6697,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateTableCellFormat method
-    // Updates a table cell format.
+    // Updates the formatting properties of a cell in the table row.
     public func updateTableCellFormat(request : UpdateTableCellFormatRequest) throws -> TableCellFormatResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TableCellFormatResponse? = nil;
@@ -6721,7 +6717,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateTableProperties method
-    // Updates a table properties.
+    // Updates properties of a table in the document node.
     public func updateTableProperties(request : UpdateTablePropertiesRequest, callback : @escaping (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6747,7 +6743,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateTableProperties method
-    // Updates a table properties.
+    // Updates properties of a table in the document node.
     public func updateTableProperties(request : UpdateTablePropertiesRequest) throws -> TablePropertiesResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TablePropertiesResponse? = nil;
@@ -6767,7 +6763,7 @@ public class WordsAPI {
     }
 
     // Async representation of updateTableRowFormat method
-    // Updates a table row format.
+    // Updates the formatting properties of a table row.
     public func updateTableRowFormat(request : UpdateTableRowFormatRequest, callback : @escaping (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -6793,7 +6789,7 @@ public class WordsAPI {
     }
 
     // Sync representation of updateTableRowFormat method
-    // Updates a table row format.
+    // Updates the formatting properties of a table row.
     public func updateTableRowFormat(request : UpdateTableRowFormatRequest) throws -> TableRowFormatResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : TableRowFormatResponse? = nil;

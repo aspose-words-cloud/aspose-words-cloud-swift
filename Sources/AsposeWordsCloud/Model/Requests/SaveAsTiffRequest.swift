@@ -110,12 +110,12 @@ public class SaveAsTiffRequest : WordsApiRequest {
         self.fontsLocation = fontsLocation;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Tiff save options.
+    // The save options to TIFF format.
     public func getSaveOptions() -> TiffSaveOptionsData {
         return self.saveOptions;
     }
@@ -140,22 +140,22 @@ public class SaveAsTiffRequest : WordsApiRequest {
         return self.password;
     }
 
-    // Use antialiasing flag.
+    // The flag indicating whether to use antialiasing.
     public func getUseAntiAliasing() -> Bool? {
         return self.useAntiAliasing;
     }
 
-    // Use high quality flag.
+    // The flag indicating whether to use high quality.
     public func getUseHighQualityRendering() -> Bool? {
         return self.useHighQualityRendering;
     }
 
-    // Brightness for the generated images.
+    // The level of brightness for the generated images.
     public func getImageBrightness() -> Double? {
         return self.imageBrightness;
     }
 
-    // Color mode for the generated images.
+    // The color mode for the generated images.
     public func getImageColorMode() -> String? {
         return self.imageColorMode;
     }
@@ -170,32 +170,32 @@ public class SaveAsTiffRequest : WordsApiRequest {
         return self.numeralFormat;
     }
 
-    // Number of pages to render.
+    // The number of pages to render.
     public func getPageCount() -> Int? {
         return self.pageCount;
     }
 
-    // Page index to start rendering.
+    // The index of the page to start rendering.
     public func getPageIndex() -> Int? {
         return self.pageIndex;
     }
 
-    // Background image color.
+    // The background image color.
     public func getPaperColor() -> String? {
         return self.paperColor;
     }
 
-    // The pixel format of generated images.
+    // The pixel format of the generated images.
     public func getPixelFormat() -> String? {
         return self.pixelFormat;
     }
 
-    // The resolution of generated images.
+    // The resolution of the generated images.
     public func getResolution() -> Double? {
         return self.resolution;
     }
 
-    // Zoom factor for generated images.
+    // The zoom factor for the generated images.
     public func getScale() -> Double? {
         return self.scale;
     }
@@ -205,22 +205,22 @@ public class SaveAsTiffRequest : WordsApiRequest {
         return self.tiffCompression;
     }
 
-    // Optional, default is Fallback.
+    // The optional dml rendering mode. The default value is Fallback.
     public func getDmlRenderingMode() -> String? {
         return self.dmlRenderingMode;
     }
 
-    // Optional, default is Simplified.
+    // The optional dml effects rendering mode. The default value is Simplified.
     public func getDmlEffectsRenderingMode() -> String? {
         return self.dmlEffectsRenderingMode;
     }
 
-    // Optional, Tiff binarization method, possible values are: FloydSteinbergDithering, Threshold.
+    // The optional TIFF binarization method. Possible values are: FloydSteinbergDithering, Threshold.
     public func getTiffBinarizationMethod() -> String? {
         return self.tiffBinarizationMethod;
     }
 
-    // Optional. A value determining zip output or not.
+    // The flag indicating whether to ZIP the output.
     public func getZipOutput() -> Bool? {
         return self.zipOutput;
     }

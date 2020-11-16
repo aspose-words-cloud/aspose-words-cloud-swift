@@ -68,32 +68,32 @@ public class SaveResult : Codable, WordsApiModel {
         }
     }
 
-    // Sets additionalItems. Gets or sets links to additional items (css, images etc).
+    // Sets additionalItems. Gets or sets the list of links to additional items (css, images etc).
     public func setAdditionalItems(additionalItems : [FileLink]?) {
         self.additionalItems = additionalItems;
     }
 
-    // Gets additionalItems. Gets or sets links to additional items (css, images etc).
+    // Gets additionalItems. Gets or sets the list of links to additional items (css, images etc).
     public func getAdditionalItems() -> [FileLink]? {
         return self.additionalItems;
     }
 
-    // Sets destDocument. Gets or sets link to destination document.
+    // Sets destDocument. Gets or sets the link to destination document.
     public func setDestDocument(destDocument : FileLink?) {
         self.destDocument = destDocument;
     }
 
-    // Gets destDocument. Gets or sets link to destination document.
+    // Gets destDocument. Gets or sets the link to destination document.
     public func getDestDocument() -> FileLink? {
         return self.destDocument;
     }
 
-    // Sets sourceDocument. Gets or sets link to source document.
+    // Sets sourceDocument. Gets or sets the link to source document.
     public func setSourceDocument(sourceDocument : FileLink?) {
         self.sourceDocument = sourceDocument;
     }
 
-    // Gets sourceDocument. Gets or sets link to source document.
+    // Gets sourceDocument. Gets or sets the link to source document.
     public func getSourceDocument() -> FileLink? {
         return self.sourceDocument;
     }

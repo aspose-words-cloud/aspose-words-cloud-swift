@@ -60,22 +60,22 @@ public class DocumentEntry : Codable, WordsApiModel {
         }
     }
 
-    // Sets href. Gets or sets path to document to append at the server.
+    // Sets href. Gets or sets the path to document to append at the server.
     public func setHref(href : String?) {
         self.href = href;
     }
 
-    // Gets href. Gets or sets path to document to append at the server.
+    // Gets href. Gets or sets the path to document to append at the server.
     public func getHref() -> String? {
         return self.href;
     }
 
-    // Sets importFormatMode. Gets or sets defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.
+    // Sets importFormatMode. Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
     public func setImportFormatMode(importFormatMode : String?) {
         self.importFormatMode = importFormatMode;
     }
 
-    // Gets importFormatMode. Gets or sets defines which formatting will be used: appended or destination document.Can be KeepSourceFormatting or UseDestinationStyles.
+    // Gets importFormatMode. Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
     public func getImportFormatMode() -> String? {
         return self.importFormatMode;
     }

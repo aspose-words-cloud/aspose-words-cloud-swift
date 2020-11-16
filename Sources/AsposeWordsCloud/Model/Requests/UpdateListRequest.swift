@@ -68,17 +68,17 @@ public class UpdateListRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // List object.
+    // The properties of the list.
     public func getListUpdate() -> ListUpdate {
         return self.listUpdate;
     }
 
-    // List unique identifier.
+    // The list Id.
     public func getListId() -> Int {
         return self.listId;
     }

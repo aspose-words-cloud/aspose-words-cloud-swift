@@ -27,9 +27,9 @@
 
 import Foundation
 
-// Collection of links to header/footers.
+// The collection of HeaderFooter's links.
 public class HeaderFooterLinkCollection : LinkElement {
-    // Field of list. Collection of links to header/footers.
+    // Field of list. The collection of HeaderFooter's links.
     private var list : [HeaderFooterLink]?;
 
     private enum CodingKeys: String, CodingKey {
@@ -55,12 +55,12 @@ public class HeaderFooterLinkCollection : LinkElement {
         }
     }
 
-    // Sets list. Gets or sets collection of section's links.
+    // Sets list. Gets or sets the collection of HeaderFooter's links.
     public func setList(list : [HeaderFooterLink]?) {
         self.list = list;
     }
 
-    // Gets list. Gets or sets collection of section's links.
+    // Gets list. Gets or sets the collection of HeaderFooter's links.
     public func getList() -> [HeaderFooterLink]? {
         return self.list;
     }

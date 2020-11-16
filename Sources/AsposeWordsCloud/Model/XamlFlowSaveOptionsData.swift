@@ -27,12 +27,12 @@
 
 import Foundation
 
-// container class for xaml flow save options.
+// Container class for xaml flow save options.
 public class XamlFlowSaveOptionsData : SaveOptionsData {
-    // Field of imagesFolder. container class for xaml flow save options.
+    // Field of imagesFolder. Container class for xaml flow save options.
     private var imagesFolder : String?;
 
-    // Field of imagesFolderAlias. container class for xaml flow save options.
+    // Field of imagesFolderAlias. Container class for xaml flow save options.
     private var imagesFolderAlias : String?;
 
     private enum CodingKeys: String, CodingKey {
@@ -63,22 +63,22 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
         }
     }
 
-    // Sets imagesFolder. Gets or sets specifies the physical folder where images are saved when exporting.
+    // Sets imagesFolder. Gets or sets the physical folder where images are saved when exporting.
     public func setImagesFolder(imagesFolder : String?) {
         self.imagesFolder = imagesFolder;
     }
 
-    // Gets imagesFolder. Gets or sets specifies the physical folder where images are saved when exporting.
+    // Gets imagesFolder. Gets or sets the physical folder where images are saved when exporting.
     public func getImagesFolder() -> String? {
         return self.imagesFolder;
     }
 
-    // Sets imagesFolderAlias. Gets or sets specifies the name of the folder used to construct image URIs.
+    // Sets imagesFolderAlias. Gets or sets the name of the folder used to construct image URIs.
     public func setImagesFolderAlias(imagesFolderAlias : String?) {
         self.imagesFolderAlias = imagesFolderAlias;
     }
 
-    // Gets imagesFolderAlias. Gets or sets specifies the name of the folder used to construct image URIs.
+    // Gets imagesFolderAlias. Gets or sets the name of the folder used to construct image URIs.
     public func getImagesFolderAlias() -> String? {
         return self.imagesFolderAlias;
     }

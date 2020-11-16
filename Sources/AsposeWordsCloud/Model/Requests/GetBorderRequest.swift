@@ -59,7 +59,7 @@ public class GetBorderRequest : WordsApiRequest {
         self.password = password;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
@@ -69,7 +69,7 @@ public class GetBorderRequest : WordsApiRequest {
         return self.borderType;
     }
 
-    // Path to the node with border(node should be paragraph, cell or row).
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }

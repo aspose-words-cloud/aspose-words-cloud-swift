@@ -91,12 +91,12 @@ public class FormFieldCheckbox : FormField {
         return self.checked;
     }
 
-    // Sets isCheckBoxExactSize. Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.
+    // Sets isCheckBoxExactSize. Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.
     public func setIsCheckBoxExactSize(isCheckBoxExactSize : Bool?) {
         self.isCheckBoxExactSize = isCheckBoxExactSize;
     }
 
-    // Gets isCheckBoxExactSize. Gets or sets the boolean value that indicates whether the size of the textbox is automatic or specified explicitly.
+    // Gets isCheckBoxExactSize. Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.
     public func getIsCheckBoxExactSize() -> Bool? {
         return self.isCheckBoxExactSize;
     }

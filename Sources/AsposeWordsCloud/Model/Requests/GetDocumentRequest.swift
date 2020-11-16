@@ -53,7 +53,7 @@ public class GetDocumentRequest : WordsApiRequest {
         self.password = password;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getDocumentName() -> String {
         return self.documentName;
     }

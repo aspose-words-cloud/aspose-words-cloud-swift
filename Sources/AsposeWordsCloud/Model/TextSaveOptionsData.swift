@@ -71,32 +71,32 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
         }
     }
 
-    // Sets addBidiMarks. Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.
+    // Sets addBidiMarks. Gets or sets a value indicating whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.
     public func setAddBidiMarks(addBidiMarks : Bool?) {
         self.addBidiMarks = addBidiMarks;
     }
 
-    // Gets addBidiMarks. Gets or sets specifies whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.
+    // Gets addBidiMarks. Gets or sets a value indicating whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.
     public func getAddBidiMarks() -> Bool? {
         return self.addBidiMarks;
     }
 
-    // Sets preserveTableLayout. Gets or sets specifies whether the program should attempt to preserve layout of tables when saving in the plain text format.
+    // Sets preserveTableLayout. Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.
     public func setPreserveTableLayout(preserveTableLayout : Bool?) {
         self.preserveTableLayout = preserveTableLayout;
     }
 
-    // Gets preserveTableLayout. Gets or sets specifies whether the program should attempt to preserve layout of tables when saving in the plain text format.
+    // Gets preserveTableLayout. Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.
     public func getPreserveTableLayout() -> Bool? {
         return self.preserveTableLayout;
     }
 
-    // Sets simplifyListLabels. Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
+    // Sets simplifyListLabels. Gets or sets a value indicating whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
     public func setSimplifyListLabels(simplifyListLabels : Bool?) {
         self.simplifyListLabels = simplifyListLabels;
     }
 
-    // Gets simplifyListLabels. Gets or sets specifies whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
+    // Gets simplifyListLabels. Gets or sets a value indicating whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
     public func getSimplifyListLabels() -> Bool? {
         return self.simplifyListLabels;
     }

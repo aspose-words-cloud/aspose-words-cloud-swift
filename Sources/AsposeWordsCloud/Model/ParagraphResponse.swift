@@ -27,10 +27,9 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}.
+// The REST response with a paragraph.
 public class ParagraphResponse : WordsResponse {
-    // Field of paragraph. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}.
+    // Field of paragraph. The REST response with a paragraph.
     private var paragraph : Paragraph?;
 
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +55,12 @@ public class ParagraphResponse : WordsResponse {
         }
     }
 
-    // Sets paragraph. Gets or sets paragraph.
+    // Sets paragraph. Gets or sets the paragraph.
     public func setParagraph(paragraph : Paragraph?) {
         self.paragraph = paragraph;
     }
 
-    // Gets paragraph. Gets or sets paragraph.
+    // Gets paragraph. Gets or sets the paragraph.
     public func getParagraph() -> Paragraph? {
         return self.paragraph;
     }

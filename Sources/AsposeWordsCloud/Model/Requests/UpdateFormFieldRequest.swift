@@ -71,12 +71,12 @@ public class UpdateFormFieldRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // From field data.
+    // The new form field properties.
     public func getFormField() -> FormField {
         return self.formField;
     }
@@ -86,7 +86,7 @@ public class UpdateFormFieldRequest : WordsApiRequest {
         return self.index;
     }
 
-    // Path to the node that contains collection of formfields.
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }

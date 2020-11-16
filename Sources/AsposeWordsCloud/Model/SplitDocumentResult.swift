@@ -68,32 +68,32 @@ public class SplitDocumentResult : Codable, WordsApiModel {
         }
     }
 
-    // Sets pages. Gets or sets array of pages.
+    // Sets pages. Gets or sets the list of pages.
     public func setPages(pages : [FileLink]?) {
         self.pages = pages;
     }
 
-    // Gets pages. Gets or sets array of pages.
+    // Gets pages. Gets or sets the list of pages.
     public func getPages() -> [FileLink]? {
         return self.pages;
     }
 
-    // Sets sourceDocument. Gets or sets linkt to the source document.
+    // Sets sourceDocument. Gets or sets the link to the source document.
     public func setSourceDocument(sourceDocument : FileLink?) {
         self.sourceDocument = sourceDocument;
     }
 
-    // Gets sourceDocument. Gets or sets linkt to the source document.
+    // Gets sourceDocument. Gets or sets the link to the source document.
     public func getSourceDocument() -> FileLink? {
         return self.sourceDocument;
     }
 
-    // Sets zippedPages. Gets or sets link to the file archive with pages.
+    // Sets zippedPages. Gets or sets the link to the file archive with pages.
     public func setZippedPages(zippedPages : FileLink?) {
         self.zippedPages = zippedPages;
     }
 
-    // Gets zippedPages. Gets or sets link to the file archive with pages.
+    // Gets zippedPages. Gets or sets the link to the file archive with pages.
     public func getZippedPages() -> FileLink? {
         return self.zippedPages;
     }

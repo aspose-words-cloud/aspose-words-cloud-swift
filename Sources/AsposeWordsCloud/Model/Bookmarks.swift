@@ -55,12 +55,12 @@ public class Bookmarks : LinkElement {
         }
     }
 
-    // Sets bookmarkList. Gets or sets array of bookmarks.
+    // Sets bookmarkList. Gets or sets the array of bookmarks.
     public func setBookmarkList(bookmarkList : [Bookmark]?) {
         self.bookmarkList = bookmarkList;
     }
 
-    // Gets bookmarkList. Gets or sets array of bookmarks.
+    // Gets bookmarkList. Gets or sets the array of bookmarks.
     public func getBookmarkList() -> [Bookmark]? {
         return self.bookmarkList;
     }

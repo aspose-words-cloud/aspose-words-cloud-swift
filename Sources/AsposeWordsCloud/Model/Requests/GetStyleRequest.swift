@@ -56,12 +56,12 @@ public class GetStyleRequest : WordsApiRequest {
         self.password = password;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Style name.
+    // The name of the style.
     public func getStyleName() -> String {
         return self.styleName;
     }

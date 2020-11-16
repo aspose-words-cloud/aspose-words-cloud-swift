@@ -71,17 +71,17 @@ public class UpdateRunFontRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Font dto object.
+    // The font properties of a Run object.
     public func getFontDto() -> Font {
         return self.fontDto;
     }
 
-    // Path to parent paragraph.
+    // The path to the paragraph in the document tree.
     public func getParagraphPath() -> String {
         return self.paragraphPath;
     }

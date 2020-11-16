@@ -27,12 +27,12 @@
 
 import Foundation
 
-// Table element.
+// DTO container with a table element.
 public class Table : NodeLink {
-    // Field of tableProperties. Table element.
+    // Field of tableProperties. DTO container with a table element.
     private var tableProperties : TableProperties?;
 
-    // Field of tableRowList. Table element.
+    // Field of tableRowList. DTO container with a table element.
     private var tableRowList : [TableRow]?;
 
     private enum CodingKeys: String, CodingKey {
@@ -73,12 +73,12 @@ public class Table : NodeLink {
         return self.tableProperties;
     }
 
-    // Sets tableRowList. Gets or sets collection of table's rows.
+    // Sets tableRowList. Gets or sets the collection of table's rows.
     public func setTableRowList(tableRowList : [TableRow]?) {
         self.tableRowList = tableRowList;
     }
 
-    // Gets tableRowList. Gets or sets collection of table's rows.
+    // Gets tableRowList. Gets or sets the collection of table's rows.
     public func getTableRowList() -> [TableRow]? {
         return self.tableRowList;
     }

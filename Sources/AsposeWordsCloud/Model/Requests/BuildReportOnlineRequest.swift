@@ -65,7 +65,7 @@ public class BuildReportOnlineRequest : WordsApiRequest {
         return self.reportEngineSettings;
     }
 
-    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+    // The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
     public func getDocumentFileName() -> String? {
         return self.documentFileName;
     }

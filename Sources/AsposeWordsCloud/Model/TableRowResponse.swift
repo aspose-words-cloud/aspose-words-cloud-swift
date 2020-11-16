@@ -27,10 +27,9 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}.
+// The REST response with a table row.
 public class TableRowResponse : WordsResponse {
-    // Field of row. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}.
+    // Field of row. The REST response with a table row.
     private var row : TableRow?;
 
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +55,12 @@ public class TableRowResponse : WordsResponse {
         }
     }
 
-    // Sets row. Gets or sets table row.
+    // Sets row. Gets or sets the table row.
     public func setRow(row : TableRow?) {
         self.row = row;
     }
 
-    // Gets row. Gets or sets table row.
+    // Gets row. Gets or sets the table row.
     public func getRow() -> TableRow? {
         return self.row;
     }

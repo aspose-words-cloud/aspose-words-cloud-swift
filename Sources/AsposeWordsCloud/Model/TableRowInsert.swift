@@ -27,12 +27,12 @@
 
 import Foundation
 
-// Table row element.
+// DTO container with a table row element.
 public class TableRowInsert : Codable, WordsApiModel {
-    // Field of columnsCount. Table row element.
+    // Field of columnsCount. DTO container with a table row element.
     private var columnsCount : Int?;
 
-    // Field of insertAfter. Table row element.
+    // Field of insertAfter. DTO container with a table row element.
     private var insertAfter : Int?;
 
     private enum CodingKeys: String, CodingKey {
@@ -60,12 +60,12 @@ public class TableRowInsert : Codable, WordsApiModel {
         }
     }
 
-    // Sets columnsCount. Gets or sets count of columns. Default is 1.
+    // Sets columnsCount. Gets or sets the count of columns. The default value is 1.
     public func setColumnsCount(columnsCount : Int?) {
         self.columnsCount = columnsCount;
     }
 
-    // Gets columnsCount. Gets or sets count of columns. Default is 1.
+    // Gets columnsCount. Gets or sets the count of columns. The default value is 1.
     public func getColumnsCount() -> Int? {
         return self.columnsCount;
     }

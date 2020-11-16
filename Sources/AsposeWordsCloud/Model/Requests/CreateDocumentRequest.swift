@@ -52,12 +52,12 @@ public class CreateDocumentRequest : WordsApiRequest {
         return self.storage;
     }
 
-    // The document name.
+    // The filename of the document.
     public func getFileName() -> String? {
         return self.fileName;
     }
 
-    // The document folder.
+    // The path to the document folder.
     public func getFolder() -> String? {
         return self.folder;
     }

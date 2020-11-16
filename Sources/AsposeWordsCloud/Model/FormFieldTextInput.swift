@@ -29,7 +29,7 @@ import Foundation
 
 // FormField text input element.
 public class FormFieldTextInput : FormField {
-    // Gets or sets the type of a text form field.
+    // Gets or sets the type of the text form field.
     public enum TextInputType : String, Codable
     {
         // Enum value "regular"
@@ -101,42 +101,42 @@ public class FormFieldTextInput : FormField {
         }
     }
 
-    // Sets maxLength. Gets or sets maximum length for the text field. Zero when the length is not limited.
+    // Sets maxLength. Gets or sets the maximum length for the text field. Zero when the length is not limited.
     public func setMaxLength(maxLength : Int?) {
         self.maxLength = maxLength;
     }
 
-    // Gets maxLength. Gets or sets maximum length for the text field. Zero when the length is not limited.
+    // Gets maxLength. Gets or sets the maximum length for the text field. Zero when the length is not limited.
     public func getMaxLength() -> Int? {
         return self.maxLength;
     }
 
-    // Sets textInputDefault. Gets or sets the default string or a calculation expression of a text form field.
+    // Sets textInputDefault. Gets or sets the default string or a calculation expression of the text form field.
     public func setTextInputDefault(textInputDefault : String?) {
         self.textInputDefault = textInputDefault;
     }
 
-    // Gets textInputDefault. Gets or sets the default string or a calculation expression of a text form field.
+    // Gets textInputDefault. Gets or sets the default string or a calculation expression of the text form field.
     public func getTextInputDefault() -> String? {
         return self.textInputDefault;
     }
 
-    // Sets textInputFormat. Gets or sets returns or sets the text formatting for a text form field.
+    // Sets textInputFormat. Gets or sets text formatting for the text form field.
     public func setTextInputFormat(textInputFormat : String?) {
         self.textInputFormat = textInputFormat;
     }
 
-    // Gets textInputFormat. Gets or sets returns or sets the text formatting for a text form field.
+    // Gets textInputFormat. Gets or sets text formatting for the text form field.
     public func getTextInputFormat() -> String? {
         return self.textInputFormat;
     }
 
-    // Sets textInputType. Gets or sets the type of a text form field.
+    // Sets textInputType. Gets or sets the type of the text form field.
     public func setTextInputType(textInputType : TextInputType?) {
         self.textInputType = textInputType;
     }
 
-    // Gets textInputType. Gets or sets the type of a text form field.
+    // Gets textInputType. Gets or sets the type of the text form field.
     public func getTextInputType() -> TextInputType? {
         return self.textInputType;
     }

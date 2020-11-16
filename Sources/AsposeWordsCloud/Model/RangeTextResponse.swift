@@ -27,10 +27,9 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/range/{0}/{1}/.
+// The REST response with a range's text.
 public class RangeTextResponse : WordsResponse {
-    // Field of text. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/range/{0}/{1}/.
+    // Field of text. The REST response with a range's text.
     private var text : String?;
 
     private enum CodingKeys: String, CodingKey {
@@ -56,12 +55,12 @@ public class RangeTextResponse : WordsResponse {
         }
     }
 
-    // Sets text. Gets or sets text from range.
+    // Sets text. Gets or sets the range's text.
     public func setText(text : String?) {
         self.text = text;
     }
 
-    // Gets text. Gets or sets text from range.
+    // Gets text. Gets or sets the range's text.
     public func getText() -> String? {
         return self.text;
     }

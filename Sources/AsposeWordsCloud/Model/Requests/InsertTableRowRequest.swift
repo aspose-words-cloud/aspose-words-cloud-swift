@@ -68,17 +68,17 @@ public class InsertTableRowRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Table row parameters/.
+    // The properties of the row.
     public func getRow() -> TableRowInsert {
         return self.row;
     }
 
-    // Path to table.
+    // The path to the table in the document tree.
     public func getTablePath() -> String {
         return self.tablePath;
     }

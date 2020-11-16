@@ -114,22 +114,22 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
         return self.isOldValueRegex;
     }
 
-    // Sets newValue. Gets or sets new text value to replace by.
+    // Sets newValue. Gets or sets the new text value to replace by.
     public func setNewValue(newValue : String?) {
         self.newValue = newValue;
     }
 
-    // Gets newValue. Gets or sets new text value to replace by.
+    // Gets newValue. Gets or sets the new text value to replace by.
     public func getNewValue() -> String? {
         return self.newValue;
     }
 
-    // Sets oldValue. Gets or sets old text value (or regex pattern IsOldValueRegex) to replace.
+    // Sets oldValue. Gets or sets the old text value (or regex pattern IsOldValueRegex) to replace.
     public func setOldValue(oldValue : String?) {
         self.oldValue = oldValue;
     }
 
-    // Gets oldValue. Gets or sets old text value (or regex pattern IsOldValueRegex) to replace.
+    // Gets oldValue. Gets or sets the old text value (or regex pattern IsOldValueRegex) to replace.
     public func getOldValue() -> String? {
         return self.oldValue;
     }

@@ -27,9 +27,9 @@
 
 import Foundation
 
-// Represents Drawing Object DTO.
+// DTO container with a DrawingObject.
 public class DrawingObject : DrawingObjectLink {
-    // Gets or sets specifies where the distance to the image is measured from.
+    // Gets or sets the relative horizontal position, from which the distance to the image is measured.
     public enum RelativeHorizontalPosition : String, Codable
     {
         // Enum value "margin"
@@ -60,7 +60,7 @@ public class DrawingObject : DrawingObjectLink {
         case outsideMargin = "OutsideMargin"
     }
 
-    // Gets or sets specifies where the distance to the image measured from.
+    // Gets or sets the relative vertical position, from which the distance to the image is measured.
     public enum RelativeVerticalPosition : String, Codable
     {
         // Enum value "margin"
@@ -94,7 +94,7 @@ public class DrawingObject : DrawingObjectLink {
         case outsideMargin = "OutsideMargin"
     }
 
-    // Gets or sets specifies how to wrap text around the image.
+    // Gets or sets the option that controls how to wrap text around the image.
     public enum WrapType : String, Codable
     {
         // Enum value "inline"
@@ -116,34 +116,34 @@ public class DrawingObject : DrawingObjectLink {
         case through = "Through"
     }
 
-    // Field of height. Represents Drawing Object DTO.
+    // Field of height. DTO container with a DrawingObject.
     private var height : Double?;
 
-    // Field of imageDataLink. Represents Drawing Object DTO.
+    // Field of imageDataLink. DTO container with a DrawingObject.
     private var imageDataLink : WordsApiLink?;
 
-    // Field of _left. Represents Drawing Object DTO.
+    // Field of _left. DTO container with a DrawingObject.
     private var _left : Double?;
 
-    // Field of oleDataLink. Represents Drawing Object DTO.
+    // Field of oleDataLink. DTO container with a DrawingObject.
     private var oleDataLink : WordsApiLink?;
 
-    // Field of relativeHorizontalPosition. Represents Drawing Object DTO.
+    // Field of relativeHorizontalPosition. DTO container with a DrawingObject.
     private var relativeHorizontalPosition : RelativeHorizontalPosition?;
 
-    // Field of relativeVerticalPosition. Represents Drawing Object DTO.
+    // Field of relativeVerticalPosition. DTO container with a DrawingObject.
     private var relativeVerticalPosition : RelativeVerticalPosition?;
 
-    // Field of renderLinks. Represents Drawing Object DTO.
+    // Field of renderLinks. DTO container with a DrawingObject.
     private var renderLinks : [WordsApiLink]?;
 
-    // Field of top. Represents Drawing Object DTO.
+    // Field of top. DTO container with a DrawingObject.
     private var top : Double?;
 
-    // Field of width. Represents Drawing Object DTO.
+    // Field of width. DTO container with a DrawingObject.
     private var width : Double?;
 
-    // Field of wrapType. Represents Drawing Object DTO.
+    // Field of wrapType. DTO container with a DrawingObject.
     private var wrapType : WrapType?;
 
     private enum CodingKeys: String, CodingKey {
@@ -214,102 +214,102 @@ public class DrawingObject : DrawingObjectLink {
         }
     }
 
-    // Sets height. Gets or sets height of the drawing object in points.
+    // Sets height. Gets or sets the height of the DrawingObject in points.
     public func setHeight(height : Double?) {
         self.height = height;
     }
 
-    // Gets height. Gets or sets height of the drawing object in points.
+    // Gets height. Gets or sets the height of the DrawingObject in points.
     public func getHeight() -> Double? {
         return self.height;
     }
 
-    // Sets imageDataLink. Gets or sets link to image data. Can be null if shape does not have an image.
+    // Sets imageDataLink. Gets or sets the link to image data. Can be null if shape does not have an image.
     public func setImageDataLink(imageDataLink : WordsApiLink?) {
         self.imageDataLink = imageDataLink;
     }
 
-    // Gets imageDataLink. Gets or sets link to image data. Can be null if shape does not have an image.
+    // Gets imageDataLink. Gets or sets the link to image data. Can be null if shape does not have an image.
     public func getImageDataLink() -> WordsApiLink? {
         return self.imageDataLink;
     }
 
-    // Sets _left. Gets or sets distance in points from the origin to the left side of the image.
+    // Sets _left. Gets or sets the distance in points from the origin to the left side of the image.
     public func setLeft(_left : Double?) {
         self._left = _left;
     }
 
-    // Gets _left. Gets or sets distance in points from the origin to the left side of the image.
+    // Gets _left. Gets or sets the distance in points from the origin to the left side of the image.
     public func getLeft() -> Double? {
         return self._left;
     }
 
-    // Sets oleDataLink. Gets or sets link to ole object. Can be null if shape does not have ole data.
+    // Sets oleDataLink. Gets or sets the link to OLE object. Can be null if shape does not have OLE data.
     public func setOleDataLink(oleDataLink : WordsApiLink?) {
         self.oleDataLink = oleDataLink;
     }
 
-    // Gets oleDataLink. Gets or sets link to ole object. Can be null if shape does not have ole data.
+    // Gets oleDataLink. Gets or sets the link to OLE object. Can be null if shape does not have OLE data.
     public func getOleDataLink() -> WordsApiLink? {
         return self.oleDataLink;
     }
 
-    // Sets relativeHorizontalPosition. Gets or sets specifies where the distance to the image is measured from.
+    // Sets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
     public func setRelativeHorizontalPosition(relativeHorizontalPosition : RelativeHorizontalPosition?) {
         self.relativeHorizontalPosition = relativeHorizontalPosition;
     }
 
-    // Gets relativeHorizontalPosition. Gets or sets specifies where the distance to the image is measured from.
+    // Gets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
     public func getRelativeHorizontalPosition() -> RelativeHorizontalPosition? {
         return self.relativeHorizontalPosition;
     }
 
-    // Sets relativeVerticalPosition. Gets or sets specifies where the distance to the image measured from.
+    // Sets relativeVerticalPosition. Gets or sets the relative vertical position, from which the distance to the image is measured.
     public func setRelativeVerticalPosition(relativeVerticalPosition : RelativeVerticalPosition?) {
         self.relativeVerticalPosition = relativeVerticalPosition;
     }
 
-    // Gets relativeVerticalPosition. Gets or sets specifies where the distance to the image measured from.
+    // Gets relativeVerticalPosition. Gets or sets the relative vertical position, from which the distance to the image is measured.
     public func getRelativeVerticalPosition() -> RelativeVerticalPosition? {
         return self.relativeVerticalPosition;
     }
 
-    // Sets renderLinks. Gets or sets a list of links that originate from this DrawingObjectDto.
+    // Sets renderLinks. Gets or sets the list of links that originate from this DrawingObjectDto.
     public func setRenderLinks(renderLinks : [WordsApiLink]?) {
         self.renderLinks = renderLinks;
     }
 
-    // Gets renderLinks. Gets or sets a list of links that originate from this DrawingObjectDto.
+    // Gets renderLinks. Gets or sets the list of links that originate from this DrawingObjectDto.
     public func getRenderLinks() -> [WordsApiLink]? {
         return self.renderLinks;
     }
 
-    // Sets top. Gets or sets distance in points from the origin to the top side of the image.
+    // Sets top. Gets or sets the distance in points from the origin to the top side of the image.
     public func setTop(top : Double?) {
         self.top = top;
     }
 
-    // Gets top. Gets or sets distance in points from the origin to the top side of the image.
+    // Gets top. Gets or sets the distance in points from the origin to the top side of the image.
     public func getTop() -> Double? {
         return self.top;
     }
 
-    // Sets width. Gets or sets width of the drawing objects in points.
+    // Sets width. Gets or sets the width of the DrawingObjects in points.
     public func setWidth(width : Double?) {
         self.width = width;
     }
 
-    // Gets width. Gets or sets width of the drawing objects in points.
+    // Gets width. Gets or sets the width of the DrawingObjects in points.
     public func getWidth() -> Double? {
         return self.width;
     }
 
-    // Sets wrapType. Gets or sets specifies how to wrap text around the image.
+    // Sets wrapType. Gets or sets the option that controls how to wrap text around the image.
     public func setWrapType(wrapType : WrapType?) {
         self.wrapType = wrapType;
     }
 
-    // Gets wrapType. Gets or sets specifies how to wrap text around the image.
+    // Gets wrapType. Gets or sets the option that controls how to wrap text around the image.
     public func getWrapType() -> WrapType? {
         return self.wrapType;
     }

@@ -27,9 +27,9 @@
 
 import Foundation
 
-// Collection of search results.
+// The collection of search results.
 public class SearchResultsCollection : LinkElement {
-    // Field of resultsList. Collection of search results.
+    // Field of resultsList. The collection of search results.
     private var resultsList : [SearchResult]?;
 
     private enum CodingKeys: String, CodingKey {
@@ -55,12 +55,12 @@ public class SearchResultsCollection : LinkElement {
         }
     }
 
-    // Sets resultsList. Gets or sets collection of comments.
+    // Sets resultsList. Gets or sets the collection of comments.
     public func setResultsList(resultsList : [SearchResult]?) {
         self.resultsList = resultsList;
     }
 
-    // Gets resultsList. Gets or sets collection of comments.
+    // Gets resultsList. Gets or sets the collection of comments.
     public func getResultsList() -> [SearchResult]? {
         return self.resultsList;
     }

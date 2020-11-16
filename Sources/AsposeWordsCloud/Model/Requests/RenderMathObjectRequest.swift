@@ -65,7 +65,7 @@ public class RenderMathObjectRequest : WordsApiRequest {
         self.fontsLocation = fontsLocation;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
@@ -80,7 +80,7 @@ public class RenderMathObjectRequest : WordsApiRequest {
         return self.index;
     }
 
-    // Path to the node, which contains office math objects.
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }

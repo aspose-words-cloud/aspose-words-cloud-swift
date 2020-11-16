@@ -27,9 +27,9 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:  GET bookmarks/{bookmarkName}.
+// The REST response with a bookmark.
 public class BookmarkResponse : WordsResponse {
-    // Field of bookmark. This response should be returned by the service when handling:  GET bookmarks/{bookmarkName}.
+    // Field of bookmark. The REST response with a bookmark.
     private var bookmark : Bookmark?;
 
     private enum CodingKeys: String, CodingKey {
@@ -55,12 +55,12 @@ public class BookmarkResponse : WordsResponse {
         }
     }
 
-    // Sets bookmark. Gets or sets bookmark.
+    // Sets bookmark. Gets or sets the bookmark.
     public func setBookmark(bookmark : Bookmark?) {
         self.bookmark = bookmark;
     }
 
-    // Gets bookmark. Gets or sets bookmark.
+    // Gets bookmark. Gets or sets the bookmark.
     public func getBookmark() -> Bookmark? {
         return self.bookmark;
     }

@@ -60,22 +60,22 @@ public class FieldBase : Codable, WordsApiModel {
         }
     }
 
-    // Sets fieldCode. Gets or sets field code.
+    // Sets fieldCode. Gets or sets the field code.
     public func setFieldCode(fieldCode : String?) {
         self.fieldCode = fieldCode;
     }
 
-    // Gets fieldCode. Gets or sets field code.
+    // Gets fieldCode. Gets or sets the field code.
     public func getFieldCode() -> String? {
         return self.fieldCode;
     }
 
-    // Sets localeId. Gets or sets LCID of the field.
+    // Sets localeId. Gets or sets the LCID of the field.
     public func setLocaleId(localeId : String?) {
         self.localeId = localeId;
     }
 
-    // Gets localeId. Gets or sets LCID of the field.
+    // Gets localeId. Gets or sets the LCID of the field.
     public func getLocaleId() -> String? {
         return self.localeId;
     }

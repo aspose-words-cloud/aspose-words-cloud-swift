@@ -27,9 +27,9 @@
 
 import Foundation
 
-// Collection of links to paragraphs.
+// The collection of paragraph's links.
 public class ParagraphLinkCollection : LinkElement {
-    // Field of paragraphLinkList. Collection of links to paragraphs.
+    // Field of paragraphLinkList. The collection of paragraph's links.
     private var paragraphLinkList : [ParagraphLink]?;
 
     private enum CodingKeys: String, CodingKey {
@@ -55,12 +55,12 @@ public class ParagraphLinkCollection : LinkElement {
         }
     }
 
-    // Sets paragraphLinkList. Gets or sets collection of paragraph's links.
+    // Sets paragraphLinkList. Gets or sets the collection of paragraph's links.
     public func setParagraphLinkList(paragraphLinkList : [ParagraphLink]?) {
         self.paragraphLinkList = paragraphLinkList;
     }
 
-    // Gets paragraphLinkList. Gets or sets collection of paragraph's links.
+    // Gets paragraphLinkList. Gets or sets the collection of paragraph's links.
     public func getParagraphLinkList() -> [ParagraphLink]? {
         return self.paragraphLinkList;
     }

@@ -52,12 +52,12 @@ public class StoryChildNodes : Codable, WordsApiModel {
         }
     }
 
-    // Sets childNodes. Gets or sets child nodes.
+    // Sets childNodes. Gets or sets the list of child nodes.
     public func setChildNodes(childNodes : [NodeLink]?) {
         self.childNodes = childNodes;
     }
 
-    // Gets childNodes. Gets or sets child nodes.
+    // Gets childNodes. Gets or sets the list of child nodes.
     public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }

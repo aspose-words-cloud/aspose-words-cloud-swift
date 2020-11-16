@@ -71,17 +71,17 @@ public class UpdateRunRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Run data.
+    // The properties of the Run object.
     public func getRun() -> RunUpdate {
         return self.run;
     }
 
-    // Path to parent paragraph.
+    // The path to the paragraph in the document tree.
     public func getParagraphPath() -> String {
         return self.paragraphPath;
     }

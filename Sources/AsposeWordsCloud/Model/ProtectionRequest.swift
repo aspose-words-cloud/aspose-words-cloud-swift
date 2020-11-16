@@ -68,32 +68,32 @@ public class ProtectionRequest : Codable, WordsApiModel {
         }
     }
 
-    // Sets newPassword. Gets or sets new password.
+    // Sets newPassword. Gets or sets the new password.
     public func setNewPassword(newPassword : String?) {
         self.newPassword = newPassword;
     }
 
-    // Gets newPassword. Gets or sets new password.
+    // Gets newPassword. Gets or sets the new password.
     public func getNewPassword() -> String? {
         return self.newPassword;
     }
 
-    // Sets password. Gets or sets current password.
+    // Sets password. Gets or sets the current password.
     public func setPassword(password : String?) {
         self.password = password;
     }
 
-    // Gets password. Gets or sets current password.
+    // Gets password. Gets or sets the current password.
     public func getPassword() -> String? {
         return self.password;
     }
 
-    // Sets protectionType. Gets or sets new type of protection.
+    // Sets protectionType. Gets or sets the new type of protection.
     public func setProtectionType(protectionType : String?) {
         self.protectionType = protectionType;
     }
 
-    // Gets protectionType. Gets or sets new type of protection.
+    // Gets protectionType. Gets or sets the new type of protection.
     public func getProtectionType() -> String? {
         return self.protectionType;
     }

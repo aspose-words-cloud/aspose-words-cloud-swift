@@ -41,7 +41,7 @@ public class GetAvailableFontsRequest : WordsApiRequest {
         self.fontsLocation = fontsLocation;
     }
 
-    // Folder in filestorage with custom fonts.
+    // The folder in cloud storage with custom fonts.
     public func getFontsLocation() -> String? {
         return self.fontsLocation;
     }
