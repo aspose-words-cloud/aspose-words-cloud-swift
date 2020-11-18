@@ -104,7 +104,7 @@ class TableBorderTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestBorderPropertiesColor = XmlColor();
-      requestBorderPropertiesColor.setAlpha(alpha: 2);
+      requestBorderPropertiesColor.setWeb(web: "#AABBCC");
 
       let requestBorderProperties = Border();
       requestBorderProperties.setBorderType(borderType: Border.BorderType._left);
@@ -119,7 +119,7 @@ class TableBorderTests: BaseTestContext {
       let actual = try super.getApi().updateBorder(request: request);
       XCTAssertNotNil(actual.getBorder());
       XCTAssertNotNil(actual.getBorder()!.getColor());
-      XCTAssertEqual(actual.getBorder()!.getColor()!.getWeb(), "#000002");
+      XCTAssertEqual(actual.getBorder()!.getColor()!.getWeb(), "#AABBCC");
       XCTAssertEqual(actual.getBorder()!.getDistanceFromText(), 6.0);
       XCTAssertEqual(actual.getBorder()!.getLineWidth(), 2.0);
       XCTAssertEqual(actual.getBorder()!.getShadow(), true);
