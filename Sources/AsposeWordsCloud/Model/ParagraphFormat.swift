@@ -36,8 +36,8 @@ public class ParagraphFormat : ParagraphFormatBase {
     private var isListItem : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case isHeading;
-        case isListItem;
+        case isHeading = "IsHeading";
+        case isListItem = "IsListItem";
         case invalidCodingKey;
     }
 
@@ -63,22 +63,22 @@ public class ParagraphFormat : ParagraphFormatBase {
         }
     }
 
-    // Sets isHeading. Gets or sets True when the paragraph style is one of the built-in Heading styles.
+    // Sets isHeading. Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
     public func setIsHeading(isHeading : Bool?) {
         self.isHeading = isHeading;
     }
 
-    // Gets isHeading. Gets or sets True when the paragraph style is one of the built-in Heading styles.
+    // Gets isHeading. Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
     public func getIsHeading() -> Bool? {
         return self.isHeading;
     }
 
-    // Sets isListItem. Gets or sets True when the paragraph is an item in a bulleted or numbered list.
+    // Sets isListItem. Gets or sets a value indicating whether the paragraph is an item in a bulleted or numbered list.
     public func setIsListItem(isListItem : Bool?) {
         self.isListItem = isListItem;
     }
 
-    // Gets isListItem. Gets or sets True when the paragraph is an item in a bulleted or numbered list.
+    // Gets isListItem. Gets or sets a value indicating whether the paragraph is an item in a bulleted or numbered list.
     public func getIsListItem() -> Bool? {
         return self.isListItem;
     }

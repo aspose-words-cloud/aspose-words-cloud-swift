@@ -71,12 +71,12 @@ public class SplitDocumentRequest : WordsApiRequest {
         self.fontsLocation = fontsLocation;
     }
 
-    // Original document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Format to split.
+    // The format to split.
     public func getFormat() -> String {
         return self.format;
     }
@@ -106,17 +106,17 @@ public class SplitDocumentRequest : WordsApiRequest {
         return self.destFileName;
     }
 
-    // Start page.
+    // The start page.
     public func getFrom() -> Int? {
         return self.from;
     }
 
-    // End page.
+    // The end page.
     public func getTo() -> Int? {
         return self.to;
     }
 
-    // ZipOutput or not.
+    // The flag indicating whether to ZIP the output.
     public func getZipOutput() -> Bool? {
         return self.zipOutput;
     }

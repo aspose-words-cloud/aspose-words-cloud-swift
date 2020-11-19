@@ -225,7 +225,7 @@ public class ApiInvoker {
             var request = URLRequest(url: urlPath);
             request.httpMethod = "POST";
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type");
-            request.httpBody = "grant_type=client_credentials&client_id=\(configuration.getAppSid())&client_secret=\(configuration.getAppKey())".data(using: .utf8);
+            request.httpBody = "grant_type=client_credentials&client_id=\(configuration.getClientId())&client_secret=\(configuration.getClientSecret())".data(using: .utf8);
             invokeRequest(urlRequest: &request, accessToken: nil, callback: { response in
                 var newAccessToken : String? = nil;
                 if (response.errorCode == self.httpStatusCodeOK) {

@@ -39,9 +39,9 @@ public class DocumentProperty : LinkElement {
     private var value : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case builtIn;
-        case name;
-        case value;
+        case builtIn = "BuiltIn";
+        case name = "Name";
+        case value = "Value";
         case invalidCodingKey;
     }
 
@@ -71,32 +71,32 @@ public class DocumentProperty : LinkElement {
         }
     }
 
-    // Sets builtIn. Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.
+    // Sets builtIn. Gets or sets a value indicating whether the property is built-in or not. If true the property is built-in, if false the property is custom.
     public func setBuiltIn(builtIn : Bool?) {
         self.builtIn = builtIn;
     }
 
-    // Gets builtIn. Gets or sets a value indicating whether flag indicates whether the property is built-in or not. If true the property is built-in, if false the property is custom.
+    // Gets builtIn. Gets or sets a value indicating whether the property is built-in or not. If true the property is built-in, if false the property is custom.
     public func getBuiltIn() -> Bool? {
         return self.builtIn;
     }
 
-    // Sets name. Gets or sets name of the document property.
+    // Sets name. Gets or sets the name of the document property.
     public func setName(name : String?) {
         self.name = name;
     }
 
-    // Gets name. Gets or sets name of the document property.
+    // Gets name. Gets or sets the name of the document property.
     public func getName() -> String? {
         return self.name;
     }
 
-    // Sets value. Gets or sets string value of the document property.
+    // Sets value. Gets or sets the value of the document property.
     public func setValue(value : String?) {
         self.value = value;
     }
 
-    // Gets value. Gets or sets string value of the document property.
+    // Gets value. Gets or sets the value of the document property.
     public func getValue() -> String? {
         return self.value;
     }

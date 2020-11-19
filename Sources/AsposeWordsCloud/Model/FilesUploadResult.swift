@@ -36,8 +36,8 @@ public class FilesUploadResult : Codable, WordsApiModel {
     private var uploaded : [String]?;
 
     private enum CodingKeys: String, CodingKey {
-        case errors;
-        case uploaded;
+        case errors = "Errors";
+        case uploaded = "Uploaded";
         case invalidCodingKey;
     }
 

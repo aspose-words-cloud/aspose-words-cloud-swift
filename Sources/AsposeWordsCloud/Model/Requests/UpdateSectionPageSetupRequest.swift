@@ -68,17 +68,17 @@ public class UpdateSectionPageSetupRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Section index.
+    // The index of the section.
     public func getSectionIndex() -> Int {
         return self.sectionIndex;
     }
 
-    // Page setup properties dto.
+    // The properties of the page setup.
     public func getPageSetup() -> PageSetup {
         return self.pageSetup;
     }

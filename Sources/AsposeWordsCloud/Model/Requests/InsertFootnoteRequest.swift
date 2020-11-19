@@ -68,17 +68,17 @@ public class InsertFootnoteRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Footnote data.
+    // The properties of the footnote.
     public func getFootnoteDto() -> FootnoteInsert {
         return self.footnoteDto;
     }
 
-    // Path to the node, which contains collection of footnotes.
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }

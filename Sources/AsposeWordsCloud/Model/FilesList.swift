@@ -33,7 +33,7 @@ public class FilesList : Codable, WordsApiModel {
     private var value : [StorageFile]?;
 
     private enum CodingKeys: String, CodingKey {
-        case value;
+        case value = "Value";
         case invalidCodingKey;
     }
 

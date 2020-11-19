@@ -62,7 +62,7 @@ public class GetDocumentWithFormatRequest : WordsApiRequest {
         self.fontsLocation = fontsLocation;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
@@ -92,7 +92,7 @@ public class GetDocumentWithFormatRequest : WordsApiRequest {
         return self.password;
     }
 
-    // Path to save the result.
+    // The path to the output document.
     public func getOutPath() -> String? {
         return self.outPath;
     }

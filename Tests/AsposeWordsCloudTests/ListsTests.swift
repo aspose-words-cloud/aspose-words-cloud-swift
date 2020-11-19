@@ -48,7 +48,11 @@ class ListsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetListsRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getLists(request: request);
+      let actual = try super.getApi().getLists(request: request);
+      XCTAssertNotNil(actual.getLists());
+      XCTAssertNotNil(actual.getLists()!.getListInfo());
+      XCTAssertEqual(actual.getLists()!.getListInfo()!.count, 2);
+      XCTAssertEqual(actual.getLists()!.getListInfo()![0].getListId(), 1);
     }
 
     // Test for getting list from document.
@@ -58,7 +62,9 @@ class ListsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetListRequest(name: remoteFileName, listId: 1, folder: remoteDataFolder);
-      _ = try super.getApi().getList(request: request);
+      let actual = try super.getApi().getList(request: request);
+      XCTAssertNotNil(actual.getList());
+      XCTAssertEqual(actual.getList()!.getListId(), 1);
     }
 
     // Test for updating list from document.
@@ -72,7 +78,10 @@ class ListsTests: BaseTestContext {
 
 
       let request = UpdateListRequest(name: remoteFileName, listUpdate: requestListUpdate, listId: 1, folder: remoteDataFolder);
-      _ = try super.getApi().updateList(request: request);
+      let actual = try super.getApi().updateList(request: request);
+      XCTAssertNotNil(actual.getList());
+      XCTAssertEqual(actual.getList()!.getListId(), 1);
+      XCTAssertEqual(actual.getList()!.getIsRestartAtEachSection(), true);
     }
 
     // Test for updating list level from document.
@@ -86,7 +95,12 @@ class ListsTests: BaseTestContext {
 
 
       let request = UpdateListLevelRequest(name: remoteFileName, listUpdate: requestListUpdate, listId: 1, listLevel: 1, folder: remoteDataFolder);
-      _ = try super.getApi().updateListLevel(request: request);
+      let actual = try super.getApi().updateListLevel(request: request);
+      XCTAssertNotNil(actual.getList());
+      XCTAssertNotNil(actual.getList()!.getListLevels());
+      XCTAssertNotNil(actual.getList()!.getListLevels()!.getListLevel());
+      XCTAssertEqual(actual.getList()!.getListLevels()!.getListLevel()!.count, 9);
+
     }
 
     // Test for inserting list from document.
@@ -100,6 +114,8 @@ class ListsTests: BaseTestContext {
 
 
       let request = InsertListRequest(name: remoteFileName, listInsert: requestListInsert, folder: remoteDataFolder);
-      _ = try super.getApi().insertList(request: request);
+      let actual = try super.getApi().insertList(request: request);
+      XCTAssertNotNil(actual.getList());
+      XCTAssertEqual(actual.getList()!.getListId(), 3);
     }
 }

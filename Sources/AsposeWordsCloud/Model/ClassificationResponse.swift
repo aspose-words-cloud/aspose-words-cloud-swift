@@ -27,22 +27,21 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// PUT https://api.aspose.cloud/v4.0/words/classify.
+// The REST response with data on multi-class text classification.
 public class ClassificationResponse : WordsResponse {
-    // Field of bestClassName. This response should be returned by the service when handling: PUT https://api.aspose.cloud/v4.0/words/classify.
+    // Field of bestClassName. The REST response with data on multi-class text classification.
     private var bestClassName : String?;
 
-    // Field of bestClassProbability. This response should be returned by the service when handling: PUT https://api.aspose.cloud/v4.0/words/classify.
+    // Field of bestClassProbability. The REST response with data on multi-class text classification.
     private var bestClassProbability : Double?;
 
-    // Field of bestResults. This response should be returned by the service when handling: PUT https://api.aspose.cloud/v4.0/words/classify.
+    // Field of bestResults. The REST response with data on multi-class text classification.
     private var bestResults : [ClassificationResult]?;
 
     private enum CodingKeys: String, CodingKey {
-        case bestClassName;
-        case bestClassProbability;
-        case bestResults;
+        case bestClassName = "BestClassName";
+        case bestClassProbability = "BestClassProbability";
+        case bestResults = "BestResults";
         case invalidCodingKey;
     }
 
@@ -72,32 +71,32 @@ public class ClassificationResponse : WordsResponse {
         }
     }
 
-    // Sets bestClassName. Gets or sets best class name.
+    // Sets bestClassName. Gets or sets the best class name.
     public func setBestClassName(bestClassName : String?) {
         self.bestClassName = bestClassName;
     }
 
-    // Gets bestClassName. Gets or sets best class name.
+    // Gets bestClassName. Gets or sets the best class name.
     public func getBestClassName() -> String? {
         return self.bestClassName;
     }
 
-    // Sets bestClassProbability. Gets or sets best class probability.
+    // Sets bestClassProbability. Gets or sets the best class probability.
     public func setBestClassProbability(bestClassProbability : Double?) {
         self.bestClassProbability = bestClassProbability;
     }
 
-    // Gets bestClassProbability. Gets or sets best class probability.
+    // Gets bestClassProbability. Gets or sets the best class probability.
     public func getBestClassProbability() -> Double? {
         return self.bestClassProbability;
     }
 
-    // Sets bestResults. Gets or sets array of best classes results.
+    // Sets bestResults. Gets or sets the array of best classes results.
     public func setBestResults(bestResults : [ClassificationResult]?) {
         self.bestResults = bestResults;
     }
 
-    // Gets bestResults. Gets or sets array of best classes results.
+    // Gets bestResults. Gets or sets the array of best classes results.
     public func getBestResults() -> [ClassificationResult]? {
         return self.bestResults;
     }

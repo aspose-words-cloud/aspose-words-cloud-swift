@@ -36,8 +36,8 @@ public class SearchResult : Codable, WordsApiModel {
     private var rangeStart : DocumentPosition?;
 
     private enum CodingKeys: String, CodingKey {
-        case rangeEnd;
-        case rangeStart;
+        case rangeEnd = "RangeEnd";
+        case rangeStart = "RangeStart";
         case invalidCodingKey;
     }
 
@@ -60,22 +60,22 @@ public class SearchResult : Codable, WordsApiModel {
         }
     }
 
-    // Sets rangeEnd. Gets or sets link to result range end node.
+    // Sets rangeEnd. Gets or sets the link to result range end node.
     public func setRangeEnd(rangeEnd : DocumentPosition?) {
         self.rangeEnd = rangeEnd;
     }
 
-    // Gets rangeEnd. Gets or sets link to result range end node.
+    // Gets rangeEnd. Gets or sets the link to result range end node.
     public func getRangeEnd() -> DocumentPosition? {
         return self.rangeEnd;
     }
 
-    // Sets rangeStart. Gets or sets link to result range start node.
+    // Sets rangeStart. Gets or sets the link to result range start node.
     public func setRangeStart(rangeStart : DocumentPosition?) {
         self.rangeStart = rangeStart;
     }
 
-    // Gets rangeStart. Gets or sets link to result range start node.
+    // Gets rangeStart. Gets or sets the link to result range start node.
     public func getRangeStart() -> DocumentPosition? {
         return self.rangeStart;
     }

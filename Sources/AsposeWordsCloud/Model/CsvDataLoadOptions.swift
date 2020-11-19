@@ -42,10 +42,10 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
     private var quoteChar : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case commentChar;
-        case delimiter;
-        case hasHeaders;
-        case quoteChar;
+        case commentChar = "CommentChar";
+        case delimiter = "Delimiter";
+        case hasHeaders = "HasHeaders";
+        case quoteChar = "QuoteChar";
         case invalidCodingKey;
     }
 

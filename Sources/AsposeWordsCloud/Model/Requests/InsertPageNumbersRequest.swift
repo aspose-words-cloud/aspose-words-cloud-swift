@@ -65,12 +65,12 @@ public class InsertPageNumbersRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // A document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // PageNumber with the page numbers settings.
+    // The page numbers settings.
     public func getPageNumber() -> PageNumber {
         return self.pageNumber;
     }

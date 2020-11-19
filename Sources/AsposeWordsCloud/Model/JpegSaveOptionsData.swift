@@ -27,7 +27,7 @@
 
 import Foundation
 
-// container class for jpeg save options.
+// Container class for jpeg save options.
 public class JpegSaveOptionsData : ImageSaveOptionsData {
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;

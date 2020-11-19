@@ -65,12 +65,12 @@ public class InsertCommentRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // The comment data.
+    // The properties of the comment.
     public func getComment() -> CommentInsert {
         return self.comment;
     }

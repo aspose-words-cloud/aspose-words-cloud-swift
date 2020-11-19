@@ -71,12 +71,12 @@ public class UpdateFieldRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Field data.
+    // The properties of the field.
     public func getField() -> FieldUpdate {
         return self.field;
     }
@@ -86,7 +86,7 @@ public class UpdateFieldRequest : WordsApiRequest {
         return self.index;
     }
 
-    // Path to the node, which contains collection of fields.
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }

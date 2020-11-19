@@ -56,7 +56,7 @@ public class GetDocumentFieldNamesRequest : WordsApiRequest {
         self.useNonMergeFields = useNonMergeFields;
     }
 
-    // The template name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
@@ -81,7 +81,7 @@ public class GetDocumentFieldNamesRequest : WordsApiRequest {
         return self.password;
     }
 
-    // If true, result includes "mustache" field names.
+    // The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
     public func getUseNonMergeFields() -> Bool? {
         return self.useNonMergeFields;
     }

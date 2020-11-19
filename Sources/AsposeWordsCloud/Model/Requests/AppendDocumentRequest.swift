@@ -65,12 +65,12 @@ public class AppendDocumentRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // Original document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // DocumentEntryList with a list of documents to append.
+    // The collection of documents to append.
     public func getDocumentList() -> DocumentEntryList {
         return self.documentList;
     }

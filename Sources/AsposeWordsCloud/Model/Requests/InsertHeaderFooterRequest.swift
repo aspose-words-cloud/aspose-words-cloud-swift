@@ -68,17 +68,17 @@ public class InsertHeaderFooterRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Type of header/footer.
+    // The type of a HeaderFooter object.
     public func getHeaderFooterType() -> String {
         return self.headerFooterType;
     }
 
-    // Path to parent section.
+    // The path to the section in the document tree.
     public func getSectionPath() -> String {
         return self.sectionPath;
     }

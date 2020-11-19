@@ -27,13 +27,13 @@
 
 import Foundation
 
-// Collection of borders.
+// The collection of borders.
 public class BordersCollection : LinkElement {
-    // Field of list. Collection of borders.
+    // Field of list. The collection of borders.
     private var list : [Border]?;
 
     private enum CodingKeys: String, CodingKey {
-        case list;
+        case list = "List";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class BordersCollection : LinkElement {
         }
     }
 
-    // Sets list. Gets or sets collection of comments.
+    // Sets list. Gets or sets the collection of comments.
     public func setList(list : [Border]?) {
         self.list = list;
     }
 
-    // Gets list. Gets or sets collection of comments.
+    // Gets list. Gets or sets the collection of comments.
     public func getList() -> [Border]? {
         return self.list;
     }

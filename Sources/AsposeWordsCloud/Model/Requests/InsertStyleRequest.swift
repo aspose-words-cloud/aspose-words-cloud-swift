@@ -65,12 +65,12 @@ public class InsertStyleRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Style to insert.
+    // The properties of the style.
     public func getStyleInsert() -> StyleInsert {
         return self.styleInsert;
     }

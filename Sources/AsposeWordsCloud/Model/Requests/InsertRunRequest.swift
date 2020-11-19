@@ -71,17 +71,17 @@ public class InsertRunRequest : WordsApiRequest {
         self.insertBeforeNode = insertBeforeNode;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Path to parent paragraph.
+    // The path to the paragraph in the document tree.
     public func getParagraphPath() -> String {
         return self.paragraphPath;
     }
 
-    // Run data.
+    // The properties of the Run object.
     public func getRun() -> RunInsert {
         return self.run;
     }
@@ -121,7 +121,7 @@ public class InsertRunRequest : WordsApiRequest {
         return self.revisionDateTime;
     }
 
-    // Paragraph will be inserted before node with index.
+    // The index of the node. A new Run object will be inserted before the node with the specified node Id.
     public func getInsertBeforeNode() -> String? {
         return self.insertBeforeNode;
     }

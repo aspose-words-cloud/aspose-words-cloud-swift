@@ -27,14 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat.
+// The REST response with the formatting properties of a table cell.
 public class TableCellFormatResponse : WordsResponse {
-    // Field of cellFormat. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/cells/{2}/cellformat.
+    // Field of cellFormat. The REST response with the formatting properties of a table cell.
     private var cellFormat : TableCellFormat?;
 
     private enum CodingKeys: String, CodingKey {
-        case cellFormat;
+        case cellFormat = "CellFormat";
         case invalidCodingKey;
     }
 
@@ -56,12 +55,12 @@ public class TableCellFormatResponse : WordsResponse {
         }
     }
 
-    // Sets cellFormat. Gets or sets table.
+    // Sets cellFormat. Gets or sets the formatting properties of a table cell.
     public func setCellFormat(cellFormat : TableCellFormat?) {
         self.cellFormat = cellFormat;
     }
 
-    // Gets cellFormat. Gets or sets table.
+    // Gets cellFormat. Gets or sets the formatting properties of a table cell.
     public func getCellFormat() -> TableCellFormat? {
         return self.cellFormat;
     }

@@ -33,7 +33,7 @@ public class StyleCopy : Codable, WordsApiModel {
     private var styleName : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case styleName;
+        case styleName = "StyleName";
         case invalidCodingKey;
     }
 

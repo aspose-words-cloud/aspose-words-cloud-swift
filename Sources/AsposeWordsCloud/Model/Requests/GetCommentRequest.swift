@@ -56,12 +56,12 @@ public class GetCommentRequest : WordsApiRequest {
         self.password = password;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // The comment index.
+    // The index of the comment.
     public func getCommentIndex() -> Int {
         return self.commentIndex;
     }

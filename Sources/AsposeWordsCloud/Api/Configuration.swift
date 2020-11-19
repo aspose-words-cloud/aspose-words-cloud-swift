@@ -32,21 +32,47 @@ public class Configuration : Codable {
     // Aspose.Words for Cloud base URL
     private var baseUrl : String;
 
-    // Aspose.Words for Cloud app sid
-    private var appSid: String;
+    // Aspose.Words for Cloud client id
+    private var clientId: String;
 
-    // Aspose.Words for Cloud app key
-    private var appKey: String;
+    // Aspose.Words for Cloud client secret
+    private var clientSecret: String;
 
     // Indicating whether debug mode
     private var debugMode: Bool?;
 
+    private enum CodingKeys: String, CodingKey {
+        case baseUrl = "BaseUrl";
+        case clientId = "ClientId";
+        case clientSecret = "ClientSecret";
+        case debugMode = "DebugMode";
+        case invalidCodingKey;
+    }
+
     // Initialize new instance of Aspose.Words for Cloud configuration object with given parameters
-    public init(appSid: String, appKey: String, baseUrl: String = "https://api.aspose.cloud", debugMode: Bool = false) {
-        self.appSid = appSid;
-        self.appKey = appKey;
+    public init(clientId: String, clientSecret: String, baseUrl: String = "https://api.aspose.cloud", debugMode: Bool = false) {
+        self.clientId = clientId;
+        self.clientSecret = clientSecret;
         self.baseUrl = baseUrl;
         self.debugMode = debugMode;
+    }
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.baseUrl = try container.decodeIfPresent(String.self, forKey: .baseUrl) ?? "https://api.aspose.cloud";
+        self.clientId = try container.decode(String.self, forKey: .clientId);
+        self.clientSecret = try container.decode(String.self, forKey: .clientSecret);
+        self.debugMode = try container.decodeIfPresent(Bool.self, forKey: .debugMode);
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self);
+        try container.encode(self.baseUrl, forKey: .baseUrl);
+        try container.encode(self.clientId, forKey: .clientId);
+        try container.encode(self.clientSecret, forKey: .clientSecret);
+        if (self.debugMode != nil) {
+            try container.encode(self.debugMode, forKey: .debugMode);
+        }
     }
 
     // Returns Aspose.Words for Cloud base URL
@@ -54,14 +80,14 @@ public class Configuration : Codable {
         return self.baseUrl;
     }
 
-    // Returns Aspose.Words for Cloud app sid
-    public func getAppSid() -> String {
-        return self.appSid;
+    // Returns Aspose.Words for Cloud client id
+    public func getClientId() -> String {
+        return self.clientId;
     }
 
-    // Returns Aspose.Words for Cloud app key
-    public func getAppKey() -> String {
-        return self.appKey;
+    // Returns Aspose.Words for Cloud client secret
+    public func getClientSecret() -> String {
+        return self.clientSecret;
     }
 
     // Is debug mode enabled
@@ -91,6 +117,6 @@ public class Configuration : Codable {
 
     // Returns SDK version for using in statistics headers
     public func getSdkVersion() -> String {
-        return "20.10";
+        return "20.11";
     }
 }

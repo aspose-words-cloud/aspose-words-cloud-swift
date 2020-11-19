@@ -27,14 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/officeMathObjects/0.
+// The REST response with a OfficeMath object.
 public class OfficeMathObjectResponse : WordsResponse {
-    // Field of officeMathObject. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/officeMathObjects/0.
+    // Field of officeMathObject. The REST response with a OfficeMath object.
     private var officeMathObject : OfficeMathObject?;
 
     private enum CodingKeys: String, CodingKey {
-        case officeMathObject;
+        case officeMathObject = "OfficeMathObject";
         case invalidCodingKey;
     }
 
@@ -56,12 +55,12 @@ public class OfficeMathObjectResponse : WordsResponse {
         }
     }
 
-    // Sets officeMathObject. Gets or sets officeMathObject information.
+    // Sets officeMathObject. Gets or sets the OfficeMath object.
     public func setOfficeMathObject(officeMathObject : OfficeMathObject?) {
         self.officeMathObject = officeMathObject;
     }
 
-    // Gets officeMathObject. Gets or sets officeMathObject information.
+    // Gets officeMathObject. Gets or sets the OfficeMath object.
     public func getOfficeMathObject() -> OfficeMathObject? {
         return self.officeMathObject;
     }

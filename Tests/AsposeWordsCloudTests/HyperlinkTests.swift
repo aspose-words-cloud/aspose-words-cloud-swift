@@ -45,7 +45,9 @@ class HyperlinkTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentHyperlinkByIndexRequest(name: remoteFileName, hyperlinkIndex: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentHyperlinkByIndex(request: request);
+      let actual = try super.getApi().getDocumentHyperlinkByIndex(request: request);
+      XCTAssertNotNil(actual.getHyperlink());
+      XCTAssertEqual(actual.getHyperlink()!.getDisplayText(), "Aspose");
     }
 
     // Test for getting hyperlinks.
@@ -55,6 +57,10 @@ class HyperlinkTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentHyperlinksRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentHyperlinks(request: request);
+      let actual = try super.getApi().getDocumentHyperlinks(request: request);
+      XCTAssertNotNil(actual.getHyperlinks());
+      XCTAssertNotNil(actual.getHyperlinks()!.getHyperlinkList());
+      XCTAssertEqual(actual.getHyperlinks()!.getHyperlinkList()!.count, 2);
+      XCTAssertEqual(actual.getHyperlinks()!.getHyperlinkList()![0].getDisplayText(), "Aspose");
     }
 }

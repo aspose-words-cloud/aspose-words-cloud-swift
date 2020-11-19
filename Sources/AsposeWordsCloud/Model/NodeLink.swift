@@ -33,7 +33,7 @@ public class NodeLink : LinkElement {
     private var nodeId : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case nodeId;
+        case nodeId = "NodeId";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class NodeLink : LinkElement {
         }
     }
 
-    // Sets nodeId. Gets or sets node id.
+    // Sets nodeId. Gets or sets the node id.
     public func setNodeId(nodeId : String?) {
         self.nodeId = nodeId;
     }
 
-    // Gets nodeId. Gets or sets node id.
+    // Gets nodeId. Gets or sets the node id.
     public func getNodeId() -> String? {
         return self.nodeId;
     }

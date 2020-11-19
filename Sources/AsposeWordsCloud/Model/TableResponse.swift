@@ -27,14 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}.
+// The REST response with a table.
 public class TableResponse : WordsResponse {
-    // Field of table. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}.
+    // Field of table. The REST response with a table.
     private var table : Table?;
 
     private enum CodingKeys: String, CodingKey {
-        case table;
+        case table = "Table";
         case invalidCodingKey;
     }
 
@@ -56,12 +55,12 @@ public class TableResponse : WordsResponse {
         }
     }
 
-    // Sets table. Gets or sets table.
+    // Sets table. Gets or sets the table.
     public func setTable(table : Table?) {
         self.table = table;
     }
 
-    // Gets table. Gets or sets table.
+    // Gets table. Gets or sets the table.
     public func getTable() -> Table? {
         return self.table;
     }

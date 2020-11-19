@@ -27,13 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:  GET documentProperties/{propertyName}.
+// The REST response with a document property.
 public class DocumentPropertyResponse : WordsResponse {
-    // Field of documentProperty. This response should be returned by the service when handling:  GET documentProperties/{propertyName}.
+    // Field of documentProperty. The REST response with a document property.
     private var documentProperty : DocumentProperty?;
 
     private enum CodingKeys: String, CodingKey {
-        case documentProperty;
+        case documentProperty = "DocumentProperty";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class DocumentPropertyResponse : WordsResponse {
         }
     }
 
-    // Sets documentProperty. Gets or sets document property.
+    // Sets documentProperty. Gets or sets the document property.
     public func setDocumentProperty(documentProperty : DocumentProperty?) {
         self.documentProperty = documentProperty;
     }
 
-    // Gets documentProperty. Gets or sets document property.
+    // Gets documentProperty. Gets or sets the document property.
     public func getDocumentProperty() -> DocumentProperty? {
         return self.documentProperty;
     }

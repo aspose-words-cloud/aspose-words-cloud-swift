@@ -59,12 +59,12 @@ public class GetTableCellRequest : WordsApiRequest {
         self.password = password;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Path to table row.
+    // The path to the table row in the document tree.
     public func getTableRowPath() -> String {
         return self.tableRowPath;
     }

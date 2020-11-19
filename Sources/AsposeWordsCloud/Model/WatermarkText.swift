@@ -36,8 +36,8 @@ public class WatermarkText : Codable, WordsApiModel {
     private var text : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case rotationAngle;
-        case text;
+        case rotationAngle = "RotationAngle";
+        case text = "Text";
         case invalidCodingKey;
     }
 

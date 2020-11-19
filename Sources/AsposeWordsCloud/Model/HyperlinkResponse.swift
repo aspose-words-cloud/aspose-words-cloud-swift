@@ -27,13 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:  GET /{name}/hyperlinks/{hyperlinkIndex} .
+// The REST response with a hyperlink.
 public class HyperlinkResponse : WordsResponse {
-    // Field of hyperlink. This response should be returned by the service when handling:  GET /{name}/hyperlinks/{hyperlinkIndex} .
+    // Field of hyperlink. The REST response with a hyperlink.
     private var hyperlink : Hyperlink?;
 
     private enum CodingKeys: String, CodingKey {
-        case hyperlink;
+        case hyperlink = "Hyperlink";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class HyperlinkResponse : WordsResponse {
         }
     }
 
-    // Sets hyperlink. Gets or sets hyperlink.
+    // Sets hyperlink. Gets or sets the hyperlink.
     public func setHyperlink(hyperlink : Hyperlink?) {
         self.hyperlink = hyperlink;
     }
 
-    // Gets hyperlink. Gets or sets hyperlink.
+    // Gets hyperlink. Gets or sets the hyperlink.
     public func getHyperlink() -> Hyperlink? {
         return self.hyperlink;
     }

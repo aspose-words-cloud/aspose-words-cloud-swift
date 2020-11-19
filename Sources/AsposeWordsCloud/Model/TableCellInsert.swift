@@ -27,13 +27,13 @@
 
 import Foundation
 
-// Table cell element.
+// DTO container with a table cell.
 public class TableCellInsert : Codable, WordsApiModel {
-    // Field of insertAfter. Table cell element.
+    // Field of insertAfter. DTO container with a table cell.
     private var insertAfter : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case insertAfter;
+        case insertAfter = "InsertAfter";
         case invalidCodingKey;
     }
 
@@ -52,12 +52,12 @@ public class TableCellInsert : Codable, WordsApiModel {
         }
     }
 
-    // Sets insertAfter. Gets or sets table cell will be inserted after cell with specified 0-based index.
+    // Sets insertAfter. Gets or sets the 0-based index, the table cell will be inserted after.
     public func setInsertAfter(insertAfter : Int?) {
         self.insertAfter = insertAfter;
     }
 
-    // Gets insertAfter. Gets or sets table cell will be inserted after cell with specified 0-based index.
+    // Gets insertAfter. Gets or sets the 0-based index, the table cell will be inserted after.
     public func getInsertAfter() -> Int? {
         return self.insertAfter;
     }

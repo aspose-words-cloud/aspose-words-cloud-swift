@@ -65,12 +65,12 @@ public class InsertWatermarkTextRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // WatermarkText with the watermark data.
+    // The watermark text to insert.
     public func getWatermarkText() -> WatermarkText {
         return self.watermarkText;
     }

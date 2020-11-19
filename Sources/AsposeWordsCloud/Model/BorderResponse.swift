@@ -27,14 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET {nodeWithBorders}/borders.
+// The REST response with a border.
 public class BorderResponse : WordsResponse {
-    // Field of border. This response should be returned by the service when handling: GET {nodeWithBorders}/borders.
+    // Field of border. The REST response with a border.
     private var border : Border?;
 
     private enum CodingKeys: String, CodingKey {
-        case border;
+        case border = "Border";
         case invalidCodingKey;
     }
 
@@ -56,12 +55,12 @@ public class BorderResponse : WordsResponse {
         }
     }
 
-    // Sets border. Gets or sets table.
+    // Sets border. Gets or sets the border.
     public func setBorder(border : Border?) {
         self.border = border;
     }
 
-    // Gets border. Gets or sets table.
+    // Gets border. Gets or sets the border.
     public func getBorder() -> Border? {
         return self.border;
     }

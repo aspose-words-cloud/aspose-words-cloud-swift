@@ -33,7 +33,6 @@ class DocumentProtectionTests: BaseTestContext {
     static var allTests = [
         ("testProtectDocument", testProtectDocument),
         ("testGetDocumentProtection", testGetDocumentProtection),
-        ("testChangeDocumentProtection", testChangeDocumentProtection),
         ("testDeleteUnprotectDocument", testDeleteUnprotectDocument)
     ];
 
@@ -47,35 +46,27 @@ class DocumentProtectionTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestProtectionRequest = ProtectionRequest();
-      requestProtectionRequest.setNewPassword(newPassword: "123");
+      requestProtectionRequest.setPassword(password: "123");
+      requestProtectionRequest.setProtectionType(protectionType: "ReadOnly");
 
 
       let request = ProtectDocumentRequest(name: remoteFileName, protectionRequest: requestProtectionRequest, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().protectDocument(request: request);
+      let actual = try super.getApi().protectDocument(request: request);
+      XCTAssertNotNil(actual.getProtectionData());
+      XCTAssertEqual(actual.getProtectionData()!.getProtectionType(), "ReadOnly");
     }
 
     // Test for getting document protection.
     func testGetDocumentProtection() throws {
+      let localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
       let remoteFileName = "TestGetDocumentProtection.docx";
 
-      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFilePath, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentProtectionRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentProtection(request: request);
-    }
-
-    // Test for changing document protection.
-    func testChangeDocumentProtection() throws {
-      let remoteFileName = "TestChangeDocumentProtection.docx";
-
-      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
-
-      let requestProtectionRequest = ProtectionRequest();
-      requestProtectionRequest.setNewPassword(newPassword: "321");
-
-
-      let request = ProtectDocumentRequest(name: remoteFileName, protectionRequest: requestProtectionRequest, folder: remoteDataFolder);
-      _ = try super.getApi().protectDocument(request: request);
+      let actual = try super.getApi().getDocumentProtection(request: request);
+      XCTAssertNotNil(actual.getProtectionData());
+      XCTAssertEqual(actual.getProtectionData()!.getProtectionType(), "ReadOnly");
     }
 
     // Test for deleting unprotect document.
@@ -90,6 +81,8 @@ class DocumentProtectionTests: BaseTestContext {
 
 
       let request = UnprotectDocumentRequest(name: remoteFileName, protectionRequest: requestProtectionRequest, folder: remoteDataFolder);
-      _ = try super.getApi().unprotectDocument(request: request);
+      let actual = try super.getApi().unprotectDocument(request: request);
+      XCTAssertNotNil(actual.getProtectionData());
+      XCTAssertEqual(actual.getProtectionData()!.getProtectionType(), "NoProtection");
     }
 }

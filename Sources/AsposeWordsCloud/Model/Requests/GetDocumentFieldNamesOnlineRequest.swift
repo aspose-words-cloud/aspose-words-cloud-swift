@@ -49,7 +49,7 @@ public class GetDocumentFieldNamesOnlineRequest : WordsApiRequest {
         return self.template;
     }
 
-    // Use non merge fields or not.
+    // The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
     public func getUseNonMergeFields() -> Bool? {
         return self.useNonMergeFields;
     }

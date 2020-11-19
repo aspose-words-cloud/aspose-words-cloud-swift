@@ -27,7 +27,7 @@
 
 import Foundation
 
-// Preferred width.
+// DTO container with a preferred width value.
 public class PreferredWidth : Codable, WordsApiModel {
     // Gets or sets the unit of measure used for this preferred width value.
     public enum ModelType : String, Codable
@@ -42,15 +42,15 @@ public class PreferredWidth : Codable, WordsApiModel {
         case points = "Points"
     }
 
-    // Field of type. Preferred width.
+    // Field of type. DTO container with a preferred width value.
     private var type : ModelType?;
 
-    // Field of value. Preferred width.
+    // Field of value. DTO container with a preferred width value.
     private var value : Double?;
 
     private enum CodingKeys: String, CodingKey {
-        case type;
-        case value;
+        case type = "Type";
+        case value = "Value";
         case invalidCodingKey;
     }
 

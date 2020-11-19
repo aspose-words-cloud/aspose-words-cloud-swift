@@ -44,7 +44,7 @@ public class LoadWebDocumentRequest : WordsApiRequest {
         self.storage = storage;
     }
 
-    // Parameters of loading.
+    // The properties of data downloading.
     public func getData() -> LoadWebDocumentData {
         return self.data;
     }

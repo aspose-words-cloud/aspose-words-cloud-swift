@@ -65,12 +65,12 @@ public class ReplaceTextRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // ReplaceTextResponse with the replace operation settings.
+    // The text replacement parameters.
     public func getReplaceText() -> ReplaceTextParameters {
         return self.replaceText;
     }

@@ -71,7 +71,7 @@ public class InsertWatermarkImageRequest : WordsApiRequest {
         self.image = image;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
@@ -116,12 +116,12 @@ public class InsertWatermarkImageRequest : WordsApiRequest {
         return self.revisionDateTime;
     }
 
-    // The watermark rotation angle.
+    // The rotation angle of the watermark.
     public func getRotationAngle() -> Double? {
         return self.rotationAngle;
     }
 
-    // The image file server full name. If the name is empty the image is expected in request content.
+    // The filename of the image. If the parameter value is missing — the image data is expected in the request content.
     public func getImage() -> String? {
         return self.image;
     }

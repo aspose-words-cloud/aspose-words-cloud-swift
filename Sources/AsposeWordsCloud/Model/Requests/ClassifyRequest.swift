@@ -44,12 +44,12 @@ public class ClassifyRequest : WordsApiRequest {
         self.bestClassesCount = bestClassesCount;
     }
 
-    // Text to classify.
+    // The text to classify.
     public func getText() -> String {
         return self.text;
     }
 
-    // Number of the best classes to return.
+    // The number of the best classes to return.
     public func getBestClassesCount() -> String? {
         return self.bestClassesCount;
     }

@@ -68,12 +68,12 @@ public class DeleteHeadersFootersRequest : WordsApiRequest {
         self.headersFootersTypes = headersFootersTypes;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Path to parent section.
+    // The path to the section in the document tree.
     public func getSectionPath() -> String {
         return self.sectionPath;
     }
@@ -113,7 +113,7 @@ public class DeleteHeadersFootersRequest : WordsApiRequest {
         return self.revisionDateTime;
     }
 
-    // List of types of headers and footers.
+    // The list of HeaderFooter types.
     public func getHeadersFootersTypes() -> String? {
         return self.headersFootersTypes;
     }

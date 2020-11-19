@@ -41,7 +41,10 @@ class ClassificationTests: BaseTestContext {
     // Test for raw text classification.
     func testClassify() throws {
       let request = ClassifyRequest(text: "Try text classification", bestClassesCount: "3");
-      _ = try super.getApi().classify(request: request);
+      let actual = try super.getApi().classify(request: request);
+      XCTAssertEqual(actual.getBestClassName(), "Science");
+      XCTAssertNotNil(actual.getBestResults());
+      XCTAssertEqual(actual.getBestResults()!.count, 3);
     }
 
     // Test for document classification.
@@ -51,6 +54,9 @@ class ClassificationTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = ClassifyDocumentRequest(documentName: remoteFileName, folder: remoteDataFolder, bestClassesCount: "3");
-      _ = try super.getApi().classifyDocument(request: request);
+      let actual = try super.getApi().classifyDocument(request: request);
+      XCTAssertEqual(actual.getBestClassName(), "Hobbies_&_Interests");
+      XCTAssertNotNil(actual.getBestResults());
+      XCTAssertEqual(actual.getBestResults()!.count, 3);
     }
 }

@@ -27,13 +27,13 @@
 
 import Foundation
 
-// Represents DTO for collection of runs.
+// DTO container with a collection of runs.
 public class Runs : LinkElement {
-    // Field of list. Represents DTO for collection of runs.
+    // Field of list. DTO container with a collection of runs.
     private var list : [Run]?;
 
     private enum CodingKeys: String, CodingKey {
-        case list;
+        case list = "List";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class Runs : LinkElement {
         }
     }
 
-    // Sets list. Gets or sets collection of fields.
+    // Sets list. Gets or sets the collection of runs.
     public func setList(list : [Run]?) {
         self.list = list;
     }
 
-    // Gets list. Gets or sets collection of fields.
+    // Gets list. Gets or sets the collection of runs.
     public func getList() -> [Run]? {
         return self.list;
     }

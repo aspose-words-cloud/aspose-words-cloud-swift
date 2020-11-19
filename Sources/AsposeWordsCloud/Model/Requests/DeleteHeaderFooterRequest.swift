@@ -68,12 +68,12 @@ public class DeleteHeaderFooterRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Path to parent section.
+    // The path to the section in the document tree.
     public func getSectionPath() -> String {
         return self.sectionPath;
     }

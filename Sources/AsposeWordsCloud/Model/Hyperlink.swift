@@ -36,8 +36,8 @@ public class Hyperlink : LinkElement {
     private var value : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case displayText;
-        case value;
+        case displayText = "DisplayText";
+        case value = "Value";
         case invalidCodingKey;
     }
 
@@ -63,22 +63,22 @@ public class Hyperlink : LinkElement {
         }
     }
 
-    // Sets displayText. Gets or sets hypelink's display text.
+    // Sets displayText. Gets or sets the hypelink's display text.
     public func setDisplayText(displayText : String?) {
         self.displayText = displayText;
     }
 
-    // Gets displayText. Gets or sets hypelink's display text.
+    // Gets displayText. Gets or sets the hypelink's display text.
     public func getDisplayText() -> String? {
         return self.displayText;
     }
 
-    // Sets value. Gets or sets value.
+    // Sets value. Gets or sets the value.
     public func setValue(value : String?) {
         self.value = value;
     }
 
-    // Gets value. Gets or sets value.
+    // Gets value. Gets or sets the value.
     public func getValue() -> String? {
         return self.value;
     }

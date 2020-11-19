@@ -68,17 +68,17 @@ public class UpdateBookmarkRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // BookmarkData with new bookmark data.
+    // The properties of the bookmark.
     public func getBookmarkData() -> BookmarkData {
         return self.bookmarkData;
     }
 
-    // The bookmark name.
+    // The name of the bookmark.
     public func getBookmarkName() -> String {
         return self.bookmarkName;
     }

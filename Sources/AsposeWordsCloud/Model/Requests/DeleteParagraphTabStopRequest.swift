@@ -65,12 +65,12 @@ public class DeleteParagraphTabStopRequest : WordsApiRequest {
         self.destFileName = destFileName;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // a tab stop position to remove.
+    // The position of a tab stop to remove.
     public func getPosition() -> Double {
         return self.position;
     }
@@ -80,7 +80,7 @@ public class DeleteParagraphTabStopRequest : WordsApiRequest {
         return self.index;
     }
 
-    // Path to the node which contains paragraph.
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }

@@ -51,13 +51,13 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     private var pageIndex : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case colorMode;
-        case jpegQuality;
-        case metafileRenderingOptions;
-        case numeralFormat;
-        case optimizeOutput;
-        case pageCount;
-        case pageIndex;
+        case colorMode = "ColorMode";
+        case jpegQuality = "JpegQuality";
+        case metafileRenderingOptions = "MetafileRenderingOptions";
+        case numeralFormat = "NumeralFormat";
+        case optimizeOutput = "OptimizeOutput";
+        case pageCount = "PageCount";
+        case pageIndex = "PageIndex";
         case invalidCodingKey;
     }
 
@@ -103,72 +103,72 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         }
     }
 
-    // Sets colorMode. Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.
+    // Sets colorMode. Gets or sets the value determining how colors are rendered. { Normal | Grayscale}.
     public func setColorMode(colorMode : String?) {
         self.colorMode = colorMode;
     }
 
-    // Gets colorMode. Gets or sets a value determining how colors are rendered. { Normal | Grayscale}.
+    // Gets colorMode. Gets or sets the value determining how colors are rendered. { Normal | Grayscale}.
     public func getColorMode() -> String? {
         return self.colorMode;
     }
 
-    // Sets jpegQuality. Gets or sets determines the quality of the JPEG images inside PDF document.
+    // Sets jpegQuality. Gets or sets the quality of the JPEG images inside PDF document.
     public func setJpegQuality(jpegQuality : Int?) {
         self.jpegQuality = jpegQuality;
     }
 
-    // Gets jpegQuality. Gets or sets determines the quality of the JPEG images inside PDF document.
+    // Gets jpegQuality. Gets or sets the quality of the JPEG images inside PDF document.
     public func getJpegQuality() -> Int? {
         return self.jpegQuality;
     }
 
-    // Sets metafileRenderingOptions. Gets or sets allows to specify metafile rendering options.
+    // Sets metafileRenderingOptions. Gets or sets the metafile rendering options.
     public func setMetafileRenderingOptions(metafileRenderingOptions : MetafileRenderingOptionsData?) {
         self.metafileRenderingOptions = metafileRenderingOptions;
     }
 
-    // Gets metafileRenderingOptions. Gets or sets allows to specify metafile rendering options.
+    // Gets metafileRenderingOptions. Gets or sets the metafile rendering options.
     public func getMetafileRenderingOptions() -> MetafileRenderingOptionsData? {
         return self.metafileRenderingOptions;
     }
 
-    // Sets numeralFormat. Gets or sets indicates the symbol set that is used to represent numbers while rendering to fixed page formats.
+    // Sets numeralFormat. Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
     public func setNumeralFormat(numeralFormat : String?) {
         self.numeralFormat = numeralFormat;
     }
 
-    // Gets numeralFormat. Gets or sets indicates the symbol set that is used to represent numbers while rendering to fixed page formats.
+    // Gets numeralFormat. Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
     public func getNumeralFormat() -> String? {
         return self.numeralFormat;
     }
 
-    // Sets optimizeOutput. Gets or sets flag indicates whether it is required to optimize output of XPS. If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated. Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.
+    // Sets optimizeOutput. Gets or sets a value indicating whether it is required to optimize output of XPS. If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated. Note: The accuracy of the content display may be affected if this property is set to true.. The default value is false.
     public func setOptimizeOutput(optimizeOutput : Bool?) {
         self.optimizeOutput = optimizeOutput;
     }
 
-    // Gets optimizeOutput. Gets or sets flag indicates whether it is required to optimize output of XPS. If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated. Note: The accuracy of the content display may be affected if this property is set to true.  Default is false.
+    // Gets optimizeOutput. Gets or sets a value indicating whether it is required to optimize output of XPS. If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated. Note: The accuracy of the content display may be affected if this property is set to true.. The default value is false.
     public func getOptimizeOutput() -> Bool? {
         return self.optimizeOutput;
     }
 
-    // Sets pageCount. Gets or sets determines number of pages to render.
+    // Sets pageCount. Gets or sets the number of pages to render.
     public func setPageCount(pageCount : Int?) {
         self.pageCount = pageCount;
     }
 
-    // Gets pageCount. Gets or sets determines number of pages to render.
+    // Gets pageCount. Gets or sets the number of pages to render.
     public func getPageCount() -> Int? {
         return self.pageCount;
     }
 
-    // Sets pageIndex. Gets or sets determines 0-based index of the first page to render.
+    // Sets pageIndex. Gets or sets the 0-based index of the first page to render.
     public func setPageIndex(pageIndex : Int?) {
         self.pageIndex = pageIndex;
     }
 
-    // Gets pageIndex. Gets or sets determines 0-based index of the first page to render.
+    // Gets pageIndex. Gets or sets the 0-based index of the first page to render.
     public func getPageIndex() -> Int? {
         return self.pageIndex;
     }

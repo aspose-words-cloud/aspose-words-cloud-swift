@@ -68,17 +68,17 @@ public class UpdateCommentRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // The comment index.
+    // The index of the comment.
     public func getCommentIndex() -> Int {
         return self.commentIndex;
     }
 
-    // The comment data.
+    // The properties of the comment.
     public func getComment() -> CommentUpdate {
         return self.comment;
     }

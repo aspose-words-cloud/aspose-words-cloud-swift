@@ -27,17 +27,17 @@
 
 import Foundation
 
-// Table row element.
+// DTO container with a table row element.
 public class TableRow : NodeLink {
-    // Field of rowFormat. Table row element.
+    // Field of rowFormat. DTO container with a table row element.
     private var rowFormat : TableRowFormat?;
 
-    // Field of tableCellList. Table row element.
+    // Field of tableCellList. DTO container with a table row element.
     private var tableCellList : [TableCell]?;
 
     private enum CodingKeys: String, CodingKey {
-        case rowFormat;
-        case tableCellList;
+        case rowFormat = "RowFormat";
+        case tableCellList = "TableCellList";
         case invalidCodingKey;
     }
 
@@ -63,22 +63,22 @@ public class TableRow : NodeLink {
         }
     }
 
-    // Sets rowFormat. Gets or sets provides access to the formatting properties of the row.
+    // Sets rowFormat. Gets or sets the formatting properties of a row.
     public func setRowFormat(rowFormat : TableRowFormat?) {
         self.rowFormat = rowFormat;
     }
 
-    // Gets rowFormat. Gets or sets provides access to the formatting properties of the row.
+    // Gets rowFormat. Gets or sets the formatting properties of a row.
     public func getRowFormat() -> TableRowFormat? {
         return self.rowFormat;
     }
 
-    // Sets tableCellList. Gets or sets collection of table's rows.
+    // Sets tableCellList. Gets or sets the collection of rows.
     public func setTableCellList(tableCellList : [TableCell]?) {
         self.tableCellList = tableCellList;
     }
 
-    // Gets tableCellList. Gets or sets collection of table's rows.
+    // Gets tableCellList. Gets or sets the collection of rows.
     public func getTableCellList() -> [TableCell]? {
         return self.tableCellList;
     }

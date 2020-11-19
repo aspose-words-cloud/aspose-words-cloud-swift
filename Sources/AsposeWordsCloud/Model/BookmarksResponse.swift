@@ -27,13 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:  GET bookmarks.
+// The REST response with a collection of bookmarks.
 public class BookmarksResponse : WordsResponse {
-    // Field of bookmarks. This response should be returned by the service when handling:  GET bookmarks.
+    // Field of bookmarks. The REST response with a collection of bookmarks.
     private var bookmarks : Bookmarks?;
 
     private enum CodingKeys: String, CodingKey {
-        case bookmarks;
+        case bookmarks = "Bookmarks";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class BookmarksResponse : WordsResponse {
         }
     }
 
-    // Sets bookmarks. Gets or sets bookmarks which are contained in document.
+    // Sets bookmarks. Gets or sets the collection of bookmarks.
     public func setBookmarks(bookmarks : Bookmarks?) {
         self.bookmarks = bookmarks;
     }
 
-    // Gets bookmarks. Gets or sets bookmarks which are contained in document.
+    // Gets bookmarks. Gets or sets the collection of bookmarks.
     public func getBookmarks() -> Bookmarks? {
         return self.bookmarks;
     }

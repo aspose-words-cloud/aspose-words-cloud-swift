@@ -68,17 +68,17 @@ public class UpdateStyleRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Style properties to update.
+    // The properties of the style.
     public func getStyleUpdate() -> StyleUpdate {
         return self.styleUpdate;
     }
 
-    // Style name.
+    // The name of the style.
     public func getStyleName() -> String {
         return self.styleName;
     }

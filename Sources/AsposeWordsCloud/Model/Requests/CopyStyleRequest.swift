@@ -65,12 +65,12 @@ public class CopyStyleRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Style to copy.
+    // The properties of the style.
     public func getStyleCopy() -> StyleCopy {
         return self.styleCopy;
     }

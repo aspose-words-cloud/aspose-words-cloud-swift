@@ -59,12 +59,12 @@ public class UnprotectDocumentRequest : WordsApiRequest {
         self.destFileName = destFileName;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // ProtectionRequest with protection settings.
+    // The protection settings.
     public func getProtectionRequest() -> ProtectionRequest {
         return self.protectionRequest;
     }

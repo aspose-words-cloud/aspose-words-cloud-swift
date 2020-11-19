@@ -65,12 +65,12 @@ public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
         self.destFileName = destFileName;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Paragraph tab stop.
+    // The properties of the paragraph tab stop.
     public func getDto() -> TabStopInsert {
         return self.dto;
     }
@@ -80,7 +80,7 @@ public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
         return self.index;
     }
 
-    // Path to the node which contains paragraph.
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }

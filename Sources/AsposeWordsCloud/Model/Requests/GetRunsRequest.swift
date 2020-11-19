@@ -56,12 +56,12 @@ public class GetRunsRequest : WordsApiRequest {
         self.password = password;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Path to parent paragraph.
+    // The path to the paragraph in the document tree.
     public func getParagraphPath() -> String {
         return self.paragraphPath;
     }

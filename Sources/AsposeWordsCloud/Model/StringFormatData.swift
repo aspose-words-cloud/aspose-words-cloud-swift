@@ -42,7 +42,7 @@ public class StringFormatData : Codable, WordsApiModel {
         case far = "Far"
     }
 
-    // Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
+    // Gets or sets the System.Drawing.StringFormatFlags enumeration, that contains formatting information.
     public enum FormatFlags : String, Codable
     {
         // Enum value "directionRightToLeft"
@@ -137,11 +137,11 @@ public class StringFormatData : Codable, WordsApiModel {
     private var trimming : Trimming?;
 
     private enum CodingKeys: String, CodingKey {
-        case alignment;
-        case formatFlags;
-        case hotkeyPrefix;
-        case lineAlignment;
-        case trimming;
+        case alignment = "Alignment";
+        case formatFlags = "FormatFlags";
+        case hotkeyPrefix = "HotkeyPrefix";
+        case lineAlignment = "LineAlignment";
+        case trimming = "Trimming";
         case invalidCodingKey;
     }
 
@@ -186,12 +186,12 @@ public class StringFormatData : Codable, WordsApiModel {
         return self.alignment;
     }
 
-    // Sets formatFlags. Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
+    // Sets formatFlags. Gets or sets the System.Drawing.StringFormatFlags enumeration, that contains formatting information.
     public func setFormatFlags(formatFlags : FormatFlags?) {
         self.formatFlags = formatFlags;
     }
 
-    // Gets formatFlags. Gets or sets a System.Drawing.StringFormatFlags enumeration that contains formatting information.
+    // Gets formatFlags. Gets or sets the System.Drawing.StringFormatFlags enumeration, that contains formatting information.
     public func getFormatFlags() -> FormatFlags? {
         return self.formatFlags;
     }

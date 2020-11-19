@@ -47,7 +47,8 @@ class RangeTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetRangeTextRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
-      _ = try super.getApi().getRangeText(request: request);
+      let actual = try super.getApi().getRangeText(request: request);
+      XCTAssertEqual(actual.getText(), "This is HEADER ");
     }
 
     // Test for removing the text for range.
@@ -57,7 +58,9 @@ class RangeTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = RemoveRangeRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
-      _ = try super.getApi().removeRange(request: request);
+      let actual = try super.getApi().removeRange(request: request);
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestRemoveRange.docx");
     }
 
     // Test for saving a range as a new document.
@@ -71,7 +74,9 @@ class RangeTests: BaseTestContext {
 
 
       let request = SaveAsRangeRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", documentParameters: requestDocumentParameters, rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
-      _ = try super.getApi().saveAsRange(request: request);
+      let actual = try super.getApi().saveAsRange(request: request);
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "NewDoc.docx");
     }
 
     // Test for replacing text in range.
@@ -85,6 +90,8 @@ class RangeTests: BaseTestContext {
 
 
       let request = ReplaceWithTextRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", rangeText: requestRangeText, rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
-      _ = try super.getApi().replaceWithText(request: request);
+      let actual = try super.getApi().replaceWithText(request: request);
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestReplaceWithText.docx");
     }
 }

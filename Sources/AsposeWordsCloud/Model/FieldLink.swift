@@ -33,7 +33,7 @@ public class FieldLink : NodeLink {
     private var fieldCode : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case fieldCode;
+        case fieldCode = "FieldCode";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class FieldLink : NodeLink {
         }
     }
 
-    // Sets fieldCode. Gets or sets field code.
+    // Sets fieldCode. Gets or sets the field code.
     public func setFieldCode(fieldCode : String?) {
         self.fieldCode = fieldCode;
     }
 
-    // Gets fieldCode. Gets or sets field code.
+    // Gets fieldCode. Gets or sets the field code.
     public func getFieldCode() -> String? {
         return self.fieldCode;
     }

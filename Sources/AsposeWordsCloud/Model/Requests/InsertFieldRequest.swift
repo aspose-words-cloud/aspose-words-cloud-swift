@@ -71,17 +71,17 @@ public class InsertFieldRequest : WordsApiRequest {
         self.insertBeforeNode = insertBeforeNode;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Field data.
+    // The properties of the field.
     public func getField() -> FieldInsert {
         return self.field;
     }
 
-    // Path to the node, which contains collection of fields.
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }
@@ -121,7 +121,7 @@ public class InsertFieldRequest : WordsApiRequest {
         return self.revisionDateTime;
     }
 
-    // Field will be inserted before node with id="nodeId".
+    // The index of the node. A new field will be inserted before the node with the specified node Id.
     public func getInsertBeforeNode() -> String? {
         return self.insertBeforeNode;
     }

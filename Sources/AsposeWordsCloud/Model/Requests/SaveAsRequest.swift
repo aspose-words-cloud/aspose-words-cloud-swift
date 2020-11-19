@@ -59,12 +59,12 @@ public class SaveAsRequest : WordsApiRequest {
         self.fontsLocation = fontsLocation;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Save options.
+    // The save options.
     public func getSaveOptionsData() -> SaveOptionsData {
         return self.saveOptionsData;
     }

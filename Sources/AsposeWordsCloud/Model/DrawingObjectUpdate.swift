@@ -29,7 +29,7 @@ import Foundation
 
 // Drawing object element for update.
 public class DrawingObjectUpdate : Codable, WordsApiModel {
-    // Gets or sets specifies where the distance to the image is measured from.
+    // Gets or sets the relative horizontal position, from which the distance to the image is measured.
     public enum RelativeHorizontalPosition : String, Codable
     {
         // Enum value "margin"
@@ -60,7 +60,7 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
         case outsideMargin = "OutsideMargin"
     }
 
-    // Gets or sets specifies where the distance to the image measured from.
+    // Gets or sets the relative vertical position, from which the distance to the image measured.
     public enum RelativeVerticalPosition : String, Codable
     {
         // Enum value "margin"
@@ -94,7 +94,7 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
         case outsideMargin = "OutsideMargin"
     }
 
-    // Gets or sets specifies how to wrap text around the image.
+    // Gets or sets the option that controls how to wrap text around the image.
     public enum WrapType : String, Codable
     {
         // Enum value "inline"
@@ -138,13 +138,13 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     private var wrapType : WrapType?;
 
     private enum CodingKeys: String, CodingKey {
-        case height;
-        case _left;
-        case relativeHorizontalPosition;
-        case relativeVerticalPosition;
-        case top;
-        case width;
-        case wrapType;
+        case height = "Height";
+        case _left = "Left";
+        case relativeHorizontalPosition = "RelativeHorizontalPosition";
+        case relativeVerticalPosition = "RelativeVerticalPosition";
+        case top = "Top";
+        case width = "Width";
+        case wrapType = "WrapType";
         case invalidCodingKey;
     }
 
@@ -187,72 +187,72 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
         }
     }
 
-    // Sets height. Gets or sets height of the drawing object in points.
+    // Sets height. Gets or sets the height of the DrawingObject in points.
     public func setHeight(height : Double?) {
         self.height = height;
     }
 
-    // Gets height. Gets or sets height of the drawing object in points.
+    // Gets height. Gets or sets the height of the DrawingObject in points.
     public func getHeight() -> Double? {
         return self.height;
     }
 
-    // Sets _left. Gets or sets distance in points from the origin to the left side of the image.
+    // Sets _left. Gets or sets the distance in points from the origin to the left side of the image.
     public func setLeft(_left : Double?) {
         self._left = _left;
     }
 
-    // Gets _left. Gets or sets distance in points from the origin to the left side of the image.
+    // Gets _left. Gets or sets the distance in points from the origin to the left side of the image.
     public func getLeft() -> Double? {
         return self._left;
     }
 
-    // Sets relativeHorizontalPosition. Gets or sets specifies where the distance to the image is measured from.
+    // Sets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
     public func setRelativeHorizontalPosition(relativeHorizontalPosition : RelativeHorizontalPosition?) {
         self.relativeHorizontalPosition = relativeHorizontalPosition;
     }
 
-    // Gets relativeHorizontalPosition. Gets or sets specifies where the distance to the image is measured from.
+    // Gets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
     public func getRelativeHorizontalPosition() -> RelativeHorizontalPosition? {
         return self.relativeHorizontalPosition;
     }
 
-    // Sets relativeVerticalPosition. Gets or sets specifies where the distance to the image measured from.
+    // Sets relativeVerticalPosition. Gets or sets the relative vertical position, from which the distance to the image measured.
     public func setRelativeVerticalPosition(relativeVerticalPosition : RelativeVerticalPosition?) {
         self.relativeVerticalPosition = relativeVerticalPosition;
     }
 
-    // Gets relativeVerticalPosition. Gets or sets specifies where the distance to the image measured from.
+    // Gets relativeVerticalPosition. Gets or sets the relative vertical position, from which the distance to the image measured.
     public func getRelativeVerticalPosition() -> RelativeVerticalPosition? {
         return self.relativeVerticalPosition;
     }
 
-    // Sets top. Gets or sets distance in points from the origin to the top side of the image.
+    // Sets top. Gets or sets the distance in points from the origin to the top side of the image.
     public func setTop(top : Double?) {
         self.top = top;
     }
 
-    // Gets top. Gets or sets distance in points from the origin to the top side of the image.
+    // Gets top. Gets or sets the distance in points from the origin to the top side of the image.
     public func getTop() -> Double? {
         return self.top;
     }
 
-    // Sets width. Gets or sets width of the drawing objects in points.
+    // Sets width. Gets or sets the width of the DrawingObjects in points.
     public func setWidth(width : Double?) {
         self.width = width;
     }
 
-    // Gets width. Gets or sets width of the drawing objects in points.
+    // Gets width. Gets or sets the width of the DrawingObjects in points.
     public func getWidth() -> Double? {
         return self.width;
     }
 
-    // Sets wrapType. Gets or sets specifies how to wrap text around the image.
+    // Sets wrapType. Gets or sets the option that controls how to wrap text around the image.
     public func setWrapType(wrapType : WrapType?) {
         self.wrapType = wrapType;
     }
 
-    // Gets wrapType. Gets or sets specifies how to wrap text around the image.
+    // Gets wrapType. Gets or sets the option that controls how to wrap text around the image.
     public func getWrapType() -> WrapType? {
         return self.wrapType;
     }

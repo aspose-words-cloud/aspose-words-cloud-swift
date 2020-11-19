@@ -47,7 +47,13 @@ class DocumentPropertiesTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentPropertiesRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentProperties(request: request);
+      let actual = try super.getApi().getDocumentProperties(request: request);
+      XCTAssertNotNil(actual.getDocumentProperties());
+      XCTAssertNotNil(actual.getDocumentProperties()!.getList());
+      XCTAssertEqual(actual.getDocumentProperties()!.getList()!.count, 24);
+      XCTAssertNotNil(actual.getDocumentProperties()!.getList()![0]);
+      XCTAssertEqual(actual.getDocumentProperties()!.getList()![0].getName(), "Author");
+      XCTAssertEqual(actual.getDocumentProperties()!.getList()![0].getValue(), "");
     }
 
     // A test for GetDocumentProperty.
@@ -57,7 +63,10 @@ class DocumentPropertiesTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentPropertyRequest(name: remoteFileName, propertyName: "Author", folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentProperty(request: request);
+      let actual = try super.getApi().getDocumentProperty(request: request);
+      XCTAssertNotNil(actual.getDocumentProperty());
+      XCTAssertEqual(actual.getDocumentProperty()!.getName(), "Author");
+      XCTAssertEqual(actual.getDocumentProperty()!.getValue(), "");
     }
 
     // Test for deleting document property.
@@ -81,6 +90,9 @@ class DocumentPropertiesTests: BaseTestContext {
 
 
       let request = CreateOrUpdateDocumentPropertyRequest(name: remoteFileName, propertyName: "AsposeAuthor", property: requestProperty, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().createOrUpdateDocumentProperty(request: request);
+      let actual = try super.getApi().createOrUpdateDocumentProperty(request: request);
+      XCTAssertNotNil(actual.getDocumentProperty());
+      XCTAssertEqual(actual.getDocumentProperty()!.getName(), "AsposeAuthor");
+      XCTAssertEqual(actual.getDocumentProperty()!.getValue(), "Imran Anwar");
     }
 }

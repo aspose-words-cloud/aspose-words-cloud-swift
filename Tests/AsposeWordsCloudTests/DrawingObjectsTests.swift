@@ -60,7 +60,10 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentDrawingObjectsRequest(name: remoteFileName, nodePath: "sections/0", folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentDrawingObjects(request: request);
+      let actual = try super.getApi().getDocumentDrawingObjects(request: request);
+      XCTAssertNotNil(actual.getDrawingObjects());
+      XCTAssertNotNil(actual.getDrawingObjects()!.getList());
+      XCTAssertEqual(actual.getDrawingObjects()!.getList()!.count, 1);
     }
 
     // Test for getting drawing objects from document without node path.
@@ -70,7 +73,10 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentDrawingObjectsRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentDrawingObjects(request: request);
+      let actual = try super.getApi().getDocumentDrawingObjects(request: request);
+      XCTAssertNotNil(actual.getDrawingObjects());
+      XCTAssertNotNil(actual.getDrawingObjects()!.getList());
+      XCTAssertEqual(actual.getDrawingObjects()!.getList()!.count, 1);
     }
 
     // Test for getting drawing object by specified index.
@@ -80,7 +86,9 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentDrawingObjectByIndexRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentDrawingObjectByIndex(request: request);
+      let actual = try super.getApi().getDocumentDrawingObjectByIndex(request: request);
+      XCTAssertNotNil(actual.getDrawingObject());
+      XCTAssertEqual(actual.getDrawingObject()!.getHeight(), 300.0);
     }
 
     // Test for getting drawing object by specified index without node path.
@@ -90,7 +98,9 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentDrawingObjectByIndexRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentDrawingObjectByIndex(request: request);
+      let actual = try super.getApi().getDocumentDrawingObjectByIndex(request: request);
+      XCTAssertNotNil(actual.getDrawingObject());
+      XCTAssertEqual(actual.getDrawingObject()!.getHeight(), 300.0);
     }
 
     // Test for getting drawing object by specified index and format.
@@ -160,17 +170,19 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestDrawingObject = DrawingObjectInsert();
-      requestDrawingObject.setHeight(height: 0);
-      requestDrawingObject.setLeft(_left: 0);
-      requestDrawingObject.setTop(top: 0);
-      requestDrawingObject.setWidth(width: 0);
+      requestDrawingObject.setHeight(height: 0.0);
+      requestDrawingObject.setLeft(_left: 0.0);
+      requestDrawingObject.setTop(top: 0.0);
+      requestDrawingObject.setWidth(width: 0.0);
       requestDrawingObject.setRelativeHorizontalPosition(relativeHorizontalPosition: DrawingObjectInsert.RelativeHorizontalPosition.margin);
       requestDrawingObject.setRelativeVerticalPosition(relativeVerticalPosition: DrawingObjectInsert.RelativeVerticalPosition.margin);
       requestDrawingObject.setWrapType(wrapType: DrawingObjectInsert.WrapType.inline);
 
 
       let request = InsertDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().insertDrawingObject(request: request);
+      let actual = try super.getApi().insertDrawingObject(request: request);
+      XCTAssertNotNil(actual.getDrawingObject());
+      XCTAssertEqual(actual.getDrawingObject()!.getNodeId(), "0.3.7.1");
     }
 
     // Test for adding drawing object without node path.
@@ -180,17 +192,19 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestDrawingObject = DrawingObjectInsert();
-      requestDrawingObject.setHeight(height: 0);
-      requestDrawingObject.setLeft(_left: 0);
-      requestDrawingObject.setTop(top: 0);
-      requestDrawingObject.setWidth(width: 0);
+      requestDrawingObject.setHeight(height: 0.0);
+      requestDrawingObject.setLeft(_left: 0.0);
+      requestDrawingObject.setTop(top: 0.0);
+      requestDrawingObject.setWidth(width: 0.0);
       requestDrawingObject.setRelativeHorizontalPosition(relativeHorizontalPosition: DrawingObjectInsert.RelativeHorizontalPosition.margin);
       requestDrawingObject.setRelativeVerticalPosition(relativeVerticalPosition: DrawingObjectInsert.RelativeVerticalPosition.margin);
       requestDrawingObject.setWrapType(wrapType: DrawingObjectInsert.WrapType.inline);
 
 
       let request = InsertDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, folder: remoteDataFolder);
-      _ = try super.getApi().insertDrawingObject(request: request);
+      let actual = try super.getApi().insertDrawingObject(request: request);
+      XCTAssertNotNil(actual.getDrawingObject());
+      XCTAssertEqual(actual.getDrawingObject()!.getNodeId(), "0.3.7.1");
     }
 
     // Test for deleting drawing object.
@@ -220,11 +234,13 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestDrawingObject = DrawingObjectUpdate();
-      requestDrawingObject.setLeft(_left: 0);
+      requestDrawingObject.setLeft(_left: 1.0);
 
 
       let request = UpdateDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, index: 0, nodePath: "", folder: remoteDataFolder);
-      _ = try super.getApi().updateDrawingObject(request: request);
+      let actual = try super.getApi().updateDrawingObject(request: request);
+      XCTAssertNotNil(actual.getDrawingObject());
+      XCTAssertEqual(actual.getDrawingObject()!.getLeft(), 1.0);
     }
 
     // Test for updating drawing object without node path.
@@ -234,10 +250,12 @@ class DrawingObjectsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestDrawingObject = DrawingObjectUpdate();
-      requestDrawingObject.setLeft(_left: 0);
+      requestDrawingObject.setLeft(_left: 1.0);
 
 
       let request = UpdateDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().updateDrawingObject(request: request);
+      let actual = try super.getApi().updateDrawingObject(request: request);
+      XCTAssertNotNil(actual.getDrawingObject());
+      XCTAssertEqual(actual.getDrawingObject()!.getLeft(), 1.0);
     }
 }

@@ -27,9 +27,9 @@
 
 import Foundation
 
-// container class for docx/docm/dotx/dotm/flatopc save options.
+// Container class for docx/docm/dotx/dotm/flatopc save options.
 public class OoxmlSaveOptionsData : SaveOptionsData {
-    // Gets or sets compression level.
+    // Gets or sets the compression level.
     public enum CompressionLevel : String, Codable
     {
         // Enum value "normal"
@@ -45,23 +45,23 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
         case superFast = "SuperFast"
     }
 
-    // Field of compliance. container class for docx/docm/dotx/dotm/flatopc save options.
+    // Field of compliance. Container class for docx/docm/dotx/dotm/flatopc save options.
     private var compliance : String?;
 
-    // Field of compressionLevel. container class for docx/docm/dotx/dotm/flatopc save options.
+    // Field of compressionLevel. Container class for docx/docm/dotx/dotm/flatopc save options.
     private var compressionLevel : CompressionLevel?;
 
-    // Field of password. container class for docx/docm/dotx/dotm/flatopc save options.
+    // Field of password. Container class for docx/docm/dotx/dotm/flatopc save options.
     private var password : String?;
 
-    // Field of prettyFormat. container class for docx/docm/dotx/dotm/flatopc save options.
+    // Field of prettyFormat. Container class for docx/docm/dotx/dotm/flatopc save options.
     private var prettyFormat : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case compliance;
-        case compressionLevel;
-        case password;
-        case prettyFormat;
+        case compliance = "Compliance";
+        case compressionLevel = "CompressionLevel";
+        case password = "Password";
+        case prettyFormat = "PrettyFormat";
         case invalidCodingKey;
     }
 
@@ -95,42 +95,42 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
         }
     }
 
-    // Sets compliance. Gets or sets specifies the OOXML version for the output document.
+    // Sets compliance. Gets or sets the oOXML version for the output document.
     public func setCompliance(compliance : String?) {
         self.compliance = compliance;
     }
 
-    // Gets compliance. Gets or sets specifies the OOXML version for the output document.
+    // Gets compliance. Gets or sets the oOXML version for the output document.
     public func getCompliance() -> String? {
         return self.compliance;
     }
 
-    // Sets compressionLevel. Gets or sets compression level.
+    // Sets compressionLevel. Gets or sets the compression level.
     public func setCompressionLevel(compressionLevel : CompressionLevel?) {
         self.compressionLevel = compressionLevel;
     }
 
-    // Gets compressionLevel. Gets or sets compression level.
+    // Gets compressionLevel. Gets or sets the compression level.
     public func getCompressionLevel() -> CompressionLevel? {
         return self.compressionLevel;
     }
 
-    // Sets password. Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.
+    // Sets password. Gets or sets the password to encrypt document using ECMA376 Standard encryption algorithm.
     public func setPassword(password : String?) {
         self.password = password;
     }
 
-    // Gets password. Gets or sets specifies a password to encrypt document using ECMA376 Standard encryption algorithm.
+    // Gets password. Gets or sets the password to encrypt document using ECMA376 Standard encryption algorithm.
     public func getPassword() -> String? {
         return self.password;
     }
 
-    // Sets prettyFormat. Gets or sets specifies whether or not use pretty formats output.
+    // Sets prettyFormat. Gets or sets a value indicating whether to use pretty formats output.
     public func setPrettyFormat(prettyFormat : Bool?) {
         self.prettyFormat = prettyFormat;
     }
 
-    // Gets prettyFormat. Gets or sets specifies whether or not use pretty formats output.
+    // Gets prettyFormat. Gets or sets a value indicating whether to use pretty formats output.
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }

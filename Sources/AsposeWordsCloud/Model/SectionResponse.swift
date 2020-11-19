@@ -27,14 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}.
+// The REST response with a section.
 public class SectionResponse : WordsResponse {
-    // Field of section. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/sections/{0}.
+    // Field of section. The REST response with a section.
     private var section : Section?;
 
     private enum CodingKeys: String, CodingKey {
-        case section;
+        case section = "Section";
         case invalidCodingKey;
     }
 
@@ -56,12 +55,12 @@ public class SectionResponse : WordsResponse {
         }
     }
 
-    // Sets section. Gets or sets section.
+    // Sets section. Gets or sets the section.
     public func setSection(section : Section?) {
         self.section = section;
     }
 
-    // Gets section. Gets or sets section.
+    // Gets section. Gets or sets the section.
     public func getSection() -> Section? {
         return self.section;
     }

@@ -65,19 +65,17 @@ public class ReplaceWithTextRequest : WordsApiRequest {
         self.destFileName = destFileName;
     }
 
-    // The document.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
     // The range start identifier.
-    // Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id".
-    // It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
     public func getRangeStartIdentifier() -> String {
         return self.rangeStartIdentifier;
     }
 
-    // Model with text for replacement.
+    // The text replacement properties.
     public func getRangeText() -> ReplaceRange {
         return self.rangeText;
     }

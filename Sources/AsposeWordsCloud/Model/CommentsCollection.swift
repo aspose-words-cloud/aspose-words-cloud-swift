@@ -27,13 +27,13 @@
 
 import Foundation
 
-// Collection of comments.
+// The collection of comments.
 public class CommentsCollection : LinkElement {
-    // Field of commentList. Collection of comments.
+    // Field of commentList. The collection of comments.
     private var commentList : [Comment]?;
 
     private enum CodingKeys: String, CodingKey {
-        case commentList;
+        case commentList = "CommentList";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class CommentsCollection : LinkElement {
         }
     }
 
-    // Sets commentList. Gets or sets collection of comments.
+    // Sets commentList. Gets or sets the collection of comments.
     public func setCommentList(commentList : [Comment]?) {
         self.commentList = commentList;
     }
 
-    // Gets commentList. Gets or sets collection of comments.
+    // Gets commentList. Gets or sets the collection of comments.
     public func getCommentList() -> [Comment]? {
         return self.commentList;
     }

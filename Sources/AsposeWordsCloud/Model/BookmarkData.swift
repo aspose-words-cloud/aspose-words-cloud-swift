@@ -36,8 +36,8 @@ public class BookmarkData : Codable, WordsApiModel {
     private var text : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case name;
-        case text;
+        case name = "Name";
+        case text = "Text";
         case invalidCodingKey;
     }
 
@@ -70,12 +70,12 @@ public class BookmarkData : Codable, WordsApiModel {
         return self.name;
     }
 
-    // Sets text. Gets or sets the text enclosed in the bookmark.
+    // Sets text. Gets or sets text, enclosed in the bookmark.
     public func setText(text : String?) {
         self.text = text;
     }
 
-    // Gets text. Gets or sets the text enclosed in the bookmark.
+    // Gets text. Gets or sets text, enclosed in the bookmark.
     public func getText() -> String? {
         return self.text;
     }
