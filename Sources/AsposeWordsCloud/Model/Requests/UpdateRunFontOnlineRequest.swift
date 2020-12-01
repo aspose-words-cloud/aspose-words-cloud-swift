@@ -158,7 +158,12 @@ public class UpdateRunFontOnlineRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data) throws -> Any? {
-        let parts = try ObjectSerializer.parseMultipart(data: data);
-        return nil;
+        let multipart = try ObjectSerializer.parseMultipart(data: data);
+        return UpdateRunFontOnlineResponse(
+            model: try ObjectSerializer.deserialize(
+                type: FontResponse.self,
+                from: (try ObjectSerializer.getMultipartByName(multipart, "Model")).getBody()),
+            document: (try ObjectSerializer.getMultipartByName(multipart, "Document")).getBody()
+        );
     }
 }

@@ -148,7 +148,12 @@ public class InsertTableRowOnlineRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data) throws -> Any? {
-        let parts = try ObjectSerializer.parseMultipart(data: data);
-        return nil;
+        let multipart = try ObjectSerializer.parseMultipart(data: data);
+        return InsertTableRowOnlineResponse(
+            model: try ObjectSerializer.deserialize(
+                type: TableRowResponse.self,
+                from: (try ObjectSerializer.getMultipartByName(multipart, "Model")).getBody()),
+            document: (try ObjectSerializer.getMultipartByName(multipart, "Document")).getBody()
+        );
     }
 }

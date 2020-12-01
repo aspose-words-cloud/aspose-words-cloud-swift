@@ -162,7 +162,12 @@ public class SplitDocumentOnlineRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data) throws -> Any? {
-        let parts = try ObjectSerializer.parseMultipart(data: data);
-        return nil;
+        let multipart = try ObjectSerializer.parseMultipart(data: data);
+        return SplitDocumentOnlineResponse(
+            model: try ObjectSerializer.deserialize(
+                type: SplitDocumentResponse.self,
+                from: (try ObjectSerializer.getMultipartByName(multipart, "Model")).getBody()),
+            document: (try ObjectSerializer.getMultipartByName(multipart, "Document")).getBody()
+        );
     }
 }
