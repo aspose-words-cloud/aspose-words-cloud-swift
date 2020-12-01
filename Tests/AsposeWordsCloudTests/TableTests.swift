@@ -269,7 +269,7 @@ class TableTests: BaseTestContext {
       requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
 
 
-      let request = UpdateTablePropertiesRequest(name: remoteFileName, properties: requestProperties, index: 1, nodePath: "", folder: remoteDataFolder);
+      let request = UpdateTablePropertiesRequest(name: remoteFileName, index: 1, properties: requestProperties, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateTableProperties(request: request);
       XCTAssertNotNil(actual.getProperties());
       XCTAssertEqual(actual.getProperties()!.getAllowAutoFit(), false);
@@ -308,7 +308,7 @@ class TableTests: BaseTestContext {
       requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
 
 
-      let request = UpdateTablePropertiesRequest(name: remoteFileName, properties: requestProperties, index: 1, folder: remoteDataFolder);
+      let request = UpdateTablePropertiesRequest(name: remoteFileName, index: 1, properties: requestProperties, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableProperties(request: request);
       XCTAssertNotNil(actual.getProperties());
       XCTAssertEqual(actual.getProperties()!.getAllowAutoFit(), false);
@@ -362,7 +362,7 @@ class TableTests: BaseTestContext {
       requestRow.setColumnsCount(columnsCount: 5);
 
 
-      let request = InsertTableRowRequest(name: remoteFileName, row: requestRow, tablePath: "sections/0/tables/2", folder: remoteDataFolder);
+      let request = InsertTableRowRequest(name: remoteFileName, tablePath: "sections/0/tables/2", row: requestRow, folder: remoteDataFolder);
       let actual = try super.getApi().insertTableRow(request: request);
       XCTAssertNotNil(actual.getRow());
       XCTAssertNotNil(actual.getRow()!.getTableCellList());
@@ -375,7 +375,7 @@ class TableTests: BaseTestContext {
       requestRow.setColumnsCount(columnsCount: 5);
 
 
-      let request = InsertTableRowOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, row: requestRow, tablePath: "sections/0/tables/2");
+      let request = InsertTableRowOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, tablePath: "sections/0/tables/2", row: requestRow);
       _ = try super.getApi().insertTableRowOnline(request: request);
     }
 
@@ -410,7 +410,7 @@ class TableTests: BaseTestContext {
       requestFormat.setHeightRule(heightRule: TableRowFormat.HeightRule.exactly);
 
 
-      let request = UpdateTableRowFormatRequest(name: remoteFileName, format: requestFormat, tablePath: "sections/0/tables/2", index: 0, folder: remoteDataFolder);
+      let request = UpdateTableRowFormatRequest(name: remoteFileName, tablePath: "sections/0/tables/2", index: 0, format: requestFormat, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableRowFormat(request: request);
       XCTAssertNotNil(actual.getRowFormat());
       XCTAssertEqual(actual.getRowFormat()!.getAllowBreakAcrossPages(), true);
@@ -427,7 +427,7 @@ class TableTests: BaseTestContext {
       requestFormat.setHeightRule(heightRule: TableRowFormat.HeightRule.auto);
 
 
-      let request = UpdateTableRowFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, format: requestFormat, tablePath: "sections/0/tables/2", index: 0);
+      let request = UpdateTableRowFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, tablePath: "sections/0/tables/2", format: requestFormat, index: 0);
       _ = try super.getApi().updateTableRowFormatOnline(request: request);
     }
 
@@ -475,7 +475,7 @@ class TableTests: BaseTestContext {
 
 
 
-      let request = InsertTableCellRequest(name: remoteFileName, cell: requestCell, tableRowPath: "sections/0/tables/2/rows/0", folder: remoteDataFolder);
+      let request = InsertTableCellRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", cell: requestCell, folder: remoteDataFolder);
       let actual = try super.getApi().insertTableCell(request: request);
       XCTAssertNotNil(actual.getCell());
       XCTAssertEqual(actual.getCell()!.getNodeId(), "0.0.5.0.3");
@@ -487,7 +487,7 @@ class TableTests: BaseTestContext {
 
 
 
-      let request = InsertTableCellOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, cell: requestCell, tableRowPath: "sections/0/tables/2/rows/0");
+      let request = InsertTableCellOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, tableRowPath: "sections/0/tables/2/rows/0", cell: requestCell);
       _ = try super.getApi().insertTableCellOnline(request: request);
     }
 
@@ -522,7 +522,7 @@ class TableTests: BaseTestContext {
       requestFormat.setWrapText(wrapText: true);
 
 
-      let request = UpdateTableCellFormatRequest(name: remoteFileName, format: requestFormat, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
+      let request = UpdateTableCellFormatRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, format: requestFormat, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableCellFormat(request: request);
       XCTAssertNotNil(actual.getCellFormat());
       XCTAssertEqual(actual.getCellFormat()!.getBottomPadding(), 5.0);
@@ -539,7 +539,7 @@ class TableTests: BaseTestContext {
       requestFormat.setWrapText(wrapText: true);
 
 
-      let request = UpdateTableCellFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, format: requestFormat, tableRowPath: "sections/0/tables/2/rows/0", index: 0);
+      let request = UpdateTableCellFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, tableRowPath: "sections/0/tables/2/rows/0", format: requestFormat, index: 0);
       _ = try super.getApi().updateTableCellFormatOnline(request: request);
     }
 

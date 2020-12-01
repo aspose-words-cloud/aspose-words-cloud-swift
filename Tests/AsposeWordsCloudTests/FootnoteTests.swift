@@ -210,7 +210,7 @@ class FootnoteTests: BaseTestContext {
       requestFootnoteDto.setText(text: "new text is here");
 
 
-      let request = UpdateFootnoteOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, footnoteDto: requestFootnoteDto, nodePath: "");
+      let request = UpdateFootnoteOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, footnoteDto: requestFootnoteDto, index: 0, nodePath: "");
       _ = try super.getApi().updateFootnoteOnline(request: request);
     }
 

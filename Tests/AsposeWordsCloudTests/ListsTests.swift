@@ -131,7 +131,7 @@ class ListsTests: BaseTestContext {
       requestListUpdate.setAlignment(alignment: ListLevelUpdate.Alignment._right);
 
 
-      let request = UpdateListLevelOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, listId: 1, listLevel: 1, listUpdate: requestListUpdate);
+      let request = UpdateListLevelOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, listId: 1, listUpdate: requestListUpdate, listLevel: 1);
       let actual = try super.getApi().updateListLevelOnline(request: request);
       XCTAssertNotNil(actual.getList());
       XCTAssertNotNil(actual.getList()!.getListLevels());

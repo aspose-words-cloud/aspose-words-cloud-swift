@@ -97,7 +97,7 @@ class StylesTests: BaseTestContext {
       requestStyleUpdate.setName(name: "My Style");
 
 
-      let request = UpdateStyleRequest(name: remoteFileName, styleUpdate: requestStyleUpdate, styleName: "Heading 1", folder: remoteDataFolder);
+      let request = UpdateStyleRequest(name: remoteFileName, styleName: "Heading 1", styleUpdate: requestStyleUpdate, folder: remoteDataFolder);
       let actual = try super.getApi().updateStyle(request: request);
       XCTAssertNotNil(actual.getStyle());
       XCTAssertEqual(actual.getStyle()!.getName(), "My Style");
@@ -109,7 +109,7 @@ class StylesTests: BaseTestContext {
       requestStyleUpdate.setName(name: "My Style");
 
 
-      let request = UpdateStyleOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styleUpdate: requestStyleUpdate, styleName: "Heading 1");
+      let request = UpdateStyleOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styleName: "Heading 1", styleUpdate: requestStyleUpdate);
       _ = try super.getApi().updateStyleOnline(request: request);
     }
 
@@ -195,7 +195,7 @@ class StylesTests: BaseTestContext {
       requestStyleApply.setStyleName(styleName: "Heading 1");
 
 
-      let request = ApplyStyleToDocumentElementRequest(name: remoteFileName, styleApply: requestStyleApply, styledNodePath: "paragraphs/1/paragraphFormat", folder: remoteDataFolder);
+      let request = ApplyStyleToDocumentElementRequest(name: remoteFileName, styledNodePath: "paragraphs/1/paragraphFormat", styleApply: requestStyleApply, folder: remoteDataFolder);
       _ = try super.getApi().applyStyleToDocumentElement(request: request);
     }
 
@@ -205,7 +205,7 @@ class StylesTests: BaseTestContext {
       requestStyleApply.setStyleName(styleName: "Heading 1");
 
 
-      let request = ApplyStyleToDocumentElementOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styleApply: requestStyleApply, styledNodePath: "paragraphs/1/paragraphFormat");
+      let request = ApplyStyleToDocumentElementOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styledNodePath: "paragraphs/1/paragraphFormat", styleApply: requestStyleApply);
       _ = try super.getApi().applyStyleToDocumentElementOnline(request: request);
     }
 }

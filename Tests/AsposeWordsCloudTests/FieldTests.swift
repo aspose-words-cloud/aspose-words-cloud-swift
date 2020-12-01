@@ -200,7 +200,7 @@ class FieldTests: BaseTestContext {
       requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
 
 
-      let request = UpdateFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, field: requestField, nodePath: "sections/0/paragraphs/0");
+      let request = UpdateFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, field: requestField, index: 0, nodePath: "sections/0/paragraphs/0");
       _ = try super.getApi().updateFieldOnline(request: request);
     }
 

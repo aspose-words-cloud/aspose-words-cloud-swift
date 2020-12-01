@@ -215,7 +215,7 @@ class ParagraphTests: BaseTestContext {
       requestFontDto.setBold(bold: true);
 
 
-      let request = UpdateRunFontRequest(name: remoteFileName, fontDto: requestFontDto, paragraphPath: "paragraphs/0", index: 0, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = UpdateRunFontRequest(name: remoteFileName, paragraphPath: "paragraphs/0", index: 0, fontDto: requestFontDto, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().updateRunFont(request: request);
       XCTAssertNotNil(actual.getFont());
       XCTAssertEqual(actual.getFont()!.getBold(), true);
@@ -227,7 +227,7 @@ class ParagraphTests: BaseTestContext {
       requestFontDto.setBold(bold: true);
 
 
-      let request = UpdateRunFontOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, fontDto: requestFontDto, paragraphPath: "paragraphs/0", index: 0, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = UpdateRunFontOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/0", fontDto: requestFontDto, index: 0, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().updateRunFontOnline(request: request);
     }
 
@@ -351,7 +351,7 @@ class ParagraphTests: BaseTestContext {
       requestParagraphFormatDto.setAlignment(alignment: ParagraphFormatUpdate.Alignment._right);
 
 
-      let request = UpdateParagraphFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, paragraphFormatDto: requestParagraphFormatDto, nodePath: "");
+      let request = UpdateParagraphFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphFormatDto: requestParagraphFormatDto, index: 0, nodePath: "");
       _ = try super.getApi().updateParagraphFormatOnline(request: request);
     }
 

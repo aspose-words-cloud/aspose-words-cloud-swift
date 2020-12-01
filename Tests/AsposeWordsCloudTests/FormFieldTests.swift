@@ -84,7 +84,7 @@ class FormFieldTests: BaseTestContext {
       requestFormField.setTextInputDefault(textInputDefault: "No name");
 
 
-      let request = UpdateFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, formField: requestFormField, nodePath: "sections/0", destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = UpdateFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, formField: requestFormField, index: 0, nodePath: "sections/0", destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().updateFormFieldOnline(request: request);
     }
 
