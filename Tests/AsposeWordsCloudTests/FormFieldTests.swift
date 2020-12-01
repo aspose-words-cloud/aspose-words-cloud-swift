@@ -209,7 +209,7 @@ class FormFieldTests: BaseTestContext {
       requestFormField.setTextInputFormat(textInputFormat: "UPPERCASE");
 
 
-      let request = InsertFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false))!, formField: requestFormField, nodePath: "sections/0/paragraphs/0", destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = InsertFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false))!, formField: requestFormField, nodePath: "sections/0/paragraphs/0");
       _ = try super.getApi().insertFormFieldOnline(request: request);
     }
 
@@ -248,7 +248,7 @@ class FormFieldTests: BaseTestContext {
 
     // Test for deleting form field online.
     func testDeleteFormFieldOnline() throws {
-      let request = DeleteFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false))!, index: 0, nodePath: "sections/0", destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = DeleteFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false))!, index: 0, nodePath: "sections/0");
       try super.getApi().deleteFormFieldOnline(request: request);
     }
 
