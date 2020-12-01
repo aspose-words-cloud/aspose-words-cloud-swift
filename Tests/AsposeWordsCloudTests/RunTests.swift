@@ -52,7 +52,7 @@ class RunTests: BaseTestContext {
       requestRun.setText(text: "run with text");
 
 
-      let request = UpdateRunRequest(name: remoteFileName, run: requestRun, paragraphPath: "paragraphs/1", index: 0, folder: remoteDataFolder);
+      let request = UpdateRunRequest(name: remoteFileName, run: requestRun, index: 0, paragraphPath: "paragraphs/1", folder: remoteDataFolder);
       let actual = try super.getApi().updateRun(request: request);
       XCTAssertNotNil(actual.getRun());
       XCTAssertEqual(actual.getRun()!.getText(), "run with text");
@@ -64,7 +64,7 @@ class RunTests: BaseTestContext {
       requestRun.setText(text: "run with text");
 
 
-      let request = UpdateRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, run: requestRun, paragraphPath: "paragraphs/1", index: 0);
+      let request = UpdateRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, run: requestRun, index: 0, paragraphPath: "paragraphs/1");
       _ = try super.getApi().updateRunOnline(request: request);
     }
 
@@ -78,7 +78,7 @@ class RunTests: BaseTestContext {
       requestRun.setText(text: "run with text");
 
 
-      let request = InsertRunRequest(name: remoteFileName, paragraphPath: "paragraphs/1", run: requestRun, folder: remoteDataFolder);
+      let request = InsertRunRequest(name: remoteFileName, run: requestRun, paragraphPath: "paragraphs/1", folder: remoteDataFolder);
       let actual = try super.getApi().insertRun(request: request);
       XCTAssertNotNil(actual.getRun());
       XCTAssertEqual(actual.getRun()!.getText(), "run with text");
@@ -91,7 +91,7 @@ class RunTests: BaseTestContext {
       requestRun.setText(text: "run with text");
 
 
-      let request = InsertRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/1", run: requestRun);
+      let request = InsertRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, run: requestRun, paragraphPath: "paragraphs/1");
       _ = try super.getApi().insertRunOnline(request: request);
     }
 
@@ -101,13 +101,13 @@ class RunTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = DeleteRunRequest(name: remoteFileName, paragraphPath: "paragraphs/1", index: 0, folder: remoteDataFolder);
+      let request = DeleteRunRequest(name: remoteFileName, index: 0, paragraphPath: "paragraphs/1", folder: remoteDataFolder);
       try super.getApi().deleteRun(request: request);
     }
 
     // Test for deleting run online.
     func testDeleteRunOnline() throws {
-      let request = DeleteRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/1", index: 0);
+      let request = DeleteRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, paragraphPath: "paragraphs/1");
       _ = try super.getApi().deleteRunOnline(request: request);
     }
 }

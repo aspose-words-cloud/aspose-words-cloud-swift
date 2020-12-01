@@ -100,7 +100,7 @@ class BookmarkTests: BaseTestContext {
       requestBookmarkData.setText(text: "This will be the text for Aspose");
 
 
-      let request = UpdateBookmarkOnlineRequest(bookmarkName: bookmarkName, document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, bookmarkData: requestBookmarkData, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = UpdateBookmarkOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, bookmarkName: bookmarkName, bookmarkData: requestBookmarkData, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().updateBookmarkOnline(request: request);
     }
 }

@@ -68,9 +68,7 @@ class RangeTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = RemoveRangeRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
-      let actual = try super.getApi().removeRange(request: request);
-      XCTAssertNotNil(actual.getDocument());
-      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestRemoveRange.docx");
+      _ = try super.getApi().removeRange(request: request);
     }
 
     // Test for removing the text for range online.
