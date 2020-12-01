@@ -56,7 +56,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? RevisionsModificationResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? RevisionsModificationResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -102,7 +102,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? AcceptAllRevisionsOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? AcceptAllRevisionsOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -148,7 +148,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -194,7 +194,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? AppendDocumentOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? AppendDocumentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -240,7 +240,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? WordsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? WordsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -286,7 +286,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ApplyStyleToDocumentElementOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ApplyStyleToDocumentElementOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -332,7 +332,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -378,7 +378,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -424,7 +424,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ClassificationResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ClassificationResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -470,7 +470,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ClassificationResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ClassificationResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -516,7 +516,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ClassificationResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ClassificationResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -562,7 +562,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -608,7 +608,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? CompareDocumentOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? CompareDocumentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -654,7 +654,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -766,7 +766,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? StyleResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? StyleResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -812,7 +812,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? CopyStyleOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? CopyStyleOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -858,7 +858,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -937,7 +937,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentPropertyResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentPropertyResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -983,7 +983,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? CreateOrUpdateDocumentPropertyOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? CreateOrUpdateDocumentPropertyOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1029,7 +1029,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TabStopsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TabStopsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1075,7 +1075,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1121,7 +1121,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1167,7 +1167,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1213,7 +1213,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1292,7 +1292,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1437,7 +1437,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1516,7 +1516,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1595,7 +1595,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1740,7 +1740,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1885,7 +1885,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1964,7 +1964,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2043,7 +2043,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2122,7 +2122,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2201,7 +2201,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ParagraphListFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ParagraphListFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2247,7 +2247,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ParagraphListFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ParagraphListFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2293,7 +2293,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2339,7 +2339,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TabStopsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TabStopsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2418,7 +2418,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2497,7 +2497,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2609,7 +2609,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2655,7 +2655,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2734,7 +2734,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2780,7 +2780,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2826,7 +2826,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DeleteWatermarkOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DeleteWatermarkOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2872,7 +2872,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2918,7 +2918,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2964,7 +2964,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3010,7 +3010,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? AvailableFontsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? AvailableFontsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3056,7 +3056,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? BookmarkResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? BookmarkResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3102,7 +3102,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? BookmarkResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? BookmarkResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3148,7 +3148,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? BookmarksResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? BookmarksResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3194,7 +3194,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? BookmarksResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? BookmarksResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3240,7 +3240,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? BorderResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? BorderResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3286,7 +3286,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? BorderResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? BorderResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3332,7 +3332,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? BordersResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? BordersResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3378,7 +3378,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? BordersResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? BordersResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3424,7 +3424,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? CommentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? CommentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3470,7 +3470,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? CommentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? CommentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3516,7 +3516,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? CommentsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? CommentsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3562,7 +3562,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? CommentsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? CommentsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3608,7 +3608,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3654,7 +3654,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DrawingObjectResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DrawingObjectResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3700,7 +3700,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DrawingObjectResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DrawingObjectResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3746,7 +3746,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3792,7 +3792,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3838,7 +3838,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3884,7 +3884,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3930,7 +3930,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DrawingObjectsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DrawingObjectsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3976,7 +3976,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DrawingObjectsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DrawingObjectsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4022,7 +4022,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FieldNamesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FieldNamesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4068,7 +4068,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FieldNamesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FieldNamesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4114,7 +4114,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? HyperlinkResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? HyperlinkResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4160,7 +4160,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? HyperlinkResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? HyperlinkResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4206,7 +4206,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? HyperlinksResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? HyperlinksResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4252,7 +4252,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? HyperlinksResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? HyperlinksResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4298,7 +4298,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentPropertiesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentPropertiesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4344,7 +4344,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentPropertiesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentPropertiesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4390,7 +4390,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentPropertyResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentPropertyResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4436,7 +4436,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentPropertyResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentPropertyResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4482,7 +4482,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ProtectionDataResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ProtectionDataResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4528,7 +4528,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ProtectionDataResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ProtectionDataResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4574,7 +4574,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? StatDataResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? StatDataResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4620,7 +4620,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? StatDataResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? StatDataResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4666,7 +4666,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4712,7 +4712,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4758,7 +4758,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4804,7 +4804,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FieldsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FieldsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4850,7 +4850,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FieldsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FieldsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4896,7 +4896,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FilesList, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FilesList, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4942,7 +4942,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FootnoteResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FootnoteResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4988,7 +4988,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FootnoteResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FootnoteResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5034,7 +5034,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FootnotesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FootnotesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5080,7 +5080,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FootnotesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FootnotesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5126,7 +5126,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FormFieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FormFieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5172,7 +5172,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FormFieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FormFieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5218,7 +5218,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FormFieldsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FormFieldsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5264,7 +5264,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FormFieldsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FormFieldsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5310,7 +5310,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5356,7 +5356,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5402,7 +5402,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5448,7 +5448,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5494,7 +5494,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? HeaderFootersResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? HeaderFootersResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5540,7 +5540,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? HeaderFootersResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? HeaderFootersResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5586,7 +5586,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ListResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ListResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5632,7 +5632,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ListResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ListResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5678,7 +5678,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ListsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ListsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5724,7 +5724,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ListsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ListsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5770,7 +5770,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? OfficeMathObjectResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? OfficeMathObjectResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5816,7 +5816,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? OfficeMathObjectResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? OfficeMathObjectResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5862,7 +5862,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? OfficeMathObjectsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? OfficeMathObjectsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5908,7 +5908,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? OfficeMathObjectsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? OfficeMathObjectsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5954,7 +5954,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ParagraphResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ParagraphResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6000,7 +6000,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ParagraphFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ParagraphFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6046,7 +6046,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ParagraphFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ParagraphFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6092,7 +6092,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ParagraphListFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ParagraphListFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6138,7 +6138,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ParagraphListFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ParagraphListFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6184,7 +6184,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ParagraphResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ParagraphResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6230,7 +6230,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ParagraphLinkCollectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ParagraphLinkCollectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6276,7 +6276,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ParagraphLinkCollectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ParagraphLinkCollectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6322,7 +6322,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TabStopsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TabStopsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6368,7 +6368,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TabStopsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TabStopsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6414,7 +6414,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? RangeTextResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? RangeTextResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6460,7 +6460,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? RangeTextResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? RangeTextResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6506,7 +6506,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? RunResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? RunResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6552,7 +6552,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FontResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FontResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6598,7 +6598,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FontResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FontResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6644,7 +6644,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? RunResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? RunResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6690,7 +6690,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? RunsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? RunsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6736,7 +6736,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? RunsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? RunsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6782,7 +6782,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6828,7 +6828,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6874,7 +6874,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SectionPageSetupResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SectionPageSetupResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6920,7 +6920,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SectionPageSetupResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SectionPageSetupResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6966,7 +6966,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SectionLinkCollectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SectionLinkCollectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7012,7 +7012,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SectionLinkCollectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SectionLinkCollectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7058,7 +7058,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? StyleResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? StyleResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7104,7 +7104,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? StyleResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? StyleResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7150,7 +7150,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? StyleResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? StyleResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7196,7 +7196,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? StyleResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? StyleResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7242,7 +7242,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? StylesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? StylesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7288,7 +7288,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? StylesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? StylesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7334,7 +7334,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7380,7 +7380,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableCellResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableCellResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7426,7 +7426,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableCellFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableCellFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7472,7 +7472,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableCellFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableCellFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7518,7 +7518,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableCellResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableCellResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7564,7 +7564,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7610,7 +7610,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TablePropertiesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TablePropertiesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7656,7 +7656,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TablePropertiesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TablePropertiesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7702,7 +7702,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableRowResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableRowResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7748,7 +7748,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableRowFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableRowFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7794,7 +7794,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableRowFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableRowFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7840,7 +7840,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableRowResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableRowResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7886,7 +7886,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableLinkCollectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableLinkCollectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7932,7 +7932,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableLinkCollectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableLinkCollectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7978,7 +7978,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? CommentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? CommentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8024,7 +8024,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertCommentOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertCommentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8070,7 +8070,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DrawingObjectResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DrawingObjectResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8116,7 +8116,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertDrawingObjectOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertDrawingObjectOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8162,7 +8162,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8208,7 +8208,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8254,7 +8254,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FootnoteResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FootnoteResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8300,7 +8300,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertFootnoteOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertFootnoteOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8346,7 +8346,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FormFieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FormFieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8392,7 +8392,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertFormFieldOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertFormFieldOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8438,7 +8438,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8484,7 +8484,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8530,7 +8530,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ListResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ListResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8576,7 +8576,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertListOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertListOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8622,7 +8622,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TabStopsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TabStopsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8668,7 +8668,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertOrUpdateParagraphTabStopOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertOrUpdateParagraphTabStopOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8714,7 +8714,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8760,7 +8760,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertPageNumbersOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertPageNumbersOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8806,7 +8806,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ParagraphResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ParagraphResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8852,7 +8852,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertParagraphOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertParagraphOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8898,7 +8898,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? RunResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? RunResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8944,7 +8944,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertRunOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertRunOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8990,7 +8990,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? StyleResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? StyleResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9036,7 +9036,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertStyleOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertStyleOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9082,7 +9082,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9128,7 +9128,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableCellResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableCellResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9174,7 +9174,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertTableCellOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertTableCellOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9220,7 +9220,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertTableOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertTableOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9266,7 +9266,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableRowResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableRowResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9312,7 +9312,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertTableRowOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertTableRowOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9358,7 +9358,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9404,7 +9404,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertWatermarkImageOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertWatermarkImageOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9450,7 +9450,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9496,7 +9496,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertWatermarkTextOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertWatermarkTextOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9542,7 +9542,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SaveResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SaveResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9687,7 +9687,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9733,7 +9733,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ProtectionDataResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ProtectionDataResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9779,7 +9779,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ProtectDocumentOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ProtectDocumentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9825,7 +9825,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? RevisionsModificationResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? RevisionsModificationResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9871,7 +9871,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? RejectAllRevisionsOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? RejectAllRevisionsOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9917,7 +9917,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9963,7 +9963,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10009,7 +10009,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10055,7 +10055,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10101,7 +10101,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10147,7 +10147,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10193,7 +10193,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10239,7 +10239,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10285,7 +10285,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10331,7 +10331,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10377,7 +10377,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10423,7 +10423,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10469,7 +10469,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ReplaceTextResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ReplaceTextResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10515,7 +10515,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ReplaceTextOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ReplaceTextOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10561,7 +10561,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10607,7 +10607,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10686,7 +10686,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SaveResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SaveResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10732,7 +10732,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SaveAsOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SaveAsOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10778,7 +10778,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10824,7 +10824,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SaveAsRangeOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SaveAsRangeOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10870,7 +10870,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SaveResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SaveResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10916,7 +10916,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SaveAsTiffOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SaveAsTiffOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10962,7 +10962,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SearchResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SearchResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11008,7 +11008,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SearchResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SearchResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11054,7 +11054,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SplitDocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SplitDocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11100,7 +11100,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SplitDocumentOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SplitDocumentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11146,7 +11146,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ProtectionDataResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ProtectionDataResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11192,7 +11192,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ProtectionDataResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ProtectionDataResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11238,7 +11238,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? BookmarkResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? BookmarkResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11284,7 +11284,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateBookmarkOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateBookmarkOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11330,7 +11330,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? BorderResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? BorderResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11376,7 +11376,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? BorderResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? BorderResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11422,7 +11422,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? CommentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? CommentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11468,7 +11468,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? CommentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? CommentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11514,7 +11514,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DrawingObjectResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DrawingObjectResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11560,7 +11560,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DrawingObjectResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DrawingObjectResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11606,7 +11606,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11652,7 +11652,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11698,7 +11698,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11744,7 +11744,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateFieldsOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateFieldsOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11790,7 +11790,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FootnoteResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FootnoteResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11836,7 +11836,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FootnoteResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FootnoteResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11882,7 +11882,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FormFieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FormFieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11928,7 +11928,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateFormFieldOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateFormFieldOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11974,7 +11974,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ListResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ListResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12020,7 +12020,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ListResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ListResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12066,7 +12066,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateListLevelOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateListLevelOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12112,7 +12112,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateListOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateListOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12158,7 +12158,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ParagraphFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ParagraphFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12204,7 +12204,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateParagraphFormatOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateParagraphFormatOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12250,7 +12250,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ParagraphListFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ParagraphListFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12296,7 +12296,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateParagraphListFormatOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateParagraphListFormatOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12342,7 +12342,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? RunResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? RunResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12388,7 +12388,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FontResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FontResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12434,7 +12434,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateRunFontOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateRunFontOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12480,7 +12480,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? RunResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? RunResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12526,7 +12526,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SectionPageSetupResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? SectionPageSetupResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12572,7 +12572,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateSectionPageSetupOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateSectionPageSetupOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12618,7 +12618,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? StyleResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? StyleResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12664,7 +12664,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateStyleOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateStyleOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12710,7 +12710,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableCellFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableCellFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12756,7 +12756,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateTableCellFormatOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateTableCellFormatOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12802,7 +12802,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TablePropertiesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TablePropertiesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12848,7 +12848,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateTablePropertiesOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateTablePropertiesOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12894,7 +12894,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? TableRowFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? TableRowFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12940,7 +12940,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateTableRowFormatOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateTableRowFormatOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12986,7 +12986,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? FilesUploadResult, nil);
+                            callback(try request.deserializeResponse(data: response!) as? FilesUploadResult, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
