@@ -139,6 +139,6 @@ public class InsertOrUpdateParagraphTabStopOnlineRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data) throws -> Any? {
-        return try ObjectSerializer.deserialize(type: InsertOrUpdateParagraphTabStopOnlineResponse.self, from: data);
+        let parts = try ObjectSerializer.parseMultipart(data: data);return nil;
     }
 }

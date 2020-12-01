@@ -158,6 +158,6 @@ public class UpdateTableCellFormatOnlineRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data) throws -> Any? {
-        return try ObjectSerializer.deserialize(type: UpdateTableCellFormatOnlineResponse.self, from: data);
+        let parts = try ObjectSerializer.parseMultipart(data: data);return nil;
     }
 }

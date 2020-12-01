@@ -163,6 +163,6 @@ public class InsertDrawingObjectOnlineRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data) throws -> Any? {
-        return try ObjectSerializer.deserialize(type: InsertDrawingObjectOnlineResponse.self, from: data);
+        let parts = try ObjectSerializer.parseMultipart(data: data);return nil;
     }
 }
