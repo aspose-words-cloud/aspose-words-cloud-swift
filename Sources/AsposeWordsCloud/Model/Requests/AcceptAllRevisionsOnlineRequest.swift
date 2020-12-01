@@ -104,6 +104,7 @@ public class AcceptAllRevisionsOnlineRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data) throws -> Any? {
-        let parts = try ObjectSerializer.parseMultipart(data: data);return nil;
+        let parts = try ObjectSerializer.parseMultipart(data: data);
+        return nil;
     }
 }

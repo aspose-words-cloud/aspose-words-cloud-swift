@@ -92,7 +92,7 @@ public class WordsAPI {
 
     // Async representation of acceptAllRevisionsOnline method
     // Accepts all revisions in the document.
-    public func acceptAllRevisionsOnline(request : AcceptAllRevisionsOnlineRequest, callback : @escaping (_ response : AcceptAllRevisionsOnline"Response"?, _ error : Error?) -> ()) {
+    public func acceptAllRevisionsOnline(request : AcceptAllRevisionsOnlineRequest, callback : @escaping (_ response : AcceptAllRevisionsOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -102,7 +102,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? AcceptAllRevisionsOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? AcceptAllRevisionsOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -118,9 +118,9 @@ public class WordsAPI {
 
     // Sync representation of acceptAllRevisionsOnline method
     // Accepts all revisions in the document.
-    public func acceptAllRevisionsOnline(request : AcceptAllRevisionsOnlineRequest) throws -> AcceptAllRevisionsOnline"Response" {
+    public func acceptAllRevisionsOnline(request : AcceptAllRevisionsOnlineRequest) throws -> AcceptAllRevisionsOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : AcceptAllRevisionsOnline"Response"? = nil;
+        var responseObject : AcceptAllRevisionsOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.acceptAllRevisionsOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -184,7 +184,7 @@ public class WordsAPI {
 
     // Async representation of appendDocumentOnline method
     // Appends documents to the original document.
-    public func appendDocumentOnline(request : AppendDocumentOnlineRequest, callback : @escaping (_ response : AppendDocumentOnline"Response"?, _ error : Error?) -> ()) {
+    public func appendDocumentOnline(request : AppendDocumentOnlineRequest, callback : @escaping (_ response : AppendDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -194,7 +194,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? AppendDocumentOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? AppendDocumentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -210,9 +210,9 @@ public class WordsAPI {
 
     // Sync representation of appendDocumentOnline method
     // Appends documents to the original document.
-    public func appendDocumentOnline(request : AppendDocumentOnlineRequest) throws -> AppendDocumentOnline"Response" {
+    public func appendDocumentOnline(request : AppendDocumentOnlineRequest) throws -> AppendDocumentOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : AppendDocumentOnline"Response"? = nil;
+        var responseObject : AppendDocumentOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.appendDocumentOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -276,7 +276,7 @@ public class WordsAPI {
 
     // Async representation of applyStyleToDocumentElementOnline method
     // Applies a style to the document node.
-    public func applyStyleToDocumentElementOnline(request : ApplyStyleToDocumentElementOnlineRequest, callback : @escaping (_ response : ApplyStyleToDocumentElementOnline"Response"?, _ error : Error?) -> ()) {
+    public func applyStyleToDocumentElementOnline(request : ApplyStyleToDocumentElementOnlineRequest, callback : @escaping (_ response : ApplyStyleToDocumentElementOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -286,7 +286,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ApplyStyleToDocumentElementOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? ApplyStyleToDocumentElementOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -302,9 +302,9 @@ public class WordsAPI {
 
     // Sync representation of applyStyleToDocumentElementOnline method
     // Applies a style to the document node.
-    public func applyStyleToDocumentElementOnline(request : ApplyStyleToDocumentElementOnlineRequest) throws -> ApplyStyleToDocumentElementOnline"Response" {
+    public func applyStyleToDocumentElementOnline(request : ApplyStyleToDocumentElementOnlineRequest) throws -> ApplyStyleToDocumentElementOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : ApplyStyleToDocumentElementOnline"Response"? = nil;
+        var responseObject : ApplyStyleToDocumentElementOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.applyStyleToDocumentElementOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -598,7 +598,7 @@ public class WordsAPI {
 
     // Async representation of compareDocumentOnline method
     // Compares two documents.
-    public func compareDocumentOnline(request : CompareDocumentOnlineRequest, callback : @escaping (_ response : CompareDocumentOnline"Response"?, _ error : Error?) -> ()) {
+    public func compareDocumentOnline(request : CompareDocumentOnlineRequest, callback : @escaping (_ response : CompareDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -608,7 +608,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? CompareDocumentOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? CompareDocumentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -624,9 +624,9 @@ public class WordsAPI {
 
     // Sync representation of compareDocumentOnline method
     // Compares two documents.
-    public func compareDocumentOnline(request : CompareDocumentOnlineRequest) throws -> CompareDocumentOnline"Response" {
+    public func compareDocumentOnline(request : CompareDocumentOnlineRequest) throws -> CompareDocumentOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : CompareDocumentOnline"Response"? = nil;
+        var responseObject : CompareDocumentOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.compareDocumentOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -802,7 +802,7 @@ public class WordsAPI {
 
     // Async representation of copyStyleOnline method
     // Makes a copy of the style in the document.
-    public func copyStyleOnline(request : CopyStyleOnlineRequest, callback : @escaping (_ response : CopyStyleOnline"Response"?, _ error : Error?) -> ()) {
+    public func copyStyleOnline(request : CopyStyleOnlineRequest, callback : @escaping (_ response : CopyStyleOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -812,7 +812,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? CopyStyleOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? CopyStyleOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -828,9 +828,9 @@ public class WordsAPI {
 
     // Sync representation of copyStyleOnline method
     // Makes a copy of the style in the document.
-    public func copyStyleOnline(request : CopyStyleOnlineRequest) throws -> CopyStyleOnline"Response" {
+    public func copyStyleOnline(request : CopyStyleOnlineRequest) throws -> CopyStyleOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : CopyStyleOnline"Response"? = nil;
+        var responseObject : CopyStyleOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.copyStyleOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -973,7 +973,7 @@ public class WordsAPI {
 
     // Async representation of createOrUpdateDocumentPropertyOnline method
     // Adds a new or updates an existing document property.
-    public func createOrUpdateDocumentPropertyOnline(request : CreateOrUpdateDocumentPropertyOnlineRequest, callback : @escaping (_ response : CreateOrUpdateDocumentPropertyOnline"Response"?, _ error : Error?) -> ()) {
+    public func createOrUpdateDocumentPropertyOnline(request : CreateOrUpdateDocumentPropertyOnlineRequest, callback : @escaping (_ response : CreateOrUpdateDocumentPropertyOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -983,7 +983,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? CreateOrUpdateDocumentPropertyOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? CreateOrUpdateDocumentPropertyOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -999,9 +999,9 @@ public class WordsAPI {
 
     // Sync representation of createOrUpdateDocumentPropertyOnline method
     // Adds a new or updates an existing document property.
-    public func createOrUpdateDocumentPropertyOnline(request : CreateOrUpdateDocumentPropertyOnlineRequest) throws -> CreateOrUpdateDocumentPropertyOnline"Response" {
+    public func createOrUpdateDocumentPropertyOnline(request : CreateOrUpdateDocumentPropertyOnlineRequest) throws -> CreateOrUpdateDocumentPropertyOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : CreateOrUpdateDocumentPropertyOnline"Response"? = nil;
+        var responseObject : CreateOrUpdateDocumentPropertyOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.createOrUpdateDocumentPropertyOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -2816,7 +2816,7 @@ public class WordsAPI {
 
     // Async representation of deleteWatermarkOnline method
     // Removes a watermark from the document.
-    public func deleteWatermarkOnline(request : DeleteWatermarkOnlineRequest, callback : @escaping (_ response : DeleteWatermarkOnline"Response"?, _ error : Error?) -> ()) {
+    public func deleteWatermarkOnline(request : DeleteWatermarkOnlineRequest, callback : @escaping (_ response : DeleteWatermarkOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -2826,7 +2826,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? DeleteWatermarkOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? DeleteWatermarkOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2842,9 +2842,9 @@ public class WordsAPI {
 
     // Sync representation of deleteWatermarkOnline method
     // Removes a watermark from the document.
-    public func deleteWatermarkOnline(request : DeleteWatermarkOnlineRequest) throws -> DeleteWatermarkOnline"Response" {
+    public func deleteWatermarkOnline(request : DeleteWatermarkOnlineRequest) throws -> DeleteWatermarkOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : DeleteWatermarkOnline"Response"? = nil;
+        var responseObject : DeleteWatermarkOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.deleteWatermarkOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -8014,7 +8014,7 @@ public class WordsAPI {
 
     // Async representation of insertCommentOnline method
     // Inserts a new comment to the document.
-    public func insertCommentOnline(request : InsertCommentOnlineRequest, callback : @escaping (_ response : InsertCommentOnline"Response"?, _ error : Error?) -> ()) {
+    public func insertCommentOnline(request : InsertCommentOnlineRequest, callback : @escaping (_ response : InsertCommentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -8024,7 +8024,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertCommentOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? InsertCommentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8040,9 +8040,9 @@ public class WordsAPI {
 
     // Sync representation of insertCommentOnline method
     // Inserts a new comment to the document.
-    public func insertCommentOnline(request : InsertCommentOnlineRequest) throws -> InsertCommentOnline"Response" {
+    public func insertCommentOnline(request : InsertCommentOnlineRequest) throws -> InsertCommentOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : InsertCommentOnline"Response"? = nil;
+        var responseObject : InsertCommentOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertCommentOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -8106,7 +8106,7 @@ public class WordsAPI {
 
     // Async representation of insertDrawingObjectOnline method
     // Inserts a new DrawingObject to the document node.
-    public func insertDrawingObjectOnline(request : InsertDrawingObjectOnlineRequest, callback : @escaping (_ response : InsertDrawingObjectOnline"Response"?, _ error : Error?) -> ()) {
+    public func insertDrawingObjectOnline(request : InsertDrawingObjectOnlineRequest, callback : @escaping (_ response : InsertDrawingObjectOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -8116,7 +8116,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertDrawingObjectOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? InsertDrawingObjectOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8132,9 +8132,9 @@ public class WordsAPI {
 
     // Sync representation of insertDrawingObjectOnline method
     // Inserts a new DrawingObject to the document node.
-    public func insertDrawingObjectOnline(request : InsertDrawingObjectOnlineRequest) throws -> InsertDrawingObjectOnline"Response" {
+    public func insertDrawingObjectOnline(request : InsertDrawingObjectOnlineRequest) throws -> InsertDrawingObjectOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : InsertDrawingObjectOnline"Response"? = nil;
+        var responseObject : InsertDrawingObjectOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertDrawingObjectOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -8290,7 +8290,7 @@ public class WordsAPI {
 
     // Async representation of insertFootnoteOnline method
     // Inserts a new footnote to the document node.
-    public func insertFootnoteOnline(request : InsertFootnoteOnlineRequest, callback : @escaping (_ response : InsertFootnoteOnline"Response"?, _ error : Error?) -> ()) {
+    public func insertFootnoteOnline(request : InsertFootnoteOnlineRequest, callback : @escaping (_ response : InsertFootnoteOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -8300,7 +8300,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertFootnoteOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? InsertFootnoteOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8316,9 +8316,9 @@ public class WordsAPI {
 
     // Sync representation of insertFootnoteOnline method
     // Inserts a new footnote to the document node.
-    public func insertFootnoteOnline(request : InsertFootnoteOnlineRequest) throws -> InsertFootnoteOnline"Response" {
+    public func insertFootnoteOnline(request : InsertFootnoteOnlineRequest) throws -> InsertFootnoteOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : InsertFootnoteOnline"Response"? = nil;
+        var responseObject : InsertFootnoteOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertFootnoteOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -8382,7 +8382,7 @@ public class WordsAPI {
 
     // Async representation of insertFormFieldOnline method
     // Inserts a new form field to the document node.
-    public func insertFormFieldOnline(request : InsertFormFieldOnlineRequest, callback : @escaping (_ response : InsertFormFieldOnline"Response"?, _ error : Error?) -> ()) {
+    public func insertFormFieldOnline(request : InsertFormFieldOnlineRequest, callback : @escaping (_ response : InsertFormFieldOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -8392,7 +8392,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertFormFieldOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? InsertFormFieldOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8408,9 +8408,9 @@ public class WordsAPI {
 
     // Sync representation of insertFormFieldOnline method
     // Inserts a new form field to the document node.
-    public func insertFormFieldOnline(request : InsertFormFieldOnlineRequest) throws -> InsertFormFieldOnline"Response" {
+    public func insertFormFieldOnline(request : InsertFormFieldOnlineRequest) throws -> InsertFormFieldOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : InsertFormFieldOnline"Response"? = nil;
+        var responseObject : InsertFormFieldOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertFormFieldOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -8566,7 +8566,7 @@ public class WordsAPI {
 
     // Async representation of insertListOnline method
     // Inserts a new list to the document.
-    public func insertListOnline(request : InsertListOnlineRequest, callback : @escaping (_ response : InsertListOnline"Response"?, _ error : Error?) -> ()) {
+    public func insertListOnline(request : InsertListOnlineRequest, callback : @escaping (_ response : InsertListOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -8576,7 +8576,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertListOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? InsertListOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8592,9 +8592,9 @@ public class WordsAPI {
 
     // Sync representation of insertListOnline method
     // Inserts a new list to the document.
-    public func insertListOnline(request : InsertListOnlineRequest) throws -> InsertListOnline"Response" {
+    public func insertListOnline(request : InsertListOnlineRequest) throws -> InsertListOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : InsertListOnline"Response"? = nil;
+        var responseObject : InsertListOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertListOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -8658,7 +8658,7 @@ public class WordsAPI {
 
     // Async representation of insertOrUpdateParagraphTabStopOnline method
     // Inserts a new or updates an existing paragraph tab stop in the document node.
-    public func insertOrUpdateParagraphTabStopOnline(request : InsertOrUpdateParagraphTabStopOnlineRequest, callback : @escaping (_ response : InsertOrUpdateParagraphTabStopOnline"Response"?, _ error : Error?) -> ()) {
+    public func insertOrUpdateParagraphTabStopOnline(request : InsertOrUpdateParagraphTabStopOnlineRequest, callback : @escaping (_ response : InsertOrUpdateParagraphTabStopOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -8668,7 +8668,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertOrUpdateParagraphTabStopOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? InsertOrUpdateParagraphTabStopOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8684,9 +8684,9 @@ public class WordsAPI {
 
     // Sync representation of insertOrUpdateParagraphTabStopOnline method
     // Inserts a new or updates an existing paragraph tab stop in the document node.
-    public func insertOrUpdateParagraphTabStopOnline(request : InsertOrUpdateParagraphTabStopOnlineRequest) throws -> InsertOrUpdateParagraphTabStopOnline"Response" {
+    public func insertOrUpdateParagraphTabStopOnline(request : InsertOrUpdateParagraphTabStopOnlineRequest) throws -> InsertOrUpdateParagraphTabStopOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : InsertOrUpdateParagraphTabStopOnline"Response"? = nil;
+        var responseObject : InsertOrUpdateParagraphTabStopOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertOrUpdateParagraphTabStopOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -8750,7 +8750,7 @@ public class WordsAPI {
 
     // Async representation of insertPageNumbersOnline method
     // Inserts page numbers to the document.
-    public func insertPageNumbersOnline(request : InsertPageNumbersOnlineRequest, callback : @escaping (_ response : InsertPageNumbersOnline"Response"?, _ error : Error?) -> ()) {
+    public func insertPageNumbersOnline(request : InsertPageNumbersOnlineRequest, callback : @escaping (_ response : InsertPageNumbersOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -8760,7 +8760,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertPageNumbersOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? InsertPageNumbersOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8776,9 +8776,9 @@ public class WordsAPI {
 
     // Sync representation of insertPageNumbersOnline method
     // Inserts page numbers to the document.
-    public func insertPageNumbersOnline(request : InsertPageNumbersOnlineRequest) throws -> InsertPageNumbersOnline"Response" {
+    public func insertPageNumbersOnline(request : InsertPageNumbersOnlineRequest) throws -> InsertPageNumbersOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : InsertPageNumbersOnline"Response"? = nil;
+        var responseObject : InsertPageNumbersOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertPageNumbersOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -8842,7 +8842,7 @@ public class WordsAPI {
 
     // Async representation of insertParagraphOnline method
     // Inserts a new paragraph to the document node.
-    public func insertParagraphOnline(request : InsertParagraphOnlineRequest, callback : @escaping (_ response : InsertParagraphOnline"Response"?, _ error : Error?) -> ()) {
+    public func insertParagraphOnline(request : InsertParagraphOnlineRequest, callback : @escaping (_ response : InsertParagraphOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -8852,7 +8852,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertParagraphOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? InsertParagraphOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8868,9 +8868,9 @@ public class WordsAPI {
 
     // Sync representation of insertParagraphOnline method
     // Inserts a new paragraph to the document node.
-    public func insertParagraphOnline(request : InsertParagraphOnlineRequest) throws -> InsertParagraphOnline"Response" {
+    public func insertParagraphOnline(request : InsertParagraphOnlineRequest) throws -> InsertParagraphOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : InsertParagraphOnline"Response"? = nil;
+        var responseObject : InsertParagraphOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertParagraphOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -8934,7 +8934,7 @@ public class WordsAPI {
 
     // Async representation of insertRunOnline method
     // Inserts a new Run object to the paragraph.
-    public func insertRunOnline(request : InsertRunOnlineRequest, callback : @escaping (_ response : InsertRunOnline"Response"?, _ error : Error?) -> ()) {
+    public func insertRunOnline(request : InsertRunOnlineRequest, callback : @escaping (_ response : InsertRunOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -8944,7 +8944,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertRunOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? InsertRunOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8960,9 +8960,9 @@ public class WordsAPI {
 
     // Sync representation of insertRunOnline method
     // Inserts a new Run object to the paragraph.
-    public func insertRunOnline(request : InsertRunOnlineRequest) throws -> InsertRunOnline"Response" {
+    public func insertRunOnline(request : InsertRunOnlineRequest) throws -> InsertRunOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : InsertRunOnline"Response"? = nil;
+        var responseObject : InsertRunOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertRunOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -9026,7 +9026,7 @@ public class WordsAPI {
 
     // Async representation of insertStyleOnline method
     // Inserts a new style to the document.
-    public func insertStyleOnline(request : InsertStyleOnlineRequest, callback : @escaping (_ response : InsertStyleOnline"Response"?, _ error : Error?) -> ()) {
+    public func insertStyleOnline(request : InsertStyleOnlineRequest, callback : @escaping (_ response : InsertStyleOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -9036,7 +9036,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertStyleOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? InsertStyleOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9052,9 +9052,9 @@ public class WordsAPI {
 
     // Sync representation of insertStyleOnline method
     // Inserts a new style to the document.
-    public func insertStyleOnline(request : InsertStyleOnlineRequest) throws -> InsertStyleOnline"Response" {
+    public func insertStyleOnline(request : InsertStyleOnlineRequest) throws -> InsertStyleOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : InsertStyleOnline"Response"? = nil;
+        var responseObject : InsertStyleOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertStyleOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -9164,7 +9164,7 @@ public class WordsAPI {
 
     // Async representation of insertTableCellOnline method
     // Inserts a new cell to the table row.
-    public func insertTableCellOnline(request : InsertTableCellOnlineRequest, callback : @escaping (_ response : InsertTableCellOnline"Response"?, _ error : Error?) -> ()) {
+    public func insertTableCellOnline(request : InsertTableCellOnlineRequest, callback : @escaping (_ response : InsertTableCellOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -9174,7 +9174,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertTableCellOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? InsertTableCellOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9190,9 +9190,9 @@ public class WordsAPI {
 
     // Sync representation of insertTableCellOnline method
     // Inserts a new cell to the table row.
-    public func insertTableCellOnline(request : InsertTableCellOnlineRequest) throws -> InsertTableCellOnline"Response" {
+    public func insertTableCellOnline(request : InsertTableCellOnlineRequest) throws -> InsertTableCellOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : InsertTableCellOnline"Response"? = nil;
+        var responseObject : InsertTableCellOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertTableCellOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -9210,7 +9210,7 @@ public class WordsAPI {
 
     // Async representation of insertTableOnline method
     // Inserts a new table to the document node.
-    public func insertTableOnline(request : InsertTableOnlineRequest, callback : @escaping (_ response : InsertTableOnline"Response"?, _ error : Error?) -> ()) {
+    public func insertTableOnline(request : InsertTableOnlineRequest, callback : @escaping (_ response : InsertTableOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -9220,7 +9220,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertTableOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? InsertTableOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9236,9 +9236,9 @@ public class WordsAPI {
 
     // Sync representation of insertTableOnline method
     // Inserts a new table to the document node.
-    public func insertTableOnline(request : InsertTableOnlineRequest) throws -> InsertTableOnline"Response" {
+    public func insertTableOnline(request : InsertTableOnlineRequest) throws -> InsertTableOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : InsertTableOnline"Response"? = nil;
+        var responseObject : InsertTableOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertTableOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -9302,7 +9302,7 @@ public class WordsAPI {
 
     // Async representation of insertTableRowOnline method
     // Inserts a new row to the table.
-    public func insertTableRowOnline(request : InsertTableRowOnlineRequest, callback : @escaping (_ response : InsertTableRowOnline"Response"?, _ error : Error?) -> ()) {
+    public func insertTableRowOnline(request : InsertTableRowOnlineRequest, callback : @escaping (_ response : InsertTableRowOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -9312,7 +9312,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertTableRowOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? InsertTableRowOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9328,9 +9328,9 @@ public class WordsAPI {
 
     // Sync representation of insertTableRowOnline method
     // Inserts a new row to the table.
-    public func insertTableRowOnline(request : InsertTableRowOnlineRequest) throws -> InsertTableRowOnline"Response" {
+    public func insertTableRowOnline(request : InsertTableRowOnlineRequest) throws -> InsertTableRowOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : InsertTableRowOnline"Response"? = nil;
+        var responseObject : InsertTableRowOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertTableRowOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -9394,7 +9394,7 @@ public class WordsAPI {
 
     // Async representation of insertWatermarkImageOnline method
     // Inserts a new watermark image to the document.
-    public func insertWatermarkImageOnline(request : InsertWatermarkImageOnlineRequest, callback : @escaping (_ response : InsertWatermarkImageOnline"Response"?, _ error : Error?) -> ()) {
+    public func insertWatermarkImageOnline(request : InsertWatermarkImageOnlineRequest, callback : @escaping (_ response : InsertWatermarkImageOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -9404,7 +9404,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertWatermarkImageOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? InsertWatermarkImageOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9420,9 +9420,9 @@ public class WordsAPI {
 
     // Sync representation of insertWatermarkImageOnline method
     // Inserts a new watermark image to the document.
-    public func insertWatermarkImageOnline(request : InsertWatermarkImageOnlineRequest) throws -> InsertWatermarkImageOnline"Response" {
+    public func insertWatermarkImageOnline(request : InsertWatermarkImageOnlineRequest) throws -> InsertWatermarkImageOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : InsertWatermarkImageOnline"Response"? = nil;
+        var responseObject : InsertWatermarkImageOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertWatermarkImageOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -9486,7 +9486,7 @@ public class WordsAPI {
 
     // Async representation of insertWatermarkTextOnline method
     // Inserts a new watermark text to the document.
-    public func insertWatermarkTextOnline(request : InsertWatermarkTextOnlineRequest, callback : @escaping (_ response : InsertWatermarkTextOnline"Response"?, _ error : Error?) -> ()) {
+    public func insertWatermarkTextOnline(request : InsertWatermarkTextOnlineRequest, callback : @escaping (_ response : InsertWatermarkTextOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -9496,7 +9496,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? InsertWatermarkTextOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? InsertWatermarkTextOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9512,9 +9512,9 @@ public class WordsAPI {
 
     // Sync representation of insertWatermarkTextOnline method
     // Inserts a new watermark text to the document.
-    public func insertWatermarkTextOnline(request : InsertWatermarkTextOnlineRequest) throws -> InsertWatermarkTextOnline"Response" {
+    public func insertWatermarkTextOnline(request : InsertWatermarkTextOnlineRequest) throws -> InsertWatermarkTextOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : InsertWatermarkTextOnline"Response"? = nil;
+        var responseObject : InsertWatermarkTextOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertWatermarkTextOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -9769,7 +9769,7 @@ public class WordsAPI {
 
     // Async representation of protectDocumentOnline method
     // Adds protection to the document.
-    public func protectDocumentOnline(request : ProtectDocumentOnlineRequest, callback : @escaping (_ response : ProtectDocumentOnline"Response"?, _ error : Error?) -> ()) {
+    public func protectDocumentOnline(request : ProtectDocumentOnlineRequest, callback : @escaping (_ response : ProtectDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -9779,7 +9779,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ProtectDocumentOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? ProtectDocumentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9795,9 +9795,9 @@ public class WordsAPI {
 
     // Sync representation of protectDocumentOnline method
     // Adds protection to the document.
-    public func protectDocumentOnline(request : ProtectDocumentOnlineRequest) throws -> ProtectDocumentOnline"Response" {
+    public func protectDocumentOnline(request : ProtectDocumentOnlineRequest) throws -> ProtectDocumentOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : ProtectDocumentOnline"Response"? = nil;
+        var responseObject : ProtectDocumentOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.protectDocumentOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -9861,7 +9861,7 @@ public class WordsAPI {
 
     // Async representation of rejectAllRevisionsOnline method
     // Rejects all revisions in the document.
-    public func rejectAllRevisionsOnline(request : RejectAllRevisionsOnlineRequest, callback : @escaping (_ response : RejectAllRevisionsOnline"Response"?, _ error : Error?) -> ()) {
+    public func rejectAllRevisionsOnline(request : RejectAllRevisionsOnlineRequest, callback : @escaping (_ response : RejectAllRevisionsOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -9871,7 +9871,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? RejectAllRevisionsOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? RejectAllRevisionsOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9887,9 +9887,9 @@ public class WordsAPI {
 
     // Sync representation of rejectAllRevisionsOnline method
     // Rejects all revisions in the document.
-    public func rejectAllRevisionsOnline(request : RejectAllRevisionsOnlineRequest) throws -> RejectAllRevisionsOnline"Response" {
+    public func rejectAllRevisionsOnline(request : RejectAllRevisionsOnlineRequest) throws -> RejectAllRevisionsOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : RejectAllRevisionsOnline"Response"? = nil;
+        var responseObject : RejectAllRevisionsOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.rejectAllRevisionsOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -10505,7 +10505,7 @@ public class WordsAPI {
 
     // Async representation of replaceTextOnline method
     // Replaces text in the document.
-    public func replaceTextOnline(request : ReplaceTextOnlineRequest, callback : @escaping (_ response : ReplaceTextOnline"Response"?, _ error : Error?) -> ()) {
+    public func replaceTextOnline(request : ReplaceTextOnlineRequest, callback : @escaping (_ response : ReplaceTextOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -10515,7 +10515,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? ReplaceTextOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? ReplaceTextOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10531,9 +10531,9 @@ public class WordsAPI {
 
     // Sync representation of replaceTextOnline method
     // Replaces text in the document.
-    public func replaceTextOnline(request : ReplaceTextOnlineRequest) throws -> ReplaceTextOnline"Response" {
+    public func replaceTextOnline(request : ReplaceTextOnlineRequest) throws -> ReplaceTextOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : ReplaceTextOnline"Response"? = nil;
+        var responseObject : ReplaceTextOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.replaceTextOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -10722,7 +10722,7 @@ public class WordsAPI {
 
     // Async representation of saveAsOnline method
     // Converts a document in cloud storage to the specified format.
-    public func saveAsOnline(request : SaveAsOnlineRequest, callback : @escaping (_ response : SaveAsOnline"Response"?, _ error : Error?) -> ()) {
+    public func saveAsOnline(request : SaveAsOnlineRequest, callback : @escaping (_ response : SaveAsOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -10732,7 +10732,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SaveAsOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? SaveAsOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10748,9 +10748,9 @@ public class WordsAPI {
 
     // Sync representation of saveAsOnline method
     // Converts a document in cloud storage to the specified format.
-    public func saveAsOnline(request : SaveAsOnlineRequest) throws -> SaveAsOnline"Response" {
+    public func saveAsOnline(request : SaveAsOnlineRequest) throws -> SaveAsOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : SaveAsOnline"Response"? = nil;
+        var responseObject : SaveAsOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.saveAsOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -10814,7 +10814,7 @@ public class WordsAPI {
 
     // Async representation of saveAsRangeOnline method
     // Saves a range as a new document.
-    public func saveAsRangeOnline(request : SaveAsRangeOnlineRequest, callback : @escaping (_ response : SaveAsRangeOnline"Response"?, _ error : Error?) -> ()) {
+    public func saveAsRangeOnline(request : SaveAsRangeOnlineRequest, callback : @escaping (_ response : SaveAsRangeOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -10824,7 +10824,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SaveAsRangeOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? SaveAsRangeOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10840,9 +10840,9 @@ public class WordsAPI {
 
     // Sync representation of saveAsRangeOnline method
     // Saves a range as a new document.
-    public func saveAsRangeOnline(request : SaveAsRangeOnlineRequest) throws -> SaveAsRangeOnline"Response" {
+    public func saveAsRangeOnline(request : SaveAsRangeOnlineRequest) throws -> SaveAsRangeOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : SaveAsRangeOnline"Response"? = nil;
+        var responseObject : SaveAsRangeOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.saveAsRangeOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -10906,7 +10906,7 @@ public class WordsAPI {
 
     // Async representation of saveAsTiffOnline method
     // Converts a document in cloud storage to TIFF format using detailed conversion settings.
-    public func saveAsTiffOnline(request : SaveAsTiffOnlineRequest, callback : @escaping (_ response : SaveAsTiffOnline"Response"?, _ error : Error?) -> ()) {
+    public func saveAsTiffOnline(request : SaveAsTiffOnlineRequest, callback : @escaping (_ response : SaveAsTiffOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -10916,7 +10916,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SaveAsTiffOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? SaveAsTiffOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10932,9 +10932,9 @@ public class WordsAPI {
 
     // Sync representation of saveAsTiffOnline method
     // Converts a document in cloud storage to TIFF format using detailed conversion settings.
-    public func saveAsTiffOnline(request : SaveAsTiffOnlineRequest) throws -> SaveAsTiffOnline"Response" {
+    public func saveAsTiffOnline(request : SaveAsTiffOnlineRequest) throws -> SaveAsTiffOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : SaveAsTiffOnline"Response"? = nil;
+        var responseObject : SaveAsTiffOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.saveAsTiffOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -11090,7 +11090,7 @@ public class WordsAPI {
 
     // Async representation of splitDocumentOnline method
     // Splits a document into parts and saves them in the specified format.
-    public func splitDocumentOnline(request : SplitDocumentOnlineRequest, callback : @escaping (_ response : SplitDocumentOnline"Response"?, _ error : Error?) -> ()) {
+    public func splitDocumentOnline(request : SplitDocumentOnlineRequest, callback : @escaping (_ response : SplitDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -11100,7 +11100,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? SplitDocumentOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? SplitDocumentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11116,9 +11116,9 @@ public class WordsAPI {
 
     // Sync representation of splitDocumentOnline method
     // Splits a document into parts and saves them in the specified format.
-    public func splitDocumentOnline(request : SplitDocumentOnlineRequest) throws -> SplitDocumentOnline"Response" {
+    public func splitDocumentOnline(request : SplitDocumentOnlineRequest) throws -> SplitDocumentOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : SplitDocumentOnline"Response"? = nil;
+        var responseObject : SplitDocumentOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.splitDocumentOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -11274,7 +11274,7 @@ public class WordsAPI {
 
     // Async representation of updateBookmarkOnline method
     // Updates a bookmark in the document.
-    public func updateBookmarkOnline(request : UpdateBookmarkOnlineRequest, callback : @escaping (_ response : UpdateBookmarkOnline"Response"?, _ error : Error?) -> ()) {
+    public func updateBookmarkOnline(request : UpdateBookmarkOnlineRequest, callback : @escaping (_ response : UpdateBookmarkOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -11284,7 +11284,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateBookmarkOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? UpdateBookmarkOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11300,9 +11300,9 @@ public class WordsAPI {
 
     // Sync representation of updateBookmarkOnline method
     // Updates a bookmark in the document.
-    public func updateBookmarkOnline(request : UpdateBookmarkOnlineRequest) throws -> UpdateBookmarkOnline"Response" {
+    public func updateBookmarkOnline(request : UpdateBookmarkOnlineRequest) throws -> UpdateBookmarkOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : UpdateBookmarkOnline"Response"? = nil;
+        var responseObject : UpdateBookmarkOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateBookmarkOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -11734,7 +11734,7 @@ public class WordsAPI {
 
     // Async representation of updateFieldsOnline method
     // Reevaluates field values in the document.
-    public func updateFieldsOnline(request : UpdateFieldsOnlineRequest, callback : @escaping (_ response : UpdateFieldsOnline"Response"?, _ error : Error?) -> ()) {
+    public func updateFieldsOnline(request : UpdateFieldsOnlineRequest, callback : @escaping (_ response : UpdateFieldsOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -11744,7 +11744,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateFieldsOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? UpdateFieldsOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11760,9 +11760,9 @@ public class WordsAPI {
 
     // Sync representation of updateFieldsOnline method
     // Reevaluates field values in the document.
-    public func updateFieldsOnline(request : UpdateFieldsOnlineRequest) throws -> UpdateFieldsOnline"Response" {
+    public func updateFieldsOnline(request : UpdateFieldsOnlineRequest) throws -> UpdateFieldsOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : UpdateFieldsOnline"Response"? = nil;
+        var responseObject : UpdateFieldsOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateFieldsOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -11918,7 +11918,7 @@ public class WordsAPI {
 
     // Async representation of updateFormFieldOnline method
     // Updates a form field in the document node.
-    public func updateFormFieldOnline(request : UpdateFormFieldOnlineRequest, callback : @escaping (_ response : UpdateFormFieldOnline"Response"?, _ error : Error?) -> ()) {
+    public func updateFormFieldOnline(request : UpdateFormFieldOnlineRequest, callback : @escaping (_ response : UpdateFormFieldOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -11928,7 +11928,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateFormFieldOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? UpdateFormFieldOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11944,9 +11944,9 @@ public class WordsAPI {
 
     // Sync representation of updateFormFieldOnline method
     // Updates a form field in the document node.
-    public func updateFormFieldOnline(request : UpdateFormFieldOnlineRequest) throws -> UpdateFormFieldOnline"Response" {
+    public func updateFormFieldOnline(request : UpdateFormFieldOnlineRequest) throws -> UpdateFormFieldOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : UpdateFormFieldOnline"Response"? = nil;
+        var responseObject : UpdateFormFieldOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateFormFieldOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -12056,7 +12056,7 @@ public class WordsAPI {
 
     // Async representation of updateListLevelOnline method
     // Updates the level of a List element in the document.
-    public func updateListLevelOnline(request : UpdateListLevelOnlineRequest, callback : @escaping (_ response : UpdateListLevelOnline"Response"?, _ error : Error?) -> ()) {
+    public func updateListLevelOnline(request : UpdateListLevelOnlineRequest, callback : @escaping (_ response : UpdateListLevelOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -12066,7 +12066,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateListLevelOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? UpdateListLevelOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12082,9 +12082,9 @@ public class WordsAPI {
 
     // Sync representation of updateListLevelOnline method
     // Updates the level of a List element in the document.
-    public func updateListLevelOnline(request : UpdateListLevelOnlineRequest) throws -> UpdateListLevelOnline"Response" {
+    public func updateListLevelOnline(request : UpdateListLevelOnlineRequest) throws -> UpdateListLevelOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : UpdateListLevelOnline"Response"? = nil;
+        var responseObject : UpdateListLevelOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateListLevelOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -12102,7 +12102,7 @@ public class WordsAPI {
 
     // Async representation of updateListOnline method
     // Updates a list in the document.
-    public func updateListOnline(request : UpdateListOnlineRequest, callback : @escaping (_ response : UpdateListOnline"Response"?, _ error : Error?) -> ()) {
+    public func updateListOnline(request : UpdateListOnlineRequest, callback : @escaping (_ response : UpdateListOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -12112,7 +12112,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateListOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? UpdateListOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12128,9 +12128,9 @@ public class WordsAPI {
 
     // Sync representation of updateListOnline method
     // Updates a list in the document.
-    public func updateListOnline(request : UpdateListOnlineRequest) throws -> UpdateListOnline"Response" {
+    public func updateListOnline(request : UpdateListOnlineRequest) throws -> UpdateListOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : UpdateListOnline"Response"? = nil;
+        var responseObject : UpdateListOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateListOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -12194,7 +12194,7 @@ public class WordsAPI {
 
     // Async representation of updateParagraphFormatOnline method
     // Updates the formatting properties of a paragraph in the document node.
-    public func updateParagraphFormatOnline(request : UpdateParagraphFormatOnlineRequest, callback : @escaping (_ response : UpdateParagraphFormatOnline"Response"?, _ error : Error?) -> ()) {
+    public func updateParagraphFormatOnline(request : UpdateParagraphFormatOnlineRequest, callback : @escaping (_ response : UpdateParagraphFormatOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -12204,7 +12204,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateParagraphFormatOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? UpdateParagraphFormatOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12220,9 +12220,9 @@ public class WordsAPI {
 
     // Sync representation of updateParagraphFormatOnline method
     // Updates the formatting properties of a paragraph in the document node.
-    public func updateParagraphFormatOnline(request : UpdateParagraphFormatOnlineRequest) throws -> UpdateParagraphFormatOnline"Response" {
+    public func updateParagraphFormatOnline(request : UpdateParagraphFormatOnlineRequest) throws -> UpdateParagraphFormatOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : UpdateParagraphFormatOnline"Response"? = nil;
+        var responseObject : UpdateParagraphFormatOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateParagraphFormatOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -12286,7 +12286,7 @@ public class WordsAPI {
 
     // Async representation of updateParagraphListFormatOnline method
     // Updates the formatting properties of a paragraph list in the document node.
-    public func updateParagraphListFormatOnline(request : UpdateParagraphListFormatOnlineRequest, callback : @escaping (_ response : UpdateParagraphListFormatOnline"Response"?, _ error : Error?) -> ()) {
+    public func updateParagraphListFormatOnline(request : UpdateParagraphListFormatOnlineRequest, callback : @escaping (_ response : UpdateParagraphListFormatOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -12296,7 +12296,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateParagraphListFormatOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? UpdateParagraphListFormatOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12312,9 +12312,9 @@ public class WordsAPI {
 
     // Sync representation of updateParagraphListFormatOnline method
     // Updates the formatting properties of a paragraph list in the document node.
-    public func updateParagraphListFormatOnline(request : UpdateParagraphListFormatOnlineRequest) throws -> UpdateParagraphListFormatOnline"Response" {
+    public func updateParagraphListFormatOnline(request : UpdateParagraphListFormatOnlineRequest) throws -> UpdateParagraphListFormatOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : UpdateParagraphListFormatOnline"Response"? = nil;
+        var responseObject : UpdateParagraphListFormatOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateParagraphListFormatOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -12424,7 +12424,7 @@ public class WordsAPI {
 
     // Async representation of updateRunFontOnline method
     // Updates the font properties of a Run object in the paragraph.
-    public func updateRunFontOnline(request : UpdateRunFontOnlineRequest, callback : @escaping (_ response : UpdateRunFontOnline"Response"?, _ error : Error?) -> ()) {
+    public func updateRunFontOnline(request : UpdateRunFontOnlineRequest, callback : @escaping (_ response : UpdateRunFontOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -12434,7 +12434,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateRunFontOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? UpdateRunFontOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12450,9 +12450,9 @@ public class WordsAPI {
 
     // Sync representation of updateRunFontOnline method
     // Updates the font properties of a Run object in the paragraph.
-    public func updateRunFontOnline(request : UpdateRunFontOnlineRequest) throws -> UpdateRunFontOnline"Response" {
+    public func updateRunFontOnline(request : UpdateRunFontOnlineRequest) throws -> UpdateRunFontOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : UpdateRunFontOnline"Response"? = nil;
+        var responseObject : UpdateRunFontOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateRunFontOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -12562,7 +12562,7 @@ public class WordsAPI {
 
     // Async representation of updateSectionPageSetupOnline method
     // Updates the page setup of a section in the document.
-    public func updateSectionPageSetupOnline(request : UpdateSectionPageSetupOnlineRequest, callback : @escaping (_ response : UpdateSectionPageSetupOnline"Response"?, _ error : Error?) -> ()) {
+    public func updateSectionPageSetupOnline(request : UpdateSectionPageSetupOnlineRequest, callback : @escaping (_ response : UpdateSectionPageSetupOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -12572,7 +12572,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateSectionPageSetupOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? UpdateSectionPageSetupOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12588,9 +12588,9 @@ public class WordsAPI {
 
     // Sync representation of updateSectionPageSetupOnline method
     // Updates the page setup of a section in the document.
-    public func updateSectionPageSetupOnline(request : UpdateSectionPageSetupOnlineRequest) throws -> UpdateSectionPageSetupOnline"Response" {
+    public func updateSectionPageSetupOnline(request : UpdateSectionPageSetupOnlineRequest) throws -> UpdateSectionPageSetupOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : UpdateSectionPageSetupOnline"Response"? = nil;
+        var responseObject : UpdateSectionPageSetupOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateSectionPageSetupOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -12654,7 +12654,7 @@ public class WordsAPI {
 
     // Async representation of updateStyleOnline method
     // Updates a style in the document.
-    public func updateStyleOnline(request : UpdateStyleOnlineRequest, callback : @escaping (_ response : UpdateStyleOnline"Response"?, _ error : Error?) -> ()) {
+    public func updateStyleOnline(request : UpdateStyleOnlineRequest, callback : @escaping (_ response : UpdateStyleOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -12664,7 +12664,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateStyleOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? UpdateStyleOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12680,9 +12680,9 @@ public class WordsAPI {
 
     // Sync representation of updateStyleOnline method
     // Updates a style in the document.
-    public func updateStyleOnline(request : UpdateStyleOnlineRequest) throws -> UpdateStyleOnline"Response" {
+    public func updateStyleOnline(request : UpdateStyleOnlineRequest) throws -> UpdateStyleOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : UpdateStyleOnline"Response"? = nil;
+        var responseObject : UpdateStyleOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateStyleOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -12746,7 +12746,7 @@ public class WordsAPI {
 
     // Async representation of updateTableCellFormatOnline method
     // Updates the formatting properties of a cell in the table row.
-    public func updateTableCellFormatOnline(request : UpdateTableCellFormatOnlineRequest, callback : @escaping (_ response : UpdateTableCellFormatOnline"Response"?, _ error : Error?) -> ()) {
+    public func updateTableCellFormatOnline(request : UpdateTableCellFormatOnlineRequest, callback : @escaping (_ response : UpdateTableCellFormatOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -12756,7 +12756,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateTableCellFormatOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? UpdateTableCellFormatOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12772,9 +12772,9 @@ public class WordsAPI {
 
     // Sync representation of updateTableCellFormatOnline method
     // Updates the formatting properties of a cell in the table row.
-    public func updateTableCellFormatOnline(request : UpdateTableCellFormatOnlineRequest) throws -> UpdateTableCellFormatOnline"Response" {
+    public func updateTableCellFormatOnline(request : UpdateTableCellFormatOnlineRequest) throws -> UpdateTableCellFormatOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : UpdateTableCellFormatOnline"Response"? = nil;
+        var responseObject : UpdateTableCellFormatOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateTableCellFormatOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -12838,7 +12838,7 @@ public class WordsAPI {
 
     // Async representation of updateTablePropertiesOnline method
     // Updates properties of a table in the document node.
-    public func updateTablePropertiesOnline(request : UpdateTablePropertiesOnlineRequest, callback : @escaping (_ response : UpdateTablePropertiesOnline"Response"?, _ error : Error?) -> ()) {
+    public func updateTablePropertiesOnline(request : UpdateTablePropertiesOnlineRequest, callback : @escaping (_ response : UpdateTablePropertiesOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -12848,7 +12848,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateTablePropertiesOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? UpdateTablePropertiesOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12864,9 +12864,9 @@ public class WordsAPI {
 
     // Sync representation of updateTablePropertiesOnline method
     // Updates properties of a table in the document node.
-    public func updateTablePropertiesOnline(request : UpdateTablePropertiesOnlineRequest) throws -> UpdateTablePropertiesOnline"Response" {
+    public func updateTablePropertiesOnline(request : UpdateTablePropertiesOnlineRequest) throws -> UpdateTablePropertiesOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : UpdateTablePropertiesOnline"Response"? = nil;
+        var responseObject : UpdateTablePropertiesOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateTablePropertiesOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -12930,7 +12930,7 @@ public class WordsAPI {
 
     // Async representation of updateTableRowFormatOnline method
     // Updates the formatting properties of a table row.
-    public func updateTableRowFormatOnline(request : UpdateTableRowFormatOnlineRequest, callback : @escaping (_ response : UpdateTableRowFormatOnline"Response"?, _ error : Error?) -> ()) {
+    public func updateTableRowFormatOnline(request : UpdateTableRowFormatOnlineRequest, callback : @escaping (_ response : UpdateTableRowFormatOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -12940,7 +12940,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(request.deserializeResponse(data: response!) as? UpdateTableRowFormatOnline"Response", nil);
+                            callback(request.deserializeResponse(data: response!) as? UpdateTableRowFormatOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12956,9 +12956,9 @@ public class WordsAPI {
 
     // Sync representation of updateTableRowFormatOnline method
     // Updates the formatting properties of a table row.
-    public func updateTableRowFormatOnline(request : UpdateTableRowFormatOnlineRequest) throws -> UpdateTableRowFormatOnline"Response" {
+    public func updateTableRowFormatOnline(request : UpdateTableRowFormatOnlineRequest) throws -> UpdateTableRowFormatOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : UpdateTableRowFormatOnline"Response"? = nil;
+        var responseObject : UpdateTableRowFormatOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateTableRowFormatOnline(request : request, callback: { response, error in
             responseObject = response;
