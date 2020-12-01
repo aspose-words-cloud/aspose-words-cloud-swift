@@ -179,21 +179,25 @@ class ObjectSerializer {
     // Get multipart by name
     public static func getMultipartByName(multipart: [ResponseFormParam], name: String) throws -> ResponseFormParam {
         for part in multipart {
-           let disposition = part.getHeaders()["Content-Disposition"];
-           let partName: String? = nil;
-           for componentRawData in disposition.components(separatedBy: ";") {
-               let componentData = componentRawData.trimmingCharacters(in: .whitespacesAndNewlines);
-               if (!componentData.isEmpty) {
-                   let componentDataParts = componentData.split(separator: "=");
-                   if (componentDataParts.count == 2) {
-                       let componentKey = componentDataParts[0].trimmingCharacters(in: .whitespaces);
-                       let componentValue = componentDataParts[1].trimmingCharacters(in: .whitespaces);
-                       if (componentKey == "name") {
-                         partName = componentValue;
-                         break;
-                       }
-                   }
-               }
+            let disposition = part.getHeaders()["Content-Disposition"];
+            if (disposition == nil) {
+                continue;
+            }
+
+            let partName: String? = nil;
+            for componentRawData in disposition!.components(separatedBy: ";") {
+                let componentData = componentRawData.trimmingCharacters(in: .whitespacesAndNewlines);
+                if (!componentData.isEmpty) {
+                    let componentDataParts = componentData.split(separator: "=");
+                    if (componentDataParts.count == 2) {
+                        let componentKey = componentDataParts[0].trimmingCharacters(in: .whitespaces);
+                        let componentValue = componentDataParts[1].trimmingCharacters(in: .whitespaces);
+                        if (componentKey == "name") {
+                            partName = componentValue;
+                            break;
+                        }
+                    }
+                }
             }
 
             if (partName != nil && partName == name)
