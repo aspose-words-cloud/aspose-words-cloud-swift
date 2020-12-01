@@ -184,7 +184,7 @@ class ObjectSerializer {
                 continue;
             }
 
-            let partName: String? = nil;
+            var partName: String? = nil;
             for componentRawData in disposition!.components(separatedBy: ";") {
                 let componentData = componentRawData.trimmingCharacters(in: .whitespacesAndNewlines);
                 if (!componentData.isEmpty) {
