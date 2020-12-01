@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for convertDocument operation.
-public class ConvertDocumentRequest {
+public class ConvertDocumentRequest : WordsApiRequest {
     private let document : InputStream;
     private let format : String;
     private let outPath : String?;
@@ -61,17 +61,17 @@ public class ConvertDocumentRequest {
         return self.document;
     }
 
-    // Format to convert.
+    // The format to convert.
     public func getFormat() -> String {
         return self.format;
     }
 
-    // Path for saving operation result to the local storage.
+    // The path to the output document on a local storage.
     public func getOutPath() -> String? {
         return self.outPath;
     }
 
-    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "sourceFilename" will be used instead.
+    // The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "sourceFilename" will be used instead.
     public func getFileNameFieldValue() -> String? {
         return self.fileNameFieldValue;
     }
@@ -84,5 +84,48 @@ public class ConvertDocumentRequest {
     // Folder in filestorage with custom fonts.
     public func getFontsLocation() -> String? {
         return self.fontsLocation;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/convert";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: self.getFormat())));
+
+         if (self.getOutPath() != nil) {
+             queryItems.append(URLQueryItem(name: "outPath", value: try ObjectSerializer.serializeToString(value: self.getOutPath()!)));
+         }
+
+         if (self.getFileNameFieldValue() != nil) {
+             queryItems.append(URLQueryItem(name: "fileNameFieldValue", value: try ObjectSerializer.serializeToString(value: self.getFileNameFieldValue()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getFontsLocation() != nil) {
+             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+         var formParams : [RequestFormParam] = [];
+         formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
+
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         result.setBody(formParams: formParams);
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return data;
     }
 }

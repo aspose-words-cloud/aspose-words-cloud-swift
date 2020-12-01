@@ -33,7 +33,7 @@ public class RunLink : NodeLink {
     private var text : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case text;
+        case text = "Text";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class RunLink : NodeLink {
         }
     }
 
-    // Sets text. Gets or sets run's text.
+    // Sets text. Gets or sets the run's text.
     public func setText(text : String?) {
         self.text = text;
     }
 
-    // Gets text. Gets or sets run's text.
+    // Gets text. Gets or sets the run's text.
     public func getText() -> String? {
         return self.text;
     }

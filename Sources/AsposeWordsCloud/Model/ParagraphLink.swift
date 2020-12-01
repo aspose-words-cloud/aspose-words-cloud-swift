@@ -33,7 +33,7 @@ public class ParagraphLink : NodeLink {
     private var text : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case text;
+        case text = "Text";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class ParagraphLink : NodeLink {
         }
     }
 
-    // Sets text. Gets or sets paragraph's text.
+    // Sets text. Gets or sets the paragraph's text.
     public func setText(text : String?) {
         self.text = text;
     }
 
-    // Gets text. Gets or sets paragraph's text.
+    // Gets text. Gets or sets the paragraph's text.
     public func getText() -> String? {
         return self.text;
     }

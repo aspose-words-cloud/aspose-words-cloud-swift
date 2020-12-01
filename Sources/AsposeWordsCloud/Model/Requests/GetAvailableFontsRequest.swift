@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getAvailableFonts operation.
-public class GetAvailableFontsRequest {
+public class GetAvailableFontsRequest : WordsApiRequest {
     private let fontsLocation : String?;
 
     private enum CodingKeys: String, CodingKey {
@@ -41,8 +41,33 @@ public class GetAvailableFontsRequest {
         self.fontsLocation = fontsLocation;
     }
 
-    // Folder in filestorage with custom fonts.
+    // The folder in cloud storage with custom fonts.
     public func getFontsLocation() -> String? {
         return self.fontsLocation;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/fonts/available";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getFontsLocation() != nil) {
+             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: AvailableFontsResponse.self, from: data);
     }
 }

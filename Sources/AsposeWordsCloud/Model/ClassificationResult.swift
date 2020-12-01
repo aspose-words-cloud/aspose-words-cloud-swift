@@ -36,8 +36,8 @@ public class ClassificationResult : Codable, WordsApiModel {
     private var classProbability : Double?;
 
     private enum CodingKeys: String, CodingKey {
-        case className;
-        case classProbability;
+        case className = "ClassName";
+        case classProbability = "ClassProbability";
         case invalidCodingKey;
     }
 

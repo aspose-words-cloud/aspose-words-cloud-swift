@@ -27,25 +27,25 @@
 
 import Foundation
 
-// container class for details of encryption.
+// Container class for details of encryption.
 public class PdfEncryptionDetailsData : Codable, WordsApiModel {
-    // Field of encryptionAlgorithm. container class for details of encryption.
+    // Field of encryptionAlgorithm. Container class for details of encryption.
     private var encryptionAlgorithm : String?;
 
-    // Field of ownerPassword. container class for details of encryption.
+    // Field of ownerPassword. Container class for details of encryption.
     private var ownerPassword : String?;
 
-    // Field of permissions. container class for details of encryption.
+    // Field of permissions. Container class for details of encryption.
     private var permissions : String?;
 
-    // Field of userPassword. container class for details of encryption.
+    // Field of userPassword. Container class for details of encryption.
     private var userPassword : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case encryptionAlgorithm;
-        case ownerPassword;
-        case permissions;
-        case userPassword;
+        case encryptionAlgorithm = "EncryptionAlgorithm";
+        case ownerPassword = "OwnerPassword";
+        case permissions = "Permissions";
+        case userPassword = "UserPassword";
         case invalidCodingKey;
     }
 
@@ -76,42 +76,42 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
         }
     }
 
-    // Sets encryptionAlgorithm. Gets or sets specifies the encryption algorithm to use.
+    // Sets encryptionAlgorithm. Gets or sets the encryption algorithm to use.
     public func setEncryptionAlgorithm(encryptionAlgorithm : String?) {
         self.encryptionAlgorithm = encryptionAlgorithm;
     }
 
-    // Gets encryptionAlgorithm. Gets or sets specifies the encryption algorithm to use.
+    // Gets encryptionAlgorithm. Gets or sets the encryption algorithm to use.
     public func getEncryptionAlgorithm() -> String? {
         return self.encryptionAlgorithm;
     }
 
-    // Sets ownerPassword. Gets or sets specifies the owner password for the encrypted PDF document.
+    // Sets ownerPassword. Gets or sets the owner password for the encrypted PDF document.
     public func setOwnerPassword(ownerPassword : String?) {
         self.ownerPassword = ownerPassword;
     }
 
-    // Gets ownerPassword. Gets or sets specifies the owner password for the encrypted PDF document.
+    // Gets ownerPassword. Gets or sets the owner password for the encrypted PDF document.
     public func getOwnerPassword() -> String? {
         return self.ownerPassword;
     }
 
-    // Sets permissions. Gets or sets specifies the operations that are allowed to a user on an encrypted PDF document.
+    // Sets permissions. Gets or sets the operations that are allowed to a user on the encrypted PDF document.
     public func setPermissions(permissions : String?) {
         self.permissions = permissions;
     }
 
-    // Gets permissions. Gets or sets specifies the operations that are allowed to a user on an encrypted PDF document.
+    // Gets permissions. Gets or sets the operations that are allowed to a user on the encrypted PDF document.
     public func getPermissions() -> String? {
         return self.permissions;
     }
 
-    // Sets userPassword. Gets or sets specifies the user password required for opening the encrypted PDF document.
+    // Sets userPassword. Gets or sets the user password required for opening the encrypted PDF document.
     public func setUserPassword(userPassword : String?) {
         self.userPassword = userPassword;
     }
 
-    // Gets userPassword. Gets or sets specifies the user password required for opening the encrypted PDF document.
+    // Gets userPassword. Gets or sets the user password required for opening the encrypted PDF document.
     public func getUserPassword() -> String? {
         return self.userPassword;
     }

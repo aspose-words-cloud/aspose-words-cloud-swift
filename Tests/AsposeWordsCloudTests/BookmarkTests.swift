@@ -32,8 +32,11 @@ import XCTest
 class BookmarkTests: BaseTestContext {
     static var allTests = [
         ("testGetBookmarks", testGetBookmarks),
+        ("testGetBookmarksOnline", testGetBookmarksOnline),
         ("testGetBookmarkByName", testGetBookmarkByName),
-        ("testUpdateBookmark", testUpdateBookmark)
+        ("testGetBookmarkByNameOnline", testGetBookmarkByNameOnline),
+        ("testUpdateBookmark", testUpdateBookmark),
+        ("testUpdateBookmarkOnline", testUpdateBookmarkOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Bookmarks";
@@ -49,29 +52,57 @@ class BookmarkTests: BaseTestContext {
       _ = try super.getApi().getBookmarks(request: request);
     }
 
+    // Test for getting bookmarks from document online.
+    func testGetBookmarksOnline() throws {
+      let request = GetBookmarksOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      _ = try super.getApi().getBookmarksOnline(request: request);
+    }
+
     // Test for getting bookmark by specified name.
     func testGetBookmarkByName() throws {
       let remoteFileName = "TestGetDocumentBookmarkByName.docx";
+      let bookmarkName = "aspose";
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = GetBookmarkByNameRequest(name: remoteFileName, bookmarkName: "aspose", folder: remoteDataFolder);
+      let request = GetBookmarkByNameRequest(name: remoteFileName, bookmarkName: bookmarkName, folder: remoteDataFolder);
       _ = try super.getApi().getBookmarkByName(request: request);
+    }
+
+    // Test for getting bookmark by specified name online.
+    func testGetBookmarkByNameOnline() throws {
+      let request = GetBookmarkByNameOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, bookmarkName: bookmarkName);
+      _ = try super.getApi().getBookmarkByNameOnline(request: request);
     }
 
     // Test for updating existed bookmark.
     func testUpdateBookmark() throws {
       let remoteFileName = "TestUpdateDocumentBookmark.docx";
       let bookmarkName = "aspose";
+      let bookmarkText = "This will be the text for Aspose";
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestBookmarkData = BookmarkData();
+      requestBookmarkData.setName(name: bookmarkName);
+      requestBookmarkData.setText(text: bookmarkText);
+
+
+      let request = UpdateBookmarkRequest(name: remoteFileName, bookmarkName: bookmarkName, bookmarkData: requestBookmarkData, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      _ = try super.getApi().updateBookmark(request: request);
+    }
+
+    // Test for updating existed bookmark online.
+    func testUpdateBookmarkOnline() throws {
+      let remoteFileName = "TestUpdateDocumentBookmark.docx";
+      let bookmarkName = "aspose";
 
       let requestBookmarkData = BookmarkData();
       requestBookmarkData.setName(name: bookmarkName);
       requestBookmarkData.setText(text: "This will be the text for Aspose");
 
 
-      let request = UpdateBookmarkRequest(name: remoteFileName, bookmarkData: requestBookmarkData, bookmarkName: bookmarkName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().updateBookmark(request: request);
+      let request = UpdateBookmarkOnlineRequest(bookmarkName: bookmarkName, document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, bookmarkData: requestBookmarkData, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      _ = try super.getApi().updateBookmarkOnline(request: request);
     }
 }

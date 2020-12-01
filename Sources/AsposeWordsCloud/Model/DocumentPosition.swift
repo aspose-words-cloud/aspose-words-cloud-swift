@@ -27,17 +27,17 @@
 
 import Foundation
 
-// Represents a position in the document tree.
+// DTO container with a position in the document tree.
 public class DocumentPosition : Codable, WordsApiModel {
-    // Field of node. Represents a position in the document tree.
+    // Field of node. DTO container with a position in the document tree.
     private var node : NodeLink?;
 
-    // Field of offset. Represents a position in the document tree.
+    // Field of offset. DTO container with a position in the document tree.
     private var offset : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case node;
-        case offset;
+        case node = "Node";
+        case offset = "Offset";
         case invalidCodingKey;
     }
 
@@ -60,22 +60,22 @@ public class DocumentPosition : Codable, WordsApiModel {
         }
     }
 
-    // Sets node. Gets or sets link to  node.
+    // Sets node. Gets or sets the link to a node.
     public func setNode(node : NodeLink?) {
         self.node = node;
     }
 
-    // Gets node. Gets or sets link to  node.
+    // Gets node. Gets or sets the link to a node.
     public func getNode() -> NodeLink? {
         return self.node;
     }
 
-    // Sets offset. Gets or sets offset into the node.
+    // Sets offset. Gets or sets the offset in the node.
     public func setOffset(offset : Int?) {
         self.offset = offset;
     }
 
-    // Gets offset. Gets or sets offset into the node.
+    // Gets offset. Gets or sets the offset in the node.
     public func getOffset() -> Int? {
         return self.offset;
     }

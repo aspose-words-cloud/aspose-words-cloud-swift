@@ -27,13 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:  GET /drawingObjects.
+// The REST response with a collection of DrawingObjects.
 public class DrawingObjectsResponse : WordsResponse {
-    // Field of drawingObjects. This response should be returned by the service when handling:  GET /drawingObjects.
+    // Field of drawingObjects. The REST response with a collection of DrawingObjects.
     private var drawingObjects : DrawingObjectCollection?;
 
     private enum CodingKeys: String, CodingKey {
-        case drawingObjects;
+        case drawingObjects = "DrawingObjects";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class DrawingObjectsResponse : WordsResponse {
         }
     }
 
-    // Sets drawingObjects. Gets or sets collection of drawing objects.
+    // Sets drawingObjects. Gets or sets the collection of DrawingObjects.
     public func setDrawingObjects(drawingObjects : DrawingObjectCollection?) {
         self.drawingObjects = drawingObjects;
     }
 
-    // Gets drawingObjects. Gets or sets collection of drawing objects.
+    // Gets drawingObjects. Gets or sets the collection of DrawingObjects.
     public func getDrawingObjects() -> DrawingObjectCollection? {
         return self.drawingObjects;
     }

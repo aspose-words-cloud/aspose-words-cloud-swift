@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for loadWebDocument operation.
-public class LoadWebDocumentRequest {
+public class LoadWebDocumentRequest : WordsApiRequest {
     private let data : LoadWebDocumentData;
     private let storage : String?;
 
@@ -44,7 +44,7 @@ public class LoadWebDocumentRequest {
         self.storage = storage;
     }
 
-    // Parameters of loading.
+    // The properties of data downloading.
     public func getData() -> LoadWebDocumentData {
         return self.data;
     }
@@ -52,5 +52,31 @@ public class LoadWebDocumentRequest {
     // Original document storage.
     public func getStorage() -> String? {
         return self.storage;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/loadWebDocument";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getData()), contentType: "application/json");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: SaveResponse.self, from: data);
     }
 }

@@ -28,11 +28,11 @@
 import Foundation
 
 // Request model for updateRun operation.
-public class UpdateRunRequest {
+public class UpdateRunRequest : WordsApiRequest {
     private let name : String;
-    private let run : RunUpdate;
     private let paragraphPath : String;
     private let index : Int;
+    private let run : RunUpdate;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -43,9 +43,9 @@ public class UpdateRunRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case run;
         case paragraphPath;
         case index;
+        case run;
         case folder;
         case storage;
         case loadEncoding;
@@ -57,11 +57,11 @@ public class UpdateRunRequest {
     }
 
     // Initializes a new instance of the UpdateRunRequest class.
-    public init(name : String, run : RunUpdate, paragraphPath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, paragraphPath : String, index : Int, run : RunUpdate, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.run = run;
         self.paragraphPath = paragraphPath;
         self.index = index;
+        self.run = run;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -71,17 +71,12 @@ public class UpdateRunRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Run data.
-    public func getRun() -> RunUpdate {
-        return self.run;
-    }
-
-    // Path to parent paragraph.
+    // The path to the paragraph in the document tree.
     public func getParagraphPath() -> String {
         return self.paragraphPath;
     }
@@ -89,6 +84,11 @@ public class UpdateRunRequest {
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // Run data.
+    public func getRun() -> RunUpdate {
+        return self.run;
     }
 
     // Original document folder.
@@ -124,5 +124,61 @@ public class UpdateRunRequest {
     // The date and time to use for revisions.
     public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{name}/{paragraphPath}/runs/{index}";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: try ObjectSerializer.serializeToString(value: self.getParagraphPath()));
+
+         rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: self.getIndex()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getDestFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+         }
+
+         if (self.getRevisionAuthor() != nil) {
+             queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
+         }
+
+         if (self.getRevisionDateTime() != nil) {
+             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getRun()), contentType: "application/json");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: RunResponse.self, from: data);
     }
 }

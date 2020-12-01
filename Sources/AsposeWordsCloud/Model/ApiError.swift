@@ -45,11 +45,11 @@ public class ApiError : Codable, WordsApiModel {
     private var message : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case code;
-        case dateTime;
-        case description;
-        case innerError;
-        case message;
+        case code = "Code";
+        case dateTime = "DateTime";
+        case description = "Description";
+        case innerError = "InnerError";
+        case message = "Message";
         case invalidCodingKey;
     }
 
@@ -89,52 +89,52 @@ public class ApiError : Codable, WordsApiModel {
         }
     }
 
-    // Sets code. Gets or sets api error code.
+    // Sets code. Gets or sets the API error code.
     public func setCode(code : String?) {
         self.code = code;
     }
 
-    // Gets code. Gets or sets api error code.
+    // Gets code. Gets or sets the API error code.
     public func getCode() -> String? {
         return self.code;
     }
 
-    // Sets dateTime. Gets or sets server datetime.
+    // Sets dateTime. Gets or sets the server DateTime.
     public func setDateTime(dateTime : Date?) {
         self.dateTime = dateTime;
     }
 
-    // Gets dateTime. Gets or sets server datetime.
+    // Gets dateTime. Gets or sets the server DateTime.
     public func getDateTime() -> Date? {
         return self.dateTime;
     }
 
-    // Sets description. Gets or sets error description.
+    // Sets description. Gets or sets the error description.
     public func setDescription(description : String?) {
         self.description = description;
     }
 
-    // Gets description. Gets or sets error description.
+    // Gets description. Gets or sets the error description.
     public func getDescription() -> String? {
         return self.description;
     }
 
-    // Sets innerError. Gets or sets inner error.
+    // Sets innerError. Gets or sets the inner error.
     public func setInnerError(innerError : ApiError?) {
         self.innerError = innerError;
     }
 
-    // Gets innerError. Gets or sets inner error.
+    // Gets innerError. Gets or sets the inner error.
     public func getInnerError() -> ApiError? {
         return self.innerError;
     }
 
-    // Sets message. Gets or sets error message.
+    // Sets message. Gets or sets the error message.
     public func setMessage(message : String?) {
         self.message = message;
     }
 
-    // Gets message. Gets or sets error message.
+    // Gets message. Gets or sets the error message.
     public func getMessage() -> String? {
         return self.message;
     }

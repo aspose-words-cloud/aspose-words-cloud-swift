@@ -27,7 +27,7 @@
 
 import Foundation
 
-// Provides information for the words api resource link.
+// Provides information for the words API resource link.
 public class WordsApiLink : Link {
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;

@@ -28,10 +28,10 @@
 import Foundation
 
 // Request model for updateStyle operation.
-public class UpdateStyleRequest {
+public class UpdateStyleRequest : WordsApiRequest {
     private let name : String;
-    private let styleUpdate : StyleUpdate;
     private let styleName : String;
+    private let styleUpdate : StyleUpdate;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -42,8 +42,8 @@ public class UpdateStyleRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case styleUpdate;
         case styleName;
+        case styleUpdate;
         case folder;
         case storage;
         case loadEncoding;
@@ -55,10 +55,10 @@ public class UpdateStyleRequest {
     }
 
     // Initializes a new instance of the UpdateStyleRequest class.
-    public init(name : String, styleUpdate : StyleUpdate, styleName : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, styleName : String, styleUpdate : StyleUpdate, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.styleUpdate = styleUpdate;
         self.styleName = styleName;
+        self.styleUpdate = styleUpdate;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -68,19 +68,19 @@ public class UpdateStyleRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
+    }
+
+    // The name of the style.
+    public func getStyleName() -> String {
+        return self.styleName;
     }
 
     // Style properties to update.
     public func getStyleUpdate() -> StyleUpdate {
         return self.styleUpdate;
-    }
-
-    // Style name.
-    public func getStyleName() -> String {
-        return self.styleName;
     }
 
     // Original document folder.
@@ -116,5 +116,59 @@ public class UpdateStyleRequest {
     // The date and time to use for revisions.
     public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{name}/styles/{styleName}/update";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "{styleName}", with: try ObjectSerializer.serializeToString(value: self.getStyleName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getDestFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+         }
+
+         if (self.getRevisionAuthor() != nil) {
+             queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
+         }
+
+         if (self.getRevisionDateTime() != nil) {
+             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getStyleUpdate()), contentType: "application/json");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: StyleResponse.self, from: data);
     }
 }

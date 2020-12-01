@@ -28,19 +28,25 @@
 import Foundation
 
 // Request model for getDocumentFieldNamesOnline operation.
-public class GetDocumentFieldNamesOnlineRequest {
+public class GetDocumentFieldNamesOnlineRequest : WordsApiRequest {
     private let document : InputStream;
+    private let loadEncoding : String?;
+    private let password : String?;
     private let useNonMergeFields : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case document;
+        case loadEncoding;
+        case password;
         case useNonMergeFields;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetDocumentFieldNamesOnlineRequest class.
-    public init(document : InputStream, useNonMergeFields : Bool? = nil) {
+    public init(document : InputStream, loadEncoding : String? = nil, password : String? = nil, useNonMergeFields : Bool? = nil) {
         self.document = document;
+        self.loadEncoding = loadEncoding;
+        self.password = password;
         self.useNonMergeFields = useNonMergeFields;
     }
 
@@ -49,8 +55,55 @@ public class GetDocumentFieldNamesOnlineRequest {
         return self.document;
     }
 
-    // If true, result includes "mustache" field names.
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password for opening an encrypted document.
+    public func getPassword() -> String? {
+        return self.password;
+    }
+
+    // The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
     public func getUseNonMergeFields() -> Bool? {
         return self.useNonMergeFields;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/online/get/mailMerge/FieldNames";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getUseNonMergeFields() != nil) {
+             queryItems.append(URLQueryItem(name: "useNonMergeFields", value: try ObjectSerializer.serializeToString(value: self.getUseNonMergeFields()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+         var formParams : [RequestFormParam] = [];
+         formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
+
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
+         result.setBody(formParams: formParams);
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: FieldNamesResponse.self, from: data);
     }
 }

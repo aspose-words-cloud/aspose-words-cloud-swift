@@ -27,14 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/lists.
+// The REST response with a collection of lists, contained in the document.
 public class ListsResponse : WordsResponse {
-    // Field of lists. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/lists.
+    // Field of lists. The REST response with a collection of lists, contained in the document.
     private var lists : Lists?;
 
     private enum CodingKeys: String, CodingKey {
-        case lists;
+        case lists = "Lists";
         case invalidCodingKey;
     }
 
@@ -56,12 +55,12 @@ public class ListsResponse : WordsResponse {
         }
     }
 
-    // Sets lists. Gets or sets lists which are contained in document.
+    // Sets lists. Gets or sets the collection of lists, contained in the document.
     public func setLists(lists : Lists?) {
         self.lists = lists;
     }
 
-    // Gets lists. Gets or sets lists which are contained in document.
+    // Gets lists. Gets or sets the collection of lists, contained in the document.
     public func getLists() -> Lists? {
         return self.lists;
     }

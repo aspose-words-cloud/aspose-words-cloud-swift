@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for saveAsRange operation.
-public class SaveAsRangeRequest {
+public class SaveAsRangeRequest : WordsApiRequest {
     private let name : String;
     private let rangeStartIdentifier : String;
     private let documentParameters : RangeDocument;
@@ -62,14 +62,12 @@ public class SaveAsRangeRequest {
         self.password = password;
     }
 
-    // The document.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
     // The range start identifier.
-    // Identifier is the value of the "nodeId" field, which every document node has, extended with the prefix "id".
-    // It looks like "id0.0.7". Also values like "image5" and "table3" can be used as an identifier for images and tables, where the number is an index of the image/table.
     public func getRangeStartIdentifier() -> String {
         return self.rangeStartIdentifier;
     }
@@ -102,5 +100,54 @@ public class SaveAsRangeRequest {
     // Password for opening an encrypted document.
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{name}/range/{rangeStartIdentifier}/{rangeEndIdentifier}/SaveAs";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "{rangeStartIdentifier}", with: try ObjectSerializer.serializeToString(value: self.getRangeStartIdentifier()));
+
+         if (self.getRangeEndIdentifier() != nil) {
+             rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: try ObjectSerializer.serializeToString(value: self.getRangeEndIdentifier()!));
+         }
+         else {
+             rawPath = rawPath.replacingOccurrences(of: "{rangeEndIdentifier}", with: "");
+         }
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getDocumentParameters()), contentType: "application/json");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: DocumentResponse.self, from: data);
     }
 }

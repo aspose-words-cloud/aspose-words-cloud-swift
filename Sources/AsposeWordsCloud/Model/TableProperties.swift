@@ -27,9 +27,9 @@
 
 import Foundation
 
-// Represents the table properties.
+// DTO container with table properties.
 public class TableProperties : LinkElement {
-    // Gets or sets specifies how an inline table is aligned in the document.
+    // Gets or sets the option that controls how an inline table is aligned in the document.
     public enum Alignment : String, Codable
     {
         // Enum value "_left"
@@ -1165,7 +1165,7 @@ public class TableProperties : LinkElement {
         case _nil = "Nil"
     }
 
-    // Gets or sets bit flags that specify how a table style is applied to this table.
+    // Gets or sets the bit flags, that specify how a table style is applied to this table.
     public enum StyleOptions : String, Codable
     {
         // Enum value "_none"
@@ -1196,7 +1196,7 @@ public class TableProperties : LinkElement {
         case default2003 = "Default2003"
     }
 
-    // Gets or sets get or sets TextWrapping for table.
+    // Gets or sets the option that controls text wrapping for the table.
     public enum TextWrapping : String, Codable
     {
         // Enum value "_default"
@@ -1209,63 +1209,63 @@ public class TableProperties : LinkElement {
         case around = "Around"
     }
 
-    // Field of alignment. Represents the table properties.
+    // Field of alignment. DTO container with table properties.
     private var alignment : Alignment?;
 
-    // Field of allowAutoFit. Represents the table properties.
+    // Field of allowAutoFit. DTO container with table properties.
     private var allowAutoFit : Bool?;
 
-    // Field of bidi. Represents the table properties.
+    // Field of bidi. DTO container with table properties.
     private var bidi : Bool?;
 
-    // Field of bottomPadding. Represents the table properties.
+    // Field of bottomPadding. DTO container with table properties.
     private var bottomPadding : Double?;
 
-    // Field of cellSpacing. Represents the table properties.
+    // Field of cellSpacing. DTO container with table properties.
     private var cellSpacing : Double?;
 
-    // Field of leftIndent. Represents the table properties.
+    // Field of leftIndent. DTO container with table properties.
     private var leftIndent : Double?;
 
-    // Field of leftPadding. Represents the table properties.
+    // Field of leftPadding. DTO container with table properties.
     private var leftPadding : Double?;
 
-    // Field of preferredWidth. Represents the table properties.
+    // Field of preferredWidth. DTO container with table properties.
     private var preferredWidth : PreferredWidth?;
 
-    // Field of rightPadding. Represents the table properties.
+    // Field of rightPadding. DTO container with table properties.
     private var rightPadding : Double?;
 
-    // Field of styleIdentifier. Represents the table properties.
+    // Field of styleIdentifier. DTO container with table properties.
     private var styleIdentifier : StyleIdentifier?;
 
-    // Field of styleName. Represents the table properties.
+    // Field of styleName. DTO container with table properties.
     private var styleName : String?;
 
-    // Field of styleOptions. Represents the table properties.
+    // Field of styleOptions. DTO container with table properties.
     private var styleOptions : StyleOptions?;
 
-    // Field of textWrapping. Represents the table properties.
+    // Field of textWrapping. DTO container with table properties.
     private var textWrapping : TextWrapping?;
 
-    // Field of topPadding. Represents the table properties.
+    // Field of topPadding. DTO container with table properties.
     private var topPadding : Double?;
 
     private enum CodingKeys: String, CodingKey {
-        case alignment;
-        case allowAutoFit;
-        case bidi;
-        case bottomPadding;
-        case cellSpacing;
-        case leftIndent;
-        case leftPadding;
-        case preferredWidth;
-        case rightPadding;
-        case styleIdentifier;
-        case styleName;
-        case styleOptions;
-        case textWrapping;
-        case topPadding;
+        case alignment = "Alignment";
+        case allowAutoFit = "AllowAutoFit";
+        case bidi = "Bidi";
+        case bottomPadding = "BottomPadding";
+        case cellSpacing = "CellSpacing";
+        case leftIndent = "LeftIndent";
+        case leftPadding = "LeftPadding";
+        case preferredWidth = "PreferredWidth";
+        case rightPadding = "RightPadding";
+        case styleIdentifier = "StyleIdentifier";
+        case styleName = "StyleName";
+        case styleOptions = "StyleOptions";
+        case textWrapping = "TextWrapping";
+        case topPadding = "TopPadding";
         case invalidCodingKey;
     }
 
@@ -1339,32 +1339,32 @@ public class TableProperties : LinkElement {
         }
     }
 
-    // Sets alignment. Gets or sets specifies how an inline table is aligned in the document.
+    // Sets alignment. Gets or sets the option that controls how an inline table is aligned in the document.
     public func setAlignment(alignment : Alignment?) {
         self.alignment = alignment;
     }
 
-    // Gets alignment. Gets or sets specifies how an inline table is aligned in the document.
+    // Gets alignment. Gets or sets the option that controls how an inline table is aligned in the document.
     public func getAlignment() -> Alignment? {
         return self.alignment;
     }
 
-    // Sets allowAutoFit. Gets or sets allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.
+    // Sets allowAutoFit. Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents.
     public func setAllowAutoFit(allowAutoFit : Bool?) {
         self.allowAutoFit = allowAutoFit;
     }
 
-    // Gets allowAutoFit. Gets or sets allows Microsoft Word and Aspose.Words to automatically resize cells in a table to fit their contents.
+    // Gets allowAutoFit. Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents.
     public func getAllowAutoFit() -> Bool? {
         return self.allowAutoFit;
     }
 
-    // Sets bidi. Gets or sets whether this is a right-to-left table.
+    // Sets bidi. Gets or sets a value indicating whether this is a right-to-left table.
     public func setBidi(bidi : Bool?) {
         self.bidi = bidi;
     }
 
-    // Gets bidi. Gets or sets whether this is a right-to-left table.
+    // Gets bidi. Gets or sets a value indicating whether this is a right-to-left table.
     public func getBidi() -> Bool? {
         return self.bidi;
     }
@@ -1389,12 +1389,12 @@ public class TableProperties : LinkElement {
         return self.cellSpacing;
     }
 
-    // Sets leftIndent. Gets or sets the value that represents the left indent of the table.
+    // Sets leftIndent. Gets or sets the value, that represents the left indent of the table.
     public func setLeftIndent(leftIndent : Double?) {
         self.leftIndent = leftIndent;
     }
 
-    // Gets leftIndent. Gets or sets the value that represents the left indent of the table.
+    // Gets leftIndent. Gets or sets the value, that represents the left indent of the table.
     public func getLeftIndent() -> Double? {
         return self.leftIndent;
     }
@@ -1449,22 +1449,22 @@ public class TableProperties : LinkElement {
         return self.styleName;
     }
 
-    // Sets styleOptions. Gets or sets bit flags that specify how a table style is applied to this table.
+    // Sets styleOptions. Gets or sets the bit flags, that specify how a table style is applied to this table.
     public func setStyleOptions(styleOptions : StyleOptions?) {
         self.styleOptions = styleOptions;
     }
 
-    // Gets styleOptions. Gets or sets bit flags that specify how a table style is applied to this table.
+    // Gets styleOptions. Gets or sets the bit flags, that specify how a table style is applied to this table.
     public func getStyleOptions() -> StyleOptions? {
         return self.styleOptions;
     }
 
-    // Sets textWrapping. Gets or sets get or sets TextWrapping for table.
+    // Sets textWrapping. Gets or sets the option that controls text wrapping for the table.
     public func setTextWrapping(textWrapping : TextWrapping?) {
         self.textWrapping = textWrapping;
     }
 
-    // Gets textWrapping. Gets or sets get or sets TextWrapping for table.
+    // Gets textWrapping. Gets or sets the option that controls text wrapping for the table.
     public func getTextWrapping() -> TextWrapping? {
         return self.textWrapping;
     }

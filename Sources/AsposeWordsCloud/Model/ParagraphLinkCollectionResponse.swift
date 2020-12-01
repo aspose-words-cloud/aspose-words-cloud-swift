@@ -27,14 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs.
+// The REST response with a collection of paragraphs.
 public class ParagraphLinkCollectionResponse : WordsResponse {
-    // Field of paragraphs. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs.
+    // Field of paragraphs. The REST response with a collection of paragraphs.
     private var paragraphs : ParagraphLinkCollection?;
 
     private enum CodingKeys: String, CodingKey {
-        case paragraphs;
+        case paragraphs = "Paragraphs";
         case invalidCodingKey;
     }
 
@@ -56,12 +55,12 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
         }
     }
 
-    // Sets paragraphs. Gets or sets collection of paragraphs.
+    // Sets paragraphs. Gets or sets the collection of paragraphs.
     public func setParagraphs(paragraphs : ParagraphLinkCollection?) {
         self.paragraphs = paragraphs;
     }
 
-    // Gets paragraphs. Gets or sets collection of paragraphs.
+    // Gets paragraphs. Gets or sets the collection of paragraphs.
     public func getParagraphs() -> ParagraphLinkCollection? {
         return self.paragraphs;
     }

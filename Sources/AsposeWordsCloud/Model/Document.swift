@@ -115,12 +115,12 @@ public class Document : Codable, WordsApiModel {
     private var sourceFormat : SourceFormat?;
 
     private enum CodingKeys: String, CodingKey {
-        case documentProperties;
-        case fileName;
-        case isEncrypted;
-        case isSigned;
-        case links;
-        case sourceFormat;
+        case documentProperties = "DocumentProperties";
+        case fileName = "FileName";
+        case isEncrypted = "IsEncrypted";
+        case isSigned = "IsSigned";
+        case links = "Links";
+        case sourceFormat = "SourceFormat";
         case invalidCodingKey;
     }
 
@@ -159,12 +159,12 @@ public class Document : Codable, WordsApiModel {
         }
     }
 
-    // Sets documentProperties. Gets or sets returns document properties.
+    // Sets documentProperties. Gets or sets the document properties.
     public func setDocumentProperties(documentProperties : DocumentProperties?) {
         self.documentProperties = documentProperties;
     }
 
-    // Gets documentProperties. Gets or sets returns document properties.
+    // Gets documentProperties. Gets or sets the document properties.
     public func getDocumentProperties() -> DocumentProperties? {
         return self.documentProperties;
     }
@@ -179,32 +179,32 @@ public class Document : Codable, WordsApiModel {
         return self.fileName;
     }
 
-    // Sets isEncrypted. Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.
+    // Sets isEncrypted. Gets or sets a value indicating whether the document is encrypted and requires a password to open.
     public func setIsEncrypted(isEncrypted : Bool?) {
         self.isEncrypted = isEncrypted;
     }
 
-    // Gets isEncrypted. Gets or sets a value indicating whether returns true if the document is encrypted and requires a password to open.
+    // Gets isEncrypted. Gets or sets a value indicating whether the document is encrypted and requires a password to open.
     public func getIsEncrypted() -> Bool? {
         return self.isEncrypted;
     }
 
-    // Sets isSigned. Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
+    // Sets isSigned. Gets or sets a value indicating whether the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
     public func setIsSigned(isSigned : Bool?) {
         self.isSigned = isSigned;
     }
 
-    // Gets isSigned. Gets or sets a value indicating whether returns true if the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
+    // Gets isSigned. Gets or sets a value indicating whether the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
     public func getIsSigned() -> Bool? {
         return self.isSigned;
     }
 
-    // Sets links. Gets or sets a list of links that originate from this document.
+    // Sets links. Gets or sets the list of links that originate from this document.
     public func setLinks(links : [Link]?) {
         self.links = links;
     }
 
-    // Gets links. Gets or sets a list of links that originate from this document.
+    // Gets links. Gets or sets the list of links that originate from this document.
     public func getLinks() -> [Link]? {
         return self.links;
     }

@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for classify operation.
-public class ClassifyRequest {
+public class ClassifyRequest : WordsApiRequest {
     private let text : String;
     private let bestClassesCount : String?;
 
@@ -44,13 +44,39 @@ public class ClassifyRequest {
         self.bestClassesCount = bestClassesCount;
     }
 
-    // Text to classify.
+    // The text to classify.
     public func getText() -> String {
         return self.text;
     }
 
-    // Number of the best classes to return.
+    // The number of the best classes to return.
     public func getBestClassesCount() -> String? {
         return self.bestClassesCount;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/classify";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getBestClassesCount() != nil) {
+             queryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: self.getBestClassesCount()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getText()), contentType: "application/json");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: ClassificationResponse.self, from: data);
     }
 }

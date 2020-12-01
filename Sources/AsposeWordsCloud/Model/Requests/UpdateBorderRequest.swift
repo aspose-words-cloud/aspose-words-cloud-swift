@@ -28,10 +28,10 @@
 import Foundation
 
 // Request model for updateBorder operation.
-public class UpdateBorderRequest {
+public class UpdateBorderRequest : WordsApiRequest {
     private let name : String;
-    private let borderProperties : Border;
     private let borderType : String;
+    private let borderProperties : Border;
     private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
@@ -43,8 +43,8 @@ public class UpdateBorderRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case borderProperties;
         case borderType;
+        case borderProperties;
         case nodePath;
         case folder;
         case storage;
@@ -57,10 +57,10 @@ public class UpdateBorderRequest {
     }
 
     // Initializes a new instance of the UpdateBorderRequest class.
-    public init(name : String, borderProperties : Border, borderType : String, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, borderType : String, borderProperties : Border, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.borderProperties = borderProperties;
         self.borderType = borderType;
+        self.borderProperties = borderProperties;
         self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
@@ -71,14 +71,9 @@ public class UpdateBorderRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
-    }
-
-    // Border properties.
-    public func getBorderProperties() -> Border {
-        return self.borderProperties;
     }
 
     // Border type.
@@ -86,7 +81,12 @@ public class UpdateBorderRequest {
         return self.borderType;
     }
 
-    // Path to the node with border(node should be paragraph, cell or row).
+    // Border properties.
+    public func getBorderProperties() -> Border {
+        return self.borderProperties;
+    }
+
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }
@@ -124,5 +124,66 @@ public class UpdateBorderRequest {
     // The date and time to use for revisions.
     public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{name}/{nodePath}/borders/{borderType}";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "{borderType}", with: try ObjectSerializer.serializeToString(value: self.getBorderType()));
+
+         if (self.getNodePath() != nil) {
+             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: self.getNodePath()!));
+         }
+         else {
+             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
+         }
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getDestFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+         }
+
+         if (self.getRevisionAuthor() != nil) {
+             queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
+         }
+
+         if (self.getRevisionDateTime() != nil) {
+             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getBorderProperties()), contentType: "application/json");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: BorderResponse.self, from: data);
     }
 }

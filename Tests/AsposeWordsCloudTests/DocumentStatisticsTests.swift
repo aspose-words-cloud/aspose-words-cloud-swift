@@ -45,7 +45,9 @@ class DocumentStatisticsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentStatisticsRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentStatistics(request: request);
+      let actual = try super.getApi().getDocumentStatistics(request: request);
+      XCTAssertNotNil(actual.getStatData());
+      XCTAssertEqual(actual.getStatData()!.getWordCount(), 10);
     }
 
     // Test for document classification online.

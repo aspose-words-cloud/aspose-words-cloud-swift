@@ -32,20 +32,28 @@ import XCTest
 class DrawingObjectsTests: BaseTestContext {
     static var allTests = [
         ("testGetDocumentDrawingObjects", testGetDocumentDrawingObjects),
+        ("testGetDocumentDrawingObjectsOnline", testGetDocumentDrawingObjectsOnline),
         ("testGetDocumentDrawingObjectsWithoutNodePath", testGetDocumentDrawingObjectsWithoutNodePath),
         ("testGetDocumentDrawingObjectByIndex", testGetDocumentDrawingObjectByIndex),
+        ("testGetDocumentDrawingObjectByIndexOnline", testGetDocumentDrawingObjectByIndexOnline),
         ("testGetDocumentDrawingObjectByIndexWithoutNodePath", testGetDocumentDrawingObjectByIndexWithoutNodePath),
         ("testRenderDrawingObject", testRenderDrawingObject),
+        ("testRenderDrawingObjectOnline", testRenderDrawingObjectOnline),
         ("testRenderDrawingObjectWithoutNodePath", testRenderDrawingObjectWithoutNodePath),
         ("testGetDocumentDrawingObjectImageData", testGetDocumentDrawingObjectImageData),
+        ("testGetDocumentDrawingObjectImageDataOnline", testGetDocumentDrawingObjectImageDataOnline),
         ("testGetDocumentDrawingObjectImageDataWithoutNodePath", testGetDocumentDrawingObjectImageDataWithoutNodePath),
         ("testGetDocumentDrawingObjectOleData", testGetDocumentDrawingObjectOleData),
+        ("testGetDocumentDrawingObjectOleDataOnline", testGetDocumentDrawingObjectOleDataOnline),
         ("testGetDocumentDrawingObjectOleDataWithoutNodePath", testGetDocumentDrawingObjectOleDataWithoutNodePath),
         ("testInsertDrawingObject", testInsertDrawingObject),
+        ("testInsertDrawingObjectOnline", testInsertDrawingObjectOnline),
         ("testInsertDrawingObjectWithoutNodePath", testInsertDrawingObjectWithoutNodePath),
         ("testDeleteDrawingObject", testDeleteDrawingObject),
+        ("testDeleteDrawingObjectOnline", testDeleteDrawingObjectOnline),
         ("testDeleteDrawingObjectWithoutNodePath", testDeleteDrawingObjectWithoutNodePath),
         ("testUpdateDrawingObject", testUpdateDrawingObject),
+        ("testUpdateDrawingObjectOnline", testUpdateDrawingObjectOnline),
         ("testUpdateDrawingObjectWithoutNodePath", testUpdateDrawingObjectWithoutNodePath)
     ];
 
@@ -61,6 +69,12 @@ class DrawingObjectsTests: BaseTestContext {
 
       let request = GetDocumentDrawingObjectsRequest(name: remoteFileName, nodePath: "sections/0", folder: remoteDataFolder);
       _ = try super.getApi().getDocumentDrawingObjects(request: request);
+    }
+
+    // Test for getting drawing objects from document online.
+    func testGetDocumentDrawingObjectsOnline() throws {
+      let request = GetDocumentDrawingObjectsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, nodePath: "sections/0");
+      _ = try super.getApi().getDocumentDrawingObjectsOnline(request: request);
     }
 
     // Test for getting drawing objects from document without node path.
@@ -83,6 +97,12 @@ class DrawingObjectsTests: BaseTestContext {
       _ = try super.getApi().getDocumentDrawingObjectByIndex(request: request);
     }
 
+    // Test for getting drawing object by specified index online.
+    func testGetDocumentDrawingObjectByIndexOnline() throws {
+      let request = GetDocumentDrawingObjectByIndexOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, nodePath: "sections/0");
+      _ = try super.getApi().getDocumentDrawingObjectByIndexOnline(request: request);
+    }
+
     // Test for getting drawing object by specified index without node path.
     func testGetDocumentDrawingObjectByIndexWithoutNodePath() throws {
       let remoteFileName = "TestGetDocumentDrawingObjectByIndexWithoutNodePath.docx";
@@ -101,6 +121,12 @@ class DrawingObjectsTests: BaseTestContext {
 
       let request = RenderDrawingObjectRequest(name: remoteFileName, format: "png", index: 0, nodePath: "sections/0", folder: remoteDataFolder);
       _ = try super.getApi().renderDrawingObject(request: request);
+    }
+
+    // Test for getting drawing object by specified index and format online.
+    func testRenderDrawingObjectOnline() throws {
+      let request = RenderDrawingObjectOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, format: "png", index: 0, nodePath: "sections/0");
+      _ = try super.getApi().renderDrawingObjectOnline(request: request);
     }
 
     // Test for getting drawing object by specified index and format without node path.
@@ -123,6 +149,12 @@ class DrawingObjectsTests: BaseTestContext {
       _ = try super.getApi().getDocumentDrawingObjectImageData(request: request);
     }
 
+    // Test for reading drawing object's image data online.
+    func testGetDocumentDrawingObjectImageDataOnline() throws {
+      let request = GetDocumentDrawingObjectImageDataOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, nodePath: "sections/0");
+      _ = try super.getApi().getDocumentDrawingObjectImageDataOnline(request: request);
+    }
+
     // Test for reading drawing object's image data without node path.
     func testGetDocumentDrawingObjectImageDataWithoutNodePath() throws {
       let remoteFileName = "TestGetDocumentDrawingObjectImageDataWithoutNodePath.docx";
@@ -141,6 +173,12 @@ class DrawingObjectsTests: BaseTestContext {
 
       let request = GetDocumentDrawingObjectOleDataRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder);
       _ = try super.getApi().getDocumentDrawingObjectOleData(request: request);
+    }
+
+    // Test for getting drawing object OLE data online.
+    func testGetDocumentDrawingObjectOleDataOnline() throws {
+      let request = GetDocumentDrawingObjectOleDataOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, nodePath: "sections/0");
+      _ = try super.getApi().getDocumentDrawingObjectOleDataOnline(request: request);
     }
 
     // Test for getting drawing object OLE data without node path.
@@ -173,6 +211,22 @@ class DrawingObjectsTests: BaseTestContext {
       _ = try super.getApi().insertDrawingObject(request: request);
     }
 
+    // Test for adding drawing object online.
+    func testInsertDrawingObjectOnline() throws {
+      let requestDrawingObject = DrawingObjectInsert();
+      requestDrawingObject.setHeight(height: 0);
+      requestDrawingObject.setLeft(_left: 0);
+      requestDrawingObject.setTop(top: 0);
+      requestDrawingObject.setWidth(width: 0);
+      requestDrawingObject.setRelativeHorizontalPosition(relativeHorizontalPosition: DrawingObjectInsert.RelativeHorizontalPosition.margin);
+      requestDrawingObject.setRelativeVerticalPosition(relativeVerticalPosition: DrawingObjectInsert.RelativeVerticalPosition.margin);
+      requestDrawingObject.setWrapType(wrapType: DrawingObjectInsert.WrapType.inline);
+
+
+      let request = InsertDrawingObjectOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, nodePath: "");
+      _ = try super.getApi().insertDrawingObjectOnline(request: request);
+    }
+
     // Test for adding drawing object without node path.
     func testInsertDrawingObjectWithoutNodePath() throws {
       let remoteFileName = "TestInsetDrawingObjectWithoutNodePath.docx";
@@ -203,6 +257,12 @@ class DrawingObjectsTests: BaseTestContext {
       try super.getApi().deleteDrawingObject(request: request);
     }
 
+    // Test for deleting drawing object online.
+    func testDeleteDrawingObjectOnline() throws {
+      let request = DeleteDrawingObjectOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, nodePath: "");
+      _ = try super.getApi().deleteDrawingObjectOnline(request: request);
+    }
+
     // Test for deleting drawing object without node path.
     func testDeleteDrawingObjectWithoutNodePath() throws {
       let remoteFileName = "TestDeleteDrawingObjectWithoutNodePath.docx";
@@ -225,6 +285,16 @@ class DrawingObjectsTests: BaseTestContext {
 
       let request = UpdateDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, index: 0, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().updateDrawingObject(request: request);
+    }
+
+    // Test for updating drawing object online.
+    func testUpdateDrawingObjectOnline() throws {
+      let requestDrawingObject = DrawingObjectUpdate();
+      requestDrawingObject.setLeft(_left: 0);
+
+
+      let request = UpdateDrawingObjectOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, drawingObject: requestDrawingObject, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, index: 0, nodePath: "");
+      _ = try super.getApi().updateDrawingObjectOnline(request: request);
     }
 
     // Test for updating drawing object without node path.

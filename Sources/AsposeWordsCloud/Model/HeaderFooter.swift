@@ -27,21 +27,21 @@
 
 import Foundation
 
-// Section element.
+// DTO container with a section element.
 public class HeaderFooter : HeaderFooterLink {
-    // Field of childNodes. Section element.
+    // Field of childNodes. DTO container with a section element.
     private var childNodes : [NodeLink]?;
 
-    // Field of drawingObjects. Section element.
+    // Field of drawingObjects. DTO container with a section element.
     private var drawingObjects : LinkElement?;
 
-    // Field of paragraphs. Section element.
+    // Field of paragraphs. DTO container with a section element.
     private var paragraphs : LinkElement?;
 
     private enum CodingKeys: String, CodingKey {
-        case childNodes;
-        case drawingObjects;
-        case paragraphs;
+        case childNodes = "ChildNodes";
+        case drawingObjects = "DrawingObjects";
+        case paragraphs = "Paragraphs";
         case invalidCodingKey;
     }
 
@@ -71,32 +71,32 @@ public class HeaderFooter : HeaderFooterLink {
         }
     }
 
-    // Sets childNodes. Gets or sets child nodes.
+    // Sets childNodes. Gets or sets the child nodes.
     public func setChildNodes(childNodes : [NodeLink]?) {
         self.childNodes = childNodes;
     }
 
-    // Gets childNodes. Gets or sets child nodes.
+    // Gets childNodes. Gets or sets the child nodes.
     public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }
 
-    // Sets drawingObjects. Gets or sets link to DrawingObjects resource.
+    // Sets drawingObjects. Gets or sets the link to DrawingObjects resource.
     public func setDrawingObjects(drawingObjects : LinkElement?) {
         self.drawingObjects = drawingObjects;
     }
 
-    // Gets drawingObjects. Gets or sets link to DrawingObjects resource.
+    // Gets drawingObjects. Gets or sets the link to DrawingObjects resource.
     public func getDrawingObjects() -> LinkElement? {
         return self.drawingObjects;
     }
 
-    // Sets paragraphs. Gets or sets link to Paragraphs resource.
+    // Sets paragraphs. Gets or sets the link to Paragraphs resource.
     public func setParagraphs(paragraphs : LinkElement?) {
         self.paragraphs = paragraphs;
     }
 
-    // Gets paragraphs. Gets or sets link to Paragraphs resource.
+    // Gets paragraphs. Gets or sets the link to Paragraphs resource.
     public func getParagraphs() -> LinkElement? {
         return self.paragraphs;
     }

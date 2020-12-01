@@ -45,11 +45,11 @@ public class DocumentStatData : Codable, WordsApiModel {
     private var wordCount : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case footnotesStatData;
-        case pageCount;
-        case pageStatData;
-        case paragraphCount;
-        case wordCount;
+        case footnotesStatData = "FootnotesStatData";
+        case pageCount = "PageCount";
+        case pageStatData = "PageStatData";
+        case paragraphCount = "ParagraphCount";
+        case wordCount = "WordCount";
         case invalidCodingKey;
     }
 
@@ -84,52 +84,52 @@ public class DocumentStatData : Codable, WordsApiModel {
         }
     }
 
-    // Sets footnotesStatData. Gets or sets detailed statistics of footnotes.
+    // Sets footnotesStatData. Gets or sets the detailed statistics on footnotes.
     public func setFootnotesStatData(footnotesStatData : FootnotesStatData?) {
         self.footnotesStatData = footnotesStatData;
     }
 
-    // Gets footnotesStatData. Gets or sets detailed statistics of footnotes.
+    // Gets footnotesStatData. Gets or sets the detailed statistics on footnotes.
     public func getFootnotesStatData() -> FootnotesStatData? {
         return self.footnotesStatData;
     }
 
-    // Sets pageCount. Gets or sets total count of pages in the document.
+    // Sets pageCount. Gets or sets the total count of pages in the document.
     public func setPageCount(pageCount : Int?) {
         self.pageCount = pageCount;
     }
 
-    // Gets pageCount. Gets or sets total count of pages in the document.
+    // Gets pageCount. Gets or sets the total count of pages in the document.
     public func getPageCount() -> Int? {
         return self.pageCount;
     }
 
-    // Sets pageStatData. Gets or sets detailed statistics of all pages.
+    // Sets pageStatData. Gets or sets the detailed statistics on all pages.
     public func setPageStatData(pageStatData : [PageStatData]?) {
         self.pageStatData = pageStatData;
     }
 
-    // Gets pageStatData. Gets or sets detailed statistics of all pages.
+    // Gets pageStatData. Gets or sets the detailed statistics on all pages.
     public func getPageStatData() -> [PageStatData]? {
         return self.pageStatData;
     }
 
-    // Sets paragraphCount. Gets or sets total count of paragraphs in the document.
+    // Sets paragraphCount. Gets or sets the total count of paragraphs in the document.
     public func setParagraphCount(paragraphCount : Int?) {
         self.paragraphCount = paragraphCount;
     }
 
-    // Gets paragraphCount. Gets or sets total count of paragraphs in the document.
+    // Gets paragraphCount. Gets or sets the total count of paragraphs in the document.
     public func getParagraphCount() -> Int? {
         return self.paragraphCount;
     }
 
-    // Sets wordCount. Gets or sets total count of words in the document.
+    // Sets wordCount. Gets or sets the total count of words in the document.
     public func setWordCount(wordCount : Int?) {
         self.wordCount = wordCount;
     }
 
-    // Gets wordCount. Gets or sets total count of words in the document.
+    // Gets wordCount. Gets or sets the total count of words in the document.
     public func getWordCount() -> Int? {
         return self.wordCount;
     }

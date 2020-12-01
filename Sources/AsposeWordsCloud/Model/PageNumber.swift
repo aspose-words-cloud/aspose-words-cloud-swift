@@ -42,10 +42,10 @@ public class PageNumber : Codable, WordsApiModel {
     private var setPageNumberOnFirstPage : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case alignment;
-        case format;
-        case isTop;
-        case setPageNumberOnFirstPage;
+        case alignment = "Alignment";
+        case format = "Format";
+        case isTop = "IsTop";
+        case setPageNumberOnFirstPage = "SetPageNumberOnFirstPage";
         case invalidCodingKey;
     }
 
@@ -86,12 +86,12 @@ public class PageNumber : Codable, WordsApiModel {
         return self.alignment;
     }
 
-    // Sets format. Gets or sets page number format, e.g. "{PAGE} of {NUMPAGES}".
+    // Sets format. Gets or sets the page number format, e.g. "{PAGE} of {NUMPAGES}".
     public func setFormat(format : String?) {
         self.format = format;
     }
 
-    // Gets format. Gets or sets page number format, e.g. "{PAGE} of {NUMPAGES}".
+    // Gets format. Gets or sets the page number format, e.g. "{PAGE} of {NUMPAGES}".
     public func getFormat() -> String? {
         return self.format;
     }

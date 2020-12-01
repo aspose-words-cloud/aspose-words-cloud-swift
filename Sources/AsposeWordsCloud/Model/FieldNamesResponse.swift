@@ -27,13 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:  GET /{name}/mailMergeFieldNames.
+// The REST response with a collection of mail merge fields.
 public class FieldNamesResponse : WordsResponse {
-    // Field of fieldNames. This response should be returned by the service when handling:  GET /{name}/mailMergeFieldNames.
+    // Field of fieldNames. The REST response with a collection of mail merge fields.
     private var fieldNames : FieldNames?;
 
     private enum CodingKeys: String, CodingKey {
-        case fieldNames;
+        case fieldNames = "FieldNames";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class FieldNamesResponse : WordsResponse {
         }
     }
 
-    // Sets fieldNames. Gets or sets collection of mail merge fields.
+    // Sets fieldNames. Gets or sets the collection of mail merge fields.
     public func setFieldNames(fieldNames : FieldNames?) {
         self.fieldNames = fieldNames;
     }
 
-    // Gets fieldNames. Gets or sets collection of mail merge fields.
+    // Gets fieldNames. Gets or sets the collection of mail merge fields.
     public func getFieldNames() -> FieldNames? {
         return self.fieldNames;
     }

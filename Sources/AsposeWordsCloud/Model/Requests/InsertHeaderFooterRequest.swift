@@ -28,10 +28,10 @@
 import Foundation
 
 // Request model for insertHeaderFooter operation.
-public class InsertHeaderFooterRequest {
+public class InsertHeaderFooterRequest : WordsApiRequest {
     private let name : String;
-    private let headerFooterType : String;
     private let sectionPath : String;
+    private let headerFooterType : String;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -42,8 +42,8 @@ public class InsertHeaderFooterRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case headerFooterType;
         case sectionPath;
+        case headerFooterType;
         case folder;
         case storage;
         case loadEncoding;
@@ -55,10 +55,10 @@ public class InsertHeaderFooterRequest {
     }
 
     // Initializes a new instance of the InsertHeaderFooterRequest class.
-    public init(name : String, headerFooterType : String, sectionPath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, sectionPath : String, headerFooterType : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.headerFooterType = headerFooterType;
         self.sectionPath = sectionPath;
+        self.headerFooterType = headerFooterType;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -68,19 +68,19 @@ public class InsertHeaderFooterRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
+    }
+
+    // The path to the section in the document tree.
+    public func getSectionPath() -> String {
+        return self.sectionPath;
     }
 
     // Type of header/footer.
     public func getHeaderFooterType() -> String {
         return self.headerFooterType;
-    }
-
-    // Path to parent section.
-    public func getSectionPath() -> String {
-        return self.sectionPath;
     }
 
     // Original document folder.
@@ -116,5 +116,59 @@ public class InsertHeaderFooterRequest {
     // The date and time to use for revisions.
     public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{name}/{sectionPath}/headersfooters";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "{sectionPath}", with: try ObjectSerializer.serializeToString(value: self.getSectionPath()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getDestFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+         }
+
+         if (self.getRevisionAuthor() != nil) {
+             queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
+         }
+
+         if (self.getRevisionDateTime() != nil) {
+             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getHeaderFooterType()), contentType: "application/json");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: HeaderFooterResponse.self, from: data);
     }
 }

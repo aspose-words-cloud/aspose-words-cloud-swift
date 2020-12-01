@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for saveAsTiff operation.
-public class SaveAsTiffRequest {
+public class SaveAsTiffRequest : WordsApiRequest {
     private let name : String;
     private let saveOptions : TiffSaveOptionsData;
     private let folder : String?;
@@ -110,7 +110,7 @@ public class SaveAsTiffRequest {
         self.fontsLocation = fontsLocation;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
@@ -140,22 +140,22 @@ public class SaveAsTiffRequest {
         return self.password;
     }
 
-    // Use antialiasing flag.
+    // The flag indicating whether to use antialiasing.
     public func getUseAntiAliasing() -> Bool? {
         return self.useAntiAliasing;
     }
 
-    // Use high quality flag.
+    // The flag indicating whether to use high quality.
     public func getUseHighQualityRendering() -> Bool? {
         return self.useHighQualityRendering;
     }
 
-    // Brightness for the generated images.
+    // The level of brightness for the generated images.
     public func getImageBrightness() -> Double? {
         return self.imageBrightness;
     }
 
-    // Color mode for the generated images.
+    // The color mode for the generated images.
     public func getImageColorMode() -> String? {
         return self.imageColorMode;
     }
@@ -170,32 +170,32 @@ public class SaveAsTiffRequest {
         return self.numeralFormat;
     }
 
-    // Number of pages to render.
+    // The number of pages to render.
     public func getPageCount() -> Int? {
         return self.pageCount;
     }
 
-    // Page index to start rendering.
+    // The index of the page to start rendering.
     public func getPageIndex() -> Int? {
         return self.pageIndex;
     }
 
-    // Background image color.
+    // The background image color.
     public func getPaperColor() -> String? {
         return self.paperColor;
     }
 
-    // The pixel format of generated images.
+    // The pixel format of the generated images.
     public func getPixelFormat() -> String? {
         return self.pixelFormat;
     }
 
-    // The resolution of generated images.
+    // The resolution of the generated images.
     public func getResolution() -> Double? {
         return self.resolution;
     }
 
-    // Zoom factor for generated images.
+    // The zoom factor for the generated images.
     public func getScale() -> Double? {
         return self.scale;
     }
@@ -205,22 +205,22 @@ public class SaveAsTiffRequest {
         return self.tiffCompression;
     }
 
-    // Optional, default is Fallback.
+    // The optional dml rendering mode. The default value is Fallback.
     public func getDmlRenderingMode() -> String? {
         return self.dmlRenderingMode;
     }
 
-    // Optional, default is Simplified.
+    // The optional dml effects rendering mode. The default value is Simplified.
     public func getDmlEffectsRenderingMode() -> String? {
         return self.dmlEffectsRenderingMode;
     }
 
-    // Optional, Tiff binarization method, possible values are: FloydSteinbergDithering, Threshold.
+    // The optional TIFF binarization method. Possible values are: FloydSteinbergDithering, Threshold.
     public func getTiffBinarizationMethod() -> String? {
         return self.tiffBinarizationMethod;
     }
 
-    // Optional. A value determining zip output or not.
+    // The flag indicating whether to ZIP the output.
     public func getZipOutput() -> Bool? {
         return self.zipOutput;
     }
@@ -228,5 +228,117 @@ public class SaveAsTiffRequest {
     // Folder in filestorage with custom fonts.
     public func getFontsLocation() -> String? {
         return self.fontsLocation;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{name}/saveAs/tiff";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getUseAntiAliasing() != nil) {
+             queryItems.append(URLQueryItem(name: "useAntiAliasing", value: try ObjectSerializer.serializeToString(value: self.getUseAntiAliasing()!)));
+         }
+
+         if (self.getUseHighQualityRendering() != nil) {
+             queryItems.append(URLQueryItem(name: "useHighQualityRendering", value: try ObjectSerializer.serializeToString(value: self.getUseHighQualityRendering()!)));
+         }
+
+         if (self.getImageBrightness() != nil) {
+             queryItems.append(URLQueryItem(name: "imageBrightness", value: try ObjectSerializer.serializeToString(value: self.getImageBrightness()!)));
+         }
+
+         if (self.getImageColorMode() != nil) {
+             queryItems.append(URLQueryItem(name: "imageColorMode", value: try ObjectSerializer.serializeToString(value: self.getImageColorMode()!)));
+         }
+
+         if (self.getImageContrast() != nil) {
+             queryItems.append(URLQueryItem(name: "imageContrast", value: try ObjectSerializer.serializeToString(value: self.getImageContrast()!)));
+         }
+
+         if (self.getNumeralFormat() != nil) {
+             queryItems.append(URLQueryItem(name: "numeralFormat", value: try ObjectSerializer.serializeToString(value: self.getNumeralFormat()!)));
+         }
+
+         if (self.getPageCount() != nil) {
+             queryItems.append(URLQueryItem(name: "pageCount", value: try ObjectSerializer.serializeToString(value: self.getPageCount()!)));
+         }
+
+         if (self.getPageIndex() != nil) {
+             queryItems.append(URLQueryItem(name: "pageIndex", value: try ObjectSerializer.serializeToString(value: self.getPageIndex()!)));
+         }
+
+         if (self.getPaperColor() != nil) {
+             queryItems.append(URLQueryItem(name: "paperColor", value: try ObjectSerializer.serializeToString(value: self.getPaperColor()!)));
+         }
+
+         if (self.getPixelFormat() != nil) {
+             queryItems.append(URLQueryItem(name: "pixelFormat", value: try ObjectSerializer.serializeToString(value: self.getPixelFormat()!)));
+         }
+
+         if (self.getResolution() != nil) {
+             queryItems.append(URLQueryItem(name: "resolution", value: try ObjectSerializer.serializeToString(value: self.getResolution()!)));
+         }
+
+         if (self.getScale() != nil) {
+             queryItems.append(URLQueryItem(name: "scale", value: try ObjectSerializer.serializeToString(value: self.getScale()!)));
+         }
+
+         if (self.getTiffCompression() != nil) {
+             queryItems.append(URLQueryItem(name: "tiffCompression", value: try ObjectSerializer.serializeToString(value: self.getTiffCompression()!)));
+         }
+
+         if (self.getDmlRenderingMode() != nil) {
+             queryItems.append(URLQueryItem(name: "dmlRenderingMode", value: try ObjectSerializer.serializeToString(value: self.getDmlRenderingMode()!)));
+         }
+
+         if (self.getDmlEffectsRenderingMode() != nil) {
+             queryItems.append(URLQueryItem(name: "dmlEffectsRenderingMode", value: try ObjectSerializer.serializeToString(value: self.getDmlEffectsRenderingMode()!)));
+         }
+
+         if (self.getTiffBinarizationMethod() != nil) {
+             queryItems.append(URLQueryItem(name: "tiffBinarizationMethod", value: try ObjectSerializer.serializeToString(value: self.getTiffBinarizationMethod()!)));
+         }
+
+         if (self.getZipOutput() != nil) {
+             queryItems.append(URLQueryItem(name: "zipOutput", value: try ObjectSerializer.serializeToString(value: self.getZipOutput()!)));
+         }
+
+         if (self.getFontsLocation() != nil) {
+             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getSaveOptions()), contentType: "application/json");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: SaveResponse.self, from: data);
     }
 }

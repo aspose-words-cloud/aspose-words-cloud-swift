@@ -31,7 +31,8 @@ import XCTest
 // Example of document comparison.
 class CompareDocumentTests: BaseTestContext {
     static var allTests = [
-        ("testCompareDocument", testCompareDocument)
+        ("testCompareDocument", testCompareDocument),
+        ("testCompareDocumentOnline", testCompareDocumentOnline)
     ];
 
     let remoteFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/CompareDocument";
@@ -54,6 +55,26 @@ class CompareDocumentTests: BaseTestContext {
 
 
       let request = CompareDocumentRequest(name: remoteName1, compareData: requestCompareData, folder: remoteFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
-      _ = try super.getApi().compareDocument(request: request);
+      let actual = try super.getApi().compareDocument(request: request);
+      XCTAssertNotNil(actual.getDocument());
+      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestCompareDocumentOut.doc");
+    }
+
+    // Test for document comparison online.
+    func testCompareDocumentOnline() throws {
+      let localName1 = "compareTestDoc1.doc";
+      let localName2 = "compareTestDoc2.doc";
+      let remoteName2 = "TestCompareDocument2.doc";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName2, isDirectory: false), path: remoteFolder + "/" + remoteName2);
+
+      let requestCompareData = CompareData();
+      requestCompareData.setAuthor(author: "author");
+      requestCompareData.setComparingWithDocument(comparingWithDocument: remoteFolder + "/" + remoteName2);
+      requestCompareData.setDateTime(dateTime: ObjectSerializer.customIso8601.date(from: "2015-10-26T00:00:00Z")!);
+
+
+      let request = CompareDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName1, isDirectory: false))!, compareData: requestCompareData, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
+      _ = try super.getApi().compareDocumentOnline(request: request);
     }
 }

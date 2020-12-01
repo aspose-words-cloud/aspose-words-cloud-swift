@@ -27,14 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops.
+// The REST response with an array of tab stops.
 public class TabStopsResponse : WordsResponse {
-    // Field of tabStops. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/paragraphs/{0}/tabstops.
+    // Field of tabStops. The REST response with an array of tab stops.
     private var tabStops : [TabStop]?;
 
     private enum CodingKeys: String, CodingKey {
-        case tabStops;
+        case tabStops = "TabStops";
         case invalidCodingKey;
     }
 
@@ -56,12 +55,12 @@ public class TabStopsResponse : WordsResponse {
         }
     }
 
-    // Sets tabStops. Gets or sets represents a tab stop.
+    // Sets tabStops. Gets or sets the array of tab stops.
     public func setTabStops(tabStops : [TabStop]?) {
         self.tabStops = tabStops;
     }
 
-    // Gets tabStops. Gets or sets represents a tab stop.
+    // Gets tabStops. Gets or sets the array of tab stops.
     public func getTabStops() -> [TabStop]? {
         return self.tabStops;
     }

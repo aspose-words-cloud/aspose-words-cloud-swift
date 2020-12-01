@@ -28,10 +28,10 @@
 import Foundation
 
 // Request model for insertOrUpdateParagraphTabStop operation.
-public class InsertOrUpdateParagraphTabStopRequest {
+public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
     private let name : String;
-    private let dto : TabStopInsert;
     private let index : Int;
+    private let tabStopInsertDto : TabStopInsert;
     private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
@@ -41,8 +41,8 @@ public class InsertOrUpdateParagraphTabStopRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case dto;
         case index;
+        case tabStopInsertDto;
         case nodePath;
         case folder;
         case storage;
@@ -53,10 +53,10 @@ public class InsertOrUpdateParagraphTabStopRequest {
     }
 
     // Initializes a new instance of the InsertOrUpdateParagraphTabStopRequest class.
-    public init(name : String, dto : TabStopInsert, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
+    public init(name : String, index : Int, tabStopInsertDto : TabStopInsert, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
-        self.dto = dto;
         self.index = index;
+        self.tabStopInsertDto = tabStopInsertDto;
         self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
@@ -65,14 +65,9 @@ public class InsertOrUpdateParagraphTabStopRequest {
         self.destFileName = destFileName;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
-    }
-
-    // Paragraph tab stop.
-    public func getDto() -> TabStopInsert {
-        return self.dto;
     }
 
     // Object index.
@@ -80,7 +75,12 @@ public class InsertOrUpdateParagraphTabStopRequest {
         return self.index;
     }
 
-    // Path to the node which contains paragraph.
+    // TabStopInsert dto.
+    public func getTabStopInsertDto() -> TabStopInsert {
+        return self.tabStopInsertDto;
+    }
+
+    // The path to the node in the document tree.
     public func getNodePath() -> String? {
         return self.nodePath;
     }
@@ -108,5 +108,58 @@ public class InsertOrUpdateParagraphTabStopRequest {
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
     public func getDestFileName() -> String? {
         return self.destFileName;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{name}/{nodePath}/paragraphs/{index}/tabstops";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: self.getIndex()));
+
+         if (self.getNodePath() != nil) {
+             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: self.getNodePath()!));
+         }
+         else {
+             rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: "");
+         }
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getDestFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getTabStopInsertDto()), contentType: "application/json");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: TabStopsResponse.self, from: data);
     }
 }

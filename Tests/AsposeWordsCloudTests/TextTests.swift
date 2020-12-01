@@ -32,7 +32,9 @@ import XCTest
 class TextTests: BaseTestContext {
     static var allTests = [
         ("testReplaceText", testReplaceText),
-        ("testSearch", testSearch)
+        ("testReplaceTextOnline", testReplaceTextOnline),
+        ("testSearch", testSearch),
+        ("testSearchOnline", testSearchOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Text";
@@ -45,12 +47,24 @@ class TextTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestReplaceText = ReplaceTextParameters();
+      requestReplaceText.setOldValue(oldValue: "Testing");
+      requestReplaceText.setNewValue(newValue: "Aspose testing");
+
+
+      let request = ReplaceTextRequest(name: remoteFileName, replaceText: requestReplaceText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let actual = try super.getApi().replaceText(request: request);
+      XCTAssertEqual(actual.getMatches(), 3);
+    }
+
+    // Test for replacing text online.
+    func testReplaceTextOnline() throws {
+      let requestReplaceText = ReplaceTextParameters();
       requestReplaceText.setOldValue(oldValue: "aspose");
       requestReplaceText.setNewValue(newValue: "aspose new");
 
 
-      let request = ReplaceTextRequest(name: remoteFileName, replaceText: requestReplaceText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().replaceText(request: request);
+      let request = ReplaceTextOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, replaceText: requestReplaceText, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      _ = try super.getApi().replaceTextOnline(request: request);
     }
 
     // Test for searching.
@@ -61,6 +75,17 @@ class TextTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = SearchRequest(name: remoteFileName, pattern: "aspose", folder: remoteDataFolder);
-      _ = try super.getApi().search(request: request);
+      let actual = try super.getApi().search(request: request);
+      XCTAssertNotNil(actual.getSearchResults());
+      XCTAssertNotNil(actual.getSearchResults()!.getResultsList());
+      XCTAssertEqual(actual.getSearchResults()!.getResultsList()!.count, 23);
+      XCTAssertNotNil(actual.getSearchResults()!.getResultsList()![0].getRangeStart());
+      XCTAssertEqual(actual.getSearchResults()!.getResultsList()![0].getRangeStart()!.getOffset(), 65);
+    }
+
+    // Test for searching online.
+    func testSearchOnline() throws {
+      let request = SearchOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, pattern: "aspose");
+      _ = try super.getApi().searchOnline(request: request);
     }
 }

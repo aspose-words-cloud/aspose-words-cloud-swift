@@ -33,7 +33,7 @@ public class Hyperlinks : LinkElement {
     private var hyperlinkList : [Hyperlink]?;
 
     private enum CodingKeys: String, CodingKey {
-        case hyperlinkList;
+        case hyperlinkList = "HyperlinkList";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class Hyperlinks : LinkElement {
         }
     }
 
-    // Sets hyperlinkList. Gets or sets array of Hyperlink.
+    // Sets hyperlinkList. Gets or sets the array of Hyperlink.
     public func setHyperlinkList(hyperlinkList : [Hyperlink]?) {
         self.hyperlinkList = hyperlinkList;
     }
 
-    // Gets hyperlinkList. Gets or sets array of Hyperlink.
+    // Gets hyperlinkList. Gets or sets the array of Hyperlink.
     public func getHyperlinkList() -> [Hyperlink]? {
         return self.hyperlinkList;
     }

@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for executeMailMergeOnline operation.
-public class ExecuteMailMergeOnlineRequest {
+public class ExecuteMailMergeOnlineRequest : WordsApiRequest {
     private let template : InputStream;
     private let data : InputStream;
     private let withRegions : Bool?;
@@ -63,18 +63,57 @@ public class ExecuteMailMergeOnlineRequest {
         return self.data;
     }
 
-    // With regions flag.
+    // The flag indicating whether to execute Mail Merge operation with regions.
     public func getWithRegions() -> Bool? {
         return self.withRegions;
     }
 
-    // Clean up options.
+    // The cleanup options.
     public func getCleanup() -> String? {
         return self.cleanup;
     }
 
-    // This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, "template" will be used instead.
+    // The filename of the output document, that will be used when the resulting document has a dynamic field {filename}. If it is not set, the "template" will be used instead.
     public func getDocumentFileName() -> String? {
         return self.documentFileName;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/MailMerge";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getWithRegions() != nil) {
+             queryItems.append(URLQueryItem(name: "withRegions", value: try ObjectSerializer.serializeToString(value: self.getWithRegions()!)));
+         }
+
+         if (self.getCleanup() != nil) {
+             queryItems.append(URLQueryItem(name: "cleanup", value: try ObjectSerializer.serializeToString(value: self.getCleanup()!)));
+         }
+
+         if (self.getDocumentFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "documentFileName", value: try ObjectSerializer.serializeToString(value: self.getDocumentFileName()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+         var formParams : [RequestFormParam] = [];
+         formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: self.getTemplate()), contentType: "application/octet-stream"));
+
+         formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serializeFile(value: self.getData()), contentType: "application/octet-stream"));
+
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         result.setBody(formParams: formParams);
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return data;
     }
 }

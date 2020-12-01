@@ -27,14 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/headersfooters/{0}.
+// The REST response with a HeaderFooter.
 public class HeaderFooterResponse : WordsResponse {
-    // Field of headerFooter. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/headersfooters/{0}.
+    // Field of headerFooter. The REST response with a HeaderFooter.
     private var headerFooter : HeaderFooter?;
 
     private enum CodingKeys: String, CodingKey {
-        case headerFooter;
+        case headerFooter = "HeaderFooter";
         case invalidCodingKey;
     }
 
@@ -56,12 +55,12 @@ public class HeaderFooterResponse : WordsResponse {
         }
     }
 
-    // Sets headerFooter. Gets or sets headerFooter.
+    // Sets headerFooter. Gets or sets the HeaderFooter.
     public func setHeaderFooter(headerFooter : HeaderFooter?) {
         self.headerFooter = headerFooter;
     }
 
-    // Gets headerFooter. Gets or sets headerFooter.
+    // Gets headerFooter. Gets or sets the HeaderFooter.
     public func getHeaderFooter() -> HeaderFooter? {
         return self.headerFooter;
     }

@@ -28,8 +28,8 @@
 import Foundation
 
 // Request model for classifyDocument operation.
-public class ClassifyDocumentRequest {
-    private let documentName : String;
+public class ClassifyDocumentRequest : WordsApiRequest {
+    private let name : String;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -38,7 +38,7 @@ public class ClassifyDocumentRequest {
     private let taxonomy : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case documentName;
+        case name;
         case folder;
         case storage;
         case loadEncoding;
@@ -49,8 +49,8 @@ public class ClassifyDocumentRequest {
     }
 
     // Initializes a new instance of the ClassifyDocumentRequest class.
-    public init(documentName : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, bestClassesCount : String? = nil, taxonomy : String? = nil) {
-        self.documentName = documentName;
+    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, bestClassesCount : String? = nil, taxonomy : String? = nil) {
+        self.name = name;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -60,8 +60,8 @@ public class ClassifyDocumentRequest {
     }
 
     // The document name.
-    public func getDocumentName() -> String {
-        return self.documentName;
+    public func getName() -> String {
+        return self.name;
     }
 
     // Original document folder.
@@ -84,13 +84,60 @@ public class ClassifyDocumentRequest {
         return self.password;
     }
 
-    // Count of the best classes to return.
+    // The number of the best classes to return.
     public func getBestClassesCount() -> String? {
         return self.bestClassesCount;
     }
 
-    // Taxonomy to use for classification return.
+    // The taxonomy to use.
     public func getTaxonomy() -> String? {
         return self.taxonomy;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{name}/classify";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getBestClassesCount() != nil) {
+             queryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: self.getBestClassesCount()!)));
+         }
+
+         if (self.getTaxonomy() != nil) {
+             queryItems.append(URLQueryItem(name: "taxonomy", value: try ObjectSerializer.serializeToString(value: self.getTaxonomy()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: ClassificationResponse.self, from: data);
     }
 }

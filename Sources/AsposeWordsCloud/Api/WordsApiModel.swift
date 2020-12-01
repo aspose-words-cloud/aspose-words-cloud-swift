@@ -28,6 +28,6 @@
 import Foundation
 
 // General protocol for all models.
-protocol WordsApiModel {
+public protocol WordsApiModel {
 
 }

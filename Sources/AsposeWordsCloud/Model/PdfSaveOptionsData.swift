@@ -27,9 +27,9 @@
 
 import Foundation
 
-// container class for pdf save options.
+// Container class for pdf save options.
 public class PdfSaveOptionsData : FixedPageSaveOptionsData {
-    // Gets or sets determines how bookmarks in headers/footers are exported.
+    // Gets or sets the option that controls how bookmarks in headers/footers are exported.
     // The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
     public enum HeaderFooterBookmarksExportMode : String, Codable
     {
@@ -43,107 +43,107 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         case all = "All"
     }
 
-    // Field of compliance. container class for pdf save options.
+    // Field of compliance. Container class for pdf save options.
     private var compliance : String?;
 
-    // Field of createNoteHyperlinks. container class for pdf save options.
+    // Field of createNoteHyperlinks. Container class for pdf save options.
     private var createNoteHyperlinks : Bool?;
 
-    // Field of customPropertiesExport. container class for pdf save options.
+    // Field of customPropertiesExport. Container class for pdf save options.
     private var customPropertiesExport : String?;
 
-    // Field of digitalSignatureDetails. container class for pdf save options.
+    // Field of digitalSignatureDetails. Container class for pdf save options.
     private var digitalSignatureDetails : PdfDigitalSignatureDetailsData?;
 
-    // Field of displayDocTitle. container class for pdf save options.
+    // Field of displayDocTitle. Container class for pdf save options.
     private var displayDocTitle : Bool?;
 
-    // Field of downsampleOptions. container class for pdf save options.
+    // Field of downsampleOptions. Container class for pdf save options.
     private var downsampleOptions : DownsampleOptionsData?;
 
-    // Field of embedFullFonts. container class for pdf save options.
+    // Field of embedFullFonts. Container class for pdf save options.
     private var embedFullFonts : Bool?;
 
-    // Field of encryptionDetails. container class for pdf save options.
+    // Field of encryptionDetails. Container class for pdf save options.
     private var encryptionDetails : PdfEncryptionDetailsData?;
 
-    // Field of escapeUri. container class for pdf save options.
+    // Field of escapeUri. Container class for pdf save options.
     private var escapeUri : Bool?;
 
-    // Field of exportDocumentStructure. container class for pdf save options.
+    // Field of exportDocumentStructure. Container class for pdf save options.
     private var exportDocumentStructure : Bool?;
 
-    // Field of fontEmbeddingMode. container class for pdf save options.
+    // Field of fontEmbeddingMode. Container class for pdf save options.
     private var fontEmbeddingMode : String?;
 
-    // Field of headerFooterBookmarksExportMode. container class for pdf save options.
+    // Field of headerFooterBookmarksExportMode. Container class for pdf save options.
     private var headerFooterBookmarksExportMode : HeaderFooterBookmarksExportMode?;
 
-    // Field of imageColorSpaceExportMode. container class for pdf save options.
+    // Field of imageColorSpaceExportMode. Container class for pdf save options.
     private var imageColorSpaceExportMode : String?;
 
-    // Field of imageCompression. container class for pdf save options.
+    // Field of imageCompression. Container class for pdf save options.
     private var imageCompression : String?;
 
-    // Field of interpolateImages. container class for pdf save options.
+    // Field of interpolateImages. Container class for pdf save options.
     private var interpolateImages : Bool?;
 
-    // Field of openHyperlinksInNewWindow. container class for pdf save options.
+    // Field of openHyperlinksInNewWindow. Container class for pdf save options.
     private var openHyperlinksInNewWindow : Bool?;
 
-    // Field of outlineOptions. container class for pdf save options.
+    // Field of outlineOptions. Container class for pdf save options.
     private var outlineOptions : OutlineOptionsData?;
 
-    // Field of pageMode. container class for pdf save options.
+    // Field of pageMode. Container class for pdf save options.
     private var pageMode : String?;
 
-    // Field of preblendImages. container class for pdf save options.
+    // Field of preblendImages. Container class for pdf save options.
     private var preblendImages : Bool?;
 
-    // Field of preserveFormFields. container class for pdf save options.
+    // Field of preserveFormFields. Container class for pdf save options.
     private var preserveFormFields : Bool?;
 
-    // Field of textCompression. container class for pdf save options.
+    // Field of textCompression. Container class for pdf save options.
     private var textCompression : String?;
 
-    // Field of useBookFoldPrintingSettings. container class for pdf save options.
+    // Field of useBookFoldPrintingSettings. Container class for pdf save options.
     private var useBookFoldPrintingSettings : Bool?;
 
-    // Field of useCoreFonts. container class for pdf save options.
+    // Field of useCoreFonts. Container class for pdf save options.
     private var useCoreFonts : Bool?;
 
-    // Field of zoomBehavior. container class for pdf save options.
+    // Field of zoomBehavior. Container class for pdf save options.
     private var zoomBehavior : String?;
 
-    // Field of zoomFactor. container class for pdf save options.
+    // Field of zoomFactor. Container class for pdf save options.
     private var zoomFactor : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case compliance;
-        case createNoteHyperlinks;
-        case customPropertiesExport;
-        case digitalSignatureDetails;
-        case displayDocTitle;
-        case downsampleOptions;
-        case embedFullFonts;
-        case encryptionDetails;
-        case escapeUri;
-        case exportDocumentStructure;
-        case fontEmbeddingMode;
-        case headerFooterBookmarksExportMode;
-        case imageColorSpaceExportMode;
-        case imageCompression;
-        case interpolateImages;
-        case openHyperlinksInNewWindow;
-        case outlineOptions;
-        case pageMode;
-        case preblendImages;
-        case preserveFormFields;
-        case textCompression;
-        case useBookFoldPrintingSettings;
-        case useCoreFonts;
-        case zoomBehavior;
-        case zoomFactor;
+        case compliance = "Compliance";
+        case createNoteHyperlinks = "CreateNoteHyperlinks";
+        case customPropertiesExport = "CustomPropertiesExport";
+        case digitalSignatureDetails = "DigitalSignatureDetails";
+        case displayDocTitle = "DisplayDocTitle";
+        case downsampleOptions = "DownsampleOptions";
+        case embedFullFonts = "EmbedFullFonts";
+        case encryptionDetails = "EncryptionDetails";
+        case escapeUri = "EscapeUri";
+        case exportDocumentStructure = "ExportDocumentStructure";
+        case fontEmbeddingMode = "FontEmbeddingMode";
+        case headerFooterBookmarksExportMode = "HeaderFooterBookmarksExportMode";
+        case imageColorSpaceExportMode = "ImageColorSpaceExportMode";
+        case imageCompression = "ImageCompression";
+        case interpolateImages = "InterpolateImages";
+        case openHyperlinksInNewWindow = "OpenHyperlinksInNewWindow";
+        case outlineOptions = "OutlineOptions";
+        case pageMode = "PageMode";
+        case preblendImages = "PreblendImages";
+        case preserveFormFields = "PreserveFormFields";
+        case textCompression = "TextCompression";
+        case useBookFoldPrintingSettings = "UseBookFoldPrintingSettings";
+        case useCoreFonts = "UseCoreFonts";
+        case zoomBehavior = "ZoomBehavior";
+        case zoomFactor = "ZoomFactor";
         case invalidCodingKey;
     }
 
@@ -261,252 +261,252 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
     }
 
-    // Sets compliance. Gets or sets specifies the PDF standards compliance level for output documents.
+    // Sets compliance. Gets or sets the PDF standards compliance level for output documents.
     public func setCompliance(compliance : String?) {
         self.compliance = compliance;
     }
 
-    // Gets compliance. Gets or sets specifies the PDF standards compliance level for output documents.
+    // Gets compliance. Gets or sets the PDF standards compliance level for output documents.
     public func getCompliance() -> String? {
         return self.compliance;
     }
 
-    // Sets createNoteHyperlinks. Gets or sets specifies whether to convert footnote/endnote references in main text story into active hyperlinks. When clicked the hyperlink will lead to the corresponding footnote/endnote. Default is false.
+    // Sets createNoteHyperlinks. Gets or sets a value indicating whether to convert footnote/endnote references in main text story into active hyperlinks. When clicked the hyperlink will lead to the corresponding footnote/endnote. The default value is false.
     public func setCreateNoteHyperlinks(createNoteHyperlinks : Bool?) {
         self.createNoteHyperlinks = createNoteHyperlinks;
     }
 
-    // Gets createNoteHyperlinks. Gets or sets specifies whether to convert footnote/endnote references in main text story into active hyperlinks. When clicked the hyperlink will lead to the corresponding footnote/endnote. Default is false.
+    // Gets createNoteHyperlinks. Gets or sets a value indicating whether to convert footnote/endnote references in main text story into active hyperlinks. When clicked the hyperlink will lead to the corresponding footnote/endnote. The default value is false.
     public func getCreateNoteHyperlinks() -> Bool? {
         return self.createNoteHyperlinks;
     }
 
-    // Sets customPropertiesExport. Gets or sets a value determining the way CustomDocumentProperties are exported to PDF file. Default value is None.
+    // Sets customPropertiesExport. Gets or sets the option that controls the way CustomDocumentProperties are exported to PDF file. The default value is None.
     public func setCustomPropertiesExport(customPropertiesExport : String?) {
         self.customPropertiesExport = customPropertiesExport;
     }
 
-    // Gets customPropertiesExport. Gets or sets a value determining the way CustomDocumentProperties are exported to PDF file. Default value is None.
+    // Gets customPropertiesExport. Gets or sets the option that controls the way CustomDocumentProperties are exported to PDF file. The default value is None.
     public func getCustomPropertiesExport() -> String? {
         return self.customPropertiesExport;
     }
 
-    // Sets digitalSignatureDetails. Gets or sets specifies the details for signing the output PDF document.
+    // Sets digitalSignatureDetails. Gets or sets the details for signing the output PDF document.
     public func setDigitalSignatureDetails(digitalSignatureDetails : PdfDigitalSignatureDetailsData?) {
         self.digitalSignatureDetails = digitalSignatureDetails;
     }
 
-    // Gets digitalSignatureDetails. Gets or sets specifies the details for signing the output PDF document.
+    // Gets digitalSignatureDetails. Gets or sets the details for signing the output PDF document.
     public func getDigitalSignatureDetails() -> PdfDigitalSignatureDetailsData? {
         return self.digitalSignatureDetails;
     }
 
-    // Sets displayDocTitle. Gets or sets a flag specifying whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.
+    // Sets displayDocTitle. Gets or sets a value indicating whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.
     public func setDisplayDocTitle(displayDocTitle : Bool?) {
         self.displayDocTitle = displayDocTitle;
     }
 
-    // Gets displayDocTitle. Gets or sets a flag specifying whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.
+    // Gets displayDocTitle. Gets or sets a value indicating whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.
     public func getDisplayDocTitle() -> Bool? {
         return self.displayDocTitle;
     }
 
-    // Sets downsampleOptions. Gets or sets allows to specify downsample options.
+    // Sets downsampleOptions. Gets or sets the downsample options.
     public func setDownsampleOptions(downsampleOptions : DownsampleOptionsData?) {
         self.downsampleOptions = downsampleOptions;
     }
 
-    // Gets downsampleOptions. Gets or sets allows to specify downsample options.
+    // Gets downsampleOptions. Gets or sets the downsample options.
     public func getDownsampleOptions() -> DownsampleOptionsData? {
         return self.downsampleOptions;
     }
 
-    // Sets embedFullFonts. Gets or sets controls how fonts are embedded into the resulting PDF documents.
+    // Sets embedFullFonts. Gets or sets a value indicating whether fonts are embedded into the resulting PDF documents.
     public func setEmbedFullFonts(embedFullFonts : Bool?) {
         self.embedFullFonts = embedFullFonts;
     }
 
-    // Gets embedFullFonts. Gets or sets controls how fonts are embedded into the resulting PDF documents.
+    // Gets embedFullFonts. Gets or sets a value indicating whether fonts are embedded into the resulting PDF documents.
     public func getEmbedFullFonts() -> Bool? {
         return self.embedFullFonts;
     }
 
-    // Sets encryptionDetails. Gets or sets specifies the details for encrypting the output PDF document.
+    // Sets encryptionDetails. Gets or sets the details for encrypting the output PDF document.
     public func setEncryptionDetails(encryptionDetails : PdfEncryptionDetailsData?) {
         self.encryptionDetails = encryptionDetails;
     }
 
-    // Gets encryptionDetails. Gets or sets specifies the details for encrypting the output PDF document.
+    // Gets encryptionDetails. Gets or sets the details for encrypting the output PDF document.
     public func getEncryptionDetails() -> PdfEncryptionDetailsData? {
         return self.encryptionDetails;
     }
 
-    // Sets escapeUri. Gets or sets a flag specifying whether URI should be escaped before writing.
+    // Sets escapeUri. Gets or sets a value indicating whether URI should be escaped before writing.
     public func setEscapeUri(escapeUri : Bool?) {
         self.escapeUri = escapeUri;
     }
 
-    // Gets escapeUri. Gets or sets a flag specifying whether URI should be escaped before writing.
+    // Gets escapeUri. Gets or sets a value indicating whether URI should be escaped before writing.
     public func getEscapeUri() -> Bool? {
         return self.escapeUri;
     }
 
-    // Sets exportDocumentStructure. Gets or sets determines whether or not to export document structure.
+    // Sets exportDocumentStructure. Gets or sets a value indicating whether to export document structure.
     public func setExportDocumentStructure(exportDocumentStructure : Bool?) {
         self.exportDocumentStructure = exportDocumentStructure;
     }
 
-    // Gets exportDocumentStructure. Gets or sets determines whether or not to export document structure.
+    // Gets exportDocumentStructure. Gets or sets a value indicating whether to export document structure.
     public func getExportDocumentStructure() -> Bool? {
         return self.exportDocumentStructure;
     }
 
-    // Sets fontEmbeddingMode. Gets or sets specifies the font embedding mode.
+    // Sets fontEmbeddingMode. Gets or sets the font embedding mode.
     public func setFontEmbeddingMode(fontEmbeddingMode : String?) {
         self.fontEmbeddingMode = fontEmbeddingMode;
     }
 
-    // Gets fontEmbeddingMode. Gets or sets specifies the font embedding mode.
+    // Gets fontEmbeddingMode. Gets or sets the font embedding mode.
     public func getFontEmbeddingMode() -> String? {
         return self.fontEmbeddingMode;
     }
 
-    // Sets headerFooterBookmarksExportMode. Gets or sets determines how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
+    // Sets headerFooterBookmarksExportMode. Gets or sets the option that controls how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
     public func setHeaderFooterBookmarksExportMode(headerFooterBookmarksExportMode : HeaderFooterBookmarksExportMode?) {
         self.headerFooterBookmarksExportMode = headerFooterBookmarksExportMode;
     }
 
-    // Gets headerFooterBookmarksExportMode. Gets or sets determines how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
+    // Gets headerFooterBookmarksExportMode. Gets or sets the option that controls how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
     public func getHeaderFooterBookmarksExportMode() -> HeaderFooterBookmarksExportMode? {
         return self.headerFooterBookmarksExportMode;
     }
 
-    // Sets imageColorSpaceExportMode. Gets or sets specifies how the color space will be selected for the images in PDF document.
+    // Sets imageColorSpaceExportMode. Gets or sets the option that controls how the color space will be selected for the images in PDF document.
     public func setImageColorSpaceExportMode(imageColorSpaceExportMode : String?) {
         self.imageColorSpaceExportMode = imageColorSpaceExportMode;
     }
 
-    // Gets imageColorSpaceExportMode. Gets or sets specifies how the color space will be selected for the images in PDF document.
+    // Gets imageColorSpaceExportMode. Gets or sets the option that controls how the color space will be selected for the images in PDF document.
     public func getImageColorSpaceExportMode() -> String? {
         return self.imageColorSpaceExportMode;
     }
 
-    // Sets imageCompression. Gets or sets specifies compression type to be used for all images in the document.
+    // Sets imageCompression. Gets or sets the compression type to be used for all images in the document.
     public func setImageCompression(imageCompression : String?) {
         self.imageCompression = imageCompression;
     }
 
-    // Gets imageCompression. Gets or sets specifies compression type to be used for all images in the document.
+    // Gets imageCompression. Gets or sets the compression type to be used for all images in the document.
     public func getImageCompression() -> String? {
         return self.imageCompression;
     }
 
-    // Sets interpolateImages. Gets or sets a flag indicating whether image interpolation shall be performed by a conforming reader. When false is specified, the flag is not written to the output document and the default behaviour of reader is used instead.
+    // Sets interpolateImages. Gets or sets a value indicating whether image interpolation shall be performed by a conforming reader. When false is specified, the flag is not written to the output document and the default behavior of reader is used instead.
     public func setInterpolateImages(interpolateImages : Bool?) {
         self.interpolateImages = interpolateImages;
     }
 
-    // Gets interpolateImages. Gets or sets a flag indicating whether image interpolation shall be performed by a conforming reader. When false is specified, the flag is not written to the output document and the default behaviour of reader is used instead.
+    // Gets interpolateImages. Gets or sets a value indicating whether image interpolation shall be performed by a conforming reader. When false is specified, the flag is not written to the output document and the default behavior of reader is used instead.
     public func getInterpolateImages() -> Bool? {
         return self.interpolateImages;
     }
 
-    // Sets openHyperlinksInNewWindow. Gets or sets determines whether hyperlinks in the output Pdf document are forced to be opened in a new window (or tab) of a browser.
+    // Sets openHyperlinksInNewWindow. Gets or sets a value indicating whether hyperlinks in the output Pdf document are forced to be opened in a new window (or tab) of a browser.
     public func setOpenHyperlinksInNewWindow(openHyperlinksInNewWindow : Bool?) {
         self.openHyperlinksInNewWindow = openHyperlinksInNewWindow;
     }
 
-    // Gets openHyperlinksInNewWindow. Gets or sets determines whether hyperlinks in the output Pdf document are forced to be opened in a new window (or tab) of a browser.
+    // Gets openHyperlinksInNewWindow. Gets or sets a value indicating whether hyperlinks in the output Pdf document are forced to be opened in a new window (or tab) of a browser.
     public func getOpenHyperlinksInNewWindow() -> Bool? {
         return self.openHyperlinksInNewWindow;
     }
 
-    // Sets outlineOptions. Gets or sets allows to specify outline options.
+    // Sets outlineOptions. Gets or sets the outline options.
     public func setOutlineOptions(outlineOptions : OutlineOptionsData?) {
         self.outlineOptions = outlineOptions;
     }
 
-    // Gets outlineOptions. Gets or sets allows to specify outline options.
+    // Gets outlineOptions. Gets or sets the outline options.
     public func getOutlineOptions() -> OutlineOptionsData? {
         return self.outlineOptions;
     }
 
-    // Sets pageMode. Gets or sets specifies how the PDF document should be displayed when opened in the PDF reader.
+    // Sets pageMode. Gets or sets the option that controls how the PDF document should be displayed when opened in the PDF reader.
     public func setPageMode(pageMode : String?) {
         self.pageMode = pageMode;
     }
 
-    // Gets pageMode. Gets or sets specifies how the PDF document should be displayed when opened in the PDF reader.
+    // Gets pageMode. Gets or sets the option that controls how the PDF document should be displayed when opened in the PDF reader.
     public func getPageMode() -> String? {
         return self.pageMode;
     }
 
-    // Sets preblendImages. Gets or sets a value determining whether or not to preblend transparent images with black background color.
+    // Sets preblendImages. Gets or sets a value indicating whether to preblend transparent images with black background color.
     public func setPreblendImages(preblendImages : Bool?) {
         self.preblendImages = preblendImages;
     }
 
-    // Gets preblendImages. Gets or sets a value determining whether or not to preblend transparent images with black background color.
+    // Gets preblendImages. Gets or sets a value indicating whether to preblend transparent images with black background color.
     public func getPreblendImages() -> Bool? {
         return self.preblendImages;
     }
 
-    // Sets preserveFormFields. Gets or sets specifies whether to preserve Microsoft Word form fields as form fields in PDF or convert them to text.
+    // Sets preserveFormFields. Gets or sets a value indicating whether to preserve Microsoft Word form fields as form fields in PDF or convert them to text.
     public func setPreserveFormFields(preserveFormFields : Bool?) {
         self.preserveFormFields = preserveFormFields;
     }
 
-    // Gets preserveFormFields. Gets or sets specifies whether to preserve Microsoft Word form fields as form fields in PDF or convert them to text.
+    // Gets preserveFormFields. Gets or sets a value indicating whether to preserve Microsoft Word form fields as form fields in PDF or convert them to text.
     public func getPreserveFormFields() -> Bool? {
         return self.preserveFormFields;
     }
 
-    // Sets textCompression. Gets or sets specifies compression type to be used for all textual content in the document.
+    // Sets textCompression. Gets or sets the compression type to be used for all textual content in the document.
     public func setTextCompression(textCompression : String?) {
         self.textCompression = textCompression;
     }
 
-    // Gets textCompression. Gets or sets specifies compression type to be used for all textual content in the document.
+    // Gets textCompression. Gets or sets the compression type to be used for all textual content in the document.
     public func getTextCompression() -> String? {
         return self.textCompression;
     }
 
-    // Sets useBookFoldPrintingSettings. Gets or sets determines whether the document should be saved using a booklet printing layout.
+    // Sets useBookFoldPrintingSettings. Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
     public func setUseBookFoldPrintingSettings(useBookFoldPrintingSettings : Bool?) {
         self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
     }
 
-    // Gets useBookFoldPrintingSettings. Gets or sets determines whether the document should be saved using a booklet printing layout.
+    // Gets useBookFoldPrintingSettings. Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
     public func getUseBookFoldPrintingSettings() -> Bool? {
         return self.useBookFoldPrintingSettings;
     }
 
-    // Sets useCoreFonts. Gets or sets determines whether or not to substitute TrueType fonts Arial, Times New Roman, Courier New and Symbol with core PDF Type 1 fonts.
+    // Sets useCoreFonts. Gets or sets a value indicating whether to substitute TrueType fonts Arial, Times New Roman, Courier New and Symbol with core PDF Type 1 fonts.
     public func setUseCoreFonts(useCoreFonts : Bool?) {
         self.useCoreFonts = useCoreFonts;
     }
 
-    // Gets useCoreFonts. Gets or sets determines whether or not to substitute TrueType fonts Arial, Times New Roman, Courier New and Symbol with core PDF Type 1 fonts.
+    // Gets useCoreFonts. Gets or sets a value indicating whether to substitute TrueType fonts Arial, Times New Roman, Courier New and Symbol with core PDF Type 1 fonts.
     public func getUseCoreFonts() -> Bool? {
         return self.useCoreFonts;
     }
 
-    // Sets zoomBehavior. Gets or sets determines what type of zoom should be applied when a document is opened with a PDF viewer.
+    // Sets zoomBehavior. Gets or sets the option that controls what type of zoom should be applied when a document is opened with a PDF viewer.
     public func setZoomBehavior(zoomBehavior : String?) {
         self.zoomBehavior = zoomBehavior;
     }
 
-    // Gets zoomBehavior. Gets or sets determines what type of zoom should be applied when a document is opened with a PDF viewer.
+    // Gets zoomBehavior. Gets or sets the option that controls what type of zoom should be applied when a document is opened with a PDF viewer.
     public func getZoomBehavior() -> String? {
         return self.zoomBehavior;
     }
 
-    // Sets zoomFactor. Gets or sets determines zoom factor (in percentages) for a document.
+    // Sets zoomFactor. Gets or sets the zoom factor (in percentages) for a document.
     public func setZoomFactor(zoomFactor : Int?) {
         self.zoomFactor = zoomFactor;
     }
 
-    // Gets zoomFactor. Gets or sets determines zoom factor (in percentages) for a document.
+    // Gets zoomFactor. Gets or sets the zoom factor (in percentages) for a document.
     public func getZoomFactor() -> Int? {
         return self.zoomFactor;
     }

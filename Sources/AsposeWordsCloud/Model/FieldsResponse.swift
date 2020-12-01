@@ -27,14 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/fields.
+// The REST response with a collection of fields.
 public class FieldsResponse : WordsResponse {
-    // Field of fields. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/{nodePath}/fields.
+    // Field of fields. The REST response with a collection of fields.
     private var fields : FieldCollection?;
 
     private enum CodingKeys: String, CodingKey {
-        case fields;
+        case fields = "Fields";
         case invalidCodingKey;
     }
 
@@ -56,12 +55,12 @@ public class FieldsResponse : WordsResponse {
         }
     }
 
-    // Sets fields. Gets or sets collection of fields.
+    // Sets fields. Gets or sets the collection of fields.
     public func setFields(fields : FieldCollection?) {
         self.fields = fields;
     }
 
-    // Gets fields. Gets or sets collection of fields.
+    // Gets fields. Gets or sets the collection of fields.
     public func getFields() -> FieldCollection? {
         return self.fields;
     }

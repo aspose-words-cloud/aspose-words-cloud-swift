@@ -28,14 +28,18 @@
 import Foundation
 
 // Request model for getDocumentStatisticsOnline operation.
-public class GetDocumentStatisticsOnlineRequest {
+public class GetDocumentStatisticsOnlineRequest : WordsApiRequest {
     private let document : InputStream;
+    private let loadEncoding : String?;
+    private let password : String?;
     private let includeComments : Bool?;
     private let includeFootnotes : Bool?;
     private let includeTextInShapes : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case document;
+        case loadEncoding;
+        case password;
         case includeComments;
         case includeFootnotes;
         case includeTextInShapes;
@@ -43,8 +47,10 @@ public class GetDocumentStatisticsOnlineRequest {
     }
 
     // Initializes a new instance of the GetDocumentStatisticsOnlineRequest class.
-    public init(document : InputStream, includeComments : Bool? = nil, includeFootnotes : Bool? = nil, includeTextInShapes : Bool? = nil) {
+    public init(document : InputStream, loadEncoding : String? = nil, password : String? = nil, includeComments : Bool? = nil, includeFootnotes : Bool? = nil, includeTextInShapes : Bool? = nil) {
         self.document = document;
+        self.loadEncoding = loadEncoding;
+        self.password = password;
         self.includeComments = includeComments;
         self.includeFootnotes = includeFootnotes;
         self.includeTextInShapes = includeTextInShapes;
@@ -55,18 +61,73 @@ public class GetDocumentStatisticsOnlineRequest {
         return self.document;
     }
 
-    // Support including/excluding comments from the WordCount. Default value is "false".
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password for opening an encrypted document.
+    public func getPassword() -> String? {
+        return self.password;
+    }
+
+    // The flag indicating whether to include comments from the WordCount. The default value is "false".
     public func getIncludeComments() -> Bool? {
         return self.includeComments;
     }
 
-    // Support including/excluding footnotes from the WordCount. Default value is "false".
+    // The flag indicating whether to include footnotes from the WordCount. The default value is "false".
     public func getIncludeFootnotes() -> Bool? {
         return self.includeFootnotes;
     }
 
-    // Support including/excluding shape's text from the WordCount. Default value is "false".
+    // The flag indicating whether to include shape's text from the WordCount. The default value is "false".
     public func getIncludeTextInShapes() -> Bool? {
         return self.includeTextInShapes;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/online/get/statistics";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getIncludeComments() != nil) {
+             queryItems.append(URLQueryItem(name: "includeComments", value: try ObjectSerializer.serializeToString(value: self.getIncludeComments()!)));
+         }
+
+         if (self.getIncludeFootnotes() != nil) {
+             queryItems.append(URLQueryItem(name: "includeFootnotes", value: try ObjectSerializer.serializeToString(value: self.getIncludeFootnotes()!)));
+         }
+
+         if (self.getIncludeTextInShapes() != nil) {
+             queryItems.append(URLQueryItem(name: "includeTextInShapes", value: try ObjectSerializer.serializeToString(value: self.getIncludeTextInShapes()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+         var formParams : [RequestFormParam] = [];
+         formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
+
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         result.setBody(formParams: formParams);
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: StatDataResponse.self, from: data);
     }
 }

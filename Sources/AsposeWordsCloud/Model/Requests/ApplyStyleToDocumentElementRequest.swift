@@ -28,10 +28,10 @@
 import Foundation
 
 // Request model for applyStyleToDocumentElement operation.
-public class ApplyStyleToDocumentElementRequest {
+public class ApplyStyleToDocumentElementRequest : WordsApiRequest {
     private let name : String;
-    private let styleApply : StyleApply;
     private let styledNodePath : String;
+    private let styleApply : StyleApply;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -42,8 +42,8 @@ public class ApplyStyleToDocumentElementRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case styleApply;
         case styledNodePath;
+        case styleApply;
         case folder;
         case storage;
         case loadEncoding;
@@ -55,10 +55,10 @@ public class ApplyStyleToDocumentElementRequest {
     }
 
     // Initializes a new instance of the ApplyStyleToDocumentElementRequest class.
-    public init(name : String, styleApply : StyleApply, styledNodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, styledNodePath : String, styleApply : StyleApply, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.styleApply = styleApply;
         self.styledNodePath = styledNodePath;
+        self.styleApply = styleApply;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -68,19 +68,19 @@ public class ApplyStyleToDocumentElementRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
+    }
+
+    // The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
+    public func getStyledNodePath() -> String {
+        return self.styledNodePath;
     }
 
     // Style to apply.
     public func getStyleApply() -> StyleApply {
         return self.styleApply;
-    }
-
-    // The path to the node that supports a style. Supported node types: ParagraphFormat, List, ListLevel, Table.
-    public func getStyledNodePath() -> String {
-        return self.styledNodePath;
     }
 
     // Original document folder.
@@ -116,5 +116,59 @@ public class ApplyStyleToDocumentElementRequest {
     // The date and time to use for revisions.
     public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{name}/{styledNodePath}/style";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "{styledNodePath}", with: try ObjectSerializer.serializeToString(value: self.getStyledNodePath()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getDestFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+         }
+
+         if (self.getRevisionAuthor() != nil) {
+             queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
+         }
+
+         if (self.getRevisionDateTime() != nil) {
+             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getStyleApply()), contentType: "application/json");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: WordsResponse.self, from: data);
     }
 }

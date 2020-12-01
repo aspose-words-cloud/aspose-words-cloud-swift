@@ -27,13 +27,13 @@
 
 import Foundation
 
-// Paragraph element.
+// DTO container with a paragraph element.
 public class Paragraph : NodeLink {
-    // Field of childNodes. Paragraph element.
+    // Field of childNodes. DTO container with a paragraph element.
     private var childNodes : [NodeLink]?;
 
     private enum CodingKeys: String, CodingKey {
-        case childNodes;
+        case childNodes = "ChildNodes";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class Paragraph : NodeLink {
         }
     }
 
-    // Sets childNodes. Gets or sets child nodes.
+    // Sets childNodes. Gets or sets the list of child nodes.
     public func setChildNodes(childNodes : [NodeLink]?) {
         self.childNodes = childNodes;
     }
 
-    // Gets childNodes. Gets or sets child nodes.
+    // Gets childNodes. Gets or sets the list of child nodes.
     public func getChildNodes() -> [NodeLink]? {
         return self.childNodes;
     }

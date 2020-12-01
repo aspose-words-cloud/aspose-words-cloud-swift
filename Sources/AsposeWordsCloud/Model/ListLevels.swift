@@ -27,13 +27,13 @@
 
 import Foundation
 
-// Represents a single document list.
+// DTO container with a single document list.
 public class ListLevels : LinkElement {
-    // Field of listLevel. Represents a single document list.
+    // Field of listLevel. DTO container with a single document list.
     private var listLevel : [ListLevel]?;
 
     private enum CodingKeys: String, CodingKey {
-        case listLevel;
+        case listLevel = "ListLevel";
         case invalidCodingKey;
     }
 

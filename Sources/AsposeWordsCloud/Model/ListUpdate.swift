@@ -33,7 +33,7 @@ public class ListUpdate : Codable, WordsApiModel {
     private var isRestartAtEachSection : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case isRestartAtEachSection;
+        case isRestartAtEachSection = "IsRestartAtEachSection";
         case invalidCodingKey;
     }
 
@@ -52,12 +52,12 @@ public class ListUpdate : Codable, WordsApiModel {
         }
     }
 
-    // Sets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+    // Sets isRestartAtEachSection. Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
     public func setIsRestartAtEachSection(isRestartAtEachSection : Bool?) {
         self.isRestartAtEachSection = isRestartAtEachSection;
     }
 
-    // Gets isRestartAtEachSection. Gets or sets a value indicating whether specifies whether list should be restarted at each section. Default value is false.
+    // Gets isRestartAtEachSection. Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
     public func getIsRestartAtEachSection() -> Bool? {
         return self.isRestartAtEachSection;
     }

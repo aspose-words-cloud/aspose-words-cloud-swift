@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getHeaderFooterOfSection operation.
-public class GetHeaderFooterOfSectionRequest {
+public class GetHeaderFooterOfSectionRequest : WordsApiRequest {
     private let name : String;
     private let headerFooterIndex : Int;
     private let sectionIndex : Int;
@@ -62,17 +62,17 @@ public class GetHeaderFooterOfSectionRequest {
         self.filterByType = filterByType;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Header/footer index.
+    // The index of the HeaderFooter object.
     public func getHeaderFooterIndex() -> Int {
         return self.headerFooterIndex;
     }
 
-    // Section index.
+    // The index of the section.
     public func getSectionIndex() -> Int {
         return self.sectionIndex;
     }
@@ -97,8 +97,55 @@ public class GetHeaderFooterOfSectionRequest {
         return self.password;
     }
 
-    // List of types of headers and footers.
+    // The list of HeaderFooter types.
     public func getFilterByType() -> String? {
         return self.filterByType;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{name}/sections/{sectionIndex}/headersfooters/{headerFooterIndex}";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "{headerFooterIndex}", with: try ObjectSerializer.serializeToString(value: self.getHeaderFooterIndex()));
+
+         rawPath = rawPath.replacingOccurrences(of: "{sectionIndex}", with: try ObjectSerializer.serializeToString(value: self.getSectionIndex()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getFilterByType() != nil) {
+             queryItems.append(URLQueryItem(name: "filterByType", value: try ObjectSerializer.serializeToString(value: self.getFilterByType()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: HeaderFooterResponse.self, from: data);
     }
 }

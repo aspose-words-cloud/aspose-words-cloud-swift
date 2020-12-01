@@ -32,7 +32,9 @@ import XCTest
 class HyperlinkTests: BaseTestContext {
     static var allTests = [
         ("testGetDocumentHyperlinkByIndex", testGetDocumentHyperlinkByIndex),
-        ("testGetDocumentHyperlinks", testGetDocumentHyperlinks)
+        ("testGetDocumentHyperlinkByIndexOnline", testGetDocumentHyperlinkByIndexOnline),
+        ("testGetDocumentHyperlinks", testGetDocumentHyperlinks),
+        ("testGetDocumentHyperlinksOnline", testGetDocumentHyperlinksOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Hyperlink";
@@ -45,7 +47,15 @@ class HyperlinkTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentHyperlinkByIndexRequest(name: remoteFileName, hyperlinkIndex: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentHyperlinkByIndex(request: request);
+      let actual = try super.getApi().getDocumentHyperlinkByIndex(request: request);
+      XCTAssertNotNil(actual.getHyperlink());
+      XCTAssertEqual(actual.getHyperlink()!.getDisplayText(), "Aspose");
+    }
+
+    // Test for getting hyperlink by specified index online.
+    func testGetDocumentHyperlinkByIndexOnline() throws {
+      let request = GetDocumentHyperlinkByIndexOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, hyperlinkIndex: 0);
+      _ = try super.getApi().getDocumentHyperlinkByIndexOnline(request: request);
     }
 
     // Test for getting hyperlinks.
@@ -55,6 +65,16 @@ class HyperlinkTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentHyperlinksRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getDocumentHyperlinks(request: request);
+      let actual = try super.getApi().getDocumentHyperlinks(request: request);
+      XCTAssertNotNil(actual.getHyperlinks());
+      XCTAssertNotNil(actual.getHyperlinks()!.getHyperlinkList());
+      XCTAssertEqual(actual.getHyperlinks()!.getHyperlinkList()!.count, 2);
+      XCTAssertEqual(actual.getHyperlinks()!.getHyperlinkList()![0].getDisplayText(), "Aspose");
+    }
+
+    // Test for getting hyperlinks online.
+    func testGetDocumentHyperlinksOnline() throws {
+      let request = GetDocumentHyperlinksOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      _ = try super.getApi().getDocumentHyperlinksOnline(request: request);
     }
 }

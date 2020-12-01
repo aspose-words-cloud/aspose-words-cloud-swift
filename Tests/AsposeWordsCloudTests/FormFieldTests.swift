@@ -32,14 +32,19 @@ import XCTest
 class FormFieldTests: BaseTestContext {
     static var allTests = [
         ("testUpdateFormField", testUpdateFormField),
+        ("testUpdateFormFieldOnline", testUpdateFormFieldOnline),
         ("testUpdateFormFieldWithoutNodePath", testUpdateFormFieldWithoutNodePath),
         ("testGetFormField", testGetFormField),
+        ("testGetFormFieldOnline", testGetFormFieldOnline),
         ("testGetFormFieldWithoutNodePath", testGetFormFieldWithoutNodePath),
         ("testGetFormFields", testGetFormFields),
+        ("testGetFormFieldsOnline", testGetFormFieldsOnline),
         ("testGetFormFieldsWithoutNodePath", testGetFormFieldsWithoutNodePath),
         ("testInsertFormField", testInsertFormField),
+        ("testInsertFormFieldOnline", testInsertFormFieldOnline),
         ("testInsertFormFieldWithoutNodePath", testInsertFormFieldWithoutNodePath),
         ("testDeleteFormField", testDeleteFormField),
+        ("testDeleteFormFieldOnline", testDeleteFormFieldOnline),
         ("testDeleteFormFieldWithoutNodePath", testDeleteFormFieldWithoutNodePath)
     ];
 
@@ -61,8 +66,26 @@ class FormFieldTests: BaseTestContext {
       requestFormField.setTextInputDefault(textInputDefault: "No name");
 
 
-      let request = UpdateFormFieldRequest(name: remoteFileName, formField: requestFormField, index: 0, nodePath: "sections/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().updateFormField(request: request);
+      let request = UpdateFormFieldRequest(name: remoteFileName, index: 0, formField: requestFormField, nodePath: "sections/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let actual = try super.getApi().updateFormField(request: request);
+      XCTAssertNotNil(actual.getFormField());
+      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
+      XCTAssertEqual(actual.getFormField()!.getStatusText(), "");
+    }
+
+    // Test for posting form field online.
+    func testUpdateFormFieldOnline() throws {
+      let requestFormField = FormFieldTextInput();
+      requestFormField.setName(name: "FullName");
+      requestFormField.setEnabled(enabled: true);
+      requestFormField.setCalculateOnExit(calculateOnExit: true);
+      requestFormField.setStatusText(statusText: "");
+      requestFormField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
+      requestFormField.setTextInputDefault(textInputDefault: "No name");
+
+
+      let request = UpdateFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, formField: requestFormField, nodePath: "sections/0", destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      _ = try super.getApi().updateFormFieldOnline(request: request);
     }
 
     // Test for posting form field without node path.
@@ -80,8 +103,11 @@ class FormFieldTests: BaseTestContext {
       requestFormField.setTextInputDefault(textInputDefault: "No name");
 
 
-      let request = UpdateFormFieldRequest(name: remoteFileName, formField: requestFormField, index: 0, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().updateFormField(request: request);
+      let request = UpdateFormFieldRequest(name: remoteFileName, index: 0, formField: requestFormField, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let actual = try super.getApi().updateFormField(request: request);
+      XCTAssertNotNil(actual.getFormField());
+      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
+      XCTAssertEqual(actual.getFormField()!.getStatusText(), "");
     }
 
     // Test for getting form field.
@@ -91,7 +117,15 @@ class FormFieldTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetFormFieldRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder);
-      _ = try super.getApi().getFormField(request: request);
+      let actual = try super.getApi().getFormField(request: request);
+      XCTAssertNotNil(actual.getFormField());
+      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
+    }
+
+    // Test for getting form field online.
+    func testGetFormFieldOnline() throws {
+      let request = GetFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, nodePath: "sections/0");
+      _ = try super.getApi().getFormFieldOnline(request: request);
     }
 
     // Test for getting form field without node path.
@@ -101,7 +135,9 @@ class FormFieldTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetFormFieldRequest(name: remoteFileName, index: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getFormField(request: request);
+      let actual = try super.getApi().getFormField(request: request);
+      XCTAssertNotNil(actual.getFormField());
+      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
     }
 
     // Test for getting form fields.
@@ -111,7 +147,17 @@ class FormFieldTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetFormFieldsRequest(name: remoteFileName, nodePath: "sections/0", folder: remoteDataFolder);
-      _ = try super.getApi().getFormFields(request: request);
+      let actual = try super.getApi().getFormFields(request: request);
+      XCTAssertNotNil(actual.getFormFields());
+      XCTAssertNotNil(actual.getFormFields()!.getList());
+      XCTAssertEqual(actual.getFormFields()!.getList()!.count, 5);
+      XCTAssertEqual(actual.getFormFields()!.getList()![0].getName(), "FullName");
+    }
+
+    // Test for getting form fields online.
+    func testGetFormFieldsOnline() throws {
+      let request = GetFormFieldsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, nodePath: "sections/0");
+      _ = try super.getApi().getFormFieldsOnline(request: request);
     }
 
     // Test for getting form fields without node path.
@@ -121,7 +167,11 @@ class FormFieldTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetFormFieldsRequest(name: remoteFileName, folder: remoteDataFolder);
-      _ = try super.getApi().getFormFields(request: request);
+      let actual = try super.getApi().getFormFields(request: request);
+      XCTAssertNotNil(actual.getFormFields());
+      XCTAssertNotNil(actual.getFormFields()!.getList());
+      XCTAssertEqual(actual.getFormFields()!.getList()!.count, 5);
+      XCTAssertEqual(actual.getFormFields()!.getList()![0].getName(), "FullName");
     }
 
     // Test for insert form field without node path.
@@ -141,7 +191,26 @@ class FormFieldTests: BaseTestContext {
 
 
       let request = InsertFormFieldRequest(name: remoteFileName, formField: requestFormField, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().insertFormField(request: request);
+      let actual = try super.getApi().insertFormField(request: request);
+      XCTAssertNotNil(actual.getFormField());
+      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
+      XCTAssertEqual(actual.getFormField()!.getStatusText(), "");
+    }
+
+    // Test for insert form field without node path online.
+    func testInsertFormFieldOnline() throws {
+      let requestFormField = FormFieldTextInput();
+      requestFormField.setName(name: "FullName");
+      requestFormField.setEnabled(enabled: true);
+      requestFormField.setCalculateOnExit(calculateOnExit: true);
+      requestFormField.setStatusText(statusText: "");
+      requestFormField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
+      requestFormField.setTextInputDefault(textInputDefault: "123");
+      requestFormField.setTextInputFormat(textInputFormat: "UPPERCASE");
+
+
+      let request = InsertFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, formField: requestFormField, nodePath: "sections/0/paragraphs/0", destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      _ = try super.getApi().insertFormFieldOnline(request: request);
     }
 
     // Test for insert form field without node path.
@@ -161,7 +230,10 @@ class FormFieldTests: BaseTestContext {
 
 
       let request = InsertFormFieldRequest(name: remoteFileName, formField: requestFormField, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().insertFormField(request: request);
+      let actual = try super.getApi().insertFormField(request: request);
+      XCTAssertNotNil(actual.getFormField());
+      XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
+      XCTAssertEqual(actual.getFormField()!.getStatusText(), "");
     }
 
     // Test for deleting form field.
@@ -172,6 +244,12 @@ class FormFieldTests: BaseTestContext {
 
       let request = DeleteFormFieldRequest(name: remoteFileName, index: 0, nodePath: "sections/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       try super.getApi().deleteFormField(request: request);
+    }
+
+    // Test for deleting form field online.
+    func testDeleteFormFieldOnline() throws {
+      let request = DeleteFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, nodePath: "sections/0", destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      try super.getApi().deleteFormFieldOnline(request: request);
     }
 
     // Test for deleting form field without node path.

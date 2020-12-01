@@ -28,22 +28,28 @@
 import Foundation
 
 // Request model for saveAsOnline operation.
-public class SaveAsOnlineRequest {
+public class SaveAsOnlineRequest : WordsApiRequest {
     private let document : InputStream;
     private let saveOptionsData : SaveOptionsData;
+    private let loadEncoding : String?;
+    private let password : String?;
     private let fontsLocation : String?;
 
     private enum CodingKeys: String, CodingKey {
         case document;
         case saveOptionsData;
+        case loadEncoding;
+        case password;
         case fontsLocation;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the SaveAsOnlineRequest class.
-    public init(document : InputStream, saveOptionsData : SaveOptionsData, fontsLocation : String? = nil) {
+    public init(document : InputStream, saveOptionsData : SaveOptionsData, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
         self.document = document;
         self.saveOptionsData = saveOptionsData;
+        self.loadEncoding = loadEncoding;
+        self.password = password;
         self.fontsLocation = fontsLocation;
     }
 
@@ -57,8 +63,57 @@ public class SaveAsOnlineRequest {
         return self.saveOptionsData;
     }
 
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password for opening an encrypted document.
+    public func getPassword() -> String? {
+        return self.password;
+    }
+
     // Folder in filestorage with custom fonts.
     public func getFontsLocation() -> String? {
         return self.fontsLocation;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/online/saveAs";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getFontsLocation() != nil) {
+             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+         var formParams : [RequestFormParam] = [];
+         formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
+
+         formParams.append(RequestFormParam(name: "saveOptionsData", body: try ObjectSerializer.serialize(value: self.getSaveOptionsData()), contentType: "application/json"));
+
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         result.setBody(formParams: formParams);
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: SaveAsOnlineResponse.self, from: data);
     }
 }

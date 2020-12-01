@@ -28,10 +28,10 @@
 import Foundation
 
 // Request model for insertTableRow operation.
-public class InsertTableRowRequest {
+public class InsertTableRowRequest : WordsApiRequest {
     private let name : String;
-    private let row : TableRowInsert;
     private let tablePath : String;
+    private let row : TableRowInsert;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -42,8 +42,8 @@ public class InsertTableRowRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case row;
         case tablePath;
+        case row;
         case folder;
         case storage;
         case loadEncoding;
@@ -55,10 +55,10 @@ public class InsertTableRowRequest {
     }
 
     // Initializes a new instance of the InsertTableRowRequest class.
-    public init(name : String, row : TableRowInsert, tablePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, tablePath : String, row : TableRowInsert, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.row = row;
         self.tablePath = tablePath;
+        self.row = row;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -68,19 +68,19 @@ public class InsertTableRowRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
 
-    // Table row parameters/.
-    public func getRow() -> TableRowInsert {
-        return self.row;
-    }
-
-    // Path to table.
+    // The path to the table in the document tree.
     public func getTablePath() -> String {
         return self.tablePath;
+    }
+
+    // Table row parameters.
+    public func getRow() -> TableRowInsert {
+        return self.row;
     }
 
     // Original document folder.
@@ -116,5 +116,59 @@ public class InsertTableRowRequest {
     // The date and time to use for revisions.
     public func getRevisionDateTime() -> String? {
         return self.revisionDateTime;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{name}/{tablePath}/rows";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "{tablePath}", with: try ObjectSerializer.serializeToString(value: self.getTablePath()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getDestFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+         }
+
+         if (self.getRevisionAuthor() != nil) {
+             queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
+         }
+
+         if (self.getRevisionDateTime() != nil) {
+             queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getRow()), contentType: "application/json");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: TableRowResponse.self, from: data);
     }
 }

@@ -27,13 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:  POST /{name}/split .
+// The REST response with a result of document splitting.
 public class SplitDocumentResponse : WordsResponse {
-    // Field of splitResult. This response should be returned by the service when handling:  POST /{name}/split .
+    // Field of splitResult. The REST response with a result of document splitting.
     private var splitResult : SplitDocumentResult?;
 
     private enum CodingKeys: String, CodingKey {
-        case splitResult;
+        case splitResult = "SplitResult";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class SplitDocumentResponse : WordsResponse {
         }
     }
 
-    // Sets splitResult. Gets or sets resylt of splitting document.
+    // Sets splitResult. Gets or sets the result of document splitting.
     public func setSplitResult(splitResult : SplitDocumentResult?) {
         self.splitResult = splitResult;
     }
 
-    // Gets splitResult. Gets or sets resylt of splitting document.
+    // Gets splitResult. Gets or sets the result of document splitting.
     public func getSplitResult() -> SplitDocumentResult? {
         return self.splitResult;
     }

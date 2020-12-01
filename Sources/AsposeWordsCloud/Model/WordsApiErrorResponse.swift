@@ -27,13 +27,13 @@
 
 import Foundation
 
-// Response for Api error.
+// The REST response with an API error.
 public class WordsApiErrorResponse : WordsResponse {
-    // Field of error. Response for Api error.
+    // Field of error. The REST response with an API error.
     private var error : ApiError?;
 
     private enum CodingKeys: String, CodingKey {
-        case error;
+        case error = "Error";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class WordsApiErrorResponse : WordsResponse {
         }
     }
 
-    // Sets error. Gets or sets error.
+    // Sets error. Gets or sets the API error.
     public func setError(error : ApiError?) {
         self.error = error;
     }
 
-    // Gets error. Gets or sets error.
+    // Gets error. Gets or sets the API error.
     public func getError() -> ApiError? {
         return self.error;
     }

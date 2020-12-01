@@ -28,7 +28,7 @@
 import Foundation
 
 // Request model for getDocumentStatistics operation.
-public class GetDocumentStatisticsRequest {
+public class GetDocumentStatisticsRequest : WordsApiRequest {
     private let name : String;
     private let folder : String?;
     private let storage : String?;
@@ -62,7 +62,7 @@ public class GetDocumentStatisticsRequest {
         self.includeTextInShapes = includeTextInShapes;
     }
 
-    // The document name.
+    // The filename of the input document.
     public func getName() -> String {
         return self.name;
     }
@@ -87,18 +87,69 @@ public class GetDocumentStatisticsRequest {
         return self.password;
     }
 
-    // Support including/excluding comments from the WordCount. Default value is "false".
+    // The flag indicating whether to include comments from the WordCount. The default value is "false".
     public func getIncludeComments() -> Bool? {
         return self.includeComments;
     }
 
-    // Support including/excluding footnotes from the WordCount. Default value is "false".
+    // The flag indicating whether to include footnotes from the WordCount. The default value is "false".
     public func getIncludeFootnotes() -> Bool? {
         return self.includeFootnotes;
     }
 
-    // Support including/excluding shape's text from the WordCount. Default value is "false".
+    // The flag indicating whether to include shape's text from the WordCount. The default value is "false".
     public func getIncludeTextInShapes() -> Bool? {
         return self.includeTextInShapes;
+    }
+
+    // Creates the api request data
+    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/{name}/statistics";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
+
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
+
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
+         var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
+         var queryItems : [URLQueryItem] = [];
+         if (self.getFolder() != nil) {
+             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         }
+
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getIncludeComments() != nil) {
+             queryItems.append(URLQueryItem(name: "includeComments", value: try ObjectSerializer.serializeToString(value: self.getIncludeComments()!)));
+         }
+
+         if (self.getIncludeFootnotes() != nil) {
+             queryItems.append(URLQueryItem(name: "includeFootnotes", value: try ObjectSerializer.serializeToString(value: self.getIncludeFootnotes()!)));
+         }
+
+         if (self.getIncludeTextInShapes() != nil) {
+             queryItems.append(URLQueryItem(name: "includeTextInShapes", value: try ObjectSerializer.serializeToString(value: self.getIncludeTextInShapes()!)));
+         }
+
+         if (queryItems.count > 0) {
+             urlBuilder.queryItems = queryItems;
+         }
+
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
+         return result;
+    }
+
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: StatDataResponse.self, from: data);
     }
 }

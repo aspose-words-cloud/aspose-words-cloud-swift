@@ -32,8 +32,11 @@ import XCTest
 class PageSetupTests: BaseTestContext {
     static var allTests = [
         ("testGetSectionPageSetup", testGetSectionPageSetup),
+        ("testGetSectionPageSetupOnline", testGetSectionPageSetupOnline),
         ("testUpdateSectionPageSetup", testUpdateSectionPageSetup),
-        ("testGetRenderPage", testGetRenderPage)
+        ("testUpdateSectionPageSetupOnline", testUpdateSectionPageSetupOnline),
+        ("testGetRenderPage", testGetRenderPage),
+        ("testGetRenderPageOnline", testGetRenderPageOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/PageSetup";
@@ -47,7 +50,15 @@ class PageSetupTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetSectionPageSetupRequest(name: remoteFileName, sectionIndex: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getSectionPageSetup(request: request);
+      let actual = try super.getApi().getSectionPageSetup(request: request);
+      XCTAssertNotNil(actual.getPageSetup());
+      XCTAssertEqual(actual.getPageSetup()!.getLineStartingNumber(), 1);
+    }
+
+    // Test for getting page settings online.
+    func testGetSectionPageSetupOnline() throws {
+      let request = GetSectionPageSetupOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionIndex: 0);
+      _ = try super.getApi().getSectionPageSetupOnline(request: request);
     }
 
     // Test for updating page settings.
@@ -58,13 +69,30 @@ class PageSetupTests: BaseTestContext {
 
       let requestPageSetup = PageSetup();
       requestPageSetup.setRtlGutter(rtlGutter: true);
-      requestPageSetup.setLeftMargin(leftMargin: 10);
+      requestPageSetup.setLeftMargin(leftMargin: 10.0);
       requestPageSetup.setOrientation(orientation: PageSetup.Orientation.landscape);
       requestPageSetup.setPaperSize(paperSize: PageSetup.PaperSize.a5);
 
 
       let request = UpdateSectionPageSetupRequest(name: remoteFileName, sectionIndex: 0, pageSetup: requestPageSetup, folder: remoteDataFolder);
-      _ = try super.getApi().updateSectionPageSetup(request: request);
+      let actual = try super.getApi().updateSectionPageSetup(request: request);
+      XCTAssertNotNil(actual.getPageSetup());
+      XCTAssertEqual(actual.getPageSetup()!.getRtlGutter(), true);
+
+
+    }
+
+    // Test for updating page settings online.
+    func testUpdateSectionPageSetupOnline() throws {
+      let requestPageSetup = PageSetup();
+      requestPageSetup.setRtlGutter(rtlGutter: true);
+      requestPageSetup.setLeftMargin(leftMargin: 10);
+      requestPageSetup.setOrientation(orientation: PageSetup.Orientation.landscape);
+      requestPageSetup.setPaperSize(paperSize: PageSetup.PaperSize.a5);
+
+
+      let request = UpdateSectionPageSetupOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionIndex: 0, pageSetup: requestPageSetup);
+      _ = try super.getApi().updateSectionPageSetupOnline(request: request);
     }
 
     // Test for page rendering.
@@ -75,5 +103,11 @@ class PageSetupTests: BaseTestContext {
 
       let request = RenderPageRequest(name: remoteFileName, pageIndex: 1, format: "bmp", folder: remoteDataFolder);
       _ = try super.getApi().renderPage(request: request);
+    }
+
+    // Test for page rendering.
+    func testGetRenderPageOnline() throws {
+      let request = RenderPageOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localTextFile, isDirectory: false))!, pageIndex: 1, format: "bmp");
+      _ = try super.getApi().renderPageOnline(request: request);
     }
 }

@@ -27,14 +27,13 @@
 
 import Foundation
 
-// This response should be returned by the service when handling:
-// GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat.
+// The REST response with the formatting properties of a table row.
 public class TableRowFormatResponse : WordsResponse {
-    // Field of rowFormat. This response should be returned by the service when handling: GET https://api.aspose.cloud/v4.0/words/Test.doc/tables/{0}/rows/{1}/rowformat.
+    // Field of rowFormat. The REST response with the formatting properties of a table row.
     private var rowFormat : TableRowFormat?;
 
     private enum CodingKeys: String, CodingKey {
-        case rowFormat;
+        case rowFormat = "RowFormat";
         case invalidCodingKey;
     }
 
@@ -56,12 +55,12 @@ public class TableRowFormatResponse : WordsResponse {
         }
     }
 
-    // Sets rowFormat. Gets or sets table.
+    // Sets rowFormat. Gets or sets the formatting properties of a table row.
     public func setRowFormat(rowFormat : TableRowFormat?) {
         self.rowFormat = rowFormat;
     }
 
-    // Gets rowFormat. Gets or sets table.
+    // Gets rowFormat. Gets or sets the formatting properties of a table row.
     public func getRowFormat() -> TableRowFormat? {
         return self.rowFormat;
     }

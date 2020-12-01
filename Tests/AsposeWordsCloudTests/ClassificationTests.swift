@@ -32,7 +32,8 @@ import XCTest
 class ClassificationTests: BaseTestContext {
     static var allTests = [
         ("testClassify", testClassify),
-        ("testClassifyDocument", testClassifyDocument)
+        ("testClassifyDocument", testClassifyDocument),
+        ("testClassifyDocumentOnline", testClassifyDocumentOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/Common";
@@ -41,7 +42,10 @@ class ClassificationTests: BaseTestContext {
     // Test for raw text classification.
     func testClassify() throws {
       let request = ClassifyRequest(text: "Try text classification", bestClassesCount: "3");
-      _ = try super.getApi().classify(request: request);
+      let actual = try super.getApi().classify(request: request);
+      XCTAssertEqual(actual.getBestClassName(), "Science");
+      XCTAssertNotNil(actual.getBestResults());
+      XCTAssertEqual(actual.getBestResults()!.count, 3);
     }
 
     // Test for document classification.
@@ -50,7 +54,16 @@ class ClassificationTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = ClassifyDocumentRequest(documentName: remoteFileName, folder: remoteDataFolder, bestClassesCount: "3");
-      _ = try super.getApi().classifyDocument(request: request);
+      let request = ClassifyDocumentRequest(name: remoteFileName, folder: remoteDataFolder, bestClassesCount: "3");
+      let actual = try super.getApi().classifyDocument(request: request);
+      XCTAssertEqual(actual.getBestClassName(), "Hobbies_&_Interests");
+      XCTAssertNotNil(actual.getBestResults());
+      XCTAssertEqual(actual.getBestResults()!.count, 3);
+    }
+
+    // Test for document classification online.
+    func testClassifyDocumentOnline() throws {
+      let request = ClassifyDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, bestClassesCount: "3");
+      _ = try super.getApi().classifyDocumentOnline(request: request);
     }
 }

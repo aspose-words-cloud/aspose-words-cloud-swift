@@ -31,6 +31,7 @@ public enum WordsApiError : LocalizedError {
     case requestError(errorCode: Int, message: String?)
     case requiredArgumentError(argumentName: String)
     case invalidTypeSerialization(typeName: String)
+    case invalidMultipartResponse(message: String)
     case badHostAddress(hostName: String)
 
     public var errorDescription: String? {
@@ -41,6 +42,8 @@ public enum WordsApiError : LocalizedError {
                 return "Required argument \(argumentName) not present.";
             case let .invalidTypeSerialization(typeName):
                 return "Failed to serialize type '\(typeName)'.";
+            case let .invalidMultipartResponse(message):
+                return "Failed to parse multipart response: \(message).";
             case let .badHostAddress(hostName):
                 return "Unable to resolve hostname address '\(hostName)' as url.";
         }

@@ -36,8 +36,8 @@ public class FormFieldDropDown : FormField {
     private var dropDownSelectedIndex : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case dropDownItems;
-        case dropDownSelectedIndex;
+        case dropDownItems = "DropDownItems";
+        case dropDownSelectedIndex = "DropDownSelectedIndex";
         case invalidCodingKey;
     }
 
@@ -63,12 +63,12 @@ public class FormFieldDropDown : FormField {
         }
     }
 
-    // Sets dropDownItems. Gets or sets provides access to the items of a dropdown form field.
+    // Sets dropDownItems. Gets or sets the items array of a dropdown form field.
     public func setDropDownItems(dropDownItems : [String]?) {
         self.dropDownItems = dropDownItems;
     }
 
-    // Gets dropDownItems. Gets or sets provides access to the items of a dropdown form field.
+    // Gets dropDownItems. Gets or sets the items array of a dropdown form field.
     public func getDropDownItems() -> [String]? {
         return self.dropDownItems;
     }

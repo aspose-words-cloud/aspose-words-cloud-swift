@@ -36,8 +36,8 @@ public class DocumentEntryList : Codable, WordsApiModel {
     private var documentEntries : [DocumentEntry]?;
 
     private enum CodingKeys: String, CodingKey {
-        case applyBaseDocumentHeadersAndFootersToAppendingDocuments;
-        case documentEntries;
+        case applyBaseDocumentHeadersAndFootersToAppendingDocuments = "ApplyBaseDocumentHeadersAndFootersToAppendingDocuments";
+        case documentEntries = "DocumentEntries";
         case invalidCodingKey;
     }
 
@@ -60,22 +60,22 @@ public class DocumentEntryList : Codable, WordsApiModel {
         }
     }
 
-    // Sets applyBaseDocumentHeadersAndFootersToAppendingDocuments. Gets or sets parameter that indicates to apply headers and footers from base document to appending documents. Default is true.
+    // Sets applyBaseDocumentHeadersAndFootersToAppendingDocuments. Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
     public func setApplyBaseDocumentHeadersAndFootersToAppendingDocuments(applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool?) {
         self.applyBaseDocumentHeadersAndFootersToAppendingDocuments = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
     }
 
-    // Gets applyBaseDocumentHeadersAndFootersToAppendingDocuments. Gets or sets parameter that indicates to apply headers and footers from base document to appending documents. Default is true.
+    // Gets applyBaseDocumentHeadersAndFootersToAppendingDocuments. Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
     public func getApplyBaseDocumentHeadersAndFootersToAppendingDocuments() -> Bool? {
         return self.applyBaseDocumentHeadersAndFootersToAppendingDocuments;
     }
 
-    // Sets documentEntries. Gets or sets list of documents.
+    // Sets documentEntries. Gets or sets the list of documents.
     public func setDocumentEntries(documentEntries : [DocumentEntry]?) {
         self.documentEntries = documentEntries;
     }
 
-    // Gets documentEntries. Gets or sets list of documents.
+    // Gets documentEntries. Gets or sets the list of documents.
     public func getDocumentEntries() -> [DocumentEntry]? {
         return self.documentEntries;
     }

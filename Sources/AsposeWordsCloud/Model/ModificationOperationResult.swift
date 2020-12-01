@@ -36,8 +36,8 @@ public class ModificationOperationResult : Codable, WordsApiModel {
     private var source : FileLink?;
 
     private enum CodingKeys: String, CodingKey {
-        case dest;
-        case source;
+        case dest = "Dest";
+        case source = "Source";
         case invalidCodingKey;
     }
 
@@ -60,22 +60,22 @@ public class ModificationOperationResult : Codable, WordsApiModel {
         }
     }
 
-    // Sets dest. Gets or sets link to the dest document (result of the modification operation).
+    // Sets dest. Gets or sets the link to the dest document (result of the modification operation).
     public func setDest(dest : FileLink?) {
         self.dest = dest;
     }
 
-    // Gets dest. Gets or sets link to the dest document (result of the modification operation).
+    // Gets dest. Gets or sets the link to the dest document (result of the modification operation).
     public func getDest() -> FileLink? {
         return self.dest;
     }
 
-    // Sets source. Gets or sets link to the source document (source for the modification operation).
+    // Sets source. Gets or sets the link to the source document (source for the modification operation).
     public func setSource(source : FileLink?) {
         self.source = source;
     }
 
-    // Gets source. Gets or sets link to the source document (source for the modification operation).
+    // Gets source. Gets or sets the link to the source document (source for the modification operation).
     public func getSource() -> FileLink? {
         return self.source;
     }

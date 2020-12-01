@@ -32,7 +32,9 @@ import XCTest
 class RevisionsTests: BaseTestContext {
     static var allTests = [
         ("testAcceptAllRevisions", testAcceptAllRevisions),
-        ("testRejectAllRevisions", testRejectAllRevisions)
+        ("testAcceptAllRevisionsOnline", testAcceptAllRevisionsOnline),
+        ("testRejectAllRevisions", testRejectAllRevisions),
+        ("testRejectAllRevisionsOnline", testRejectAllRevisionsOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/Revisions";
@@ -45,7 +47,15 @@ class RevisionsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = AcceptAllRevisionsRequest(name: remoteFileName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().acceptAllRevisions(request: request);
+      let actual = try super.getApi().acceptAllRevisions(request: request);
+      XCTAssertNotNil(actual.getResult());
+      XCTAssertNotNil(actual.getResult()!.getDest());
+    }
+
+    // Test for accepting revisions in document online.
+    func testAcceptAllRevisionsOnline() throws {
+      let request = AcceptAllRevisionsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      _ = try super.getApi().acceptAllRevisionsOnline(request: request);
     }
 
     // Test for rejecting revisions in document.
@@ -55,6 +65,14 @@ class RevisionsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = RejectAllRevisionsRequest(name: remoteFileName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      _ = try super.getApi().rejectAllRevisions(request: request);
+      let actual = try super.getApi().rejectAllRevisions(request: request);
+      XCTAssertNotNil(actual.getResult());
+      XCTAssertNotNil(actual.getResult()!.getDest());
+    }
+
+    // Test for rejecting revisions in document online.
+    func testRejectAllRevisionsOnline() throws {
+      let request = RejectAllRevisionsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      _ = try super.getApi().rejectAllRevisionsOnline(request: request);
     }
 }

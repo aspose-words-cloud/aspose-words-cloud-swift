@@ -31,7 +31,8 @@ import XCTest
 // Example of how to split document and return result with specified format and page range.
 class SplitDocumentToFormatTests: BaseTestContext {
     static var allTests = [
-        ("testSplitDocument", testSplitDocument)
+        ("testSplitDocument", testSplitDocument),
+        ("testSplitDocumentOnline", testSplitDocumentOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/SplitDocument";
@@ -44,6 +45,15 @@ class SplitDocumentToFormatTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = SplitDocumentRequest(name: remoteFileName, format: "text", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/TestSplitDocument.text", from: 1, to: 2);
-      _ = try super.getApi().splitDocument(request: request);
+      let actual = try super.getApi().splitDocument(request: request);
+      XCTAssertNotNil(actual.getSplitResult());
+      XCTAssertNotNil(actual.getSplitResult()!.getPages());
+      XCTAssertEqual(actual.getSplitResult()!.getPages()!.count, 2);
+    }
+
+    // Test for document splitting online.
+    func testSplitDocumentOnline() throws {
+      let request = SplitDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, format: "text", destFileName: BaseTestContext.getRemoteTestOut() + "/TestSplitDocument.text", from: 1, to: 2);
+      _ = try super.getApi().splitDocumentOnline(request: request);
     }
 }

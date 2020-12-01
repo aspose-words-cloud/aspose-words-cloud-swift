@@ -27,13 +27,13 @@
 
 import Foundation
 
-// Response for "drawingObjects/n" resource.
+// The REST response with a DrawingObject.
 public class DrawingObjectResponse : WordsResponse {
-    // Field of drawingObject. Response for "drawingObjects/n" resource.
+    // Field of drawingObject. The REST response with a DrawingObject.
     private var drawingObject : DrawingObject?;
 
     private enum CodingKeys: String, CodingKey {
-        case drawingObject;
+        case drawingObject = "DrawingObject";
         case invalidCodingKey;
     }
 
@@ -55,12 +55,12 @@ public class DrawingObjectResponse : WordsResponse {
         }
     }
 
-    // Sets drawingObject. Gets or sets drawing object.
+    // Sets drawingObject. Gets or sets the DrawingObject.
     public func setDrawingObject(drawingObject : DrawingObject?) {
         self.drawingObject = drawingObject;
     }
 
-    // Gets drawingObject. Gets or sets drawing object.
+    // Gets drawingObject. Gets or sets the DrawingObject.
     public func getDrawingObject() -> DrawingObject? {
         return self.drawingObject;
     }

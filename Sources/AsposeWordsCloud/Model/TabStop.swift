@@ -27,13 +27,13 @@
 
 import Foundation
 
-// Paragraph format tab stop.
+// DTO container with paragraph format tab stop.
 public class TabStop : TabStopBase {
-    // Field of isClear. Paragraph format tab stop.
+    // Field of isClear. DTO container with paragraph format tab stop.
     private var isClear : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case isClear;
+        case isClear = "IsClear";
         case invalidCodingKey;
     }
 

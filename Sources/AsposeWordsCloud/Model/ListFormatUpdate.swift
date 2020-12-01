@@ -36,8 +36,8 @@ public class ListFormatUpdate : Codable, WordsApiModel {
     private var listLevelNumber : Int?;
 
     private enum CodingKeys: String, CodingKey {
-        case listId;
-        case listLevelNumber;
+        case listId = "ListId";
+        case listLevelNumber = "ListLevelNumber";
         case invalidCodingKey;
     }
 

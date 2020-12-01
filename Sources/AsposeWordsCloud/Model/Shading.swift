@@ -27,7 +27,7 @@
 
 import Foundation
 
-// Paragraph format shading element.
+// DTO container with a paragraph format shading element.
 public class Shading : Codable, WordsApiModel {
     // Gets or sets the shading texture.
     public enum Texture : String, Codable
@@ -195,19 +195,19 @@ public class Shading : Codable, WordsApiModel {
         case textureNil = "TextureNil"
     }
 
-    // Field of backgroundPatternColor. Paragraph format shading element.
+    // Field of backgroundPatternColor. DTO container with a paragraph format shading element.
     private var backgroundPatternColor : XmlColor?;
 
-    // Field of foregroundPatternColor. Paragraph format shading element.
+    // Field of foregroundPatternColor. DTO container with a paragraph format shading element.
     private var foregroundPatternColor : XmlColor?;
 
-    // Field of texture. Paragraph format shading element.
+    // Field of texture. DTO container with a paragraph format shading element.
     private var texture : Texture?;
 
     private enum CodingKeys: String, CodingKey {
-        case backgroundPatternColor;
-        case foregroundPatternColor;
-        case texture;
+        case backgroundPatternColor = "BackgroundPatternColor";
+        case foregroundPatternColor = "ForegroundPatternColor";
+        case texture = "Texture";
         case invalidCodingKey;
     }
 

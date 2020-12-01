@@ -32,11 +32,17 @@ import XCTest
 class HeaderFooterTests: BaseTestContext {
     static var allTests = [
         ("testGetHeaderFooters", testGetHeaderFooters),
+        ("testGetHeaderFootersOnline", testGetHeaderFootersOnline),
         ("testGetHeaderFooter", testGetHeaderFooter),
+        ("testGetHeaderFooterOnline", testGetHeaderFooterOnline),
         ("testGetHeaderFooterOfSection", testGetHeaderFooterOfSection),
+        ("testGetHeaderFooterOfSectionOnline", testGetHeaderFooterOfSectionOnline),
         ("testDeleteHeaderFooter", testDeleteHeaderFooter),
+        ("testDeleteHeaderFooterOnline", testDeleteHeaderFooterOnline),
         ("testDeleteHeadersFooters", testDeleteHeadersFooters),
-        ("testInsertHeaderFooter", testInsertHeaderFooter)
+        ("testDeleteHeadersFootersOnline", testDeleteHeadersFootersOnline),
+        ("testInsertHeaderFooter", testInsertHeaderFooter),
+        ("testInsertHeaderFooterOnline", testInsertHeaderFooterOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/HeaderFooters";
@@ -49,7 +55,16 @@ class HeaderFooterTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetHeaderFootersRequest(name: remoteFileName, sectionPath: "", folder: remoteDataFolder);
-      _ = try super.getApi().getHeaderFooters(request: request);
+      let actual = try super.getApi().getHeaderFooters(request: request);
+      XCTAssertNotNil(actual.getHeaderFooters());
+      XCTAssertNotNil(actual.getHeaderFooters()!.getList());
+      XCTAssertEqual(actual.getHeaderFooters()!.getList()!.count, 6);
+    }
+
+    // Test for getting headers and footers online.
+    func testGetHeaderFootersOnline() throws {
+      let request = GetHeaderFootersOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionPath: "");
+      _ = try super.getApi().getHeaderFootersOnline(request: request);
     }
 
     // Test for getting headerfooter.
@@ -59,7 +74,17 @@ class HeaderFooterTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetHeaderFooterRequest(name: remoteFileName, headerFooterIndex: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getHeaderFooter(request: request);
+      let actual = try super.getApi().getHeaderFooter(request: request);
+      XCTAssertNotNil(actual.getHeaderFooter());
+      XCTAssertNotNil(actual.getHeaderFooter()!.getChildNodes());
+      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()!.count, 1);
+      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()![0].getNodeId(), "0.0.0");
+    }
+
+    // Test for getting headerfooter online.
+    func testGetHeaderFooterOnline() throws {
+      let request = GetHeaderFooterOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, headerFooterIndex: 0);
+      _ = try super.getApi().getHeaderFooterOnline(request: request);
     }
 
     // Test for getting headerfooter of section.
@@ -69,7 +94,17 @@ class HeaderFooterTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetHeaderFooterOfSectionRequest(name: remoteFileName, headerFooterIndex: 0, sectionIndex: 0, folder: remoteDataFolder);
-      _ = try super.getApi().getHeaderFooterOfSection(request: request);
+      let actual = try super.getApi().getHeaderFooterOfSection(request: request);
+      XCTAssertNotNil(actual.getHeaderFooter());
+      XCTAssertNotNil(actual.getHeaderFooter()!.getChildNodes());
+      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()!.count, 1);
+      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()![0].getNodeId(), "0.0.0");
+    }
+
+    // Test for getting headerfooter of section online.
+    func testGetHeaderFooterOfSectionOnline() throws {
+      let request = GetHeaderFooterOfSectionOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, headerFooterIndex: 0, sectionIndex: 0);
+      _ = try super.getApi().getHeaderFooterOfSectionOnline(request: request);
     }
 
     // Test for deleting headerfooter.
@@ -82,6 +117,12 @@ class HeaderFooterTests: BaseTestContext {
       try super.getApi().deleteHeaderFooter(request: request);
     }
 
+    // Test for deleting headerfooter online.
+    func testDeleteHeaderFooterOnline() throws {
+      let request = DeleteHeaderFooterOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionPath: "", index: 0);
+      _ = try super.getApi().deleteHeaderFooterOnline(request: request);
+    }
+
     // Test for deleting headerfooters.
     func testDeleteHeadersFooters() throws {
       let remoteFileName = "TestDeleteHeadersFooters.docx";
@@ -92,13 +133,29 @@ class HeaderFooterTests: BaseTestContext {
       try super.getApi().deleteHeadersFooters(request: request);
     }
 
+    // Test for deleting headerfooters online.
+    func testDeleteHeadersFootersOnline() throws {
+      let request = DeleteHeadersFootersOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionPath: "");
+      _ = try super.getApi().deleteHeadersFootersOnline(request: request);
+    }
+
     // Test for adding headerfooters.
     func testInsertHeaderFooter() throws {
       let remoteFileName = "TestInsertHeaderFooter.docx";
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = InsertHeaderFooterRequest(name: remoteFileName, headerFooterType: "FooterEven", sectionPath: "", folder: remoteDataFolder);
+      let request = InsertHeaderFooterRequest(name: remoteFileName, sectionPath: "", headerFooterType: "FooterEven", folder: remoteDataFolder);
       _ = try super.getApi().insertHeaderFooter(request: request);
+    }
+
+    // Test for adding headerfooters online.
+    func testInsertHeaderFooterOnline() throws {
+      let request = InsertHeaderFooterOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionPath: "", headerFooterType: "FooterEven");
+      let actual = try super.getApi().insertHeaderFooterOnline(request: request);
+      XCTAssertNotNil(actual.getHeaderFooter());
+      XCTAssertNotNil(actual.getHeaderFooter()!.getChildNodes());
+      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()!.count, 1);
+      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()![0].getNodeId(), "0.2.0");
     }
 }
