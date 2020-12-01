@@ -181,7 +181,7 @@ class ObjectSerializer {
         for part in multipart {
            let disposition = part.getHeaders()["Content-Disposition"];
            let partName: String? = nil;
-           for componentRawData in headContent.components(separatedBy: ";") {
+           for componentRawData in disposition.components(separatedBy: ";") {
                let componentData = componentRawData.trimmingCharacters(in: .whitespacesAndNewlines);
                if (!componentData.isEmpty) {
                    let componentDataParts = componentData.split(separator: "=");
