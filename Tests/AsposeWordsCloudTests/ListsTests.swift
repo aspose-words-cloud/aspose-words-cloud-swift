@@ -106,9 +106,9 @@ class ListsTests: BaseTestContext {
 
       let request = UpdateListOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, listId: 1, listUpdate: requestListUpdate);
       let actual = try super.getApi().updateListOnline(request: request);
-      XCTAssertNotNil(actual.getList());
-      XCTAssertEqual(actual.getList()!.getListId(), 1);
-      XCTAssertEqual(actual.getList()!.getIsRestartAtEachSection(), true);
+      XCTAssertNotNil(actual.getDocument()!.getList());
+      XCTAssertEqual(actual.getDocument()!.getList()!.getListId(), 1);
+      XCTAssertEqual(actual.getDocument()!.getList()!.getIsRestartAtEachSection(), true);
     }
 
     // Test for updating list level from document.
@@ -133,10 +133,10 @@ class ListsTests: BaseTestContext {
 
       let request = UpdateListLevelOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, listId: 1, listUpdate: requestListUpdate, listLevel: 1);
       let actual = try super.getApi().updateListLevelOnline(request: request);
-      XCTAssertNotNil(actual.getList());
-      XCTAssertNotNil(actual.getList()!.getListLevels());
-      XCTAssertNotNil(actual.getList()!.getListLevels()!.getListLevel());
-      XCTAssertEqual(actual.getList()!.getListLevels()!.getListLevel()!.count, 9);
+      XCTAssertNotNil(actual.getDocument()!.getList());
+      XCTAssertNotNil(actual.getDocument()!.getList()!.getListLevels());
+      XCTAssertNotNil(actual.getDocument()!.getList()!.getListLevels()!.getListLevel());
+      XCTAssertEqual(actual.getDocument()!.getList()!.getListLevels()!.getListLevel()!.count, 9);
 
     }
 

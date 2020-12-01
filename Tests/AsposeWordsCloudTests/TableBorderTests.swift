@@ -93,12 +93,7 @@ class TableBorderTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = DeleteBordersRequest(name: remoteFileName, nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
-      let actual = try super.getApi().deleteBorders(request: request);
-      XCTAssertNotNil(actual.getBorders());
-      XCTAssertNotNil(actual.getBorders()!.getList());
-      XCTAssertEqual(actual.getBorders()!.getList()!.count, 6);
-      XCTAssertNotNil(actual.getBorders()!.getList()![0].getColor());
-      XCTAssertEqual(actual.getBorders()!.getList()![0].getColor()!.getWeb(), "");
+      _ = try super.getApi().deleteBorders(request: request);
     }
 
     // Test for deleting borders online.
@@ -114,10 +109,7 @@ class TableBorderTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = DeleteBorderRequest(name: remoteFileName, borderType: "left", nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
-      let actual = try super.getApi().deleteBorder(request: request);
-      XCTAssertNotNil(actual.getBorder());
-      XCTAssertNotNil(actual.getBorder()!.getColor());
-      XCTAssertEqual(actual.getBorder()!.getColor()!.getWeb(), "");
+      _ = try super.getApi().deleteBorder(request: request);
     }
 
     // Test for deleting border online.
