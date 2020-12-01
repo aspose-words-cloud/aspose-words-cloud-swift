@@ -41,6 +41,7 @@ class BookmarkTests: BaseTestContext {
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Bookmarks";
     let localFile = "Common/test_multi_pages.docx";
+    let bookmarkName = "aspose";
 
     // Test for getting bookmarks from document.
     func testGetBookmarks() throws {
@@ -61,7 +62,6 @@ class BookmarkTests: BaseTestContext {
     // Test for getting bookmark by specified name.
     func testGetBookmarkByName() throws {
       let remoteFileName = "TestGetDocumentBookmarkByName.docx";
-      let bookmarkName = "aspose";
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
@@ -78,7 +78,6 @@ class BookmarkTests: BaseTestContext {
     // Test for updating existed bookmark.
     func testUpdateBookmark() throws {
       let remoteFileName = "TestUpdateDocumentBookmark.docx";
-      let bookmarkName = "aspose";
       let bookmarkText = "This will be the text for Aspose";
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
@@ -95,7 +94,6 @@ class BookmarkTests: BaseTestContext {
     // Test for updating existed bookmark online.
     func testUpdateBookmarkOnline() throws {
       let remoteFileName = "TestUpdateDocumentBookmark.docx";
-      let bookmarkName = "aspose";
 
       let requestBookmarkData = BookmarkData();
       requestBookmarkData.setName(name: bookmarkName);

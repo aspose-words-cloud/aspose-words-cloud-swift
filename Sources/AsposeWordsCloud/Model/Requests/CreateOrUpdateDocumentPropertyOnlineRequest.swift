@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for createOrUpdateDocumentPropertyOnline operation.
 public class CreateOrUpdateDocumentPropertyOnlineRequest : WordsApiRequest {
-    private let propertyName : String;
     private let document : InputStream;
+    private let propertyName : String;
     private let property : DocumentPropertyCreateOrUpdate;
     private let loadEncoding : String?;
     private let password : String?;
@@ -39,8 +39,8 @@ public class CreateOrUpdateDocumentPropertyOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case propertyName;
         case document;
+        case propertyName;
         case property;
         case loadEncoding;
         case password;
@@ -51,9 +51,9 @@ public class CreateOrUpdateDocumentPropertyOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the CreateOrUpdateDocumentPropertyOnlineRequest class.
-    public init(propertyName : String, document : InputStream, property : DocumentPropertyCreateOrUpdate, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.propertyName = propertyName;
+    public init(document : InputStream, propertyName : String, property : DocumentPropertyCreateOrUpdate, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.propertyName = propertyName;
         self.property = property;
         self.loadEncoding = loadEncoding;
         self.password = password;
@@ -62,14 +62,14 @@ public class CreateOrUpdateDocumentPropertyOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The name of the property.
-    public func getPropertyName() -> String {
-        return self.propertyName;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The name of the property.
+    public func getPropertyName() -> String {
+        return self.propertyName;
     }
 
     // The property with new value.

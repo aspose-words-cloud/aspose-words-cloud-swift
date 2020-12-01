@@ -29,15 +29,15 @@ import Foundation
 
 // Request model for getRunFontOnline operation.
 public class GetRunFontOnlineRequest : WordsApiRequest {
-    private let paragraphPath : String;
     private let document : InputStream;
+    private let paragraphPath : String;
     private let index : Int;
     private let loadEncoding : String?;
     private let password : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case paragraphPath;
         case document;
+        case paragraphPath;
         case index;
         case loadEncoding;
         case password;
@@ -45,22 +45,22 @@ public class GetRunFontOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the GetRunFontOnlineRequest class.
-    public init(paragraphPath : String, document : InputStream, index : Int, loadEncoding : String? = nil, password : String? = nil) {
-        self.paragraphPath = paragraphPath;
+    public init(document : InputStream, paragraphPath : String, index : Int, loadEncoding : String? = nil, password : String? = nil) {
         self.document = document;
+        self.paragraphPath = paragraphPath;
         self.index = index;
         self.loadEncoding = loadEncoding;
         self.password = password;
     }
 
-    // The path to the paragraph in the document tree.
-    public func getParagraphPath() -> String {
-        return self.paragraphPath;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the paragraph in the document tree.
+    public func getParagraphPath() -> String {
+        return self.paragraphPath;
     }
 
     // Object index.

@@ -29,16 +29,16 @@ import Foundation
 
 // Request model for saveAsRangeOnline operation.
 public class SaveAsRangeOnlineRequest : WordsApiRequest {
-    private let rangeStartIdentifier : String;
     private let document : InputStream;
+    private let rangeStartIdentifier : String;
     private let documentParameters : RangeDocument;
     private let rangeEndIdentifier : String?;
     private let loadEncoding : String?;
     private let password : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case rangeStartIdentifier;
         case document;
+        case rangeStartIdentifier;
         case documentParameters;
         case rangeEndIdentifier;
         case loadEncoding;
@@ -47,23 +47,23 @@ public class SaveAsRangeOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the SaveAsRangeOnlineRequest class.
-    public init(rangeStartIdentifier : String, document : InputStream, documentParameters : RangeDocument, rangeEndIdentifier : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
-        self.rangeStartIdentifier = rangeStartIdentifier;
+    public init(document : InputStream, rangeStartIdentifier : String, documentParameters : RangeDocument, rangeEndIdentifier : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
         self.document = document;
+        self.rangeStartIdentifier = rangeStartIdentifier;
         self.documentParameters = documentParameters;
         self.rangeEndIdentifier = rangeEndIdentifier;
         self.loadEncoding = loadEncoding;
         self.password = password;
     }
 
-    // The range start identifier.
-    public func getRangeStartIdentifier() -> String {
-        return self.rangeStartIdentifier;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The range start identifier.
+    public func getRangeStartIdentifier() -> String {
+        return self.rangeStartIdentifier;
     }
 
     // Parameters of a new document.

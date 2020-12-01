@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for insertTableCellOnline operation.
 public class InsertTableCellOnlineRequest : WordsApiRequest {
-    private let tableRowPath : String;
     private let document : InputStream;
+    private let tableRowPath : String;
     private let cell : TableCellInsert;
     private let loadEncoding : String?;
     private let password : String?;
@@ -39,8 +39,8 @@ public class InsertTableCellOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case tableRowPath;
         case document;
+        case tableRowPath;
         case cell;
         case loadEncoding;
         case password;
@@ -51,9 +51,9 @@ public class InsertTableCellOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the InsertTableCellOnlineRequest class.
-    public init(tableRowPath : String, document : InputStream, cell : TableCellInsert, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.tableRowPath = tableRowPath;
+    public init(document : InputStream, tableRowPath : String, cell : TableCellInsert, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.tableRowPath = tableRowPath;
         self.cell = cell;
         self.loadEncoding = loadEncoding;
         self.password = password;
@@ -62,14 +62,14 @@ public class InsertTableCellOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The path to the table row in the document tree.
-    public func getTableRowPath() -> String {
-        return self.tableRowPath;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the table row in the document tree.
+    public func getTableRowPath() -> String {
+        return self.tableRowPath;
     }
 
     // Table cell parameters.

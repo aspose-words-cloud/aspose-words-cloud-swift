@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for deleteTableCellOnline operation.
 public class DeleteTableCellOnlineRequest : WordsApiRequest {
-    private let tableRowPath : String;
     private let document : InputStream;
+    private let tableRowPath : String;
     private let index : Int;
     private let loadEncoding : String?;
     private let password : String?;
@@ -39,8 +39,8 @@ public class DeleteTableCellOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case tableRowPath;
         case document;
+        case tableRowPath;
         case index;
         case loadEncoding;
         case password;
@@ -51,9 +51,9 @@ public class DeleteTableCellOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the DeleteTableCellOnlineRequest class.
-    public init(tableRowPath : String, document : InputStream, index : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.tableRowPath = tableRowPath;
+    public init(document : InputStream, tableRowPath : String, index : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.tableRowPath = tableRowPath;
         self.index = index;
         self.loadEncoding = loadEncoding;
         self.password = password;
@@ -62,14 +62,14 @@ public class DeleteTableCellOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The path to the table row in the document tree.
-    public func getTableRowPath() -> String {
-        return self.tableRowPath;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the table row in the document tree.
+    public func getTableRowPath() -> String {
+        return self.tableRowPath;
     }
 
     // Object index.

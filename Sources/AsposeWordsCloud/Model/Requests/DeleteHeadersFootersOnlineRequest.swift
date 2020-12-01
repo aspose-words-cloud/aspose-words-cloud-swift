@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for deleteHeadersFootersOnline operation.
 public class DeleteHeadersFootersOnlineRequest : WordsApiRequest {
-    private let sectionPath : String;
     private let document : InputStream;
+    private let sectionPath : String;
     private let loadEncoding : String?;
     private let password : String?;
     private let destFileName : String?;
@@ -39,8 +39,8 @@ public class DeleteHeadersFootersOnlineRequest : WordsApiRequest {
     private let headersFootersTypes : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case sectionPath;
         case document;
+        case sectionPath;
         case loadEncoding;
         case password;
         case destFileName;
@@ -51,9 +51,9 @@ public class DeleteHeadersFootersOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the DeleteHeadersFootersOnlineRequest class.
-    public init(sectionPath : String, document : InputStream, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, headersFootersTypes : String? = nil) {
-        self.sectionPath = sectionPath;
+    public init(document : InputStream, sectionPath : String, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, headersFootersTypes : String? = nil) {
         self.document = document;
+        self.sectionPath = sectionPath;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.destFileName = destFileName;
@@ -62,14 +62,14 @@ public class DeleteHeadersFootersOnlineRequest : WordsApiRequest {
         self.headersFootersTypes = headersFootersTypes;
     }
 
-    // The path to the section in the document tree.
-    public func getSectionPath() -> String {
-        return self.sectionPath;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the section in the document tree.
+    public func getSectionPath() -> String {
+        return self.sectionPath;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.

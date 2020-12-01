@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for replaceWithTextOnline operation.
 public class ReplaceWithTextOnlineRequest : WordsApiRequest {
-    private let rangeStartIdentifier : String;
     private let document : InputStream;
+    private let rangeStartIdentifier : String;
     private let rangeText : ReplaceRange;
     private let rangeEndIdentifier : String?;
     private let loadEncoding : String?;
@@ -38,8 +38,8 @@ public class ReplaceWithTextOnlineRequest : WordsApiRequest {
     private let destFileName : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case rangeStartIdentifier;
         case document;
+        case rangeStartIdentifier;
         case rangeText;
         case rangeEndIdentifier;
         case loadEncoding;
@@ -49,9 +49,9 @@ public class ReplaceWithTextOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the ReplaceWithTextOnlineRequest class.
-    public init(rangeStartIdentifier : String, document : InputStream, rangeText : ReplaceRange, rangeEndIdentifier : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
-        self.rangeStartIdentifier = rangeStartIdentifier;
+    public init(document : InputStream, rangeStartIdentifier : String, rangeText : ReplaceRange, rangeEndIdentifier : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.document = document;
+        self.rangeStartIdentifier = rangeStartIdentifier;
         self.rangeText = rangeText;
         self.rangeEndIdentifier = rangeEndIdentifier;
         self.loadEncoding = loadEncoding;
@@ -59,14 +59,14 @@ public class ReplaceWithTextOnlineRequest : WordsApiRequest {
         self.destFileName = destFileName;
     }
 
-    // The range start identifier.
-    public func getRangeStartIdentifier() -> String {
-        return self.rangeStartIdentifier;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The range start identifier.
+    public func getRangeStartIdentifier() -> String {
+        return self.rangeStartIdentifier;
     }
 
     // Model with text for replacement.

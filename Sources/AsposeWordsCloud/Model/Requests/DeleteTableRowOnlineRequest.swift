@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for deleteTableRowOnline operation.
 public class DeleteTableRowOnlineRequest : WordsApiRequest {
-    private let tablePath : String;
     private let document : InputStream;
+    private let tablePath : String;
     private let index : Int;
     private let loadEncoding : String?;
     private let password : String?;
@@ -39,8 +39,8 @@ public class DeleteTableRowOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case tablePath;
         case document;
+        case tablePath;
         case index;
         case loadEncoding;
         case password;
@@ -51,9 +51,9 @@ public class DeleteTableRowOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the DeleteTableRowOnlineRequest class.
-    public init(tablePath : String, document : InputStream, index : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.tablePath = tablePath;
+    public init(document : InputStream, tablePath : String, index : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.tablePath = tablePath;
         self.index = index;
         self.loadEncoding = loadEncoding;
         self.password = password;
@@ -62,14 +62,14 @@ public class DeleteTableRowOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The path to the table in the document tree.
-    public func getTablePath() -> String {
-        return self.tablePath;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the table in the document tree.
+    public func getTablePath() -> String {
+        return self.tablePath;
     }
 
     // Object index.

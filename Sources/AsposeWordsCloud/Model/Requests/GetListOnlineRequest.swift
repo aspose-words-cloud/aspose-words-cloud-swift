@@ -29,35 +29,35 @@ import Foundation
 
 // Request model for getListOnline operation.
 public class GetListOnlineRequest : WordsApiRequest {
-    private let listId : Int;
     private let document : InputStream;
+    private let listId : Int;
     private let loadEncoding : String?;
     private let password : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case listId;
         case document;
+        case listId;
         case loadEncoding;
         case password;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetListOnlineRequest class.
-    public init(listId : Int, document : InputStream, loadEncoding : String? = nil, password : String? = nil) {
-        self.listId = listId;
+    public init(document : InputStream, listId : Int, loadEncoding : String? = nil, password : String? = nil) {
         self.document = document;
+        self.listId = listId;
         self.loadEncoding = loadEncoding;
         self.password = password;
-    }
-
-    // The list Id.
-    public func getListId() -> Int {
-        return self.listId;
     }
 
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The list Id.
+    public func getListId() -> Int {
+        return self.listId;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.

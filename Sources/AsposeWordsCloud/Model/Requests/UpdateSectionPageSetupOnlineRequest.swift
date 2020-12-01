@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for updateSectionPageSetupOnline operation.
 public class UpdateSectionPageSetupOnlineRequest : WordsApiRequest {
-    private let sectionIndex : Int;
     private let document : InputStream;
+    private let sectionIndex : Int;
     private let pageSetup : PageSetup;
     private let loadEncoding : String?;
     private let password : String?;
@@ -39,8 +39,8 @@ public class UpdateSectionPageSetupOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case sectionIndex;
         case document;
+        case sectionIndex;
         case pageSetup;
         case loadEncoding;
         case password;
@@ -51,9 +51,9 @@ public class UpdateSectionPageSetupOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateSectionPageSetupOnlineRequest class.
-    public init(sectionIndex : Int, document : InputStream, pageSetup : PageSetup, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.sectionIndex = sectionIndex;
+    public init(document : InputStream, sectionIndex : Int, pageSetup : PageSetup, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.sectionIndex = sectionIndex;
         self.pageSetup = pageSetup;
         self.loadEncoding = loadEncoding;
         self.password = password;
@@ -62,14 +62,14 @@ public class UpdateSectionPageSetupOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The index of the section.
-    public func getSectionIndex() -> Int {
-        return self.sectionIndex;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The index of the section.
+    public func getSectionIndex() -> Int {
+        return self.sectionIndex;
     }
 
     // Page setup properties dto.

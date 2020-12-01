@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for updateListLevelOnline operation.
 public class UpdateListLevelOnlineRequest : WordsApiRequest {
-    private let listId : Int;
     private let document : InputStream;
+    private let listId : Int;
     private let listUpdate : ListLevelUpdate;
     private let listLevel : Int;
     private let loadEncoding : String?;
@@ -40,8 +40,8 @@ public class UpdateListLevelOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case listId;
         case document;
+        case listId;
         case listUpdate;
         case listLevel;
         case loadEncoding;
@@ -53,9 +53,9 @@ public class UpdateListLevelOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateListLevelOnlineRequest class.
-    public init(listId : Int, document : InputStream, listUpdate : ListLevelUpdate, listLevel : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.listId = listId;
+    public init(document : InputStream, listId : Int, listUpdate : ListLevelUpdate, listLevel : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.listId = listId;
         self.listUpdate = listUpdate;
         self.listLevel = listLevel;
         self.loadEncoding = loadEncoding;
@@ -65,14 +65,14 @@ public class UpdateListLevelOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The list Id.
-    public func getListId() -> Int {
-        return self.listId;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The list Id.
+    public func getListId() -> Int {
+        return self.listId;
     }
 
     // List object.

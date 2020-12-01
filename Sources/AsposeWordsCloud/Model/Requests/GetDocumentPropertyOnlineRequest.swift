@@ -29,35 +29,35 @@ import Foundation
 
 // Request model for getDocumentPropertyOnline operation.
 public class GetDocumentPropertyOnlineRequest : WordsApiRequest {
-    private let propertyName : String;
     private let document : InputStream;
+    private let propertyName : String;
     private let loadEncoding : String?;
     private let password : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case propertyName;
         case document;
+        case propertyName;
         case loadEncoding;
         case password;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetDocumentPropertyOnlineRequest class.
-    public init(propertyName : String, document : InputStream, loadEncoding : String? = nil, password : String? = nil) {
-        self.propertyName = propertyName;
+    public init(document : InputStream, propertyName : String, loadEncoding : String? = nil, password : String? = nil) {
         self.document = document;
+        self.propertyName = propertyName;
         self.loadEncoding = loadEncoding;
         self.password = password;
-    }
-
-    // The name of the property.
-    public func getPropertyName() -> String {
-        return self.propertyName;
     }
 
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The name of the property.
+    public func getPropertyName() -> String {
+        return self.propertyName;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.

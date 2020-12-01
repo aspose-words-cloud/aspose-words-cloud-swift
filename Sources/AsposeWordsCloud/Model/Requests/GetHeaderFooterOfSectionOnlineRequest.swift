@@ -29,16 +29,16 @@ import Foundation
 
 // Request model for getHeaderFooterOfSectionOnline operation.
 public class GetHeaderFooterOfSectionOnlineRequest : WordsApiRequest {
-    private let headerFooterIndex : Int;
     private let document : InputStream;
+    private let headerFooterIndex : Int;
     private let sectionIndex : Int;
     private let loadEncoding : String?;
     private let password : String?;
     private let filterByType : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case headerFooterIndex;
         case document;
+        case headerFooterIndex;
         case sectionIndex;
         case loadEncoding;
         case password;
@@ -47,23 +47,23 @@ public class GetHeaderFooterOfSectionOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the GetHeaderFooterOfSectionOnlineRequest class.
-    public init(headerFooterIndex : Int, document : InputStream, sectionIndex : Int, loadEncoding : String? = nil, password : String? = nil, filterByType : String? = nil) {
-        self.headerFooterIndex = headerFooterIndex;
+    public init(document : InputStream, headerFooterIndex : Int, sectionIndex : Int, loadEncoding : String? = nil, password : String? = nil, filterByType : String? = nil) {
         self.document = document;
+        self.headerFooterIndex = headerFooterIndex;
         self.sectionIndex = sectionIndex;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.filterByType = filterByType;
     }
 
-    // The index of the HeaderFooter object.
-    public func getHeaderFooterIndex() -> Int {
-        return self.headerFooterIndex;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The index of the HeaderFooter object.
+    public func getHeaderFooterIndex() -> Int {
+        return self.headerFooterIndex;
     }
 
     // The index of the section.

@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for updateBookmarkOnline operation.
 public class UpdateBookmarkOnlineRequest : WordsApiRequest {
-    private let bookmarkName : String;
     private let document : InputStream;
+    private let bookmarkName : String;
     private let bookmarkData : BookmarkData;
     private let loadEncoding : String?;
     private let password : String?;
@@ -39,8 +39,8 @@ public class UpdateBookmarkOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case bookmarkName;
         case document;
+        case bookmarkName;
         case bookmarkData;
         case loadEncoding;
         case password;
@@ -51,9 +51,9 @@ public class UpdateBookmarkOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateBookmarkOnlineRequest class.
-    public init(bookmarkName : String, document : InputStream, bookmarkData : BookmarkData, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.bookmarkName = bookmarkName;
+    public init(document : InputStream, bookmarkName : String, bookmarkData : BookmarkData, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.bookmarkName = bookmarkName;
         self.bookmarkData = bookmarkData;
         self.loadEncoding = loadEncoding;
         self.password = password;
@@ -62,14 +62,14 @@ public class UpdateBookmarkOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The name of the bookmark.
-    public func getBookmarkName() -> String {
-        return self.bookmarkName;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The name of the bookmark.
+    public func getBookmarkName() -> String {
+        return self.bookmarkName;
     }
 
     // Bookmark data.

@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for updateStyleOnline operation.
 public class UpdateStyleOnlineRequest : WordsApiRequest {
-    private let styleName : String;
     private let document : InputStream;
+    private let styleName : String;
     private let styleUpdate : StyleUpdate;
     private let loadEncoding : String?;
     private let password : String?;
@@ -39,8 +39,8 @@ public class UpdateStyleOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case styleName;
         case document;
+        case styleName;
         case styleUpdate;
         case loadEncoding;
         case password;
@@ -51,9 +51,9 @@ public class UpdateStyleOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateStyleOnlineRequest class.
-    public init(styleName : String, document : InputStream, styleUpdate : StyleUpdate, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.styleName = styleName;
+    public init(document : InputStream, styleName : String, styleUpdate : StyleUpdate, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.styleName = styleName;
         self.styleUpdate = styleUpdate;
         self.loadEncoding = loadEncoding;
         self.password = password;
@@ -62,14 +62,14 @@ public class UpdateStyleOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The name of the style.
-    public func getStyleName() -> String {
-        return self.styleName;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The name of the style.
+    public func getStyleName() -> String {
+        return self.styleName;
     }
 
     // Style properties to update.

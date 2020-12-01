@@ -29,35 +29,35 @@ import Foundation
 
 // Request model for getSectionPageSetupOnline operation.
 public class GetSectionPageSetupOnlineRequest : WordsApiRequest {
-    private let sectionIndex : Int;
     private let document : InputStream;
+    private let sectionIndex : Int;
     private let loadEncoding : String?;
     private let password : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case sectionIndex;
         case document;
+        case sectionIndex;
         case loadEncoding;
         case password;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetSectionPageSetupOnlineRequest class.
-    public init(sectionIndex : Int, document : InputStream, loadEncoding : String? = nil, password : String? = nil) {
-        self.sectionIndex = sectionIndex;
+    public init(document : InputStream, sectionIndex : Int, loadEncoding : String? = nil, password : String? = nil) {
         self.document = document;
+        self.sectionIndex = sectionIndex;
         self.loadEncoding = loadEncoding;
         self.password = password;
-    }
-
-    // The index of the section.
-    public func getSectionIndex() -> Int {
-        return self.sectionIndex;
     }
 
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The index of the section.
+    public func getSectionIndex() -> Int {
+        return self.sectionIndex;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.

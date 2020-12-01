@@ -29,15 +29,15 @@ import Foundation
 
 // Request model for getHeaderFooterOnline operation.
 public class GetHeaderFooterOnlineRequest : WordsApiRequest {
-    private let headerFooterIndex : Int;
     private let document : InputStream;
+    private let headerFooterIndex : Int;
     private let loadEncoding : String?;
     private let password : String?;
     private let filterByType : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case headerFooterIndex;
         case document;
+        case headerFooterIndex;
         case loadEncoding;
         case password;
         case filterByType;
@@ -45,22 +45,22 @@ public class GetHeaderFooterOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the GetHeaderFooterOnlineRequest class.
-    public init(headerFooterIndex : Int, document : InputStream, loadEncoding : String? = nil, password : String? = nil, filterByType : String? = nil) {
-        self.headerFooterIndex = headerFooterIndex;
+    public init(document : InputStream, headerFooterIndex : Int, loadEncoding : String? = nil, password : String? = nil, filterByType : String? = nil) {
         self.document = document;
+        self.headerFooterIndex = headerFooterIndex;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.filterByType = filterByType;
     }
 
-    // The index of the HeaderFooter object.
-    public func getHeaderFooterIndex() -> Int {
-        return self.headerFooterIndex;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The index of the HeaderFooter object.
+    public func getHeaderFooterIndex() -> Int {
+        return self.headerFooterIndex;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.

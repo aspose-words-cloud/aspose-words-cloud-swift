@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for insertRunOnline operation.
 public class InsertRunOnlineRequest : WordsApiRequest {
-    private let paragraphPath : String;
     private let document : InputStream;
+    private let paragraphPath : String;
     private let run : RunInsert;
     private let loadEncoding : String?;
     private let password : String?;
@@ -40,8 +40,8 @@ public class InsertRunOnlineRequest : WordsApiRequest {
     private let insertBeforeNode : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case paragraphPath;
         case document;
+        case paragraphPath;
         case run;
         case loadEncoding;
         case password;
@@ -53,9 +53,9 @@ public class InsertRunOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the InsertRunOnlineRequest class.
-    public init(paragraphPath : String, document : InputStream, run : RunInsert, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
-        self.paragraphPath = paragraphPath;
+    public init(document : InputStream, paragraphPath : String, run : RunInsert, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil, insertBeforeNode : String? = nil) {
         self.document = document;
+        self.paragraphPath = paragraphPath;
         self.run = run;
         self.loadEncoding = loadEncoding;
         self.password = password;
@@ -65,14 +65,14 @@ public class InsertRunOnlineRequest : WordsApiRequest {
         self.insertBeforeNode = insertBeforeNode;
     }
 
-    // The path to the paragraph in the document tree.
-    public func getParagraphPath() -> String {
-        return self.paragraphPath;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the paragraph in the document tree.
+    public func getParagraphPath() -> String {
+        return self.paragraphPath;
     }
 
     // Run data.

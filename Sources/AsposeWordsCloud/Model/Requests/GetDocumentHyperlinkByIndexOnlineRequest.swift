@@ -29,35 +29,35 @@ import Foundation
 
 // Request model for getDocumentHyperlinkByIndexOnline operation.
 public class GetDocumentHyperlinkByIndexOnlineRequest : WordsApiRequest {
-    private let hyperlinkIndex : Int;
     private let document : InputStream;
+    private let hyperlinkIndex : Int;
     private let loadEncoding : String?;
     private let password : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case hyperlinkIndex;
         case document;
+        case hyperlinkIndex;
         case loadEncoding;
         case password;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetDocumentHyperlinkByIndexOnlineRequest class.
-    public init(hyperlinkIndex : Int, document : InputStream, loadEncoding : String? = nil, password : String? = nil) {
-        self.hyperlinkIndex = hyperlinkIndex;
+    public init(document : InputStream, hyperlinkIndex : Int, loadEncoding : String? = nil, password : String? = nil) {
         self.document = document;
+        self.hyperlinkIndex = hyperlinkIndex;
         self.loadEncoding = loadEncoding;
         self.password = password;
-    }
-
-    // The index of the hyperlink.
-    public func getHyperlinkIndex() -> Int {
-        return self.hyperlinkIndex;
     }
 
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The index of the hyperlink.
+    public func getHyperlinkIndex() -> Int {
+        return self.hyperlinkIndex;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.

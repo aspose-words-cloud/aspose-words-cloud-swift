@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for updateListOnline operation.
 public class UpdateListOnlineRequest : WordsApiRequest {
-    private let listId : Int;
     private let document : InputStream;
+    private let listId : Int;
     private let listUpdate : ListUpdate;
     private let loadEncoding : String?;
     private let password : String?;
@@ -39,8 +39,8 @@ public class UpdateListOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case listId;
         case document;
+        case listId;
         case listUpdate;
         case loadEncoding;
         case password;
@@ -51,9 +51,9 @@ public class UpdateListOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateListOnlineRequest class.
-    public init(listId : Int, document : InputStream, listUpdate : ListUpdate, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.listId = listId;
+    public init(document : InputStream, listId : Int, listUpdate : ListUpdate, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.listId = listId;
         self.listUpdate = listUpdate;
         self.loadEncoding = loadEncoding;
         self.password = password;
@@ -62,14 +62,14 @@ public class UpdateListOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The list Id.
-    public func getListId() -> Int {
-        return self.listId;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The list Id.
+    public func getListId() -> Int {
+        return self.listId;
     }
 
     // List object.

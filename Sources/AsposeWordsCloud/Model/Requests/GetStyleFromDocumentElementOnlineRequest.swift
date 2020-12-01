@@ -29,35 +29,35 @@ import Foundation
 
 // Request model for getStyleFromDocumentElementOnline operation.
 public class GetStyleFromDocumentElementOnlineRequest : WordsApiRequest {
-    private let styledNodePath : String;
     private let document : InputStream;
+    private let styledNodePath : String;
     private let loadEncoding : String?;
     private let password : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case styledNodePath;
         case document;
+        case styledNodePath;
         case loadEncoding;
         case password;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetStyleFromDocumentElementOnlineRequest class.
-    public init(styledNodePath : String, document : InputStream, loadEncoding : String? = nil, password : String? = nil) {
-        self.styledNodePath = styledNodePath;
+    public init(document : InputStream, styledNodePath : String, loadEncoding : String? = nil, password : String? = nil) {
         self.document = document;
+        self.styledNodePath = styledNodePath;
         self.loadEncoding = loadEncoding;
         self.password = password;
-    }
-
-    // The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
-    public func getStyledNodePath() -> String {
-        return self.styledNodePath;
     }
 
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
+    public func getStyledNodePath() -> String {
+        return self.styledNodePath;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.

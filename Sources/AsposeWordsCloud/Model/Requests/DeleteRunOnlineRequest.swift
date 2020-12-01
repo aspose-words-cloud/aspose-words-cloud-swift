@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for deleteRunOnline operation.
 public class DeleteRunOnlineRequest : WordsApiRequest {
-    private let paragraphPath : String;
     private let document : InputStream;
+    private let paragraphPath : String;
     private let index : Int;
     private let loadEncoding : String?;
     private let password : String?;
@@ -39,8 +39,8 @@ public class DeleteRunOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case paragraphPath;
         case document;
+        case paragraphPath;
         case index;
         case loadEncoding;
         case password;
@@ -51,9 +51,9 @@ public class DeleteRunOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the DeleteRunOnlineRequest class.
-    public init(paragraphPath : String, document : InputStream, index : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.paragraphPath = paragraphPath;
+    public init(document : InputStream, paragraphPath : String, index : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.paragraphPath = paragraphPath;
         self.index = index;
         self.loadEncoding = loadEncoding;
         self.password = password;
@@ -62,14 +62,14 @@ public class DeleteRunOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The path to the paragraph in the document tree.
-    public func getParagraphPath() -> String {
-        return self.paragraphPath;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the paragraph in the document tree.
+    public func getParagraphPath() -> String {
+        return self.paragraphPath;
     }
 
     // Object index.

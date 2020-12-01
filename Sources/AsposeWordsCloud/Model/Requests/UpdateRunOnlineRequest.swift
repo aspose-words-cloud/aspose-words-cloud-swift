@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for updateRunOnline operation.
 public class UpdateRunOnlineRequest : WordsApiRequest {
-    private let paragraphPath : String;
     private let document : InputStream;
+    private let paragraphPath : String;
     private let run : RunUpdate;
     private let index : Int;
     private let loadEncoding : String?;
@@ -40,8 +40,8 @@ public class UpdateRunOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case paragraphPath;
         case document;
+        case paragraphPath;
         case run;
         case index;
         case loadEncoding;
@@ -53,9 +53,9 @@ public class UpdateRunOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateRunOnlineRequest class.
-    public init(paragraphPath : String, document : InputStream, run : RunUpdate, index : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.paragraphPath = paragraphPath;
+    public init(document : InputStream, paragraphPath : String, run : RunUpdate, index : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.paragraphPath = paragraphPath;
         self.run = run;
         self.index = index;
         self.loadEncoding = loadEncoding;
@@ -65,14 +65,14 @@ public class UpdateRunOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The path to the paragraph in the document tree.
-    public func getParagraphPath() -> String {
-        return self.paragraphPath;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the paragraph in the document tree.
+    public func getParagraphPath() -> String {
+        return self.paragraphPath;
     }
 
     // Run data.

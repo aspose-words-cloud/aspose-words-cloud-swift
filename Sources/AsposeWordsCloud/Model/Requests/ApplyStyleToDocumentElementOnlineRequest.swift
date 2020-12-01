@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for applyStyleToDocumentElementOnline operation.
 public class ApplyStyleToDocumentElementOnlineRequest : WordsApiRequest {
-    private let styledNodePath : String;
     private let document : InputStream;
+    private let styledNodePath : String;
     private let styleApply : StyleApply;
     private let loadEncoding : String?;
     private let password : String?;
@@ -39,8 +39,8 @@ public class ApplyStyleToDocumentElementOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case styledNodePath;
         case document;
+        case styledNodePath;
         case styleApply;
         case loadEncoding;
         case password;
@@ -51,9 +51,9 @@ public class ApplyStyleToDocumentElementOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the ApplyStyleToDocumentElementOnlineRequest class.
-    public init(styledNodePath : String, document : InputStream, styleApply : StyleApply, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.styledNodePath = styledNodePath;
+    public init(document : InputStream, styledNodePath : String, styleApply : StyleApply, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.styledNodePath = styledNodePath;
         self.styleApply = styleApply;
         self.loadEncoding = loadEncoding;
         self.password = password;
@@ -62,14 +62,14 @@ public class ApplyStyleToDocumentElementOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
-    public func getStyledNodePath() -> String {
-        return self.styledNodePath;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
+    public func getStyledNodePath() -> String {
+        return self.styledNodePath;
     }
 
     // Style to apply.

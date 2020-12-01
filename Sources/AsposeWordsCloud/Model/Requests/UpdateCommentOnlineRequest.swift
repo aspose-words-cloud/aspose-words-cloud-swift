@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for updateCommentOnline operation.
 public class UpdateCommentOnlineRequest : WordsApiRequest {
-    private let commentIndex : Int;
     private let document : InputStream;
+    private let commentIndex : Int;
     private let comment : CommentUpdate;
     private let loadEncoding : String?;
     private let password : String?;
@@ -39,8 +39,8 @@ public class UpdateCommentOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case commentIndex;
         case document;
+        case commentIndex;
         case comment;
         case loadEncoding;
         case password;
@@ -51,9 +51,9 @@ public class UpdateCommentOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateCommentOnlineRequest class.
-    public init(commentIndex : Int, document : InputStream, comment : CommentUpdate, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.commentIndex = commentIndex;
+    public init(document : InputStream, commentIndex : Int, comment : CommentUpdate, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.commentIndex = commentIndex;
         self.comment = comment;
         self.loadEncoding = loadEncoding;
         self.password = password;
@@ -62,14 +62,14 @@ public class UpdateCommentOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The index of the comment.
-    public func getCommentIndex() -> Int {
-        return self.commentIndex;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The index of the comment.
+    public func getCommentIndex() -> Int {
+        return self.commentIndex;
     }
 
     // Comment data.

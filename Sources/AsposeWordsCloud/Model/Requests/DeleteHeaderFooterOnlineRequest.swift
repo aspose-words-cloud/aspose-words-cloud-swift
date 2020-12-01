@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for deleteHeaderFooterOnline operation.
 public class DeleteHeaderFooterOnlineRequest : WordsApiRequest {
-    private let sectionPath : String;
     private let document : InputStream;
+    private let sectionPath : String;
     private let index : Int;
     private let loadEncoding : String?;
     private let password : String?;
@@ -39,8 +39,8 @@ public class DeleteHeaderFooterOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case sectionPath;
         case document;
+        case sectionPath;
         case index;
         case loadEncoding;
         case password;
@@ -51,9 +51,9 @@ public class DeleteHeaderFooterOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the DeleteHeaderFooterOnlineRequest class.
-    public init(sectionPath : String, document : InputStream, index : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.sectionPath = sectionPath;
+    public init(document : InputStream, sectionPath : String, index : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.sectionPath = sectionPath;
         self.index = index;
         self.loadEncoding = loadEncoding;
         self.password = password;
@@ -62,14 +62,14 @@ public class DeleteHeaderFooterOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The path to the section in the document tree.
-    public func getSectionPath() -> String {
-        return self.sectionPath;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the section in the document tree.
+    public func getSectionPath() -> String {
+        return self.sectionPath;
     }
 
     // Object index.

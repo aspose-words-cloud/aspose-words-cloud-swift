@@ -29,35 +29,35 @@ import Foundation
 
 // Request model for getBookmarkByNameOnline operation.
 public class GetBookmarkByNameOnlineRequest : WordsApiRequest {
-    private let bookmarkName : String;
     private let document : InputStream;
+    private let bookmarkName : String;
     private let loadEncoding : String?;
     private let password : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case bookmarkName;
         case document;
+        case bookmarkName;
         case loadEncoding;
         case password;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetBookmarkByNameOnlineRequest class.
-    public init(bookmarkName : String, document : InputStream, loadEncoding : String? = nil, password : String? = nil) {
-        self.bookmarkName = bookmarkName;
+    public init(document : InputStream, bookmarkName : String, loadEncoding : String? = nil, password : String? = nil) {
         self.document = document;
+        self.bookmarkName = bookmarkName;
         self.loadEncoding = loadEncoding;
         self.password = password;
-    }
-
-    // The name of the bookmark.
-    public func getBookmarkName() -> String {
-        return self.bookmarkName;
     }
 
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The name of the bookmark.
+    public func getBookmarkName() -> String {
+        return self.bookmarkName;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.

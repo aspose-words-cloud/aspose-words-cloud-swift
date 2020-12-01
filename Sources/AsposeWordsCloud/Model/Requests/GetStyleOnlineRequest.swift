@@ -29,35 +29,35 @@ import Foundation
 
 // Request model for getStyleOnline operation.
 public class GetStyleOnlineRequest : WordsApiRequest {
-    private let styleName : String;
     private let document : InputStream;
+    private let styleName : String;
     private let loadEncoding : String?;
     private let password : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case styleName;
         case document;
+        case styleName;
         case loadEncoding;
         case password;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetStyleOnlineRequest class.
-    public init(styleName : String, document : InputStream, loadEncoding : String? = nil, password : String? = nil) {
-        self.styleName = styleName;
+    public init(document : InputStream, styleName : String, loadEncoding : String? = nil, password : String? = nil) {
         self.document = document;
+        self.styleName = styleName;
         self.loadEncoding = loadEncoding;
         self.password = password;
-    }
-
-    // The name of the style.
-    public func getStyleName() -> String {
-        return self.styleName;
     }
 
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The name of the style.
+    public func getStyleName() -> String {
+        return self.styleName;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.

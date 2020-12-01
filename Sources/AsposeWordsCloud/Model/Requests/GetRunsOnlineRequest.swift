@@ -29,35 +29,35 @@ import Foundation
 
 // Request model for getRunsOnline operation.
 public class GetRunsOnlineRequest : WordsApiRequest {
-    private let paragraphPath : String;
     private let document : InputStream;
+    private let paragraphPath : String;
     private let loadEncoding : String?;
     private let password : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case paragraphPath;
         case document;
+        case paragraphPath;
         case loadEncoding;
         case password;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetRunsOnlineRequest class.
-    public init(paragraphPath : String, document : InputStream, loadEncoding : String? = nil, password : String? = nil) {
-        self.paragraphPath = paragraphPath;
+    public init(document : InputStream, paragraphPath : String, loadEncoding : String? = nil, password : String? = nil) {
         self.document = document;
+        self.paragraphPath = paragraphPath;
         self.loadEncoding = loadEncoding;
         self.password = password;
-    }
-
-    // The path to the paragraph in the document tree.
-    public func getParagraphPath() -> String {
-        return self.paragraphPath;
     }
 
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the paragraph in the document tree.
+    public func getParagraphPath() -> String {
+        return self.paragraphPath;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.

@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for deleteCommentOnline operation.
 public class DeleteCommentOnlineRequest : WordsApiRequest {
-    private let commentIndex : Int;
     private let document : InputStream;
+    private let commentIndex : Int;
     private let loadEncoding : String?;
     private let password : String?;
     private let destFileName : String?;
@@ -38,8 +38,8 @@ public class DeleteCommentOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case commentIndex;
         case document;
+        case commentIndex;
         case loadEncoding;
         case password;
         case destFileName;
@@ -49,9 +49,9 @@ public class DeleteCommentOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the DeleteCommentOnlineRequest class.
-    public init(commentIndex : Int, document : InputStream, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.commentIndex = commentIndex;
+    public init(document : InputStream, commentIndex : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.commentIndex = commentIndex;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.destFileName = destFileName;
@@ -59,14 +59,14 @@ public class DeleteCommentOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The index of the comment.
-    public func getCommentIndex() -> Int {
-        return self.commentIndex;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The index of the comment.
+    public func getCommentIndex() -> Int {
+        return self.commentIndex;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.

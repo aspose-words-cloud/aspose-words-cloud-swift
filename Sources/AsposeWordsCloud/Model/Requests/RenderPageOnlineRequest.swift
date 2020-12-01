@@ -29,16 +29,16 @@ import Foundation
 
 // Request model for renderPageOnline operation.
 public class RenderPageOnlineRequest : WordsApiRequest {
-    private let pageIndex : Int;
     private let document : InputStream;
+    private let pageIndex : Int;
     private let format : String;
     private let loadEncoding : String?;
     private let password : String?;
     private let fontsLocation : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case pageIndex;
         case document;
+        case pageIndex;
         case format;
         case loadEncoding;
         case password;
@@ -47,23 +47,23 @@ public class RenderPageOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the RenderPageOnlineRequest class.
-    public init(pageIndex : Int, document : InputStream, format : String, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
-        self.pageIndex = pageIndex;
+    public init(document : InputStream, pageIndex : Int, format : String, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
         self.document = document;
+        self.pageIndex = pageIndex;
         self.format = format;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.fontsLocation = fontsLocation;
     }
 
-    // The index of the page.
-    public func getPageIndex() -> Int {
-        return self.pageIndex;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The index of the page.
+    public func getPageIndex() -> Int {
+        return self.pageIndex;
     }
 
     // The destination format.

@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for insertHeaderFooterOnline operation.
 public class InsertHeaderFooterOnlineRequest : WordsApiRequest {
-    private let sectionPath : String;
     private let document : InputStream;
+    private let sectionPath : String;
     private let headerFooterType : String;
     private let loadEncoding : String?;
     private let password : String?;
@@ -39,8 +39,8 @@ public class InsertHeaderFooterOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case sectionPath;
         case document;
+        case sectionPath;
         case headerFooterType;
         case loadEncoding;
         case password;
@@ -51,9 +51,9 @@ public class InsertHeaderFooterOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the InsertHeaderFooterOnlineRequest class.
-    public init(sectionPath : String, document : InputStream, headerFooterType : String, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.sectionPath = sectionPath;
+    public init(document : InputStream, sectionPath : String, headerFooterType : String, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.sectionPath = sectionPath;
         self.headerFooterType = headerFooterType;
         self.loadEncoding = loadEncoding;
         self.password = password;
@@ -62,14 +62,14 @@ public class InsertHeaderFooterOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The path to the section in the document tree.
-    public func getSectionPath() -> String {
-        return self.sectionPath;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the section in the document tree.
+    public func getSectionPath() -> String {
+        return self.sectionPath;
     }
 
     // Type of header/footer.

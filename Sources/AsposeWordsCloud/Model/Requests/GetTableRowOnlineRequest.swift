@@ -29,15 +29,15 @@ import Foundation
 
 // Request model for getTableRowOnline operation.
 public class GetTableRowOnlineRequest : WordsApiRequest {
-    private let tablePath : String;
     private let document : InputStream;
+    private let tablePath : String;
     private let index : Int;
     private let loadEncoding : String?;
     private let password : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case tablePath;
         case document;
+        case tablePath;
         case index;
         case loadEncoding;
         case password;
@@ -45,22 +45,22 @@ public class GetTableRowOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the GetTableRowOnlineRequest class.
-    public init(tablePath : String, document : InputStream, index : Int, loadEncoding : String? = nil, password : String? = nil) {
-        self.tablePath = tablePath;
+    public init(document : InputStream, tablePath : String, index : Int, loadEncoding : String? = nil, password : String? = nil) {
         self.document = document;
+        self.tablePath = tablePath;
         self.index = index;
         self.loadEncoding = loadEncoding;
         self.password = password;
     }
 
-    // The path to the table in the document tree.
-    public func getTablePath() -> String {
-        return self.tablePath;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the table in the document tree.
+    public func getTablePath() -> String {
+        return self.tablePath;
     }
 
     // Object index.

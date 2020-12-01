@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for updateTableCellFormatOnline operation.
 public class UpdateTableCellFormatOnlineRequest : WordsApiRequest {
-    private let tableRowPath : String;
     private let document : InputStream;
+    private let tableRowPath : String;
     private let format : TableCellFormat;
     private let index : Int;
     private let loadEncoding : String?;
@@ -40,8 +40,8 @@ public class UpdateTableCellFormatOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case tableRowPath;
         case document;
+        case tableRowPath;
         case format;
         case index;
         case loadEncoding;
@@ -53,9 +53,9 @@ public class UpdateTableCellFormatOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateTableCellFormatOnlineRequest class.
-    public init(tableRowPath : String, document : InputStream, format : TableCellFormat, index : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.tableRowPath = tableRowPath;
+    public init(document : InputStream, tableRowPath : String, format : TableCellFormat, index : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.tableRowPath = tableRowPath;
         self.format = format;
         self.index = index;
         self.loadEncoding = loadEncoding;
@@ -65,14 +65,14 @@ public class UpdateTableCellFormatOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The path to the table row in the document tree.
-    public func getTableRowPath() -> String {
-        return self.tableRowPath;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the table row in the document tree.
+    public func getTableRowPath() -> String {
+        return self.tableRowPath;
     }
 
     // The properties.

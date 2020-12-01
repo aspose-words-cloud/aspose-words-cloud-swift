@@ -29,8 +29,8 @@ import Foundation
 
 // Request model for updateTableRowFormatOnline operation.
 public class UpdateTableRowFormatOnlineRequest : WordsApiRequest {
-    private let tablePath : String;
     private let document : InputStream;
+    private let tablePath : String;
     private let format : TableRowFormat;
     private let index : Int;
     private let loadEncoding : String?;
@@ -40,8 +40,8 @@ public class UpdateTableRowFormatOnlineRequest : WordsApiRequest {
     private let revisionDateTime : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case tablePath;
         case document;
+        case tablePath;
         case format;
         case index;
         case loadEncoding;
@@ -53,9 +53,9 @@ public class UpdateTableRowFormatOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateTableRowFormatOnlineRequest class.
-    public init(tablePath : String, document : InputStream, format : TableRowFormat, index : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
-        self.tablePath = tablePath;
+    public init(document : InputStream, tablePath : String, format : TableRowFormat, index : Int, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
+        self.tablePath = tablePath;
         self.format = format;
         self.index = index;
         self.loadEncoding = loadEncoding;
@@ -65,14 +65,14 @@ public class UpdateTableRowFormatOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The path to the table in the document tree.
-    public func getTablePath() -> String {
-        return self.tablePath;
-    }
-
     // The document.
     public func getDocument() -> InputStream {
         return self.document;
+    }
+
+    // The path to the table in the document tree.
+    public func getTablePath() -> String {
+        return self.tablePath;
     }
 
     // Table row format.
