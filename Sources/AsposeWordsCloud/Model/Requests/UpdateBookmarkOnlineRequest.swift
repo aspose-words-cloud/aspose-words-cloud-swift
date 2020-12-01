@@ -152,8 +152,9 @@ public class UpdateBookmarkOnlineRequest : WordsApiRequest {
         return UpdateBookmarkOnlineResponse(
             model: try ObjectSerializer.deserialize(
                 type: BookmarkResponse.self,
-                from: (try ObjectSerializer.getMultipartByName(multipart, "Model")).getBody()),
-            document: (try ObjectSerializer.getMultipartByName(multipart, "Document")).getBody()
+                from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()
+            ),
+            document: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document")).getBody()
         );
     }
 }

@@ -108,8 +108,9 @@ public class RejectAllRevisionsOnlineRequest : WordsApiRequest {
         return RejectAllRevisionsOnlineResponse(
             model: try ObjectSerializer.deserialize(
                 type: RevisionsModificationResponse.self,
-                from: (try ObjectSerializer.getMultipartByName(multipart, "Model")).getBody()),
-            document: (try ObjectSerializer.getMultipartByName(multipart, "Document")).getBody()
+                from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()
+            ),
+            document: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document")).getBody()
         );
     }
 }

@@ -169,8 +169,9 @@ public class InsertParagraphOnlineRequest : WordsApiRequest {
         return InsertParagraphOnlineResponse(
             model: try ObjectSerializer.deserialize(
                 type: ParagraphResponse.self,
-                from: (try ObjectSerializer.getMultipartByName(multipart, "Model")).getBody()),
-            document: (try ObjectSerializer.getMultipartByName(multipart, "Document")).getBody()
+                from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()
+            ),
+            document: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document")).getBody()
         );
     }
 }

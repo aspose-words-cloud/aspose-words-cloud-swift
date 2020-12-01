@@ -131,8 +131,9 @@ public class SaveAsRangeOnlineRequest : WordsApiRequest {
         return SaveAsRangeOnlineResponse(
             model: try ObjectSerializer.deserialize(
                 type: DocumentResponse.self,
-                from: (try ObjectSerializer.getMultipartByName(multipart, "Model")).getBody()),
-            document: (try ObjectSerializer.getMultipartByName(multipart, "Document")).getBody()
+                from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()
+            ),
+            document: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document")).getBody()
         );
     }
 }

@@ -167,8 +167,9 @@ public class UpdateParagraphListFormatOnlineRequest : WordsApiRequest {
         return UpdateParagraphListFormatOnlineResponse(
             model: try ObjectSerializer.deserialize(
                 type: ParagraphListFormatResponse.self,
-                from: (try ObjectSerializer.getMultipartByName(multipart, "Model")).getBody()),
-            document: (try ObjectSerializer.getMultipartByName(multipart, "Document")).getBody()
+                from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()
+            ),
+            document: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document")).getBody()
         );
     }
 }

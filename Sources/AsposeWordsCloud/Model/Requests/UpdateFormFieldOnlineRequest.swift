@@ -167,8 +167,9 @@ public class UpdateFormFieldOnlineRequest : WordsApiRequest {
         return UpdateFormFieldOnlineResponse(
             model: try ObjectSerializer.deserialize(
                 type: FormFieldResponse.self,
-                from: (try ObjectSerializer.getMultipartByName(multipart, "Model")).getBody()),
-            document: (try ObjectSerializer.getMultipartByName(multipart, "Document")).getBody()
+                from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()
+            ),
+            document: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document")).getBody()
         );
     }
 }

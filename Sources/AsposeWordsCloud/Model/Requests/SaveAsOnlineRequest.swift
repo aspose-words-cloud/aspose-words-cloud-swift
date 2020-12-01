@@ -118,8 +118,9 @@ public class SaveAsOnlineRequest : WordsApiRequest {
         return SaveAsOnlineResponse(
             model: try ObjectSerializer.deserialize(
                 type: SaveResponse.self,
-                from: (try ObjectSerializer.getMultipartByName(multipart, "Model")).getBody()),
-            document: (try ObjectSerializer.getMultipartByName(multipart, "Document")).getBody()
+                from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()
+            ),
+            document: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document")).getBody()
         );
     }
 }
