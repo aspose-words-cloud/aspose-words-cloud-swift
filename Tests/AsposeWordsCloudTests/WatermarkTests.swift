@@ -58,7 +58,7 @@ class WatermarkTests: BaseTestContext {
 
     // Test for adding watermark image online.
     func testInsertWatermarkImageOnline() throws {
-      let request = InsertWatermarkImageOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName, image: remoteImagePath);
+      let request = InsertWatermarkImageOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!);
       _ = try super.getApi().insertWatermarkImageOnline(request: request);
     }
 
@@ -86,7 +86,7 @@ class WatermarkTests: BaseTestContext {
       requestWatermarkText.setRotationAngle(rotationAngle: 90);
 
 
-      let request = InsertWatermarkTextOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, watermarkText: requestWatermarkText, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = InsertWatermarkTextOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, watermarkText: requestWatermarkText);
       _ = try super.getApi().insertWatermarkTextOnline(request: request);
     }
 
@@ -104,7 +104,7 @@ class WatermarkTests: BaseTestContext {
 
     // Test for deleting watermark online.
     func testDeleteWatermarkOnline() throws {
-      let request = DeleteWatermarkOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = DeleteWatermarkOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
       _ = try super.getApi().deleteWatermarkOnline(request: request);
     }
 }

@@ -227,7 +227,7 @@ class ParagraphTests: BaseTestContext {
       requestFontDto.setBold(bold: true);
 
 
-      let request = UpdateRunFontOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/0", fontDto: requestFontDto, index: 0, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = UpdateRunFontOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/0", fontDto: requestFontDto, index: 0);
       _ = try super.getApi().updateRunFontOnline(request: request);
     }
 

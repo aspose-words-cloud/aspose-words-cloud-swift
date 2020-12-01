@@ -76,7 +76,7 @@ class FootnoteTests: BaseTestContext {
       requestFootnoteDto.setText(text: "test endnote");
 
 
-      let request = InsertFootnoteOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, footnoteDto: requestFootnoteDto, nodePath: "");
+      let request = InsertFootnoteOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false))!, footnoteDto: requestFootnoteDto, nodePath: "");
       _ = try super.getApi().insertFootnoteOnline(request: request);
     }
 
@@ -110,7 +110,7 @@ class FootnoteTests: BaseTestContext {
 
     // Test for deleting footnote online.
     func testDeleteFootnoteOnline() throws {
-      let request = DeleteFootnoteOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, nodePath: "");
+      let request = DeleteFootnoteOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false))!, index: 0, nodePath: "");
       _ = try super.getApi().deleteFootnoteOnline(request: request);
     }
 
@@ -140,7 +140,7 @@ class FootnoteTests: BaseTestContext {
 
     // Test for getting footnotes online.
     func testGetFootnotesOnline() throws {
-      let request = GetFootnotesOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, nodePath: "");
+      let request = GetFootnotesOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false))!, nodePath: "");
       _ = try super.getApi().getFootnotesOnline(request: request);
     }
 
@@ -172,7 +172,7 @@ class FootnoteTests: BaseTestContext {
 
     // Test for getting footnote online.
     func testGetFootnoteOnline() throws {
-      let request = GetFootnoteOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, nodePath: "");
+      let request = GetFootnoteOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false))!, index: 0, nodePath: "");
       _ = try super.getApi().getFootnoteOnline(request: request);
     }
 
@@ -210,7 +210,7 @@ class FootnoteTests: BaseTestContext {
       requestFootnoteDto.setText(text: "new text is here");
 
 
-      let request = UpdateFootnoteOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, footnoteDto: requestFootnoteDto, index: 0, nodePath: "");
+      let request = UpdateFootnoteOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false))!, footnoteDto: requestFootnoteDto, index: 0, nodePath: "");
       _ = try super.getApi().updateFootnoteOnline(request: request);
     }
 
