@@ -47,7 +47,7 @@ public class DeleteFileRequest : WordsApiRequest {
         self.versionId = versionId;
     }
 
-    // Path of the file including file name and extension e.g. /Folder1/file.ext.
+    // File path e.g. '/folder/file.ext'.
     public func getPath() -> String {
         return self.path;
     }

@@ -29,15 +29,15 @@ import Foundation
 
 // Request model for copyFile operation.
 public class CopyFileRequest : WordsApiRequest {
-    private let destPath : String;
     private let srcPath : String;
+    private let destPath : String;
     private let srcStorageName : String?;
     private let destStorageName : String?;
     private let versionId : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case destPath;
         case srcPath;
+        case destPath;
         case srcStorageName;
         case destStorageName;
         case versionId;
@@ -45,22 +45,22 @@ public class CopyFileRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the CopyFileRequest class.
-    public init(destPath : String, srcPath : String, srcStorageName : String? = nil, destStorageName : String? = nil, versionId : String? = nil) {
-        self.destPath = destPath;
+    public init(srcPath : String, destPath : String, srcStorageName : String? = nil, destStorageName : String? = nil, versionId : String? = nil) {
         self.srcPath = srcPath;
+        self.destPath = destPath;
         self.srcStorageName = srcStorageName;
         self.destStorageName = destStorageName;
         self.versionId = versionId;
     }
 
+    // Source file path e.g. '/folder/file.ext'.
+    public func getSrcPath() -> String {
+        return self.srcPath;
+    }
+
     // Destination file path.
     public func getDestPath() -> String {
         return self.destPath;
-    }
-
-    // Source file's path e.g. '/Folder 1/file.ext' or '/Bucket/Folder 1/file.ext'.
-    public func getSrcPath() -> String {
-        return self.srcPath;
     }
 
     // Source storage name.

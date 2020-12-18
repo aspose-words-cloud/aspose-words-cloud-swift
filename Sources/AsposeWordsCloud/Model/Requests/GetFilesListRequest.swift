@@ -44,7 +44,7 @@ public class GetFilesListRequest : WordsApiRequest {
         self.storageName = storageName;
     }
 
-    // Folder path e.g. /Folder1.
+    // Folder path e.g. '/folder'.
     public func getPath() -> String {
         return self.path;
     }
