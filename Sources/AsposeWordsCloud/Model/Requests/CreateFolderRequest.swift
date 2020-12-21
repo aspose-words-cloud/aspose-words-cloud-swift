@@ -44,7 +44,7 @@ public class CreateFolderRequest : WordsApiRequest {
         self.storageName = storageName;
     }
 
-    // Folder path to create e.g. 'folder_1/folder_2/'.
+    // Target folder's path e.g. Folder1/Folder2/. The folders will be created recursively.
     public func getPath() -> String {
         return self.path;
     }

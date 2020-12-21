@@ -47,7 +47,7 @@ public class DownloadFileRequest : WordsApiRequest {
         self.versionId = versionId;
     }
 
-    // File path e.g. '/folder/file.ext'.
+    // Path of the file including the file name and extension e.g. /folder1/file.ext.
     public func getPath() -> String {
         return self.path;
     }

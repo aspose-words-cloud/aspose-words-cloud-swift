@@ -29,35 +29,35 @@ import Foundation
 
 // Request model for copyFolder operation.
 public class CopyFolderRequest : WordsApiRequest {
-    private let srcPath : String;
     private let destPath : String;
+    private let srcPath : String;
     private let srcStorageName : String?;
     private let destStorageName : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case srcPath;
         case destPath;
+        case srcPath;
         case srcStorageName;
         case destStorageName;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the CopyFolderRequest class.
-    public init(srcPath : String, destPath : String, srcStorageName : String? = nil, destStorageName : String? = nil) {
-        self.srcPath = srcPath;
+    public init(destPath : String, srcPath : String, srcStorageName : String? = nil, destStorageName : String? = nil) {
         self.destPath = destPath;
+        self.srcPath = srcPath;
         self.srcStorageName = srcStorageName;
         self.destStorageName = destStorageName;
-    }
-
-    // Source folder path e.g. '/src'.
-    public func getSrcPath() -> String {
-        return self.srcPath;
     }
 
     // Destination folder path e.g. '/dst'.
     public func getDestPath() -> String {
         return self.destPath;
+    }
+
+    // Source folder path e.g. /Folder1.
+    public func getSrcPath() -> String {
+        return self.srcPath;
     }
 
     // Source storage name.
