@@ -153,6 +153,6 @@ public class DeleteFormFieldOnlineRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data) throws -> Any? {
-        return nil;
+        return data;
     }
 }

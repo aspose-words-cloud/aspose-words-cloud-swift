@@ -153,9 +153,9 @@ class HeaderFooterTests: BaseTestContext {
     func testInsertHeaderFooterOnline() throws {
       let request = InsertHeaderFooterOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionPath: "", headerFooterType: "FooterEven");
       let actual = try super.getApi().insertHeaderFooterOnline(request: request);
-      XCTAssertNotNil(actual.getHeaderFooter());
-      XCTAssertNotNil(actual.getHeaderFooter()!.getChildNodes());
-      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()!.count, 1);
-      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()![0].getNodeId(), "0.2.0");
+      XCTAssertNotNil(actual.getModel()!.getHeaderFooter());
+      XCTAssertNotNil(actual.getModel()!.getHeaderFooter()!.getChildNodes());
+      XCTAssertEqual(actual.getModel()!.getHeaderFooter()!.getChildNodes()!.count, 1);
+      XCTAssertEqual(actual.getModel()!.getHeaderFooter()!.getChildNodes()![0].getNodeId(), "0.2.0");
     }
 }

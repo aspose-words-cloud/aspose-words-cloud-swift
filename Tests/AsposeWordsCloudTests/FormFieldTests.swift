@@ -249,7 +249,7 @@ class FormFieldTests: BaseTestContext {
     // Test for deleting form field online.
     func testDeleteFormFieldOnline() throws {
       let request = DeleteFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false))!, index: 0, nodePath: "sections/0");
-      try super.getApi().deleteFormFieldOnline(request: request);
+      _ = try super.getApi().deleteFormFieldOnline(request: request);
     }
 
     // Test for deleting form field without node path.

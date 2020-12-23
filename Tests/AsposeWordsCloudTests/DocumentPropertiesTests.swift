@@ -98,7 +98,7 @@ class DocumentPropertiesTests: BaseTestContext {
     // Test for deleting document property online.
     func testDeleteDocumentPropertyOnline() throws {
       let request = DeleteDocumentPropertyOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, propertyName: "testProp");
-      try super.getApi().deleteDocumentPropertyOnline(request: request);
+      _ = try super.getApi().deleteDocumentPropertyOnline(request: request);
     }
 
     // Test for updating document property.

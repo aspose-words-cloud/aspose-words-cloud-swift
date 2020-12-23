@@ -153,6 +153,13 @@ public class DeleteBorderOnlineRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data) throws -> Any? {
-        return data;
+        let multipart = try ObjectSerializer.parseMultipart(data: data);
+        return DeleteBorderOnlineResponse(
+            model: try ObjectSerializer.deserialize(
+                type: BorderResponse.self,
+                from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()
+            ),
+            document: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document")).getBody()
+        );
     }
 }

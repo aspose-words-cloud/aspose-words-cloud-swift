@@ -49,7 +49,7 @@ public class UpdateParagraphListFormatOnlineResponse {
         return self.model;
     }
 
-    // The document.
+    // The document after modification.
     public func getDocument() -> Data? {
         return self.document;
     }

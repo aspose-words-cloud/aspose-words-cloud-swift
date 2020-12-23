@@ -151,6 +151,6 @@ public class RemoveRangeRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data) throws -> Any? {
-        return data;
+        return try ObjectSerializer.deserialize(type: DocumentResponse.self, from: data);
     }
 }

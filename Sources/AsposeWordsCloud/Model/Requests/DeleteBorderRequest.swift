@@ -175,6 +175,6 @@ public class DeleteBorderRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data) throws -> Any? {
-        return data;
+        return try ObjectSerializer.deserialize(type: BorderResponse.self, from: data);
     }
 }

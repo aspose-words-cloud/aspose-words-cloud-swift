@@ -163,6 +163,13 @@ public class UpdateFootnoteOnlineRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data) throws -> Any? {
-        return try ObjectSerializer.deserialize(type: FootnoteResponse.self, from: data);
+        let multipart = try ObjectSerializer.parseMultipart(data: data);
+        return UpdateFootnoteOnlineResponse(
+            model: try ObjectSerializer.deserialize(
+                type: FootnoteResponse.self,
+                from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()
+            ),
+            document: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document")).getBody()
+        );
     }
 }

@@ -1065,7 +1065,7 @@ public class WordsAPI {
 
     // Async representation of deleteBorder method
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
-    public func deleteBorder(request : DeleteBorderRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteBorder(request : DeleteBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -1075,7 +1075,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? BorderResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1091,9 +1091,9 @@ public class WordsAPI {
 
     // Sync representation of deleteBorder method
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
-    public func deleteBorder(request : DeleteBorderRequest) throws -> Data {
+    public func deleteBorder(request : DeleteBorderRequest) throws -> BorderResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : BorderResponse? = nil;
         var responseError : Error? = nil;
         self.deleteBorder(request : request, callback: { response, error in
             responseObject = response;
@@ -1111,7 +1111,7 @@ public class WordsAPI {
 
     // Async representation of deleteBorderOnline method
     // Removes a border from the document node.
-    public func deleteBorderOnline(request : DeleteBorderOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteBorderOnline(request : DeleteBorderOnlineRequest, callback : @escaping (_ response : DeleteBorderOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -1121,7 +1121,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DeleteBorderOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1137,9 +1137,9 @@ public class WordsAPI {
 
     // Sync representation of deleteBorderOnline method
     // Removes a border from the document node.
-    public func deleteBorderOnline(request : DeleteBorderOnlineRequest) throws -> Data {
+    public func deleteBorderOnline(request : DeleteBorderOnlineRequest) throws -> DeleteBorderOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : DeleteBorderOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.deleteBorderOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -1157,7 +1157,7 @@ public class WordsAPI {
 
     // Async representation of deleteBorders method
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
-    public func deleteBorders(request : DeleteBordersRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteBorders(request : DeleteBordersRequest, callback : @escaping (_ response : BordersResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -1167,7 +1167,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? BordersResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1183,9 +1183,9 @@ public class WordsAPI {
 
     // Sync representation of deleteBorders method
     // The 'nodePath' parameter should refer to a paragraph, a cell or a row.
-    public func deleteBorders(request : DeleteBordersRequest) throws -> Data {
+    public func deleteBorders(request : DeleteBordersRequest) throws -> BordersResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : BordersResponse? = nil;
         var responseError : Error? = nil;
         self.deleteBorders(request : request, callback: { response, error in
             responseObject = response;
@@ -1203,7 +1203,7 @@ public class WordsAPI {
 
     // Async representation of deleteBordersOnline method
     // Removes borders from the document node.
-    public func deleteBordersOnline(request : DeleteBordersOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteBordersOnline(request : DeleteBordersOnlineRequest, callback : @escaping (_ response : DeleteBordersOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -1213,7 +1213,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DeleteBordersOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1229,9 +1229,9 @@ public class WordsAPI {
 
     // Sync representation of deleteBordersOnline method
     // Removes borders from the document node.
-    public func deleteBordersOnline(request : DeleteBordersOnlineRequest) throws -> Data {
+    public func deleteBordersOnline(request : DeleteBordersOnlineRequest) throws -> DeleteBordersOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : DeleteBordersOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.deleteBordersOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -1361,26 +1361,38 @@ public class WordsAPI {
 
     // Async representation of deleteDocumentPropertyOnline method
     // Removes a document property.
-    public func deleteDocumentPropertyOnline(request : DeleteDocumentPropertyOnlineRequest, callback : @escaping (_ error : Error?) -> ()) {
+    public func deleteDocumentPropertyOnline(request : DeleteDocumentPropertyOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
                 callback: { response, error in
-                    callback(error);
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
                 }
             );
         }
         catch let error {
-            callback(error);
+            callback(nil, error);
         }
     }
 
     // Sync representation of deleteDocumentPropertyOnline method
     // Removes a document property.
-    public func deleteDocumentPropertyOnline(request : DeleteDocumentPropertyOnlineRequest) throws {
+    public func deleteDocumentPropertyOnline(request : DeleteDocumentPropertyOnlineRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : Data? = nil;
         var responseError : Error? = nil;
-        self.deleteDocumentPropertyOnline(request : request, callback: { error in
+        self.deleteDocumentPropertyOnline(request : request, callback: { response, error in
+            responseObject = response;
             responseError = error;
             semaphore.signal();
         });
@@ -1390,6 +1402,7 @@ public class WordsAPI {
         if (responseError != nil) {
             throw responseError!;
         }
+        return responseObject!;
     }
 
     // Async representation of deleteDrawingObject method
@@ -1809,26 +1822,38 @@ public class WordsAPI {
 
     // Async representation of deleteFormFieldOnline method
     // Removes a form field from the document node.
-    public func deleteFormFieldOnline(request : DeleteFormFieldOnlineRequest, callback : @escaping (_ error : Error?) -> ()) {
+    public func deleteFormFieldOnline(request : DeleteFormFieldOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
                 callback: { response, error in
-                    callback(error);
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
                 }
             );
         }
         catch let error {
-            callback(error);
+            callback(nil, error);
         }
     }
 
     // Sync representation of deleteFormFieldOnline method
     // Removes a form field from the document node.
-    public func deleteFormFieldOnline(request : DeleteFormFieldOnlineRequest) throws {
+    public func deleteFormFieldOnline(request : DeleteFormFieldOnlineRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : Data? = nil;
         var responseError : Error? = nil;
-        self.deleteFormFieldOnline(request : request, callback: { error in
+        self.deleteFormFieldOnline(request : request, callback: { response, error in
+            responseObject = response;
             responseError = error;
             semaphore.signal();
         });
@@ -1838,6 +1863,7 @@ public class WordsAPI {
         if (responseError != nil) {
             throw responseError!;
         }
+        return responseObject!;
     }
 
     // Async representation of deleteHeaderFooter method
@@ -2237,7 +2263,7 @@ public class WordsAPI {
 
     // Async representation of deleteParagraphListFormatOnline method
     // Removes the formatting properties of a paragraph list from the document node.
-    public func deleteParagraphListFormatOnline(request : DeleteParagraphListFormatOnlineRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
+    public func deleteParagraphListFormatOnline(request : DeleteParagraphListFormatOnlineRequest, callback : @escaping (_ response : DeleteParagraphListFormatOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -2247,7 +2273,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ParagraphListFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DeleteParagraphListFormatOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2263,9 +2289,9 @@ public class WordsAPI {
 
     // Sync representation of deleteParagraphListFormatOnline method
     // Removes the formatting properties of a paragraph list from the document node.
-    public func deleteParagraphListFormatOnline(request : DeleteParagraphListFormatOnlineRequest) throws -> ParagraphListFormatResponse {
+    public func deleteParagraphListFormatOnline(request : DeleteParagraphListFormatOnlineRequest) throws -> DeleteParagraphListFormatOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : ParagraphListFormatResponse? = nil;
+        var responseObject : DeleteParagraphListFormatOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.deleteParagraphListFormatOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -8198,7 +8224,7 @@ public class WordsAPI {
 
     // Async representation of insertFieldOnline method
     // Inserts a new field to the document node.
-    public func insertFieldOnline(request : InsertFieldOnlineRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
+    public func insertFieldOnline(request : InsertFieldOnlineRequest, callback : @escaping (_ response : InsertFieldOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -8208,7 +8234,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertFieldOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8224,9 +8250,9 @@ public class WordsAPI {
 
     // Sync representation of insertFieldOnline method
     // Inserts a new field to the document node.
-    public func insertFieldOnline(request : InsertFieldOnlineRequest) throws -> FieldResponse {
+    public func insertFieldOnline(request : InsertFieldOnlineRequest) throws -> InsertFieldOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : FieldResponse? = nil;
+        var responseObject : InsertFieldOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertFieldOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -8474,7 +8500,7 @@ public class WordsAPI {
 
     // Async representation of insertHeaderFooterOnline method
     // Inserts a new HeaderFooter object to the document section.
-    public func insertHeaderFooterOnline(request : InsertHeaderFooterOnlineRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
+    public func insertHeaderFooterOnline(request : InsertHeaderFooterOnlineRequest, callback : @escaping (_ response : InsertHeaderFooterOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -8484,7 +8510,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? InsertHeaderFooterOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8500,9 +8526,9 @@ public class WordsAPI {
 
     // Sync representation of insertHeaderFooterOnline method
     // Inserts a new HeaderFooter object to the document section.
-    public func insertHeaderFooterOnline(request : InsertHeaderFooterOnlineRequest) throws -> HeaderFooterResponse {
+    public func insertHeaderFooterOnline(request : InsertHeaderFooterOnlineRequest) throws -> InsertHeaderFooterOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : HeaderFooterResponse? = nil;
+        var responseObject : InsertHeaderFooterOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.insertHeaderFooterOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -9907,7 +9933,7 @@ public class WordsAPI {
 
     // Async representation of removeRange method
     // Removes a range from the document.
-    public func removeRange(request : RemoveRangeRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func removeRange(request : RemoveRangeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -9917,7 +9943,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9933,9 +9959,9 @@ public class WordsAPI {
 
     // Sync representation of removeRange method
     // Removes a range from the document.
-    public func removeRange(request : RemoveRangeRequest) throws -> Data {
+    public func removeRange(request : RemoveRangeRequest) throws -> DocumentResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : DocumentResponse? = nil;
         var responseError : Error? = nil;
         self.removeRange(request : request, callback: { response, error in
             responseObject = response;
@@ -9953,7 +9979,7 @@ public class WordsAPI {
 
     // Async representation of removeRangeOnline method
     // Removes a range from the document.
-    public func removeRangeOnline(request : RemoveRangeOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func removeRangeOnline(request : RemoveRangeOnlineRequest, callback : @escaping (_ response : RemoveRangeOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -9963,7 +9989,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!) as? RemoveRangeOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9979,9 +10005,9 @@ public class WordsAPI {
 
     // Sync representation of removeRangeOnline method
     // Removes a range from the document.
-    public func removeRangeOnline(request : RemoveRangeOnlineRequest) throws -> Data {
+    public func removeRangeOnline(request : RemoveRangeOnlineRequest) throws -> RemoveRangeOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : RemoveRangeOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.removeRangeOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -10597,7 +10623,7 @@ public class WordsAPI {
 
     // Async representation of replaceWithTextOnline method
     // Replaces a range with text in the document.
-    public func replaceWithTextOnline(request : ReplaceWithTextOnlineRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
+    public func replaceWithTextOnline(request : ReplaceWithTextOnlineRequest, callback : @escaping (_ response : ReplaceWithTextOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -10607,7 +10633,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? ReplaceWithTextOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10623,9 +10649,9 @@ public class WordsAPI {
 
     // Sync representation of replaceWithTextOnline method
     // Replaces a range with text in the document.
-    public func replaceWithTextOnline(request : ReplaceWithTextOnlineRequest) throws -> DocumentResponse {
+    public func replaceWithTextOnline(request : ReplaceWithTextOnlineRequest) throws -> ReplaceWithTextOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : DocumentResponse? = nil;
+        var responseObject : ReplaceWithTextOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.replaceWithTextOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -11182,7 +11208,7 @@ public class WordsAPI {
 
     // Async representation of unprotectDocumentOnline method
     // Removes protection from the document.
-    public func unprotectDocumentOnline(request : UnprotectDocumentOnlineRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
+    public func unprotectDocumentOnline(request : UnprotectDocumentOnlineRequest, callback : @escaping (_ response : UnprotectDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -11192,7 +11218,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ProtectionDataResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UnprotectDocumentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11208,9 +11234,9 @@ public class WordsAPI {
 
     // Sync representation of unprotectDocumentOnline method
     // Removes protection from the document.
-    public func unprotectDocumentOnline(request : UnprotectDocumentOnlineRequest) throws -> ProtectionDataResponse {
+    public func unprotectDocumentOnline(request : UnprotectDocumentOnlineRequest) throws -> UnprotectDocumentOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : ProtectionDataResponse? = nil;
+        var responseObject : UnprotectDocumentOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.unprotectDocumentOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -11366,7 +11392,7 @@ public class WordsAPI {
 
     // Async representation of updateBorderOnline method
     // Updates a border in the document node.
-    public func updateBorderOnline(request : UpdateBorderOnlineRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
+    public func updateBorderOnline(request : UpdateBorderOnlineRequest, callback : @escaping (_ response : UpdateBorderOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -11376,7 +11402,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? BorderResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateBorderOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11392,9 +11418,9 @@ public class WordsAPI {
 
     // Sync representation of updateBorderOnline method
     // Updates a border in the document node.
-    public func updateBorderOnline(request : UpdateBorderOnlineRequest) throws -> BorderResponse {
+    public func updateBorderOnline(request : UpdateBorderOnlineRequest) throws -> UpdateBorderOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : BorderResponse? = nil;
+        var responseObject : UpdateBorderOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateBorderOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -11458,7 +11484,7 @@ public class WordsAPI {
 
     // Async representation of updateCommentOnline method
     // Updates a comment in the document.
-    public func updateCommentOnline(request : UpdateCommentOnlineRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
+    public func updateCommentOnline(request : UpdateCommentOnlineRequest, callback : @escaping (_ response : UpdateCommentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -11468,7 +11494,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CommentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateCommentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11484,9 +11510,9 @@ public class WordsAPI {
 
     // Sync representation of updateCommentOnline method
     // Updates a comment in the document.
-    public func updateCommentOnline(request : UpdateCommentOnlineRequest) throws -> CommentResponse {
+    public func updateCommentOnline(request : UpdateCommentOnlineRequest) throws -> UpdateCommentOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : CommentResponse? = nil;
+        var responseObject : UpdateCommentOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateCommentOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -11550,7 +11576,7 @@ public class WordsAPI {
 
     // Async representation of updateDrawingObjectOnline method
     // Updates a DrawingObject in the document node.
-    public func updateDrawingObjectOnline(request : UpdateDrawingObjectOnlineRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
+    public func updateDrawingObjectOnline(request : UpdateDrawingObjectOnlineRequest, callback : @escaping (_ response : UpdateDrawingObjectOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -11560,7 +11586,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DrawingObjectResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateDrawingObjectOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11576,9 +11602,9 @@ public class WordsAPI {
 
     // Sync representation of updateDrawingObjectOnline method
     // Updates a DrawingObject in the document node.
-    public func updateDrawingObjectOnline(request : UpdateDrawingObjectOnlineRequest) throws -> DrawingObjectResponse {
+    public func updateDrawingObjectOnline(request : UpdateDrawingObjectOnlineRequest) throws -> UpdateDrawingObjectOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : DrawingObjectResponse? = nil;
+        var responseObject : UpdateDrawingObjectOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateDrawingObjectOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -11642,7 +11668,7 @@ public class WordsAPI {
 
     // Async representation of updateFieldOnline method
     // Updates a field in the document node.
-    public func updateFieldOnline(request : UpdateFieldOnlineRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
+    public func updateFieldOnline(request : UpdateFieldOnlineRequest, callback : @escaping (_ response : UpdateFieldOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -11652,7 +11678,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateFieldOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11668,9 +11694,9 @@ public class WordsAPI {
 
     // Sync representation of updateFieldOnline method
     // Updates a field in the document node.
-    public func updateFieldOnline(request : UpdateFieldOnlineRequest) throws -> FieldResponse {
+    public func updateFieldOnline(request : UpdateFieldOnlineRequest) throws -> UpdateFieldOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : FieldResponse? = nil;
+        var responseObject : UpdateFieldOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateFieldOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -11826,7 +11852,7 @@ public class WordsAPI {
 
     // Async representation of updateFootnoteOnline method
     // Updates a footnote in the document node.
-    public func updateFootnoteOnline(request : UpdateFootnoteOnlineRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
+    public func updateFootnoteOnline(request : UpdateFootnoteOnlineRequest, callback : @escaping (_ response : UpdateFootnoteOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -11836,7 +11862,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FootnoteResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateFootnoteOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11852,9 +11878,9 @@ public class WordsAPI {
 
     // Sync representation of updateFootnoteOnline method
     // Updates a footnote in the document node.
-    public func updateFootnoteOnline(request : UpdateFootnoteOnlineRequest) throws -> FootnoteResponse {
+    public func updateFootnoteOnline(request : UpdateFootnoteOnlineRequest) throws -> UpdateFootnoteOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : FootnoteResponse? = nil;
+        var responseObject : UpdateFootnoteOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateFootnoteOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -12470,7 +12496,7 @@ public class WordsAPI {
 
     // Async representation of updateRunOnline method
     // Updates a Run object in the paragraph.
-    public func updateRunOnline(request : UpdateRunOnlineRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
+    public func updateRunOnline(request : UpdateRunOnlineRequest, callback : @escaping (_ response : UpdateRunOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -12480,7 +12506,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RunResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? UpdateRunOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12496,9 +12522,9 @@ public class WordsAPI {
 
     // Sync representation of updateRunOnline method
     // Updates a Run object in the paragraph.
-    public func updateRunOnline(request : UpdateRunOnlineRequest) throws -> RunResponse {
+    public func updateRunOnline(request : UpdateRunOnlineRequest) throws -> UpdateRunOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : RunResponse? = nil;
+        var responseObject : UpdateRunOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateRunOnline(request : request, callback: { response, error in
             responseObject = response;

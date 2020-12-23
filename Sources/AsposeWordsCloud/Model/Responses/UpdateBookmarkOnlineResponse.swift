@@ -49,7 +49,7 @@ public class UpdateBookmarkOnlineResponse {
         return self.model;
     }
 
-    // The document.
+    // The document after modification.
     public func getDocument() -> Data? {
         return self.document;
     }

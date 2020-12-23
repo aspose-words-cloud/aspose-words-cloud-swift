@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="CreateOrUpdateDocumentPropertyOnlineResponse.swift">
+ * <copyright company="Aspose" file="UpdateBorderOnlineResponse.swift">
  *   Copyright (c) 2020 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,9 +27,9 @@
 
 import Foundation
 
-// Response model for createOrUpdateDocumentPropertyOnline operation.
-public class CreateOrUpdateDocumentPropertyOnlineResponse {
-    private let model : DocumentPropertyResponse?;
+// Response model for updateBorderOnline operation.
+public class UpdateBorderOnlineResponse {
+    private let model : BorderResponse?;
     private let document : Data?;
 
     private enum CodingKeys: String, CodingKey {
@@ -38,14 +38,14 @@ public class CreateOrUpdateDocumentPropertyOnlineResponse {
         case invalidCodingKey;
     }
 
-    // Initializes a new instance of the CreateOrUpdateDocumentPropertyOnlineResponse class.
-    public init(model : DocumentPropertyResponse?, document : Data?) {
+    // Initializes a new instance of the UpdateBorderOnlineResponse class.
+    public init(model : BorderResponse?, document : Data?) {
         self.model = model;
         self.document = document;
     }
 
     // The response model.
-    public func getModel() -> DocumentPropertyResponse? {
+    public func getModel() -> BorderResponse? {
         return self.model;
     }
 

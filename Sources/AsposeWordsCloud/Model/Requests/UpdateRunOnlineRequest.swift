@@ -158,6 +158,13 @@ public class UpdateRunOnlineRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data) throws -> Any? {
-        return try ObjectSerializer.deserialize(type: RunResponse.self, from: data);
+        let multipart = try ObjectSerializer.parseMultipart(data: data);
+        return UpdateRunOnlineResponse(
+            model: try ObjectSerializer.deserialize(
+                type: RunResponse.self,
+                from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()
+            ),
+            document: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document")).getBody()
+        );
     }
 }

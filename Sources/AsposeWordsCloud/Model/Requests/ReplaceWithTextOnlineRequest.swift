@@ -139,6 +139,13 @@ public class ReplaceWithTextOnlineRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data) throws -> Any? {
-        return try ObjectSerializer.deserialize(type: DocumentResponse.self, from: data);
+        let multipart = try ObjectSerializer.parseMultipart(data: data);
+        return ReplaceWithTextOnlineResponse(
+            model: try ObjectSerializer.deserialize(
+                type: DocumentResponse.self,
+                from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()
+            ),
+            document: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document")).getBody()
+        );
     }
 }
