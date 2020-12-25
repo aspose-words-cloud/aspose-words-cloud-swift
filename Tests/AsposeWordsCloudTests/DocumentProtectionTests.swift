@@ -32,6 +32,7 @@ import XCTest
 class DocumentProtectionTests: BaseTestContext {
     static var allTests = [
         ("testProtectDocument", testProtectDocument),
+        ("testChangeDocumentProtection", testChangeDocumentProtection),
         ("testGetDocumentProtection", testGetDocumentProtection),
         ("testDeleteUnprotectDocument", testDeleteUnprotectDocument)
     ];
@@ -54,6 +55,24 @@ class DocumentProtectionTests: BaseTestContext {
       let actual = try super.getApi().protectDocument(request: request);
       XCTAssertNotNil(actual.getProtectionData());
       XCTAssertEqual(actual.getProtectionData()!.getProtectionType(), "ReadOnly");
+    }
+
+    // Test for changing document protection.
+    func testChangeDocumentProtection() throws {
+      let localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
+      let remoteFileName = "TestChangeDocumentProtection.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFilePath, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let requestProtectionRequest = ProtectionRequest();
+      requestProtectionRequest.setPassword(password: "aspose");
+      requestProtectionRequest.setProtectionType(protectionType: "AllowOnlyComments");
+
+
+      let request = ProtectDocumentRequest(name: remoteFileName, protectionRequest: requestProtectionRequest, folder: remoteDataFolder);
+      let actual = try super.getApi().protectDocument(request: request);
+      XCTAssertNotNil(actual.getProtectionData());
+      XCTAssertEqual(actual.getProtectionData()!.getProtectionType(), "AllowOnlyComments");
     }
 
     // Test for getting document protection.
