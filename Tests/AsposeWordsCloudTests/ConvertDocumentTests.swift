@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ConvertDocumentTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,8 +32,10 @@ import XCTest
 class ConvertDocumentTests: BaseTestContext {
     static var allTests = [
         ("testSaveAs", testSaveAs),
+        ("testSaveAsOnline", testSaveAsOnline),
         ("testSaveAsDocx", testSaveAsDocx),
         ("testSaveAsTiff", testSaveAsTiff),
+        ("testSaveAsTiffOnline", testSaveAsTiffOnline),
         ("testConvertDocument", testConvertDocument)
     ];
 
@@ -56,6 +58,19 @@ class ConvertDocumentTests: BaseTestContext {
       let actual = try super.getApi().saveAs(request: request);
       XCTAssertNotNil(actual.getSaveResult());
       XCTAssertNotNil(actual.getSaveResult()!.getDestDocument());
+    }
+
+    // Test for converting document online to one of the available formats.
+    func testSaveAsOnline() throws {
+      let localName = "test_multi_pages.docx";
+
+      let requestSaveOptionsData = SaveOptionsData();
+      requestSaveOptionsData.setSaveFormat(saveFormat: "pdf");
+      requestSaveOptionsData.setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/TestSaveAs.pdf");
+
+
+      let request = SaveAsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/" + localName, isDirectory: false))!, saveOptionsData: requestSaveOptionsData);
+      _ = try super.getApi().saveAsOnline(request: request);
     }
 
     // Test for converting document to one of the available formats.
@@ -92,6 +107,19 @@ class ConvertDocumentTests: BaseTestContext {
       let actual = try super.getApi().saveAsTiff(request: request);
       XCTAssertNotNil(actual.getSaveResult());
       XCTAssertNotNil(actual.getSaveResult()!.getDestDocument());
+    }
+
+    // Test for converting document to one of the available formats.
+    func testSaveAsTiffOnline() throws {
+      let localName = "test_multi_pages.docx";
+
+      let requestSaveOptions = TiffSaveOptionsData();
+      requestSaveOptions.setSaveFormat(saveFormat: "tiff");
+      requestSaveOptions.setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/abc.tiff");
+
+
+      let request = SaveAsTiffOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/" + localName, isDirectory: false))!, saveOptions: requestSaveOptions);
+      _ = try super.getApi().saveAsTiffOnline(request: request);
     }
 
     // A test for ConvertDocument.

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TableTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,28 +32,45 @@ import XCTest
 class TableTests: BaseTestContext {
     static var allTests = [
         ("testGetTables", testGetTables),
+        ("testGetTablesOnline", testGetTablesOnline),
         ("testGetTablesWithoutNodePath", testGetTablesWithoutNodePath),
         ("testGetTable", testGetTable),
+        ("testGetTableOnline", testGetTableOnline),
         ("testGetTableWithoutNodePath", testGetTableWithoutNodePath),
         ("testDeleteTable", testDeleteTable),
+        ("testDeleteTableOnline", testDeleteTableOnline),
         ("testDeleteTableWithoutNodePath", testDeleteTableWithoutNodePath),
         ("testInsertTable", testInsertTable),
+        ("testInsertTableOnline", testInsertTableOnline),
         ("testInsertTableWithoutNodePath", testInsertTableWithoutNodePath),
         ("testGetTableProperties", testGetTableProperties),
+        ("testGetTablePropertiesOnline", testGetTablePropertiesOnline),
         ("testGetTablePropertiesWithoutNodePath", testGetTablePropertiesWithoutNodePath),
         ("testUpdateTableProperties", testUpdateTableProperties),
+        ("testUpdateTablePropertiesOnline", testUpdateTablePropertiesOnline),
         ("testUpdateTablePropertiesWithoutNodePath", testUpdateTablePropertiesWithoutNodePath),
         ("testGetTableRow", testGetTableRow),
+        ("testGetTableRowOnline", testGetTableRowOnline),
         ("testDeleteTableRow", testDeleteTableRow),
+        ("testDeleteTableRowOnline", testDeleteTableRowOnline),
         ("testInsertTableRow", testInsertTableRow),
+        ("testInsertTableRowOnline", testInsertTableRowOnline),
         ("testGetTableRowFormat", testGetTableRowFormat),
+        ("testGetTableRowFormatOnline", testGetTableRowFormatOnline),
         ("testUpdateTableRowFormat", testUpdateTableRowFormat),
+        ("testUpdateTableRowFormatOnline", testUpdateTableRowFormatOnline),
         ("testGetTableCell", testGetTableCell),
+        ("testGetTableCellOnline", testGetTableCellOnline),
         ("testDeleteTableCell", testDeleteTableCell),
+        ("testDeleteTableCellOnline", testDeleteTableCellOnline),
         ("testInsertTableCell", testInsertTableCell),
+        ("testInsertTableCellOnline", testInsertTableCellOnline),
         ("testGetTableCellFormat", testGetTableCellFormat),
+        ("testGetTableCellFormatOnline", testGetTableCellFormatOnline),
         ("testUpdateTableCellFormat", testUpdateTableCellFormat),
+        ("testUpdateTableCellFormatOnline", testUpdateTableCellFormatOnline),
         ("testRenderTable", testRenderTable),
+        ("testRenderTableOnline", testRenderTableOnline),
         ("testRenderTableWithoutNodePath", testRenderTableWithoutNodePath)
     ];
 
@@ -72,6 +89,12 @@ class TableTests: BaseTestContext {
       XCTAssertNotNil(actual.getTables()!.getTableLinkList());
       XCTAssertEqual(actual.getTables()!.getTableLinkList()!.count, 5);
       XCTAssertEqual(actual.getTables()!.getTableLinkList()![0].getNodeId(), "0.0.1");
+    }
+
+    // Test for getting tables online.
+    func testGetTablesOnline() throws {
+      let request = GetTablesOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, nodePath: "");
+      _ = try super.getApi().getTablesOnline(request: request);
     }
 
     // Test for getting tables without node path.
@@ -103,6 +126,12 @@ class TableTests: BaseTestContext {
       XCTAssertEqual(actual.getTable()!.getTableRowList()![0].getTableCellList()!.count, 2);
     }
 
+    // Test for getting table online.
+    func testGetTableOnline() throws {
+      let request = GetTableOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 1, nodePath: "");
+      _ = try super.getApi().getTableOnline(request: request);
+    }
+
     // Test for getting table without node path.
     func testGetTableWithoutNodePath() throws {
       let remoteFileName = "TestGetTableWithoutNodePath.docx";
@@ -126,6 +155,12 @@ class TableTests: BaseTestContext {
 
       let request = DeleteTableRequest(name: remoteFileName, index: 1, nodePath: "", folder: remoteDataFolder);
       try super.getApi().deleteTable(request: request);
+    }
+
+    // Test for deleting table online.
+    func testDeleteTableOnline() throws {
+      let request = DeleteTableOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 1, nodePath: "");
+      _ = try super.getApi().deleteTableOnline(request: request);
     }
 
     // Test for deleting table without node path.
@@ -156,6 +191,17 @@ class TableTests: BaseTestContext {
       XCTAssertEqual(actual.getTable()!.getTableRowList()!.count, 4);
       XCTAssertNotNil(actual.getTable()!.getTableRowList()![0].getTableCellList());
       XCTAssertEqual(actual.getTable()!.getTableRowList()![0].getTableCellList()!.count, 5);
+    }
+
+    // Test for adding table online.
+    func testInsertTableOnline() throws {
+      let requestTable = TableInsert();
+      requestTable.setColumnsCount(columnsCount: 5);
+      requestTable.setRowsCount(rowsCount: 4);
+
+
+      let request = InsertTableOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, table: requestTable, nodePath: "");
+      _ = try super.getApi().insertTableOnline(request: request);
     }
 
     // Test for adding table without node path.
@@ -190,6 +236,12 @@ class TableTests: BaseTestContext {
       XCTAssertEqual(actual.getProperties()!.getStyleName(), "Table Grid");
     }
 
+    // Test for getting document properties online.
+    func testGetTablePropertiesOnline() throws {
+      let request = GetTablePropertiesOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 1, nodePath: "");
+      _ = try super.getApi().getTablePropertiesOnline(request: request);
+    }
+
     // Test for getting document properties without node path.
     func testGetTablePropertiesWithoutNodePath() throws {
       let remoteFileName = "TestGetTablePropertiesWithoutNodePath.docx";
@@ -217,13 +269,28 @@ class TableTests: BaseTestContext {
       requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
 
 
-      let request = UpdateTablePropertiesRequest(name: remoteFileName, properties: requestProperties, index: 1, nodePath: "", folder: remoteDataFolder);
+      let request = UpdateTablePropertiesRequest(name: remoteFileName, index: 1, properties: requestProperties, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateTableProperties(request: request);
       XCTAssertNotNil(actual.getProperties());
       XCTAssertEqual(actual.getProperties()!.getAllowAutoFit(), false);
       XCTAssertEqual(actual.getProperties()!.getBidi(), true);
       XCTAssertEqual(actual.getProperties()!.getBottomPadding(), 1.0);
       XCTAssertEqual(actual.getProperties()!.getCellSpacing(), 2.0);
+    }
+
+    // Test for updating table properties online.
+    func testUpdateTablePropertiesOnline() throws {
+      let requestProperties = TableProperties();
+      requestProperties.setAlignment(alignment: TableProperties.Alignment._right);
+      requestProperties.setAllowAutoFit(allowAutoFit: false);
+      requestProperties.setBidi(bidi: true);
+      requestProperties.setBottomPadding(bottomPadding: 1);
+      requestProperties.setCellSpacing(cellSpacing: 2);
+      requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
+
+
+      let request = UpdateTablePropertiesOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, properties: requestProperties, index: 1, nodePath: "");
+      _ = try super.getApi().updateTablePropertiesOnline(request: request);
     }
 
     // Test for updating table properties without node path.
@@ -241,7 +308,7 @@ class TableTests: BaseTestContext {
       requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
 
 
-      let request = UpdateTablePropertiesRequest(name: remoteFileName, properties: requestProperties, index: 1, folder: remoteDataFolder);
+      let request = UpdateTablePropertiesRequest(name: remoteFileName, index: 1, properties: requestProperties, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableProperties(request: request);
       XCTAssertNotNil(actual.getProperties());
       XCTAssertEqual(actual.getProperties()!.getAllowAutoFit(), false);
@@ -263,6 +330,12 @@ class TableTests: BaseTestContext {
       XCTAssertEqual(actual.getRow()!.getTableCellList()!.count, 2);
     }
 
+    // Test for getting table row online.
+    func testGetTableRowOnline() throws {
+      let request = GetTableRowOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, tablePath: "tables/1", index: 0);
+      _ = try super.getApi().getTableRowOnline(request: request);
+    }
+
     // Test for deleting table row.
     func testDeleteTableRow() throws {
       let remoteFileName = "TestDeleteTableRow.docx";
@@ -271,6 +344,12 @@ class TableTests: BaseTestContext {
 
       let request = DeleteTableRowRequest(name: remoteFileName, tablePath: "tables/1", index: 0, folder: remoteDataFolder);
       try super.getApi().deleteTableRow(request: request);
+    }
+
+    // Test for deleting table row online.
+    func testDeleteTableRowOnline() throws {
+      let request = DeleteTableRowOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, tablePath: "tables/1", index: 0);
+      _ = try super.getApi().deleteTableRowOnline(request: request);
     }
 
     // Test for adding row.
@@ -283,11 +362,21 @@ class TableTests: BaseTestContext {
       requestRow.setColumnsCount(columnsCount: 5);
 
 
-      let request = InsertTableRowRequest(name: remoteFileName, row: requestRow, tablePath: "sections/0/tables/2", folder: remoteDataFolder);
+      let request = InsertTableRowRequest(name: remoteFileName, tablePath: "sections/0/tables/2", row: requestRow, folder: remoteDataFolder);
       let actual = try super.getApi().insertTableRow(request: request);
       XCTAssertNotNil(actual.getRow());
       XCTAssertNotNil(actual.getRow()!.getTableCellList());
       XCTAssertEqual(actual.getRow()!.getTableCellList()!.count, 5);
+    }
+
+    // Test for adding row online.
+    func testInsertTableRowOnline() throws {
+      let requestRow = TableRowInsert();
+      requestRow.setColumnsCount(columnsCount: 5);
+
+
+      let request = InsertTableRowOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, tablePath: "sections/0/tables/2", row: requestRow);
+      _ = try super.getApi().insertTableRowOnline(request: request);
     }
 
     // Test for getting row format.
@@ -300,6 +389,12 @@ class TableTests: BaseTestContext {
       let actual = try super.getApi().getTableRowFormat(request: request);
       XCTAssertNotNil(actual.getRowFormat());
       XCTAssertEqual(actual.getRowFormat()!.getAllowBreakAcrossPages(), true);
+    }
+
+    // Test for getting row format online.
+    func testGetTableRowFormatOnline() throws {
+      let request = GetTableRowFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, tablePath: "sections/0/tables/2", index: 0);
+      _ = try super.getApi().getTableRowFormatOnline(request: request);
     }
 
     // Test updating row format.
@@ -315,12 +410,25 @@ class TableTests: BaseTestContext {
       requestFormat.setHeightRule(heightRule: TableRowFormat.HeightRule.exactly);
 
 
-      let request = UpdateTableRowFormatRequest(name: remoteFileName, format: requestFormat, tablePath: "sections/0/tables/2", index: 0, folder: remoteDataFolder);
+      let request = UpdateTableRowFormatRequest(name: remoteFileName, tablePath: "sections/0/tables/2", index: 0, format: requestFormat, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableRowFormat(request: request);
       XCTAssertNotNil(actual.getRowFormat());
       XCTAssertEqual(actual.getRowFormat()!.getAllowBreakAcrossPages(), true);
       XCTAssertEqual(actual.getRowFormat()!.getHeadingFormat(), true);
       XCTAssertEqual(actual.getRowFormat()!.getHeight(), 10.0);
+    }
+
+    // Test updating row format online.
+    func testUpdateTableRowFormatOnline() throws {
+      let requestFormat = TableRowFormat();
+      requestFormat.setAllowBreakAcrossPages(allowBreakAcrossPages: true);
+      requestFormat.setHeadingFormat(headingFormat: true);
+      requestFormat.setHeight(height: 10);
+      requestFormat.setHeightRule(heightRule: TableRowFormat.HeightRule.auto);
+
+
+      let request = UpdateTableRowFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, tablePath: "sections/0/tables/2", format: requestFormat, index: 0);
+      _ = try super.getApi().updateTableRowFormatOnline(request: request);
     }
 
     // Test for getting table cell.
@@ -335,6 +443,12 @@ class TableTests: BaseTestContext {
       XCTAssertEqual(actual.getCell()!.getNodeId(), "0.0.5.0.0");
     }
 
+    // Test for getting table cell online.
+    func testGetTableCellOnline() throws {
+      let request = GetTableCellOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, tableRowPath: "sections/0/tables/2/rows/0", index: 0);
+      _ = try super.getApi().getTableCellOnline(request: request);
+    }
+
     // Test for deleting cell.
     func testDeleteTableCell() throws {
       let remoteFileName = "TestDeleteTableCell.docx";
@@ -343,6 +457,12 @@ class TableTests: BaseTestContext {
 
       let request = DeleteTableCellRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
       try super.getApi().deleteTableCell(request: request);
+    }
+
+    // Test for deleting cell online.
+    func testDeleteTableCellOnline() throws {
+      let request = DeleteTableCellOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, tableRowPath: "sections/0/tables/2/rows/0", index: 0);
+      _ = try super.getApi().deleteTableCellOnline(request: request);
     }
 
     // Test for adding cell.
@@ -355,10 +475,20 @@ class TableTests: BaseTestContext {
 
 
 
-      let request = InsertTableCellRequest(name: remoteFileName, cell: requestCell, tableRowPath: "sections/0/tables/2/rows/0", folder: remoteDataFolder);
+      let request = InsertTableCellRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", cell: requestCell, folder: remoteDataFolder);
       let actual = try super.getApi().insertTableCell(request: request);
       XCTAssertNotNil(actual.getCell());
       XCTAssertEqual(actual.getCell()!.getNodeId(), "0.0.5.0.3");
+    }
+
+    // Test for adding cell online.
+    func testInsertTableCellOnline() throws {
+      let requestCell = TableCellInsert();
+
+
+
+      let request = InsertTableCellOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, tableRowPath: "sections/0/tables/2/rows/0", cell: requestCell);
+      _ = try super.getApi().insertTableCellOnline(request: request);
     }
 
     // Test for getting cell format.
@@ -371,6 +501,12 @@ class TableTests: BaseTestContext {
       let actual = try super.getApi().getTableCellFormat(request: request);
       XCTAssertNotNil(actual.getCellFormat());
       XCTAssertEqual(actual.getCellFormat()!.getWrapText(), true);
+    }
+
+    // Test for getting cell format online.
+    func testGetTableCellFormatOnline() throws {
+      let request = GetTableCellFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, tableRowPath: "sections/0/tables/2/rows/0", index: 0);
+      _ = try super.getApi().getTableCellFormatOnline(request: request);
     }
 
     // Test for updating cell format.
@@ -386,12 +522,25 @@ class TableTests: BaseTestContext {
       requestFormat.setWrapText(wrapText: true);
 
 
-      let request = UpdateTableCellFormatRequest(name: remoteFileName, format: requestFormat, tableRowPath: "sections/0/tables/2/rows/0", index: 0, folder: remoteDataFolder);
+      let request = UpdateTableCellFormatRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, format: requestFormat, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableCellFormat(request: request);
       XCTAssertNotNil(actual.getCellFormat());
       XCTAssertEqual(actual.getCellFormat()!.getBottomPadding(), 5.0);
       XCTAssertEqual(actual.getCellFormat()!.getFitText(), true);
       XCTAssertEqual(actual.getCellFormat()!.getWrapText(), true);
+    }
+
+    // Test for updating cell format online.
+    func testUpdateTableCellFormatOnline() throws {
+      let requestFormat = TableCellFormat();
+      requestFormat.setBottomPadding(bottomPadding: 5);
+      requestFormat.setFitText(fitText: true);
+      requestFormat.setHorizontalMerge(horizontalMerge: TableCellFormat.HorizontalMerge.first);
+      requestFormat.setWrapText(wrapText: true);
+
+
+      let request = UpdateTableCellFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, tableRowPath: "sections/0/tables/2/rows/0", format: requestFormat, index: 0);
+      _ = try super.getApi().updateTableCellFormatOnline(request: request);
     }
 
     // Test for table rendering.
@@ -402,6 +551,12 @@ class TableTests: BaseTestContext {
 
       let request = RenderTableRequest(name: remoteFileName, format: "png", index: 0, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().renderTable(request: request);
+    }
+
+    // Test for table rendering.
+    func testRenderTableOnline() throws {
+      let request = RenderTableOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, format: "png", index: 0, nodePath: "");
+      _ = try super.getApi().renderTableOnline(request: request);
     }
 
     // Test for table rendering without node path.

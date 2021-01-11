@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ObjectSerializer.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -174,6 +174,39 @@ class ObjectSerializer {
         }
 
         return result;
+    }
+
+    // Get multipart by name
+    public static func getMultipartByName(multipart: [ResponseFormParam], name: String) throws -> ResponseFormParam {
+        for part in multipart {
+            let disposition = part.getHeaders()["Content-Disposition"];
+            if (disposition == nil) {
+                continue;
+            }
+
+            var partName: String? = nil;
+            for componentRawData in disposition!.components(separatedBy: ";") {
+                let componentData = componentRawData.trimmingCharacters(in: .whitespacesAndNewlines);
+                if (!componentData.isEmpty) {
+                    let componentDataParts = componentData.split(separator: "=");
+                    if (componentDataParts.count == 2) {
+                        let componentKey = componentDataParts[0].trimmingCharacters(in: .whitespaces);
+                        let componentValue = componentDataParts[1].trimmingCharacters(in: .whitespaces);
+                        if (componentKey == "name") {
+                            partName = componentValue;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (partName != nil && partName == name)
+            {
+               return part;
+            }
+        }
+
+        throw WordsApiError.invalidMultipartResponse(message: "Part " + name + " not found in multipart data.");
     }
 
     // Split data into parts

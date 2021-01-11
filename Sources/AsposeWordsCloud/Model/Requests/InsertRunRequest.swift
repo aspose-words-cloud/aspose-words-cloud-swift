@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertRunRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -81,7 +81,7 @@ public class InsertRunRequest : WordsApiRequest {
         return self.paragraphPath;
     }
 
-    // The properties of the Run object.
+    // Run data.
     public func getRun() -> RunInsert {
         return self.run;
     }

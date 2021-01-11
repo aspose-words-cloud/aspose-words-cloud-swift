@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateFieldRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,8 +30,8 @@ import Foundation
 // Request model for updateField operation.
 public class UpdateFieldRequest : WordsApiRequest {
     private let name : String;
-    private let field : FieldUpdate;
     private let index : Int;
+    private let field : FieldUpdate;
     private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
@@ -43,8 +43,8 @@ public class UpdateFieldRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case field;
         case index;
+        case field;
         case nodePath;
         case folder;
         case storage;
@@ -57,10 +57,10 @@ public class UpdateFieldRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateFieldRequest class.
-    public init(name : String, field : FieldUpdate, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, index : Int, field : FieldUpdate, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.field = field;
         self.index = index;
+        self.field = field;
         self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
@@ -76,14 +76,14 @@ public class UpdateFieldRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The properties of the field.
-    public func getField() -> FieldUpdate {
-        return self.field;
-    }
-
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // Field data.
+    public func getField() -> FieldUpdate {
+        return self.field;
     }
 
     // The path to the node in the document tree.
@@ -177,7 +177,7 @@ public class UpdateFieldRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getField()), contentType: "application/json");
          return result;
     }

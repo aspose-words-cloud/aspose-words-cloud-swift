@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="SaveAsTiffRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -115,7 +115,7 @@ public class SaveAsTiffRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The save options to TIFF format.
+    // Tiff save options.
     public func getSaveOptions() -> TiffSaveOptionsData {
         return self.saveOptions;
     }

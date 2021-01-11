@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RevisionsTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,7 +32,9 @@ import XCTest
 class RevisionsTests: BaseTestContext {
     static var allTests = [
         ("testAcceptAllRevisions", testAcceptAllRevisions),
-        ("testRejectAllRevisions", testRejectAllRevisions)
+        ("testAcceptAllRevisionsOnline", testAcceptAllRevisionsOnline),
+        ("testRejectAllRevisions", testRejectAllRevisions),
+        ("testRejectAllRevisionsOnline", testRejectAllRevisionsOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/Revisions";
@@ -50,6 +52,12 @@ class RevisionsTests: BaseTestContext {
       XCTAssertNotNil(actual.getResult()!.getDest());
     }
 
+    // Test for accepting revisions in document online.
+    func testAcceptAllRevisionsOnline() throws {
+      let request = AcceptAllRevisionsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      _ = try super.getApi().acceptAllRevisionsOnline(request: request);
+    }
+
     // Test for rejecting revisions in document.
     func testRejectAllRevisions() throws {
       let remoteFileName = "TestRejectAllRevisions.docx";
@@ -60,5 +68,11 @@ class RevisionsTests: BaseTestContext {
       let actual = try super.getApi().rejectAllRevisions(request: request);
       XCTAssertNotNil(actual.getResult());
       XCTAssertNotNil(actual.getResult()!.getDest());
+    }
+
+    // Test for rejecting revisions in document online.
+    func testRejectAllRevisionsOnline() throws {
+      let request = RejectAllRevisionsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      _ = try super.getApi().rejectAllRevisionsOnline(request: request);
     }
 }

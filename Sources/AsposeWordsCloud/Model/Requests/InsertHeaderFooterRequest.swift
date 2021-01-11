@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertHeaderFooterRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,8 +30,8 @@ import Foundation
 // Request model for insertHeaderFooter operation.
 public class InsertHeaderFooterRequest : WordsApiRequest {
     private let name : String;
-    private let headerFooterType : String;
     private let sectionPath : String;
+    private let headerFooterType : String;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -42,8 +42,8 @@ public class InsertHeaderFooterRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case headerFooterType;
         case sectionPath;
+        case headerFooterType;
         case folder;
         case storage;
         case loadEncoding;
@@ -55,10 +55,10 @@ public class InsertHeaderFooterRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the InsertHeaderFooterRequest class.
-    public init(name : String, headerFooterType : String, sectionPath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, sectionPath : String, headerFooterType : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.headerFooterType = headerFooterType;
         self.sectionPath = sectionPath;
+        self.headerFooterType = headerFooterType;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -73,14 +73,14 @@ public class InsertHeaderFooterRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The type of a HeaderFooter object.
-    public func getHeaderFooterType() -> String {
-        return self.headerFooterType;
-    }
-
     // The path to the section in the document tree.
     public func getSectionPath() -> String {
         return self.sectionPath;
+    }
+
+    // Type of header/footer.
+    public func getHeaderFooterType() -> String {
+        return self.headerFooterType;
     }
 
     // Original document folder.
@@ -162,7 +162,7 @@ public class InsertHeaderFooterRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getHeaderFooterType()), contentType: "application/json");
          return result;
     }

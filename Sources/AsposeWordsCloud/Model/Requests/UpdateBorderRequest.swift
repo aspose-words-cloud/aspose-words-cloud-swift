@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateBorderRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,8 +30,8 @@ import Foundation
 // Request model for updateBorder operation.
 public class UpdateBorderRequest : WordsApiRequest {
     private let name : String;
-    private let borderProperties : Border;
     private let borderType : String;
+    private let borderProperties : Border;
     private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
@@ -43,8 +43,8 @@ public class UpdateBorderRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case borderProperties;
         case borderType;
+        case borderProperties;
         case nodePath;
         case folder;
         case storage;
@@ -57,10 +57,10 @@ public class UpdateBorderRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateBorderRequest class.
-    public init(name : String, borderProperties : Border, borderType : String, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, borderType : String, borderProperties : Border, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.borderProperties = borderProperties;
         self.borderType = borderType;
+        self.borderProperties = borderProperties;
         self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
@@ -76,14 +76,14 @@ public class UpdateBorderRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The new border properties to update.
-    public func getBorderProperties() -> Border {
-        return self.borderProperties;
-    }
-
     // Border type.
     public func getBorderType() -> String {
         return self.borderType;
+    }
+
+    // Border properties.
+    public func getBorderProperties() -> Border {
+        return self.borderProperties;
     }
 
     // The path to the node in the document tree.
@@ -177,7 +177,7 @@ public class UpdateBorderRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getBorderProperties()), contentType: "application/json");
          return result;
     }

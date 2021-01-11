@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ClassificationTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,7 +32,8 @@ import XCTest
 class ClassificationTests: BaseTestContext {
     static var allTests = [
         ("testClassify", testClassify),
-        ("testClassifyDocument", testClassifyDocument)
+        ("testClassifyDocument", testClassifyDocument),
+        ("testClassifyDocumentOnline", testClassifyDocumentOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/Common";
@@ -53,10 +54,16 @@ class ClassificationTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = ClassifyDocumentRequest(documentName: remoteFileName, folder: remoteDataFolder, bestClassesCount: "3");
+      let request = ClassifyDocumentRequest(name: remoteFileName, folder: remoteDataFolder, bestClassesCount: "3");
       let actual = try super.getApi().classifyDocument(request: request);
       XCTAssertEqual(actual.getBestClassName(), "Hobbies_&_Interests");
       XCTAssertNotNil(actual.getBestResults());
       XCTAssertEqual(actual.getBestResults()!.count, 3);
+    }
+
+    // Test for document classification online.
+    func testClassifyDocumentOnline() throws {
+      let request = ClassifyDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, bestClassesCount: "3");
+      _ = try super.getApi().classifyDocumentOnline(request: request);
     }
 }

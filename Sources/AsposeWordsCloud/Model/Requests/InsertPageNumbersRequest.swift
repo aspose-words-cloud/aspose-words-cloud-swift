@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertPageNumbersRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -70,7 +70,7 @@ public class InsertPageNumbersRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The page numbers settings.
+    // Page number dto.
     public func getPageNumber() -> PageNumber {
         return self.pageNumber;
     }

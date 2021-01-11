@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="SectionTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,8 +32,11 @@ import XCTest
 class SectionTests: BaseTestContext {
     static var allTests = [
         ("testGetSection", testGetSection),
+        ("testGetSectionOnline", testGetSectionOnline),
         ("testGetSections", testGetSections),
-        ("testDeleteSection", testDeleteSection)
+        ("testGetSectionsOnline", testGetSectionsOnline),
+        ("testDeleteSection", testDeleteSection),
+        ("testDeleteSectionOnline", testDeleteSectionOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Section";
@@ -53,6 +56,12 @@ class SectionTests: BaseTestContext {
       XCTAssertEqual(actual.getSection()!.getChildNodes()![0].getNodeId(), "0.3.0");
     }
 
+    // Test for getting section by index online.
+    func testGetSectionOnline() throws {
+      let request = GetSectionOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionIndex: 0);
+      _ = try super.getApi().getSectionOnline(request: request);
+    }
+
     // Test for getting sections.
     func testGetSections() throws {
       let remoteFileName = "TestGetSections.docx";
@@ -67,6 +76,12 @@ class SectionTests: BaseTestContext {
       XCTAssertEqual(actual.getSections()!.getSectionLinkList()![0].getNodeId(), "0");
     }
 
+    // Test for getting sections online.
+    func testGetSectionsOnline() throws {
+      let request = GetSectionsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      _ = try super.getApi().getSectionsOnline(request: request);
+    }
+
     // Test for delete a section.
     func testDeleteSection() throws {
       let remoteFileName = "TestDeleteSection.docx";
@@ -75,5 +90,11 @@ class SectionTests: BaseTestContext {
 
       let request = DeleteSectionRequest(name: remoteFileName, sectionIndex: 0, folder: remoteDataFolder);
       try super.getApi().deleteSection(request: request);
+    }
+
+    // Test for delete a section online.
+    func testDeleteSectionOnline() throws {
+      let request = DeleteSectionOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionIndex: 0);
+      _ = try super.getApi().deleteSectionOnline(request: request);
     }
 }

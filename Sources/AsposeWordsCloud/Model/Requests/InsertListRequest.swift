@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertListRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -70,7 +70,7 @@ public class InsertListRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The properties of the list.
+    // List object.
     public func getListInsert() -> ListInsert {
         return self.listInsert;
     }

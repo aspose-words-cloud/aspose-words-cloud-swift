@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateFormFieldRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,8 +30,8 @@ import Foundation
 // Request model for updateFormField operation.
 public class UpdateFormFieldRequest : WordsApiRequest {
     private let name : String;
-    private let formField : FormField;
     private let index : Int;
+    private let formField : FormField;
     private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
@@ -43,8 +43,8 @@ public class UpdateFormFieldRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case formField;
         case index;
+        case formField;
         case nodePath;
         case folder;
         case storage;
@@ -57,10 +57,10 @@ public class UpdateFormFieldRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateFormFieldRequest class.
-    public init(name : String, formField : FormField, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, index : Int, formField : FormField, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.formField = formField;
         self.index = index;
+        self.formField = formField;
         self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
@@ -76,14 +76,14 @@ public class UpdateFormFieldRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The new form field properties.
-    public func getFormField() -> FormField {
-        return self.formField;
-    }
-
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // From field data.
+    public func getFormField() -> FormField {
+        return self.formField;
     }
 
     // The path to the node in the document tree.
@@ -177,7 +177,7 @@ public class UpdateFormFieldRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getFormField()), contentType: "application/json");
          return result;
     }

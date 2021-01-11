@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DocumentProtectionTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,9 +32,11 @@ import XCTest
 class DocumentProtectionTests: BaseTestContext {
     static var allTests = [
         ("testProtectDocument", testProtectDocument),
-        ("testChangeDocumentProtection", testChangeDocumentProtection),
+        ("testProtectDocumentOnline", testProtectDocumentOnline),
         ("testGetDocumentProtection", testGetDocumentProtection),
-        ("testDeleteUnprotectDocument", testDeleteUnprotectDocument)
+        ("testGetDocumentProtectionOnline", testGetDocumentProtectionOnline),
+        ("testDeleteUnprotectDocument", testDeleteUnprotectDocument),
+        ("testDeleteUnprotectDocumentOnline", testDeleteUnprotectDocumentOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/DocumentProtection";
@@ -57,22 +59,14 @@ class DocumentProtectionTests: BaseTestContext {
       XCTAssertEqual(actual.getProtectionData()!.getProtectionType(), "ReadOnly");
     }
 
-    // Test for changing document protection.
-    func testChangeDocumentProtection() throws {
-      let localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
-      let remoteFileName = "TestChangeDocumentProtection.docx";
-
-      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFilePath, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
-
+    // Test for setting document protection.
+    func testProtectDocumentOnline() throws {
       let requestProtectionRequest = ProtectionRequest();
-      requestProtectionRequest.setPassword(password: "aspose");
-      requestProtectionRequest.setProtectionType(protectionType: "AllowOnlyComments");
+      requestProtectionRequest.setNewPassword(newPassword: "123");
 
 
-      let request = ProtectDocumentRequest(name: remoteFileName, protectionRequest: requestProtectionRequest, folder: remoteDataFolder);
-      let actual = try super.getApi().protectDocument(request: request);
-      XCTAssertNotNil(actual.getProtectionData());
-      XCTAssertEqual(actual.getProtectionData()!.getProtectionType(), "AllowOnlyComments");
+      let request = ProtectDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, protectionRequest: requestProtectionRequest);
+      _ = try super.getApi().protectDocumentOnline(request: request);
     }
 
     // Test for getting document protection.
@@ -83,9 +77,13 @@ class DocumentProtectionTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFilePath, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetDocumentProtectionRequest(name: remoteFileName, folder: remoteDataFolder);
-      let actual = try super.getApi().getDocumentProtection(request: request);
-      XCTAssertNotNil(actual.getProtectionData());
-      XCTAssertEqual(actual.getProtectionData()!.getProtectionType(), "ReadOnly");
+      _ = try super.getApi().getDocumentProtection(request: request);
+    }
+
+    // Test for getting document protection.
+    func testGetDocumentProtectionOnline() throws {
+      let request = GetDocumentProtectionOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      _ = try super.getApi().getDocumentProtectionOnline(request: request);
     }
 
     // Test for deleting unprotect document.
@@ -103,5 +101,17 @@ class DocumentProtectionTests: BaseTestContext {
       let actual = try super.getApi().unprotectDocument(request: request);
       XCTAssertNotNil(actual.getProtectionData());
       XCTAssertEqual(actual.getProtectionData()!.getProtectionType(), "NoProtection");
+    }
+
+    // Test for deleting unprotect document.
+    func testDeleteUnprotectDocumentOnline() throws {
+      let localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
+
+      let requestProtectionRequest = ProtectionRequest();
+      requestProtectionRequest.setPassword(password: "aspose");
+
+
+      let request = UnprotectDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFilePath, isDirectory: false))!, protectionRequest: requestProtectionRequest);
+      _ = try super.getApi().unprotectDocumentOnline(request: request);
     }
 }

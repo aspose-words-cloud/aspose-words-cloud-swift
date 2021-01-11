@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertParagraphRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -76,7 +76,7 @@ public class InsertParagraphRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The properties of the paragraph.
+    // Paragraph data.
     public func getParagraph() -> ParagraphInsert {
         return self.paragraph;
     }

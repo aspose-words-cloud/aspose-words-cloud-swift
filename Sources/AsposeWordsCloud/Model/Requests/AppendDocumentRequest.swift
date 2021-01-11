@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="AppendDocumentRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -70,7 +70,7 @@ public class AppendDocumentRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The collection of documents to append.
+    // <see cref="DocumentEntryList"/> with a list of documents to append.
     public func getDocumentList() -> DocumentEntryList {
         return self.documentList;
     }

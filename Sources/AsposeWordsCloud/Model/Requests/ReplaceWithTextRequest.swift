@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ReplaceWithTextRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -75,7 +75,7 @@ public class ReplaceWithTextRequest : WordsApiRequest {
         return self.rangeStartIdentifier;
     }
 
-    // The text replacement properties.
+    // Model with text for replacement.
     public func getRangeText() -> ReplaceRange {
         return self.rangeText;
     }

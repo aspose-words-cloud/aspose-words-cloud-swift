@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateFootnoteRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,8 +30,8 @@ import Foundation
 // Request model for updateFootnote operation.
 public class UpdateFootnoteRequest : WordsApiRequest {
     private let name : String;
-    private let footnoteDto : FootnoteUpdate;
     private let index : Int;
+    private let footnoteDto : FootnoteUpdate;
     private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
@@ -43,8 +43,8 @@ public class UpdateFootnoteRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case footnoteDto;
         case index;
+        case footnoteDto;
         case nodePath;
         case folder;
         case storage;
@@ -57,10 +57,10 @@ public class UpdateFootnoteRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateFootnoteRequest class.
-    public init(name : String, footnoteDto : FootnoteUpdate, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, index : Int, footnoteDto : FootnoteUpdate, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.footnoteDto = footnoteDto;
         self.index = index;
+        self.footnoteDto = footnoteDto;
         self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
@@ -76,14 +76,14 @@ public class UpdateFootnoteRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The properties of the footnote.
-    public func getFootnoteDto() -> FootnoteUpdate {
-        return self.footnoteDto;
-    }
-
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // Footnote data.
+    public func getFootnoteDto() -> FootnoteUpdate {
+        return self.footnoteDto;
     }
 
     // The path to the node in the document tree.
@@ -177,7 +177,7 @@ public class UpdateFootnoteRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getFootnoteDto()), contentType: "application/json");
          return result;
     }

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="HeaderFooterTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,11 +32,17 @@ import XCTest
 class HeaderFooterTests: BaseTestContext {
     static var allTests = [
         ("testGetHeaderFooters", testGetHeaderFooters),
+        ("testGetHeaderFootersOnline", testGetHeaderFootersOnline),
         ("testGetHeaderFooter", testGetHeaderFooter),
+        ("testGetHeaderFooterOnline", testGetHeaderFooterOnline),
         ("testGetHeaderFooterOfSection", testGetHeaderFooterOfSection),
+        ("testGetHeaderFooterOfSectionOnline", testGetHeaderFooterOfSectionOnline),
         ("testDeleteHeaderFooter", testDeleteHeaderFooter),
+        ("testDeleteHeaderFooterOnline", testDeleteHeaderFooterOnline),
         ("testDeleteHeadersFooters", testDeleteHeadersFooters),
-        ("testInsertHeaderFooter", testInsertHeaderFooter)
+        ("testDeleteHeadersFootersOnline", testDeleteHeadersFootersOnline),
+        ("testInsertHeaderFooter", testInsertHeaderFooter),
+        ("testInsertHeaderFooterOnline", testInsertHeaderFooterOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/HeaderFooters";
@@ -55,6 +61,12 @@ class HeaderFooterTests: BaseTestContext {
       XCTAssertEqual(actual.getHeaderFooters()!.getList()!.count, 6);
     }
 
+    // Test for getting headers and footers online.
+    func testGetHeaderFootersOnline() throws {
+      let request = GetHeaderFootersOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionPath: "");
+      _ = try super.getApi().getHeaderFootersOnline(request: request);
+    }
+
     // Test for getting headerfooter.
     func testGetHeaderFooter() throws {
       let remoteFileName = "TestGetHeaderFooter.docx";
@@ -67,6 +79,12 @@ class HeaderFooterTests: BaseTestContext {
       XCTAssertNotNil(actual.getHeaderFooter()!.getChildNodes());
       XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()!.count, 1);
       XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()![0].getNodeId(), "0.0.0");
+    }
+
+    // Test for getting headerfooter online.
+    func testGetHeaderFooterOnline() throws {
+      let request = GetHeaderFooterOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, headerFooterIndex: 0);
+      _ = try super.getApi().getHeaderFooterOnline(request: request);
     }
 
     // Test for getting headerfooter of section.
@@ -83,6 +101,12 @@ class HeaderFooterTests: BaseTestContext {
       XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()![0].getNodeId(), "0.0.0");
     }
 
+    // Test for getting headerfooter of section online.
+    func testGetHeaderFooterOfSectionOnline() throws {
+      let request = GetHeaderFooterOfSectionOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, headerFooterIndex: 0, sectionIndex: 0);
+      _ = try super.getApi().getHeaderFooterOfSectionOnline(request: request);
+    }
+
     // Test for deleting headerfooter.
     func testDeleteHeaderFooter() throws {
       let remoteFileName = "TestDeleteHeaderFooter.docx";
@@ -91,6 +115,12 @@ class HeaderFooterTests: BaseTestContext {
 
       let request = DeleteHeaderFooterRequest(name: remoteFileName, sectionPath: "", index: 0, folder: remoteDataFolder);
       try super.getApi().deleteHeaderFooter(request: request);
+    }
+
+    // Test for deleting headerfooter online.
+    func testDeleteHeaderFooterOnline() throws {
+      let request = DeleteHeaderFooterOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionPath: "", index: 0);
+      _ = try super.getApi().deleteHeaderFooterOnline(request: request);
     }
 
     // Test for deleting headerfooters.
@@ -103,17 +133,29 @@ class HeaderFooterTests: BaseTestContext {
       try super.getApi().deleteHeadersFooters(request: request);
     }
 
+    // Test for deleting headerfooters online.
+    func testDeleteHeadersFootersOnline() throws {
+      let request = DeleteHeadersFootersOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionPath: "");
+      _ = try super.getApi().deleteHeadersFootersOnline(request: request);
+    }
+
     // Test for adding headerfooters.
     func testInsertHeaderFooter() throws {
       let remoteFileName = "TestInsertHeaderFooter.docx";
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let request = InsertHeaderFooterRequest(name: remoteFileName, headerFooterType: "FooterEven", sectionPath: "", folder: remoteDataFolder);
-      let actual = try super.getApi().insertHeaderFooter(request: request);
-      XCTAssertNotNil(actual.getHeaderFooter());
-      XCTAssertNotNil(actual.getHeaderFooter()!.getChildNodes());
-      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()!.count, 1);
-      XCTAssertEqual(actual.getHeaderFooter()!.getChildNodes()![0].getNodeId(), "0.2.0");
+      let request = InsertHeaderFooterRequest(name: remoteFileName, sectionPath: "", headerFooterType: "FooterEven", folder: remoteDataFolder);
+      _ = try super.getApi().insertHeaderFooter(request: request);
+    }
+
+    // Test for adding headerfooters online.
+    func testInsertHeaderFooterOnline() throws {
+      let request = InsertHeaderFooterOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionPath: "", headerFooterType: "FooterEven");
+      let actual = try super.getApi().insertHeaderFooterOnline(request: request);
+      XCTAssertNotNil(actual.getModel()!.getHeaderFooter());
+      XCTAssertNotNil(actual.getModel()!.getHeaderFooter()!.getChildNodes());
+      XCTAssertEqual(actual.getModel()!.getHeaderFooter()!.getChildNodes()!.count, 1);
+      XCTAssertEqual(actual.getModel()!.getHeaderFooter()!.getChildNodes()![0].getNodeId(), "0.2.0");
     }
 }

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="MathObjectTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,12 +32,16 @@ import XCTest
 class MathObjectTests: BaseTestContext {
     static var allTests = [
         ("testGetOfficeMathObjects", testGetOfficeMathObjects),
+        ("testGetOfficeMathObjectsOnline", testGetOfficeMathObjectsOnline),
         ("testGetOfficeMathObjectsWithoutNodePath", testGetOfficeMathObjectsWithoutNodePath),
         ("testGetOfficeMathObject", testGetOfficeMathObject),
+        ("testGetOfficeMathObjectOnline", testGetOfficeMathObjectOnline),
         ("testGetOfficeMathObjectWithoutNodePath", testGetOfficeMathObjectWithoutNodePath),
         ("testRenderMathObject", testRenderMathObject),
+        ("testRenderMathObjectOnline", testRenderMathObjectOnline),
         ("testRenderMathObjectWithoutNodePath", testRenderMathObjectWithoutNodePath),
         ("testDeleteOfficeMathObject", testDeleteOfficeMathObject),
+        ("testDeleteOfficeMathObjectOnline", testDeleteOfficeMathObjectOnline),
         ("testDeleteOfficeMathObjectWithoutNodePath", testDeleteOfficeMathObjectWithoutNodePath)
     ];
 
@@ -56,6 +60,12 @@ class MathObjectTests: BaseTestContext {
       XCTAssertNotNil(actual.getOfficeMathObjects()!.getList());
       XCTAssertEqual(actual.getOfficeMathObjects()!.getList()!.count, 16);
       XCTAssertEqual(actual.getOfficeMathObjects()!.getList()![0].getNodeId(), "0.0.0.0");
+    }
+
+    // Test for getting mathObjects online.
+    func testGetOfficeMathObjectsOnline() throws {
+      let request = GetOfficeMathObjectsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, nodePath: "");
+      _ = try super.getApi().getOfficeMathObjectsOnline(request: request);
     }
 
     // Test for getting mathObjects without node path.
@@ -84,6 +94,12 @@ class MathObjectTests: BaseTestContext {
       XCTAssertEqual(actual.getOfficeMathObject()!.getNodeId(), "0.0.0.0");
     }
 
+    // Test for getting mathObject online.
+    func testGetOfficeMathObjectOnline() throws {
+      let request = GetOfficeMathObjectOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, nodePath: "");
+      _ = try super.getApi().getOfficeMathObjectOnline(request: request);
+    }
+
     // Test for getting mathObject without node path.
     func testGetOfficeMathObjectWithoutNodePath() throws {
       let remoteFileName = "TestGetOfficeMathObjectWithoutNodePath.docx";
@@ -106,6 +122,12 @@ class MathObjectTests: BaseTestContext {
       _ = try super.getApi().renderMathObject(request: request);
     }
 
+    // Test for rendering mathObject.
+    func testRenderMathObjectOnline() throws {
+      let request = RenderMathObjectOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, format: "png", index: 0, nodePath: "");
+      _ = try super.getApi().renderMathObjectOnline(request: request);
+    }
+
     // Test for rendering mathObject without node path.
     func testRenderMathObjectWithoutNodePath() throws {
       let remoteFileName = "TestRenderMathObjectWithoutNodePath.docx";
@@ -124,6 +146,12 @@ class MathObjectTests: BaseTestContext {
 
       let request = DeleteOfficeMathObjectRequest(name: remoteFileName, index: 0, nodePath: "", folder: remoteDataFolder);
       try super.getApi().deleteOfficeMathObject(request: request);
+    }
+
+    // Test for deleting mathObject online.
+    func testDeleteOfficeMathObjectOnline() throws {
+      let request = DeleteOfficeMathObjectOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, nodePath: "");
+      _ = try super.getApi().deleteOfficeMathObjectOnline(request: request);
     }
 
     // Test for deleting mathObject without node path.

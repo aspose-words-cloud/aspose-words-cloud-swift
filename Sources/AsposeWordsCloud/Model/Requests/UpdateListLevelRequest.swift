@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateListLevelRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,9 +30,9 @@ import Foundation
 // Request model for updateListLevel operation.
 public class UpdateListLevelRequest : WordsApiRequest {
     private let name : String;
-    private let listUpdate : ListLevelUpdate;
     private let listId : Int;
     private let listLevel : Int;
+    private let listUpdate : ListLevelUpdate;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -43,9 +43,9 @@ public class UpdateListLevelRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case listUpdate;
         case listId;
         case listLevel;
+        case listUpdate;
         case folder;
         case storage;
         case loadEncoding;
@@ -57,11 +57,11 @@ public class UpdateListLevelRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateListLevelRequest class.
-    public init(name : String, listUpdate : ListLevelUpdate, listId : Int, listLevel : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, listId : Int, listLevel : Int, listUpdate : ListLevelUpdate, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.listUpdate = listUpdate;
         self.listId = listId;
         self.listLevel = listLevel;
+        self.listUpdate = listUpdate;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -76,11 +76,6 @@ public class UpdateListLevelRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The properties of the List element.
-    public func getListUpdate() -> ListLevelUpdate {
-        return self.listUpdate;
-    }
-
     // The list Id.
     public func getListId() -> Int {
         return self.listId;
@@ -89,6 +84,11 @@ public class UpdateListLevelRequest : WordsApiRequest {
     // The list level.
     public func getListLevel() -> Int {
         return self.listLevel;
+    }
+
+    // List object.
+    public func getListUpdate() -> ListLevelUpdate {
+        return self.listUpdate;
     }
 
     // Original document folder.

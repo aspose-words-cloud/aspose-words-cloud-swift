@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertFormFieldRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -76,7 +76,7 @@ public class InsertFormFieldRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The properties of the form field.
+    // From field data.
     public func getFormField() -> FormField {
         return self.formField;
     }

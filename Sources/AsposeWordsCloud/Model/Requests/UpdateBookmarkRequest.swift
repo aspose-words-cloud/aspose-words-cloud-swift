@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateBookmarkRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,8 +30,8 @@ import Foundation
 // Request model for updateBookmark operation.
 public class UpdateBookmarkRequest : WordsApiRequest {
     private let name : String;
-    private let bookmarkData : BookmarkData;
     private let bookmarkName : String;
+    private let bookmarkData : BookmarkData;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -42,8 +42,8 @@ public class UpdateBookmarkRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case bookmarkData;
         case bookmarkName;
+        case bookmarkData;
         case folder;
         case storage;
         case loadEncoding;
@@ -55,10 +55,10 @@ public class UpdateBookmarkRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateBookmarkRequest class.
-    public init(name : String, bookmarkData : BookmarkData, bookmarkName : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, bookmarkName : String, bookmarkData : BookmarkData, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.bookmarkData = bookmarkData;
         self.bookmarkName = bookmarkName;
+        self.bookmarkData = bookmarkData;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -73,14 +73,14 @@ public class UpdateBookmarkRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The properties of the bookmark.
-    public func getBookmarkData() -> BookmarkData {
-        return self.bookmarkData;
-    }
-
     // The name of the bookmark.
     public func getBookmarkName() -> String {
         return self.bookmarkName;
+    }
+
+    // Bookmark data.
+    public func getBookmarkData() -> BookmarkData {
+        return self.bookmarkData;
     }
 
     // Original document folder.

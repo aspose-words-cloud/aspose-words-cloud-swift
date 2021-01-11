@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ClassifyDocumentRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,7 @@ import Foundation
 
 // Request model for classifyDocument operation.
 public class ClassifyDocumentRequest : WordsApiRequest {
-    private let documentName : String;
+    private let name : String;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -38,7 +38,7 @@ public class ClassifyDocumentRequest : WordsApiRequest {
     private let taxonomy : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case documentName;
+        case name;
         case folder;
         case storage;
         case loadEncoding;
@@ -49,8 +49,8 @@ public class ClassifyDocumentRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the ClassifyDocumentRequest class.
-    public init(documentName : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, bestClassesCount : String? = nil, taxonomy : String? = nil) {
-        self.documentName = documentName;
+    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, bestClassesCount : String? = nil, taxonomy : String? = nil) {
+        self.name = name;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -59,9 +59,9 @@ public class ClassifyDocumentRequest : WordsApiRequest {
         self.taxonomy = taxonomy;
     }
 
-    // The filename of the input document.
-    public func getDocumentName() -> String {
-        return self.documentName;
+    // The document name.
+    public func getName() -> String {
+        return self.name;
     }
 
     // Original document folder.
@@ -96,8 +96,8 @@ public class ClassifyDocumentRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/{documentName}/classify";
-         rawPath = rawPath.replacingOccurrences(of: "{documentName}", with: try ObjectSerializer.serializeToString(value: self.getDocumentName()));
+         var rawPath = "/words/{name}/classify";
+         rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 

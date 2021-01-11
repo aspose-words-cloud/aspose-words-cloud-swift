@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateStyleRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,8 +30,8 @@ import Foundation
 // Request model for updateStyle operation.
 public class UpdateStyleRequest : WordsApiRequest {
     private let name : String;
-    private let styleUpdate : StyleUpdate;
     private let styleName : String;
+    private let styleUpdate : StyleUpdate;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -42,8 +42,8 @@ public class UpdateStyleRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case styleUpdate;
         case styleName;
+        case styleUpdate;
         case folder;
         case storage;
         case loadEncoding;
@@ -55,10 +55,10 @@ public class UpdateStyleRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateStyleRequest class.
-    public init(name : String, styleUpdate : StyleUpdate, styleName : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, styleName : String, styleUpdate : StyleUpdate, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.styleUpdate = styleUpdate;
         self.styleName = styleName;
+        self.styleUpdate = styleUpdate;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -73,14 +73,14 @@ public class UpdateStyleRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The properties of the style.
-    public func getStyleUpdate() -> StyleUpdate {
-        return self.styleUpdate;
-    }
-
     // The name of the style.
     public func getStyleName() -> String {
         return self.styleName;
+    }
+
+    // Style properties to update.
+    public func getStyleUpdate() -> StyleUpdate {
+        return self.styleUpdate;
     }
 
     // Original document folder.

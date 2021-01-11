@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="FieldTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,14 +32,20 @@ import XCTest
 class FieldTests: BaseTestContext {
     static var allTests = [
         ("testGetFields", testGetFields),
+        ("testGetFieldsOnline", testGetFieldsOnline),
         ("testGetFieldsWithoutNodePath", testGetFieldsWithoutNodePath),
         ("testGetField", testGetField),
+        ("testGetFieldOnline", testGetFieldOnline),
         ("testGetFieldWithoutNodePath", testGetFieldWithoutNodePath),
         ("testInsertField", testInsertField),
+        ("testInsertFieldOnline", testInsertFieldOnline),
         ("testInsertFieldWithoutNodePath", testInsertFieldWithoutNodePath),
         ("testUpdateField", testUpdateField),
+        ("testUpdateFieldOnline", testUpdateFieldOnline),
         ("testInsertPageNumbers", testInsertPageNumbers),
+        ("testInsertPageNumbersOnline", testInsertPageNumbersOnline),
         ("testDeleteField", testDeleteField),
+        ("testDeleteFieldOnline", testDeleteFieldOnline),
         ("testDeleteFieldWithoutNodePath", testDeleteFieldWithoutNodePath),
         ("testDeleteParagraphFields", testDeleteParagraphFields),
         ("testDeleteParagraphFieldsWithoutNodePath", testDeleteParagraphFieldsWithoutNodePath),
@@ -47,7 +53,9 @@ class FieldTests: BaseTestContext {
         ("testDeleteSectionFieldsWithoutNodePath", testDeleteSectionFieldsWithoutNodePath),
         ("testDeleteSectionParagraphFields", testDeleteSectionParagraphFields),
         ("testDeleteDocumentFields", testDeleteDocumentFields),
-        ("testUpdateDocumentFields", testUpdateDocumentFields)
+        ("testDeleteDocumentFieldsOnline", testDeleteDocumentFieldsOnline),
+        ("testUpdateDocumentFields", testUpdateDocumentFields),
+        ("testUpdateDocumentFieldsOnline", testUpdateDocumentFieldsOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Fields";
@@ -67,6 +75,12 @@ class FieldTests: BaseTestContext {
       XCTAssertNotNil(actual.getFields()!.getList());
       XCTAssertEqual(actual.getFields()!.getList()!.count, 1);
       XCTAssertEqual(actual.getFields()!.getList()![0].getResult(), "1");
+    }
+
+    // Test for getting fields online.
+    func testGetFieldsOnline() throws {
+      let request = GetFieldsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/GetField.docx", isDirectory: false))!, nodePath: "sections/0");
+      _ = try super.getApi().getFieldsOnline(request: request);
     }
 
     // Test for getting fields without node path.
@@ -95,6 +109,12 @@ class FieldTests: BaseTestContext {
       let actual = try super.getApi().getField(request: request);
       XCTAssertNotNil(actual.getField());
       XCTAssertEqual(actual.getField()!.getResult(), "1");
+    }
+
+    // Test for getting field by index online.
+    func testGetFieldOnline() throws {
+      let request = GetFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/GetField.docx", isDirectory: false))!, index: 0, nodePath: "sections/0/paragraphs/0");
+      _ = try super.getApi().getFieldOnline(request: request);
     }
 
     // Test for getting field by index without node path.
@@ -128,6 +148,16 @@ class FieldTests: BaseTestContext {
       XCTAssertEqual(actual.getField()!.getNodeId(), "0.0.0.1");
     }
 
+    // Test for putting field online.
+    func testInsertFieldOnline() throws {
+      let requestField = FieldInsert();
+      requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
+
+
+      let request = InsertFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/GetField.docx", isDirectory: false))!, field: requestField, nodePath: "sections/0/paragraphs/0");
+      _ = try super.getApi().insertFieldOnline(request: request);
+    }
+
     // Test for putting field without node path.
     func testInsertFieldWithoutNodePath() throws {
       let localFileName = "SampleWordDocument.docx";
@@ -157,11 +187,21 @@ class FieldTests: BaseTestContext {
       requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
 
 
-      let request = UpdateFieldRequest(name: remoteFileName, field: requestField, index: 0, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
+      let request = UpdateFieldRequest(name: remoteFileName, index: 0, field: requestField, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
       let actual = try super.getApi().updateField(request: request);
       XCTAssertNotNil(actual.getField());
       XCTAssertEqual(actual.getField()!.getFieldCode(), "{ NUMPAGES }");
       XCTAssertEqual(actual.getField()!.getNodeId(), "0.0.0.0");
+    }
+
+    // Test for posting field online.
+    func testUpdateFieldOnline() throws {
+      let requestField = FieldUpdate();
+      requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
+
+
+      let request = UpdateFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/GetField.docx", isDirectory: false))!, field: requestField, index: 0, nodePath: "sections/0/paragraphs/0");
+      _ = try super.getApi().updateFieldOnline(request: request);
     }
 
     // Test for inserting page numbers field.
@@ -182,6 +222,19 @@ class FieldTests: BaseTestContext {
       XCTAssertEqual(actual.getDocument()!.getFileName(), "TestInsertPageNumbers.docx");
     }
 
+    // Test for inserting page numbers field online.
+    func testInsertPageNumbersOnline() throws {
+      let localFileName = "test_multi_pages.docx";
+
+      let requestPageNumber = PageNumber();
+      requestPageNumber.setAlignment(alignment: "center");
+      requestPageNumber.setFormat(format: "{PAGE} of {NUMPAGES}");
+
+
+      let request = InsertPageNumbersOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/" + localFileName, isDirectory: false))!, pageNumber: requestPageNumber);
+      _ = try super.getApi().insertPageNumbersOnline(request: request);
+    }
+
     // Test for deleting field.
     func testDeleteField() throws {
       let localFileName = "GetField.docx";
@@ -191,6 +244,12 @@ class FieldTests: BaseTestContext {
 
       let request = DeleteFieldRequest(name: remoteFileName, index: 0, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
       try super.getApi().deleteField(request: request);
+    }
+
+    // Test for deleting field online.
+    func testDeleteFieldOnline() throws {
+      let request = DeleteFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/GetField.docx", isDirectory: false))!, index: 0, nodePath: "sections/0/paragraphs/0");
+      _ = try super.getApi().deleteFieldOnline(request: request);
     }
 
     // Test for deleting field without node path.
@@ -270,6 +329,14 @@ class FieldTests: BaseTestContext {
       try super.getApi().deleteFields(request: request);
     }
 
+    // Test for deleting fields online.
+    func testDeleteDocumentFieldsOnline() throws {
+      let localFileName = "Common/test_multi_pages.docx";
+
+      let request = DeleteFieldsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFileName, isDirectory: false))!, nodePath: "");
+      _ = try super.getApi().deleteFieldsOnline(request: request);
+    }
+
     // Test for posting updated fields.
     func testUpdateDocumentFields() throws {
       let localFileName = "test_multi_pages.docx";
@@ -281,5 +348,13 @@ class FieldTests: BaseTestContext {
       let actual = try super.getApi().updateFields(request: request);
       XCTAssertNotNil(actual.getDocument());
       XCTAssertEqual(actual.getDocument()!.getFileName(), "TestUpdateDocumentFields.docx");
+    }
+
+    // Test for posting updated fields online.
+    func testUpdateDocumentFieldsOnline() throws {
+      let localFile = "Common/test_multi_pages.docx";
+
+      let request = UpdateFieldsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      _ = try super.getApi().updateFieldsOnline(request: request);
     }
 }

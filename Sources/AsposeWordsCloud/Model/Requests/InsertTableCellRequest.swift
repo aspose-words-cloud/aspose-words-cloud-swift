@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertTableCellRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,8 +30,8 @@ import Foundation
 // Request model for insertTableCell operation.
 public class InsertTableCellRequest : WordsApiRequest {
     private let name : String;
-    private let cell : TableCellInsert;
     private let tableRowPath : String;
+    private let cell : TableCellInsert;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -42,8 +42,8 @@ public class InsertTableCellRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case cell;
         case tableRowPath;
+        case cell;
         case folder;
         case storage;
         case loadEncoding;
@@ -55,10 +55,10 @@ public class InsertTableCellRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the InsertTableCellRequest class.
-    public init(name : String, cell : TableCellInsert, tableRowPath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, tableRowPath : String, cell : TableCellInsert, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.cell = cell;
         self.tableRowPath = tableRowPath;
+        self.cell = cell;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -73,14 +73,14 @@ public class InsertTableCellRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The properties of the cell.
-    public func getCell() -> TableCellInsert {
-        return self.cell;
-    }
-
     // The path to the table row in the document tree.
     public func getTableRowPath() -> String {
         return self.tableRowPath;
+    }
+
+    // Table cell parameters.
+    public func getCell() -> TableCellInsert {
+        return self.cell;
     }
 
     // Original document folder.

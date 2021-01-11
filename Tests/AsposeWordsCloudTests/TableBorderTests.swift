@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TableBorderTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,10 +32,15 @@ import XCTest
 class TableBorderTests: BaseTestContext {
     static var allTests = [
         ("testGetBorders", testGetBorders),
+        ("testGetBordersOnline", testGetBordersOnline),
         ("testGetBorder", testGetBorder),
+        ("testGetBorderOnline", testGetBorderOnline),
         ("testDeleteBorders", testDeleteBorders),
+        ("testDeleteBordersOnline", testDeleteBordersOnline),
         ("testDeleteBorder", testDeleteBorder),
-        ("testUpdateBorder", testUpdateBorder)
+        ("testDeleteBorderOnline", testDeleteBorderOnline),
+        ("testUpdateBorder", testUpdateBorder),
+        ("testUpdateBorderOnline", testUpdateBorderOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Tables";
@@ -56,6 +61,12 @@ class TableBorderTests: BaseTestContext {
       XCTAssertEqual(actual.getBorders()!.getList()![0].getColor()!.getWeb(), "#000000");
     }
 
+    // Test for getting borders online.
+    func testGetBordersOnline() throws {
+      let request = GetBordersOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, nodePath: "tables/1/rows/0/cells/0");
+      _ = try super.getApi().getBordersOnline(request: request);
+    }
+
     // Test for getting border.
     func testGetBorder() throws {
       let remoteFileName = "TestGetBorder.docx";
@@ -69,6 +80,12 @@ class TableBorderTests: BaseTestContext {
       XCTAssertEqual(actual.getBorder()!.getColor()!.getWeb(), "#000000");
     }
 
+    // Test for getting border online.
+    func testGetBorderOnline() throws {
+      let request = GetBorderOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, borderType: "left", nodePath: "tables/1/rows/0/cells/0");
+      _ = try super.getApi().getBorderOnline(request: request);
+    }
+
     // Test for deleting borders.
     func testDeleteBorders() throws {
       let remoteFileName = "TestDeleteBorders.docx";
@@ -76,12 +93,13 @@ class TableBorderTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = DeleteBordersRequest(name: remoteFileName, nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
-      let actual = try super.getApi().deleteBorders(request: request);
-      XCTAssertNotNil(actual.getBorders());
-      XCTAssertNotNil(actual.getBorders()!.getList());
-      XCTAssertEqual(actual.getBorders()!.getList()!.count, 6);
-      XCTAssertNotNil(actual.getBorders()!.getList()![0].getColor());
-      XCTAssertEqual(actual.getBorders()!.getList()![0].getColor()!.getWeb(), "");
+      _ = try super.getApi().deleteBorders(request: request);
+    }
+
+    // Test for deleting borders online.
+    func testDeleteBordersOnline() throws {
+      let request = DeleteBordersOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, nodePath: "tables/1/rows/0/cells/0");
+      _ = try super.getApi().deleteBordersOnline(request: request);
     }
 
     // Test for deleting border.
@@ -91,10 +109,13 @@ class TableBorderTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = DeleteBorderRequest(name: remoteFileName, borderType: "left", nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
-      let actual = try super.getApi().deleteBorder(request: request);
-      XCTAssertNotNil(actual.getBorder());
-      XCTAssertNotNil(actual.getBorder()!.getColor());
-      XCTAssertEqual(actual.getBorder()!.getColor()!.getWeb(), "");
+      _ = try super.getApi().deleteBorder(request: request);
+    }
+
+    // Test for deleting border online.
+    func testDeleteBorderOnline() throws {
+      let request = DeleteBorderOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, borderType: "left", nodePath: "tables/1/rows/0/cells/0");
+      _ = try super.getApi().deleteBorderOnline(request: request);
     }
 
     // Test for updating border.
@@ -115,7 +136,7 @@ class TableBorderTests: BaseTestContext {
       requestBorderProperties.setShadow(shadow: true);
 
 
-      let request = UpdateBorderRequest(name: remoteFileName, borderProperties: requestBorderProperties, borderType: "left", nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
+      let request = UpdateBorderRequest(name: remoteFileName, borderType: "left", borderProperties: requestBorderProperties, nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
       let actual = try super.getApi().updateBorder(request: request);
       XCTAssertNotNil(actual.getBorder());
       XCTAssertNotNil(actual.getBorder()!.getColor());
@@ -123,5 +144,23 @@ class TableBorderTests: BaseTestContext {
       XCTAssertEqual(actual.getBorder()!.getDistanceFromText(), 6.0);
       XCTAssertEqual(actual.getBorder()!.getLineWidth(), 2.0);
       XCTAssertEqual(actual.getBorder()!.getShadow(), true);
+    }
+
+    // Test for updating border online.
+    func testUpdateBorderOnline() throws {
+      let requestBorderPropertiesColor = XmlColor();
+      requestBorderPropertiesColor.setWeb(web: "#AABBCC");
+
+      let requestBorderProperties = Border();
+      requestBorderProperties.setBorderType(borderType: Border.BorderType._left);
+      requestBorderProperties.setColor(color: requestBorderPropertiesColor);
+      requestBorderProperties.setDistanceFromText(distanceFromText: 6);
+      requestBorderProperties.setLineStyle(lineStyle: Border.LineStyle.dashDotStroker);
+      requestBorderProperties.setLineWidth(lineWidth: 2);
+      requestBorderProperties.setShadow(shadow: true);
+
+
+      let request = UpdateBorderOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, borderProperties: requestBorderProperties, borderType: "left", nodePath: "tables/1/rows/0/cells/0");
+      _ = try super.getApi().updateBorderOnline(request: request);
     }
 }

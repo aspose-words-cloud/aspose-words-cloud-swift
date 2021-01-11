@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CreateDocumentRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,27 +29,22 @@ import Foundation
 
 // Request model for createDocument operation.
 public class CreateDocumentRequest : WordsApiRequest {
-    private let storage : String?;
     private let fileName : String?;
     private let folder : String?;
+    private let storage : String?;
 
     private enum CodingKeys: String, CodingKey {
-        case storage;
         case fileName;
         case folder;
+        case storage;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the CreateDocumentRequest class.
-    public init(storage : String? = nil, fileName : String? = nil, folder : String? = nil) {
-        self.storage = storage;
+    public init(fileName : String? = nil, folder : String? = nil, storage : String? = nil) {
         self.fileName = fileName;
         self.folder = folder;
-    }
-
-    // Original document storage.
-    public func getStorage() -> String? {
-        return self.storage;
+        self.storage = storage;
     }
 
     // The filename of the document.
@@ -62,6 +57,11 @@ public class CreateDocumentRequest : WordsApiRequest {
         return self.folder;
     }
 
+    // Original document storage.
+    public func getStorage() -> String? {
+        return self.storage;
+    }
+
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/create";
@@ -70,16 +70,16 @@ public class CreateDocumentRequest : WordsApiRequest {
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         if (self.getStorage() != nil) {
-             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
-         }
-
          if (self.getFileName() != nil) {
              queryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: self.getFileName()!)));
          }
 
          if (self.getFolder() != nil) {
              queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         }
+
+         if (self.getStorage() != nil) {
+             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
          }
 
          if (queryItems.count > 0) {

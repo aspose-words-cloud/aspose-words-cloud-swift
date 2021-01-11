@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RunTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,8 +32,11 @@ import XCTest
 class RunTests: BaseTestContext {
     static var allTests = [
         ("testUpdateRun", testUpdateRun),
+        ("testUpdateRunOnline", testUpdateRunOnline),
         ("testInsertRun", testInsertRun),
-        ("testDeleteRun", testDeleteRun)
+        ("testInsertRunOnline", testInsertRunOnline),
+        ("testDeleteRun", testDeleteRun),
+        ("testDeleteRunOnline", testDeleteRunOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Runs";
@@ -49,10 +52,20 @@ class RunTests: BaseTestContext {
       requestRun.setText(text: "run with text");
 
 
-      let request = UpdateRunRequest(name: remoteFileName, run: requestRun, paragraphPath: "paragraphs/1", index: 0, folder: remoteDataFolder);
+      let request = UpdateRunRequest(name: remoteFileName, paragraphPath: "paragraphs/1", index: 0, run: requestRun, folder: remoteDataFolder);
       let actual = try super.getApi().updateRun(request: request);
       XCTAssertNotNil(actual.getRun());
       XCTAssertEqual(actual.getRun()!.getText(), "run with text");
+    }
+
+    // Test for updating run online.
+    func testUpdateRunOnline() throws {
+      let requestRun = RunUpdate();
+      requestRun.setText(text: "run with text");
+
+
+      let request = UpdateRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/1", run: requestRun, index: 0);
+      _ = try super.getApi().updateRunOnline(request: request);
     }
 
     // Test for adding run.
@@ -72,6 +85,16 @@ class RunTests: BaseTestContext {
       XCTAssertEqual(actual.getRun()!.getNodeId(), "0.0.1.3");
     }
 
+    // Test for adding run online.
+    func testInsertRunOnline() throws {
+      let requestRun = RunInsert();
+      requestRun.setText(text: "run with text");
+
+
+      let request = InsertRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/1", run: requestRun);
+      _ = try super.getApi().insertRunOnline(request: request);
+    }
+
     // Test for deleting run.
     func testDeleteRun() throws {
       let remoteFileName = "TestDeleteRun.docx";
@@ -80,5 +103,11 @@ class RunTests: BaseTestContext {
 
       let request = DeleteRunRequest(name: remoteFileName, paragraphPath: "paragraphs/1", index: 0, folder: remoteDataFolder);
       try super.getApi().deleteRun(request: request);
+    }
+
+    // Test for deleting run online.
+    func testDeleteRunOnline() throws {
+      let request = DeleteRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/1", index: 0);
+      _ = try super.getApi().deleteRunOnline(request: request);
     }
 }

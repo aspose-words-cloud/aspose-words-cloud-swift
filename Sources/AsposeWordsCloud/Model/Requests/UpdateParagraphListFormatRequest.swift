@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateParagraphListFormatRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,8 +30,8 @@ import Foundation
 // Request model for updateParagraphListFormat operation.
 public class UpdateParagraphListFormatRequest : WordsApiRequest {
     private let name : String;
-    private let dto : ListFormatUpdate;
     private let index : Int;
+    private let listFormatDto : ListFormatUpdate;
     private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
@@ -43,8 +43,8 @@ public class UpdateParagraphListFormatRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case dto;
         case index;
+        case listFormatDto;
         case nodePath;
         case folder;
         case storage;
@@ -57,10 +57,10 @@ public class UpdateParagraphListFormatRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateParagraphListFormatRequest class.
-    public init(name : String, dto : ListFormatUpdate, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, index : Int, listFormatDto : ListFormatUpdate, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.dto = dto;
         self.index = index;
+        self.listFormatDto = listFormatDto;
         self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
@@ -76,14 +76,14 @@ public class UpdateParagraphListFormatRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The formatting properties of a paragraph list.
-    public func getDto() -> ListFormatUpdate {
-        return self.dto;
-    }
-
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // ListFormatUpdate dto.
+    public func getListFormatDto() -> ListFormatUpdate {
+        return self.listFormatDto;
     }
 
     // The path to the node in the document tree.
@@ -177,8 +177,8 @@ public class UpdateParagraphListFormatRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
-         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getDto()), contentType: "application/json");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getListFormatDto()), contentType: "application/json");
          return result;
     }
 
