@@ -104,7 +104,7 @@ public class DeleteHeadersFootersOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/delete/{name}/{sectionPath}/headersfooters";
+         var rawPath = "/words/online/delete/{sectionPath}/headersfooters";
          rawPath = rawPath.replacingOccurrences(of: "{sectionPath}", with: try ObjectSerializer.serializeToString(value: self.getSectionPath()));
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");

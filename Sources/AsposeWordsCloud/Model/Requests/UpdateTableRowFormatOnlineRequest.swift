@@ -112,7 +112,7 @@ public class UpdateTableRowFormatOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/put/{name}/{tablePath}/rows/{index}/rowformat";
+         var rawPath = "/words/online/put/{tablePath}/rows/{index}/rowformat";
          rawPath = rawPath.replacingOccurrences(of: "{tablePath}", with: try ObjectSerializer.serializeToString(value: self.getTablePath()));
 
          rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: self.getIndex()));

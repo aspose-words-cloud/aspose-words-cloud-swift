@@ -112,7 +112,7 @@ public class InsertFormFieldOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/post/{name}/{nodePath}/formfields";
+         var rawPath = "/words/online/post/{nodePath}/formfields";
          if (self.getNodePath() != nil) {
              rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: self.getNodePath()!));
          }

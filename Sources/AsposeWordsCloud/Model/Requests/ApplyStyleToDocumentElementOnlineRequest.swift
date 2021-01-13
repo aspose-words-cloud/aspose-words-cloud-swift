@@ -104,7 +104,7 @@ public class ApplyStyleToDocumentElementOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/put/{name}/{styledNodePath}/style";
+         var rawPath = "/words/online/put/{styledNodePath}/style";
          rawPath = rawPath.replacingOccurrences(of: "{styledNodePath}", with: try ObjectSerializer.serializeToString(value: self.getStyledNodePath()));
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");

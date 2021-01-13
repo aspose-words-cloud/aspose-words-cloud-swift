@@ -72,7 +72,7 @@ public class GetFieldsOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/get/{name}/{nodePath}/fields";
+         var rawPath = "/words/online/get/{nodePath}/fields";
          if (self.getNodePath() != nil) {
              rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: self.getNodePath()!));
          }

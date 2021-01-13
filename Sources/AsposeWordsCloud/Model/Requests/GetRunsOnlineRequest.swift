@@ -72,7 +72,7 @@ public class GetRunsOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/get/{name}/{paragraphPath}/runs";
+         var rawPath = "/words/online/get/{paragraphPath}/runs";
          rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: try ObjectSerializer.serializeToString(value: self.getParagraphPath()));
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");

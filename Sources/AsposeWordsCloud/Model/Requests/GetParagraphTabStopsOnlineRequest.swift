@@ -80,7 +80,7 @@ public class GetParagraphTabStopsOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/get/{name}/{nodePath}/paragraphs/{index}/tabstops";
+         var rawPath = "/words/online/get/{nodePath}/paragraphs/{index}/tabstops";
          rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: self.getIndex()));
 
          if (self.getNodePath() != nil) {

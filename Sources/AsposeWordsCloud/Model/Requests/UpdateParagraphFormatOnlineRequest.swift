@@ -112,7 +112,7 @@ public class UpdateParagraphFormatOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/put/{name}/{nodePath}/paragraphs/{index}/format";
+         var rawPath = "/words/online/put/{nodePath}/paragraphs/{index}/format";
          rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: self.getIndex()));
 
          if (self.getNodePath() != nil) {

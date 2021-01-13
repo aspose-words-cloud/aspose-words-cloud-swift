@@ -104,7 +104,7 @@ public class DeleteTableCellOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/delete/{name}/{tableRowPath}/cells/{index}";
+         var rawPath = "/words/online/delete/{tableRowPath}/cells/{index}";
          rawPath = rawPath.replacingOccurrences(of: "{tableRowPath}", with: try ObjectSerializer.serializeToString(value: self.getTableRowPath()));
 
          rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: self.getIndex()));

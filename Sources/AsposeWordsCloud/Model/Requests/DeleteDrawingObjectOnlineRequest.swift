@@ -104,7 +104,7 @@ public class DeleteDrawingObjectOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/delete/{name}/{nodePath}/drawingObjects/{index}";
+         var rawPath = "/words/online/delete/{nodePath}/drawingObjects/{index}";
          rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: self.getIndex()));
 
          if (self.getNodePath() != nil) {

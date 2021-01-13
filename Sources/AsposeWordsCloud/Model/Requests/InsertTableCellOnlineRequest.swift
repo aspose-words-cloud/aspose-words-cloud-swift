@@ -104,7 +104,7 @@ public class InsertTableCellOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/post/{name}/{tableRowPath}/cells";
+         var rawPath = "/words/online/post/{tableRowPath}/cells";
          rawPath = rawPath.replacingOccurrences(of: "{tableRowPath}", with: try ObjectSerializer.serializeToString(value: self.getTableRowPath()));
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");

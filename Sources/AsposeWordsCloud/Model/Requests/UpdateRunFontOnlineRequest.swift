@@ -112,7 +112,7 @@ public class UpdateRunFontOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/put/{name}/{paragraphPath}/runs/{index}/font";
+         var rawPath = "/words/online/put/{paragraphPath}/runs/{index}/font";
          rawPath = rawPath.replacingOccurrences(of: "{paragraphPath}", with: try ObjectSerializer.serializeToString(value: self.getParagraphPath()));
 
          rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: self.getIndex()));

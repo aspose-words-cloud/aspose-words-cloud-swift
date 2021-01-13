@@ -80,7 +80,7 @@ public class GetHeaderFootersOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/get/{name}/{sectionPath}/headersfooters";
+         var rawPath = "/words/online/get/{sectionPath}/headersfooters";
          rawPath = rawPath.replacingOccurrences(of: "{sectionPath}", with: try ObjectSerializer.serializeToString(value: self.getSectionPath()));
 
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");

@@ -72,7 +72,7 @@ public class GetOfficeMathObjectsOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/get/{name}/{nodePath}/OfficeMathObjects";
+         var rawPath = "/words/online/get/{nodePath}/OfficeMathObjects";
          if (self.getNodePath() != nil) {
              rawPath = rawPath.replacingOccurrences(of: "{nodePath}", with: try ObjectSerializer.serializeToString(value: self.getNodePath()!));
          }

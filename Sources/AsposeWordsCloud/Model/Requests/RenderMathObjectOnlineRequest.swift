@@ -104,7 +104,7 @@ public class RenderMathObjectOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/get/{name}/{nodePath}/OfficeMathObjects/{index}/render";
+         var rawPath = "/words/online/get/{nodePath}/OfficeMathObjects/{index}/render";
          rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: self.getIndex()));
 
          if (self.getNodePath() != nil) {

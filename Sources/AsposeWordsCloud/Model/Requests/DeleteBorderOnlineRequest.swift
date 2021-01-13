@@ -104,7 +104,7 @@ public class DeleteBorderOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/delete/{name}/{nodePath}/borders/{borderType}";
+         var rawPath = "/words/online/delete/{nodePath}/borders/{borderType}";
          rawPath = rawPath.replacingOccurrences(of: "{borderType}", with: try ObjectSerializer.serializeToString(value: self.getBorderType()));
 
          if (self.getNodePath() != nil) {

@@ -104,7 +104,7 @@ public class DeleteOfficeMathObjectOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/delete/{name}/{nodePath}/OfficeMathObjects/{index}";
+         var rawPath = "/words/online/delete/{nodePath}/OfficeMathObjects/{index}";
          rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: self.getIndex()));
 
          if (self.getNodePath() != nil) {

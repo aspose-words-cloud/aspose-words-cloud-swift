@@ -112,7 +112,7 @@ public class UpdateFootnoteOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/online/put/{name}/{nodePath}/footnotes/{index}";
+         var rawPath = "/words/online/put/{nodePath}/footnotes/{index}";
          rawPath = rawPath.replacingOccurrences(of: "{index}", with: try ObjectSerializer.serializeToString(value: self.getIndex()));
 
          if (self.getNodePath() != nil) {
