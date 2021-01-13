@@ -172,7 +172,7 @@ public class UpdateRunFontRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getFontDto()), contentType: "application/json");
          return result;
     }

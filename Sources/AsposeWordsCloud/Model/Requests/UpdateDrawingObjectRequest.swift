@@ -190,7 +190,7 @@ public class UpdateDrawingObjectRequest : WordsApiRequest {
          formParams.append(RequestFormParam(name: "imageFile", body: try ObjectSerializer.serializeFile(value: self.getImageFile()), contentType: "application/octet-stream"));
 
 
-         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(formParams: formParams);
          return result;
     }

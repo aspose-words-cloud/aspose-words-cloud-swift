@@ -10163,7 +10163,7 @@ public class WordsAPI {
 
     // Async representation of renderDrawingObjectOnline method
     // Renders a DrawingObject to the specified format.
-    public func renderDrawingObjectOnline(request : RenderDrawingObjectOnlineRequest, callback : @escaping (_ response : RenderDrawingObjectOnlineResponse?, _ error : Error?) -> ()) {
+    public func renderDrawingObjectOnline(request : RenderDrawingObjectOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -10173,7 +10173,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RenderDrawingObjectOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10189,9 +10189,9 @@ public class WordsAPI {
 
     // Sync representation of renderDrawingObjectOnline method
     // Renders a DrawingObject to the specified format.
-    public func renderDrawingObjectOnline(request : RenderDrawingObjectOnlineRequest) throws -> RenderDrawingObjectOnlineResponse {
+    public func renderDrawingObjectOnline(request : RenderDrawingObjectOnlineRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : RenderDrawingObjectOnlineResponse? = nil;
+        var responseObject : Data? = nil;
         var responseError : Error? = nil;
         self.renderDrawingObjectOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -10255,7 +10255,7 @@ public class WordsAPI {
 
     // Async representation of renderMathObjectOnline method
     // Renders an OfficeMath object to the specified format.
-    public func renderMathObjectOnline(request : RenderMathObjectOnlineRequest, callback : @escaping (_ response : RenderMathObjectOnlineResponse?, _ error : Error?) -> ()) {
+    public func renderMathObjectOnline(request : RenderMathObjectOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -10265,7 +10265,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RenderMathObjectOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10281,9 +10281,9 @@ public class WordsAPI {
 
     // Sync representation of renderMathObjectOnline method
     // Renders an OfficeMath object to the specified format.
-    public func renderMathObjectOnline(request : RenderMathObjectOnlineRequest) throws -> RenderMathObjectOnlineResponse {
+    public func renderMathObjectOnline(request : RenderMathObjectOnlineRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : RenderMathObjectOnlineResponse? = nil;
+        var responseObject : Data? = nil;
         var responseError : Error? = nil;
         self.renderMathObjectOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -10439,7 +10439,7 @@ public class WordsAPI {
 
     // Async representation of renderParagraphOnline method
     // Renders a paragraph to the specified format.
-    public func renderParagraphOnline(request : RenderParagraphOnlineRequest, callback : @escaping (_ response : RenderParagraphOnlineResponse?, _ error : Error?) -> ()) {
+    public func renderParagraphOnline(request : RenderParagraphOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -10449,7 +10449,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RenderParagraphOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10465,9 +10465,9 @@ public class WordsAPI {
 
     // Sync representation of renderParagraphOnline method
     // Renders a paragraph to the specified format.
-    public func renderParagraphOnline(request : RenderParagraphOnlineRequest) throws -> RenderParagraphOnlineResponse {
+    public func renderParagraphOnline(request : RenderParagraphOnlineRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : RenderParagraphOnlineResponse? = nil;
+        var responseObject : Data? = nil;
         var responseError : Error? = nil;
         self.renderParagraphOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -10531,7 +10531,7 @@ public class WordsAPI {
 
     // Async representation of renderTableOnline method
     // Renders a table to the specified format.
-    public func renderTableOnline(request : RenderTableOnlineRequest, callback : @escaping (_ response : RenderTableOnlineResponse?, _ error : Error?) -> ()) {
+    public func renderTableOnline(request : RenderTableOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(configuration: self.configuration),
@@ -10541,7 +10541,7 @@ public class WordsAPI {
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RenderTableOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10557,9 +10557,9 @@ public class WordsAPI {
 
     // Sync representation of renderTableOnline method
     // Renders a table to the specified format.
-    public func renderTableOnline(request : RenderTableOnlineRequest) throws -> RenderTableOnlineResponse {
+    public func renderTableOnline(request : RenderTableOnlineRequest) throws -> Data {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : RenderTableOnlineResponse? = nil;
+        var responseObject : Data? = nil;
         var responseError : Error? = nil;
         self.renderTableOnline(request : request, callback: { response, error in
             responseObject = response;

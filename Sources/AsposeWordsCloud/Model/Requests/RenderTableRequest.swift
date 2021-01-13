@@ -167,7 +167,7 @@ public class RenderTableRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         let result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
+         let result = WordsApiRequestData(url: urlBuilder.url!, method: "GET");
          return result;
     }
 

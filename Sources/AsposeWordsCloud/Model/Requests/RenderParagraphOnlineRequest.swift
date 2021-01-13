@@ -151,10 +151,6 @@ public class RenderParagraphOnlineRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data) throws -> Any? {
-        let multipart = try ObjectSerializer.parseMultipart(data: data);
-        return RenderParagraphOnlineResponse(
-            model: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody(),
-            document: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document")).getBody()
-        );
+        return data;
     }
 }

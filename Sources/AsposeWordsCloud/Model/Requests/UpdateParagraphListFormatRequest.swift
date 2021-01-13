@@ -177,7 +177,7 @@ public class UpdateParagraphListFormatRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
 
-         var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
+         var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
          result.setBody(body: try ObjectSerializer.serializeBody(value: self.getListFormatDto()), contentType: "application/json");
          return result;
     }
