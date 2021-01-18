@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="BookmarkTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,12 +32,16 @@ import XCTest
 class BookmarkTests: BaseTestContext {
     static var allTests = [
         ("testGetBookmarks", testGetBookmarks),
+        ("testGetBookmarksOnline", testGetBookmarksOnline),
         ("testGetBookmarkByName", testGetBookmarkByName),
-        ("testUpdateBookmark", testUpdateBookmark)
+        ("testGetBookmarkByNameOnline", testGetBookmarkByNameOnline),
+        ("testUpdateBookmark", testUpdateBookmark),
+        ("testUpdateBookmarkOnline", testUpdateBookmarkOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Bookmarks";
     let localFile = "Common/test_multi_pages.docx";
+    let bookmarkName = "aspose";
 
     // Test for getting bookmarks from document.
     func testGetBookmarks() throws {
@@ -46,29 +50,34 @@ class BookmarkTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetBookmarksRequest(name: remoteFileName, folder: remoteDataFolder);
-      let actual = try super.getApi().getBookmarks(request: request);
-      XCTAssertNotNil(actual.getBookmarks());
-      XCTAssertEqual(actual.getBookmarks()!.getBookmarkList()!.count, 3);
-      XCTAssertEqual(actual.getBookmarks()!.getBookmarkList()![1].getName(), "aspose");
+      _ = try super.getApi().getBookmarks(request: request);
+    }
+
+    // Test for getting bookmarks from document online.
+    func testGetBookmarksOnline() throws {
+      let request = GetBookmarksOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      _ = try super.getApi().getBookmarksOnline(request: request);
     }
 
     // Test for getting bookmark by specified name.
     func testGetBookmarkByName() throws {
       let remoteFileName = "TestGetDocumentBookmarkByName.docx";
-      let bookmarkName = "aspose";
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = GetBookmarkByNameRequest(name: remoteFileName, bookmarkName: bookmarkName, folder: remoteDataFolder);
-      let actual = try super.getApi().getBookmarkByName(request: request);
-      XCTAssertNotNil(actual.getBookmark());
-      XCTAssertEqual(actual.getBookmark()!.getName(), bookmarkName);
+      _ = try super.getApi().getBookmarkByName(request: request);
+    }
+
+    // Test for getting bookmark by specified name online.
+    func testGetBookmarkByNameOnline() throws {
+      let request = GetBookmarkByNameOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, bookmarkName: bookmarkName);
+      _ = try super.getApi().getBookmarkByNameOnline(request: request);
     }
 
     // Test for updating existed bookmark.
     func testUpdateBookmark() throws {
       let remoteFileName = "TestUpdateDocumentBookmark.docx";
-      let bookmarkName = "aspose";
       let bookmarkText = "This will be the text for Aspose";
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
@@ -78,10 +87,20 @@ class BookmarkTests: BaseTestContext {
       requestBookmarkData.setText(text: bookmarkText);
 
 
-      let request = UpdateBookmarkRequest(name: remoteFileName, bookmarkData: requestBookmarkData, bookmarkName: bookmarkName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
-      let actual = try super.getApi().updateBookmark(request: request);
-      XCTAssertNotNil(actual.getBookmark());
-      XCTAssertEqual(actual.getBookmark()!.getName(), bookmarkName);
-      XCTAssertEqual(actual.getBookmark()!.getText(), bookmarkText);
+      let request = UpdateBookmarkRequest(name: remoteFileName, bookmarkName: bookmarkName, bookmarkData: requestBookmarkData, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      _ = try super.getApi().updateBookmark(request: request);
+    }
+
+    // Test for updating existed bookmark online.
+    func testUpdateBookmarkOnline() throws {
+      let remoteFileName = "TestUpdateDocumentBookmark.docx";
+
+      let requestBookmarkData = BookmarkData();
+      requestBookmarkData.setName(name: bookmarkName);
+      requestBookmarkData.setText(text: "This will be the text for Aspose");
+
+
+      let request = UpdateBookmarkOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, bookmarkName: bookmarkName, bookmarkData: requestBookmarkData, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      _ = try super.getApi().updateBookmarkOnline(request: request);
     }
 }

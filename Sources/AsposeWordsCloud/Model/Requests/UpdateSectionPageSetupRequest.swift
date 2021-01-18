@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateSectionPageSetupRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -78,7 +78,7 @@ public class UpdateSectionPageSetupRequest : WordsApiRequest {
         return self.sectionIndex;
     }
 
-    // The properties of the page setup.
+    // Page setup properties dto.
     public func getPageSetup() -> PageSetup {
         return self.pageSetup;
     }

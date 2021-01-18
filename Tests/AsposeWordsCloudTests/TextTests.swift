@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="TextTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,7 +32,9 @@ import XCTest
 class TextTests: BaseTestContext {
     static var allTests = [
         ("testReplaceText", testReplaceText),
-        ("testSearch", testSearch)
+        ("testReplaceTextOnline", testReplaceTextOnline),
+        ("testSearch", testSearch),
+        ("testSearchOnline", testSearchOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Text";
@@ -54,6 +56,19 @@ class TextTests: BaseTestContext {
       XCTAssertEqual(actual.getMatches(), 3);
     }
 
+    // Test for replacing text online.
+    func testReplaceTextOnline() throws {
+      let localFile = "Common/test_multi_pages.docx";
+
+      let requestReplaceText = ReplaceTextParameters();
+      requestReplaceText.setOldValue(oldValue: "aspose");
+      requestReplaceText.setNewValue(newValue: "aspose new");
+
+
+      let request = ReplaceTextOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, replaceText: requestReplaceText);
+      _ = try super.getApi().replaceTextOnline(request: request);
+    }
+
     // Test for searching.
     func testSearch() throws {
       let remoteFileName = "TestSearch.docx";
@@ -68,5 +83,13 @@ class TextTests: BaseTestContext {
       XCTAssertEqual(actual.getSearchResults()!.getResultsList()!.count, 23);
       XCTAssertNotNil(actual.getSearchResults()!.getResultsList()![0].getRangeStart());
       XCTAssertEqual(actual.getSearchResults()!.getResultsList()![0].getRangeStart()!.getOffset(), 65);
+    }
+
+    // Test for searching online.
+    func testSearchOnline() throws {
+      let localFile = "DocumentElements/Text/SampleWordDocument.docx";
+
+      let request = SearchOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, pattern: "aspose");
+      _ = try super.getApi().searchOnline(request: request);
     }
 }

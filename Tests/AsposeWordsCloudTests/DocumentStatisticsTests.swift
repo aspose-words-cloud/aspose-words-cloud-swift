@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DocumentStatisticsTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,8 @@ import XCTest
 // Example of how to get document statistics.
 class DocumentStatisticsTests: BaseTestContext {
     static var allTests = [
-        ("testGetDocumentStatistics", testGetDocumentStatistics)
+        ("testGetDocumentStatistics", testGetDocumentStatistics),
+        ("testGetDocumentStatisticsOnline", testGetDocumentStatisticsOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/Statistics";
@@ -47,5 +48,11 @@ class DocumentStatisticsTests: BaseTestContext {
       let actual = try super.getApi().getDocumentStatistics(request: request);
       XCTAssertNotNil(actual.getStatData());
       XCTAssertEqual(actual.getStatData()!.getWordCount(), 10);
+    }
+
+    // Test for document classification online.
+    func testGetDocumentStatisticsOnline() throws {
+      let request = GetDocumentStatisticsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      _ = try super.getApi().getDocumentStatisticsOnline(request: request);
     }
 }

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateRunRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,9 +30,9 @@ import Foundation
 // Request model for updateRun operation.
 public class UpdateRunRequest : WordsApiRequest {
     private let name : String;
-    private let run : RunUpdate;
     private let paragraphPath : String;
     private let index : Int;
+    private let run : RunUpdate;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -43,9 +43,9 @@ public class UpdateRunRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case run;
         case paragraphPath;
         case index;
+        case run;
         case folder;
         case storage;
         case loadEncoding;
@@ -57,11 +57,11 @@ public class UpdateRunRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateRunRequest class.
-    public init(name : String, run : RunUpdate, paragraphPath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, paragraphPath : String, index : Int, run : RunUpdate, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.run = run;
         self.paragraphPath = paragraphPath;
         self.index = index;
+        self.run = run;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -76,11 +76,6 @@ public class UpdateRunRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The properties of the Run object.
-    public func getRun() -> RunUpdate {
-        return self.run;
-    }
-
     // The path to the paragraph in the document tree.
     public func getParagraphPath() -> String {
         return self.paragraphPath;
@@ -89,6 +84,11 @@ public class UpdateRunRequest : WordsApiRequest {
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // Run data.
+    public func getRun() -> RunUpdate {
+        return self.run;
     }
 
     // Original document folder.

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="MailMergeFiledsTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,7 +42,7 @@ class MailMergeFiledsTests: BaseTestContext {
     func testGetDocumentFieldNamesOnline() throws {
       let localDocumentFile = "SampleExecuteTemplate.docx";
 
-      let request = GetDocumentFieldNamesOnlineRequest(template: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(mailMergeFolder + "/" + localDocumentFile, isDirectory: false))!, useNonMergeFields: true);
+      let request = GetDocumentFieldNamesOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(mailMergeFolder + "/" + localDocumentFile, isDirectory: false))!, useNonMergeFields: true);
       let actual = try super.getApi().getDocumentFieldNamesOnline(request: request);
       XCTAssertNotNil(actual.getFieldNames());
       XCTAssertNotNil(actual.getFieldNames()!.getNames());

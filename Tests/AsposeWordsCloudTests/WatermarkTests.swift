@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="WatermarkTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,8 +32,11 @@ import XCTest
 class WatermarkTests: BaseTestContext {
     static var allTests = [
         ("testInsertWatermarkImage", testInsertWatermarkImage),
+        ("testInsertWatermarkImageOnline", testInsertWatermarkImageOnline),
         ("testInsertWatermarkText", testInsertWatermarkText),
-        ("testDeleteWatermark", testDeleteWatermark)
+        ("testInsertWatermarkTextOnline", testInsertWatermarkTextOnline),
+        ("testDeleteWatermark", testDeleteWatermark),
+        ("testDeleteWatermarkOnline", testDeleteWatermarkOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/Watermark";
@@ -53,6 +56,12 @@ class WatermarkTests: BaseTestContext {
       XCTAssertEqual(actual.getDocument()!.getFileName(), "TestInsertWatermarkImage.docx");
     }
 
+    // Test for adding watermark image online.
+    func testInsertWatermarkImageOnline() throws {
+      let request = InsertWatermarkImageOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, imageFile: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!);
+      _ = try super.getApi().insertWatermarkImageOnline(request: request);
+    }
+
     // Test for adding watermark text.
     func testInsertWatermarkText() throws {
       let remoteFileName = "TestInsertWatermarkText.docx";
@@ -70,6 +79,17 @@ class WatermarkTests: BaseTestContext {
       XCTAssertEqual(actual.getDocument()!.getFileName(), "TestInsertWatermarkText.docx");
     }
 
+    // Test for adding watermark text online.
+    func testInsertWatermarkTextOnline() throws {
+      let requestWatermarkText = WatermarkText();
+      requestWatermarkText.setText(text: "This is the text");
+      requestWatermarkText.setRotationAngle(rotationAngle: 90);
+
+
+      let request = InsertWatermarkTextOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, watermarkText: requestWatermarkText);
+      _ = try super.getApi().insertWatermarkTextOnline(request: request);
+    }
+
     // Test for deleting watermark.
     func testDeleteWatermark() throws {
       let remoteFileName = "TestDeleteWatermark.docx";
@@ -80,5 +100,11 @@ class WatermarkTests: BaseTestContext {
       let actual = try super.getApi().deleteWatermark(request: request);
       XCTAssertNotNil(actual.getDocument());
       XCTAssertEqual(actual.getDocument()!.getFileName(), "TestDeleteWatermark.docx");
+    }
+
+    // Test for deleting watermark online.
+    func testDeleteWatermarkOnline() throws {
+      let request = DeleteWatermarkOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      _ = try super.getApi().deleteWatermarkOnline(request: request);
     }
 }

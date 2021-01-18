@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RangeTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,9 +32,13 @@ import XCTest
 class RangeTests: BaseTestContext {
     static var allTests = [
         ("testGetRangeText", testGetRangeText),
+        ("testGetRangeTextOnline", testGetRangeTextOnline),
         ("testRemoveRange", testRemoveRange),
+        ("testRemoveRangeOnline", testRemoveRangeOnline),
         ("testSaveAsRange", testSaveAsRange),
-        ("testReplaceWithText", testReplaceWithText)
+        ("testSaveAsRangeOnline", testSaveAsRangeOnline),
+        ("testReplaceWithText", testReplaceWithText),
+        ("testReplaceWithTextOnline", testReplaceWithTextOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Range";
@@ -51,6 +55,12 @@ class RangeTests: BaseTestContext {
       XCTAssertEqual(actual.getText(), "This is HEADER ");
     }
 
+    // Test for getting the text from range online.
+    func testGetRangeTextOnline() throws {
+      let request = GetRangeTextOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, rangeStartIdentifier: "id0.0.0", rangeEndIdentifier: "id0.0.1");
+      _ = try super.getApi().getRangeTextOnline(request: request);
+    }
+
     // Test for removing the text for range.
     func testRemoveRange() throws {
       let remoteFileName = "TestRemoveRange.docx";
@@ -58,9 +68,13 @@ class RangeTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let request = RemoveRangeRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
-      let actual = try super.getApi().removeRange(request: request);
-      XCTAssertNotNil(actual.getDocument());
-      XCTAssertEqual(actual.getDocument()!.getFileName(), "TestRemoveRange.docx");
+      _ = try super.getApi().removeRange(request: request);
+    }
+
+    // Test for removing the text for range online.
+    func testRemoveRangeOnline() throws {
+      let request = RemoveRangeOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, rangeStartIdentifier: "id0.0.0", rangeEndIdentifier: "id0.0.1");
+      _ = try super.getApi().removeRangeOnline(request: request);
     }
 
     // Test for saving a range as a new document.
@@ -79,6 +93,16 @@ class RangeTests: BaseTestContext {
       XCTAssertEqual(actual.getDocument()!.getFileName(), "NewDoc.docx");
     }
 
+    // Test for saving a range as a new document online.
+    func testSaveAsRangeOnline() throws {
+      let requestDocumentParameters = RangeDocument();
+      requestDocumentParameters.setDocumentName(documentName: remoteDataFolder + "/NewDoc.docx");
+
+
+      let request = SaveAsRangeOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, rangeStartIdentifier: "id0.0.0", documentParameters: requestDocumentParameters, rangeEndIdentifier: "id0.0.1");
+      _ = try super.getApi().saveAsRangeOnline(request: request);
+    }
+
     // Test for replacing text in range.
     func testReplaceWithText() throws {
       let remoteFileName = "TestReplaceWithText.docx";
@@ -93,5 +117,15 @@ class RangeTests: BaseTestContext {
       let actual = try super.getApi().replaceWithText(request: request);
       XCTAssertNotNil(actual.getDocument());
       XCTAssertEqual(actual.getDocument()!.getFileName(), "TestReplaceWithText.docx");
+    }
+
+    // Test for replacing text in range online.
+    func testReplaceWithTextOnline() throws {
+      let requestRangeText = ReplaceRange();
+      requestRangeText.setText(text: "Replaced header");
+
+
+      let request = ReplaceWithTextOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, rangeStartIdentifier: "id0.0.0", rangeText: requestRangeText, rangeEndIdentifier: "id0.0.1");
+      _ = try super.getApi().replaceWithTextOnline(request: request);
     }
 }

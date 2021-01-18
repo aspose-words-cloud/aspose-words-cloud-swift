@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateCommentRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -78,7 +78,7 @@ public class UpdateCommentRequest : WordsApiRequest {
         return self.commentIndex;
     }
 
-    // The properties of the comment.
+    // Comment data.
     public func getComment() -> CommentUpdate {
         return self.comment;
     }

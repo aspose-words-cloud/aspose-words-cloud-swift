@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RenderMathObjectRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,6 +37,7 @@ public class RenderMathObjectRequest : WordsApiRequest {
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
+    private let destFileName : String?;
     private let fontsLocation : String?;
 
     private enum CodingKeys: String, CodingKey {
@@ -48,12 +49,13 @@ public class RenderMathObjectRequest : WordsApiRequest {
         case storage;
         case loadEncoding;
         case password;
+        case destFileName;
         case fontsLocation;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the RenderMathObjectRequest class.
-    public init(name : String, format : String, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
+    public init(name : String, format : String, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, fontsLocation : String? = nil) {
         self.name = name;
         self.format = format;
         self.index = index;
@@ -62,6 +64,7 @@ public class RenderMathObjectRequest : WordsApiRequest {
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.destFileName = destFileName;
         self.fontsLocation = fontsLocation;
     }
 
@@ -105,6 +108,11 @@ public class RenderMathObjectRequest : WordsApiRequest {
         return self.password;
     }
 
+    // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
+    public func getDestFileName() -> String? {
+        return self.destFileName;
+    }
+
     // Folder in filestorage with custom fonts.
     public func getFontsLocation() -> String? {
         return self.fontsLocation;
@@ -145,6 +153,10 @@ public class RenderMathObjectRequest : WordsApiRequest {
 
          if (self.getPassword() != nil) {
              queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
+         if (self.getDestFileName() != nil) {
+             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
          }
 
          if (self.getFontsLocation() != nil) {

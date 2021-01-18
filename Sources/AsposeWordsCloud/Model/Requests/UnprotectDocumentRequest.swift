@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UnprotectDocumentRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -64,7 +64,7 @@ public class UnprotectDocumentRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The protection settings.
+    // Protection request.
     public func getProtectionRequest() -> ProtectionRequest {
         return self.protectionRequest;
     }

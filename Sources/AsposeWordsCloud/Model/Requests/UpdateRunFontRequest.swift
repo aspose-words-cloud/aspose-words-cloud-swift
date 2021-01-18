@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateRunFontRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,9 +30,9 @@ import Foundation
 // Request model for updateRunFont operation.
 public class UpdateRunFontRequest : WordsApiRequest {
     private let name : String;
-    private let fontDto : Font;
     private let paragraphPath : String;
     private let index : Int;
+    private let fontDto : Font;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -43,9 +43,9 @@ public class UpdateRunFontRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case fontDto;
         case paragraphPath;
         case index;
+        case fontDto;
         case folder;
         case storage;
         case loadEncoding;
@@ -57,11 +57,11 @@ public class UpdateRunFontRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateRunFontRequest class.
-    public init(name : String, fontDto : Font, paragraphPath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, paragraphPath : String, index : Int, fontDto : Font, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.fontDto = fontDto;
         self.paragraphPath = paragraphPath;
         self.index = index;
+        self.fontDto = fontDto;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -76,11 +76,6 @@ public class UpdateRunFontRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The font properties of a Run object.
-    public func getFontDto() -> Font {
-        return self.fontDto;
-    }
-
     // The path to the paragraph in the document tree.
     public func getParagraphPath() -> String {
         return self.paragraphPath;
@@ -89,6 +84,11 @@ public class UpdateRunFontRequest : WordsApiRequest {
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // Font dto object.
+    public func getFontDto() -> Font {
+        return self.fontDto;
     }
 
     // Original document folder.

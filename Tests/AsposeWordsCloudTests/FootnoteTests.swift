@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="FootnoteTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,14 +32,19 @@ import XCTest
 class FootnoteTests: BaseTestContext {
     static var allTests = [
         ("testInsertFootnote", testInsertFootnote),
+        ("testInsertFootnoteOnline", testInsertFootnoteOnline),
         ("testInsertFootnoteWithoutNodePath", testInsertFootnoteWithoutNodePath),
         ("testDeleteFootnote", testDeleteFootnote),
+        ("testDeleteFootnoteOnline", testDeleteFootnoteOnline),
         ("testDeleteFootnoteWithoutNodePath", testDeleteFootnoteWithoutNodePath),
         ("testGetFootnotes", testGetFootnotes),
+        ("testGetFootnotesOnline", testGetFootnotesOnline),
         ("testGetFootnotesWithoutNodePath", testGetFootnotesWithoutNodePath),
         ("testGetFootnote", testGetFootnote),
+        ("testGetFootnoteOnline", testGetFootnoteOnline),
         ("testGetFootnoteWithoutNodePath", testGetFootnoteWithoutNodePath),
         ("testUpdateFootnote", testUpdateFootnote),
+        ("testUpdateFootnoteOnline", testUpdateFootnoteOnline),
         ("testUpdateFootnoteWithoutNodePath", testUpdateFootnoteWithoutNodePath)
     ];
 
@@ -62,6 +67,17 @@ class FootnoteTests: BaseTestContext {
       XCTAssertNotNil(actual.getFootnote());
       XCTAssertEqual(actual.getFootnote()!.getNodeId(), "0.1.7.1");
       XCTAssertEqual(actual.getFootnote()!.getText(), " test endnote" + "\r\n");
+    }
+
+    // Test for adding footnote online.
+    func testInsertFootnoteOnline() throws {
+      let requestFootnoteDto = FootnoteInsert();
+      requestFootnoteDto.setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote);
+      requestFootnoteDto.setText(text: "test endnote");
+
+
+      let request = InsertFootnoteOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false))!, footnoteDto: requestFootnoteDto, nodePath: "");
+      _ = try super.getApi().insertFootnoteOnline(request: request);
     }
 
     // Test for adding footnote without node path.
@@ -92,6 +108,12 @@ class FootnoteTests: BaseTestContext {
       try super.getApi().deleteFootnote(request: request);
     }
 
+    // Test for deleting footnote online.
+    func testDeleteFootnoteOnline() throws {
+      let request = DeleteFootnoteOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false))!, index: 0, nodePath: "");
+      _ = try super.getApi().deleteFootnoteOnline(request: request);
+    }
+
     // Test for deleting footnote without node path.
     func testDeleteFootnoteWithoutNodePath() throws {
       let remoteFileName = "TestDeleteFootnoteWithoutNodePath.docx";
@@ -114,6 +136,12 @@ class FootnoteTests: BaseTestContext {
       XCTAssertNotNil(actual.getFootnotes()!.getList());
       XCTAssertEqual(actual.getFootnotes()!.getList()!.count, 6);
       XCTAssertEqual(actual.getFootnotes()!.getList()![0].getText(), " Footnote 1." + "\r\n");
+    }
+
+    // Test for getting footnotes online.
+    func testGetFootnotesOnline() throws {
+      let request = GetFootnotesOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false))!, nodePath: "");
+      _ = try super.getApi().getFootnotesOnline(request: request);
     }
 
     // Test for getting footnotes without node path.
@@ -142,6 +170,12 @@ class FootnoteTests: BaseTestContext {
       XCTAssertEqual(actual.getFootnote()!.getText(), " Footnote 1." + "\r\n");
     }
 
+    // Test for getting footnote online.
+    func testGetFootnoteOnline() throws {
+      let request = GetFootnoteOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false))!, index: 0, nodePath: "");
+      _ = try super.getApi().getFootnoteOnline(request: request);
+    }
+
     // Test for getting footnote without node path.
     func testGetFootnoteWithoutNodePath() throws {
       let remoteFileName = "TestGetFootnoteWithoutNodePath.docx";
@@ -164,10 +198,20 @@ class FootnoteTests: BaseTestContext {
       requestFootnoteDto.setText(text: "new text is here");
 
 
-      let request = UpdateFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, index: 0, nodePath: "", folder: remoteDataFolder);
+      let request = UpdateFootnoteRequest(name: remoteFileName, index: 0, footnoteDto: requestFootnoteDto, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateFootnote(request: request);
       XCTAssertNotNil(actual.getFootnote());
       XCTAssertEqual(actual.getFootnote()!.getText(), " new text is here" + "\r\n");
+    }
+
+    // Test for updating footnote online.
+    func testUpdateFootnoteOnline() throws {
+      let requestFootnoteDto = FootnoteUpdate();
+      requestFootnoteDto.setText(text: "new text is here");
+
+
+      let request = UpdateFootnoteOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false))!, footnoteDto: requestFootnoteDto, index: 0, nodePath: "");
+      _ = try super.getApi().updateFootnoteOnline(request: request);
     }
 
     // Test for updating footnote without node path.
@@ -180,7 +224,7 @@ class FootnoteTests: BaseTestContext {
       requestFootnoteDto.setText(text: "new text is here");
 
 
-      let request = UpdateFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, index: 0, folder: remoteDataFolder);
+      let request = UpdateFootnoteRequest(name: remoteFileName, index: 0, footnoteDto: requestFootnoteDto, folder: remoteDataFolder);
       let actual = try super.getApi().updateFootnote(request: request);
       XCTAssertNotNil(actual.getFootnote());
       XCTAssertEqual(actual.getFootnote()!.getText(), " new text is here" + "\r\n");

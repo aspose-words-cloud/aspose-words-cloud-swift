@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ApplyStyleToDocumentElementRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,8 +30,8 @@ import Foundation
 // Request model for applyStyleToDocumentElement operation.
 public class ApplyStyleToDocumentElementRequest : WordsApiRequest {
     private let name : String;
-    private let styleApply : StyleApply;
     private let styledNodePath : String;
+    private let styleApply : StyleApply;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -42,8 +42,8 @@ public class ApplyStyleToDocumentElementRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case styleApply;
         case styledNodePath;
+        case styleApply;
         case folder;
         case storage;
         case loadEncoding;
@@ -55,10 +55,10 @@ public class ApplyStyleToDocumentElementRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the ApplyStyleToDocumentElementRequest class.
-    public init(name : String, styleApply : StyleApply, styledNodePath : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, styledNodePath : String, styleApply : StyleApply, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.styleApply = styleApply;
         self.styledNodePath = styledNodePath;
+        self.styleApply = styleApply;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -73,14 +73,14 @@ public class ApplyStyleToDocumentElementRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The style to apply.
-    public func getStyleApply() -> StyleApply {
-        return self.styleApply;
-    }
-
     // The path to the node in the document tree, that supports styles: ParagraphFormat, List, ListLevel, Table.
     public func getStyledNodePath() -> String {
         return self.styledNodePath;
+    }
+
+    // Style to apply.
+    public func getStyleApply() -> StyleApply {
+        return self.styleApply;
     }
 
     // Original document folder.

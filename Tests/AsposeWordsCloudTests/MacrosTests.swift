@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="MacrosTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,8 @@ import XCTest
 // Example of how to work with macros.
 class MacrosTests: BaseTestContext {
     static var allTests = [
-        ("testDeleteMacros", testDeleteMacros)
+        ("testDeleteMacros", testDeleteMacros),
+        ("testDeleteMacrosOnline", testDeleteMacrosOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Macros";
@@ -45,5 +46,11 @@ class MacrosTests: BaseTestContext {
 
       let request = DeleteMacrosRequest(name: remoteFileName, folder: remoteDataFolder);
       try super.getApi().deleteMacros(request: request);
+    }
+
+    // Test for deleting macros online.
+    func testDeleteMacrosOnline() throws {
+      let request = DeleteMacrosOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      _ = try super.getApi().deleteMacrosOnline(request: request);
     }
 }

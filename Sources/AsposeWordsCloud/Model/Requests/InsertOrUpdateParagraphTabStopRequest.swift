@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertOrUpdateParagraphTabStopRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,8 +30,8 @@ import Foundation
 // Request model for insertOrUpdateParagraphTabStop operation.
 public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
     private let name : String;
-    private let dto : TabStopInsert;
     private let index : Int;
+    private let tabStopInsertDto : TabStopInsert;
     private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
@@ -41,8 +41,8 @@ public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case dto;
         case index;
+        case tabStopInsertDto;
         case nodePath;
         case folder;
         case storage;
@@ -53,10 +53,10 @@ public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the InsertOrUpdateParagraphTabStopRequest class.
-    public init(name : String, dto : TabStopInsert, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
+    public init(name : String, index : Int, tabStopInsertDto : TabStopInsert, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
         self.name = name;
-        self.dto = dto;
         self.index = index;
+        self.tabStopInsertDto = tabStopInsertDto;
         self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
@@ -70,14 +70,14 @@ public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The properties of the paragraph tab stop.
-    public func getDto() -> TabStopInsert {
-        return self.dto;
-    }
-
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // TabStopInsert dto.
+    public func getTabStopInsertDto() -> TabStopInsert {
+        return self.tabStopInsertDto;
     }
 
     // The path to the node in the document tree.
@@ -154,7 +154,7 @@ public class InsertOrUpdateParagraphTabStopRequest : WordsApiRequest {
          }
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "POST");
-         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getDto()), contentType: "application/json");
+         result.setBody(body: try ObjectSerializer.serializeBody(value: self.getTabStopInsertDto()), contentType: "application/json");
          return result;
     }
 

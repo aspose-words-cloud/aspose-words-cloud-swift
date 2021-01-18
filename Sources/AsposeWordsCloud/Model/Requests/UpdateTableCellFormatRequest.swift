@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateTableCellFormatRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,9 +30,9 @@ import Foundation
 // Request model for updateTableCellFormat operation.
 public class UpdateTableCellFormatRequest : WordsApiRequest {
     private let name : String;
-    private let format : TableCellFormat;
     private let tableRowPath : String;
     private let index : Int;
+    private let format : TableCellFormat;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -43,9 +43,9 @@ public class UpdateTableCellFormatRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case format;
         case tableRowPath;
         case index;
+        case format;
         case folder;
         case storage;
         case loadEncoding;
@@ -57,11 +57,11 @@ public class UpdateTableCellFormatRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateTableCellFormatRequest class.
-    public init(name : String, format : TableCellFormat, tableRowPath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, tableRowPath : String, index : Int, format : TableCellFormat, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.format = format;
         self.tableRowPath = tableRowPath;
         self.index = index;
+        self.format = format;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -76,11 +76,6 @@ public class UpdateTableCellFormatRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The cell format.
-    public func getFormat() -> TableCellFormat {
-        return self.format;
-    }
-
     // The path to the table row in the document tree.
     public func getTableRowPath() -> String {
         return self.tableRowPath;
@@ -89,6 +84,11 @@ public class UpdateTableCellFormatRequest : WordsApiRequest {
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // The properties.
+    public func getFormat() -> TableCellFormat {
+        return self.format;
     }
 
     // Original document folder.

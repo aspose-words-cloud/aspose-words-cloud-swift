@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateListRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,8 +30,8 @@ import Foundation
 // Request model for updateList operation.
 public class UpdateListRequest : WordsApiRequest {
     private let name : String;
-    private let listUpdate : ListUpdate;
     private let listId : Int;
+    private let listUpdate : ListUpdate;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -42,8 +42,8 @@ public class UpdateListRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case listUpdate;
         case listId;
+        case listUpdate;
         case folder;
         case storage;
         case loadEncoding;
@@ -55,10 +55,10 @@ public class UpdateListRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateListRequest class.
-    public init(name : String, listUpdate : ListUpdate, listId : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, listId : Int, listUpdate : ListUpdate, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.listUpdate = listUpdate;
         self.listId = listId;
+        self.listUpdate = listUpdate;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -73,14 +73,14 @@ public class UpdateListRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The properties of the list.
-    public func getListUpdate() -> ListUpdate {
-        return self.listUpdate;
-    }
-
     // The list Id.
     public func getListId() -> Int {
         return self.listId;
+    }
+
+    // List object.
+    public func getListUpdate() -> ListUpdate {
+        return self.listUpdate;
     }
 
     // Original document folder.

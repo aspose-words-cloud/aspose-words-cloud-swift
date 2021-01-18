@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateTablePropertiesRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,8 +30,8 @@ import Foundation
 // Request model for updateTableProperties operation.
 public class UpdateTablePropertiesRequest : WordsApiRequest {
     private let name : String;
-    private let properties : TableProperties;
     private let index : Int;
+    private let properties : TableProperties;
     private let nodePath : String?;
     private let folder : String?;
     private let storage : String?;
@@ -43,8 +43,8 @@ public class UpdateTablePropertiesRequest : WordsApiRequest {
 
     private enum CodingKeys: String, CodingKey {
         case name;
-        case properties;
         case index;
+        case properties;
         case nodePath;
         case folder;
         case storage;
@@ -57,10 +57,10 @@ public class UpdateTablePropertiesRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateTablePropertiesRequest class.
-    public init(name : String, properties : TableProperties, index : Int, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(name : String, index : Int, properties : TableProperties, nodePath : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.name = name;
-        self.properties = properties;
         self.index = index;
+        self.properties = properties;
         self.nodePath = nodePath;
         self.folder = folder;
         self.storage = storage;
@@ -76,14 +76,14 @@ public class UpdateTablePropertiesRequest : WordsApiRequest {
         return self.name;
     }
 
-    // The properties of the table.
-    public func getProperties() -> TableProperties {
-        return self.properties;
-    }
-
     // Object index.
     public func getIndex() -> Int {
         return self.index;
+    }
+
+    // The properties.
+    public func getProperties() -> TableProperties {
+        return self.properties;
     }
 
     // The path to the node in the document tree.

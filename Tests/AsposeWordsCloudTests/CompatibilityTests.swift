@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="CompatibilityTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,8 @@ import XCTest
 // Example of how to work with compatibility options.
 class CompatibilityTests: BaseTestContext {
     static var allTests = [
-        ("testOptimizeDocument", testOptimizeDocument)
+        ("testOptimizeDocument", testOptimizeDocument),
+        ("testOptimizeDocumentOnline", testOptimizeDocumentOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/Compatibility";
@@ -49,5 +50,15 @@ class CompatibilityTests: BaseTestContext {
 
       let request = OptimizeDocumentRequest(name: remoteFileName, options: requestOptions, folder: remoteDataFolder);
       try super.getApi().optimizeDocument(request: request);
+    }
+
+    // Test for optimize document to specific MS Word version.
+    func testOptimizeDocumentOnline() throws {
+      let requestOptions = OptimizationOptions();
+      requestOptions.setMsWordVersion(msWordVersion: OptimizationOptions.MsWordVersion.word2002);
+
+
+      let request = OptimizeDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, options: requestOptions);
+      _ = try super.getApi().optimizeDocumentOnline(request: request);
     }
 }

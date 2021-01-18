@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentFieldNamesOnlineRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,24 +29,40 @@ import Foundation
 
 // Request model for getDocumentFieldNamesOnline operation.
 public class GetDocumentFieldNamesOnlineRequest : WordsApiRequest {
-    private let template : InputStream;
+    private let document : InputStream;
+    private let loadEncoding : String?;
+    private let password : String?;
     private let useNonMergeFields : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case template;
+        case document;
+        case loadEncoding;
+        case password;
         case useNonMergeFields;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetDocumentFieldNamesOnlineRequest class.
-    public init(template : InputStream, useNonMergeFields : Bool? = nil) {
-        self.template = template;
+    public init(document : InputStream, loadEncoding : String? = nil, password : String? = nil, useNonMergeFields : Bool? = nil) {
+        self.document = document;
+        self.loadEncoding = loadEncoding;
+        self.password = password;
         self.useNonMergeFields = useNonMergeFields;
     }
 
-    // File with template.
-    public func getTemplate() -> InputStream {
-        return self.template;
+    // The document.
+    public func getDocument() -> InputStream {
+        return self.document;
+    }
+
+    // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
+    public func getLoadEncoding() -> String? {
+        return self.loadEncoding;
+    }
+
+    // Password for opening an encrypted document.
+    public func getPassword() -> String? {
+        return self.password;
     }
 
     // The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
@@ -56,12 +72,20 @@ public class GetDocumentFieldNamesOnlineRequest : WordsApiRequest {
 
     // Creates the api request data
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-         var rawPath = "/words/mailMerge/FieldNames";
+         var rawPath = "/words/online/get/mailMerge/FieldNames";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
+         if (self.getLoadEncoding() != nil) {
+             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         }
+
+         if (self.getPassword() != nil) {
+             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         }
+
          if (self.getUseNonMergeFields() != nil) {
              queryItems.append(URLQueryItem(name: "useNonMergeFields", value: try ObjectSerializer.serializeToString(value: self.getUseNonMergeFields()!)));
          }
@@ -70,7 +94,7 @@ public class GetDocumentFieldNamesOnlineRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
          var formParams : [RequestFormParam] = [];
-         formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: self.getTemplate()), contentType: "application/octet-stream"));
+         formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
 
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");

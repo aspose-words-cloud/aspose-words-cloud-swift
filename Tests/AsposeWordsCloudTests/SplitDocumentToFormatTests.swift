@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="SplitDocumentToFormatTests.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,8 @@ import XCTest
 // Example of how to split document and return result with specified format and page range.
 class SplitDocumentToFormatTests: BaseTestContext {
     static var allTests = [
-        ("testSplitDocument", testSplitDocument)
+        ("testSplitDocument", testSplitDocument),
+        ("testSplitDocumentOnline", testSplitDocumentOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/SplitDocument";
@@ -48,5 +49,11 @@ class SplitDocumentToFormatTests: BaseTestContext {
       XCTAssertNotNil(actual.getSplitResult());
       XCTAssertNotNil(actual.getSplitResult()!.getPages());
       XCTAssertEqual(actual.getSplitResult()!.getPages()!.count, 2);
+    }
+
+    // Test for document splitting online.
+    func testSplitDocumentOnline() throws {
+      let request = SplitDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, format: "text", destFileName: BaseTestContext.getRemoteTestOut() + "/TestSplitDocument.text", from: 1, to: 2);
+      _ = try super.getApi().splitDocumentOnline(request: request);
     }
 }

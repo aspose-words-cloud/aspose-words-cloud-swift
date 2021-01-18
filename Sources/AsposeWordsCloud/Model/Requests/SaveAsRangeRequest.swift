@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="SaveAsRangeRequest.swift">
- *   Copyright (c) 2020 Aspose.Words for Cloud
+ *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -72,7 +72,7 @@ public class SaveAsRangeRequest : WordsApiRequest {
         return self.rangeStartIdentifier;
     }
 
-    // The parameters of a new document.
+    // Parameters of a new document.
     public func getDocumentParameters() -> RangeDocument {
         return self.documentParameters;
     }
