@@ -6,8 +6,8 @@ import XCTest
 class ExamplesTests : XCTestCase
 {
     static var allTests = [
-        ("testAcceptAllRevisions", testAcceptAllRevisions),
-        ("testAcceptAllRevisionsOnline", testAcceptAllRevisionsOnline)
+        ("acceptAllRevisions", acceptAllRevisions),
+        ("acceptAllRevisionsOnline", acceptAllRevisionsOnline)
     ];
 
     private var config : Configuration?;
