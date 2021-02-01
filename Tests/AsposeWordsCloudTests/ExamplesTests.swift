@@ -6,8 +6,8 @@ import XCTest
 class ExamplesTests : XCTestCase
 {
     static var allTests = [
-        ("acceptAllRevisions", acceptAllRevisions),
-        ("acceptAllRevisionsOnline", acceptAllRevisionsOnline)
+        ("testAcceptAllRevisions", testAcceptAllRevisions),
+        ("testAcceptAllRevisionsOnline", testAcceptAllRevisionsOnline)
     ];
 
     private var configuration : Configuration?;
@@ -39,7 +39,7 @@ class ExamplesTests : XCTestCase
         }
     }
 
-    func acceptAllRevisions() throws
+    func testAcceptAllRevisions() throws
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
@@ -54,7 +54,7 @@ class ExamplesTests : XCTestCase
         _ = try api.acceptAllRevisions(request: request);
     }
 
-    func acceptAllRevisionsOnline() throws
+    func testAcceptAllRevisionsOnline() throws
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
