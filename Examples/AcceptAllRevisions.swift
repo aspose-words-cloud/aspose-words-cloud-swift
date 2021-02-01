@@ -1,5 +1,6 @@
 import AsposeWordsCloud
 
+let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
 let fileName  = "test_doc.docx";
