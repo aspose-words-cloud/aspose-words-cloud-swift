@@ -5,4 +5,4 @@ let fileName  = "test_doc.docx";
 // Calls AcceptAllRevisionsOnline method for document in cloud.
 let request = AcceptAllRevisionsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent(fileName, isDirectory: false))!);
 let acceptAllRevisionsOnlineResult = try api.acceptAllRevisionsOnline(request: request);
-acceptAllRevisionsOnlineResult.getDocument()?.write(to: currentDir!.appendingPathComponent("test_result.docx", isDirectory: false));
+try acceptAllRevisionsOnlineResult.getDocument()?.write(to: currentDir!.appendingPathComponent("test_result.docx", isDirectory: false));

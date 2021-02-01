@@ -47,11 +47,11 @@ class ExamplesTests : XCTestCase
 
         // Upload original document to cloud storage.
         let uploadFileRequest = UploadFileRequest(fileContent: InputStream(url: currentDir!.appendingPathComponent(fileName, isDirectory: false))!, path: fileName);
-        try api.uploadFile(request: uploadFileRequest);
+        _ = try api.uploadFile(request: uploadFileRequest);
 
         // Calls AcceptAllRevisions method for document in cloud.
         let request = AcceptAllRevisionsRequest(name: fileName);
-        try api.acceptAllRevisions(request: request);
+        _ = try api.acceptAllRevisions(request: request);
     }
 
     func acceptAllRevisionsOnline() throws
@@ -63,6 +63,6 @@ class ExamplesTests : XCTestCase
         // Calls AcceptAllRevisionsOnline method for document in cloud.
         let request = AcceptAllRevisionsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent(fileName, isDirectory: false))!);
         let acceptAllRevisionsOnlineResult = try api.acceptAllRevisionsOnline(request: request);
-        acceptAllRevisionsOnlineResult.getDocument()?.write(to: currentDir!.appendingPathComponent("test_result.docx", isDirectory: false));
+        try acceptAllRevisionsOnlineResult.getDocument()?.write(to: currentDir!.appendingPathComponent("test_result.docx", isDirectory: false));
     }
 }
