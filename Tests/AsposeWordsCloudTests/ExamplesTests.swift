@@ -10,7 +10,7 @@ class ExamplesTests : XCTestCase
         ("acceptAllRevisionsOnline", acceptAllRevisionsOnline)
     ];
 
-    private var config : Configuration?;
+    private var configuration : Configuration?;
 
     override func setUp() {
         if (self.config == nil) {
@@ -39,6 +39,7 @@ class ExamplesTests : XCTestCase
 
     func acceptAllRevisions() throws
     {
+        let config = configuration!;
         let api = WordsAPI(configuration: config);
         let fileName  = "test_doc.docx";
 
@@ -53,6 +54,7 @@ class ExamplesTests : XCTestCase
 
     func acceptAllRevisionsOnline() throws
     {
+        let config = configuration!;
         let api = WordsAPI(configuration: config);
         let fileName  = "test_doc.docx";
 
