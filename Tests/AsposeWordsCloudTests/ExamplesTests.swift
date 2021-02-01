@@ -12,8 +12,10 @@ class ExamplesTests : XCTestCase
 
     private var configuration : Configuration?;
 
+    private var currentDir : URL?;
+
     override func setUp() {
-        if (self.config == nil) {
+        if (self.configuration == nil) {
             let baseFolder = URL(fileURLWithPath: #file)
                 .deletingLastPathComponent()
                 .deletingLastPathComponent()
@@ -25,13 +27,13 @@ class ExamplesTests : XCTestCase
 
             do {
                 let credsData = try Data(contentsOf: credsUrl);
-                self.config = try ObjectSerializer.deserialize(type: Configuration.self, from: credsData);
+                self.configuration = try ObjectSerializer.deserialize(type: Configuration.self, from: credsData);
             }
             catch {
                 XCTFail("File servercreds.json not found in Settings folder of project root.");
             }
 
-            let filesPath = baseFolder
+            currentDir = baseFolder
                 .appendingPathComponent("ExamplesData", isDirectory: true);
 
         }
@@ -44,7 +46,7 @@ class ExamplesTests : XCTestCase
         let fileName  = "test_doc.docx";
 
         // Upload original document to cloud storage.
-        let uploadFileRequest = UploadFileRequest(fileContent: InputStream(url: FileManager.currentDirectoryPath.appendingPathComponent(fileName, isDirectory: false))!, path: fileName);
+        let uploadFileRequest = UploadFileRequest(fileContent: InputStream(url: currentDir.appendingPathComponent(fileName, isDirectory: false))!, path: fileName);
         try api.uploadFile(request: uploadFileRequest);
 
         // Calls AcceptAllRevisions method for document in cloud.
@@ -59,7 +61,7 @@ class ExamplesTests : XCTestCase
         let fileName  = "test_doc.docx";
 
         // Calls AcceptAllRevisionsOnline method for document in cloud.
-        let request = AcceptAllRevisionsOnlineRequest(document: InputStream(url: FileManager.currentDirectoryPath.appendingPathComponent(fileName, isDirectory: false))!);
+        let request = AcceptAllRevisionsOnlineRequest(document: InputStream(url: currentDir.appendingPathComponent(fileName, isDirectory: false))!);
         let acceptAllRevisionsOnlineResult = try api.acceptAllRevisionsOnline(request: request);
         await File('test_result.docx').writeAsBytes(
             acceptAllRevisionsOnlineResult.document.buffer.asUint8List(acceptAllRevisionsOnlineResult.document.offsetInBytes, acceptAllRevisionsOnlineResult.document.lengthInBytes)
