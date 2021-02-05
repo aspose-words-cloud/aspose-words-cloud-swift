@@ -40,7 +40,9 @@ class CommentTests: BaseTestContext {
         ("testUpdateComment", testUpdateComment),
         ("testUpdateCommentOnline", testUpdateCommentOnline),
         ("testDeleteComment", testDeleteComment),
-        ("testDeleteCommentOnline", testDeleteCommentOnline)
+        ("testDeleteCommentOnline", testDeleteCommentOnline),
+        ("testDeleteComments", testDeleteComments),
+        ("testDeleteCommentsOnline", testDeleteCommentsOnline)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/Comments";
@@ -228,5 +230,21 @@ class CommentTests: BaseTestContext {
     func testDeleteCommentOnline() throws {
       let request = DeleteCommentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, commentIndex: 0);
       _ = try super.getApi().deleteCommentOnline(request: request);
+    }
+
+    // A test for DeleteComments.
+    func testDeleteComments() throws {
+      let remoteFileName = "TestDeleteComment.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+
+      let request = DeleteCommentsRequest(name: remoteFileName, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      try super.getApi().deleteComments(request: request);
+    }
+
+    // A test for DeleteComments online.
+    func testDeleteCommentsOnline() throws {
+      let request = DeleteCommentsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      _ = try super.getApi().deleteCommentsOnline(request: request);
     }
 }
