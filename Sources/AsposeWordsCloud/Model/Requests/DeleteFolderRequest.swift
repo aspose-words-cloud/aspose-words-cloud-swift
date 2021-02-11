@@ -47,7 +47,7 @@ public class DeleteFolderRequest : WordsApiRequest {
         self.recursive = recursive;
     }
 
-    // Folder path e.g. /Folder1s.
+    // Folder path e.g. '/folder'.
     public func getPath() -> String {
         return self.path;
     }
