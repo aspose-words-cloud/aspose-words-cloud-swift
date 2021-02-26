@@ -37,7 +37,7 @@ class ExamplesTests : XCTestCase
                 .appendingPathComponent("ExamplesData", isDirectory: true);
 
             do {
-                let api = WordsAPI(configuration!);
+                let api = WordsAPI(configuration: configuration!);
                 try api.uploadFile(request: UploadFileRequest(fileContent: InputStream(url: currentDir!.appendingPathComponent("test_doc.docx", isDirectory: false))!, path: "test_doc.docx"));
             }
             catch {
