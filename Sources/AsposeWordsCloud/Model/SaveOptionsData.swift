@@ -39,6 +39,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
         case advanced = "Advanced"
     }
 
+    // Field of allowEmbeddingPostScriptFonts. base container class for save options data.
+    private var allowEmbeddingPostScriptFonts : Bool?;
+
     // Field of dml3DEffectsRenderingMode. base container class for save options data.
     private var dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?;
 
@@ -70,6 +73,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     private var zipOutput : Bool?;
 
     private enum CodingKeys: String, CodingKey {
+        case allowEmbeddingPostScriptFonts = "AllowEmbeddingPostScriptFonts";
         case dml3DEffectsRenderingMode = "Dml3DEffectsRenderingMode";
         case dmlEffectsRenderingMode = "DmlEffectsRenderingMode";
         case dmlRenderingMode = "DmlRenderingMode";
@@ -88,6 +92,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.allowEmbeddingPostScriptFonts = try container.decodeIfPresent(Bool.self, forKey: .allowEmbeddingPostScriptFonts);
         self.dml3DEffectsRenderingMode = try container.decodeIfPresent(Dml3DEffectsRenderingMode.self, forKey: .dml3DEffectsRenderingMode);
         self.dmlEffectsRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlEffectsRenderingMode);
         self.dmlRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlRenderingMode);
@@ -102,6 +107,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.allowEmbeddingPostScriptFonts != nil) {
+            try container.encode(self.allowEmbeddingPostScriptFonts, forKey: .allowEmbeddingPostScriptFonts);
+        }
         if (self.dml3DEffectsRenderingMode != nil) {
             try container.encode(self.dml3DEffectsRenderingMode, forKey: .dml3DEffectsRenderingMode);
         }
@@ -132,6 +140,16 @@ public class SaveOptionsData : Codable, WordsApiModel {
         if (self.zipOutput != nil) {
             try container.encode(self.zipOutput, forKey: .zipOutput);
         }
+    }
+
+    // Sets allowEmbeddingPostScriptFonts. Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
+    public func setAllowEmbeddingPostScriptFonts(allowEmbeddingPostScriptFonts : Bool?) {
+        self.allowEmbeddingPostScriptFonts = allowEmbeddingPostScriptFonts;
+    }
+
+    // Gets allowEmbeddingPostScriptFonts. Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
+    public func getAllowEmbeddingPostScriptFonts() -> Bool? {
+        return self.allowEmbeddingPostScriptFonts;
     }
 
     // Sets dml3DEffectsRenderingMode. Gets or sets the value determining how 3D effects are rendered.

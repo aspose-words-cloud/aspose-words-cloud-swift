@@ -1372,6 +1372,85 @@ public class WordsAPI {
         return responseObject!;
     }
 
+    // Async representation of deleteComments method
+    // Removes all comments from the document.
+    public func deleteComments(request : DeleteCommentsRequest, callback : @escaping (_ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                callback: { response, error in
+                    callback(error);
+                }
+            );
+        }
+        catch let error {
+            callback(error);
+        }
+    }
+
+    // Sync representation of deleteComments method
+    // Removes all comments from the document.
+    public func deleteComments(request : DeleteCommentsRequest) throws {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseError : Error? = nil;
+        self.deleteComments(request : request, callback: { error in
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+    }
+
+    // Async representation of deleteCommentsOnline method
+    // Removes all comments from the document.
+    public func deleteCommentsOnline(request : DeleteCommentsOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                callback: { response, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of deleteCommentsOnline method
+    // Removes all comments from the document.
+    public func deleteCommentsOnline(request : DeleteCommentsOnlineRequest) throws -> Data {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : Data? = nil;
+        var responseError : Error? = nil;
+        self.deleteCommentsOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of deleteDocumentProperty method
     // Removes a document property.
     public func deleteDocumentProperty(request : DeleteDocumentPropertyRequest, callback : @escaping (_ error : Error?) -> ()) {
