@@ -72,6 +72,7 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(TableBorderTests.allTests),
         testCase(TextTests.allTests),
         testCase(WatermarkTests.allTests),
+        testCase(ExamplesTests.allTests),
     ]
 }
 #endif
