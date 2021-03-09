@@ -57,6 +57,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of saveFormat. base container class for save options data.
     private var saveFormat : String?;
 
+    // Field of updateCreatedTimeProperty. base container class for save options data.
+    private var updateCreatedTimeProperty : Bool?;
+
     // Field of updateFields. base container class for save options data.
     private var updateFields : Bool?;
 
@@ -79,6 +82,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
         case dmlRenderingMode = "DmlRenderingMode";
         case fileName = "FileName";
         case saveFormat = "SaveFormat";
+        case updateCreatedTimeProperty = "UpdateCreatedTimeProperty";
         case updateFields = "UpdateFields";
         case updateLastPrintedProperty = "UpdateLastPrintedProperty";
         case updateLastSavedTimeProperty = "UpdateLastSavedTimeProperty";
@@ -98,6 +102,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
         self.dmlRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlRenderingMode);
         self.fileName = try container.decodeIfPresent(String.self, forKey: .fileName);
         self.saveFormat = try container.decodeIfPresent(String.self, forKey: .saveFormat);
+        self.updateCreatedTimeProperty = try container.decodeIfPresent(Bool.self, forKey: .updateCreatedTimeProperty);
         self.updateFields = try container.decodeIfPresent(Bool.self, forKey: .updateFields);
         self.updateLastPrintedProperty = try container.decodeIfPresent(Bool.self, forKey: .updateLastPrintedProperty);
         self.updateLastSavedTimeProperty = try container.decodeIfPresent(Bool.self, forKey: .updateLastSavedTimeProperty);
@@ -124,6 +129,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
         }
         if (self.saveFormat != nil) {
             try container.encode(self.saveFormat, forKey: .saveFormat);
+        }
+        if (self.updateCreatedTimeProperty != nil) {
+            try container.encode(self.updateCreatedTimeProperty, forKey: .updateCreatedTimeProperty);
         }
         if (self.updateFields != nil) {
             try container.encode(self.updateFields, forKey: .updateFields);
@@ -200,6 +208,16 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Gets saveFormat. Gets or sets the format of save.
     public func getSaveFormat() -> String? {
         return self.saveFormat;
+    }
+
+    // Sets updateCreatedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving. Default value is false.
+    public func setUpdateCreatedTimeProperty(updateCreatedTimeProperty : Bool?) {
+        self.updateCreatedTimeProperty = updateCreatedTimeProperty;
+    }
+
+    // Gets updateCreatedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving. Default value is false.
+    public func getUpdateCreatedTimeProperty() -> Bool? {
+        return self.updateCreatedTimeProperty;
     }
 
     // Sets updateFields. Gets or sets a value indicating whether fields should be updated before saving the document to a fixed page format. The default value is true.
