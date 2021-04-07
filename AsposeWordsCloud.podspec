@@ -1,4 +1,4 @@
-Pod::Spec.new do |s|
+﻿Pod::Spec.new do |s|
   s.name             = 'AsposeWordsCloud'
   s.version          = '21.3'
   s.summary          = 'Aspose Words for Cloud.'

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertWatermarkImageRequest.swift">
  *   Copyright (c) 2021 Aspose.Words for Cloud

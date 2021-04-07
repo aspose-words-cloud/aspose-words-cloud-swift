@@ -1,4 +1,4 @@
-import AsposeWordsCloud
+﻿import AsposeWordsCloud
 
 let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");

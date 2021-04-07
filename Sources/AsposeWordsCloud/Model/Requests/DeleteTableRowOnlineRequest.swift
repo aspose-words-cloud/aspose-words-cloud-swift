@@ -1,4 +1,4 @@
-/*
+﻿/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DeleteTableRowOnlineRequest.swift">
  *   Copyright (c) 2021 Aspose.Words for Cloud

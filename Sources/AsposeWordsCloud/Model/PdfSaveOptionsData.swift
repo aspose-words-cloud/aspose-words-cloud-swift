@@ -1,4 +1,4 @@
-/*
+﻿/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PdfSaveOptionsData.swift">
  *   Copyright (c) 2021 Aspose.Words for Cloud
@@ -67,9 +67,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Field of encryptionDetails. Container class for pdf save options.
     private var encryptionDetails : PdfEncryptionDetailsData?;
 
-    // Field of escapeUri. Container class for pdf save options.
-    private var escapeUri : Bool?;
-
     // Field of exportDocumentStructure. Container class for pdf save options.
     private var exportDocumentStructure : Bool?;
 
@@ -127,7 +124,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         case downsampleOptions = "DownsampleOptions";
         case embedFullFonts = "EmbedFullFonts";
         case encryptionDetails = "EncryptionDetails";
-        case escapeUri = "EscapeUri";
         case exportDocumentStructure = "ExportDocumentStructure";
         case fontEmbeddingMode = "FontEmbeddingMode";
         case headerFooterBookmarksExportMode = "HeaderFooterBookmarksExportMode";
@@ -162,7 +158,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         self.downsampleOptions = try container.decodeIfPresent(DownsampleOptionsData.self, forKey: .downsampleOptions);
         self.embedFullFonts = try container.decodeIfPresent(Bool.self, forKey: .embedFullFonts);
         self.encryptionDetails = try container.decodeIfPresent(PdfEncryptionDetailsData.self, forKey: .encryptionDetails);
-        self.escapeUri = try container.decodeIfPresent(Bool.self, forKey: .escapeUri);
         self.exportDocumentStructure = try container.decodeIfPresent(Bool.self, forKey: .exportDocumentStructure);
         self.fontEmbeddingMode = try container.decodeIfPresent(String.self, forKey: .fontEmbeddingMode);
         self.headerFooterBookmarksExportMode = try container.decodeIfPresent(HeaderFooterBookmarksExportMode.self, forKey: .headerFooterBookmarksExportMode);
@@ -207,9 +202,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
         if (self.encryptionDetails != nil) {
             try container.encode(self.encryptionDetails, forKey: .encryptionDetails);
-        }
-        if (self.escapeUri != nil) {
-            try container.encode(self.escapeUri, forKey: .escapeUri);
         }
         if (self.exportDocumentStructure != nil) {
             try container.encode(self.exportDocumentStructure, forKey: .exportDocumentStructure);
@@ -339,16 +331,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Gets encryptionDetails. Gets or sets the details for encrypting the output PDF document.
     public func getEncryptionDetails() -> PdfEncryptionDetailsData? {
         return self.encryptionDetails;
-    }
-
-    // Sets escapeUri. Gets or sets a value indicating whether URI should be escaped before writing.
-    public func setEscapeUri(escapeUri : Bool?) {
-        self.escapeUri = escapeUri;
-    }
-
-    // Gets escapeUri. Gets or sets a value indicating whether URI should be escaped before writing.
-    public func getEscapeUri() -> Bool? {
-        return self.escapeUri;
     }
 
     // Sets exportDocumentStructure. Gets or sets a value indicating whether to export document structure.

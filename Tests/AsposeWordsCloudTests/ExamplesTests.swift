@@ -1,4 +1,4 @@
-import AsposeWordsCloud
+﻿import AsposeWordsCloud
 
 import XCTest
 @testable import AsposeWordsCloud

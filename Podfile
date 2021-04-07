@@ -1,3 +1,3 @@
-target 'AsposeWordsCloud' do
+﻿target 'AsposeWordsCloud' do
   use_frameworks!
 end
