@@ -121,7 +121,7 @@ public class InsertWatermarkImageRequest : WordsApiRequest {
         return self.rotationAngle;
     }
 
-    // The filename of the image. If the parameter value is missing — the image data is expected in the request content.
+    // The filename of the image. If the parameter value is missing â€” the image data is expected in the request content.
     public func getImage() -> String? {
         return self.image;
     }

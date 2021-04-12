@@ -32,7 +32,7 @@ public class ApiInvoker {
     // An object containing the configuration for executing API requests 
     private let configuration : Configuration;
 
-    // Cached value of oauth2 authorization toke?. 
+    // Cached value of oauth2 authorization tokeт. 
     // It is filled after the first call to the API. 
     // Mutex is used to synchronize updates in a multi-threaded environment.
     private let mutex : NSLock;
