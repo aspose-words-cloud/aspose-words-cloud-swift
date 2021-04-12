@@ -1,4 +1,4 @@
-﻿/*
+/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentDrawingObjectByIndexOnlineRequest.swift">
  *   Copyright (c) 2021 Aspose.Words for Cloud

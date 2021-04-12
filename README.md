@@ -1,4 +1,4 @@
-﻿# Aspose.Words Cloud SDK for Swift
+# Aspose.Words Cloud SDK for Swift
 This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK allows you to work with Aspose.Words Cloud REST APIs in your Swift applications quickly and easily, with zero initial cost.
 
 [Aspose.Words Cloud](https://products.aspose.cloud/words/family "Aspose.Words for Cloud")

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RunLink.swift">
  *   Copyright (c) 2021 Aspose.Words for Cloud

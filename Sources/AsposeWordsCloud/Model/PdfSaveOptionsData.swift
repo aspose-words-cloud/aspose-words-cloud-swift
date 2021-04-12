@@ -1,4 +1,4 @@
-ï»¿/*
+/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="PdfSaveOptionsData.swift">
  *   Copyright (c) 2021 Aspose.Words for Cloud
@@ -293,12 +293,12 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.digitalSignatureDetails;
     }
 
-    // Sets displayDocTitle. Gets or sets a value indicating whether the windowâ€™s title bar should display the document title taken from the Title entry of the document information dictionary.
+    // Sets displayDocTitle. Gets or sets a value indicating whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.
     public func setDisplayDocTitle(displayDocTitle : Bool?) {
         self.displayDocTitle = displayDocTitle;
     }
 
-    // Gets displayDocTitle. Gets or sets a value indicating whether the windowâ€™s title bar should display the document title taken from the Title entry of the document information dictionary.
+    // Gets displayDocTitle. Gets or sets a value indicating whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.
     public func getDisplayDocTitle() -> Bool? {
         return self.displayDocTitle;
     }

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="SaveAsOnlineResponse.swift">
  *   Copyright (c) 2021 Aspose.Words for Cloud

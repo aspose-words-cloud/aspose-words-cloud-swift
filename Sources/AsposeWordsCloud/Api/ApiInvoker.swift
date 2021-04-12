@@ -1,4 +1,4 @@
-﻿/*
+/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ApiInvoker.swift">
  *   Copyright (c) 2021 Aspose.Words for Cloud
@@ -32,7 +32,7 @@ public class ApiInvoker {
     // An object containing the configuration for executing API requests 
     private let configuration : Configuration;
 
-    // Cached value of oauth2 authorization tokeт. 
+    // Cached value of oauth2 authorization toke?. 
     // It is filled after the first call to the API. 
     // Mutex is used to synchronize updates in a multi-threaded environment.
     private let mutex : NSLock;

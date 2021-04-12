@@ -1,4 +1,4 @@
-﻿/*
+/*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="InsertRunRequest.swift">
  *   Copyright (c) 2021 Aspose.Words for Cloud
