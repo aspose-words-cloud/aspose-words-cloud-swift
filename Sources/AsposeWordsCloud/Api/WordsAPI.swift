@@ -13235,9 +13235,17 @@ public class WordsAPI {
                                 throw WordsApiError.invalidMultipartResponse(message: "Parts count of multipart request and response are mismatch.");
                             }
 
+                            let sortedParts = parts.reduce(into: [String: ResponseFormParam]()) {
+                                $0[$1.getHeaders()["RequestId"]] = $1
+                            }
+
                             var result = [Any?]();
-                            for (index, part) in parts.enumerated() {
-                                result.append(try ObjectSerializer.deserializeBatchPart(request: requests[index].getRequest(), partData: part));
+                            for request in requests {
+                                if (sortedParts[request.getRequestId()] == nil) {
+                                    throw WordsApiError.invalidMultipartResponse(message: "Failed to parse batch response.");
+                                }
+
+                                result.append(try ObjectSerializer.deserializeBatchPart(request: request.getRequest(), partData: sortedParts[request.getRequestId()]));
                             }
 
                             callback(result, nil);

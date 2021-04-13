@@ -90,10 +90,10 @@ class BatchTests: BaseTestContext {
             reportEngineSettings: requestReportEngineSettings
         ));
 
-        request5.setDependsOn(request4);
-        request4.setDependsOn(request3);
-        request3.setDependsOn(request2);
-        request2.setDependsOn(request1);
+        request5.setDependsOn(request: request4);
+        request4.setDependsOn(request: request3);
+        request3.setDependsOn(request: request2);
+        request2.setDependsOn(request: request1);
 
         let result = try super.getApi().batch(requests: [request1, request2, request3, request4, request5]);
         XCTAssertEqual(result.count, 5);
