@@ -57,7 +57,7 @@ public struct BatchRequest {
 
     public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
         var result = try request.createApiRequestData(configuration: configuration);
-        result.addHeader(key: "RequestId", value: self.request);
+        result.addHeader(key: "RequestId", value: self.requestId);
         if (!self.dependsOn.isEmpty) {
             result.addHeader(key: "DependsOn", value: self.dependsOn);
         }
