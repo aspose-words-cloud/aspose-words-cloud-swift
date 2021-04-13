@@ -47,35 +47,35 @@ class BatchTests: BaseTestContext {
             path: remoteDataFolder + "/" + remoteFileName
         );
 
-        let request1 = GetParagraphsRequest(
+        let request1 = BatchRequest(request: GetParagraphsRequest(
             name: remoteFileName,
             nodePath: "sections/0",
             folder: remoteDataFolder
-        );
+        ));
 
-        let request2 = GetParagraphRequest(
+        let request2 = BatchRequest(request: GetParagraphRequest(
             name: remoteFileName,
             index: 0,
             nodePath: "sections/0",
             folder: remoteDataFolder
-        );
+        ));
 
         let request3Body = ParagraphInsert();
         request3Body.setText(text: "This is a new paragraph for your document");
 
-        let request3 = InsertParagraphRequest(
+        let request3 = BatchRequest(request: InsertParagraphRequest(
             name: remoteFileName,
             paragraph: request3Body,
             nodePath: "sections/0",
             folder: remoteDataFolder
-        );
+        ));
 
-        let request4 = DeleteParagraphRequest(
+        let request4 = BatchRequest(request: DeleteParagraphRequest(
             name: remoteFileName,
             index: 0,
             nodePath: "",
             folder: remoteDataFolder
-        );
+        ));
 
         let localDocumentFile = "ReportTemplate.docx";
         let localDataFile = try String(contentsOf: self.getLocalTestDataFolder().appendingPathComponent(reportingFolder + "/ReportData.json", isDirectory: false));
@@ -84,7 +84,16 @@ class BatchTests: BaseTestContext {
         requestReportEngineSettings.setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json);
         requestReportEngineSettings.setDataSourceName(dataSourceName: "persons");
 
-        let request5 = BuildReportOnlineRequest(template: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(reportingFolder + "/" + localDocumentFile, isDirectory: false))!, data: localDataFile, reportEngineSettings: requestReportEngineSettings);
+        let request5 = BatchRequest(request: BuildReportOnlineRequest(
+            template: request4.resultOf(),
+            data: localDataFile, 
+            reportEngineSettings: requestReportEngineSettings
+        ));
+
+        request5.setDependsOn(request4);
+        request4.setDependsOn(request3);
+        request3.setDependsOn(request2);
+        request2.setDependsOn(request1);
 
         let result = try super.getApi().batch(requests: [request1, request2, request3, request4, request5]);
         XCTAssertEqual(result.count, 5);

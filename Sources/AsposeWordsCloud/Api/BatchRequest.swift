@@ -43,7 +43,7 @@ public struct BatchRequest {
          return self.requestId;
     }
 
-    public func setDependsOn(request : BatchRequest) {
+    public mutating func setDependsOn(request : BatchRequest) {
          return self.dependsOn = request.requestId;
     }
 
