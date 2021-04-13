@@ -47,13 +47,13 @@ class BatchTests: BaseTestContext {
             path: remoteDataFolder + "/" + remoteFileName
         );
 
-        let request1 = BatchRequest(request: GetParagraphsRequest(
+        var request1 = BatchRequest(request: GetParagraphsRequest(
             name: remoteFileName,
             nodePath: "sections/0",
             folder: remoteDataFolder
         ));
 
-        let request2 = BatchRequest(request: GetParagraphRequest(
+        var request2 = BatchRequest(request: GetParagraphRequest(
             name: remoteFileName,
             index: 0,
             nodePath: "sections/0",
@@ -63,14 +63,14 @@ class BatchTests: BaseTestContext {
         let request3Body = ParagraphInsert();
         request3Body.setText(text: "This is a new paragraph for your document");
 
-        let request3 = BatchRequest(request: InsertParagraphRequest(
+        var request3 = BatchRequest(request: InsertParagraphRequest(
             name: remoteFileName,
             paragraph: request3Body,
             nodePath: "sections/0",
             folder: remoteDataFolder
         ));
 
-        let request4 = BatchRequest(request: DeleteParagraphRequest(
+        var request4 = BatchRequest(request: DeleteParagraphRequest(
             name: remoteFileName,
             index: 0,
             nodePath: "",
@@ -84,7 +84,7 @@ class BatchTests: BaseTestContext {
         requestReportEngineSettings.setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json);
         requestReportEngineSettings.setDataSourceName(dataSourceName: "persons");
 
-        let request5 = BatchRequest(request: BuildReportOnlineRequest(
+        var request5 = BatchRequest(request: BuildReportOnlineRequest(
             template: request4.resultOf(),
             data: localDataFile, 
             reportEngineSettings: requestReportEngineSettings
