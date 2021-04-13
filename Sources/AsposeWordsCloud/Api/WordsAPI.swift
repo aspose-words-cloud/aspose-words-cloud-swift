@@ -13218,7 +13218,7 @@ public class WordsAPI {
     }
 
     // Async representation of batch method
-    public func batch(requests : [WordsApiRequest], callback : @escaping (_ response : [Any?]?, _ error : Error?) -> ()) {
+    public func batch(requests : [BatchRequest], callback : @escaping (_ response : [Any?]?, _ error : Error?) -> ()) {
         do {
             let apiRequestData = try requests.map { try $0.createApiRequestData(configuration: self.configuration) };
             let formParams = try apiRequestData.map { RequestFormParam(name: nil, body: try $0.toBatchPart(configuration: self.configuration), contentType: "application/http; msgtype=request") };
@@ -13237,7 +13237,7 @@ public class WordsAPI {
 
                             var result = [Any?]();
                             for (index, part) in parts.enumerated() {
-                                result.append(try ObjectSerializer.deserializeBatchPart(request: requests[index], partData: part));
+                                result.append(try ObjectSerializer.deserializeBatchPart(request: requests[index].getRequest(), partData: part));
                             }
 
                             callback(result, nil);
@@ -13257,7 +13257,7 @@ public class WordsAPI {
         }
     }
 
-    public func batch(requests : [WordsApiRequest]) throws -> [Any?] {
+    public func batch(requests : [BatchRequest]) throws -> [Any?] {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : [Any?]? = nil;
         var responseError : Error? = nil;
