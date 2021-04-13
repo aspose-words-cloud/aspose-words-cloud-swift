@@ -13245,7 +13245,7 @@ public class WordsAPI {
                                     throw WordsApiError.invalidMultipartResponse(message: "Failed to parse batch response.");
                                 }
 
-                                result.append(try ObjectSerializer.deserializeBatchPart(request: request.getRequest(), partData: sortedParts[request.getRequestId()]));
+                                result.append(try ObjectSerializer.deserializeBatchPart(request: request.getRequest(), partData: sortedParts[request.getRequestId()]!));
                             }
 
                             callback(result, nil);
