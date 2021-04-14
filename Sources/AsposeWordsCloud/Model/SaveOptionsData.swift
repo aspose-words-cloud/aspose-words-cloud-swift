@@ -42,6 +42,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of allowEmbeddingPostScriptFonts. base container class for save options data.
     private var allowEmbeddingPostScriptFonts : Bool?;
 
+    // Field of customTimeZoneInfoData. base container class for save options data.
+    private var customTimeZoneInfoData : TimeZoneInfoData?;
+
     // Field of dml3DEffectsRenderingMode. base container class for save options data.
     private var dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?;
 
@@ -77,6 +80,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
 
     private enum CodingKeys: String, CodingKey {
         case allowEmbeddingPostScriptFonts = "AllowEmbeddingPostScriptFonts";
+        case customTimeZoneInfoData = "CustomTimeZoneInfoData";
         case dml3DEffectsRenderingMode = "Dml3DEffectsRenderingMode";
         case dmlEffectsRenderingMode = "DmlEffectsRenderingMode";
         case dmlRenderingMode = "DmlRenderingMode";
@@ -97,6 +101,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.allowEmbeddingPostScriptFonts = try container.decodeIfPresent(Bool.self, forKey: .allowEmbeddingPostScriptFonts);
+        self.customTimeZoneInfoData = try container.decodeIfPresent(TimeZoneInfoData.self, forKey: .customTimeZoneInfoData);
         self.dml3DEffectsRenderingMode = try container.decodeIfPresent(Dml3DEffectsRenderingMode.self, forKey: .dml3DEffectsRenderingMode);
         self.dmlEffectsRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlEffectsRenderingMode);
         self.dmlRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlRenderingMode);
@@ -114,6 +119,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.allowEmbeddingPostScriptFonts != nil) {
             try container.encode(self.allowEmbeddingPostScriptFonts, forKey: .allowEmbeddingPostScriptFonts);
+        }
+        if (self.customTimeZoneInfoData != nil) {
+            try container.encode(self.customTimeZoneInfoData, forKey: .customTimeZoneInfoData);
         }
         if (self.dml3DEffectsRenderingMode != nil) {
             try container.encode(self.dml3DEffectsRenderingMode, forKey: .dml3DEffectsRenderingMode);
@@ -158,6 +166,16 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Gets allowEmbeddingPostScriptFonts. Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
     public func getAllowEmbeddingPostScriptFonts() -> Bool? {
         return self.allowEmbeddingPostScriptFonts;
+    }
+
+    // Sets customTimeZoneInfoData. Gets or sets CustomTimeZoneInfo.
+    public func setCustomTimeZoneInfoData(customTimeZoneInfoData : TimeZoneInfoData?) {
+        self.customTimeZoneInfoData = customTimeZoneInfoData;
+    }
+
+    // Gets customTimeZoneInfoData. Gets or sets CustomTimeZoneInfo.
+    public func getCustomTimeZoneInfoData() -> TimeZoneInfoData? {
+        return self.customTimeZoneInfoData;
     }
 
     // Sets dml3DEffectsRenderingMode. Gets or sets the value determining how 3D effects are rendered.
