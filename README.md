@@ -13,6 +13,11 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 21.4
+
+- Support batch requests.
+- Added DependsOn and ResultOf features support for batch requests.
+
 ## Enhancements in Version 21.3
 
 - Added 'UpdateCreatedTimeProperty' save option
