@@ -15,8 +15,12 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 
 ## Enhancements in Version 21.4
 
-- Support batch requests.
-- Added DependsOn and ResultOf features support for batch requests.
+- Removed obsolete pdf save option 'EscapeUri'
+- SaveOptions now contains CustomTimeZoneInfo to set custom timezone when SdtType.Date structured document tag updated from custom XML
+- Url of child requests in batch can be full now (earlier it can be only relative)
+- Added 'RquestId' header to all responses
+- Support batch requests
+- Added DependsOn and ResultOf features support for batch requests
 
 ## Enhancements in Version 21.3
 
