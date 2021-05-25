@@ -1236,6 +1236,9 @@ public class ParagraphFormatBase : LinkElement {
         // Enum value "listTable7ColorfulAccent6"
         case listTable7ColorfulAccent6 = "ListTable7ColorfulAccent6"
 
+        // Enum value "smartLink"
+        case smartLink = "SmartLink"
+
         // Enum value "user"
         case user = "User"
 
