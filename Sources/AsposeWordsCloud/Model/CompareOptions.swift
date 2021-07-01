@@ -39,6 +39,9 @@ public class CompareOptions : Codable, WordsApiModel {
         case new = "New"
     }
 
+    // Field of acceptAllRevisionsBeforeComparison. DTO container with compare documents options.
+    private var acceptAllRevisionsBeforeComparison : Bool?;
+
     // Field of ignoreCaseChanges. DTO container with compare documents options.
     private var ignoreCaseChanges : Bool?;
 
@@ -67,6 +70,7 @@ public class CompareOptions : Codable, WordsApiModel {
     private var target : Target?;
 
     private enum CodingKeys: String, CodingKey {
+        case acceptAllRevisionsBeforeComparison = "AcceptAllRevisionsBeforeComparison";
         case ignoreCaseChanges = "IgnoreCaseChanges";
         case ignoreComments = "IgnoreComments";
         case ignoreFields = "IgnoreFields";
@@ -84,6 +88,7 @@ public class CompareOptions : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
+        self.acceptAllRevisionsBeforeComparison = try container.decodeIfPresent(Bool.self, forKey: .acceptAllRevisionsBeforeComparison);
         self.ignoreCaseChanges = try container.decodeIfPresent(Bool.self, forKey: .ignoreCaseChanges);
         self.ignoreComments = try container.decodeIfPresent(Bool.self, forKey: .ignoreComments);
         self.ignoreFields = try container.decodeIfPresent(Bool.self, forKey: .ignoreFields);
@@ -97,6 +102,9 @@ public class CompareOptions : Codable, WordsApiModel {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self);
+        if (self.acceptAllRevisionsBeforeComparison != nil) {
+            try container.encode(self.acceptAllRevisionsBeforeComparison, forKey: .acceptAllRevisionsBeforeComparison);
+        }
         if (self.ignoreCaseChanges != nil) {
             try container.encode(self.ignoreCaseChanges, forKey: .ignoreCaseChanges);
         }
@@ -124,6 +132,16 @@ public class CompareOptions : Codable, WordsApiModel {
         if (self.target != nil) {
             try container.encode(self.target, forKey: .target);
         }
+    }
+
+    // Sets acceptAllRevisionsBeforeComparison. Gets or sets whether accept revisions before comparison or not.
+    public func setAcceptAllRevisionsBeforeComparison(acceptAllRevisionsBeforeComparison : Bool?) {
+        self.acceptAllRevisionsBeforeComparison = acceptAllRevisionsBeforeComparison;
+    }
+
+    // Gets acceptAllRevisionsBeforeComparison. Gets or sets whether accept revisions before comparison or not.
+    public func getAcceptAllRevisionsBeforeComparison() -> Bool? {
+        return self.acceptAllRevisionsBeforeComparison;
     }
 
     // Sets ignoreCaseChanges. Gets or sets a value indicating whether documents comparison is case insensitive. By default comparison is case sensitive.

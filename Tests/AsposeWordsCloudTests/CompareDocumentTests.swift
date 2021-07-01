@@ -32,7 +32,8 @@ import XCTest
 class CompareDocumentTests: BaseTestContext {
     static var allTests = [
         ("testCompareDocument", testCompareDocument),
-        ("testCompareDocumentOnline", testCompareDocumentOnline)
+        ("testCompareDocumentOnline", testCompareDocumentOnline),
+        ("testCompareTwoDocumentOnline", testCompareTwoDocumentOnline)
     ];
 
     let remoteFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentActions/CompareDocument";
@@ -75,6 +76,24 @@ class CompareDocumentTests: BaseTestContext {
 
 
       let request = CompareDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName1, isDirectory: false))!, compareData: requestCompareData, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
+      _ = try super.getApi().compareDocumentOnline(request: request);
+    }
+
+    // Test for document comparison online.
+    func testCompareTwoDocumentOnline() throws {
+      let localName1 = "compareTestDoc1.doc";
+      let localName2 = "compareTestDoc2.doc";
+      let remoteName2 = "TestCompareDocument2.doc";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName2, isDirectory: false), path: remoteFolder + "/" + remoteName2);
+
+      let requestCompareData = CompareData();
+      requestCompareData.setAuthor(author: "author");
+      requestCompareData.setComparingWithDocument(comparingWithDocument: remoteFolder + "/" + remoteName2);
+      requestCompareData.setDateTime(dateTime: ObjectSerializer.customIso8601.date(from: "2015-10-26T00:00:00Z")!);
+
+
+      let request = CompareDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName1, isDirectory: false))!, compareData: requestCompareData, comparingDocument: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName2, isDirectory: false))!, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
       _ = try super.getApi().compareDocumentOnline(request: request);
     }
 }
