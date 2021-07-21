@@ -7,8 +7,7 @@ class ExamplesTests : XCTestCase
 {
     static var allTests = [
         ("testAcceptAllRevisions", testAcceptAllRevisions),
-        ("testAcceptAllRevisionsOnline", testAcceptAllRevisionsOnline),
-        ("testUpdateBookmark", testUpdateBookmark)
+        ("testAcceptAllRevisionsOnline", testAcceptAllRevisionsOnline)
     ];
 
     private var configuration : Configuration?;
@@ -72,19 +71,5 @@ class ExamplesTests : XCTestCase
         let request = AcceptAllRevisionsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent(fileName, isDirectory: false))!);
         let acceptAllRevisionsOnlineResult = try api.acceptAllRevisionsOnline(request: request);
         try acceptAllRevisionsOnlineResult.getDocument()?.write(to: currentDir!.appendingPathComponent("test_result.docx", isDirectory: false));
-    }
-
-    func testUpdateBookmark() throws
-    {
-        let config = configuration!;
-        let api = WordsAPI(configuration: config);
-        let remoteFileName = "Sample.docx";
-        let bookmarkName = "aspose";
-
-        let testBookmarkData = BookmarkData();
-        testBookmarkData.setName(name: bookmarkName);
-        testBookmarkData.setText(text: "New Bookmark Text");
-        let updateBookmark = UpdateBookmarkRequest(name: remoteFileName, bookmarkName: bookmarkName, bookmarkData: testBookmarkData);
-        _ = try api.updateBookmark(request: updateBookmark);
     }
 }
