@@ -213,11 +213,11 @@ class ParagraphTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestFontDto = Font();
-      requestFontDto.setBold(bold: true);
+      let fontDto = Font();
+      fontDto.setBold(bold: true);
 
 
-      let request = UpdateRunFontRequest(name: remoteFileName, paragraphPath: "paragraphs/0", index: 0, fontDto: requestFontDto, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = UpdateRunFontRequest(name: remoteFileName, paragraphPath: "paragraphs/0", index: 0, fontDto: fontDto, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().updateRunFont(request: request);
       XCTAssertNotNil(actual.getFont());
       XCTAssertEqual(actual.getFont()!.getBold(), true);
@@ -225,11 +225,11 @@ class ParagraphTests: BaseTestContext {
 
     // Test for updating paragraph run font online.
     func testUpdateRunFontOnline() throws {
-      let requestFontDto = Font();
-      requestFontDto.setBold(bold: true);
+      let fontDto = Font();
+      fontDto.setBold(bold: true);
 
 
-      let request = UpdateRunFontOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/0", fontDto: requestFontDto, index: 0);
+      let request = UpdateRunFontOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/0", fontDto: fontDto, index: 0);
       _ = try super.getApi().updateRunFontOnline(request: request);
     }
 
@@ -239,11 +239,11 @@ class ParagraphTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestParagraph = ParagraphInsert();
-      requestParagraph.setText(text: "This is a new paragraph for your document");
+      let paragraph = ParagraphInsert();
+      paragraph.setText(text: "This is a new paragraph for your document");
 
 
-      let request = InsertParagraphRequest(name: remoteFileName, paragraph: requestParagraph, nodePath: "sections/0", folder: remoteDataFolder);
+      let request = InsertParagraphRequest(name: remoteFileName, paragraph: paragraph, nodePath: "sections/0", folder: remoteDataFolder);
       let actual = try super.getApi().insertParagraph(request: request);
       XCTAssertNotNil(actual.getParagraph());
       XCTAssertEqual(actual.getParagraph()!.getNodeId(), "0.3.8");
@@ -251,11 +251,11 @@ class ParagraphTests: BaseTestContext {
 
     // Test for adding paragraph online.
     func testInsertParagraphOnline() throws {
-      let requestParagraph = ParagraphInsert();
-      requestParagraph.setText(text: "This is a new paragraph for your document");
+      let paragraph = ParagraphInsert();
+      paragraph.setText(text: "This is a new paragraph for your document");
 
 
-      let request = InsertParagraphOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraph: requestParagraph, nodePath: "sections/0");
+      let request = InsertParagraphOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraph: paragraph, nodePath: "sections/0");
       _ = try super.getApi().insertParagraphOnline(request: request);
     }
 
@@ -265,11 +265,11 @@ class ParagraphTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestParagraph = ParagraphInsert();
-      requestParagraph.setText(text: "This is a new paragraph for your document");
+      let paragraph = ParagraphInsert();
+      paragraph.setText(text: "This is a new paragraph for your document");
 
 
-      let request = InsertParagraphRequest(name: remoteFileName, paragraph: requestParagraph, folder: remoteDataFolder);
+      let request = InsertParagraphRequest(name: remoteFileName, paragraph: paragraph, folder: remoteDataFolder);
       let actual = try super.getApi().insertParagraph(request: request);
       XCTAssertNotNil(actual.getParagraph());
       XCTAssertEqual(actual.getParagraph()!.getNodeId(), "0.3.8");
@@ -337,11 +337,11 @@ class ParagraphTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestParagraphFormatDto = ParagraphFormatUpdate();
-      requestParagraphFormatDto.setAlignment(alignment: ParagraphFormatUpdate.Alignment._right);
+      let paragraphFormatDto = ParagraphFormatUpdate();
+      paragraphFormatDto.setAlignment(alignment: ParagraphFormatUpdate.Alignment._right);
 
 
-      let request = UpdateParagraphFormatRequest(name: remoteFileName, index: 0, paragraphFormatDto: requestParagraphFormatDto, nodePath: "", folder: remoteDataFolder);
+      let request = UpdateParagraphFormatRequest(name: remoteFileName, index: 0, paragraphFormatDto: paragraphFormatDto, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateParagraphFormat(request: request);
       XCTAssertNotNil(actual.getParagraphFormat());
 
@@ -349,11 +349,11 @@ class ParagraphTests: BaseTestContext {
 
     // Test for updating  paragraph format settings online.
     func testUpdateParagraphFormatOnline() throws {
-      let requestParagraphFormatDto = ParagraphFormatUpdate();
-      requestParagraphFormatDto.setAlignment(alignment: ParagraphFormatUpdate.Alignment._right);
+      let paragraphFormatDto = ParagraphFormatUpdate();
+      paragraphFormatDto.setAlignment(alignment: ParagraphFormatUpdate.Alignment._right);
 
 
-      let request = UpdateParagraphFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphFormatDto: requestParagraphFormatDto, index: 0, nodePath: "");
+      let request = UpdateParagraphFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphFormatDto: paragraphFormatDto, index: 0, nodePath: "");
       _ = try super.getApi().updateParagraphFormatOnline(request: request);
     }
 
@@ -419,11 +419,11 @@ class ParagraphTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(listFolder + "/ParagraphUpdateListFormat.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestListFormatDto = ListFormatUpdate();
-      requestListFormatDto.setListId(listId: 2);
+      let listFormatDto = ListFormatUpdate();
+      listFormatDto.setListId(listId: 2);
 
 
-      let request = UpdateParagraphListFormatRequest(name: remoteFileName, index: 0, listFormatDto: requestListFormatDto, nodePath: "", folder: remoteDataFolder);
+      let request = UpdateParagraphListFormatRequest(name: remoteFileName, index: 0, listFormatDto: listFormatDto, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateParagraphListFormat(request: request);
       XCTAssertNotNil(actual.getListFormat());
       XCTAssertEqual(actual.getListFormat()!.getListId(), 2);
@@ -431,11 +431,11 @@ class ParagraphTests: BaseTestContext {
 
     // Test for updating paragraph list format online.
     func testUpdateParagraphListFormatOnline() throws {
-      let requestListFormatDto = ListFormatUpdate();
-      requestListFormatDto.setListId(listId: 2);
+      let listFormatDto = ListFormatUpdate();
+      listFormatDto.setListId(listId: 2);
 
 
-      let request = UpdateParagraphListFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(listFolder + "/ParagraphUpdateListFormat.doc", isDirectory: false))!, listFormatDto: requestListFormatDto, index: 0, nodePath: "");
+      let request = UpdateParagraphListFormatOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(listFolder + "/ParagraphUpdateListFormat.doc", isDirectory: false))!, listFormatDto: listFormatDto, index: 0, nodePath: "");
       _ = try super.getApi().updateParagraphListFormatOnline(request: request);
     }
 
@@ -445,11 +445,11 @@ class ParagraphTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(listFolder + "/ParagraphUpdateListFormat.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestListFormatDto = ListFormatUpdate();
-      requestListFormatDto.setListId(listId: 2);
+      let listFormatDto = ListFormatUpdate();
+      listFormatDto.setListId(listId: 2);
 
 
-      let request = UpdateParagraphListFormatRequest(name: remoteFileName, index: 0, listFormatDto: requestListFormatDto, folder: remoteDataFolder);
+      let request = UpdateParagraphListFormatRequest(name: remoteFileName, index: 0, listFormatDto: listFormatDto, folder: remoteDataFolder);
       let actual = try super.getApi().updateParagraphListFormat(request: request);
       XCTAssertNotNil(actual.getListFormat());
       XCTAssertEqual(actual.getListFormat()!.getListId(), 2);
@@ -519,13 +519,13 @@ class ParagraphTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestTabStopInsertDto = TabStopInsert();
-      requestTabStopInsertDto.setAlignment(alignment: TabStopInsert.Alignment._left);
-      requestTabStopInsertDto.setLeader(leader: TabStopInsert.Leader._none);
-      requestTabStopInsertDto.setPosition(position: 100.0);
+      let tabStopInsertDto = TabStopInsert();
+      tabStopInsertDto.setAlignment(alignment: TabStopInsert.Alignment._left);
+      tabStopInsertDto.setLeader(leader: TabStopInsert.Leader._none);
+      tabStopInsertDto.setPosition(position: 100.0);
 
 
-      let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, index: 0, tabStopInsertDto: requestTabStopInsertDto, nodePath: "", folder: remoteDataFolder);
+      let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, index: 0, tabStopInsertDto: tabStopInsertDto, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
       XCTAssertNotNil(actual.getTabStops());
       XCTAssertEqual(actual.getTabStops()!.count, 3);
@@ -536,13 +536,13 @@ class ParagraphTests: BaseTestContext {
 
     // Test for inserting paragraph tab stop online.
     func testInsertParagraphTabStopsOnline() throws {
-      let requestTabStopInsertDto = TabStopInsert();
-      requestTabStopInsertDto.setAlignment(alignment: TabStopInsert.Alignment._left);
-      requestTabStopInsertDto.setLeader(leader: TabStopInsert.Leader._none);
-      requestTabStopInsertDto.setPosition(position: 72);
+      let tabStopInsertDto = TabStopInsert();
+      tabStopInsertDto.setAlignment(alignment: TabStopInsert.Alignment._left);
+      tabStopInsertDto.setLeader(leader: TabStopInsert.Leader._none);
+      tabStopInsertDto.setPosition(position: 72);
 
 
-      let request = InsertOrUpdateParagraphTabStopOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false))!, tabStopInsertDto: requestTabStopInsertDto, index: 0, nodePath: "");
+      let request = InsertOrUpdateParagraphTabStopOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false))!, tabStopInsertDto: tabStopInsertDto, index: 0, nodePath: "");
       _ = try super.getApi().insertOrUpdateParagraphTabStopOnline(request: request);
     }
 
@@ -552,13 +552,13 @@ class ParagraphTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(tabStopFolder + "/ParagraphTabStops.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestTabStopInsertDto = TabStopInsert();
-      requestTabStopInsertDto.setAlignment(alignment: TabStopInsert.Alignment._left);
-      requestTabStopInsertDto.setLeader(leader: TabStopInsert.Leader._none);
-      requestTabStopInsertDto.setPosition(position: 100.0);
+      let tabStopInsertDto = TabStopInsert();
+      tabStopInsertDto.setAlignment(alignment: TabStopInsert.Alignment._left);
+      tabStopInsertDto.setLeader(leader: TabStopInsert.Leader._none);
+      tabStopInsertDto.setPosition(position: 100.0);
 
 
-      let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, index: 0, tabStopInsertDto: requestTabStopInsertDto, folder: remoteDataFolder);
+      let request = InsertOrUpdateParagraphTabStopRequest(name: remoteFileName, index: 0, tabStopInsertDto: tabStopInsertDto, folder: remoteDataFolder);
       let actual = try super.getApi().insertOrUpdateParagraphTabStop(request: request);
       XCTAssertNotNil(actual.getTabStops());
       XCTAssertEqual(actual.getTabStops()!.count, 3);

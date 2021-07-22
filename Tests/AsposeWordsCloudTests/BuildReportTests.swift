@@ -43,12 +43,12 @@ class BuildReportTests: BaseTestContext {
       let localDocumentFile = "ReportTemplate.docx";
       let localDataFile = try String(contentsOf: self.getLocalTestDataFolder().appendingPathComponent(reportingFolder + "/ReportData.json", isDirectory: false));
 
-      let requestReportEngineSettings = ReportEngineSettings();
-      requestReportEngineSettings.setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json);
-      requestReportEngineSettings.setDataSourceName(dataSourceName: "persons");
+      let reportEngineSettings = ReportEngineSettings();
+      reportEngineSettings.setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json);
+      reportEngineSettings.setDataSourceName(dataSourceName: "persons");
 
 
-      let request = BuildReportOnlineRequest(template: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(reportingFolder + "/" + localDocumentFile, isDirectory: false))!, data: localDataFile, reportEngineSettings: requestReportEngineSettings);
+      let request = BuildReportOnlineRequest(template: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(reportingFolder + "/" + localDocumentFile, isDirectory: false))!, data: localDataFile, reportEngineSettings: reportEngineSettings);
       _ = try super.getApi().buildReportOnline(request: request);
     }
 
@@ -60,14 +60,14 @@ class BuildReportTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(reportingFolder + "/" + localDocumentFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestReportEngineSettingsReportBuildOptions = [ReportBuildOptions.allowMissingMembers, ReportBuildOptions.removeEmptyParagraphs];
+      let reportEngineSettingsReportBuildOptions = [ReportBuildOptions.allowMissingMembers, ReportBuildOptions.removeEmptyParagraphs];
 
-      let requestReportEngineSettings = ReportEngineSettings();
-      requestReportEngineSettings.setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json);
-      requestReportEngineSettings.setReportBuildOptions(reportBuildOptions: requestReportEngineSettingsReportBuildOptions);
+      let reportEngineSettings = ReportEngineSettings();
+      reportEngineSettings.setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json);
+      reportEngineSettings.setReportBuildOptions(reportBuildOptions: reportEngineSettingsReportBuildOptions);
 
 
-      let request = BuildReportRequest(name: remoteFileName, data: localDataFile, reportEngineSettings: requestReportEngineSettings, folder: remoteDataFolder);
+      let request = BuildReportRequest(name: remoteFileName, data: localDataFile, reportEngineSettings: reportEngineSettings, folder: remoteDataFolder);
       let actual = try super.getApi().buildReport(request: request);
       XCTAssertNotNil(actual.getDocument());
       XCTAssertEqual(actual.getDocument()!.getFileName(), "TestBuildReport.docx");

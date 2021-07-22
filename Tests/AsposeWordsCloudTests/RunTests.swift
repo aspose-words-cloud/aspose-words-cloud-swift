@@ -48,11 +48,11 @@ class RunTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestRun = RunUpdate();
-      requestRun.setText(text: "run with text");
+      let run = RunUpdate();
+      run.setText(text: "run with text");
 
 
-      let request = UpdateRunRequest(name: remoteFileName, paragraphPath: "paragraphs/1", index: 0, run: requestRun, folder: remoteDataFolder);
+      let request = UpdateRunRequest(name: remoteFileName, paragraphPath: "paragraphs/1", index: 0, run: run, folder: remoteDataFolder);
       let actual = try super.getApi().updateRun(request: request);
       XCTAssertNotNil(actual.getRun());
       XCTAssertEqual(actual.getRun()!.getText(), "run with text");
@@ -60,11 +60,11 @@ class RunTests: BaseTestContext {
 
     // Test for updating run online.
     func testUpdateRunOnline() throws {
-      let requestRun = RunUpdate();
-      requestRun.setText(text: "run with text");
+      let run = RunUpdate();
+      run.setText(text: "run with text");
 
 
-      let request = UpdateRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/1", run: requestRun, index: 0);
+      let request = UpdateRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/1", run: run, index: 0);
       _ = try super.getApi().updateRunOnline(request: request);
     }
 
@@ -74,11 +74,11 @@ class RunTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestRun = RunInsert();
-      requestRun.setText(text: "run with text");
+      let run = RunInsert();
+      run.setText(text: "run with text");
 
 
-      let request = InsertRunRequest(name: remoteFileName, paragraphPath: "paragraphs/1", run: requestRun, folder: remoteDataFolder);
+      let request = InsertRunRequest(name: remoteFileName, paragraphPath: "paragraphs/1", run: run, folder: remoteDataFolder);
       let actual = try super.getApi().insertRun(request: request);
       XCTAssertNotNil(actual.getRun());
       XCTAssertEqual(actual.getRun()!.getText(), "run with text");
@@ -87,11 +87,11 @@ class RunTests: BaseTestContext {
 
     // Test for adding run online.
     func testInsertRunOnline() throws {
-      let requestRun = RunInsert();
-      requestRun.setText(text: "run with text");
+      let run = RunInsert();
+      run.setText(text: "run with text");
 
 
-      let request = InsertRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/1", run: requestRun);
+      let request = InsertRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/1", run: run);
       _ = try super.getApi().insertRunOnline(request: request);
     }
 

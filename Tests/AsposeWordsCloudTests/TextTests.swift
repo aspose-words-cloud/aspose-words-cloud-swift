@@ -46,12 +46,12 @@ class TextTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestReplaceText = ReplaceTextParameters();
-      requestReplaceText.setOldValue(oldValue: "Testing");
-      requestReplaceText.setNewValue(newValue: "Aspose testing");
+      let replaceText = ReplaceTextParameters();
+      replaceText.setOldValue(oldValue: "Testing");
+      replaceText.setNewValue(newValue: "Aspose testing");
 
 
-      let request = ReplaceTextRequest(name: remoteFileName, replaceText: requestReplaceText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = ReplaceTextRequest(name: remoteFileName, replaceText: replaceText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().replaceText(request: request);
       XCTAssertEqual(actual.getMatches(), 3);
     }
@@ -60,12 +60,12 @@ class TextTests: BaseTestContext {
     func testReplaceTextOnline() throws {
       let localFile = "Common/test_multi_pages.docx";
 
-      let requestReplaceText = ReplaceTextParameters();
-      requestReplaceText.setOldValue(oldValue: "aspose");
-      requestReplaceText.setNewValue(newValue: "aspose new");
+      let replaceText = ReplaceTextParameters();
+      replaceText.setOldValue(oldValue: "aspose");
+      replaceText.setNewValue(newValue: "aspose new");
 
 
-      let request = ReplaceTextOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, replaceText: requestReplaceText);
+      let request = ReplaceTextOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, replaceText: replaceText);
       _ = try super.getApi().replaceTextOnline(request: request);
     }
 

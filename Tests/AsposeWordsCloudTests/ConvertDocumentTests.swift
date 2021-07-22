@@ -49,12 +49,12 @@ class ConvertDocumentTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("Common/" + localName, isDirectory: false), path: remoteFolder + "/" + remoteName);
 
-      let requestSaveOptionsData = SaveOptionsData();
-      requestSaveOptionsData.setSaveFormat(saveFormat: "pdf");
-      requestSaveOptionsData.setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/TestSaveAs.pdf");
+      let saveOptionsData = SaveOptionsData();
+      saveOptionsData.setSaveFormat(saveFormat: "pdf");
+      saveOptionsData.setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/TestSaveAs.pdf");
 
 
-      let request = SaveAsRequest(name: remoteName, saveOptionsData: requestSaveOptionsData, folder: remoteFolder);
+      let request = SaveAsRequest(name: remoteName, saveOptionsData: saveOptionsData, folder: remoteFolder);
       let actual = try super.getApi().saveAs(request: request);
       XCTAssertNotNil(actual.getSaveResult());
       XCTAssertNotNil(actual.getSaveResult()!.getDestDocument());
@@ -64,12 +64,12 @@ class ConvertDocumentTests: BaseTestContext {
     func testSaveAsOnline() throws {
       let localName = "test_multi_pages.docx";
 
-      let requestSaveOptionsData = SaveOptionsData();
-      requestSaveOptionsData.setSaveFormat(saveFormat: "pdf");
-      requestSaveOptionsData.setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/TestSaveAs.pdf");
+      let saveOptionsData = SaveOptionsData();
+      saveOptionsData.setSaveFormat(saveFormat: "pdf");
+      saveOptionsData.setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/TestSaveAs.pdf");
 
 
-      let request = SaveAsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/" + localName, isDirectory: false))!, saveOptionsData: requestSaveOptionsData);
+      let request = SaveAsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/" + localName, isDirectory: false))!, saveOptionsData: saveOptionsData);
       _ = try super.getApi().saveAsOnline(request: request);
     }
 
@@ -80,12 +80,12 @@ class ConvertDocumentTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName, isDirectory: false), path: remoteFolder + "/" + remoteName);
 
-      let requestSaveOptionsData = SaveOptionsData();
-      requestSaveOptionsData.setSaveFormat(saveFormat: "docx");
-      requestSaveOptionsData.setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/TestSaveAsFromPdfToDoc.docx");
+      let saveOptionsData = SaveOptionsData();
+      saveOptionsData.setSaveFormat(saveFormat: "docx");
+      saveOptionsData.setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/TestSaveAsFromPdfToDoc.docx");
 
 
-      let request = SaveAsRequest(name: remoteName, saveOptionsData: requestSaveOptionsData, folder: remoteFolder);
+      let request = SaveAsRequest(name: remoteName, saveOptionsData: saveOptionsData, folder: remoteFolder);
       let actual = try super.getApi().saveAs(request: request);
       XCTAssertNotNil(actual.getSaveResult());
       XCTAssertNotNil(actual.getSaveResult()!.getDestDocument());
@@ -98,12 +98,12 @@ class ConvertDocumentTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("Common/" + localName, isDirectory: false), path: remoteFolder + "/" + remoteName);
 
-      let requestSaveOptions = TiffSaveOptionsData();
-      requestSaveOptions.setSaveFormat(saveFormat: "tiff");
-      requestSaveOptions.setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/abc.tiff");
+      let saveOptions = TiffSaveOptionsData();
+      saveOptions.setSaveFormat(saveFormat: "tiff");
+      saveOptions.setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/abc.tiff");
 
 
-      let request = SaveAsTiffRequest(name: remoteName, saveOptions: requestSaveOptions, folder: remoteFolder);
+      let request = SaveAsTiffRequest(name: remoteName, saveOptions: saveOptions, folder: remoteFolder);
       let actual = try super.getApi().saveAsTiff(request: request);
       XCTAssertNotNil(actual.getSaveResult());
       XCTAssertNotNil(actual.getSaveResult()!.getDestDocument());
@@ -113,12 +113,12 @@ class ConvertDocumentTests: BaseTestContext {
     func testSaveAsTiffOnline() throws {
       let localName = "test_multi_pages.docx";
 
-      let requestSaveOptions = TiffSaveOptionsData();
-      requestSaveOptions.setSaveFormat(saveFormat: "tiff");
-      requestSaveOptions.setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/abc.tiff");
+      let saveOptions = TiffSaveOptionsData();
+      saveOptions.setSaveFormat(saveFormat: "tiff");
+      saveOptions.setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/abc.tiff");
 
 
-      let request = SaveAsTiffOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/" + localName, isDirectory: false))!, saveOptions: requestSaveOptions);
+      let request = SaveAsTiffOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/" + localName, isDirectory: false))!, saveOptions: saveOptions);
       _ = try super.getApi().saveAsTiffOnline(request: request);
     }
 

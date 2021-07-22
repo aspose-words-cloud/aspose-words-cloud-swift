@@ -36,20 +36,20 @@ class LoadWebDocumentTests: BaseTestContext {
 
     // Test for loading web document.
     func testLoadWebDocument() throws {
-      let requestDataSaveOptions = SaveOptionsData();
-      requestDataSaveOptions.setFileName(fileName: "google.doc");
-      requestDataSaveOptions.setSaveFormat(saveFormat: "doc");
-      requestDataSaveOptions.setDmlEffectsRenderingMode(dmlEffectsRenderingMode: "1");
-      requestDataSaveOptions.setDmlRenderingMode(dmlRenderingMode: "1");
-      requestDataSaveOptions.setUpdateSdtContent(updateSdtContent: false);
-      requestDataSaveOptions.setZipOutput(zipOutput: false);
+      let dataSaveOptions = SaveOptionsData();
+      dataSaveOptions.setFileName(fileName: "google.doc");
+      dataSaveOptions.setSaveFormat(saveFormat: "doc");
+      dataSaveOptions.setDmlEffectsRenderingMode(dmlEffectsRenderingMode: "1");
+      dataSaveOptions.setDmlRenderingMode(dmlRenderingMode: "1");
+      dataSaveOptions.setUpdateSdtContent(updateSdtContent: false);
+      dataSaveOptions.setZipOutput(zipOutput: false);
 
-      let requestData = LoadWebDocumentData();
-      requestData.setLoadingDocumentUrl(loadingDocumentUrl: "http://google.com");
-      requestData.setSaveOptions(saveOptions: requestDataSaveOptions);
+      let data = LoadWebDocumentData();
+      data.setLoadingDocumentUrl(loadingDocumentUrl: "http://google.com");
+      data.setSaveOptions(saveOptions: dataSaveOptions);
 
 
-      let request = LoadWebDocumentRequest(data: requestData);
+      let request = LoadWebDocumentRequest(data: data);
       let actual = try super.getApi().loadWebDocument(request: request);
       XCTAssertNotNil(actual.getSaveResult());
       XCTAssertNotNil(actual.getSaveResult()!.getDestDocument());

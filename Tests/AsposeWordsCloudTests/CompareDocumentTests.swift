@@ -49,13 +49,13 @@ class CompareDocumentTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName1, isDirectory: false), path: remoteFolder + "/" + remoteName1);
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName2, isDirectory: false), path: remoteFolder + "/" + remoteName2);
 
-      let requestCompareData = CompareData();
-      requestCompareData.setAuthor(author: "author");
-      requestCompareData.setComparingWithDocument(comparingWithDocument: remoteFolder + "/" + remoteName2);
-      requestCompareData.setDateTime(dateTime: ObjectSerializer.customIso8601.date(from: "2015-10-26T00:00:00Z")!);
+      let compareData = CompareData();
+      compareData.setAuthor(author: "author");
+      compareData.setComparingWithDocument(comparingWithDocument: remoteFolder + "/" + remoteName2);
+      compareData.setDateTime(dateTime: ObjectSerializer.customIso8601.date(from: "2015-10-26T00:00:00Z")!);
 
 
-      let request = CompareDocumentRequest(name: remoteName1, compareData: requestCompareData, folder: remoteFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
+      let request = CompareDocumentRequest(name: remoteName1, compareData: compareData, folder: remoteFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
       let actual = try super.getApi().compareDocument(request: request);
       XCTAssertNotNil(actual.getDocument());
       XCTAssertEqual(actual.getDocument()!.getFileName(), "TestCompareDocumentOut.doc");
@@ -69,13 +69,13 @@ class CompareDocumentTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName2, isDirectory: false), path: remoteFolder + "/" + remoteName2);
 
-      let requestCompareData = CompareData();
-      requestCompareData.setAuthor(author: "author");
-      requestCompareData.setComparingWithDocument(comparingWithDocument: remoteFolder + "/" + remoteName2);
-      requestCompareData.setDateTime(dateTime: ObjectSerializer.customIso8601.date(from: "2015-10-26T00:00:00Z")!);
+      let compareData = CompareData();
+      compareData.setAuthor(author: "author");
+      compareData.setComparingWithDocument(comparingWithDocument: remoteFolder + "/" + remoteName2);
+      compareData.setDateTime(dateTime: ObjectSerializer.customIso8601.date(from: "2015-10-26T00:00:00Z")!);
 
 
-      let request = CompareDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName1, isDirectory: false))!, compareData: requestCompareData, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
+      let request = CompareDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName1, isDirectory: false))!, compareData: compareData, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
       _ = try super.getApi().compareDocumentOnline(request: request);
     }
 
@@ -87,13 +87,13 @@ class CompareDocumentTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName2, isDirectory: false), path: remoteFolder + "/" + remoteName2);
 
-      let requestCompareData = CompareData();
-      requestCompareData.setAuthor(author: "author");
-      requestCompareData.setComparingWithDocument(comparingWithDocument: remoteFolder + "/" + remoteName2);
-      requestCompareData.setDateTime(dateTime: ObjectSerializer.customIso8601.date(from: "2015-10-26T00:00:00Z")!);
+      let compareData = CompareData();
+      compareData.setAuthor(author: "author");
+      compareData.setComparingWithDocument(comparingWithDocument: remoteFolder + "/" + remoteName2);
+      compareData.setDateTime(dateTime: ObjectSerializer.customIso8601.date(from: "2015-10-26T00:00:00Z")!);
 
 
-      let request = CompareDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName1, isDirectory: false))!, compareData: requestCompareData, comparingDocument: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName2, isDirectory: false))!, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
+      let request = CompareDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName1, isDirectory: false))!, compareData: compareData, comparingDocument: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName2, isDirectory: false))!, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
       _ = try super.getApi().compareDocumentOnline(request: request);
     }
 }
