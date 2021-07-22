@@ -44,17 +44,17 @@ class AppendDocumentTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let documentListDocumentEntries0 = DocumentEntry();
-      documentListDocumentEntries0.setHref(href: remoteDataFolder + "/" + remoteFileName);
-      documentListDocumentEntries0.setImportFormatMode(importFormatMode: "KeepSourceFormatting");
+      let requestDocumentListDocumentEntries0 = DocumentEntry();
+      requestDocumentListDocumentEntries0.setHref(href: remoteDataFolder + "/" + remoteFileName);
+      requestDocumentListDocumentEntries0.setImportFormatMode(importFormatMode: "KeepSourceFormatting");
 
-      let documentListDocumentEntries = [documentListDocumentEntries0];
+      let requestDocumentListDocumentEntries = [requestDocumentListDocumentEntries0];
 
-      let documentList = DocumentEntryList();
-      documentList.setDocumentEntries(documentEntries: documentListDocumentEntries);
+      let requestDocumentList = DocumentEntryList();
+      requestDocumentList.setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
 
 
-      let request = AppendDocumentRequest(name: remoteFileName, documentList: documentList, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = AppendDocumentRequest(name: remoteFileName, documentList: requestDocumentList, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().appendDocument(request: request);
       XCTAssertNotNil(actual.getDocument());
       XCTAssertEqual(actual.getDocument()!.getFileName(), "TestAppendDocument.docx");
@@ -66,17 +66,17 @@ class AppendDocumentTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let documentListDocumentEntries0 = DocumentEntry();
-      documentListDocumentEntries0.setHref(href: remoteDataFolder + "/" + remoteFileName);
-      documentListDocumentEntries0.setImportFormatMode(importFormatMode: "KeepSourceFormatting");
+      let requestDocumentListDocumentEntries0 = DocumentEntry();
+      requestDocumentListDocumentEntries0.setHref(href: remoteDataFolder + "/" + remoteFileName);
+      requestDocumentListDocumentEntries0.setImportFormatMode(importFormatMode: "KeepSourceFormatting");
 
-      let documentListDocumentEntries = [documentListDocumentEntries0];
+      let requestDocumentListDocumentEntries = [requestDocumentListDocumentEntries0];
 
-      let documentList = DocumentEntryList();
-      documentList.setDocumentEntries(documentEntries: documentListDocumentEntries);
+      let requestDocumentList = DocumentEntryList();
+      requestDocumentList.setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
 
 
-      let request = AppendDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, documentList: documentList);
+      let request = AppendDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, documentList: requestDocumentList);
       _ = try super.getApi().appendDocumentOnline(request: request);
     }
 }

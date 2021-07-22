@@ -82,12 +82,12 @@ class BookmarkTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let bookmarkData = BookmarkData();
-      bookmarkData.setName(name: bookmarkName);
-      bookmarkData.setText(text: bookmarkText);
+      let requestBookmarkData = BookmarkData();
+      requestBookmarkData.setName(name: bookmarkName);
+      requestBookmarkData.setText(text: bookmarkText);
 
 
-      let request = UpdateBookmarkRequest(name: remoteFileName, bookmarkName: bookmarkName, bookmarkData: bookmarkData, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = UpdateBookmarkRequest(name: remoteFileName, bookmarkName: bookmarkName, bookmarkData: requestBookmarkData, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().updateBookmark(request: request);
     }
 
@@ -95,12 +95,12 @@ class BookmarkTests: BaseTestContext {
     func testUpdateBookmarkOnline() throws {
       let remoteFileName = "TestUpdateDocumentBookmark.docx";
 
-      let bookmarkData = BookmarkData();
-      bookmarkData.setName(name: bookmarkName);
-      bookmarkData.setText(text: "This will be the text for Aspose");
+      let requestBookmarkData = BookmarkData();
+      requestBookmarkData.setName(name: bookmarkName);
+      requestBookmarkData.setText(text: "This will be the text for Aspose");
 
 
-      let request = UpdateBookmarkOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, bookmarkName: bookmarkName, bookmarkData: bookmarkData, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = UpdateBookmarkOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, bookmarkName: bookmarkName, bookmarkData: requestBookmarkData, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().updateBookmarkOnline(request: request);
     }
 }

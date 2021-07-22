@@ -48,12 +48,12 @@ class DocumentProtectionTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let protectionRequest = ProtectionRequest();
-      protectionRequest.setPassword(password: "123");
-      protectionRequest.setProtectionType(protectionType: "ReadOnly");
+      let requestProtectionRequest = ProtectionRequest();
+      requestProtectionRequest.setPassword(password: "123");
+      requestProtectionRequest.setProtectionType(protectionType: "ReadOnly");
 
 
-      let request = ProtectDocumentRequest(name: remoteFileName, protectionRequest: protectionRequest, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = ProtectDocumentRequest(name: remoteFileName, protectionRequest: requestProtectionRequest, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().protectDocument(request: request);
       XCTAssertNotNil(actual.getProtectionData());
       XCTAssertEqual(actual.getProtectionData()!.getProtectionType(), "ReadOnly");
@@ -61,11 +61,11 @@ class DocumentProtectionTests: BaseTestContext {
 
     // Test for setting document protection.
     func testProtectDocumentOnline() throws {
-      let protectionRequest = ProtectionRequest();
-      protectionRequest.setNewPassword(newPassword: "123");
+      let requestProtectionRequest = ProtectionRequest();
+      requestProtectionRequest.setNewPassword(newPassword: "123");
 
 
-      let request = ProtectDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, protectionRequest: protectionRequest);
+      let request = ProtectDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, protectionRequest: requestProtectionRequest);
       _ = try super.getApi().protectDocumentOnline(request: request);
     }
 
@@ -93,11 +93,11 @@ class DocumentProtectionTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFilePath, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let protectionRequest = ProtectionRequest();
-      protectionRequest.setPassword(password: "aspose");
+      let requestProtectionRequest = ProtectionRequest();
+      requestProtectionRequest.setPassword(password: "aspose");
 
 
-      let request = UnprotectDocumentRequest(name: remoteFileName, protectionRequest: protectionRequest, folder: remoteDataFolder);
+      let request = UnprotectDocumentRequest(name: remoteFileName, protectionRequest: requestProtectionRequest, folder: remoteDataFolder);
       let actual = try super.getApi().unprotectDocument(request: request);
       XCTAssertNotNil(actual.getProtectionData());
       XCTAssertEqual(actual.getProtectionData()!.getProtectionType(), "NoProtection");
@@ -107,11 +107,11 @@ class DocumentProtectionTests: BaseTestContext {
     func testDeleteUnprotectDocumentOnline() throws {
       let localFilePath = "DocumentActions/DocumentProtection/SampleProtectedBlankWordDocument.docx";
 
-      let protectionRequest = ProtectionRequest();
-      protectionRequest.setPassword(password: "aspose");
+      let requestProtectionRequest = ProtectionRequest();
+      requestProtectionRequest.setPassword(password: "aspose");
 
 
-      let request = UnprotectDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFilePath, isDirectory: false))!, protectionRequest: protectionRequest);
+      let request = UnprotectDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFilePath, isDirectory: false))!, protectionRequest: requestProtectionRequest);
       _ = try super.getApi().unprotectDocumentOnline(request: request);
     }
 }

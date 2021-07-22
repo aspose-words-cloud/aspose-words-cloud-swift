@@ -107,11 +107,11 @@ class DocumentPropertiesTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let property = DocumentPropertyCreateOrUpdate();
-      property.setValue(value: "Imran Anwar");
+      let requestProperty = DocumentPropertyCreateOrUpdate();
+      requestProperty.setValue(value: "Imran Anwar");
 
 
-      let request = CreateOrUpdateDocumentPropertyRequest(name: remoteFileName, propertyName: "AsposeAuthor", property: property, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = CreateOrUpdateDocumentPropertyRequest(name: remoteFileName, propertyName: "AsposeAuthor", property: requestProperty, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().createOrUpdateDocumentProperty(request: request);
       XCTAssertNotNil(actual.getDocumentProperty());
       XCTAssertEqual(actual.getDocumentProperty()!.getName(), "AsposeAuthor");
@@ -120,11 +120,11 @@ class DocumentPropertiesTests: BaseTestContext {
 
     // Test for updating document property online.
     func testUpdateDocumentPropertyOnline() throws {
-      let property = DocumentPropertyCreateOrUpdate();
-      property.setValue(value: "Imran Anwar");
+      let requestProperty = DocumentPropertyCreateOrUpdate();
+      requestProperty.setValue(value: "Imran Anwar");
 
 
-      let request = CreateOrUpdateDocumentPropertyOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, propertyName: "AsposeAuthor", property: property);
+      let request = CreateOrUpdateDocumentPropertyOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, propertyName: "AsposeAuthor", property: requestProperty);
       _ = try super.getApi().createOrUpdateDocumentPropertyOnline(request: request);
     }
 }

@@ -67,14 +67,14 @@ class PageSetupTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let pageSetup = PageSetup();
-      pageSetup.setRtlGutter(rtlGutter: true);
-      pageSetup.setLeftMargin(leftMargin: 10.0);
-      pageSetup.setOrientation(orientation: PageSetup.Orientation.landscape);
-      pageSetup.setPaperSize(paperSize: PageSetup.PaperSize.a5);
+      let requestPageSetup = PageSetup();
+      requestPageSetup.setRtlGutter(rtlGutter: true);
+      requestPageSetup.setLeftMargin(leftMargin: 10.0);
+      requestPageSetup.setOrientation(orientation: PageSetup.Orientation.landscape);
+      requestPageSetup.setPaperSize(paperSize: PageSetup.PaperSize.a5);
 
 
-      let request = UpdateSectionPageSetupRequest(name: remoteFileName, sectionIndex: 0, pageSetup: pageSetup, folder: remoteDataFolder);
+      let request = UpdateSectionPageSetupRequest(name: remoteFileName, sectionIndex: 0, pageSetup: requestPageSetup, folder: remoteDataFolder);
       let actual = try super.getApi().updateSectionPageSetup(request: request);
       XCTAssertNotNil(actual.getPageSetup());
       XCTAssertEqual(actual.getPageSetup()!.getRtlGutter(), true);
@@ -84,14 +84,14 @@ class PageSetupTests: BaseTestContext {
 
     // Test for updating page settings online.
     func testUpdateSectionPageSetupOnline() throws {
-      let pageSetup = PageSetup();
-      pageSetup.setRtlGutter(rtlGutter: true);
-      pageSetup.setLeftMargin(leftMargin: 10);
-      pageSetup.setOrientation(orientation: PageSetup.Orientation.landscape);
-      pageSetup.setPaperSize(paperSize: PageSetup.PaperSize.a5);
+      let requestPageSetup = PageSetup();
+      requestPageSetup.setRtlGutter(rtlGutter: true);
+      requestPageSetup.setLeftMargin(leftMargin: 10);
+      requestPageSetup.setOrientation(orientation: PageSetup.Orientation.landscape);
+      requestPageSetup.setPaperSize(paperSize: PageSetup.PaperSize.a5);
 
 
-      let request = UpdateSectionPageSetupOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionIndex: 0, pageSetup: pageSetup);
+      let request = UpdateSectionPageSetupOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionIndex: 0, pageSetup: requestPageSetup);
       _ = try super.getApi().updateSectionPageSetupOnline(request: request);
     }
 

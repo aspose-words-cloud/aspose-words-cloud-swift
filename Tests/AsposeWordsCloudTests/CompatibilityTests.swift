@@ -44,21 +44,21 @@ class CompatibilityTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let options = OptimizationOptions();
-      options.setMsWordVersion(msWordVersion: OptimizationOptions.MsWordVersion.word2002);
+      let requestOptions = OptimizationOptions();
+      requestOptions.setMsWordVersion(msWordVersion: OptimizationOptions.MsWordVersion.word2002);
 
 
-      let request = OptimizeDocumentRequest(name: remoteFileName, options: options, folder: remoteDataFolder);
+      let request = OptimizeDocumentRequest(name: remoteFileName, options: requestOptions, folder: remoteDataFolder);
       try super.getApi().optimizeDocument(request: request);
     }
 
     // Test for optimize document to specific MS Word version.
     func testOptimizeDocumentOnline() throws {
-      let options = OptimizationOptions();
-      options.setMsWordVersion(msWordVersion: OptimizationOptions.MsWordVersion.word2002);
+      let requestOptions = OptimizationOptions();
+      requestOptions.setMsWordVersion(msWordVersion: OptimizationOptions.MsWordVersion.word2002);
 
 
-      let request = OptimizeDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, options: options);
+      let request = OptimizeDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, options: requestOptions);
       _ = try super.getApi().optimizeDocumentOnline(request: request);
     }
 }

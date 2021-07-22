@@ -90,21 +90,21 @@ class ListsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let listUpdate = ListUpdate();
-      listUpdate.setIsRestartAtEachSection(isRestartAtEachSection: true);
+      let requestListUpdate = ListUpdate();
+      requestListUpdate.setIsRestartAtEachSection(isRestartAtEachSection: true);
 
 
-      let request = UpdateListRequest(name: remoteFileName, listId: 1, listUpdate: listUpdate, folder: remoteDataFolder);
+      let request = UpdateListRequest(name: remoteFileName, listId: 1, listUpdate: requestListUpdate, folder: remoteDataFolder);
       _ = try super.getApi().updateList(request: request);
     }
 
     // Test for updating list from document online.
     func testUpdateListOnline() throws {
-      let listUpdate = ListUpdate();
-      listUpdate.setIsRestartAtEachSection(isRestartAtEachSection: true);
+      let requestListUpdate = ListUpdate();
+      requestListUpdate.setIsRestartAtEachSection(isRestartAtEachSection: true);
 
 
-      let request = UpdateListOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, listId: 1, listUpdate: listUpdate);
+      let request = UpdateListOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, listId: 1, listUpdate: requestListUpdate);
       let actual = try super.getApi().updateListOnline(request: request);
       XCTAssertNotNil(actual.getModel()!.getList());
       XCTAssertEqual(actual.getModel()!.getList()!.getListId(), 1);
@@ -117,21 +117,21 @@ class ListsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let listUpdate = ListLevelUpdate();
-      listUpdate.setAlignment(alignment: ListLevelUpdate.Alignment._right);
+      let requestListUpdate = ListLevelUpdate();
+      requestListUpdate.setAlignment(alignment: ListLevelUpdate.Alignment._right);
 
 
-      let request = UpdateListLevelRequest(name: remoteFileName, listId: 1, listLevel: 1, listUpdate: listUpdate, folder: remoteDataFolder);
+      let request = UpdateListLevelRequest(name: remoteFileName, listId: 1, listLevel: 1, listUpdate: requestListUpdate, folder: remoteDataFolder);
       _ = try super.getApi().updateListLevel(request: request);
     }
 
     // Test for updating list level from document online.
     func testUpdateListLevelOnline() throws {
-      let listUpdate = ListLevelUpdate();
-      listUpdate.setAlignment(alignment: ListLevelUpdate.Alignment._right);
+      let requestListUpdate = ListLevelUpdate();
+      requestListUpdate.setAlignment(alignment: ListLevelUpdate.Alignment._right);
 
 
-      let request = UpdateListLevelOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, listId: 1, listUpdate: listUpdate, listLevel: 1);
+      let request = UpdateListLevelOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, listId: 1, listUpdate: requestListUpdate, listLevel: 1);
       let actual = try super.getApi().updateListLevelOnline(request: request);
       XCTAssertNotNil(actual.getModel()!.getList());
       XCTAssertNotNil(actual.getModel()!.getList()!.getListLevels());
@@ -146,11 +146,11 @@ class ListsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let listInsert = ListInsert();
-      listInsert.setTemplate(template: ListInsert.Template.outlineLegal);
+      let requestListInsert = ListInsert();
+      requestListInsert.setTemplate(template: ListInsert.Template.outlineLegal);
 
 
-      let request = InsertListRequest(name: remoteFileName, listInsert: listInsert, folder: remoteDataFolder);
+      let request = InsertListRequest(name: remoteFileName, listInsert: requestListInsert, folder: remoteDataFolder);
       let actual = try super.getApi().insertList(request: request);
       XCTAssertNotNil(actual.getList());
       XCTAssertEqual(actual.getList()!.getListId(), 3);
@@ -158,11 +158,11 @@ class ListsTests: BaseTestContext {
 
     // Test for inserting list from document online.
     func testInsertListOnline() throws {
-      let listInsert = ListInsert();
-      listInsert.setTemplate(template: ListInsert.Template.outlineLegal);
+      let requestListInsert = ListInsert();
+      requestListInsert.setTemplate(template: ListInsert.Template.outlineLegal);
 
 
-      let request = InsertListOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, listInsert: listInsert);
+      let request = InsertListOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, listInsert: requestListInsert);
       _ = try super.getApi().insertListOnline(request: request);
     }
 }

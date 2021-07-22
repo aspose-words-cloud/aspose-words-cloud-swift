@@ -57,16 +57,16 @@ class FormFieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let formField = FormFieldTextInput();
-      formField.setName(name: "FullName");
-      formField.setEnabled(enabled: true);
-      formField.setCalculateOnExit(calculateOnExit: true);
-      formField.setStatusText(statusText: "");
-      formField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
-      formField.setTextInputDefault(textInputDefault: "No name");
+      let requestFormField = FormFieldTextInput();
+      requestFormField.setName(name: "FullName");
+      requestFormField.setEnabled(enabled: true);
+      requestFormField.setCalculateOnExit(calculateOnExit: true);
+      requestFormField.setStatusText(statusText: "");
+      requestFormField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
+      requestFormField.setTextInputDefault(textInputDefault: "No name");
 
 
-      let request = UpdateFormFieldRequest(name: remoteFileName, index: 0, formField: formField, nodePath: "sections/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = UpdateFormFieldRequest(name: remoteFileName, index: 0, formField: requestFormField, nodePath: "sections/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().updateFormField(request: request);
       XCTAssertNotNil(actual.getFormField());
       XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
@@ -75,16 +75,16 @@ class FormFieldTests: BaseTestContext {
 
     // Test for posting form field online.
     func testUpdateFormFieldOnline() throws {
-      let formField = FormFieldTextInput();
-      formField.setName(name: "FullName");
-      formField.setEnabled(enabled: true);
-      formField.setCalculateOnExit(calculateOnExit: true);
-      formField.setStatusText(statusText: "");
-      formField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
-      formField.setTextInputDefault(textInputDefault: "No name");
+      let requestFormField = FormFieldTextInput();
+      requestFormField.setName(name: "FullName");
+      requestFormField.setEnabled(enabled: true);
+      requestFormField.setCalculateOnExit(calculateOnExit: true);
+      requestFormField.setStatusText(statusText: "");
+      requestFormField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
+      requestFormField.setTextInputDefault(textInputDefault: "No name");
 
 
-      let request = UpdateFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false))!, formField: formField, index: 0, nodePath: "sections/0");
+      let request = UpdateFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false))!, formField: requestFormField, index: 0, nodePath: "sections/0");
       _ = try super.getApi().updateFormFieldOnline(request: request);
     }
 
@@ -94,16 +94,16 @@ class FormFieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let formField = FormFieldTextInput();
-      formField.setName(name: "FullName");
-      formField.setEnabled(enabled: true);
-      formField.setCalculateOnExit(calculateOnExit: true);
-      formField.setStatusText(statusText: "");
-      formField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
-      formField.setTextInputDefault(textInputDefault: "No name");
+      let requestFormField = FormFieldTextInput();
+      requestFormField.setName(name: "FullName");
+      requestFormField.setEnabled(enabled: true);
+      requestFormField.setCalculateOnExit(calculateOnExit: true);
+      requestFormField.setStatusText(statusText: "");
+      requestFormField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
+      requestFormField.setTextInputDefault(textInputDefault: "No name");
 
 
-      let request = UpdateFormFieldRequest(name: remoteFileName, index: 0, formField: formField, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = UpdateFormFieldRequest(name: remoteFileName, index: 0, formField: requestFormField, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().updateFormField(request: request);
       XCTAssertNotNil(actual.getFormField());
       XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
@@ -180,17 +180,17 @@ class FormFieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("Common/test_multi_pages.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let formField = FormFieldTextInput();
-      formField.setName(name: "FullName");
-      formField.setEnabled(enabled: true);
-      formField.setCalculateOnExit(calculateOnExit: true);
-      formField.setStatusText(statusText: "");
-      formField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
-      formField.setTextInputDefault(textInputDefault: "123");
-      formField.setTextInputFormat(textInputFormat: "UPPERCASE");
+      let requestFormField = FormFieldTextInput();
+      requestFormField.setName(name: "FullName");
+      requestFormField.setEnabled(enabled: true);
+      requestFormField.setCalculateOnExit(calculateOnExit: true);
+      requestFormField.setStatusText(statusText: "");
+      requestFormField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
+      requestFormField.setTextInputDefault(textInputDefault: "123");
+      requestFormField.setTextInputFormat(textInputFormat: "UPPERCASE");
 
 
-      let request = InsertFormFieldRequest(name: remoteFileName, formField: formField, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = InsertFormFieldRequest(name: remoteFileName, formField: requestFormField, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertFormField(request: request);
       XCTAssertNotNil(actual.getFormField());
       XCTAssertEqual(actual.getFormField()!.getName(), "FullName");
@@ -199,17 +199,17 @@ class FormFieldTests: BaseTestContext {
 
     // Test for insert form field without node path online.
     func testInsertFormFieldOnline() throws {
-      let formField = FormFieldTextInput();
-      formField.setName(name: "FullName");
-      formField.setEnabled(enabled: true);
-      formField.setCalculateOnExit(calculateOnExit: true);
-      formField.setStatusText(statusText: "");
-      formField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
-      formField.setTextInputDefault(textInputDefault: "123");
-      formField.setTextInputFormat(textInputFormat: "UPPERCASE");
+      let requestFormField = FormFieldTextInput();
+      requestFormField.setName(name: "FullName");
+      requestFormField.setEnabled(enabled: true);
+      requestFormField.setCalculateOnExit(calculateOnExit: true);
+      requestFormField.setStatusText(statusText: "");
+      requestFormField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
+      requestFormField.setTextInputDefault(textInputDefault: "123");
+      requestFormField.setTextInputFormat(textInputFormat: "UPPERCASE");
 
 
-      let request = InsertFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false))!, formField: formField, nodePath: "sections/0/paragraphs/0");
+      let request = InsertFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false))!, formField: requestFormField, nodePath: "sections/0/paragraphs/0");
       _ = try super.getApi().insertFormFieldOnline(request: request);
     }
 
@@ -219,17 +219,17 @@ class FormFieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("Common/test_multi_pages.docx", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let formField = FormFieldTextInput();
-      formField.setName(name: "FullName");
-      formField.setEnabled(enabled: true);
-      formField.setCalculateOnExit(calculateOnExit: true);
-      formField.setStatusText(statusText: "");
-      formField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
-      formField.setTextInputDefault(textInputDefault: "123");
-      formField.setTextInputFormat(textInputFormat: "UPPERCASE");
+      let requestFormField = FormFieldTextInput();
+      requestFormField.setName(name: "FullName");
+      requestFormField.setEnabled(enabled: true);
+      requestFormField.setCalculateOnExit(calculateOnExit: true);
+      requestFormField.setStatusText(statusText: "");
+      requestFormField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
+      requestFormField.setTextInputDefault(textInputDefault: "123");
+      requestFormField.setTextInputFormat(textInputFormat: "UPPERCASE");
 
 
-      let request = InsertFormFieldRequest(name: remoteFileName, formField: formField, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = InsertFormFieldRequest(name: remoteFileName, formField: requestFormField, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertFormField(request: request);
       XCTAssertNotNil(actual.getFormField());
       XCTAssertEqual(actual.getFormField()!.getName(), "FullName");

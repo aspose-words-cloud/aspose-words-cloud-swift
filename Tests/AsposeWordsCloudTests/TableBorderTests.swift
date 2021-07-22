@@ -124,19 +124,19 @@ class TableBorderTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let borderPropertiesColor = XmlColor();
-      borderPropertiesColor.setWeb(web: "#AABBCC");
+      let requestBorderPropertiesColor = XmlColor();
+      requestBorderPropertiesColor.setWeb(web: "#AABBCC");
 
-      let borderProperties = Border();
-      borderProperties.setBorderType(borderType: Border.BorderType._left);
-      borderProperties.setColor(color: borderPropertiesColor);
-      borderProperties.setDistanceFromText(distanceFromText: 6.0);
-      borderProperties.setLineStyle(lineStyle: Border.LineStyle.dashDotStroker);
-      borderProperties.setLineWidth(lineWidth: 2.0);
-      borderProperties.setShadow(shadow: true);
+      let requestBorderProperties = Border();
+      requestBorderProperties.setBorderType(borderType: Border.BorderType._left);
+      requestBorderProperties.setColor(color: requestBorderPropertiesColor);
+      requestBorderProperties.setDistanceFromText(distanceFromText: 6.0);
+      requestBorderProperties.setLineStyle(lineStyle: Border.LineStyle.dashDotStroker);
+      requestBorderProperties.setLineWidth(lineWidth: 2.0);
+      requestBorderProperties.setShadow(shadow: true);
 
 
-      let request = UpdateBorderRequest(name: remoteFileName, borderType: "left", borderProperties: borderProperties, nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
+      let request = UpdateBorderRequest(name: remoteFileName, borderType: "left", borderProperties: requestBorderProperties, nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
       let actual = try super.getApi().updateBorder(request: request);
       XCTAssertNotNil(actual.getBorder());
       XCTAssertNotNil(actual.getBorder()!.getColor());
@@ -148,19 +148,19 @@ class TableBorderTests: BaseTestContext {
 
     // Test for updating border online.
     func testUpdateBorderOnline() throws {
-      let borderPropertiesColor = XmlColor();
-      borderPropertiesColor.setWeb(web: "#AABBCC");
+      let requestBorderPropertiesColor = XmlColor();
+      requestBorderPropertiesColor.setWeb(web: "#AABBCC");
 
-      let borderProperties = Border();
-      borderProperties.setBorderType(borderType: Border.BorderType._left);
-      borderProperties.setColor(color: borderPropertiesColor);
-      borderProperties.setDistanceFromText(distanceFromText: 6);
-      borderProperties.setLineStyle(lineStyle: Border.LineStyle.dashDotStroker);
-      borderProperties.setLineWidth(lineWidth: 2);
-      borderProperties.setShadow(shadow: true);
+      let requestBorderProperties = Border();
+      requestBorderProperties.setBorderType(borderType: Border.BorderType._left);
+      requestBorderProperties.setColor(color: requestBorderPropertiesColor);
+      requestBorderProperties.setDistanceFromText(distanceFromText: 6);
+      requestBorderProperties.setLineStyle(lineStyle: Border.LineStyle.dashDotStroker);
+      requestBorderProperties.setLineWidth(lineWidth: 2);
+      requestBorderProperties.setShadow(shadow: true);
 
 
-      let request = UpdateBorderOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, borderProperties: borderProperties, borderType: "left", nodePath: "tables/1/rows/0/cells/0");
+      let request = UpdateBorderOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, borderProperties: requestBorderProperties, borderType: "left", nodePath: "tables/1/rows/0/cells/0");
       _ = try super.getApi().updateBorderOnline(request: request);
     }
 }
