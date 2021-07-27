@@ -10964,7 +10964,7 @@ public class WordsAPI {
     }
 
     // Async representation of saveAsOnline method
-    // Converts a document in cloud storage to the specified format.
+    // Converts a document to the specified format.
     public func saveAsOnline(request : SaveAsOnlineRequest, callback : @escaping (_ response : SaveAsOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -10990,7 +10990,7 @@ public class WordsAPI {
     }
 
     // Sync representation of saveAsOnline method
-    // Converts a document in cloud storage to the specified format.
+    // Converts a document to the specified format.
     public func saveAsOnline(request : SaveAsOnlineRequest) throws -> SaveAsOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SaveAsOnlineResponse? = nil;
@@ -11148,7 +11148,7 @@ public class WordsAPI {
     }
 
     // Async representation of saveAsTiffOnline method
-    // Converts a document in cloud storage to TIFF format using detailed conversion settings.
+    // Converts a document to TIFF format using detailed conversion settings.
     public func saveAsTiffOnline(request : SaveAsTiffOnlineRequest, callback : @escaping (_ response : SaveAsTiffOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -11174,7 +11174,7 @@ public class WordsAPI {
     }
 
     // Sync representation of saveAsTiffOnline method
-    // Converts a document in cloud storage to TIFF format using detailed conversion settings.
+    // Converts a document to TIFF format using detailed conversion settings.
     public func saveAsTiffOnline(request : SaveAsTiffOnlineRequest) throws -> SaveAsTiffOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SaveAsTiffOnlineResponse? = nil;
