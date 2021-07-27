@@ -29,13 +29,13 @@ import Foundation
 
 // Request model for getDocumentFieldNamesOnline operation.
 public class GetDocumentFieldNamesOnlineRequest : WordsApiRequest {
-    private let document : InputStream;
+    private let template : InputStream;
     private let loadEncoding : String?;
     private let password : String?;
     private let useNonMergeFields : Bool?;
 
     private enum CodingKeys: String, CodingKey {
-        case document;
+        case template;
         case loadEncoding;
         case password;
         case useNonMergeFields;
@@ -43,16 +43,16 @@ public class GetDocumentFieldNamesOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the GetDocumentFieldNamesOnlineRequest class.
-    public init(document : InputStream, loadEncoding : String? = nil, password : String? = nil, useNonMergeFields : Bool? = nil) {
-        self.document = document;
+    public init(template : InputStream, loadEncoding : String? = nil, password : String? = nil, useNonMergeFields : Bool? = nil) {
+        self.template = template;
         self.loadEncoding = loadEncoding;
         self.password = password;
         self.useNonMergeFields = useNonMergeFields;
     }
 
-    // The document.
-    public func getDocument() -> InputStream {
-        return self.document;
+    // The template document.
+    public func getTemplate() -> InputStream {
+        return self.template;
     }
 
     // Encoding that will be used to load an HTML (or TXT) document if the encoding is not specified in HTML.
@@ -94,7 +94,7 @@ public class GetDocumentFieldNamesOnlineRequest : WordsApiRequest {
              urlBuilder.queryItems = queryItems;
          }
          var formParams : [RequestFormParam] = [];
-         formParams.append(RequestFormParam(name: "document", body: try ObjectSerializer.serializeFile(value: self.getDocument()), contentType: "application/octet-stream"));
+         formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: self.getTemplate()), contentType: "application/octet-stream"));
 
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");

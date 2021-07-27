@@ -59,7 +59,7 @@ public class AppendDocumentOnlineRequest : WordsApiRequest {
         self.revisionDateTime = revisionDateTime;
     }
 
-    // The document.
+    // Original document.
     public func getDocument() -> InputStream {
         return self.document;
     }
