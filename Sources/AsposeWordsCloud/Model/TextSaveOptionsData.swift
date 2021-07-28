@@ -32,6 +32,9 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     // Field of addBidiMarks. Container class for text save options.
     private var addBidiMarks : Bool?;
 
+    // Field of maxCharactersPerLine. Container class for text save options.
+    private var maxCharactersPerLine : Int?;
+
     // Field of preserveTableLayout. Container class for text save options.
     private var preserveTableLayout : Bool?;
 
@@ -40,6 +43,7 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
 
     private enum CodingKeys: String, CodingKey {
         case addBidiMarks = "AddBidiMarks";
+        case maxCharactersPerLine = "MaxCharactersPerLine";
         case preserveTableLayout = "PreserveTableLayout";
         case simplifyListLabels = "SimplifyListLabels";
         case invalidCodingKey;
@@ -53,6 +57,7 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.addBidiMarks = try container.decodeIfPresent(Bool.self, forKey: .addBidiMarks);
+        self.maxCharactersPerLine = try container.decodeIfPresent(Int.self, forKey: .maxCharactersPerLine);
         self.preserveTableLayout = try container.decodeIfPresent(Bool.self, forKey: .preserveTableLayout);
         self.simplifyListLabels = try container.decodeIfPresent(Bool.self, forKey: .simplifyListLabels);
     }
@@ -62,6 +67,9 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
         var container = encoder.container(keyedBy: CodingKeys.self);
         if (self.addBidiMarks != nil) {
             try container.encode(self.addBidiMarks, forKey: .addBidiMarks);
+        }
+        if (self.maxCharactersPerLine != nil) {
+            try container.encode(self.maxCharactersPerLine, forKey: .maxCharactersPerLine);
         }
         if (self.preserveTableLayout != nil) {
             try container.encode(self.preserveTableLayout, forKey: .preserveTableLayout);
@@ -79,6 +87,16 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     // Gets addBidiMarks. Gets or sets a value indicating whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.
     public func getAddBidiMarks() -> Bool? {
         return self.addBidiMarks;
+    }
+
+    // Sets maxCharactersPerLine. Gets or sets an integer value that specifies the maximum number of characters per one line. The default value is 0, that means no limit.
+    public func setMaxCharactersPerLine(maxCharactersPerLine : Int?) {
+        self.maxCharactersPerLine = maxCharactersPerLine;
+    }
+
+    // Gets maxCharactersPerLine. Gets or sets an integer value that specifies the maximum number of characters per one line. The default value is 0, that means no limit.
+    public func getMaxCharactersPerLine() -> Int? {
+        return self.maxCharactersPerLine;
     }
 
     // Sets preserveTableLayout. Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.

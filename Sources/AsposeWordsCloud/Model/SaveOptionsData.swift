@@ -57,6 +57,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of fileName. base container class for save options data.
     private var fileName : String?;
 
+    // Field of imlRenderingMode. base container class for save options data.
+    private var imlRenderingMode : String?;
+
     // Field of saveFormat. base container class for save options data.
     private var saveFormat : String?;
 
@@ -85,6 +88,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
         case dmlEffectsRenderingMode = "DmlEffectsRenderingMode";
         case dmlRenderingMode = "DmlRenderingMode";
         case fileName = "FileName";
+        case imlRenderingMode = "ImlRenderingMode";
         case saveFormat = "SaveFormat";
         case updateCreatedTimeProperty = "UpdateCreatedTimeProperty";
         case updateFields = "UpdateFields";
@@ -106,6 +110,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
         self.dmlEffectsRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlEffectsRenderingMode);
         self.dmlRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlRenderingMode);
         self.fileName = try container.decodeIfPresent(String.self, forKey: .fileName);
+        self.imlRenderingMode = try container.decodeIfPresent(String.self, forKey: .imlRenderingMode);
         self.saveFormat = try container.decodeIfPresent(String.self, forKey: .saveFormat);
         self.updateCreatedTimeProperty = try container.decodeIfPresent(Bool.self, forKey: .updateCreatedTimeProperty);
         self.updateFields = try container.decodeIfPresent(Bool.self, forKey: .updateFields);
@@ -134,6 +139,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
         }
         if (self.fileName != nil) {
             try container.encode(self.fileName, forKey: .fileName);
+        }
+        if (self.imlRenderingMode != nil) {
+            try container.encode(self.imlRenderingMode, forKey: .imlRenderingMode);
         }
         if (self.saveFormat != nil) {
             try container.encode(self.saveFormat, forKey: .saveFormat);
@@ -216,6 +224,16 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Gets fileName. Gets or sets the name of destination file.
     public func getFileName() -> String? {
         return self.fileName;
+    }
+
+    // Sets imlRenderingMode. Gets or sets the value determining how ink (InkML) objects are rendered.
+    public func setImlRenderingMode(imlRenderingMode : String?) {
+        self.imlRenderingMode = imlRenderingMode;
+    }
+
+    // Gets imlRenderingMode. Gets or sets the value determining how ink (InkML) objects are rendered.
+    public func getImlRenderingMode() -> String? {
+        return self.imlRenderingMode;
     }
 
     // Sets saveFormat. Gets or sets the format of save.

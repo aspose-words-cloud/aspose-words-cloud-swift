@@ -6599,6 +6599,52 @@ public class WordsAPI {
         return responseObject!;
     }
 
+    // Async representation of getPublicKey method
+    // Get assymetric public key.
+    public func getPublicKey(request : GetPublicKeyRequest, callback : @escaping (_ response : PublicKeyResponse?, _ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                callback: { response, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!) as? PublicKeyResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of getPublicKey method
+    // Get assymetric public key.
+    public func getPublicKey(request : GetPublicKeyRequest) throws -> PublicKeyResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : PublicKeyResponse? = nil;
+        var responseError : Error? = nil;
+        self.getPublicKey(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of getRangeText method
     // Reads range text from the document.
     public func getRangeText(request : GetRangeTextRequest, callback : @escaping (_ response : RangeTextResponse?, _ error : Error?) -> ()) {
@@ -10918,7 +10964,7 @@ public class WordsAPI {
     }
 
     // Async representation of saveAsOnline method
-    // Converts a document in cloud storage to the specified format.
+    // Converts a document to the specified format.
     public func saveAsOnline(request : SaveAsOnlineRequest, callback : @escaping (_ response : SaveAsOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -10944,7 +10990,7 @@ public class WordsAPI {
     }
 
     // Sync representation of saveAsOnline method
-    // Converts a document in cloud storage to the specified format.
+    // Converts a document to the specified format.
     public func saveAsOnline(request : SaveAsOnlineRequest) throws -> SaveAsOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SaveAsOnlineResponse? = nil;
@@ -11102,7 +11148,7 @@ public class WordsAPI {
     }
 
     // Async representation of saveAsTiffOnline method
-    // Converts a document in cloud storage to TIFF format using detailed conversion settings.
+    // Converts a document to TIFF format using detailed conversion settings.
     public func saveAsTiffOnline(request : SaveAsTiffOnlineRequest, callback : @escaping (_ response : SaveAsTiffOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
@@ -11128,7 +11174,7 @@ public class WordsAPI {
     }
 
     // Sync representation of saveAsTiffOnline method
-    // Converts a document in cloud storage to TIFF format using detailed conversion settings.
+    // Converts a document to TIFF format using detailed conversion settings.
     public func saveAsTiffOnline(request : SaveAsTiffOnlineRequest) throws -> SaveAsTiffOnlineResponse {
         let semaphore = DispatchSemaphore(value: 0);
         var responseObject : SaveAsTiffOnlineResponse? = nil;

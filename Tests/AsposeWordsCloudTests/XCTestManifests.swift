@@ -42,6 +42,7 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(DocumentStatisticsTests.allTests),
         testCase(DocumentWithFormatTests.allTests),
         testCase(LoadWebDocumentTests.allTests),
+        testCase(PasswordEncryptionTests.allTests),
         testCase(RevisionsTests.allTests),
         testCase(SplitDocumentToFormatTests.allTests),
         testCase(DocumentPropertiesTests.allTests),
