@@ -41,11 +41,15 @@ public class CompareData : Codable, WordsApiModel {
     // Field of dateTime. Container class for compare documents.
     private var dateTime : Date?;
 
+    // Field of resultDocumentFormat. Container class for compare documents.
+    private var resultDocumentFormat : String?;
+
     private enum CodingKeys: String, CodingKey {
         case author = "Author";
         case compareOptions = "CompareOptions";
         case comparingWithDocument = "ComparingWithDocument";
         case dateTime = "DateTime";
+        case resultDocumentFormat = "ResultDocumentFormat";
         case invalidCodingKey;
     }
 
@@ -63,6 +67,7 @@ public class CompareData : Codable, WordsApiModel {
             self.dateTime = ObjectSerializer.customIso8601.date(from: raw_dateTime!)!;
         }
 
+        self.resultDocumentFormat = try container.decodeIfPresent(String.self, forKey: .resultDocumentFormat);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -78,6 +83,9 @@ public class CompareData : Codable, WordsApiModel {
         }
         if (self.dateTime != nil) {
             try container.encode(self.dateTime, forKey: .dateTime);
+        }
+        if (self.resultDocumentFormat != nil) {
+            try container.encode(self.resultDocumentFormat, forKey: .resultDocumentFormat);
         }
     }
 
@@ -119,5 +127,15 @@ public class CompareData : Codable, WordsApiModel {
     // Gets dateTime. Gets or sets the date and time to use for revisions.
     public func getDateTime() -> Date? {
         return self.dateTime;
+    }
+
+    // Sets resultDocumentFormat. Gets or sets the result document format.
+    public func setResultDocumentFormat(resultDocumentFormat : String?) {
+        self.resultDocumentFormat = resultDocumentFormat;
+    }
+
+    // Gets resultDocumentFormat. Gets or sets the result document format.
+    public func getResultDocumentFormat() -> String? {
+        return self.resultDocumentFormat;
     }
 }
