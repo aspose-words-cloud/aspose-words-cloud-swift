@@ -1,0 +1,13 @@
+let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
+let api = WordsAPI(configuration: config);
+let requestBorderPropertiesColor = XmlColor();
+requestBorderPropertiesColor.setWeb(web: "#AABBCC");
+let requestBorderProperties = Border();
+requestBorderProperties.setBorderType(borderType: Border.BorderType._left);
+requestBorderProperties.setColor(color: requestBorderPropertiesColor);
+requestBorderProperties.setDistanceFromText(distanceFromText: 6.0);
+requestBorderProperties.setLineStyle(lineStyle: Border.LineStyle.dashDotStroker);
+requestBorderProperties.setLineWidth(lineWidth: 2.0);
+requestBorderProperties.setShadow(shadow: true);
+let updateRequest = UpdateBorderRequest(name: "Sample.docx", borderType: "left", borderProperties: requestBorderProperties, nodePath: "tables/1/rows/0/cells/0");
+_ = try api.updateBorder(request: updateRequest);

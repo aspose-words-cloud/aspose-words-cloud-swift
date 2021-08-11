@@ -2,5 +2,5 @@ let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "
 let api = WordsAPI(configuration: config);
 let remoteFileName = "Sample.docx";
 
-let acceptRequest = AcceptAllRevisionsRequest(name: remoteFileName, destFileName: remoteFileName);
-_ = try api.acceptAllRevisions(request: acceptRequest);
+let rejectRequest = RejectAllRevisionsRequest(name: remoteFileName, destFileName: remoteFileName);
+_ = try api.rejectAllRevisions(request: rejectRequest);

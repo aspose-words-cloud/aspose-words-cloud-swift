@@ -1,0 +1,14 @@
+let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
+let api = WordsAPI(configuration: config);
+let remoteFileName = "Sample.docx";
+
+let requestFormField = FormFieldTextInput();
+requestFormField.setName(name: "FullName");
+requestFormField.setEnabled(enabled: true);
+requestFormField.setCalculateOnExit(calculateOnExit: true);
+requestFormField.setStatusText(statusText: "");
+requestFormField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
+requestFormField.setTextInputDefault(textInputDefault: "123");
+requestFormField.setTextInputFormat(textInputFormat: "UPPERCASE");
+let insertRequest = InsertFormFieldRequest(name: remoteFileName, formField: requestFormField, destFileName: remoteFileName);
+_ = try api.insertFormField(request: insertRequest);

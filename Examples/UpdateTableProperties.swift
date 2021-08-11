@@ -1,0 +1,11 @@
+let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
+let api = WordsAPI(configuration: config);
+let requestProperties = TableProperties();
+requestProperties.setAlignment(alignment: TableProperties.Alignment._right);
+requestProperties.setAllowAutoFit(allowAutoFit: false);
+requestProperties.setBidi(bidi: true);
+requestProperties.setBottomPadding(bottomPadding: 1.0);
+requestProperties.setCellSpacing(cellSpacing: 2.0);
+requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
+let updateRequest = UpdateTablePropertiesRequest(name: "Sample.docx", index: 1, properties: requestProperties);
+_ = try api.updateTableProperties(request: updateRequest);
