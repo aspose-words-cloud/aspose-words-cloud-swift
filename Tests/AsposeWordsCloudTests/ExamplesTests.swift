@@ -491,7 +491,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let convertRequest = ConvertDocumentRequest(document: InputStream(url: currentDir!.appendingPathComponent("/test_uploadfile.docx", isDirectory: false))!, format: "pdf");
+        let convertRequest = ConvertDocumentRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, format: "pdf");
         _ = try api.convertDocument(request: convertRequest);
     }
 
@@ -583,7 +583,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let deleteRequest = DeleteAllParagraphTabStopsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/ParagraphTabStops.docx", isDirectory: false))!, index: 0, nodePath: "");
+        let deleteRequest = DeleteAllParagraphTabStopsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0);
         _ = try api.deleteAllParagraphTabStopsOnline(request: deleteRequest);
     }
 
@@ -721,7 +721,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let deleteRequest = DeleteDrawingObjectOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0, nodePath: "");
+        let deleteRequest = DeleteDrawingObjectOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0);
         _ = try api.deleteDrawingObjectOnline(request: deleteRequest);
     }
 
@@ -737,7 +737,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let deleteRequest = DeleteFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/GetField.docx", isDirectory: false))!, index: 0, nodePath: "sections/0/paragraphs/0");
+        let deleteRequest = DeleteFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0, nodePath: "sections/0/paragraphs/0");
         _ = try api.deleteFieldOnline(request: deleteRequest);
     }
 
@@ -745,7 +745,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let deleteRequest = DeleteFieldsRequest(name: "Sample.docx", nodePath: "");
+        let deleteRequest = DeleteFieldsRequest(name: "Sample.docx");
         _ = try api.deleteFields(request: deleteRequest);
     }
 
@@ -753,7 +753,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let deleteRequest = DeleteFieldsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, nodePath: "");
+        let deleteRequest = DeleteFieldsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!);
         _ = try api.deleteFieldsOnline(request: deleteRequest);
     }
 
@@ -785,7 +785,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let deleteRequest = DeleteFootnoteOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/Footnote.doc", isDirectory: false))!, index: 0, nodePath: "");
+        let deleteRequest = DeleteFootnoteOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.doc", isDirectory: false))!, index: 0);
         _ = try api.deleteFootnoteOnline(request: deleteRequest);
     }
 
@@ -803,7 +803,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let deleteRequest = DeleteFormFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/FormFilled.docx", isDirectory: false))!, index: 0, nodePath: "sections/0");
+        let deleteRequest = DeleteFormFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0, nodePath: "sections/0");
         _ = try api.deleteFormFieldOnline(request: deleteRequest);
     }
 
@@ -867,7 +867,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let deleteRequest = DeleteOfficeMathObjectOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0, nodePath: "");
+        let deleteRequest = DeleteOfficeMathObjectOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0);
         _ = try api.deleteOfficeMathObjectOnline(request: deleteRequest);
     }
 
@@ -891,7 +891,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let deleteRequest = DeleteParagraphListFormatOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/ParagraphDeleteListFormat.doc", isDirectory: false))!, index: 0, nodePath: "");
+        let deleteRequest = DeleteParagraphListFormatOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.doc", isDirectory: false))!, index: 0);
         _ = try api.deleteParagraphListFormatOnline(request: deleteRequest);
     }
 
@@ -899,7 +899,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let deleteRequest = DeleteParagraphOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0, nodePath: "");
+        let deleteRequest = DeleteParagraphOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0);
         _ = try api.deleteParagraphOnline(request: deleteRequest);
     }
 
@@ -915,7 +915,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let deleteRequest = DeleteParagraphTabStopOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/ParagraphTabStops.docx", isDirectory: false))!, position: 72.0, index: 0, nodePath: "");
+        let deleteRequest = DeleteParagraphTabStopOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, position: 72.0, index: 0);
         _ = try api.deleteParagraphTabStopOnline(request: deleteRequest);
     }
 
@@ -979,7 +979,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let deleteRequest = DeleteTableOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 1, nodePath: "");
+        let deleteRequest = DeleteTableOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 1);
         _ = try api.deleteTableOnline(request: deleteRequest);
     }
 
@@ -1383,7 +1383,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let request = GetFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/GetField.docx", isDirectory: false))!, index: 0, nodePath: "sections/0/paragraphs/0");
+        let request = GetFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0, nodePath: "sections/0/paragraphs/0");
         _ = try api.getFieldOnline(request: request);
     }
 
@@ -1399,7 +1399,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let request = GetFieldsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/GetField.docx", isDirectory: false))!, nodePath: "sections/0");
+        let request = GetFieldsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, nodePath: "sections/0");
         _ = try api.getFieldsOnline(request: request);
     }
 
@@ -1423,7 +1423,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let request = GetFootnoteOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/Footnote.doc", isDirectory: false))!, index: 0, nodePath: "");
+        let request = GetFootnoteOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.doc", isDirectory: false))!, index: 0);
         _ = try api.getFootnoteOnline(request: request);
     }
 
@@ -1439,7 +1439,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let request = GetFootnotesOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/Footnote.doc", isDirectory: false))!, nodePath: "");
+        let request = GetFootnotesOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.doc", isDirectory: false))!);
         _ = try api.getFootnotesOnline(request: request);
     }
 
@@ -1455,7 +1455,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let request = GetFormFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/FormFilled.docx", isDirectory: false))!, index: 0, nodePath: "sections/0");
+        let request = GetFormFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0, nodePath: "sections/0");
         _ = try api.getFormFieldOnline(request: request);
     }
 
@@ -1471,7 +1471,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let request = GetFormFieldsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/FormFilled.docx", isDirectory: false))!, nodePath: "sections/0");
+        let request = GetFormFieldsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, nodePath: "sections/0");
         _ = try api.getFormFieldsOnline(request: request);
     }
 
@@ -1567,7 +1567,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let request = GetOfficeMathObjectOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0, nodePath: "");
+        let request = GetOfficeMathObjectOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0);
         _ = try api.getOfficeMathObjectOnline(request: request);
     }
 
@@ -1583,7 +1583,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let request = GetOfficeMathObjectsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, nodePath: "");
+        let request = GetOfficeMathObjectsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!);
         _ = try api.getOfficeMathObjectsOnline(request: request);
     }
 
@@ -1607,7 +1607,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let request = GetParagraphFormatOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0, nodePath: "");
+        let request = GetParagraphFormatOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0);
         _ = try api.getParagraphFormatOnline(request: request);
     }
 
@@ -1623,7 +1623,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let request = GetParagraphListFormatOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/ParagraphGetListFormat.doc", isDirectory: false))!, index: 0, nodePath: "");
+        let request = GetParagraphListFormatOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.doc", isDirectory: false))!, index: 0);
         _ = try api.getParagraphListFormatOnline(request: request);
     }
 
@@ -1663,7 +1663,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let request = GetParagraphTabStopsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/ParagraphTabStops.docx", isDirectory: false))!, index: 0, nodePath: "");
+        let request = GetParagraphTabStopsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0);
         _ = try api.getParagraphTabStopsOnline(request: request);
     }
 
@@ -1879,7 +1879,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let request = GetTableOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 1, nodePath: "");
+        let request = GetTableOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 1);
         _ = try api.getTableOnline(request: request);
     }
 
@@ -1895,7 +1895,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let request = GetTablePropertiesOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 1, nodePath: "");
+        let request = GetTablePropertiesOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 1);
         _ = try api.getTablePropertiesOnline(request: request);
     }
 
@@ -1943,7 +1943,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let request = GetTablesOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, nodePath: "");
+        let request = GetTablesOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!);
         _ = try api.getTablesOnline(request: request);
     }
 
@@ -2045,7 +2045,7 @@ class ExamplesTests : XCTestCase
         requestDrawingObject.setRelativeHorizontalPosition(relativeHorizontalPosition: DrawingObjectInsert.RelativeHorizontalPosition.margin);
         requestDrawingObject.setRelativeVerticalPosition(relativeVerticalPosition: DrawingObjectInsert.RelativeVerticalPosition.margin);
         requestDrawingObject.setWrapType(wrapType: DrawingObjectInsert.WrapType.inline);
-        let insertRequest = InsertDrawingObjectOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, drawingObject: requestDrawingObject, imageFile: InputStream(url: currentDir!.appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, nodePath: "");
+        let insertRequest = InsertDrawingObjectOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, drawingObject: requestDrawingObject, imageFile: InputStream(url: currentDir!.appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!);
         _ = try api.insertDrawingObjectOnline(request: insertRequest);
     }
 
@@ -2065,7 +2065,7 @@ class ExamplesTests : XCTestCase
         let api = WordsAPI(configuration: config);
         let requestField = FieldInsert();
         requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
-        let insertRequest = InsertFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/GetField.docx", isDirectory: false))!, field: requestField, nodePath: "sections/0/paragraphs/0");
+        let insertRequest = InsertFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, field: requestField, nodePath: "sections/0/paragraphs/0");
         _ = try api.insertFieldOnline(request: insertRequest);
     }
 
@@ -2087,7 +2087,7 @@ class ExamplesTests : XCTestCase
         let requestFootnoteDto = FootnoteInsert();
         requestFootnoteDto.setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote);
         requestFootnoteDto.setText(text: "test endnote");
-        let insertRequest = InsertFootnoteOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/Footnote.doc", isDirectory: false))!, footnoteDto: requestFootnoteDto, nodePath: "");
+        let insertRequest = InsertFootnoteOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.doc", isDirectory: false))!, footnoteDto: requestFootnoteDto);
         _ = try api.insertFootnoteOnline(request: insertRequest);
     }
 
@@ -2121,7 +2121,7 @@ class ExamplesTests : XCTestCase
         requestFormField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
         requestFormField.setTextInputDefault(textInputDefault: "123");
         requestFormField.setTextInputFormat(textInputFormat: "UPPERCASE");
-        let insertRequest = InsertFormFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/FormFilled.docx", isDirectory: false))!, formField: requestFormField, nodePath: "sections/0/paragraphs/0");
+        let insertRequest = InsertFormFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, formField: requestFormField, nodePath: "sections/0/paragraphs/0");
         _ = try api.insertFormFieldOnline(request: insertRequest);
     }
 
@@ -2181,7 +2181,7 @@ class ExamplesTests : XCTestCase
         requestTabStopInsertDto.setAlignment(alignment: TabStopInsert.Alignment._left);
         requestTabStopInsertDto.setLeader(leader: TabStopInsert.Leader._none);
         requestTabStopInsertDto.setPosition(position: 72);
-        let insertRequest = InsertOrUpdateParagraphTabStopOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/ParagraphTabStops.docx", isDirectory: false))!, tabStopInsertDto: requestTabStopInsertDto, index: 0, nodePath: "");
+        let insertRequest = InsertOrUpdateParagraphTabStopOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, tabStopInsertDto: requestTabStopInsertDto, index: 0);
         _ = try api.insertOrUpdateParagraphTabStopOnline(request: insertRequest);
     }
 
@@ -2309,7 +2309,7 @@ class ExamplesTests : XCTestCase
         let requestTable = TableInsert();
         requestTable.setColumnsCount(columnsCount: 5);
         requestTable.setRowsCount(rowsCount: 4);
-        let insertRequest = InsertTableOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, table: requestTable, nodePath: "");
+        let insertRequest = InsertTableOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, table: requestTable);
         _ = try api.insertTableOnline(request: insertRequest);
     }
 
@@ -2514,7 +2514,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let renderRequest = RenderMathObjectOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, format: "png", index: 0, nodePath: "");
+        let renderRequest = RenderMathObjectOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, format: "png", index: 0);
         _ = try api.renderMathObjectOnline(request: renderRequest);
     }
 
@@ -2546,7 +2546,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let renderRequest = RenderParagraphOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, format: "png", index: 0, nodePath: "");
+        let renderRequest = RenderParagraphOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, format: "png", index: 0);
         _ = try api.renderParagraphOnline(request: renderRequest);
     }
 
@@ -2562,7 +2562,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
-        let renderRequest = RenderTableOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, format: "png", index: 0, nodePath: "");
+        let renderRequest = RenderTableOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, format: "png", index: 0);
         _ = try api.renderTableOnline(request: renderRequest);
     }
 
@@ -2879,7 +2879,7 @@ class ExamplesTests : XCTestCase
         let api = WordsAPI(configuration: config);
         let requestDrawingObject = DrawingObjectUpdate();
         requestDrawingObject.setLeft(_left: 0);
-        let updateRequest = UpdateDrawingObjectOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, drawingObject: requestDrawingObject, imageFile: InputStream(url: currentDir!.appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, index: 0, nodePath: "");
+        let updateRequest = UpdateDrawingObjectOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, drawingObject: requestDrawingObject, imageFile: InputStream(url: currentDir!.appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!, index: 0);
         _ = try api.updateDrawingObjectOnline(request: updateRequest);
     }
 
@@ -2899,7 +2899,7 @@ class ExamplesTests : XCTestCase
         let api = WordsAPI(configuration: config);
         let requestField = FieldUpdate();
         requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
-        let updateRequest = UpdateFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/GetField.docx", isDirectory: false))!, field: requestField, index: 0, nodePath: "sections/0/paragraphs/0");
+        let updateRequest = UpdateFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, field: requestField, index: 0, nodePath: "sections/0/paragraphs/0");
         _ = try api.updateFieldOnline(request: updateRequest);
     }
 
@@ -2935,7 +2935,7 @@ class ExamplesTests : XCTestCase
         let api = WordsAPI(configuration: config);
         let requestFootnoteDto = FootnoteUpdate();
         requestFootnoteDto.setText(text: "new text is here");
-        let updateRequest = UpdateFootnoteOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/Footnote.doc", isDirectory: false))!, footnoteDto: requestFootnoteDto, index: 0, nodePath: "");
+        let updateRequest = UpdateFootnoteOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.doc", isDirectory: false))!, footnoteDto: requestFootnoteDto, index: 0);
         _ = try api.updateFootnoteOnline(request: updateRequest);
     }
 
@@ -2967,7 +2967,7 @@ class ExamplesTests : XCTestCase
         requestFormField.setStatusText(statusText: "");
         requestFormField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
         requestFormField.setTextInputDefault(textInputDefault: "No name");
-        let updateRequest = UpdateFormFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/FormFilled.docx", isDirectory: false))!, formField: requestFormField, index: 0, nodePath: "sections/0");
+        let updateRequest = UpdateFormFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, formField: requestFormField, index: 0, nodePath: "sections/0");
         _ = try api.updateFormFieldOnline(request: updateRequest);
     }
 
@@ -3017,7 +3017,7 @@ class ExamplesTests : XCTestCase
         let api = WordsAPI(configuration: config);
         let requestParagraphFormatDto = ParagraphFormatUpdate();
         requestParagraphFormatDto.setAlignment(alignment: ParagraphFormatUpdate.Alignment._right);
-        let updateRequest = UpdateParagraphFormatRequest(name: "Sample.docx", index: 0, paragraphFormatDto: requestParagraphFormatDto, nodePath: "");
+        let updateRequest = UpdateParagraphFormatRequest(name: "Sample.docx", index: 0, paragraphFormatDto: requestParagraphFormatDto);
         _ = try api.updateParagraphFormat(request: updateRequest);
     }
 
@@ -3027,7 +3027,7 @@ class ExamplesTests : XCTestCase
         let api = WordsAPI(configuration: config);
         let requestParagraphFormatDto = ParagraphFormatUpdate();
         requestParagraphFormatDto.setAlignment(alignment: ParagraphFormatUpdate.Alignment._right);
-        let updateRequest = UpdateParagraphFormatOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, paragraphFormatDto: requestParagraphFormatDto, index: 0, nodePath: "");
+        let updateRequest = UpdateParagraphFormatOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, paragraphFormatDto: requestParagraphFormatDto, index: 0);
         _ = try api.updateParagraphFormatOnline(request: updateRequest);
     }
 
@@ -3047,7 +3047,7 @@ class ExamplesTests : XCTestCase
         let api = WordsAPI(configuration: config);
         let requestListFormatDto = ListFormatUpdate();
         requestListFormatDto.setListId(listId: 2);
-        let updateRequest = UpdateParagraphListFormatOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/ParagraphUpdateListFormat.doc", isDirectory: false))!, listFormatDto: requestListFormatDto, index: 0, nodePath: "");
+        let updateRequest = UpdateParagraphListFormatOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.doc", isDirectory: false))!, listFormatDto: requestListFormatDto, index: 0);
         _ = try api.updateParagraphListFormatOnline(request: updateRequest);
     }
 
@@ -3191,7 +3191,7 @@ class ExamplesTests : XCTestCase
         requestProperties.setBottomPadding(bottomPadding: 1);
         requestProperties.setCellSpacing(cellSpacing: 2);
         requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
-        let updateRequest = UpdateTablePropertiesOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, properties: requestProperties, index: 1, nodePath: "");
+        let updateRequest = UpdateTablePropertiesOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, properties: requestProperties, index: 1);
         _ = try api.updateTablePropertiesOnline(request: updateRequest);
     }
 

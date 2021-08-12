@@ -8,5 +8,5 @@ requestProperties.setBidi(bidi: true);
 requestProperties.setBottomPadding(bottomPadding: 1);
 requestProperties.setCellSpacing(cellSpacing: 2);
 requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
-let updateRequest = UpdateTablePropertiesOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, properties: requestProperties, index: 1, nodePath: "");
+let updateRequest = UpdateTablePropertiesOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, properties: requestProperties, index: 1);
 _ = try api.updateTablePropertiesOnline(request: updateRequest);

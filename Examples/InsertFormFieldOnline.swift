@@ -9,5 +9,5 @@ requestFormField.setStatusText(statusText: "");
 requestFormField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
 requestFormField.setTextInputDefault(textInputDefault: "123");
 requestFormField.setTextInputFormat(textInputFormat: "UPPERCASE");
-let insertRequest = InsertFormFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("/FormFilled.docx", isDirectory: false))!, formField: requestFormField, nodePath: "sections/0/paragraphs/0");
+let insertRequest = InsertFormFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, formField: requestFormField, nodePath: "sections/0/paragraphs/0");
 _ = try api.insertFormFieldOnline(request: insertRequest);
