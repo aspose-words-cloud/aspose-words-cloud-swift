@@ -1,5 +1,6 @@
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
+let bookmarkName = "aspose";
 let remoteFileName = "Sample.docx";
 
 let requestBookmarkData = BookmarkData();

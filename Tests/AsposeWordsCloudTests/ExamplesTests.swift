@@ -2738,6 +2738,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
+        let bookmarkName = "aspose";
         let remoteFileName = "Sample.docx";
 
         let requestBookmarkData = BookmarkData();
@@ -2751,6 +2752,8 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = WordsAPI(configuration: config);
+        let bookmarkName = "aspose";
+
         let requestBookmarkData = BookmarkData();
         requestBookmarkData.setName(name: bookmarkName);
         requestBookmarkData.setText(text: "This will be the text for Aspose");
