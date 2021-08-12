@@ -9,5 +9,5 @@ let requestDocumentListDocumentEntries = [
   requestDocumentListDocumentEntries0];
 let requestDocumentList = DocumentEntryList();
 requestDocumentList.setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
-let appendRequest = AppendDocumentRequest(name: remoteFileName, documentList: requestDocumentList, destFileName: remoteFileName);
+let appendRequest = AppendDocumentRequest(name: remoteFileName, documentList: requestDocumentList);
 _ = try api.appendDocument(request: appendRequest);

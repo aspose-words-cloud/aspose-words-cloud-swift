@@ -1,6 +1,4 @@
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let remoteFileName = "Sample.docx";
-
-let deleteRequest = DeleteCustomXmlPartsRequest(name: remoteFileName, destFileName: remoteFileName);
+let deleteRequest = DeleteCustomXmlPartsRequest(name: "Sample.docx");
 _ = try api.deleteCustomXmlParts(request: deleteRequest);

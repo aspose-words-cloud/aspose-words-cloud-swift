@@ -1,6 +1,4 @@
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let remoteFileName = "Sample.docx";
-
-let deleteRequest = DeleteCommentRequest(name: remoteFileName, commentIndex: 0, destFileName: remoteFileName);
+let deleteRequest = DeleteCommentRequest(name: "Sample.docx", commentIndex: 0);
 _ = try api.deleteComment(request: deleteRequest);
