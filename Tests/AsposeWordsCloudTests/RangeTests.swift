@@ -57,7 +57,10 @@ class RangeTests: BaseTestContext {
 
     // Test for getting the text from range online.
     func testGetRangeTextOnline() throws {
-      let request = GetRangeTextOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, rangeStartIdentifier: "id0.0.0", rangeEndIdentifier: "id0.0.1");
+
+
+
+      let request = GetRangeTextOnlineRequest(document: requestDocument, rangeStartIdentifier: "id0.0.0", rangeEndIdentifier: "id0.0.1");
       _ = try super.getApi().getRangeTextOnline(request: request);
     }
 
@@ -73,7 +76,10 @@ class RangeTests: BaseTestContext {
 
     // Test for removing the text for range online.
     func testRemoveRangeOnline() throws {
-      let request = RemoveRangeOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, rangeStartIdentifier: "id0.0.0", rangeEndIdentifier: "id0.0.1");
+
+
+
+      let request = RemoveRangeOnlineRequest(document: requestDocument, rangeStartIdentifier: "id0.0.0", rangeEndIdentifier: "id0.0.1");
       _ = try super.getApi().removeRangeOnline(request: request);
     }
 
@@ -95,11 +101,13 @@ class RangeTests: BaseTestContext {
 
     // Test for saving a range as a new document online.
     func testSaveAsRangeOnline() throws {
+
+
       let requestDocumentParameters = RangeDocument();
       requestDocumentParameters.setDocumentName(documentName: remoteDataFolder + "/NewDoc.docx");
 
 
-      let request = SaveAsRangeOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, rangeStartIdentifier: "id0.0.0", documentParameters: requestDocumentParameters, rangeEndIdentifier: "id0.0.1");
+      let request = SaveAsRangeOnlineRequest(document: requestDocument, rangeStartIdentifier: "id0.0.0", documentParameters: requestDocumentParameters, rangeEndIdentifier: "id0.0.1");
       _ = try super.getApi().saveAsRangeOnline(request: request);
     }
 
@@ -121,11 +129,13 @@ class RangeTests: BaseTestContext {
 
     // Test for replacing text in range online.
     func testReplaceWithTextOnline() throws {
+
+
       let requestRangeText = ReplaceRange();
       requestRangeText.setText(text: "Replaced header");
 
 
-      let request = ReplaceWithTextOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, rangeStartIdentifier: "id0.0.0", rangeText: requestRangeText, rangeEndIdentifier: "id0.0.1");
+      let request = ReplaceWithTextOnlineRequest(document: requestDocument, rangeStartIdentifier: "id0.0.0", rangeText: requestRangeText, rangeEndIdentifier: "id0.0.1");
       _ = try super.getApi().replaceWithTextOnline(request: request);
     }
 }

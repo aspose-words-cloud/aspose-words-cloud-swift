@@ -58,7 +58,10 @@ class SectionTests: BaseTestContext {
 
     // Test for getting section by index online.
     func testGetSectionOnline() throws {
-      let request = GetSectionOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionIndex: 0);
+
+
+
+      let request = GetSectionOnlineRequest(document: requestDocument, sectionIndex: 0);
       _ = try super.getApi().getSectionOnline(request: request);
     }
 
@@ -78,7 +81,10 @@ class SectionTests: BaseTestContext {
 
     // Test for getting sections online.
     func testGetSectionsOnline() throws {
-      let request = GetSectionsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+
+
+
+      let request = GetSectionsOnlineRequest(document: requestDocument);
       _ = try super.getApi().getSectionsOnline(request: request);
     }
 
@@ -94,7 +100,10 @@ class SectionTests: BaseTestContext {
 
     // Test for delete a section online.
     func testDeleteSectionOnline() throws {
-      let request = DeleteSectionOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionIndex: 0);
+
+
+
+      let request = DeleteSectionOnlineRequest(document: requestDocument, sectionIndex: 0);
       _ = try super.getApi().deleteSectionOnline(request: request);
     }
 }

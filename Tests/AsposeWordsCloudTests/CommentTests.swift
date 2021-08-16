@@ -62,7 +62,10 @@ class CommentTests: BaseTestContext {
 
     // Test for getting comment by specified comment's index online.
     func testGetCommentOnline() throws {
-      let request = GetCommentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, commentIndex: 0);
+
+
+
+      let request = GetCommentOnlineRequest(document: requestDocument, commentIndex: 0);
       _ = try super.getApi().getCommentOnline(request: request);
     }
 
@@ -82,7 +85,10 @@ class CommentTests: BaseTestContext {
 
     // Test for getting all comments from document online.
     func testGetCommentsOnline() throws {
-      let request = GetCommentsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+
+
+
+      let request = GetCommentsOnlineRequest(document: requestDocument);
       _ = try super.getApi().getCommentsOnline(request: request);
     }
 
@@ -125,6 +131,8 @@ class CommentTests: BaseTestContext {
 
     // Test for adding comment online.
     func testInsertCommentOnline() throws {
+
+
       let requestCommentRangeStartNode = NodeLink();
       requestCommentRangeStartNode.setNodeId(nodeId: "0.3.0.3");
 
@@ -147,7 +155,7 @@ class CommentTests: BaseTestContext {
       requestComment.setText(text: "A new Comment");
 
 
-      let request = InsertCommentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, comment: requestComment);
+      let request = InsertCommentOnlineRequest(document: requestDocument, comment: requestComment);
       _ = try super.getApi().insertCommentOnline(request: request);
     }
 
@@ -190,6 +198,8 @@ class CommentTests: BaseTestContext {
 
     // Test for updating comment online.
     func testUpdateCommentOnline() throws {
+
+
       let requestCommentRangeStartNode = NodeLink();
       requestCommentRangeStartNode.setNodeId(nodeId: "0.3.0");
 
@@ -212,7 +222,7 @@ class CommentTests: BaseTestContext {
       requestComment.setText(text: "A new Comment");
 
 
-      let request = UpdateCommentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, commentIndex: 0, comment: requestComment);
+      let request = UpdateCommentOnlineRequest(document: requestDocument, commentIndex: 0, comment: requestComment);
       _ = try super.getApi().updateCommentOnline(request: request);
     }
 
@@ -228,7 +238,10 @@ class CommentTests: BaseTestContext {
 
     // A test for DeleteComment online.
     func testDeleteCommentOnline() throws {
-      let request = DeleteCommentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, commentIndex: 0);
+
+
+
+      let request = DeleteCommentOnlineRequest(document: requestDocument, commentIndex: 0);
       _ = try super.getApi().deleteCommentOnline(request: request);
     }
 
@@ -244,7 +257,10 @@ class CommentTests: BaseTestContext {
 
     // A test for DeleteComments online.
     func testDeleteCommentsOnline() throws {
-      let request = DeleteCommentsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+
+
+
+      let request = DeleteCommentsOnlineRequest(document: requestDocument);
       _ = try super.getApi().deleteCommentsOnline(request: request);
     }
 }

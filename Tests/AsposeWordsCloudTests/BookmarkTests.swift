@@ -55,7 +55,10 @@ class BookmarkTests: BaseTestContext {
 
     // Test for getting bookmarks from document online.
     func testGetBookmarksOnline() throws {
-      let request = GetBookmarksOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+
+
+
+      let request = GetBookmarksOnlineRequest(document: requestDocument);
       _ = try super.getApi().getBookmarksOnline(request: request);
     }
 
@@ -71,7 +74,10 @@ class BookmarkTests: BaseTestContext {
 
     // Test for getting bookmark by specified name online.
     func testGetBookmarkByNameOnline() throws {
-      let request = GetBookmarkByNameOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, bookmarkName: bookmarkName);
+
+
+
+      let request = GetBookmarkByNameOnlineRequest(document: requestDocument, bookmarkName: bookmarkName);
       _ = try super.getApi().getBookmarkByNameOnline(request: request);
     }
 
@@ -95,12 +101,14 @@ class BookmarkTests: BaseTestContext {
     func testUpdateBookmarkOnline() throws {
       let remoteFileName = "TestUpdateDocumentBookmark.docx";
 
+
+
       let requestBookmarkData = BookmarkData();
       requestBookmarkData.setName(name: bookmarkName);
       requestBookmarkData.setText(text: "This will be the text for Aspose");
 
 
-      let request = UpdateBookmarkOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, bookmarkName: bookmarkName, bookmarkData: requestBookmarkData, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let request = UpdateBookmarkOnlineRequest(document: requestDocument, bookmarkName: bookmarkName, bookmarkData: requestBookmarkData, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().updateBookmarkOnline(request: request);
     }
 }

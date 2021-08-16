@@ -63,7 +63,10 @@ class ClassificationTests: BaseTestContext {
 
     // Test for document classification online.
     func testClassifyDocumentOnline() throws {
-      let request = ClassifyDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, bestClassesCount: "3");
+
+
+
+      let request = ClassifyDocumentOnlineRequest(document: requestDocument, bestClassesCount: "3");
       _ = try super.getApi().classifyDocumentOnline(request: request);
     }
 }

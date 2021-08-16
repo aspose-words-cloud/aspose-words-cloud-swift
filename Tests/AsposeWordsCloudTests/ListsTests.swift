@@ -62,7 +62,10 @@ class ListsTests: BaseTestContext {
 
     // Test for getting lists from document online.
     func testGetListsOnline() throws {
-      let request = GetListsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+
+
+
+      let request = GetListsOnlineRequest(document: requestDocument);
       _ = try super.getApi().getListsOnline(request: request);
     }
 
@@ -80,7 +83,10 @@ class ListsTests: BaseTestContext {
 
     // Test for getting list from document online.
     func testGetListOnline() throws {
-      let request = GetListOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, listId: 1);
+
+
+
+      let request = GetListOnlineRequest(document: requestDocument, listId: 1);
       _ = try super.getApi().getListOnline(request: request);
     }
 
@@ -100,11 +106,13 @@ class ListsTests: BaseTestContext {
 
     // Test for updating list from document online.
     func testUpdateListOnline() throws {
+
+
       let requestListUpdate = ListUpdate();
       requestListUpdate.setIsRestartAtEachSection(isRestartAtEachSection: true);
 
 
-      let request = UpdateListOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, listId: 1, listUpdate: requestListUpdate);
+      let request = UpdateListOnlineRequest(document: requestDocument, listId: 1, listUpdate: requestListUpdate);
       let actual = try super.getApi().updateListOnline(request: request);
       XCTAssertNotNil(actual.getModel()!.getList());
       XCTAssertEqual(actual.getModel()!.getList()!.getListId(), 1);
@@ -127,11 +135,13 @@ class ListsTests: BaseTestContext {
 
     // Test for updating list level from document online.
     func testUpdateListLevelOnline() throws {
+
+
       let requestListUpdate = ListLevelUpdate();
       requestListUpdate.setAlignment(alignment: ListLevelUpdate.Alignment._right);
 
 
-      let request = UpdateListLevelOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, listId: 1, listUpdate: requestListUpdate, listLevel: 1);
+      let request = UpdateListLevelOnlineRequest(document: requestDocument, listId: 1, listUpdate: requestListUpdate, listLevel: 1);
       let actual = try super.getApi().updateListLevelOnline(request: request);
       XCTAssertNotNil(actual.getModel()!.getList());
       XCTAssertNotNil(actual.getModel()!.getList()!.getListLevels());
@@ -158,11 +168,13 @@ class ListsTests: BaseTestContext {
 
     // Test for inserting list from document online.
     func testInsertListOnline() throws {
+
+
       let requestListInsert = ListInsert();
       requestListInsert.setTemplate(template: ListInsert.Template.outlineLegal);
 
 
-      let request = InsertListOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, listInsert: requestListInsert);
+      let request = InsertListOnlineRequest(document: requestDocument, listInsert: requestListInsert);
       _ = try super.getApi().insertListOnline(request: request);
     }
 }

@@ -54,11 +54,13 @@ class CompatibilityTests: BaseTestContext {
 
     // Test for optimize document to specific MS Word version.
     func testOptimizeDocumentOnline() throws {
+
+
       let requestOptions = OptimizationOptions();
       requestOptions.setMsWordVersion(msWordVersion: OptimizationOptions.MsWordVersion.word2002);
 
 
-      let request = OptimizeDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, options: requestOptions);
+      let request = OptimizeDocumentOnlineRequest(document: requestDocument, options: requestOptions);
       _ = try super.getApi().optimizeDocumentOnline(request: request);
     }
 }

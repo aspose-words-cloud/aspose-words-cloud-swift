@@ -66,6 +66,8 @@ class AppendDocumentTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
+
+
       let requestDocumentListDocumentEntries0 = DocumentEntry();
       requestDocumentListDocumentEntries0.setHref(href: remoteDataFolder + "/" + remoteFileName);
       requestDocumentListDocumentEntries0.setImportFormatMode(importFormatMode: "KeepSourceFormatting");
@@ -76,7 +78,7 @@ class AppendDocumentTests: BaseTestContext {
       requestDocumentList.setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
 
 
-      let request = AppendDocumentOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, documentList: requestDocumentList);
+      let request = AppendDocumentOnlineRequest(document: requestDocument, documentList: requestDocumentList);
       _ = try super.getApi().appendDocumentOnline(request: request);
     }
 }

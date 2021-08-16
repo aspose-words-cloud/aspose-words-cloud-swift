@@ -75,6 +75,8 @@ class FormFieldTests: BaseTestContext {
 
     // Test for posting form field online.
     func testUpdateFormFieldOnline() throws {
+
+
       let requestFormField = FormFieldTextInput();
       requestFormField.setName(name: "FullName");
       requestFormField.setEnabled(enabled: true);
@@ -84,7 +86,7 @@ class FormFieldTests: BaseTestContext {
       requestFormField.setTextInputDefault(textInputDefault: "No name");
 
 
-      let request = UpdateFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false))!, formField: requestFormField, index: 0, nodePath: "sections/0");
+      let request = UpdateFormFieldOnlineRequest(document: requestDocument, formField: requestFormField, index: 0, nodePath: "sections/0");
       _ = try super.getApi().updateFormFieldOnline(request: request);
     }
 
@@ -124,7 +126,10 @@ class FormFieldTests: BaseTestContext {
 
     // Test for getting form field online.
     func testGetFormFieldOnline() throws {
-      let request = GetFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false))!, index: 0, nodePath: "sections/0");
+
+
+
+      let request = GetFormFieldOnlineRequest(document: requestDocument, index: 0, nodePath: "sections/0");
       _ = try super.getApi().getFormFieldOnline(request: request);
     }
 
@@ -156,7 +161,10 @@ class FormFieldTests: BaseTestContext {
 
     // Test for getting form fields online.
     func testGetFormFieldsOnline() throws {
-      let request = GetFormFieldsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false))!, nodePath: "sections/0");
+
+
+
+      let request = GetFormFieldsOnlineRequest(document: requestDocument, nodePath: "sections/0");
       _ = try super.getApi().getFormFieldsOnline(request: request);
     }
 
@@ -199,6 +207,8 @@ class FormFieldTests: BaseTestContext {
 
     // Test for insert form field without node path online.
     func testInsertFormFieldOnline() throws {
+
+
       let requestFormField = FormFieldTextInput();
       requestFormField.setName(name: "FullName");
       requestFormField.setEnabled(enabled: true);
@@ -209,7 +219,7 @@ class FormFieldTests: BaseTestContext {
       requestFormField.setTextInputFormat(textInputFormat: "UPPERCASE");
 
 
-      let request = InsertFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false))!, formField: requestFormField, nodePath: "sections/0/paragraphs/0");
+      let request = InsertFormFieldOnlineRequest(document: requestDocument, formField: requestFormField, nodePath: "sections/0/paragraphs/0");
       _ = try super.getApi().insertFormFieldOnline(request: request);
     }
 
@@ -248,7 +258,10 @@ class FormFieldTests: BaseTestContext {
 
     // Test for deleting form field online.
     func testDeleteFormFieldOnline() throws {
-      let request = DeleteFormFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/FormFilled.docx", isDirectory: false))!, index: 0, nodePath: "sections/0");
+
+
+
+      let request = DeleteFormFieldOnlineRequest(document: requestDocument, index: 0, nodePath: "sections/0");
       _ = try super.getApi().deleteFormFieldOnline(request: request);
     }
 

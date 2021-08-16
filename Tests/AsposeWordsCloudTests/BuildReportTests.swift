@@ -43,12 +43,14 @@ class BuildReportTests: BaseTestContext {
       let localDocumentFile = "ReportTemplate.docx";
       let localDataFile = try String(contentsOf: self.getLocalTestDataFolder().appendingPathComponent(reportingFolder + "/ReportData.json", isDirectory: false));
 
+
+
       let requestReportEngineSettings = ReportEngineSettings();
       requestReportEngineSettings.setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json);
       requestReportEngineSettings.setDataSourceName(dataSourceName: "persons");
 
 
-      let request = BuildReportOnlineRequest(template: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(reportingFolder + "/" + localDocumentFile, isDirectory: false))!, data: localDataFile, reportEngineSettings: requestReportEngineSettings);
+      let request = BuildReportOnlineRequest(template: requestTemplate, data: localDataFile, reportEngineSettings: requestReportEngineSettings);
       _ = try super.getApi().buildReportOnline(request: request);
     }
 

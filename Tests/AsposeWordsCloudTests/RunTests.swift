@@ -60,11 +60,13 @@ class RunTests: BaseTestContext {
 
     // Test for updating run online.
     func testUpdateRunOnline() throws {
+
+
       let requestRun = RunUpdate();
       requestRun.setText(text: "run with text");
 
 
-      let request = UpdateRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/1", run: requestRun, index: 0);
+      let request = UpdateRunOnlineRequest(document: requestDocument, paragraphPath: "paragraphs/1", run: requestRun, index: 0);
       _ = try super.getApi().updateRunOnline(request: request);
     }
 
@@ -87,11 +89,13 @@ class RunTests: BaseTestContext {
 
     // Test for adding run online.
     func testInsertRunOnline() throws {
+
+
       let requestRun = RunInsert();
       requestRun.setText(text: "run with text");
 
 
-      let request = InsertRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/1", run: requestRun);
+      let request = InsertRunOnlineRequest(document: requestDocument, paragraphPath: "paragraphs/1", run: requestRun);
       _ = try super.getApi().insertRunOnline(request: request);
     }
 
@@ -107,7 +111,10 @@ class RunTests: BaseTestContext {
 
     // Test for deleting run online.
     func testDeleteRunOnline() throws {
-      let request = DeleteRunOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, paragraphPath: "paragraphs/1", index: 0);
+
+
+
+      let request = DeleteRunOnlineRequest(document: requestDocument, paragraphPath: "paragraphs/1", index: 0);
       _ = try super.getApi().deleteRunOnline(request: request);
     }
 }

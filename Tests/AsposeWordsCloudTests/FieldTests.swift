@@ -79,7 +79,10 @@ class FieldTests: BaseTestContext {
 
     // Test for getting fields online.
     func testGetFieldsOnline() throws {
-      let request = GetFieldsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/GetField.docx", isDirectory: false))!, nodePath: "sections/0");
+
+
+
+      let request = GetFieldsOnlineRequest(document: requestDocument, nodePath: "sections/0");
       _ = try super.getApi().getFieldsOnline(request: request);
     }
 
@@ -113,7 +116,10 @@ class FieldTests: BaseTestContext {
 
     // Test for getting field by index online.
     func testGetFieldOnline() throws {
-      let request = GetFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/GetField.docx", isDirectory: false))!, index: 0, nodePath: "sections/0/paragraphs/0");
+
+
+
+      let request = GetFieldOnlineRequest(document: requestDocument, index: 0, nodePath: "sections/0/paragraphs/0");
       _ = try super.getApi().getFieldOnline(request: request);
     }
 
@@ -150,11 +156,13 @@ class FieldTests: BaseTestContext {
 
     // Test for putting field online.
     func testInsertFieldOnline() throws {
+
+
       let requestField = FieldInsert();
       requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
 
 
-      let request = InsertFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/GetField.docx", isDirectory: false))!, field: requestField, nodePath: "sections/0/paragraphs/0");
+      let request = InsertFieldOnlineRequest(document: requestDocument, field: requestField, nodePath: "sections/0/paragraphs/0");
       _ = try super.getApi().insertFieldOnline(request: request);
     }
 
@@ -196,11 +204,13 @@ class FieldTests: BaseTestContext {
 
     // Test for posting field online.
     func testUpdateFieldOnline() throws {
+
+
       let requestField = FieldUpdate();
       requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
 
 
-      let request = UpdateFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/GetField.docx", isDirectory: false))!, field: requestField, index: 0, nodePath: "sections/0/paragraphs/0");
+      let request = UpdateFieldOnlineRequest(document: requestDocument, field: requestField, index: 0, nodePath: "sections/0/paragraphs/0");
       _ = try super.getApi().updateFieldOnline(request: request);
     }
 
@@ -226,12 +236,14 @@ class FieldTests: BaseTestContext {
     func testInsertPageNumbersOnline() throws {
       let localFileName = "test_multi_pages.docx";
 
+
+
       let requestPageNumber = PageNumber();
       requestPageNumber.setAlignment(alignment: "center");
       requestPageNumber.setFormat(format: "{PAGE} of {NUMPAGES}");
 
 
-      let request = InsertPageNumbersOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/" + localFileName, isDirectory: false))!, pageNumber: requestPageNumber);
+      let request = InsertPageNumbersOnlineRequest(document: requestDocument, pageNumber: requestPageNumber);
       _ = try super.getApi().insertPageNumbersOnline(request: request);
     }
 
@@ -248,7 +260,10 @@ class FieldTests: BaseTestContext {
 
     // Test for deleting field online.
     func testDeleteFieldOnline() throws {
-      let request = DeleteFieldOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/GetField.docx", isDirectory: false))!, index: 0, nodePath: "sections/0/paragraphs/0");
+
+
+
+      let request = DeleteFieldOnlineRequest(document: requestDocument, index: 0, nodePath: "sections/0/paragraphs/0");
       _ = try super.getApi().deleteFieldOnline(request: request);
     }
 
@@ -333,7 +348,10 @@ class FieldTests: BaseTestContext {
     func testDeleteDocumentFieldsOnline() throws {
       let localFileName = "Common/test_multi_pages.docx";
 
-      let request = DeleteFieldsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFileName, isDirectory: false))!, nodePath: "");
+
+
+
+      let request = DeleteFieldsOnlineRequest(document: requestDocument, nodePath: "");
       _ = try super.getApi().deleteFieldsOnline(request: request);
     }
 
@@ -354,7 +372,10 @@ class FieldTests: BaseTestContext {
     func testUpdateDocumentFieldsOnline() throws {
       let localFile = "Common/test_multi_pages.docx";
 
-      let request = UpdateFieldsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+
+
+
+      let request = UpdateFieldsOnlineRequest(document: requestDocument);
       _ = try super.getApi().updateFieldsOnline(request: request);
     }
 }

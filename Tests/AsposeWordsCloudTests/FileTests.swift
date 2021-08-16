@@ -45,7 +45,10 @@ class FileTests: BaseTestContext {
     func testUploadFile() throws {
       let remoteFileName = "TestUploadFile.docx";
 
-      let request = UploadFileRequest(fileContent: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, path: remoteDataFolder + "/" + remoteFileName);
+
+
+
+      let request = UploadFileRequest(fileContent: requestFileContent, path: remoteDataFolder + "/" + remoteFileName);
       let actual = try super.getApi().uploadFile(request: request);
       XCTAssertNotNil(actual.getUploaded());
       XCTAssertEqual(actual.getUploaded()!.count, 1);

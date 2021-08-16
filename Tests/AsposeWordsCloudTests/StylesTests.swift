@@ -65,7 +65,10 @@ class StylesTests: BaseTestContext {
 
     // Test for getting styles from document online.
     func testGetStylesOnline() throws {
-      let request = GetStylesOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+
+
+
+      let request = GetStylesOnlineRequest(document: requestDocument);
       _ = try super.getApi().getStylesOnline(request: request);
     }
 
@@ -83,7 +86,10 @@ class StylesTests: BaseTestContext {
 
     // Test for getting style from document online.
     func testGetStyleOnline() throws {
-      let request = GetStyleOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styleName: "Heading 1");
+
+
+
+      let request = GetStyleOnlineRequest(document: requestDocument, styleName: "Heading 1");
       _ = try super.getApi().getStyleOnline(request: request);
     }
 
@@ -105,11 +111,13 @@ class StylesTests: BaseTestContext {
 
     // Test for updating style from document online.
     func testUpdateStyleOnline() throws {
+
+
       let requestStyleUpdate = StyleUpdate();
       requestStyleUpdate.setName(name: "My Style");
 
 
-      let request = UpdateStyleOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styleName: "Heading 1", styleUpdate: requestStyleUpdate);
+      let request = UpdateStyleOnlineRequest(document: requestDocument, styleName: "Heading 1", styleUpdate: requestStyleUpdate);
       _ = try super.getApi().updateStyleOnline(request: request);
     }
 
@@ -132,12 +140,14 @@ class StylesTests: BaseTestContext {
 
     // Test for inserting style from document online.
     func testInsertStyleOnline() throws {
+
+
       let requestStyleInsert = StyleInsert();
       requestStyleInsert.setStyleName(styleName: "My Style");
       requestStyleInsert.setStyleType(styleType: StyleInsert.StyleType.paragraph);
 
 
-      let request = InsertStyleOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styleInsert: requestStyleInsert);
+      let request = InsertStyleOnlineRequest(document: requestDocument, styleInsert: requestStyleInsert);
       _ = try super.getApi().insertStyleOnline(request: request);
     }
 
@@ -159,11 +169,13 @@ class StylesTests: BaseTestContext {
 
     // Test for coping style from document online.
     func testCopyStyleOnline() throws {
+
+
       let requestStyleCopy = StyleCopy();
       requestStyleCopy.setStyleName(styleName: "Heading 1");
 
 
-      let request = CopyStyleOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styleCopy: requestStyleCopy);
+      let request = CopyStyleOnlineRequest(document: requestDocument, styleCopy: requestStyleCopy);
       _ = try super.getApi().copyStyleOnline(request: request);
     }
 
@@ -181,7 +193,10 @@ class StylesTests: BaseTestContext {
 
     // Test for getting style from document element online.
     func testGetStyleFromDocumentElementOnline() throws {
-      let request = GetStyleFromDocumentElementOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styledNodePath: "paragraphs/1/paragraphFormat");
+
+
+
+      let request = GetStyleFromDocumentElementOnlineRequest(document: requestDocument, styledNodePath: "paragraphs/1/paragraphFormat");
       _ = try super.getApi().getStyleFromDocumentElementOnline(request: request);
     }
 
@@ -201,11 +216,13 @@ class StylesTests: BaseTestContext {
 
     // Test for applying style to document element online.
     func testApplyStyleToDocumentElementOnline() throws {
+
+
       let requestStyleApply = StyleApply();
       requestStyleApply.setStyleName(styleName: "Heading 1");
 
 
-      let request = ApplyStyleToDocumentElementOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styledNodePath: "paragraphs/1/paragraphFormat", styleApply: requestStyleApply);
+      let request = ApplyStyleToDocumentElementOnlineRequest(document: requestDocument, styledNodePath: "paragraphs/1/paragraphFormat", styleApply: requestStyleApply);
       _ = try super.getApi().applyStyleToDocumentElementOnline(request: request);
     }
 }
