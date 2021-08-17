@@ -510,7 +510,7 @@ class TableTests: BaseTestContext {
 
 
 
-      let request = InsertTableCellRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", cell: requestCell, folder: remoteDataFolder);
+      let request = InsertTableCellRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", cell: nil, folder: remoteDataFolder);
       let actual = try super.getApi().insertTableCell(request: request);
       XCTAssertNotNil(actual.getCell());
       XCTAssertEqual(actual.getCell()!.getNodeId(), "0.0.5.0.3");
@@ -524,7 +524,7 @@ class TableTests: BaseTestContext {
 
 
 
-      let request = InsertTableCellOnlineRequest(document: requestDocument, tableRowPath: "sections/0/tables/2/rows/0", cell: requestCell);
+      let request = InsertTableCellOnlineRequest(document: requestDocument, tableRowPath: "sections/0/tables/2/rows/0", cell: nil);
       _ = try super.getApi().insertTableCellOnline(request: request);
     }
 

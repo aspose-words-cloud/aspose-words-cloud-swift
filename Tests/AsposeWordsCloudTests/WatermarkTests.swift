@@ -53,7 +53,7 @@ class WatermarkTests: BaseTestContext {
 
 
 
-      let request = InsertWatermarkImageRequest(name: remoteFileName, imageFile: requestImageFile, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName, image: remoteImagePath);
+      let request = InsertWatermarkImageRequest(name: remoteFileName, imageFile: nil, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName, image: remoteImagePath);
       let actual = try super.getApi().insertWatermarkImage(request: request);
       XCTAssertNotNil(actual.getDocument());
       XCTAssertEqual(actual.getDocument()!.getFileName(), "TestInsertWatermarkImage.docx");
