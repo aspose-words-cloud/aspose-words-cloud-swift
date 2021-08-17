@@ -57,11 +57,8 @@ class ExecuteTemplateTests: BaseTestContext {
       let localDocumentFile = "SampleMailMergeTemplate.docx";
       let localDataFile = "SampleExecuteTemplateData.txt";
 
-
-
-
-
-
+      let requestTemplate = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(mailMergeFolder + "/" + localDocumentFile, isDirectory: false))!;
+      let requestData = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(mailMergeFolder + "/" + localDataFile, isDirectory: false))!;
       let request = ExecuteMailMergeOnlineRequest(template: requestTemplate, data: requestData);
       _ = try super.getApi().executeMailMergeOnline(request: request);
     }

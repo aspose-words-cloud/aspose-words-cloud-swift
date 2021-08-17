@@ -49,8 +49,6 @@ class TextTests: BaseTestContext {
       let requestReplaceText = ReplaceTextParameters();
       requestReplaceText.setOldValue(oldValue: "Testing");
       requestReplaceText.setNewValue(newValue: "Aspose testing");
-
-
       let request = ReplaceTextRequest(name: remoteFileName, replaceText: requestReplaceText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().replaceText(request: request);
       XCTAssertEqual(actual.getMatches(), 3);
@@ -60,13 +58,10 @@ class TextTests: BaseTestContext {
     func testReplaceTextOnline() throws {
       let localFile = "Common/test_multi_pages.docx";
 
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestReplaceText = ReplaceTextParameters();
       requestReplaceText.setOldValue(oldValue: "aspose");
       requestReplaceText.setNewValue(newValue: "aspose new");
-
-
       let request = ReplaceTextOnlineRequest(document: requestDocument, replaceText: requestReplaceText);
       _ = try super.getApi().replaceTextOnline(request: request);
     }
@@ -91,9 +86,7 @@ class TextTests: BaseTestContext {
     func testSearchOnline() throws {
       let localFile = "DocumentElements/Text/SampleWordDocument.docx";
 
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = SearchOnlineRequest(document: requestDocument, pattern: "aspose");
       _ = try super.getApi().searchOnline(request: request);
     }

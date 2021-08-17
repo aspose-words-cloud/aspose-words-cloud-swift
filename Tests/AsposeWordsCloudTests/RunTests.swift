@@ -50,8 +50,6 @@ class RunTests: BaseTestContext {
 
       let requestRun = RunUpdate();
       requestRun.setText(text: "run with text");
-
-
       let request = UpdateRunRequest(name: remoteFileName, paragraphPath: "paragraphs/1", index: 0, run: requestRun, folder: remoteDataFolder);
       let actual = try super.getApi().updateRun(request: request);
       XCTAssertNotNil(actual.getRun());
@@ -60,12 +58,9 @@ class RunTests: BaseTestContext {
 
     // Test for updating run online.
     func testUpdateRunOnline() throws {
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestRun = RunUpdate();
       requestRun.setText(text: "run with text");
-
-
       let request = UpdateRunOnlineRequest(document: requestDocument, paragraphPath: "paragraphs/1", run: requestRun, index: 0);
       _ = try super.getApi().updateRunOnline(request: request);
     }
@@ -78,8 +73,6 @@ class RunTests: BaseTestContext {
 
       let requestRun = RunInsert();
       requestRun.setText(text: "run with text");
-
-
       let request = InsertRunRequest(name: remoteFileName, paragraphPath: "paragraphs/1", run: requestRun, folder: remoteDataFolder);
       let actual = try super.getApi().insertRun(request: request);
       XCTAssertNotNil(actual.getRun());
@@ -89,12 +82,9 @@ class RunTests: BaseTestContext {
 
     // Test for adding run online.
     func testInsertRunOnline() throws {
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestRun = RunInsert();
       requestRun.setText(text: "run with text");
-
-
       let request = InsertRunOnlineRequest(document: requestDocument, paragraphPath: "paragraphs/1", run: requestRun);
       _ = try super.getApi().insertRunOnline(request: request);
     }
@@ -111,9 +101,7 @@ class RunTests: BaseTestContext {
 
     // Test for deleting run online.
     func testDeleteRunOnline() throws {
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = DeleteRunOnlineRequest(document: requestDocument, paragraphPath: "paragraphs/1", index: 0);
       _ = try super.getApi().deleteRunOnline(request: request);
     }

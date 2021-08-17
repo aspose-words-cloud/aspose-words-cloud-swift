@@ -54,9 +54,7 @@ class RevisionsTests: BaseTestContext {
 
     // Test for accepting revisions in document online.
     func testAcceptAllRevisionsOnline() throws {
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = AcceptAllRevisionsOnlineRequest(document: requestDocument);
       let actual = try super.getApi().acceptAllRevisionsOnline(request: request);
       XCTAssertNotNil(actual.getDocument());
@@ -79,9 +77,7 @@ class RevisionsTests: BaseTestContext {
 
     // Test for rejecting revisions in document online.
     func testRejectAllRevisionsOnline() throws {
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = RejectAllRevisionsOnlineRequest(document: requestDocument);
       let actual = try super.getApi().rejectAllRevisionsOnline(request: request);
       XCTAssertNotNil(actual.getDocument());

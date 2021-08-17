@@ -53,9 +53,7 @@ class SplitDocumentToFormatTests: BaseTestContext {
 
     // Test for document splitting online.
     func testSplitDocumentOnline() throws {
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = SplitDocumentOnlineRequest(document: requestDocument, format: "text", destFileName: BaseTestContext.getRemoteTestOut() + "/TestSplitDocument.text", from: 1, to: 2);
       _ = try super.getApi().splitDocumentOnline(request: request);
     }

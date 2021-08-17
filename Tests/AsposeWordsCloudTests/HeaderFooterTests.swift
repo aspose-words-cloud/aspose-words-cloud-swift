@@ -63,9 +63,7 @@ class HeaderFooterTests: BaseTestContext {
 
     // Test for getting headers and footers online.
     func testGetHeaderFootersOnline() throws {
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = GetHeaderFootersOnlineRequest(document: requestDocument, sectionPath: "");
       _ = try super.getApi().getHeaderFootersOnline(request: request);
     }
@@ -86,9 +84,7 @@ class HeaderFooterTests: BaseTestContext {
 
     // Test for getting headerfooter online.
     func testGetHeaderFooterOnline() throws {
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = GetHeaderFooterOnlineRequest(document: requestDocument, headerFooterIndex: 0);
       _ = try super.getApi().getHeaderFooterOnline(request: request);
     }
@@ -109,9 +105,7 @@ class HeaderFooterTests: BaseTestContext {
 
     // Test for getting headerfooter of section online.
     func testGetHeaderFooterOfSectionOnline() throws {
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = GetHeaderFooterOfSectionOnlineRequest(document: requestDocument, headerFooterIndex: 0, sectionIndex: 0);
       _ = try super.getApi().getHeaderFooterOfSectionOnline(request: request);
     }
@@ -128,9 +122,7 @@ class HeaderFooterTests: BaseTestContext {
 
     // Test for deleting headerfooter online.
     func testDeleteHeaderFooterOnline() throws {
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = DeleteHeaderFooterOnlineRequest(document: requestDocument, sectionPath: "", index: 0);
       _ = try super.getApi().deleteHeaderFooterOnline(request: request);
     }
@@ -147,9 +139,7 @@ class HeaderFooterTests: BaseTestContext {
 
     // Test for deleting headerfooters online.
     func testDeleteHeadersFootersOnline() throws {
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = DeleteHeadersFootersOnlineRequest(document: requestDocument, sectionPath: "");
       _ = try super.getApi().deleteHeadersFootersOnline(request: request);
     }
@@ -166,9 +156,7 @@ class HeaderFooterTests: BaseTestContext {
 
     // Test for adding headerfooters online.
     func testInsertHeaderFooterOnline() throws {
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = InsertHeaderFooterOnlineRequest(document: requestDocument, sectionPath: "", headerFooterType: "FooterEven");
       let actual = try super.getApi().insertHeaderFooterOnline(request: request);
       XCTAssertNotNil(actual.getModel()!.getHeaderFooter());

@@ -62,9 +62,7 @@ class DocumentPropertiesTests: BaseTestContext {
 
     // Test for getting document properties online.
     func testGetDocumentPropertiesOnline() throws {
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = GetDocumentPropertiesOnlineRequest(document: requestDocument);
       _ = try super.getApi().getDocumentPropertiesOnline(request: request);
     }
@@ -84,9 +82,7 @@ class DocumentPropertiesTests: BaseTestContext {
 
     // A test for GetDocumentProperty online.
     func testGetDocumentPropertyOnline() throws {
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = GetDocumentPropertyOnlineRequest(document: requestDocument, propertyName: "Author");
       _ = try super.getApi().getDocumentPropertyOnline(request: request);
     }
@@ -103,9 +99,7 @@ class DocumentPropertiesTests: BaseTestContext {
 
     // Test for deleting document property online.
     func testDeleteDocumentPropertyOnline() throws {
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = DeleteDocumentPropertyOnlineRequest(document: requestDocument, propertyName: "testProp");
       _ = try super.getApi().deleteDocumentPropertyOnline(request: request);
     }
@@ -118,8 +112,6 @@ class DocumentPropertiesTests: BaseTestContext {
 
       let requestProperty = DocumentPropertyCreateOrUpdate();
       requestProperty.setValue(value: "Imran Anwar");
-
-
       let request = CreateOrUpdateDocumentPropertyRequest(name: remoteFileName, propertyName: "AsposeAuthor", property: requestProperty, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().createOrUpdateDocumentProperty(request: request);
       XCTAssertNotNil(actual.getDocumentProperty());
@@ -129,12 +121,9 @@ class DocumentPropertiesTests: BaseTestContext {
 
     // Test for updating document property online.
     func testUpdateDocumentPropertyOnline() throws {
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestProperty = DocumentPropertyCreateOrUpdate();
       requestProperty.setValue(value: "Imran Anwar");
-
-
       let request = CreateOrUpdateDocumentPropertyOnlineRequest(document: requestDocument, propertyName: "AsposeAuthor", property: requestProperty);
       _ = try super.getApi().createOrUpdateDocumentPropertyOnline(request: request);
     }

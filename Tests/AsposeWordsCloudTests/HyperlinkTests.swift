@@ -54,9 +54,7 @@ class HyperlinkTests: BaseTestContext {
 
     // Test for getting hyperlink by specified index online.
     func testGetDocumentHyperlinkByIndexOnline() throws {
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = GetDocumentHyperlinkByIndexOnlineRequest(document: requestDocument, hyperlinkIndex: 0);
       _ = try super.getApi().getDocumentHyperlinkByIndexOnline(request: request);
     }
@@ -77,9 +75,7 @@ class HyperlinkTests: BaseTestContext {
 
     // Test for getting hyperlinks online.
     func testGetDocumentHyperlinksOnline() throws {
-
-
-
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = GetDocumentHyperlinksOnlineRequest(document: requestDocument);
       _ = try super.getApi().getDocumentHyperlinksOnline(request: request);
     }
