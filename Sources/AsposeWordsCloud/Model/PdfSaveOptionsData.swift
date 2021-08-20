@@ -70,6 +70,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Field of exportDocumentStructure. Container class for pdf save options.
     private var exportDocumentStructure : Bool?;
 
+    // Field of exportLanguageToSpanTag. Container class for pdf save options.
+    private var exportLanguageToSpanTag : Bool?;
+
     // Field of fontEmbeddingMode. Container class for pdf save options.
     private var fontEmbeddingMode : String?;
 
@@ -125,6 +128,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         case embedFullFonts = "EmbedFullFonts";
         case encryptionDetails = "EncryptionDetails";
         case exportDocumentStructure = "ExportDocumentStructure";
+        case exportLanguageToSpanTag = "ExportLanguageToSpanTag";
         case fontEmbeddingMode = "FontEmbeddingMode";
         case headerFooterBookmarksExportMode = "HeaderFooterBookmarksExportMode";
         case imageColorSpaceExportMode = "ImageColorSpaceExportMode";
@@ -159,6 +163,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         self.embedFullFonts = try container.decodeIfPresent(Bool.self, forKey: .embedFullFonts);
         self.encryptionDetails = try container.decodeIfPresent(PdfEncryptionDetailsData.self, forKey: .encryptionDetails);
         self.exportDocumentStructure = try container.decodeIfPresent(Bool.self, forKey: .exportDocumentStructure);
+        self.exportLanguageToSpanTag = try container.decodeIfPresent(Bool.self, forKey: .exportLanguageToSpanTag);
         self.fontEmbeddingMode = try container.decodeIfPresent(String.self, forKey: .fontEmbeddingMode);
         self.headerFooterBookmarksExportMode = try container.decodeIfPresent(HeaderFooterBookmarksExportMode.self, forKey: .headerFooterBookmarksExportMode);
         self.imageColorSpaceExportMode = try container.decodeIfPresent(String.self, forKey: .imageColorSpaceExportMode);
@@ -205,6 +210,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         }
         if (self.exportDocumentStructure != nil) {
             try container.encode(self.exportDocumentStructure, forKey: .exportDocumentStructure);
+        }
+        if (self.exportLanguageToSpanTag != nil) {
+            try container.encode(self.exportLanguageToSpanTag, forKey: .exportLanguageToSpanTag);
         }
         if (self.fontEmbeddingMode != nil) {
             try container.encode(self.fontEmbeddingMode, forKey: .fontEmbeddingMode);
@@ -341,6 +349,16 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Gets exportDocumentStructure. Gets or sets a value indicating whether to export document structure.
     public func getExportDocumentStructure() -> Bool? {
         return self.exportDocumentStructure;
+    }
+
+    // Sets exportLanguageToSpanTag. Gets or sets a value determining whether or not to create a "Span" tag in the document structure to export the text language.
+    public func setExportLanguageToSpanTag(exportLanguageToSpanTag : Bool?) {
+        self.exportLanguageToSpanTag = exportLanguageToSpanTag;
+    }
+
+    // Gets exportLanguageToSpanTag. Gets or sets a value determining whether or not to create a "Span" tag in the document structure to export the text language.
+    public func getExportLanguageToSpanTag() -> Bool? {
+        return self.exportLanguageToSpanTag;
     }
 
     // Sets fontEmbeddingMode. Gets or sets the font embedding mode.

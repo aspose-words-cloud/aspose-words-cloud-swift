@@ -57,6 +57,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of fileName. base container class for save options data.
     private var fileName : String?;
 
+    // Field of flatOpcXmlMappingOnly. base container class for save options data.
+    private var flatOpcXmlMappingOnly : Bool?;
+
     // Field of imlRenderingMode. base container class for save options data.
     private var imlRenderingMode : String?;
 
@@ -88,6 +91,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
         case dmlEffectsRenderingMode = "DmlEffectsRenderingMode";
         case dmlRenderingMode = "DmlRenderingMode";
         case fileName = "FileName";
+        case flatOpcXmlMappingOnly = "FlatOpcXmlMappingOnly";
         case imlRenderingMode = "ImlRenderingMode";
         case saveFormat = "SaveFormat";
         case updateCreatedTimeProperty = "UpdateCreatedTimeProperty";
@@ -110,6 +114,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
         self.dmlEffectsRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlEffectsRenderingMode);
         self.dmlRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlRenderingMode);
         self.fileName = try container.decodeIfPresent(String.self, forKey: .fileName);
+        self.flatOpcXmlMappingOnly = try container.decodeIfPresent(Bool.self, forKey: .flatOpcXmlMappingOnly);
         self.imlRenderingMode = try container.decodeIfPresent(String.self, forKey: .imlRenderingMode);
         self.saveFormat = try container.decodeIfPresent(String.self, forKey: .saveFormat);
         self.updateCreatedTimeProperty = try container.decodeIfPresent(Bool.self, forKey: .updateCreatedTimeProperty);
@@ -139,6 +144,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
         }
         if (self.fileName != nil) {
             try container.encode(self.fileName, forKey: .fileName);
+        }
+        if (self.flatOpcXmlMappingOnly != nil) {
+            try container.encode(self.flatOpcXmlMappingOnly, forKey: .flatOpcXmlMappingOnly);
         }
         if (self.imlRenderingMode != nil) {
             try container.encode(self.imlRenderingMode, forKey: .imlRenderingMode);
@@ -224,6 +232,16 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Gets fileName. Gets or sets the name of destination file.
     public func getFileName() -> String? {
         return self.fileName;
+    }
+
+    // Sets flatOpcXmlMappingOnly. Gets or sets value determining which document formats are allowed to be mapped by Aspose.Words.Markup.StructuredDocumentTag.XmlMapping. By default only Aspose.Words.LoadFormat.FlatOpc document format is allowed to be mapped.
+    public func setFlatOpcXmlMappingOnly(flatOpcXmlMappingOnly : Bool?) {
+        self.flatOpcXmlMappingOnly = flatOpcXmlMappingOnly;
+    }
+
+    // Gets flatOpcXmlMappingOnly. Gets or sets value determining which document formats are allowed to be mapped by Aspose.Words.Markup.StructuredDocumentTag.XmlMapping. By default only Aspose.Words.LoadFormat.FlatOpc document format is allowed to be mapped.
+    public func getFlatOpcXmlMappingOnly() -> Bool? {
+        return self.flatOpcXmlMappingOnly;
     }
 
     // Sets imlRenderingMode. Gets or sets the value determining how ink (InkML) objects are rendered.
