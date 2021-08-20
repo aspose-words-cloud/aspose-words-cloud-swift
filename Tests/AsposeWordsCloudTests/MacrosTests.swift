@@ -50,7 +50,8 @@ class MacrosTests: BaseTestContext {
 
     // Test for deleting macros online.
     func testDeleteMacrosOnline() throws {
-      let request = DeleteMacrosOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = DeleteMacrosOnlineRequest(document: requestDocument);
       _ = try super.getApi().deleteMacrosOnline(request: request);
     }
 }

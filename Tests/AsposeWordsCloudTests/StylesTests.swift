@@ -65,7 +65,8 @@ class StylesTests: BaseTestContext {
 
     // Test for getting styles from document online.
     func testGetStylesOnline() throws {
-      let request = GetStylesOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = GetStylesOnlineRequest(document: requestDocument);
       _ = try super.getApi().getStylesOnline(request: request);
     }
 
@@ -83,7 +84,8 @@ class StylesTests: BaseTestContext {
 
     // Test for getting style from document online.
     func testGetStyleOnline() throws {
-      let request = GetStyleOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styleName: "Heading 1");
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = GetStyleOnlineRequest(document: requestDocument, styleName: "Heading 1");
       _ = try super.getApi().getStyleOnline(request: request);
     }
 
@@ -95,8 +97,6 @@ class StylesTests: BaseTestContext {
 
       let requestStyleUpdate = StyleUpdate();
       requestStyleUpdate.setName(name: "My Style");
-
-
       let request = UpdateStyleRequest(name: remoteFileName, styleName: "Heading 1", styleUpdate: requestStyleUpdate, folder: remoteDataFolder);
       let actual = try super.getApi().updateStyle(request: request);
       XCTAssertNotNil(actual.getStyle());
@@ -105,11 +105,10 @@ class StylesTests: BaseTestContext {
 
     // Test for updating style from document online.
     func testUpdateStyleOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestStyleUpdate = StyleUpdate();
       requestStyleUpdate.setName(name: "My Style");
-
-
-      let request = UpdateStyleOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styleName: "Heading 1", styleUpdate: requestStyleUpdate);
+      let request = UpdateStyleOnlineRequest(document: requestDocument, styleName: "Heading 1", styleUpdate: requestStyleUpdate);
       _ = try super.getApi().updateStyleOnline(request: request);
     }
 
@@ -122,8 +121,6 @@ class StylesTests: BaseTestContext {
       let requestStyleInsert = StyleInsert();
       requestStyleInsert.setStyleName(styleName: "My Style");
       requestStyleInsert.setStyleType(styleType: StyleInsert.StyleType.paragraph);
-
-
       let request = InsertStyleRequest(name: remoteFileName, styleInsert: requestStyleInsert, folder: remoteDataFolder);
       let actual = try super.getApi().insertStyle(request: request);
       XCTAssertNotNil(actual.getStyle());
@@ -132,12 +129,11 @@ class StylesTests: BaseTestContext {
 
     // Test for inserting style from document online.
     func testInsertStyleOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestStyleInsert = StyleInsert();
       requestStyleInsert.setStyleName(styleName: "My Style");
       requestStyleInsert.setStyleType(styleType: StyleInsert.StyleType.paragraph);
-
-
-      let request = InsertStyleOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styleInsert: requestStyleInsert);
+      let request = InsertStyleOnlineRequest(document: requestDocument, styleInsert: requestStyleInsert);
       _ = try super.getApi().insertStyleOnline(request: request);
     }
 
@@ -149,8 +145,6 @@ class StylesTests: BaseTestContext {
 
       let requestStyleCopy = StyleCopy();
       requestStyleCopy.setStyleName(styleName: "Heading 1");
-
-
       let request = CopyStyleRequest(name: remoteFileName, styleCopy: requestStyleCopy, folder: remoteDataFolder);
       let actual = try super.getApi().copyStyle(request: request);
       XCTAssertNotNil(actual.getStyle());
@@ -159,11 +153,10 @@ class StylesTests: BaseTestContext {
 
     // Test for coping style from document online.
     func testCopyStyleOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestStyleCopy = StyleCopy();
       requestStyleCopy.setStyleName(styleName: "Heading 1");
-
-
-      let request = CopyStyleOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styleCopy: requestStyleCopy);
+      let request = CopyStyleOnlineRequest(document: requestDocument, styleCopy: requestStyleCopy);
       _ = try super.getApi().copyStyleOnline(request: request);
     }
 
@@ -181,7 +174,8 @@ class StylesTests: BaseTestContext {
 
     // Test for getting style from document element online.
     func testGetStyleFromDocumentElementOnline() throws {
-      let request = GetStyleFromDocumentElementOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styledNodePath: "paragraphs/1/paragraphFormat");
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = GetStyleFromDocumentElementOnlineRequest(document: requestDocument, styledNodePath: "paragraphs/1/paragraphFormat");
       _ = try super.getApi().getStyleFromDocumentElementOnline(request: request);
     }
 
@@ -193,19 +187,16 @@ class StylesTests: BaseTestContext {
 
       let requestStyleApply = StyleApply();
       requestStyleApply.setStyleName(styleName: "Heading 1");
-
-
       let request = ApplyStyleToDocumentElementRequest(name: remoteFileName, styledNodePath: "paragraphs/1/paragraphFormat", styleApply: requestStyleApply, folder: remoteDataFolder);
       _ = try super.getApi().applyStyleToDocumentElement(request: request);
     }
 
     // Test for applying style to document element online.
     func testApplyStyleToDocumentElementOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestStyleApply = StyleApply();
       requestStyleApply.setStyleName(styleName: "Heading 1");
-
-
-      let request = ApplyStyleToDocumentElementOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, styledNodePath: "paragraphs/1/paragraphFormat", styleApply: requestStyleApply);
+      let request = ApplyStyleToDocumentElementOnlineRequest(document: requestDocument, styledNodePath: "paragraphs/1/paragraphFormat", styleApply: requestStyleApply);
       _ = try super.getApi().applyStyleToDocumentElementOnline(request: request);
     }
 }

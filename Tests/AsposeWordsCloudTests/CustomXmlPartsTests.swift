@@ -63,7 +63,8 @@ class CustomXmlPartsTests: BaseTestContext {
 
     // Test for getting custom xml part by specified index online.
     func testGetCustomXmlPartOnline() throws {
-      let request = GetCustomXmlPartOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, customXmlPartIndex: 0);
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = GetCustomXmlPartOnlineRequest(document: requestDocument, customXmlPartIndex: 0);
       let actual = try super.getApi().getCustomXmlPartOnline(request: request);
       XCTAssertNotNil(actual.getCustomXmlPart());
       XCTAssertEqual(actual.getCustomXmlPart()!.getId(), "aspose");
@@ -87,7 +88,8 @@ class CustomXmlPartsTests: BaseTestContext {
 
     // Test for getting all custom xml parts from document online.
     func testGetCustomXmlPartsOnline() throws {
-      let request = GetCustomXmlPartsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = GetCustomXmlPartsOnlineRequest(document: requestDocument);
       let actual = try super.getApi().getCustomXmlPartsOnline(request: request);
       XCTAssertNotNil(actual.getCustomXmlParts());
       XCTAssertNotNil(actual.getCustomXmlParts()!.getCustomXmlPartsList());
@@ -105,8 +107,6 @@ class CustomXmlPartsTests: BaseTestContext {
       let requestCustomXmlPart = CustomXmlPartInsert();
       requestCustomXmlPart.setId(id: "hello");
       requestCustomXmlPart.setData(data: "<data>Hello world</data>");
-
-
       let request = InsertCustomXmlPartRequest(name: remoteFileName, customXmlPart: requestCustomXmlPart, folder: remoteDataFolder);
       let actual = try super.getApi().insertCustomXmlPart(request: request);
       XCTAssertNotNil(actual.getCustomXmlPart());
@@ -116,12 +116,11 @@ class CustomXmlPartsTests: BaseTestContext {
 
     // Test for adding custom xml part online.
     func testInsertCustomXmlPartOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestCustomXmlPart = CustomXmlPartInsert();
       requestCustomXmlPart.setId(id: "hello");
       requestCustomXmlPart.setData(data: "<data>Hello world</data>");
-
-
-      let request = InsertCustomXmlPartOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, customXmlPart: requestCustomXmlPart);
+      let request = InsertCustomXmlPartOnlineRequest(document: requestDocument, customXmlPart: requestCustomXmlPart);
       let actual = try super.getApi().insertCustomXmlPartOnline(request: request);
       XCTAssertNotNil(actual.getModel()!.getCustomXmlPart());
       XCTAssertEqual(actual.getModel()!.getCustomXmlPart()!.getId(), "hello");
@@ -136,8 +135,6 @@ class CustomXmlPartsTests: BaseTestContext {
 
       let requestCustomXmlPart = CustomXmlPartUpdate();
       requestCustomXmlPart.setData(data: "<data>Hello world</data>");
-
-
       let request = UpdateCustomXmlPartRequest(name: remoteFileName, customXmlPartIndex: 0, customXmlPart: requestCustomXmlPart, folder: remoteDataFolder);
       let actual = try super.getApi().updateCustomXmlPart(request: request);
       XCTAssertNotNil(actual.getCustomXmlPart());
@@ -147,11 +144,10 @@ class CustomXmlPartsTests: BaseTestContext {
 
     // Test for updating custom xml part online.
     func testUpdateCustomXmlPartOnline() throws {
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestCustomXmlPart = CustomXmlPartUpdate();
       requestCustomXmlPart.setData(data: "<data>Hello world</data>");
-
-
-      let request = UpdateCustomXmlPartOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, customXmlPartIndex: 0, customXmlPart: requestCustomXmlPart);
+      let request = UpdateCustomXmlPartOnlineRequest(document: requestDocument, customXmlPartIndex: 0, customXmlPart: requestCustomXmlPart);
       let actual = try super.getApi().updateCustomXmlPartOnline(request: request);
       XCTAssertNotNil(actual.getModel()!.getCustomXmlPart());
       XCTAssertEqual(actual.getModel()!.getCustomXmlPart()!.getId(), "aspose");
@@ -170,7 +166,8 @@ class CustomXmlPartsTests: BaseTestContext {
 
     // A test for DeleteCustomXmlPart online.
     func testDeleteCustomXmlPartOnline() throws {
-      let request = DeleteCustomXmlPartOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, customXmlPartIndex: 0);
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = DeleteCustomXmlPartOnlineRequest(document: requestDocument, customXmlPartIndex: 0);
       _ = try super.getApi().deleteCustomXmlPartOnline(request: request);
     }
 
@@ -186,7 +183,8 @@ class CustomXmlPartsTests: BaseTestContext {
 
     // A test for DeleteCustomXmlParts online.
     func testDeleteCustomXmlPartsOnline() throws {
-      let request = DeleteCustomXmlPartsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = DeleteCustomXmlPartsOnlineRequest(document: requestDocument);
       _ = try super.getApi().deleteCustomXmlPartsOnline(request: request);
     }
 }
