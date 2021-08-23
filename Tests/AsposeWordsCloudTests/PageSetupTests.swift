@@ -72,7 +72,7 @@ class PageSetupTests: BaseTestContext {
         .setLeftMargin(leftMargin: 10.0)
         .setOrientation(orientation: PageSetup.Orientation.landscape)
         .setPaperSize(paperSize: PageSetup.PaperSize.a5)
-        .setRtlGutter(rtlGutter: true) as! PageSetup;
+        .setRtlGutter(rtlGutter: true);
       let request = UpdateSectionPageSetupRequest(name: remoteFileName, sectionIndex: 0, pageSetup: requestPageSetup, folder: remoteDataFolder);
       let actual = try super.getApi().updateSectionPageSetup(request: request);
       XCTAssertNotNil(actual.getPageSetup());
@@ -88,7 +88,7 @@ class PageSetupTests: BaseTestContext {
         .setLeftMargin(leftMargin: 10)
         .setOrientation(orientation: PageSetup.Orientation.landscape)
         .setPaperSize(paperSize: PageSetup.PaperSize.a5)
-        .setRtlGutter(rtlGutter: true) as! PageSetup;
+        .setRtlGutter(rtlGutter: true);
       let request = UpdateSectionPageSetupOnlineRequest(document: requestDocument, sectionIndex: 0, pageSetup: requestPageSetup);
       _ = try super.getApi().updateSectionPageSetupOnline(request: request);
     }

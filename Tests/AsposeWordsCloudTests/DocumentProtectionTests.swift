@@ -50,7 +50,7 @@ class DocumentProtectionTests: BaseTestContext {
 
       let requestProtectionRequest = ProtectionRequest()
         .setPassword(password: "123")
-        .setProtectionType(protectionType: "ReadOnly") as! ProtectionRequest;
+        .setProtectionType(protectionType: "ReadOnly");
       let request = ProtectDocumentRequest(name: remoteFileName, protectionRequest: requestProtectionRequest, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().protectDocument(request: request);
       XCTAssertNotNil(actual.getProtectionData());
@@ -61,7 +61,7 @@ class DocumentProtectionTests: BaseTestContext {
     func testProtectDocumentOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestProtectionRequest = ProtectionRequest()
-        .setNewPassword(newPassword: "123") as! ProtectionRequest;
+        .setNewPassword(newPassword: "123");
       let request = ProtectDocumentOnlineRequest(document: requestDocument, protectionRequest: requestProtectionRequest);
       _ = try super.getApi().protectDocumentOnline(request: request);
     }
@@ -92,7 +92,7 @@ class DocumentProtectionTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFilePath, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestProtectionRequest = ProtectionRequest()
-        .setPassword(password: "aspose") as! ProtectionRequest;
+        .setPassword(password: "aspose");
       let request = UnprotectDocumentRequest(name: remoteFileName, protectionRequest: requestProtectionRequest, folder: remoteDataFolder);
       let actual = try super.getApi().unprotectDocument(request: request);
       XCTAssertNotNil(actual.getProtectionData());
@@ -105,7 +105,7 @@ class DocumentProtectionTests: BaseTestContext {
 
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFilePath, isDirectory: false))!;
       let requestProtectionRequest = ProtectionRequest()
-        .setPassword(password: "aspose") as! ProtectionRequest;
+        .setPassword(password: "aspose");
       let request = UnprotectDocumentOnlineRequest(document: requestDocument, protectionRequest: requestProtectionRequest);
       _ = try super.getApi().unprotectDocumentOnline(request: request);
     }

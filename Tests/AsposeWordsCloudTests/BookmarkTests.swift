@@ -86,7 +86,7 @@ class BookmarkTests: BaseTestContext {
 
       let requestBookmarkData = BookmarkData()
         .setName(name: bookmarkName)
-        .setText(text: bookmarkText) as! BookmarkData;
+        .setText(text: bookmarkText);
       let request = UpdateBookmarkRequest(name: remoteFileName, bookmarkName: bookmarkName, bookmarkData: requestBookmarkData, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().updateBookmark(request: request);
     }
@@ -98,7 +98,7 @@ class BookmarkTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestBookmarkData = BookmarkData()
         .setName(name: bookmarkName)
-        .setText(text: "This will be the text for Aspose") as! BookmarkData;
+        .setText(text: "This will be the text for Aspose");
       let request = UpdateBookmarkOnlineRequest(document: requestDocument, bookmarkName: bookmarkName, bookmarkData: requestBookmarkData, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       _ = try super.getApi().updateBookmarkOnline(request: request);
     }

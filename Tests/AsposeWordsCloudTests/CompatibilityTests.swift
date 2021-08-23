@@ -45,7 +45,7 @@ class CompatibilityTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestOptions = OptimizationOptions()
-        .setMsWordVersion(msWordVersion: OptimizationOptions.MsWordVersion.word2002) as! OptimizationOptions;
+        .setMsWordVersion(msWordVersion: OptimizationOptions.MsWordVersion.word2002);
       let request = OptimizeDocumentRequest(name: remoteFileName, options: requestOptions, folder: remoteDataFolder);
       try super.getApi().optimizeDocument(request: request);
     }
@@ -54,7 +54,7 @@ class CompatibilityTests: BaseTestContext {
     func testOptimizeDocumentOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestOptions = OptimizationOptions()
-        .setMsWordVersion(msWordVersion: OptimizationOptions.MsWordVersion.word2002) as! OptimizationOptions;
+        .setMsWordVersion(msWordVersion: OptimizationOptions.MsWordVersion.word2002);
       let request = OptimizeDocumentOnlineRequest(document: requestDocument, options: requestOptions);
       _ = try super.getApi().optimizeDocumentOnline(request: request);
     }

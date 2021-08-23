@@ -48,7 +48,7 @@ class TextTests: BaseTestContext {
 
       let requestReplaceText = ReplaceTextParameters()
         .setNewValue(newValue: "Aspose testing")
-        .setOldValue(oldValue: "Testing") as! ReplaceTextParameters;
+        .setOldValue(oldValue: "Testing");
       let request = ReplaceTextRequest(name: remoteFileName, replaceText: requestReplaceText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().replaceText(request: request);
       XCTAssertEqual(actual.getMatches(), 3);
@@ -61,7 +61,7 @@ class TextTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestReplaceText = ReplaceTextParameters()
         .setNewValue(newValue: "aspose new")
-        .setOldValue(oldValue: "aspose") as! ReplaceTextParameters;
+        .setOldValue(oldValue: "aspose");
       let request = ReplaceTextOnlineRequest(document: requestDocument, replaceText: requestReplaceText);
       _ = try super.getApi().replaceTextOnline(request: request);
     }

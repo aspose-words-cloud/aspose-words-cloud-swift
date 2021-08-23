@@ -184,7 +184,7 @@ class TableTests: BaseTestContext {
 
       let requestTable = TableInsert()
         .setColumnsCount(columnsCount: 5)
-        .setRowsCount(rowsCount: 4) as! TableInsert;
+        .setRowsCount(rowsCount: 4);
       let request = InsertTableRequest(name: remoteFileName, table: requestTable, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().insertTable(request: request);
       XCTAssertNotNil(actual.getTable());
@@ -199,7 +199,7 @@ class TableTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestTable = TableInsert()
         .setColumnsCount(columnsCount: 5)
-        .setRowsCount(rowsCount: 4) as! TableInsert;
+        .setRowsCount(rowsCount: 4);
       let request = InsertTableOnlineRequest(document: requestDocument, table: requestTable, nodePath: "");
       _ = try super.getApi().insertTableOnline(request: request);
     }
@@ -212,7 +212,7 @@ class TableTests: BaseTestContext {
 
       let requestTable = TableInsert()
         .setColumnsCount(columnsCount: 5)
-        .setRowsCount(rowsCount: 4) as! TableInsert;
+        .setRowsCount(rowsCount: 4);
       let request = InsertTableRequest(name: remoteFileName, table: requestTable, folder: remoteDataFolder);
       let actual = try super.getApi().insertTable(request: request);
       XCTAssertNotNil(actual.getTable());
@@ -265,7 +265,7 @@ class TableTests: BaseTestContext {
         .setBidi(bidi: true)
         .setBottomPadding(bottomPadding: 1)
         .setCellSpacing(cellSpacing: 2.0)
-        .setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands) as! TableProperties;
+        .setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
       let request = UpdateTablePropertiesRequest(name: remoteFileName, index: 1, properties: requestProperties, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateTableProperties(request: request);
       XCTAssertNotNil(actual.getProperties());
@@ -284,7 +284,7 @@ class TableTests: BaseTestContext {
         .setBidi(bidi: true)
         .setBottomPadding(bottomPadding: 1)
         .setCellSpacing(cellSpacing: 2)
-        .setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands) as! TableProperties;
+        .setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
       let request = UpdateTablePropertiesOnlineRequest(document: requestDocument, properties: requestProperties, index: 1, nodePath: "");
       _ = try super.getApi().updateTablePropertiesOnline(request: request);
     }
@@ -301,7 +301,7 @@ class TableTests: BaseTestContext {
         .setBidi(bidi: true)
         .setBottomPadding(bottomPadding: 1.0)
         .setCellSpacing(cellSpacing: 2.0)
-        .setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands) as! TableProperties;
+        .setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
       let request = UpdateTablePropertiesRequest(name: remoteFileName, index: 1, properties: requestProperties, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableProperties(request: request);
       XCTAssertNotNil(actual.getProperties());
@@ -355,7 +355,7 @@ class TableTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestRow = TableRowInsert()
-        .setColumnsCount(columnsCount: 5) as! TableRowInsert;
+        .setColumnsCount(columnsCount: 5);
       let request = InsertTableRowRequest(name: remoteFileName, tablePath: "sections/0/tables/2", row: requestRow, folder: remoteDataFolder);
       let actual = try super.getApi().insertTableRow(request: request);
       XCTAssertNotNil(actual.getRow());
@@ -367,7 +367,7 @@ class TableTests: BaseTestContext {
     func testInsertTableRowOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestRow = TableRowInsert()
-        .setColumnsCount(columnsCount: 5) as! TableRowInsert;
+        .setColumnsCount(columnsCount: 5);
       let request = InsertTableRowOnlineRequest(document: requestDocument, tablePath: "sections/0/tables/2", row: requestRow);
       _ = try super.getApi().insertTableRowOnline(request: request);
     }
@@ -401,7 +401,7 @@ class TableTests: BaseTestContext {
         .setAllowBreakAcrossPages(allowBreakAcrossPages: true)
         .setHeadingFormat(headingFormat: true)
         .setHeight(height: 10.0)
-        .setHeightRule(heightRule: TableRowFormat.HeightRule.exactly) as! TableRowFormat;
+        .setHeightRule(heightRule: TableRowFormat.HeightRule.exactly);
       let request = UpdateTableRowFormatRequest(name: remoteFileName, tablePath: "sections/0/tables/2", index: 0, format: requestFormat, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableRowFormat(request: request);
       XCTAssertNotNil(actual.getRowFormat());
@@ -417,7 +417,7 @@ class TableTests: BaseTestContext {
         .setAllowBreakAcrossPages(allowBreakAcrossPages: true)
         .setHeadingFormat(headingFormat: true)
         .setHeight(height: 10)
-        .setHeightRule(heightRule: TableRowFormat.HeightRule.auto) as! TableRowFormat;
+        .setHeightRule(heightRule: TableRowFormat.HeightRule.auto);
       let request = UpdateTableRowFormatOnlineRequest(document: requestDocument, tablePath: "sections/0/tables/2", format: requestFormat, index: 0);
       _ = try super.getApi().updateTableRowFormatOnline(request: request);
     }
@@ -464,7 +464,7 @@ class TableTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestCell = TableCellInsert() as! TableCellInsert;
+      let requestCell = TableCellInsert();
       let request = InsertTableCellRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", cell: requestCell, folder: remoteDataFolder);
       let actual = try super.getApi().insertTableCell(request: request);
       XCTAssertNotNil(actual.getCell());
@@ -474,7 +474,7 @@ class TableTests: BaseTestContext {
     // Test for adding cell online.
     func testInsertTableCellOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestCell = TableCellInsert() as! TableCellInsert;
+      let requestCell = TableCellInsert();
       let request = InsertTableCellOnlineRequest(document: requestDocument, tableRowPath: "sections/0/tables/2/rows/0", cell: requestCell);
       _ = try super.getApi().insertTableCellOnline(request: request);
     }
@@ -508,7 +508,7 @@ class TableTests: BaseTestContext {
         .setBottomPadding(bottomPadding: 5.0)
         .setFitText(fitText: true)
         .setHorizontalMerge(horizontalMerge: TableCellFormat.HorizontalMerge.first)
-        .setWrapText(wrapText: true) as! TableCellFormat;
+        .setWrapText(wrapText: true);
       let request = UpdateTableCellFormatRequest(name: remoteFileName, tableRowPath: "sections/0/tables/2/rows/0", index: 0, format: requestFormat, folder: remoteDataFolder);
       let actual = try super.getApi().updateTableCellFormat(request: request);
       XCTAssertNotNil(actual.getCellFormat());
@@ -524,7 +524,7 @@ class TableTests: BaseTestContext {
         .setBottomPadding(bottomPadding: 5)
         .setFitText(fitText: true)
         .setHorizontalMerge(horizontalMerge: TableCellFormat.HorizontalMerge.first)
-        .setWrapText(wrapText: true) as! TableCellFormat;
+        .setWrapText(wrapText: true);
       let request = UpdateTableCellFormatOnlineRequest(document: requestDocument, tableRowPath: "sections/0/tables/2/rows/0", format: requestFormat, index: 0);
       _ = try super.getApi().updateTableCellFormatOnline(request: request);
     }
