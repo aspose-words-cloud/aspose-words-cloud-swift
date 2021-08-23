@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a collection of HeaderFooter elements.
 public class HeaderFootersResponse : WordsResponse {
     // Field of headerFooters. The REST response with a collection of HeaderFooter elements.
-    private var headerFooters : HeaderFooterLinkCollection?;
+    public var headerFooters : HeaderFooterLinkCollection?;
 
     private enum CodingKeys: String, CodingKey {
         case headerFooters = "HeaderFooters";
@@ -56,8 +56,9 @@ public class HeaderFootersResponse : WordsResponse {
     }
 
     // Sets headerFooters. Gets or sets the collection of HeaderFooter elements.
-    public func setHeaderFooters(headerFooters : HeaderFooterLinkCollection?) {
+    public func setHeaderFooters(headerFooters : HeaderFooterLinkCollection?) -> HeaderFootersResponse {
         self.headerFooters = headerFooters;
+        return self;
     }
 
     // Gets headerFooters. Gets or sets the collection of HeaderFooter elements.

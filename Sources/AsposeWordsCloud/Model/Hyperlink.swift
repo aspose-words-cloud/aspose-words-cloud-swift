@@ -30,10 +30,10 @@ import Foundation
 // Hyperlink element.
 public class Hyperlink : LinkElement {
     // Field of displayText. Hyperlink element.
-    private var displayText : String?;
+    public var displayText : String?;
 
     // Field of value. Hyperlink element.
-    private var value : String?;
+    public var value : String?;
 
     private enum CodingKeys: String, CodingKey {
         case displayText = "DisplayText";
@@ -64,8 +64,9 @@ public class Hyperlink : LinkElement {
     }
 
     // Sets displayText. Gets or sets the hypelink's display text.
-    public func setDisplayText(displayText : String?) {
+    public func setDisplayText(displayText : String?) -> Hyperlink {
         self.displayText = displayText;
+        return self;
     }
 
     // Gets displayText. Gets or sets the hypelink's display text.
@@ -74,8 +75,9 @@ public class Hyperlink : LinkElement {
     }
 
     // Sets value. Gets or sets the value.
-    public func setValue(value : String?) {
+    public func setValue(value : String?) -> Hyperlink {
         self.value = value;
+        return self;
     }
 
     // Gets value. Gets or sets the value.

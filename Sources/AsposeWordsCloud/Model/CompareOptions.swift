@@ -40,34 +40,34 @@ public class CompareOptions : Codable, WordsApiModel {
     }
 
     // Field of acceptAllRevisionsBeforeComparison. DTO container with compare documents options.
-    private var acceptAllRevisionsBeforeComparison : Bool?;
+    public var acceptAllRevisionsBeforeComparison : Bool?;
 
     // Field of ignoreCaseChanges. DTO container with compare documents options.
-    private var ignoreCaseChanges : Bool?;
+    public var ignoreCaseChanges : Bool?;
 
     // Field of ignoreComments. DTO container with compare documents options.
-    private var ignoreComments : Bool?;
+    public var ignoreComments : Bool?;
 
     // Field of ignoreFields. DTO container with compare documents options.
-    private var ignoreFields : Bool?;
+    public var ignoreFields : Bool?;
 
     // Field of ignoreFootnotes. DTO container with compare documents options.
-    private var ignoreFootnotes : Bool?;
+    public var ignoreFootnotes : Bool?;
 
     // Field of ignoreFormatting. DTO container with compare documents options.
-    private var ignoreFormatting : Bool?;
+    public var ignoreFormatting : Bool?;
 
     // Field of ignoreHeadersAndFooters. DTO container with compare documents options.
-    private var ignoreHeadersAndFooters : Bool?;
+    public var ignoreHeadersAndFooters : Bool?;
 
     // Field of ignoreTables. DTO container with compare documents options.
-    private var ignoreTables : Bool?;
+    public var ignoreTables : Bool?;
 
     // Field of ignoreTextboxes. DTO container with compare documents options.
-    private var ignoreTextboxes : Bool?;
+    public var ignoreTextboxes : Bool?;
 
     // Field of target. DTO container with compare documents options.
-    private var target : Target?;
+    public var target : Target?;
 
     private enum CodingKeys: String, CodingKey {
         case acceptAllRevisionsBeforeComparison = "AcceptAllRevisionsBeforeComparison";
@@ -135,8 +135,9 @@ public class CompareOptions : Codable, WordsApiModel {
     }
 
     // Sets acceptAllRevisionsBeforeComparison. Gets or sets whether accept revisions before comparison or not.
-    public func setAcceptAllRevisionsBeforeComparison(acceptAllRevisionsBeforeComparison : Bool?) {
+    public func setAcceptAllRevisionsBeforeComparison(acceptAllRevisionsBeforeComparison : Bool?) -> CompareOptions {
         self.acceptAllRevisionsBeforeComparison = acceptAllRevisionsBeforeComparison;
+        return self;
     }
 
     // Gets acceptAllRevisionsBeforeComparison. Gets or sets whether accept revisions before comparison or not.
@@ -145,8 +146,9 @@ public class CompareOptions : Codable, WordsApiModel {
     }
 
     // Sets ignoreCaseChanges. Gets or sets a value indicating whether documents comparison is case insensitive. By default comparison is case sensitive.
-    public func setIgnoreCaseChanges(ignoreCaseChanges : Bool?) {
+    public func setIgnoreCaseChanges(ignoreCaseChanges : Bool?) -> CompareOptions {
         self.ignoreCaseChanges = ignoreCaseChanges;
+        return self;
     }
 
     // Gets ignoreCaseChanges. Gets or sets a value indicating whether documents comparison is case insensitive. By default comparison is case sensitive.
@@ -155,8 +157,9 @@ public class CompareOptions : Codable, WordsApiModel {
     }
 
     // Sets ignoreComments. Gets or sets a value indicating whether comments content is ignored. By default comments are not ignored.
-    public func setIgnoreComments(ignoreComments : Bool?) {
+    public func setIgnoreComments(ignoreComments : Bool?) -> CompareOptions {
         self.ignoreComments = ignoreComments;
+        return self;
     }
 
     // Gets ignoreComments. Gets or sets a value indicating whether comments content is ignored. By default comments are not ignored.
@@ -165,8 +168,9 @@ public class CompareOptions : Codable, WordsApiModel {
     }
 
     // Sets ignoreFields. Gets or sets a value indicating whether fields content is ignored. By default fields are not ignored.
-    public func setIgnoreFields(ignoreFields : Bool?) {
+    public func setIgnoreFields(ignoreFields : Bool?) -> CompareOptions {
         self.ignoreFields = ignoreFields;
+        return self;
     }
 
     // Gets ignoreFields. Gets or sets a value indicating whether fields content is ignored. By default fields are not ignored.
@@ -175,8 +179,9 @@ public class CompareOptions : Codable, WordsApiModel {
     }
 
     // Sets ignoreFootnotes. Gets or sets a value indicating whether footnotes/endnotes content is ignored. By default footnotes/endnotes are not ignored.
-    public func setIgnoreFootnotes(ignoreFootnotes : Bool?) {
+    public func setIgnoreFootnotes(ignoreFootnotes : Bool?) -> CompareOptions {
         self.ignoreFootnotes = ignoreFootnotes;
+        return self;
     }
 
     // Gets ignoreFootnotes. Gets or sets a value indicating whether footnotes/endnotes content is ignored. By default footnotes/endnotes are not ignored.
@@ -185,8 +190,9 @@ public class CompareOptions : Codable, WordsApiModel {
     }
 
     // Sets ignoreFormatting. Gets or sets a value indicating whether formatting is ignored. By default document formatting is not ignored.
-    public func setIgnoreFormatting(ignoreFormatting : Bool?) {
+    public func setIgnoreFormatting(ignoreFormatting : Bool?) -> CompareOptions {
         self.ignoreFormatting = ignoreFormatting;
+        return self;
     }
 
     // Gets ignoreFormatting. Gets or sets a value indicating whether formatting is ignored. By default document formatting is not ignored.
@@ -195,8 +201,9 @@ public class CompareOptions : Codable, WordsApiModel {
     }
 
     // Sets ignoreHeadersAndFooters. Gets or sets a value indicating whether headers and footers content is ignored. By default headers and footers are not ignored.
-    public func setIgnoreHeadersAndFooters(ignoreHeadersAndFooters : Bool?) {
+    public func setIgnoreHeadersAndFooters(ignoreHeadersAndFooters : Bool?) -> CompareOptions {
         self.ignoreHeadersAndFooters = ignoreHeadersAndFooters;
+        return self;
     }
 
     // Gets ignoreHeadersAndFooters. Gets or sets a value indicating whether headers and footers content is ignored. By default headers and footers are not ignored.
@@ -205,8 +212,9 @@ public class CompareOptions : Codable, WordsApiModel {
     }
 
     // Sets ignoreTables. Gets or sets a value indicating whether tables content is ignored. By default tables are not ignored.
-    public func setIgnoreTables(ignoreTables : Bool?) {
+    public func setIgnoreTables(ignoreTables : Bool?) -> CompareOptions {
         self.ignoreTables = ignoreTables;
+        return self;
     }
 
     // Gets ignoreTables. Gets or sets a value indicating whether tables content is ignored. By default tables are not ignored.
@@ -215,8 +223,9 @@ public class CompareOptions : Codable, WordsApiModel {
     }
 
     // Sets ignoreTextboxes. Gets or sets a value indicating whether textboxes content is ignored. By default textboxes are not ignored.
-    public func setIgnoreTextboxes(ignoreTextboxes : Bool?) {
+    public func setIgnoreTextboxes(ignoreTextboxes : Bool?) -> CompareOptions {
         self.ignoreTextboxes = ignoreTextboxes;
+        return self;
     }
 
     // Gets ignoreTextboxes. Gets or sets a value indicating whether textboxes content is ignored. By default textboxes are not ignored.
@@ -225,8 +234,9 @@ public class CompareOptions : Codable, WordsApiModel {
     }
 
     // Sets target. Gets or sets the option that controls which document shall be used as a target during comparison.
-    public func setTarget(target : Target?) {
+    public func setTarget(target : Target?) -> CompareOptions {
         self.target = target;
+        return self;
     }
 
     // Gets target. Gets or sets the option that controls which document shall be used as a target during comparison.

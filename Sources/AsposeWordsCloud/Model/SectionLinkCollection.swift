@@ -30,7 +30,7 @@ import Foundation
 // The collection of section's links.
 public class SectionLinkCollection : LinkElement {
     // Field of sectionLinkList. The collection of section's links.
-    private var sectionLinkList : [SectionLink]?;
+    public var sectionLinkList : [SectionLink]?;
 
     private enum CodingKeys: String, CodingKey {
         case sectionLinkList = "SectionLinkList";
@@ -56,8 +56,9 @@ public class SectionLinkCollection : LinkElement {
     }
 
     // Sets sectionLinkList. Gets or sets the collection of section's links.
-    public func setSectionLinkList(sectionLinkList : [SectionLink]?) {
+    public func setSectionLinkList(sectionLinkList : [SectionLink]?) -> SectionLinkCollection {
         self.sectionLinkList = sectionLinkList;
+        return self;
     }
 
     // Gets sectionLinkList. Gets or sets the collection of section's links.

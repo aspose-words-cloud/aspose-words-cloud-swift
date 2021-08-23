@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a border.
 public class BorderResponse : WordsResponse {
     // Field of border. The REST response with a border.
-    private var border : Border?;
+    public var border : Border?;
 
     private enum CodingKeys: String, CodingKey {
         case border = "Border";
@@ -56,8 +56,9 @@ public class BorderResponse : WordsResponse {
     }
 
     // Sets border. Gets or sets the border.
-    public func setBorder(border : Border?) {
+    public func setBorder(border : Border?) -> BorderResponse {
         self.border = border;
+        return self;
     }
 
     // Gets border. Gets or sets the border.

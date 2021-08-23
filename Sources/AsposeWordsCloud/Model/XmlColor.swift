@@ -30,10 +30,10 @@ import Foundation
 // Utility class for Color serialization.
 public class XmlColor : Codable, WordsApiModel {
     // Field of alpha. Utility class for Color serialization.
-    private var alpha : Int?;
+    public var alpha : Int?;
 
     // Field of web. Utility class for Color serialization.
-    private var web : String?;
+    public var web : String?;
 
     private enum CodingKeys: String, CodingKey {
         case alpha = "Alpha";
@@ -61,8 +61,9 @@ public class XmlColor : Codable, WordsApiModel {
     }
 
     // Sets alpha. Gets or sets the Alpha component of color structure.
-    public func setAlpha(alpha : Int?) {
+    public func setAlpha(alpha : Int?) -> XmlColor {
         self.alpha = alpha;
+        return self;
     }
 
     // Gets alpha. Gets or sets the Alpha component of color structure.
@@ -71,8 +72,9 @@ public class XmlColor : Codable, WordsApiModel {
     }
 
     // Sets web. Gets or sets the HTML string color representation.
-    public func setWeb(web : String?) {
+    public func setWeb(web : String?) -> XmlColor {
         self.web = web;
+        return self;
     }
 
     // Gets web. Gets or sets the HTML string color representation.

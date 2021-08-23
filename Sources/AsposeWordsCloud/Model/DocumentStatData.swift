@@ -30,19 +30,19 @@ import Foundation
 // Container for the document's statistical data.
 public class DocumentStatData : Codable, WordsApiModel {
     // Field of footnotesStatData. Container for the document's statistical data.
-    private var footnotesStatData : FootnotesStatData?;
+    public var footnotesStatData : FootnotesStatData?;
 
     // Field of pageCount. Container for the document's statistical data.
-    private var pageCount : Int?;
+    public var pageCount : Int?;
 
     // Field of pageStatData. Container for the document's statistical data.
-    private var pageStatData : [PageStatData]?;
+    public var pageStatData : [PageStatData]?;
 
     // Field of paragraphCount. Container for the document's statistical data.
-    private var paragraphCount : Int?;
+    public var paragraphCount : Int?;
 
     // Field of wordCount. Container for the document's statistical data.
-    private var wordCount : Int?;
+    public var wordCount : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case footnotesStatData = "FootnotesStatData";
@@ -85,8 +85,9 @@ public class DocumentStatData : Codable, WordsApiModel {
     }
 
     // Sets footnotesStatData. Gets or sets the detailed statistics on footnotes.
-    public func setFootnotesStatData(footnotesStatData : FootnotesStatData?) {
+    public func setFootnotesStatData(footnotesStatData : FootnotesStatData?) -> DocumentStatData {
         self.footnotesStatData = footnotesStatData;
+        return self;
     }
 
     // Gets footnotesStatData. Gets or sets the detailed statistics on footnotes.
@@ -95,8 +96,9 @@ public class DocumentStatData : Codable, WordsApiModel {
     }
 
     // Sets pageCount. Gets or sets the total count of pages in the document.
-    public func setPageCount(pageCount : Int?) {
+    public func setPageCount(pageCount : Int?) -> DocumentStatData {
         self.pageCount = pageCount;
+        return self;
     }
 
     // Gets pageCount. Gets or sets the total count of pages in the document.
@@ -105,8 +107,9 @@ public class DocumentStatData : Codable, WordsApiModel {
     }
 
     // Sets pageStatData. Gets or sets the detailed statistics on all pages.
-    public func setPageStatData(pageStatData : [PageStatData]?) {
+    public func setPageStatData(pageStatData : [PageStatData]?) -> DocumentStatData {
         self.pageStatData = pageStatData;
+        return self;
     }
 
     // Gets pageStatData. Gets or sets the detailed statistics on all pages.
@@ -115,8 +118,9 @@ public class DocumentStatData : Codable, WordsApiModel {
     }
 
     // Sets paragraphCount. Gets or sets the total count of paragraphs in the document.
-    public func setParagraphCount(paragraphCount : Int?) {
+    public func setParagraphCount(paragraphCount : Int?) -> DocumentStatData {
         self.paragraphCount = paragraphCount;
+        return self;
     }
 
     // Gets paragraphCount. Gets or sets the total count of paragraphs in the document.
@@ -125,8 +129,9 @@ public class DocumentStatData : Codable, WordsApiModel {
     }
 
     // Sets wordCount. Gets or sets the total count of words in the document.
-    public func setWordCount(wordCount : Int?) {
+    public func setWordCount(wordCount : Int?) -> DocumentStatData {
         self.wordCount = wordCount;
+        return self;
     }
 
     // Gets wordCount. Gets or sets the total count of words in the document.

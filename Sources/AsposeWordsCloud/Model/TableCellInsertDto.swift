@@ -30,7 +30,7 @@ import Foundation
 // DTO container with a table cell.
 public class TableCellInsertDto : Codable, WordsApiModel {
     // Field of insertAfter. DTO container with a table cell.
-    private var insertAfter : Int?;
+    public var insertAfter : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case insertAfter = "InsertAfter";
@@ -53,8 +53,9 @@ public class TableCellInsertDto : Codable, WordsApiModel {
     }
 
     // Sets insertAfter. Gets or sets the 0-based index, the table cell will be inserted after.
-    public func setInsertAfter(insertAfter : Int?) {
+    public func setInsertAfter(insertAfter : Int?) -> TableCellInsertDto {
         self.insertAfter = insertAfter;
+        return self;
     }
 
     // Gets insertAfter. Gets or sets the 0-based index, the table cell will be inserted after.

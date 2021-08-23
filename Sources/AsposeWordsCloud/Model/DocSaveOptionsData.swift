@@ -30,16 +30,16 @@ import Foundation
 // Container class for doc/dot save options.
 public class DocSaveOptionsData : SaveOptionsData {
     // Field of alwaysCompressMetafiles. Container class for doc/dot save options.
-    private var alwaysCompressMetafiles : Bool?;
+    public var alwaysCompressMetafiles : Bool?;
 
     // Field of password. Container class for doc/dot save options.
-    private var password : String?;
+    public var password : String?;
 
     // Field of savePictureBullet. Container class for doc/dot save options.
-    private var savePictureBullet : Bool?;
+    public var savePictureBullet : Bool?;
 
     // Field of saveRoutingSlip. Container class for doc/dot save options.
-    private var saveRoutingSlip : Bool?;
+    public var saveRoutingSlip : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case alwaysCompressMetafiles = "AlwaysCompressMetafiles";
@@ -80,8 +80,9 @@ public class DocSaveOptionsData : SaveOptionsData {
     }
 
     // Sets alwaysCompressMetafiles. Gets or sets a value indicating when False, that small metafiles are not compressed for performance reason. The default value is true, all metafiles are compressed regardless of its size.
-    public func setAlwaysCompressMetafiles(alwaysCompressMetafiles : Bool?) {
+    public func setAlwaysCompressMetafiles(alwaysCompressMetafiles : Bool?) -> DocSaveOptionsData {
         self.alwaysCompressMetafiles = alwaysCompressMetafiles;
+        return self;
     }
 
     // Gets alwaysCompressMetafiles. Gets or sets a value indicating when False, that small metafiles are not compressed for performance reason. The default value is true, all metafiles are compressed regardless of its size.
@@ -90,8 +91,9 @@ public class DocSaveOptionsData : SaveOptionsData {
     }
 
     // Sets password. Gets or sets the password.
-    public func setPassword(password : String?) {
+    public func setPassword(password : String?) -> DocSaveOptionsData {
         self.password = password;
+        return self;
     }
 
     // Gets password. Gets or sets the password.
@@ -100,8 +102,9 @@ public class DocSaveOptionsData : SaveOptionsData {
     }
 
     // Sets savePictureBullet. Gets or sets a value indicating when False, that PictureBullet data is not saved to the output document. The default value is true.
-    public func setSavePictureBullet(savePictureBullet : Bool?) {
+    public func setSavePictureBullet(savePictureBullet : Bool?) -> DocSaveOptionsData {
         self.savePictureBullet = savePictureBullet;
+        return self;
     }
 
     // Gets savePictureBullet. Gets or sets a value indicating when False, that PictureBullet data is not saved to the output document. The default value is true.
@@ -110,8 +113,9 @@ public class DocSaveOptionsData : SaveOptionsData {
     }
 
     // Sets saveRoutingSlip. Gets or sets a value indicating whether to save RoutingSlip data to output document.
-    public func setSaveRoutingSlip(saveRoutingSlip : Bool?) {
+    public func setSaveRoutingSlip(saveRoutingSlip : Bool?) -> DocSaveOptionsData {
         self.saveRoutingSlip = saveRoutingSlip;
+        return self;
     }
 
     // Gets saveRoutingSlip. Gets or sets a value indicating whether to save RoutingSlip data to output document.

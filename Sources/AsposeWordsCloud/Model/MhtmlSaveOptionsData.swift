@@ -30,7 +30,7 @@ import Foundation
 // Container class for mhtml save options.
 public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
     // Field of exportCidUrlsForMhtmlResources. Container class for mhtml save options.
-    private var exportCidUrlsForMhtmlResources : Bool?;
+    public var exportCidUrlsForMhtmlResources : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case exportCidUrlsForMhtmlResources = "ExportCidUrlsForMhtmlResources";
@@ -56,8 +56,9 @@ public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
     }
 
     // Sets exportCidUrlsForMhtmlResources. Gets or sets a value indicating whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. The default value is false.
-    public func setExportCidUrlsForMhtmlResources(exportCidUrlsForMhtmlResources : Bool?) {
+    public func setExportCidUrlsForMhtmlResources(exportCidUrlsForMhtmlResources : Bool?) -> MhtmlSaveOptionsData {
         self.exportCidUrlsForMhtmlResources = exportCidUrlsForMhtmlResources;
+        return self;
     }
 
     // Gets exportCidUrlsForMhtmlResources. Gets or sets a value indicating whether to use CID (Content-ID) URLs to reference resources (images, fonts, CSS) included in MHTML documents. The default value is false.

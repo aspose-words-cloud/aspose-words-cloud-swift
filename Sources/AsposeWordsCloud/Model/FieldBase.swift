@@ -30,10 +30,10 @@ import Foundation
 // Field.
 public class FieldBase : Codable, WordsApiModel {
     // Field of fieldCode. Field.
-    private var fieldCode : String?;
+    public var fieldCode : String?;
 
     // Field of localeId. Field.
-    private var localeId : String?;
+    public var localeId : String?;
 
     private enum CodingKeys: String, CodingKey {
         case fieldCode = "FieldCode";
@@ -61,8 +61,9 @@ public class FieldBase : Codable, WordsApiModel {
     }
 
     // Sets fieldCode. Gets or sets the field code.
-    public func setFieldCode(fieldCode : String?) {
+    public func setFieldCode(fieldCode : String?) -> FieldBase {
         self.fieldCode = fieldCode;
+        return self;
     }
 
     // Gets fieldCode. Gets or sets the field code.
@@ -71,8 +72,9 @@ public class FieldBase : Codable, WordsApiModel {
     }
 
     // Sets localeId. Gets or sets the LCID of the field.
-    public func setLocaleId(localeId : String?) {
+    public func setLocaleId(localeId : String?) -> FieldBase {
         self.localeId = localeId;
+        return self;
     }
 
     // Gets localeId. Gets or sets the LCID of the field.

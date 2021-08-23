@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
 public class RevisionsModificationResponse : WordsResponse {
     // Field of result. The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
-    private var result : ModificationOperationResult?;
+    public var result : ModificationOperationResult?;
 
     private enum CodingKeys: String, CodingKey {
         case result = "Result";
@@ -56,8 +56,9 @@ public class RevisionsModificationResponse : WordsResponse {
     }
 
     // Sets result. Gets or sets the result of the modification operations for the revisions collection.
-    public func setResult(result : ModificationOperationResult?) {
+    public func setResult(result : ModificationOperationResult?) -> RevisionsModificationResponse {
         self.result = result;
+        return self;
     }
 
     // Gets result. Gets or sets the result of the modification operations for the revisions collection.

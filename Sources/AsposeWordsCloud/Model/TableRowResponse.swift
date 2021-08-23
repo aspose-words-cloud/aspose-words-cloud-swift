@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a table row.
 public class TableRowResponse : WordsResponse {
     // Field of row. The REST response with a table row.
-    private var row : TableRow?;
+    public var row : TableRow?;
 
     private enum CodingKeys: String, CodingKey {
         case row = "Row";
@@ -56,8 +56,9 @@ public class TableRowResponse : WordsResponse {
     }
 
     // Sets row. Gets or sets the table row.
-    public func setRow(row : TableRow?) {
+    public func setRow(row : TableRow?) -> TableRowResponse {
         self.row = row;
+        return self;
     }
 
     // Gets row. Gets or sets the table row.

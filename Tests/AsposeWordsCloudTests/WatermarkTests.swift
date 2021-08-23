@@ -70,9 +70,9 @@ class WatermarkTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestWatermarkText = WatermarkText();
-      requestWatermarkText.setText(text: "This is the text");
-      requestWatermarkText.setRotationAngle(rotationAngle: 90.0);
+      let requestWatermarkText = WatermarkText()
+        .setText(text: "This is the text")
+        .setRotationAngle(rotationAngle: 90.0);
       let request = InsertWatermarkTextRequest(name: remoteFileName, watermarkText: requestWatermarkText, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertWatermarkText(request: request);
       XCTAssertNotNil(actual.getDocument());
@@ -82,9 +82,9 @@ class WatermarkTests: BaseTestContext {
     // Test for adding watermark text online.
     func testInsertWatermarkTextOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestWatermarkText = WatermarkText();
-      requestWatermarkText.setText(text: "This is the text");
-      requestWatermarkText.setRotationAngle(rotationAngle: 90);
+      let requestWatermarkText = WatermarkText()
+        .setText(text: "This is the text")
+        .setRotationAngle(rotationAngle: 90);
       let request = InsertWatermarkTextOnlineRequest(document: requestDocument, watermarkText: requestWatermarkText);
       _ = try super.getApi().insertWatermarkTextOnline(request: request);
     }

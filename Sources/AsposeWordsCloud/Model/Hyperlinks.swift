@@ -30,7 +30,7 @@ import Foundation
 // Collection of Hyperlink.
 public class Hyperlinks : LinkElement {
     // Field of hyperlinkList. Collection of Hyperlink.
-    private var hyperlinkList : [Hyperlink]?;
+    public var hyperlinkList : [Hyperlink]?;
 
     private enum CodingKeys: String, CodingKey {
         case hyperlinkList = "HyperlinkList";
@@ -56,8 +56,9 @@ public class Hyperlinks : LinkElement {
     }
 
     // Sets hyperlinkList. Gets or sets the array of Hyperlink.
-    public func setHyperlinkList(hyperlinkList : [Hyperlink]?) {
+    public func setHyperlinkList(hyperlinkList : [Hyperlink]?) -> Hyperlinks {
         self.hyperlinkList = hyperlinkList;
+        return self;
     }
 
     // Gets hyperlinkList. Gets or sets the array of Hyperlink.

@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a collection of sections.
 public class SectionLinkCollectionResponse : WordsResponse {
     // Field of sections. The REST response with a collection of sections.
-    private var sections : SectionLinkCollection?;
+    public var sections : SectionLinkCollection?;
 
     private enum CodingKeys: String, CodingKey {
         case sections = "Sections";
@@ -56,8 +56,9 @@ public class SectionLinkCollectionResponse : WordsResponse {
     }
 
     // Sets sections. Gets or sets the collection of sections.
-    public func setSections(sections : SectionLinkCollection?) {
+    public func setSections(sections : SectionLinkCollection?) -> SectionLinkCollectionResponse {
         self.sections = sections;
+        return self;
     }
 
     // Gets sections. Gets or sets the collection of sections.

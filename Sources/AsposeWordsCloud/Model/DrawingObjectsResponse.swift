@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a collection of DrawingObjects.
 public class DrawingObjectsResponse : WordsResponse {
     // Field of drawingObjects. The REST response with a collection of DrawingObjects.
-    private var drawingObjects : DrawingObjectCollection?;
+    public var drawingObjects : DrawingObjectCollection?;
 
     private enum CodingKeys: String, CodingKey {
         case drawingObjects = "DrawingObjects";
@@ -56,8 +56,9 @@ public class DrawingObjectsResponse : WordsResponse {
     }
 
     // Sets drawingObjects. Gets or sets the collection of DrawingObjects.
-    public func setDrawingObjects(drawingObjects : DrawingObjectCollection?) {
+    public func setDrawingObjects(drawingObjects : DrawingObjectCollection?) -> DrawingObjectsResponse {
         self.drawingObjects = drawingObjects;
+        return self;
     }
 
     // Gets drawingObjects. Gets or sets the collection of DrawingObjects.

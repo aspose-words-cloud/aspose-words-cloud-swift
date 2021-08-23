@@ -30,13 +30,13 @@ import Foundation
 // Result of saving.
 public class SaveResult : Codable, WordsApiModel {
     // Field of additionalItems. Result of saving.
-    private var additionalItems : [FileLink]?;
+    public var additionalItems : [FileLink]?;
 
     // Field of destDocument. Result of saving.
-    private var destDocument : FileLink?;
+    public var destDocument : FileLink?;
 
     // Field of sourceDocument. Result of saving.
-    private var sourceDocument : FileLink?;
+    public var sourceDocument : FileLink?;
 
     private enum CodingKeys: String, CodingKey {
         case additionalItems = "AdditionalItems";
@@ -69,8 +69,9 @@ public class SaveResult : Codable, WordsApiModel {
     }
 
     // Sets additionalItems. Gets or sets the list of links to additional items (css, images etc).
-    public func setAdditionalItems(additionalItems : [FileLink]?) {
+    public func setAdditionalItems(additionalItems : [FileLink]?) -> SaveResult {
         self.additionalItems = additionalItems;
+        return self;
     }
 
     // Gets additionalItems. Gets or sets the list of links to additional items (css, images etc).
@@ -79,8 +80,9 @@ public class SaveResult : Codable, WordsApiModel {
     }
 
     // Sets destDocument. Gets or sets the link to destination document.
-    public func setDestDocument(destDocument : FileLink?) {
+    public func setDestDocument(destDocument : FileLink?) -> SaveResult {
         self.destDocument = destDocument;
+        return self;
     }
 
     // Gets destDocument. Gets or sets the link to destination document.
@@ -89,8 +91,9 @@ public class SaveResult : Codable, WordsApiModel {
     }
 
     // Sets sourceDocument. Gets or sets the link to source document.
-    public func setSourceDocument(sourceDocument : FileLink?) {
+    public func setSourceDocument(sourceDocument : FileLink?) -> SaveResult {
         self.sourceDocument = sourceDocument;
+        return self;
     }
 
     // Gets sourceDocument. Gets or sets the link to source document.

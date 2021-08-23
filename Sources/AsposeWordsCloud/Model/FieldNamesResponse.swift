@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a collection of mail merge fields.
 public class FieldNamesResponse : WordsResponse {
     // Field of fieldNames. The REST response with a collection of mail merge fields.
-    private var fieldNames : FieldNames?;
+    public var fieldNames : FieldNames?;
 
     private enum CodingKeys: String, CodingKey {
         case fieldNames = "FieldNames";
@@ -56,8 +56,9 @@ public class FieldNamesResponse : WordsResponse {
     }
 
     // Sets fieldNames. Gets or sets the collection of mail merge fields.
-    public func setFieldNames(fieldNames : FieldNames?) {
+    public func setFieldNames(fieldNames : FieldNames?) -> FieldNamesResponse {
         self.fieldNames = fieldNames;
+        return self;
     }
 
     // Gets fieldNames. Gets or sets the collection of mail merge fields.

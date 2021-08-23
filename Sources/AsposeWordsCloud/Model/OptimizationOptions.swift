@@ -58,7 +58,7 @@ public class OptimizationOptions : Codable, WordsApiModel {
     }
 
     // Field of msWordVersion. Container class for the document optimization options.
-    private var msWordVersion : MsWordVersion?;
+    public var msWordVersion : MsWordVersion?;
 
     private enum CodingKeys: String, CodingKey {
         case msWordVersion = "MsWordVersion";
@@ -81,8 +81,9 @@ public class OptimizationOptions : Codable, WordsApiModel {
     }
 
     // Sets msWordVersion. Gets or sets the specific MSWord version.
-    public func setMsWordVersion(msWordVersion : MsWordVersion?) {
+    public func setMsWordVersion(msWordVersion : MsWordVersion?) -> OptimizationOptions {
         self.msWordVersion = msWordVersion;
+        return self;
     }
 
     // Gets msWordVersion. Gets or sets the specific MSWord version.

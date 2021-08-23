@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a DrawingObject.
 public class DrawingObjectResponse : WordsResponse {
     // Field of drawingObject. The REST response with a DrawingObject.
-    private var drawingObject : DrawingObject?;
+    public var drawingObject : DrawingObject?;
 
     private enum CodingKeys: String, CodingKey {
         case drawingObject = "DrawingObject";
@@ -56,8 +56,9 @@ public class DrawingObjectResponse : WordsResponse {
     }
 
     // Sets drawingObject. Gets or sets the DrawingObject.
-    public func setDrawingObject(drawingObject : DrawingObject?) {
+    public func setDrawingObject(drawingObject : DrawingObject?) -> DrawingObjectResponse {
         self.drawingObject = drawingObject;
+        return self;
     }
 
     // Gets drawingObject. Gets or sets the DrawingObject.

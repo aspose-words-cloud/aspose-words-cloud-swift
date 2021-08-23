@@ -30,13 +30,13 @@ import Foundation
 // DTO container with a section element.
 public class HeaderFooter : HeaderFooterLink {
     // Field of childNodes. DTO container with a section element.
-    private var childNodes : [NodeLink]?;
+    public var childNodes : [NodeLink]?;
 
     // Field of drawingObjects. DTO container with a section element.
-    private var drawingObjects : LinkElement?;
+    public var drawingObjects : LinkElement?;
 
     // Field of paragraphs. DTO container with a section element.
-    private var paragraphs : LinkElement?;
+    public var paragraphs : LinkElement?;
 
     private enum CodingKeys: String, CodingKey {
         case childNodes = "ChildNodes";
@@ -72,8 +72,9 @@ public class HeaderFooter : HeaderFooterLink {
     }
 
     // Sets childNodes. Gets or sets the child nodes.
-    public func setChildNodes(childNodes : [NodeLink]?) {
+    public func setChildNodes(childNodes : [NodeLink]?) -> HeaderFooter {
         self.childNodes = childNodes;
+        return self;
     }
 
     // Gets childNodes. Gets or sets the child nodes.
@@ -82,8 +83,9 @@ public class HeaderFooter : HeaderFooterLink {
     }
 
     // Sets drawingObjects. Gets or sets the link to DrawingObjects resource.
-    public func setDrawingObjects(drawingObjects : LinkElement?) {
+    public func setDrawingObjects(drawingObjects : LinkElement?) -> HeaderFooter {
         self.drawingObjects = drawingObjects;
+        return self;
     }
 
     // Gets drawingObjects. Gets or sets the link to DrawingObjects resource.
@@ -92,8 +94,9 @@ public class HeaderFooter : HeaderFooterLink {
     }
 
     // Sets paragraphs. Gets or sets the link to Paragraphs resource.
-    public func setParagraphs(paragraphs : LinkElement?) {
+    public func setParagraphs(paragraphs : LinkElement?) -> HeaderFooter {
         self.paragraphs = paragraphs;
+        return self;
     }
 
     // Gets paragraphs. Gets or sets the link to Paragraphs resource.

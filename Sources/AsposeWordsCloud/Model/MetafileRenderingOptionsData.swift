@@ -30,19 +30,19 @@ import Foundation
 // Container class for options of metafile rendering.
 public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     // Field of emfPlusDualRenderingMode. Container class for options of metafile rendering.
-    private var emfPlusDualRenderingMode : String?;
+    public var emfPlusDualRenderingMode : String?;
 
     // Field of emulateRasterOperations. Container class for options of metafile rendering.
-    private var emulateRasterOperations : Bool?;
+    public var emulateRasterOperations : Bool?;
 
     // Field of renderingMode. Container class for options of metafile rendering.
-    private var renderingMode : String?;
+    public var renderingMode : String?;
 
     // Field of scaleWmfFontsToMetafileSize. Container class for options of metafile rendering.
-    private var scaleWmfFontsToMetafileSize : Bool?;
+    public var scaleWmfFontsToMetafileSize : Bool?;
 
     // Field of useEmfEmbeddedToWmf. Container class for options of metafile rendering.
-    private var useEmfEmbeddedToWmf : Bool?;
+    public var useEmfEmbeddedToWmf : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case emfPlusDualRenderingMode = "EmfPlusDualRenderingMode";
@@ -85,8 +85,9 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     }
 
     // Sets emfPlusDualRenderingMode. Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.
-    public func setEmfPlusDualRenderingMode(emfPlusDualRenderingMode : String?) {
+    public func setEmfPlusDualRenderingMode(emfPlusDualRenderingMode : String?) -> MetafileRenderingOptionsData {
         self.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
+        return self;
     }
 
     // Gets emfPlusDualRenderingMode. Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.
@@ -95,8 +96,9 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     }
 
     // Sets emulateRasterOperations. Gets or sets a value indicating whether the raster operations should be emulated.
-    public func setEmulateRasterOperations(emulateRasterOperations : Bool?) {
+    public func setEmulateRasterOperations(emulateRasterOperations : Bool?) -> MetafileRenderingOptionsData {
         self.emulateRasterOperations = emulateRasterOperations;
+        return self;
     }
 
     // Gets emulateRasterOperations. Gets or sets a value indicating whether the raster operations should be emulated.
@@ -105,8 +107,9 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     }
 
     // Sets renderingMode. Gets or sets the option that controls how metafile images should be rendered.
-    public func setRenderingMode(renderingMode : String?) {
+    public func setRenderingMode(renderingMode : String?) -> MetafileRenderingOptionsData {
         self.renderingMode = renderingMode;
+        return self;
     }
 
     // Gets renderingMode. Gets or sets the option that controls how metafile images should be rendered.
@@ -115,8 +118,9 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     }
 
     // Sets scaleWmfFontsToMetafileSize. Gets or sets a value indicating whether to scale fonts in WMF metafile according to metafile size on the page. The default value is true.
-    public func setScaleWmfFontsToMetafileSize(scaleWmfFontsToMetafileSize : Bool?) {
+    public func setScaleWmfFontsToMetafileSize(scaleWmfFontsToMetafileSize : Bool?) -> MetafileRenderingOptionsData {
         self.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
+        return self;
     }
 
     // Gets scaleWmfFontsToMetafileSize. Gets or sets a value indicating whether to scale fonts in WMF metafile according to metafile size on the page. The default value is true.
@@ -125,8 +129,9 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     }
 
     // Sets useEmfEmbeddedToWmf. Gets or sets the flag, that controls how WMF metafiles with embedded EMF metafiles should be rendered.
-    public func setUseEmfEmbeddedToWmf(useEmfEmbeddedToWmf : Bool?) {
+    public func setUseEmfEmbeddedToWmf(useEmfEmbeddedToWmf : Bool?) -> MetafileRenderingOptionsData {
         self.useEmfEmbeddedToWmf = useEmfEmbeddedToWmf;
+        return self;
     }
 
     // Gets useEmfEmbeddedToWmf. Gets or sets the flag, that controls how WMF metafiles with embedded EMF metafiles should be rendered.

@@ -139,8 +139,8 @@ class FieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(textFolder + "/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestField = FieldInsert();
-      requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
+      let requestField = FieldInsert()
+        .setFieldCode(fieldCode: "{ NUMPAGES }");
       let request = InsertFieldRequest(name: remoteFileName, field: requestField, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
       let actual = try super.getApi().insertField(request: request);
       XCTAssertNotNil(actual.getField());
@@ -151,8 +151,8 @@ class FieldTests: BaseTestContext {
     // Test for putting field online.
     func testInsertFieldOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/GetField.docx", isDirectory: false))!;
-      let requestField = FieldInsert();
-      requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
+      let requestField = FieldInsert()
+        .setFieldCode(fieldCode: "{ NUMPAGES }");
       let request = InsertFieldOnlineRequest(document: requestDocument, field: requestField, nodePath: "sections/0/paragraphs/0");
       _ = try super.getApi().insertFieldOnline(request: request);
     }
@@ -164,8 +164,8 @@ class FieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(textFolder + "/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestField = FieldInsert();
-      requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
+      let requestField = FieldInsert()
+        .setFieldCode(fieldCode: "{ NUMPAGES }");
       let request = InsertFieldRequest(name: remoteFileName, field: requestField, folder: remoteDataFolder);
       let actual = try super.getApi().insertField(request: request);
       XCTAssertNotNil(actual.getField());
@@ -180,8 +180,8 @@ class FieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestField = FieldUpdate();
-      requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
+      let requestField = FieldUpdate()
+        .setFieldCode(fieldCode: "{ NUMPAGES }");
       let request = UpdateFieldRequest(name: remoteFileName, index: 0, field: requestField, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder);
       let actual = try super.getApi().updateField(request: request);
       XCTAssertNotNil(actual.getField());
@@ -192,8 +192,8 @@ class FieldTests: BaseTestContext {
     // Test for posting field online.
     func testUpdateFieldOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(fieldFolder + "/GetField.docx", isDirectory: false))!;
-      let requestField = FieldUpdate();
-      requestField.setFieldCode(fieldCode: "{ NUMPAGES }");
+      let requestField = FieldUpdate()
+        .setFieldCode(fieldCode: "{ NUMPAGES }");
       let request = UpdateFieldOnlineRequest(document: requestDocument, field: requestField, index: 0, nodePath: "sections/0/paragraphs/0");
       _ = try super.getApi().updateFieldOnline(request: request);
     }
@@ -205,9 +205,9 @@ class FieldTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent("Common/" + localFileName, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestPageNumber = PageNumber();
-      requestPageNumber.setAlignment(alignment: "center");
-      requestPageNumber.setFormat(format: "{PAGE} of {NUMPAGES}");
+      let requestPageNumber = PageNumber()
+        .setAlignment(alignment: "center")
+        .setFormat(format: "{PAGE} of {NUMPAGES}");
       let request = InsertPageNumbersRequest(name: remoteFileName, pageNumber: requestPageNumber, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertPageNumbers(request: request);
       XCTAssertNotNil(actual.getDocument());
@@ -219,9 +219,9 @@ class FieldTests: BaseTestContext {
       let localFileName = "test_multi_pages.docx";
 
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/" + localFileName, isDirectory: false))!;
-      let requestPageNumber = PageNumber();
-      requestPageNumber.setAlignment(alignment: "center");
-      requestPageNumber.setFormat(format: "{PAGE} of {NUMPAGES}");
+      let requestPageNumber = PageNumber()
+        .setAlignment(alignment: "center")
+        .setFormat(format: "{PAGE} of {NUMPAGES}");
       let request = InsertPageNumbersOnlineRequest(document: requestDocument, pageNumber: requestPageNumber);
       _ = try super.getApi().insertPageNumbersOnline(request: request);
     }

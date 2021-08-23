@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a collection of fields.
 public class FieldsResponse : WordsResponse {
     // Field of fields. The REST response with a collection of fields.
-    private var fields : FieldCollection?;
+    public var fields : FieldCollection?;
 
     private enum CodingKeys: String, CodingKey {
         case fields = "Fields";
@@ -56,8 +56,9 @@ public class FieldsResponse : WordsResponse {
     }
 
     // Sets fields. Gets or sets the collection of fields.
-    public func setFields(fields : FieldCollection?) {
+    public func setFields(fields : FieldCollection?) -> FieldsResponse {
         self.fields = fields;
+        return self;
     }
 
     // Gets fields. Gets or sets the collection of fields.

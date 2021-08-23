@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a collection of tables.
 public class TableLinkCollectionResponse : WordsResponse {
     // Field of tables. The REST response with a collection of tables.
-    private var tables : TableLinkCollection?;
+    public var tables : TableLinkCollection?;
 
     private enum CodingKeys: String, CodingKey {
         case tables = "Tables";
@@ -56,8 +56,9 @@ public class TableLinkCollectionResponse : WordsResponse {
     }
 
     // Sets tables. Gets or sets the collection of tables.
-    public func setTables(tables : TableLinkCollection?) {
+    public func setTables(tables : TableLinkCollection?) -> TableLinkCollectionResponse {
         self.tables = tables;
+        return self;
     }
 
     // Gets tables. Gets or sets the collection of tables.

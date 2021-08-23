@@ -44,16 +44,16 @@ public class TxtSaveOptionsBaseData : SaveOptionsData {
     }
 
     // Field of encoding. Base class for save options of text formats.
-    private var encoding : String?;
+    public var encoding : String?;
 
     // Field of exportHeadersFootersMode. Base class for save options of text formats.
-    private var exportHeadersFootersMode : ExportHeadersFootersMode?;
+    public var exportHeadersFootersMode : ExportHeadersFootersMode?;
 
     // Field of forcePageBreaks. Base class for save options of text formats.
-    private var forcePageBreaks : Bool?;
+    public var forcePageBreaks : Bool?;
 
     // Field of paragraphBreak. Base class for save options of text formats.
-    private var paragraphBreak : String?;
+    public var paragraphBreak : String?;
 
     private enum CodingKeys: String, CodingKey {
         case encoding = "Encoding";
@@ -94,8 +94,9 @@ public class TxtSaveOptionsBaseData : SaveOptionsData {
     }
 
     // Sets encoding. Gets or sets the character encoding to use when exporting in plain text format.
-    public func setEncoding(encoding : String?) {
+    public func setEncoding(encoding : String?) -> TxtSaveOptionsBaseData {
         self.encoding = encoding;
+        return self;
     }
 
     // Gets encoding. Gets or sets the character encoding to use when exporting in plain text format.
@@ -104,8 +105,9 @@ public class TxtSaveOptionsBaseData : SaveOptionsData {
     }
 
     // Sets exportHeadersFootersMode. Gets or sets the option that controls whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.
-    public func setExportHeadersFootersMode(exportHeadersFootersMode : ExportHeadersFootersMode?) {
+    public func setExportHeadersFootersMode(exportHeadersFootersMode : ExportHeadersFootersMode?) -> TxtSaveOptionsBaseData {
         self.exportHeadersFootersMode = exportHeadersFootersMode;
+        return self;
     }
 
     // Gets exportHeadersFootersMode. Gets or sets the option that controls whether to output headers and footers when exporting in plain text format. default value is TxtExportHeadersFootersMode.PrimaryOnly.
@@ -114,8 +116,9 @@ public class TxtSaveOptionsBaseData : SaveOptionsData {
     }
 
     // Sets forcePageBreaks. Gets or sets a value indicating whether the page breaks should be preserved during export. The default value is false.
-    public func setForcePageBreaks(forcePageBreaks : Bool?) {
+    public func setForcePageBreaks(forcePageBreaks : Bool?) -> TxtSaveOptionsBaseData {
         self.forcePageBreaks = forcePageBreaks;
+        return self;
     }
 
     // Gets forcePageBreaks. Gets or sets a value indicating whether the page breaks should be preserved during export. The default value is false.
@@ -124,8 +127,9 @@ public class TxtSaveOptionsBaseData : SaveOptionsData {
     }
 
     // Sets paragraphBreak. Gets or sets the string to use as a paragraph break when exporting in plain text format.
-    public func setParagraphBreak(paragraphBreak : String?) {
+    public func setParagraphBreak(paragraphBreak : String?) -> TxtSaveOptionsBaseData {
         self.paragraphBreak = paragraphBreak;
+        return self;
     }
 
     // Gets paragraphBreak. Gets or sets the string to use as a paragraph break when exporting in plain text format.

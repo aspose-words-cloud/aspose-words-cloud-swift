@@ -30,10 +30,10 @@ import Foundation
 // DTO container with a table row element.
 public class TableRow : NodeLink {
     // Field of rowFormat. DTO container with a table row element.
-    private var rowFormat : TableRowFormat?;
+    public var rowFormat : TableRowFormat?;
 
     // Field of tableCellList. DTO container with a table row element.
-    private var tableCellList : [TableCell]?;
+    public var tableCellList : [TableCell]?;
 
     private enum CodingKeys: String, CodingKey {
         case rowFormat = "RowFormat";
@@ -64,8 +64,9 @@ public class TableRow : NodeLink {
     }
 
     // Sets rowFormat. Gets or sets the formatting properties of a row.
-    public func setRowFormat(rowFormat : TableRowFormat?) {
+    public func setRowFormat(rowFormat : TableRowFormat?) -> TableRow {
         self.rowFormat = rowFormat;
+        return self;
     }
 
     // Gets rowFormat. Gets or sets the formatting properties of a row.
@@ -74,8 +75,9 @@ public class TableRow : NodeLink {
     }
 
     // Sets tableCellList. Gets or sets the collection of rows.
-    public func setTableCellList(tableCellList : [TableCell]?) {
+    public func setTableCellList(tableCellList : [TableCell]?) -> TableRow {
         self.tableCellList = tableCellList;
+        return self;
     }
 
     // Gets tableCellList. Gets or sets the collection of rows.

@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a document description.
 public class DocumentResponse : WordsResponse {
     // Field of document. The REST response with a document description.
-    private var document : Document?;
+    public var document : Document?;
 
     private enum CodingKeys: String, CodingKey {
         case document = "Document";
@@ -56,8 +56,9 @@ public class DocumentResponse : WordsResponse {
     }
 
     // Sets document. Gets or sets the document description.
-    public func setDocument(document : Document?) {
+    public func setDocument(document : Document?) -> DocumentResponse {
         self.document = document;
+        return self;
     }
 
     // Gets document. Gets or sets the document description.

@@ -30,10 +30,10 @@ import Foundation
 // Represents a list of documents which will be appended to the original resource document.
 public class DocumentEntryList : Codable, WordsApiModel {
     // Field of applyBaseDocumentHeadersAndFootersToAppendingDocuments. Represents a list of documents which will be appended to the original resource document.
-    private var applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool?;
+    public var applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool?;
 
     // Field of documentEntries. Represents a list of documents which will be appended to the original resource document.
-    private var documentEntries : [DocumentEntry]?;
+    public var documentEntries : [DocumentEntry]?;
 
     private enum CodingKeys: String, CodingKey {
         case applyBaseDocumentHeadersAndFootersToAppendingDocuments = "ApplyBaseDocumentHeadersAndFootersToAppendingDocuments";
@@ -61,8 +61,9 @@ public class DocumentEntryList : Codable, WordsApiModel {
     }
 
     // Sets applyBaseDocumentHeadersAndFootersToAppendingDocuments. Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
-    public func setApplyBaseDocumentHeadersAndFootersToAppendingDocuments(applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool?) {
+    public func setApplyBaseDocumentHeadersAndFootersToAppendingDocuments(applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool?) -> DocumentEntryList {
         self.applyBaseDocumentHeadersAndFootersToAppendingDocuments = applyBaseDocumentHeadersAndFootersToAppendingDocuments;
+        return self;
     }
 
     // Gets applyBaseDocumentHeadersAndFootersToAppendingDocuments. Gets or sets a value indicating whether to apply headers and footers from base document to appending documents. The default value is true.
@@ -71,8 +72,9 @@ public class DocumentEntryList : Codable, WordsApiModel {
     }
 
     // Sets documentEntries. Gets or sets the list of documents.
-    public func setDocumentEntries(documentEntries : [DocumentEntry]?) {
+    public func setDocumentEntries(documentEntries : [DocumentEntry]?) -> DocumentEntryList {
         self.documentEntries = documentEntries;
+        return self;
     }
 
     // Gets documentEntries. Gets or sets the list of documents.

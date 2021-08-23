@@ -30,7 +30,7 @@ import Foundation
 // The REST response with an array of tab stops.
 public class TabStopsResponse : WordsResponse {
     // Field of tabStops. The REST response with an array of tab stops.
-    private var tabStops : [TabStop]?;
+    public var tabStops : [TabStop]?;
 
     private enum CodingKeys: String, CodingKey {
         case tabStops = "TabStops";
@@ -56,8 +56,9 @@ public class TabStopsResponse : WordsResponse {
     }
 
     // Sets tabStops. Gets or sets the array of tab stops.
-    public func setTabStops(tabStops : [TabStop]?) {
+    public func setTabStops(tabStops : [TabStop]?) -> TabStopsResponse {
         self.tabStops = tabStops;
+        return self;
     }
 
     // Gets tabStops. Gets or sets the array of tab stops.

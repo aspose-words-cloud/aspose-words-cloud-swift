@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a collection of lists, contained in the document.
 public class ListsResponse : WordsResponse {
     // Field of lists. The REST response with a collection of lists, contained in the document.
-    private var lists : Lists?;
+    public var lists : Lists?;
 
     private enum CodingKeys: String, CodingKey {
         case lists = "Lists";
@@ -56,8 +56,9 @@ public class ListsResponse : WordsResponse {
     }
 
     // Sets lists. Gets or sets the collection of lists, contained in the document.
-    public func setLists(lists : Lists?) {
+    public func setLists(lists : Lists?) -> ListsResponse {
         self.lists = lists;
+        return self;
     }
 
     // Gets lists. Gets or sets the collection of lists, contained in the document.

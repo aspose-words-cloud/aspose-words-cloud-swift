@@ -30,7 +30,7 @@ import Foundation
 // Represents a collection of merge fields within a document.
 public class FieldNames : LinkElement {
     // Field of names. Represents a collection of merge fields within a document.
-    private var names : [String]?;
+    public var names : [String]?;
 
     private enum CodingKeys: String, CodingKey {
         case names = "Names";
@@ -56,8 +56,9 @@ public class FieldNames : LinkElement {
     }
 
     // Sets names. Gets or sets the collection of fields names.
-    public func setNames(names : [String]?) {
+    public func setNames(names : [String]?) -> FieldNames {
         self.names = names;
+        return self;
     }
 
     // Gets names. Gets or sets the collection of fields names.

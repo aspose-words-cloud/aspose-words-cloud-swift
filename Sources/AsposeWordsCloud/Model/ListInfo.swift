@@ -30,25 +30,25 @@ import Foundation
 // DTO container with a single document list.
 public class ListInfo : LinkElement {
     // Field of isListStyleDefinition. DTO container with a single document list.
-    private var isListStyleDefinition : Bool?;
+    public var isListStyleDefinition : Bool?;
 
     // Field of isListStyleReference. DTO container with a single document list.
-    private var isListStyleReference : Bool?;
+    public var isListStyleReference : Bool?;
 
     // Field of isMultiLevel. DTO container with a single document list.
-    private var isMultiLevel : Bool?;
+    public var isMultiLevel : Bool?;
 
     // Field of isRestartAtEachSection. DTO container with a single document list.
-    private var isRestartAtEachSection : Bool?;
+    public var isRestartAtEachSection : Bool?;
 
     // Field of listId. DTO container with a single document list.
-    private var listId : Int?;
+    public var listId : Int?;
 
     // Field of listLevels. DTO container with a single document list.
-    private var listLevels : ListLevels?;
+    public var listLevels : ListLevels?;
 
     // Field of style. DTO container with a single document list.
-    private var style : Style?;
+    public var style : Style?;
 
     private enum CodingKeys: String, CodingKey {
         case isListStyleDefinition = "IsListStyleDefinition";
@@ -104,8 +104,9 @@ public class ListInfo : LinkElement {
     }
 
     // Sets isListStyleDefinition. Gets or sets a value indicating whether this list is a definition of a list style.
-    public func setIsListStyleDefinition(isListStyleDefinition : Bool?) {
+    public func setIsListStyleDefinition(isListStyleDefinition : Bool?) -> ListInfo {
         self.isListStyleDefinition = isListStyleDefinition;
+        return self;
     }
 
     // Gets isListStyleDefinition. Gets or sets a value indicating whether this list is a definition of a list style.
@@ -114,8 +115,9 @@ public class ListInfo : LinkElement {
     }
 
     // Sets isListStyleReference. Gets or sets a value indicating whether this list is a reference to a list style.
-    public func setIsListStyleReference(isListStyleReference : Bool?) {
+    public func setIsListStyleReference(isListStyleReference : Bool?) -> ListInfo {
         self.isListStyleReference = isListStyleReference;
+        return self;
     }
 
     // Gets isListStyleReference. Gets or sets a value indicating whether this list is a reference to a list style.
@@ -124,8 +126,9 @@ public class ListInfo : LinkElement {
     }
 
     // Sets isMultiLevel. Gets or sets a value indicating whether the list contains 9 levels; false when 1 level.
-    public func setIsMultiLevel(isMultiLevel : Bool?) {
+    public func setIsMultiLevel(isMultiLevel : Bool?) -> ListInfo {
         self.isMultiLevel = isMultiLevel;
+        return self;
     }
 
     // Gets isMultiLevel. Gets or sets a value indicating whether the list contains 9 levels; false when 1 level.
@@ -134,8 +137,9 @@ public class ListInfo : LinkElement {
     }
 
     // Sets isRestartAtEachSection. Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
-    public func setIsRestartAtEachSection(isRestartAtEachSection : Bool?) {
+    public func setIsRestartAtEachSection(isRestartAtEachSection : Bool?) -> ListInfo {
         self.isRestartAtEachSection = isRestartAtEachSection;
+        return self;
     }
 
     // Gets isRestartAtEachSection. Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
@@ -144,8 +148,9 @@ public class ListInfo : LinkElement {
     }
 
     // Sets listId. Gets or sets the unique identifier of the list.
-    public func setListId(listId : Int?) {
+    public func setListId(listId : Int?) -> ListInfo {
         self.listId = listId;
+        return self;
     }
 
     // Gets listId. Gets or sets the unique identifier of the list.
@@ -154,8 +159,9 @@ public class ListInfo : LinkElement {
     }
 
     // Sets listLevels. Gets or sets the collection of list levels for this list.
-    public func setListLevels(listLevels : ListLevels?) {
+    public func setListLevels(listLevels : ListLevels?) -> ListInfo {
         self.listLevels = listLevels;
+        return self;
     }
 
     // Gets listLevels. Gets or sets the collection of list levels for this list.
@@ -164,8 +170,9 @@ public class ListInfo : LinkElement {
     }
 
     // Sets style. Gets or sets the list style that this list references or defines.
-    public func setStyle(style : Style?) {
+    public func setStyle(style : Style?) -> ListInfo {
         self.style = style;
+        return self;
     }
 
     // Gets style. Gets or sets the list style that this list references or defines.

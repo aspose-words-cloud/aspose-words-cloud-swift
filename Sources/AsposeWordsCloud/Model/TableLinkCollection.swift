@@ -30,7 +30,7 @@ import Foundation
 // The collection of table's links.
 public class TableLinkCollection : LinkElement {
     // Field of tableLinkList. The collection of table's links.
-    private var tableLinkList : [TableLink]?;
+    public var tableLinkList : [TableLink]?;
 
     private enum CodingKeys: String, CodingKey {
         case tableLinkList = "TableLinkList";
@@ -56,8 +56,9 @@ public class TableLinkCollection : LinkElement {
     }
 
     // Sets tableLinkList. Gets or sets the collection of table's links.
-    public func setTableLinkList(tableLinkList : [TableLink]?) {
+    public func setTableLinkList(tableLinkList : [TableLink]?) -> TableLinkCollection {
         self.tableLinkList = tableLinkList;
+        return self;
     }
 
     // Gets tableLinkList. Gets or sets the collection of table's links.

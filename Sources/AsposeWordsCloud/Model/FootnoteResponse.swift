@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a footnote.
 public class FootnoteResponse : WordsResponse {
     // Field of footnote. The REST response with a footnote.
-    private var footnote : Footnote?;
+    public var footnote : Footnote?;
 
     private enum CodingKeys: String, CodingKey {
         case footnote = "Footnote";
@@ -56,8 +56,9 @@ public class FootnoteResponse : WordsResponse {
     }
 
     // Sets footnote. Gets or sets the footnote.
-    public func setFootnote(footnote : Footnote?) {
+    public func setFootnote(footnote : Footnote?) -> FootnoteResponse {
         self.footnote = footnote;
+        return self;
     }
 
     // Gets footnote. Gets or sets the footnote.

@@ -30,13 +30,13 @@ import Foundation
 // The REST response with data on system, additional and custom fonts, available for document processing.
 public class AvailableFontsResponse : WordsResponse {
     // Field of additionalFonts. The REST response with data on system, additional and custom fonts, available for document processing.
-    private var additionalFonts : [FontInfo]?;
+    public var additionalFonts : [FontInfo]?;
 
     // Field of customFonts. The REST response with data on system, additional and custom fonts, available for document processing.
-    private var customFonts : [FontInfo]?;
+    public var customFonts : [FontInfo]?;
 
     // Field of systemFonts. The REST response with data on system, additional and custom fonts, available for document processing.
-    private var systemFonts : [FontInfo]?;
+    public var systemFonts : [FontInfo]?;
 
     private enum CodingKeys: String, CodingKey {
         case additionalFonts = "AdditionalFonts";
@@ -72,8 +72,9 @@ public class AvailableFontsResponse : WordsResponse {
     }
 
     // Sets additionalFonts. Gets or sets the list of additional fonts, provided by Aspose team.
-    public func setAdditionalFonts(additionalFonts : [FontInfo]?) {
+    public func setAdditionalFonts(additionalFonts : [FontInfo]?) -> AvailableFontsResponse {
         self.additionalFonts = additionalFonts;
+        return self;
     }
 
     // Gets additionalFonts. Gets or sets the list of additional fonts, provided by Aspose team.
@@ -82,8 +83,9 @@ public class AvailableFontsResponse : WordsResponse {
     }
 
     // Sets customFonts. Gets or sets the list of custom user fonts from user cloud storage. To use them, you should specify "fontsLocation" parameter in any request.
-    public func setCustomFonts(customFonts : [FontInfo]?) {
+    public func setCustomFonts(customFonts : [FontInfo]?) -> AvailableFontsResponse {
         self.customFonts = customFonts;
+        return self;
     }
 
     // Gets customFonts. Gets or sets the list of custom user fonts from user cloud storage. To use them, you should specify "fontsLocation" parameter in any request.
@@ -92,8 +94,9 @@ public class AvailableFontsResponse : WordsResponse {
     }
 
     // Sets systemFonts. Gets or sets the list of system fonts, available on the server.
-    public func setSystemFonts(systemFonts : [FontInfo]?) {
+    public func setSystemFonts(systemFonts : [FontInfo]?) -> AvailableFontsResponse {
         self.systemFonts = systemFonts;
+        return self;
     }
 
     // Gets systemFonts. Gets or sets the list of system fonts, available on the server.

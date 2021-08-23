@@ -30,7 +30,7 @@ import Foundation
 // DTO container with a collection of form fields.
 public class FormFieldCollection : LinkElement {
     // Field of list. DTO container with a collection of form fields.
-    private var list : [FormField]?;
+    public var list : [FormField]?;
 
     private enum CodingKeys: String, CodingKey {
         case list = "List";
@@ -56,8 +56,9 @@ public class FormFieldCollection : LinkElement {
     }
 
     // Sets list. Gets or sets the collection of form fields.
-    public func setList(list : [FormField]?) {
+    public func setList(list : [FormField]?) -> FormFieldCollection {
         self.list = list;
+        return self;
     }
 
     // Gets list. Gets or sets the collection of form fields.

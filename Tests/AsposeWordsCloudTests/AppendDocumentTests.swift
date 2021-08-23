@@ -44,14 +44,14 @@ class AppendDocumentTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestDocumentListDocumentEntries0 = DocumentEntry();
-      requestDocumentListDocumentEntries0.setHref(href: remoteDataFolder + "/" + remoteFileName);
-      requestDocumentListDocumentEntries0.setImportFormatMode(importFormatMode: "KeepSourceFormatting");
+      let requestDocumentListDocumentEntries0 = DocumentEntry()
+        .setHref(href: remoteDataFolder + "/" + remoteFileName)
+        .setImportFormatMode(importFormatMode: "KeepSourceFormatting");
       let requestDocumentListDocumentEntries = [
         requestDocumentListDocumentEntries0
       ];
-      let requestDocumentList = DocumentEntryList();
-      requestDocumentList.setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
+      let requestDocumentList = DocumentEntryList()
+        .setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
       let request = AppendDocumentRequest(name: remoteFileName, documentList: requestDocumentList, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().appendDocument(request: request);
       XCTAssertNotNil(actual.getDocument());
@@ -65,14 +65,14 @@ class AppendDocumentTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestDocumentListDocumentEntries0 = DocumentEntry();
-      requestDocumentListDocumentEntries0.setHref(href: remoteDataFolder + "/" + remoteFileName);
-      requestDocumentListDocumentEntries0.setImportFormatMode(importFormatMode: "KeepSourceFormatting");
+      let requestDocumentListDocumentEntries0 = DocumentEntry()
+        .setHref(href: remoteDataFolder + "/" + remoteFileName)
+        .setImportFormatMode(importFormatMode: "KeepSourceFormatting");
       let requestDocumentListDocumentEntries = [
         requestDocumentListDocumentEntries0
       ];
-      let requestDocumentList = DocumentEntryList();
-      requestDocumentList.setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
+      let requestDocumentList = DocumentEntryList()
+        .setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
       let request = AppendDocumentOnlineRequest(document: requestDocument, documentList: requestDocumentList);
       _ = try super.getApi().appendDocumentOnline(request: request);
     }
