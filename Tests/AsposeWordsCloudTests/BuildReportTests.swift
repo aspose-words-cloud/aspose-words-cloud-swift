@@ -46,7 +46,7 @@ class BuildReportTests: BaseTestContext {
       let requestTemplate = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(reportingFolder + "/" + localDocumentFile, isDirectory: false))!;
       let requestReportEngineSettings = ReportEngineSettings()
         .setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json)
-        .setDataSourceName(dataSourceName: "persons");
+        .setDataSourceName(dataSourceName: "persons") as! ReportEngineSettings;
       let request = BuildReportOnlineRequest(template: requestTemplate, data: localDataFile, reportEngineSettings: requestReportEngineSettings);
       _ = try super.getApi().buildReportOnline(request: request);
     }
@@ -65,7 +65,7 @@ class BuildReportTests: BaseTestContext {
       ];
       let requestReportEngineSettings = ReportEngineSettings()
         .setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json)
-        .setReportBuildOptions(reportBuildOptions: requestReportEngineSettingsReportBuildOptions);
+        .setReportBuildOptions(reportBuildOptions: requestReportEngineSettingsReportBuildOptions) as! ReportEngineSettings;
       let request = BuildReportRequest(name: remoteFileName, data: localDataFile, reportEngineSettings: requestReportEngineSettings, folder: remoteDataFolder);
       let actual = try super.getApi().buildReport(request: request);
       XCTAssertNotNil(actual.getDocument());

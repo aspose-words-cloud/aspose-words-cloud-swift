@@ -46,12 +46,12 @@ class AppendDocumentTests: BaseTestContext {
 
       let requestDocumentListDocumentEntries0 = DocumentEntry()
         .setHref(href: remoteDataFolder + "/" + remoteFileName)
-        .setImportFormatMode(importFormatMode: "KeepSourceFormatting");
+        .setImportFormatMode(importFormatMode: "KeepSourceFormatting") as! DocumentEntry;
       let requestDocumentListDocumentEntries = [
         requestDocumentListDocumentEntries0
       ];
       let requestDocumentList = DocumentEntryList()
-        .setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
+        .setDocumentEntries(documentEntries: requestDocumentListDocumentEntries) as! DocumentEntryList;
       let request = AppendDocumentRequest(name: remoteFileName, documentList: requestDocumentList, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().appendDocument(request: request);
       XCTAssertNotNil(actual.getDocument());
@@ -67,12 +67,12 @@ class AppendDocumentTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestDocumentListDocumentEntries0 = DocumentEntry()
         .setHref(href: remoteDataFolder + "/" + remoteFileName)
-        .setImportFormatMode(importFormatMode: "KeepSourceFormatting");
+        .setImportFormatMode(importFormatMode: "KeepSourceFormatting") as! DocumentEntry;
       let requestDocumentListDocumentEntries = [
         requestDocumentListDocumentEntries0
       ];
       let requestDocumentList = DocumentEntryList()
-        .setDocumentEntries(documentEntries: requestDocumentListDocumentEntries);
+        .setDocumentEntries(documentEntries: requestDocumentListDocumentEntries) as! DocumentEntryList;
       let request = AppendDocumentOnlineRequest(document: requestDocument, documentList: requestDocumentList);
       _ = try super.getApi().appendDocumentOnline(request: request);
     }

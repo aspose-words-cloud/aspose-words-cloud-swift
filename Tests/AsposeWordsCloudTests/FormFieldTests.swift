@@ -63,7 +63,7 @@ class FormFieldTests: BaseTestContext {
         .setCalculateOnExit(calculateOnExit: true)
         .setStatusText(statusText: "")
         .setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular)
-        .setTextInputDefault(textInputDefault: "No name");
+        .setTextInputDefault(textInputDefault: "No name") as! FormFieldTextInput;
       let request = UpdateFormFieldRequest(name: remoteFileName, index: 0, formField: requestFormField, nodePath: "sections/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().updateFormField(request: request);
       XCTAssertNotNil(actual.getFormField());
@@ -80,7 +80,7 @@ class FormFieldTests: BaseTestContext {
         .setCalculateOnExit(calculateOnExit: true)
         .setStatusText(statusText: "")
         .setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular)
-        .setTextInputDefault(textInputDefault: "No name");
+        .setTextInputDefault(textInputDefault: "No name") as! FormFieldTextInput;
       let request = UpdateFormFieldOnlineRequest(document: requestDocument, formField: requestFormField, index: 0, nodePath: "sections/0");
       _ = try super.getApi().updateFormFieldOnline(request: request);
     }
@@ -97,7 +97,7 @@ class FormFieldTests: BaseTestContext {
         .setCalculateOnExit(calculateOnExit: true)
         .setStatusText(statusText: "")
         .setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular)
-        .setTextInputDefault(textInputDefault: "No name");
+        .setTextInputDefault(textInputDefault: "No name") as! FormFieldTextInput;
       let request = UpdateFormFieldRequest(name: remoteFileName, index: 0, formField: requestFormField, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().updateFormField(request: request);
       XCTAssertNotNil(actual.getFormField());
@@ -184,7 +184,7 @@ class FormFieldTests: BaseTestContext {
         .setStatusText(statusText: "")
         .setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular)
         .setTextInputDefault(textInputDefault: "123")
-        .setTextInputFormat(textInputFormat: "UPPERCASE");
+        .setTextInputFormat(textInputFormat: "UPPERCASE") as! FormFieldTextInput;
       let request = InsertFormFieldRequest(name: remoteFileName, formField: requestFormField, nodePath: "sections/0/paragraphs/0", folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertFormField(request: request);
       XCTAssertNotNil(actual.getFormField());
@@ -202,7 +202,7 @@ class FormFieldTests: BaseTestContext {
         .setStatusText(statusText: "")
         .setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular)
         .setTextInputDefault(textInputDefault: "123")
-        .setTextInputFormat(textInputFormat: "UPPERCASE");
+        .setTextInputFormat(textInputFormat: "UPPERCASE") as! FormFieldTextInput;
       let request = InsertFormFieldOnlineRequest(document: requestDocument, formField: requestFormField, nodePath: "sections/0/paragraphs/0");
       _ = try super.getApi().insertFormFieldOnline(request: request);
     }
@@ -220,7 +220,7 @@ class FormFieldTests: BaseTestContext {
         .setStatusText(statusText: "")
         .setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular)
         .setTextInputDefault(textInputDefault: "123")
-        .setTextInputFormat(textInputFormat: "UPPERCASE");
+        .setTextInputFormat(textInputFormat: "UPPERCASE") as! FormFieldTextInput;
       let request = InsertFormFieldRequest(name: remoteFileName, formField: requestFormField, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().insertFormField(request: request);
       XCTAssertNotNil(actual.getFormField());

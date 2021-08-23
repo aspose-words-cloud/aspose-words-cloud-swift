@@ -52,7 +52,7 @@ class CompareDocumentTests: BaseTestContext {
       let requestCompareData = CompareData()
         .setAuthor(author: "author")
         .setComparingWithDocument(comparingWithDocument: remoteFolder + "/" + remoteName2)
-        .setDateTime(dateTime: ObjectSerializer.customIso8601.date(from: "2015-10-26T00:00:00Z")!);
+        .setDateTime(dateTime: ObjectSerializer.customIso8601.date(from: "2015-10-26T00:00:00Z")!) as! CompareData;
       let request = CompareDocumentRequest(name: remoteName1, compareData: requestCompareData, folder: remoteFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
       let actual = try super.getApi().compareDocument(request: request);
       XCTAssertNotNil(actual.getDocument());
@@ -71,7 +71,7 @@ class CompareDocumentTests: BaseTestContext {
       let requestCompareData = CompareData()
         .setAuthor(author: "author")
         .setComparingWithDocument(comparingWithDocument: remoteFolder + "/" + remoteName2)
-        .setDateTime(dateTime: ObjectSerializer.customIso8601.date(from: "2015-10-26T00:00:00Z")!);
+        .setDateTime(dateTime: ObjectSerializer.customIso8601.date(from: "2015-10-26T00:00:00Z")!) as! CompareData;
       let request = CompareDocumentOnlineRequest(document: requestDocument, compareData: requestCompareData, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
       _ = try super.getApi().compareDocumentOnline(request: request);
     }
@@ -88,7 +88,7 @@ class CompareDocumentTests: BaseTestContext {
       let requestCompareData = CompareData()
         .setAuthor(author: "author")
         .setComparingWithDocument(comparingWithDocument: remoteFolder + "/" + remoteName2)
-        .setDateTime(dateTime: ObjectSerializer.customIso8601.date(from: "2015-10-26T00:00:00Z")!);
+        .setDateTime(dateTime: ObjectSerializer.customIso8601.date(from: "2015-10-26T00:00:00Z")!) as! CompareData;
       let requestComparingDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFolder + "/" + localName2, isDirectory: false))!;
       let request = CompareDocumentOnlineRequest(document: requestDocument, compareData: requestCompareData, comparingDocument: requestComparingDocument, destFileName: BaseTestContext.getRemoteTestOut() + "/TestCompareDocumentOut.doc");
       _ = try super.getApi().compareDocumentOnline(request: request);

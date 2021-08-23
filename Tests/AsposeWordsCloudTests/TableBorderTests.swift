@@ -129,14 +129,14 @@ class TableBorderTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestBorderPropertiesColor = XmlColor()
-        .setWeb(web: "#AABBCC");
+        .setWeb(web: "#AABBCC") as! XmlColor;
       let requestBorderProperties = Border()
         .setBorderType(borderType: Border.BorderType._left)
         .setColor(color: requestBorderPropertiesColor)
         .setDistanceFromText(distanceFromText: 6.0)
         .setLineStyle(lineStyle: Border.LineStyle.dashDotStroker)
         .setLineWidth(lineWidth: 2.0)
-        .setShadow(shadow: true);
+        .setShadow(shadow: true) as! Border;
       let request = UpdateBorderRequest(name: remoteFileName, borderType: "left", borderProperties: requestBorderProperties, nodePath: "tables/1/rows/0/cells/0", folder: remoteDataFolder);
       let actual = try super.getApi().updateBorder(request: request);
       XCTAssertNotNil(actual.getBorder());
@@ -151,14 +151,14 @@ class TableBorderTests: BaseTestContext {
     func testUpdateBorderOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestBorderPropertiesColor = XmlColor()
-        .setWeb(web: "#AABBCC");
+        .setWeb(web: "#AABBCC") as! XmlColor;
       let requestBorderProperties = Border()
         .setBorderType(borderType: Border.BorderType._left)
         .setColor(color: requestBorderPropertiesColor)
         .setDistanceFromText(distanceFromText: 6)
         .setLineStyle(lineStyle: Border.LineStyle.dashDotStroker)
         .setLineWidth(lineWidth: 2)
-        .setShadow(shadow: true);
+        .setShadow(shadow: true) as! Border;
       let request = UpdateBorderOnlineRequest(document: requestDocument, borderProperties: requestBorderProperties, borderType: "left", nodePath: "tables/1/rows/0/cells/0");
       _ = try super.getApi().updateBorderOnline(request: request);
     }

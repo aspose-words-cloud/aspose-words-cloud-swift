@@ -106,7 +106,7 @@ class CustomXmlPartsTests: BaseTestContext {
 
       let requestCustomXmlPart = CustomXmlPartInsert()
         .setId(id: "hello")
-        .setData(data: "<data>Hello world</data>");
+        .setData(data: "<data>Hello world</data>") as! CustomXmlPartInsert;
       let request = InsertCustomXmlPartRequest(name: remoteFileName, customXmlPart: requestCustomXmlPart, folder: remoteDataFolder);
       let actual = try super.getApi().insertCustomXmlPart(request: request);
       XCTAssertNotNil(actual.getCustomXmlPart());
@@ -119,7 +119,7 @@ class CustomXmlPartsTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestCustomXmlPart = CustomXmlPartInsert()
         .setId(id: "hello")
-        .setData(data: "<data>Hello world</data>");
+        .setData(data: "<data>Hello world</data>") as! CustomXmlPartInsert;
       let request = InsertCustomXmlPartOnlineRequest(document: requestDocument, customXmlPart: requestCustomXmlPart);
       let actual = try super.getApi().insertCustomXmlPartOnline(request: request);
       XCTAssertNotNil(actual.getModel()!.getCustomXmlPart());
@@ -134,7 +134,7 @@ class CustomXmlPartsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestCustomXmlPart = CustomXmlPartUpdate()
-        .setData(data: "<data>Hello world</data>");
+        .setData(data: "<data>Hello world</data>") as! CustomXmlPartUpdate;
       let request = UpdateCustomXmlPartRequest(name: remoteFileName, customXmlPartIndex: 0, customXmlPart: requestCustomXmlPart, folder: remoteDataFolder);
       let actual = try super.getApi().updateCustomXmlPart(request: request);
       XCTAssertNotNil(actual.getCustomXmlPart());
@@ -146,7 +146,7 @@ class CustomXmlPartsTests: BaseTestContext {
     func testUpdateCustomXmlPartOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestCustomXmlPart = CustomXmlPartUpdate()
-        .setData(data: "<data>Hello world</data>");
+        .setData(data: "<data>Hello world</data>") as! CustomXmlPartUpdate;
       let request = UpdateCustomXmlPartOnlineRequest(document: requestDocument, customXmlPartIndex: 0, customXmlPart: requestCustomXmlPart);
       let actual = try super.getApi().updateCustomXmlPartOnline(request: request);
       XCTAssertNotNil(actual.getModel()!.getCustomXmlPart());

@@ -42,10 +42,10 @@ class LoadWebDocumentTests: BaseTestContext {
         .setDmlEffectsRenderingMode(dmlEffectsRenderingMode: "1")
         .setDmlRenderingMode(dmlRenderingMode: "1")
         .setUpdateSdtContent(updateSdtContent: false)
-        .setZipOutput(zipOutput: false);
+        .setZipOutput(zipOutput: false) as! SaveOptionsData;
       let requestData = LoadWebDocumentData()
         .setLoadingDocumentUrl(loadingDocumentUrl: "http://google.com")
-        .setSaveOptions(saveOptions: requestDataSaveOptions);
+        .setSaveOptions(saveOptions: requestDataSaveOptions) as! LoadWebDocumentData;
       let request = LoadWebDocumentRequest(data: requestData);
       let actual = try super.getApi().loadWebDocument(request: request);
       XCTAssertNotNil(actual.getSaveResult());
