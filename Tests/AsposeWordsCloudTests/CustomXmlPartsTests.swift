@@ -105,8 +105,8 @@ class CustomXmlPartsTests: BaseTestContext {
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
       let requestCustomXmlPart = CustomXmlPartInsert()
-        .setId(id: "hello")
-        .setData(data: "<data>Hello world</data>") as! CustomXmlPartInsert;
+        .setData(data: "<data>Hello world</data>")
+        .setId(id: "hello") as! CustomXmlPartInsert;
       let request = InsertCustomXmlPartRequest(name: remoteFileName, customXmlPart: requestCustomXmlPart, folder: remoteDataFolder);
       let actual = try super.getApi().insertCustomXmlPart(request: request);
       XCTAssertNotNil(actual.getCustomXmlPart());
@@ -118,8 +118,8 @@ class CustomXmlPartsTests: BaseTestContext {
     func testInsertCustomXmlPartOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let requestCustomXmlPart = CustomXmlPartInsert()
-        .setId(id: "hello")
-        .setData(data: "<data>Hello world</data>") as! CustomXmlPartInsert;
+        .setData(data: "<data>Hello world</data>")
+        .setId(id: "hello") as! CustomXmlPartInsert;
       let request = InsertCustomXmlPartOnlineRequest(document: requestDocument, customXmlPart: requestCustomXmlPart);
       let actual = try super.getApi().insertCustomXmlPartOnline(request: request);
       XCTAssertNotNil(actual.getModel()!.getCustomXmlPart());

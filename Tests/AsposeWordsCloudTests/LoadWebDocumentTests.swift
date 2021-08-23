@@ -37,10 +37,10 @@ class LoadWebDocumentTests: BaseTestContext {
     // Test for loading web document.
     func testLoadWebDocument() throws {
       let requestDataSaveOptions = SaveOptionsData()
-        .setFileName(fileName: "google.doc")
-        .setSaveFormat(saveFormat: "doc")
         .setDmlEffectsRenderingMode(dmlEffectsRenderingMode: "1")
         .setDmlRenderingMode(dmlRenderingMode: "1")
+        .setFileName(fileName: "google.doc")
+        .setSaveFormat(saveFormat: "doc")
         .setUpdateSdtContent(updateSdtContent: false)
         .setZipOutput(zipOutput: false) as! SaveOptionsData;
       let requestData = LoadWebDocumentData()

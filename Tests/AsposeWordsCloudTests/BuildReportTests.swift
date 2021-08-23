@@ -45,8 +45,8 @@ class BuildReportTests: BaseTestContext {
 
       let requestTemplate = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(reportingFolder + "/" + localDocumentFile, isDirectory: false))!;
       let requestReportEngineSettings = ReportEngineSettings()
-        .setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json)
-        .setDataSourceName(dataSourceName: "persons") as! ReportEngineSettings;
+        .setDataSourceName(dataSourceName: "persons")
+        .setDataSourceType(dataSourceType: ReportEngineSettings.DataSourceType.json) as! ReportEngineSettings;
       let request = BuildReportOnlineRequest(template: requestTemplate, data: localDataFile, reportEngineSettings: requestReportEngineSettings);
       _ = try super.getApi().buildReportOnline(request: request);
     }

@@ -205,10 +205,10 @@ class DrawingObjectsTests: BaseTestContext {
       let requestDrawingObject = DrawingObjectInsert()
         .setHeight(height: 0)
         .setLeft(_left: 0)
-        .setTop(top: 0)
-        .setWidth(width: 0)
         .setRelativeHorizontalPosition(relativeHorizontalPosition: DrawingObjectInsert.RelativeHorizontalPosition.margin)
         .setRelativeVerticalPosition(relativeVerticalPosition: DrawingObjectInsert.RelativeVerticalPosition.margin)
+        .setTop(top: 0)
+        .setWidth(width: 0)
         .setWrapType(wrapType: DrawingObjectInsert.WrapType.inline) as! DrawingObjectInsert;
       let requestImageFile = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!;
       let request = InsertDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: requestImageFile, nodePath: "", folder: remoteDataFolder);
@@ -221,10 +221,10 @@ class DrawingObjectsTests: BaseTestContext {
       let requestDrawingObject = DrawingObjectInsert()
         .setHeight(height: 0)
         .setLeft(_left: 0)
-        .setTop(top: 0)
-        .setWidth(width: 0)
         .setRelativeHorizontalPosition(relativeHorizontalPosition: DrawingObjectInsert.RelativeHorizontalPosition.margin)
         .setRelativeVerticalPosition(relativeVerticalPosition: DrawingObjectInsert.RelativeVerticalPosition.margin)
+        .setTop(top: 0)
+        .setWidth(width: 0)
         .setWrapType(wrapType: DrawingObjectInsert.WrapType.inline) as! DrawingObjectInsert;
       let requestImageFile = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!;
       let request = InsertDrawingObjectOnlineRequest(document: requestDocument, drawingObject: requestDrawingObject, imageFile: requestImageFile, nodePath: "");
@@ -240,10 +240,10 @@ class DrawingObjectsTests: BaseTestContext {
       let requestDrawingObject = DrawingObjectInsert()
         .setHeight(height: 0)
         .setLeft(_left: 0)
-        .setTop(top: 0)
-        .setWidth(width: 0)
         .setRelativeHorizontalPosition(relativeHorizontalPosition: DrawingObjectInsert.RelativeHorizontalPosition.margin)
         .setRelativeVerticalPosition(relativeVerticalPosition: DrawingObjectInsert.RelativeVerticalPosition.margin)
+        .setTop(top: 0)
+        .setWidth(width: 0)
         .setWrapType(wrapType: DrawingObjectInsert.WrapType.inline) as! DrawingObjectInsert;
       let requestImageFile = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!;
       let request = InsertDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: requestImageFile, folder: remoteDataFolder);
