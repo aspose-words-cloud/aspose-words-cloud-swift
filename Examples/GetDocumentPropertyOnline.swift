@@ -1,5 +1,5 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let request = GetDocumentPropertyOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, propertyName: "Author");
+let requestDocument = InputStream(url: URL(string: "Sample.docx"))!;
+let request = GetDocumentPropertyOnlineRequest(document: requestDocument, propertyName: "Author");
 _ = try api.getDocumentPropertyOnline(request: request);

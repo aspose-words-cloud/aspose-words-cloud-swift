@@ -1,5 +1,5 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let request = GetSectionOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, sectionIndex: 0);
+let requestDocument = InputStream(url: URL(string: "Sample.docx"))!;
+let request = GetSectionOnlineRequest(document: requestDocument, sectionIndex: 0);
 _ = try api.getSectionOnline(request: request);

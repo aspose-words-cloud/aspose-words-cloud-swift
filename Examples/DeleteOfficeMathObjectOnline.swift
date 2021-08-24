@@ -1,5 +1,5 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let deleteRequest = DeleteOfficeMathObjectOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0);
+let requestDocument = InputStream(url: URL(string: "Sample.docx"))!;
+let deleteRequest = DeleteOfficeMathObjectOnlineRequest(document: requestDocument, index: 0);
 _ = try api.deleteOfficeMathObjectOnline(request: deleteRequest);

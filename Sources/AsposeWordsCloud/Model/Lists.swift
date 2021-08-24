@@ -30,7 +30,7 @@ import Foundation
 // DTO container with an array of document lists.
 public class Lists : LinkElement {
     // Field of listInfo. DTO container with an array of document lists.
-    private var listInfo : [ListInfo]?;
+    public var listInfo : [ListInfo]?;
 
     private enum CodingKeys: String, CodingKey {
         case listInfo = "ListInfo";
@@ -56,8 +56,9 @@ public class Lists : LinkElement {
     }
 
     // Sets listInfo. Gets or sets the array of document lists.
-    public func setListInfo(listInfo : [ListInfo]?) {
+    public func setListInfo(listInfo : [ListInfo]?) -> Lists {
         self.listInfo = listInfo;
+        return self;
     }
 
     // Gets listInfo. Gets or sets the array of document lists.

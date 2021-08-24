@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a range's text.
 public class RangeTextResponse : WordsResponse {
     // Field of text. The REST response with a range's text.
-    private var text : String?;
+    public var text : String?;
 
     private enum CodingKeys: String, CodingKey {
         case text = "Text";
@@ -56,8 +56,9 @@ public class RangeTextResponse : WordsResponse {
     }
 
     // Sets text. Gets or sets the range's text.
-    public func setText(text : String?) {
+    public func setText(text : String?) -> RangeTextResponse {
         self.text = text;
+        return self;
     }
 
     // Gets text. Gets or sets the range's text.

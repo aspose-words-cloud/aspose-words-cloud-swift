@@ -1,5 +1,5 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let request = GetOfficeMathObjectOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0);
+let requestDocument = InputStream(url: URL(string: "Sample.docx"))!;
+let request = GetOfficeMathObjectOnlineRequest(document: requestDocument, index: 0);
 _ = try api.getOfficeMathObjectOnline(request: request);

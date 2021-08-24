@@ -30,22 +30,22 @@ import Foundation
 // Comment.
 public class CommentBase : Codable, WordsApiModel {
     // Field of author. Comment.
-    private var author : String?;
+    public var author : String?;
 
     // Field of dateTime. Comment.
-    private var dateTime : Date?;
+    public var dateTime : Date?;
 
     // Field of initial. Comment.
-    private var initial : String?;
+    public var initial : String?;
 
     // Field of rangeEnd. Comment.
-    private var rangeEnd : DocumentPosition?;
+    public var rangeEnd : DocumentPosition?;
 
     // Field of rangeStart. Comment.
-    private var rangeStart : DocumentPosition?;
+    public var rangeStart : DocumentPosition?;
 
     // Field of text. Comment.
-    private var text : String?;
+    public var text : String?;
 
     private enum CodingKeys: String, CodingKey {
         case author = "Author";
@@ -98,8 +98,9 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     // Sets author. Gets or sets the author name for a comment.
-    public func setAuthor(author : String?) {
+    public func setAuthor(author : String?) -> CommentBase {
         self.author = author;
+        return self;
     }
 
     // Gets author. Gets or sets the author name for a comment.
@@ -108,8 +109,9 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     // Sets dateTime. Gets or sets the date and time that the comment was made.
-    public func setDateTime(dateTime : Date?) {
+    public func setDateTime(dateTime : Date?) -> CommentBase {
         self.dateTime = dateTime;
+        return self;
     }
 
     // Gets dateTime. Gets or sets the date and time that the comment was made.
@@ -118,8 +120,9 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     // Sets initial. Gets or sets the initials of the user associated with a specific comment.
-    public func setInitial(initial : String?) {
+    public func setInitial(initial : String?) -> CommentBase {
         self.initial = initial;
+        return self;
     }
 
     // Gets initial. Gets or sets the initials of the user associated with a specific comment.
@@ -128,8 +131,9 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     // Sets rangeEnd. Gets or sets the link to comment range end node.
-    public func setRangeEnd(rangeEnd : DocumentPosition?) {
+    public func setRangeEnd(rangeEnd : DocumentPosition?) -> CommentBase {
         self.rangeEnd = rangeEnd;
+        return self;
     }
 
     // Gets rangeEnd. Gets or sets the link to comment range end node.
@@ -138,8 +142,9 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     // Sets rangeStart. Gets or sets the link to comment range start node.
-    public func setRangeStart(rangeStart : DocumentPosition?) {
+    public func setRangeStart(rangeStart : DocumentPosition?) -> CommentBase {
         self.rangeStart = rangeStart;
+        return self;
     }
 
     // Gets rangeStart. Gets or sets the link to comment range start node.
@@ -148,8 +153,9 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     // Sets text. Gets or sets text of the comment.
-    public func setText(text : String?) {
+    public func setText(text : String?) -> CommentBase {
         self.text = text;
+        return self;
     }
 
     // Gets text. Gets or sets text of the comment.

@@ -1,5 +1,5 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let deleteRequest = DeleteParagraphListFormatOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.doc", isDirectory: false))!, index: 0);
+let requestDocument = InputStream(url: URL(string: "Sample.doc"))!;
+let deleteRequest = DeleteParagraphListFormatOnlineRequest(document: requestDocument, index: 0);
 _ = try api.deleteParagraphListFormatOnline(request: deleteRequest);

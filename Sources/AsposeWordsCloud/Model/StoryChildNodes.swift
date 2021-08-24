@@ -30,7 +30,7 @@ import Foundation
 // Child nodes of Story or InlineStory.
 public class StoryChildNodes : Codable, WordsApiModel {
     // Field of childNodes. Child nodes of Story or InlineStory.
-    private var childNodes : [NodeLink]?;
+    public var childNodes : [NodeLink]?;
 
     private enum CodingKeys: String, CodingKey {
         case childNodes = "ChildNodes";
@@ -53,8 +53,9 @@ public class StoryChildNodes : Codable, WordsApiModel {
     }
 
     // Sets childNodes. Gets or sets the list of child nodes.
-    public func setChildNodes(childNodes : [NodeLink]?) {
+    public func setChildNodes(childNodes : [NodeLink]?) -> StoryChildNodes {
         self.childNodes = childNodes;
+        return self;
     }
 
     // Gets childNodes. Gets or sets the list of child nodes.

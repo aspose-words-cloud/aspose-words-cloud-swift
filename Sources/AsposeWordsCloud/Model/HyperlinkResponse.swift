@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a hyperlink.
 public class HyperlinkResponse : WordsResponse {
     // Field of hyperlink. The REST response with a hyperlink.
-    private var hyperlink : Hyperlink?;
+    public var hyperlink : Hyperlink?;
 
     private enum CodingKeys: String, CodingKey {
         case hyperlink = "Hyperlink";
@@ -56,8 +56,9 @@ public class HyperlinkResponse : WordsResponse {
     }
 
     // Sets hyperlink. Gets or sets the hyperlink.
-    public func setHyperlink(hyperlink : Hyperlink?) {
+    public func setHyperlink(hyperlink : Hyperlink?) -> HyperlinkResponse {
         self.hyperlink = hyperlink;
+        return self;
     }
 
     // Gets hyperlink. Gets or sets the hyperlink.

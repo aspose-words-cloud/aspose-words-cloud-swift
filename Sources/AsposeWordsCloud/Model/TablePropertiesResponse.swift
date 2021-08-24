@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a table.
 public class TablePropertiesResponse : WordsResponse {
     // Field of properties. The REST response with a table.
-    private var properties : TableProperties?;
+    public var properties : TableProperties?;
 
     private enum CodingKeys: String, CodingKey {
         case properties = "Properties";
@@ -56,8 +56,9 @@ public class TablePropertiesResponse : WordsResponse {
     }
 
     // Sets properties. Gets or sets the table.
-    public func setProperties(properties : TableProperties?) {
+    public func setProperties(properties : TableProperties?) -> TablePropertiesResponse {
         self.properties = properties;
+        return self;
     }
 
     // Gets properties. Gets or sets the table.

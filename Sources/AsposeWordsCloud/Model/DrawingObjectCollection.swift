@@ -30,7 +30,7 @@ import Foundation
 // DTO container with a collection of DrawingObjects links.
 public class DrawingObjectCollection : LinkElement {
     // Field of list. DTO container with a collection of DrawingObjects links.
-    private var list : [LinkElement]?;
+    public var list : [LinkElement]?;
 
     private enum CodingKeys: String, CodingKey {
         case list = "List";
@@ -56,8 +56,9 @@ public class DrawingObjectCollection : LinkElement {
     }
 
     // Sets list. Gets or sets the collection of DrawingObjects links.
-    public func setList(list : [LinkElement]?) {
+    public func setList(list : [LinkElement]?) -> DrawingObjectCollection {
         self.list = list;
+        return self;
     }
 
     // Gets list. Gets or sets the collection of DrawingObjects links.

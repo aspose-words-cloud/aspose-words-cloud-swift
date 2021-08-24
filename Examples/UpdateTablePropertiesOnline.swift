@@ -1,12 +1,12 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let requestProperties = TableProperties();
-requestProperties.setAlignment(alignment: TableProperties.Alignment._right);
-requestProperties.setAllowAutoFit(allowAutoFit: false);
-requestProperties.setBidi(bidi: true);
-requestProperties.setBottomPadding(bottomPadding: 1);
-requestProperties.setCellSpacing(cellSpacing: 2);
-requestProperties.setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
-let updateRequest = UpdateTablePropertiesOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, properties: requestProperties, index: 1);
+let requestDocument = InputStream(url: URL(string: "Sample.docx"))!;
+let requestProperties = TableProperties()
+  .setAlignment(alignment: TableProperties.Alignment._right)
+  .setAllowAutoFit(allowAutoFit: false)
+  .setBidi(bidi: true)
+  .setBottomPadding(bottomPadding: 1)
+  .setCellSpacing(cellSpacing: 2)
+  .setStyleOptions(styleOptions: TableProperties.StyleOptions.columnBands);
+let updateRequest = UpdateTablePropertiesOnlineRequest(document: requestDocument, properties: requestProperties, index: 1);
 _ = try api.updateTablePropertiesOnline(request: updateRequest);

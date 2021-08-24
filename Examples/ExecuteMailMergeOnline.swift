@@ -1,5 +1,6 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let mailMergeRequest = ExecuteMailMergeOnlineRequest(template: InputStream(url: currentDir!.appendingPathComponent("TestExecuteTemplate.doc", isDirectory: false))!, data: InputStream(url: currentDir!.appendingPathComponent("TestExecuteTemplateData.txt", isDirectory: false))!);
+let requestTemplate = InputStream(url: URL(string: "TestExecuteTemplate.doc"))!;
+let requestData = InputStream(url: URL(string: "TestExecuteTemplateData.txt"))!;
+let mailMergeRequest = ExecuteMailMergeOnlineRequest(template: requestTemplate, data: requestData);
 _ = try api.executeMailMergeOnline(request: mailMergeRequest);

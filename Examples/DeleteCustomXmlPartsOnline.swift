@@ -1,5 +1,5 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let deleteRequest = DeleteCustomXmlPartsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!);
+let requestDocument = InputStream(url: URL(string: "Sample.docx"))!;
+let deleteRequest = DeleteCustomXmlPartsOnlineRequest(document: requestDocument);
 _ = try api.deleteCustomXmlPartsOnline(request: deleteRequest);

@@ -30,10 +30,10 @@ import Foundation
 // DTO container with a CustomXmlPart.
 public class CustomXmlPart : CustomXmlPartLink {
     // Field of data. DTO container with a CustomXmlPart.
-    private var data : String?;
+    public var data : String?;
 
     // Field of id. DTO container with a CustomXmlPart.
-    private var id : String?;
+    public var id : String?;
 
     private enum CodingKeys: String, CodingKey {
         case data = "Data";
@@ -64,8 +64,9 @@ public class CustomXmlPart : CustomXmlPartLink {
     }
 
     // Sets data. Gets or sets the custom xml part data.
-    public func setData(data : String?) {
+    public func setData(data : String?) -> CustomXmlPart {
         self.data = data;
+        return self;
     }
 
     // Gets data. Gets or sets the custom xml part data.
@@ -74,8 +75,9 @@ public class CustomXmlPart : CustomXmlPartLink {
     }
 
     // Sets id. Gets or sets the custom xml part id.
-    public func setId(id : String?) {
+    public func setId(id : String?) -> CustomXmlPart {
         self.id = id;
+        return self;
     }
 
     // Gets id. Gets or sets the custom xml part id.

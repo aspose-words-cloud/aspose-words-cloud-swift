@@ -30,7 +30,7 @@ import Foundation
 // Container class for ps save options.
 public class PsSaveOptionsData : FixedPageSaveOptionsData {
     // Field of useBookFoldPrintingSettings. Container class for ps save options.
-    private var useBookFoldPrintingSettings : Bool?;
+    public var useBookFoldPrintingSettings : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case useBookFoldPrintingSettings = "UseBookFoldPrintingSettings";
@@ -56,8 +56,9 @@ public class PsSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets useBookFoldPrintingSettings. Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
-    public func setUseBookFoldPrintingSettings(useBookFoldPrintingSettings : Bool?) {
+    public func setUseBookFoldPrintingSettings(useBookFoldPrintingSettings : Bool?) -> PsSaveOptionsData {
         self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
+        return self;
     }
 
     // Gets useBookFoldPrintingSettings. Gets or sets a value indicating whether the document should be saved using a booklet printing layout.

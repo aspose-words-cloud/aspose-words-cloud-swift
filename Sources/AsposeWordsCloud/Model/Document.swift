@@ -97,22 +97,22 @@ public class Document : Codable, WordsApiModel {
     }
 
     // Field of documentProperties. Represents Words document DTO.
-    private var documentProperties : DocumentProperties?;
+    public var documentProperties : DocumentProperties?;
 
     // Field of fileName. Represents Words document DTO.
-    private var fileName : String?;
+    public var fileName : String?;
 
     // Field of isEncrypted. Represents Words document DTO.
-    private var isEncrypted : Bool?;
+    public var isEncrypted : Bool?;
 
     // Field of isSigned. Represents Words document DTO.
-    private var isSigned : Bool?;
+    public var isSigned : Bool?;
 
     // Field of links. Represents Words document DTO.
-    private var links : [Link]?;
+    public var links : [Link]?;
 
     // Field of sourceFormat. Represents Words document DTO.
-    private var sourceFormat : SourceFormat?;
+    public var sourceFormat : SourceFormat?;
 
     private enum CodingKeys: String, CodingKey {
         case documentProperties = "DocumentProperties";
@@ -160,8 +160,9 @@ public class Document : Codable, WordsApiModel {
     }
 
     // Sets documentProperties. Gets or sets the document properties.
-    public func setDocumentProperties(documentProperties : DocumentProperties?) {
+    public func setDocumentProperties(documentProperties : DocumentProperties?) -> Document {
         self.documentProperties = documentProperties;
+        return self;
     }
 
     // Gets documentProperties. Gets or sets the document properties.
@@ -170,8 +171,9 @@ public class Document : Codable, WordsApiModel {
     }
 
     // Sets fileName. Gets or sets the name of the file.
-    public func setFileName(fileName : String?) {
+    public func setFileName(fileName : String?) -> Document {
         self.fileName = fileName;
+        return self;
     }
 
     // Gets fileName. Gets or sets the name of the file.
@@ -180,8 +182,9 @@ public class Document : Codable, WordsApiModel {
     }
 
     // Sets isEncrypted. Gets or sets a value indicating whether the document is encrypted and requires a password to open.
-    public func setIsEncrypted(isEncrypted : Bool?) {
+    public func setIsEncrypted(isEncrypted : Bool?) -> Document {
         self.isEncrypted = isEncrypted;
+        return self;
     }
 
     // Gets isEncrypted. Gets or sets a value indicating whether the document is encrypted and requires a password to open.
@@ -190,8 +193,9 @@ public class Document : Codable, WordsApiModel {
     }
 
     // Sets isSigned. Gets or sets a value indicating whether the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
-    public func setIsSigned(isSigned : Bool?) {
+    public func setIsSigned(isSigned : Bool?) -> Document {
         self.isSigned = isSigned;
+        return self;
     }
 
     // Gets isSigned. Gets or sets a value indicating whether the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
@@ -200,8 +204,9 @@ public class Document : Codable, WordsApiModel {
     }
 
     // Sets links. Gets or sets the list of links that originate from this document.
-    public func setLinks(links : [Link]?) {
+    public func setLinks(links : [Link]?) -> Document {
         self.links = links;
+        return self;
     }
 
     // Gets links. Gets or sets the list of links that originate from this document.
@@ -210,8 +215,9 @@ public class Document : Codable, WordsApiModel {
     }
 
     // Sets sourceFormat. Gets or sets the original format of the document.
-    public func setSourceFormat(sourceFormat : SourceFormat?) {
+    public func setSourceFormat(sourceFormat : SourceFormat?) -> Document {
         self.sourceFormat = sourceFormat;
+        return self;
     }
 
     // Gets sourceFormat. Gets or sets the original format of the document.

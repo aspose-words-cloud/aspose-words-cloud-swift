@@ -30,7 +30,7 @@ import Foundation
 // Field link.
 public class FieldLink : NodeLink {
     // Field of fieldCode. Field link.
-    private var fieldCode : String?;
+    public var fieldCode : String?;
 
     private enum CodingKeys: String, CodingKey {
         case fieldCode = "FieldCode";
@@ -56,8 +56,9 @@ public class FieldLink : NodeLink {
     }
 
     // Sets fieldCode. Gets or sets the field code.
-    public func setFieldCode(fieldCode : String?) {
+    public func setFieldCode(fieldCode : String?) -> FieldLink {
         self.fieldCode = fieldCode;
+        return self;
     }
 
     // Gets fieldCode. Gets or sets the field code.

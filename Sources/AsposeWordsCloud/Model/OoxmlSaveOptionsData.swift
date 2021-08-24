@@ -46,16 +46,16 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     }
 
     // Field of compliance. Container class for docx/docm/dotx/dotm/flatopc save options.
-    private var compliance : String?;
+    public var compliance : String?;
 
     // Field of compressionLevel. Container class for docx/docm/dotx/dotm/flatopc save options.
-    private var compressionLevel : CompressionLevel?;
+    public var compressionLevel : CompressionLevel?;
 
     // Field of password. Container class for docx/docm/dotx/dotm/flatopc save options.
-    private var password : String?;
+    public var password : String?;
 
     // Field of prettyFormat. Container class for docx/docm/dotx/dotm/flatopc save options.
-    private var prettyFormat : Bool?;
+    public var prettyFormat : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case compliance = "Compliance";
@@ -96,8 +96,9 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets compliance. Gets or sets the oOXML version for the output document.
-    public func setCompliance(compliance : String?) {
+    public func setCompliance(compliance : String?) -> OoxmlSaveOptionsData {
         self.compliance = compliance;
+        return self;
     }
 
     // Gets compliance. Gets or sets the oOXML version for the output document.
@@ -106,8 +107,9 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets compressionLevel. Gets or sets the compression level.
-    public func setCompressionLevel(compressionLevel : CompressionLevel?) {
+    public func setCompressionLevel(compressionLevel : CompressionLevel?) -> OoxmlSaveOptionsData {
         self.compressionLevel = compressionLevel;
+        return self;
     }
 
     // Gets compressionLevel. Gets or sets the compression level.
@@ -116,8 +118,9 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets password. Gets or sets the password to encrypt document using ECMA376 Standard encryption algorithm.
-    public func setPassword(password : String?) {
+    public func setPassword(password : String?) -> OoxmlSaveOptionsData {
         self.password = password;
+        return self;
     }
 
     // Gets password. Gets or sets the password to encrypt document using ECMA376 Standard encryption algorithm.
@@ -126,8 +129,9 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets prettyFormat. Gets or sets a value indicating whether to use pretty formats output.
-    public func setPrettyFormat(prettyFormat : Bool?) {
+    public func setPrettyFormat(prettyFormat : Bool?) -> OoxmlSaveOptionsData {
         self.prettyFormat = prettyFormat;
+        return self;
     }
 
     // Gets prettyFormat. Gets or sets a value indicating whether to use pretty formats output.

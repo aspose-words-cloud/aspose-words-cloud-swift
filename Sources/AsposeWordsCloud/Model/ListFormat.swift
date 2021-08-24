@@ -30,13 +30,13 @@ import Foundation
 // DTO container with a paragraph list format element.
 public class ListFormat : LinkElement {
     // Field of isListItem. DTO container with a paragraph list format element.
-    private var isListItem : Bool?;
+    public var isListItem : Bool?;
 
     // Field of listId. DTO container with a paragraph list format element.
-    private var listId : Int?;
+    public var listId : Int?;
 
     // Field of listLevelNumber. DTO container with a paragraph list format element.
-    private var listLevelNumber : Int?;
+    public var listLevelNumber : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case isListItem = "IsListItem";
@@ -72,8 +72,9 @@ public class ListFormat : LinkElement {
     }
 
     // Sets isListItem. Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
-    public func setIsListItem(isListItem : Bool?) {
+    public func setIsListItem(isListItem : Bool?) -> ListFormat {
         self.isListItem = isListItem;
+        return self;
     }
 
     // Gets isListItem. Gets or sets a value indicating whether the paragraph has bulleted or numbered formatting applied to it.
@@ -82,8 +83,9 @@ public class ListFormat : LinkElement {
     }
 
     // Sets listId. Gets or sets the list id of this paragraph.
-    public func setListId(listId : Int?) {
+    public func setListId(listId : Int?) -> ListFormat {
         self.listId = listId;
+        return self;
     }
 
     // Gets listId. Gets or sets the list id of this paragraph.
@@ -92,8 +94,9 @@ public class ListFormat : LinkElement {
     }
 
     // Sets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
-    public func setListLevelNumber(listLevelNumber : Int?) {
+    public func setListLevelNumber(listLevelNumber : Int?) -> ListFormat {
         self.listLevelNumber = listLevelNumber;
+        return self;
     }
 
     // Gets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.

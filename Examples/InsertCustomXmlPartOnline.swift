@@ -1,8 +1,8 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let requestCustomXmlPart = CustomXmlPartInsert();
-requestCustomXmlPart.setId(id: "hello");
-requestCustomXmlPart.setData(data: "<data>Hello world</data>");
-let insertRequest = InsertCustomXmlPartOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, customXmlPart: requestCustomXmlPart);
+let requestDocument = InputStream(url: URL(string: "Sample.docx"))!;
+let requestCustomXmlPart = CustomXmlPartInsert()
+  .setData(data: "<data>Hello world</data>")
+  .setId(id: "hello");
+let insertRequest = InsertCustomXmlPartOnlineRequest(document: requestDocument, customXmlPart: requestCustomXmlPart as! CustomXmlPartInsert);
 _ = try api.insertCustomXmlPartOnline(request: insertRequest);

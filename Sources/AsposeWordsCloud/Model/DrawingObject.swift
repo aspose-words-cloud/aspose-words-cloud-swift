@@ -117,34 +117,34 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Field of height. DTO container with a DrawingObject.
-    private var height : Double?;
+    public var height : Double?;
 
     // Field of imageDataLink. DTO container with a DrawingObject.
-    private var imageDataLink : WordsApiLink?;
+    public var imageDataLink : WordsApiLink?;
 
     // Field of _left. DTO container with a DrawingObject.
-    private var _left : Double?;
+    public var _left : Double?;
 
     // Field of oleDataLink. DTO container with a DrawingObject.
-    private var oleDataLink : WordsApiLink?;
+    public var oleDataLink : WordsApiLink?;
 
     // Field of relativeHorizontalPosition. DTO container with a DrawingObject.
-    private var relativeHorizontalPosition : RelativeHorizontalPosition?;
+    public var relativeHorizontalPosition : RelativeHorizontalPosition?;
 
     // Field of relativeVerticalPosition. DTO container with a DrawingObject.
-    private var relativeVerticalPosition : RelativeVerticalPosition?;
+    public var relativeVerticalPosition : RelativeVerticalPosition?;
 
     // Field of renderLinks. DTO container with a DrawingObject.
-    private var renderLinks : [WordsApiLink]?;
+    public var renderLinks : [WordsApiLink]?;
 
     // Field of top. DTO container with a DrawingObject.
-    private var top : Double?;
+    public var top : Double?;
 
     // Field of width. DTO container with a DrawingObject.
-    private var width : Double?;
+    public var width : Double?;
 
     // Field of wrapType. DTO container with a DrawingObject.
-    private var wrapType : WrapType?;
+    public var wrapType : WrapType?;
 
     private enum CodingKeys: String, CodingKey {
         case height = "Height";
@@ -215,8 +215,9 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Sets height. Gets or sets the height of the DrawingObject in points.
-    public func setHeight(height : Double?) {
+    public func setHeight(height : Double?) -> DrawingObject {
         self.height = height;
+        return self;
     }
 
     // Gets height. Gets or sets the height of the DrawingObject in points.
@@ -225,8 +226,9 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Sets imageDataLink. Gets or sets the link to image data. Can be null if shape does not have an image.
-    public func setImageDataLink(imageDataLink : WordsApiLink?) {
+    public func setImageDataLink(imageDataLink : WordsApiLink?) -> DrawingObject {
         self.imageDataLink = imageDataLink;
+        return self;
     }
 
     // Gets imageDataLink. Gets or sets the link to image data. Can be null if shape does not have an image.
@@ -235,8 +237,9 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Sets _left. Gets or sets the distance in points from the origin to the left side of the image.
-    public func setLeft(_left : Double?) {
+    public func setLeft(_left : Double?) -> DrawingObject {
         self._left = _left;
+        return self;
     }
 
     // Gets _left. Gets or sets the distance in points from the origin to the left side of the image.
@@ -245,8 +248,9 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Sets oleDataLink. Gets or sets the link to OLE object. Can be null if shape does not have OLE data.
-    public func setOleDataLink(oleDataLink : WordsApiLink?) {
+    public func setOleDataLink(oleDataLink : WordsApiLink?) -> DrawingObject {
         self.oleDataLink = oleDataLink;
+        return self;
     }
 
     // Gets oleDataLink. Gets or sets the link to OLE object. Can be null if shape does not have OLE data.
@@ -255,8 +259,9 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Sets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
-    public func setRelativeHorizontalPosition(relativeHorizontalPosition : RelativeHorizontalPosition?) {
+    public func setRelativeHorizontalPosition(relativeHorizontalPosition : RelativeHorizontalPosition?) -> DrawingObject {
         self.relativeHorizontalPosition = relativeHorizontalPosition;
+        return self;
     }
 
     // Gets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
@@ -265,8 +270,9 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Sets relativeVerticalPosition. Gets or sets the relative vertical position, from which the distance to the image is measured.
-    public func setRelativeVerticalPosition(relativeVerticalPosition : RelativeVerticalPosition?) {
+    public func setRelativeVerticalPosition(relativeVerticalPosition : RelativeVerticalPosition?) -> DrawingObject {
         self.relativeVerticalPosition = relativeVerticalPosition;
+        return self;
     }
 
     // Gets relativeVerticalPosition. Gets or sets the relative vertical position, from which the distance to the image is measured.
@@ -275,8 +281,9 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Sets renderLinks. Gets or sets the list of links that originate from this DrawingObjectDto.
-    public func setRenderLinks(renderLinks : [WordsApiLink]?) {
+    public func setRenderLinks(renderLinks : [WordsApiLink]?) -> DrawingObject {
         self.renderLinks = renderLinks;
+        return self;
     }
 
     // Gets renderLinks. Gets or sets the list of links that originate from this DrawingObjectDto.
@@ -285,8 +292,9 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Sets top. Gets or sets the distance in points from the origin to the top side of the image.
-    public func setTop(top : Double?) {
+    public func setTop(top : Double?) -> DrawingObject {
         self.top = top;
+        return self;
     }
 
     // Gets top. Gets or sets the distance in points from the origin to the top side of the image.
@@ -295,8 +303,9 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Sets width. Gets or sets the width of the DrawingObjects in points.
-    public func setWidth(width : Double?) {
+    public func setWidth(width : Double?) -> DrawingObject {
         self.width = width;
+        return self;
     }
 
     // Gets width. Gets or sets the width of the DrawingObjects in points.
@@ -305,8 +314,9 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Sets wrapType. Gets or sets the option that controls how to wrap text around the image.
-    public func setWrapType(wrapType : WrapType?) {
+    public func setWrapType(wrapType : WrapType?) -> DrawingObject {
         self.wrapType = wrapType;
+        return self;
     }
 
     // Gets wrapType. Gets or sets the option that controls how to wrap text around the image.

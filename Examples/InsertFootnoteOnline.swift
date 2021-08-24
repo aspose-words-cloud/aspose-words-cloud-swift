@@ -1,8 +1,8 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let requestFootnoteDto = FootnoteInsert();
-requestFootnoteDto.setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote);
-requestFootnoteDto.setText(text: "test endnote");
-let insertRequest = InsertFootnoteOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.doc", isDirectory: false))!, footnoteDto: requestFootnoteDto);
+let requestDocument = InputStream(url: URL(string: "Sample.doc"))!;
+let requestFootnoteDto = FootnoteInsert()
+  .setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote)
+  .setText(text: "test endnote");
+let insertRequest = InsertFootnoteOnlineRequest(document: requestDocument, footnoteDto: requestFootnoteDto as! FootnoteInsert);
 _ = try api.insertFootnoteOnline(request: insertRequest);

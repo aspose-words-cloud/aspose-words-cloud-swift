@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a font.
 public class FontResponse : WordsResponse {
     // Field of font. The REST response with a font.
-    private var font : Font?;
+    public var font : Font?;
 
     private enum CodingKeys: String, CodingKey {
         case font = "Font";
@@ -56,8 +56,9 @@ public class FontResponse : WordsResponse {
     }
 
     // Sets font. Gets or sets the font.
-    public func setFont(font : Font?) {
+    public func setFont(font : Font?) -> FontResponse {
         self.font = font;
+        return self;
     }
 
     // Gets font. Gets or sets the font.

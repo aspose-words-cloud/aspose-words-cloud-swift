@@ -57,7 +57,8 @@ class PageSetupTests: BaseTestContext {
 
     // Test for getting page settings online.
     func testGetSectionPageSetupOnline() throws {
-      let request = GetSectionPageSetupOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionIndex: 0);
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = GetSectionPageSetupOnlineRequest(document: requestDocument, sectionIndex: 0);
       _ = try super.getApi().getSectionPageSetupOnline(request: request);
     }
 
@@ -67,13 +68,11 @@ class PageSetupTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestPageSetup = PageSetup();
-      requestPageSetup.setRtlGutter(rtlGutter: true);
-      requestPageSetup.setLeftMargin(leftMargin: 10.0);
-      requestPageSetup.setOrientation(orientation: PageSetup.Orientation.landscape);
-      requestPageSetup.setPaperSize(paperSize: PageSetup.PaperSize.a5);
-
-
+      let requestPageSetup = PageSetup()
+        .setLeftMargin(leftMargin: 10.0)
+        .setOrientation(orientation: PageSetup.Orientation.landscape)
+        .setPaperSize(paperSize: PageSetup.PaperSize.a5)
+        .setRtlGutter(rtlGutter: true);
       let request = UpdateSectionPageSetupRequest(name: remoteFileName, sectionIndex: 0, pageSetup: requestPageSetup, folder: remoteDataFolder);
       let actual = try super.getApi().updateSectionPageSetup(request: request);
       XCTAssertNotNil(actual.getPageSetup());
@@ -84,14 +83,13 @@ class PageSetupTests: BaseTestContext {
 
     // Test for updating page settings online.
     func testUpdateSectionPageSetupOnline() throws {
-      let requestPageSetup = PageSetup();
-      requestPageSetup.setRtlGutter(rtlGutter: true);
-      requestPageSetup.setLeftMargin(leftMargin: 10);
-      requestPageSetup.setOrientation(orientation: PageSetup.Orientation.landscape);
-      requestPageSetup.setPaperSize(paperSize: PageSetup.PaperSize.a5);
-
-
-      let request = UpdateSectionPageSetupOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, sectionIndex: 0, pageSetup: requestPageSetup);
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let requestPageSetup = PageSetup()
+        .setLeftMargin(leftMargin: 10)
+        .setOrientation(orientation: PageSetup.Orientation.landscape)
+        .setPaperSize(paperSize: PageSetup.PaperSize.a5)
+        .setRtlGutter(rtlGutter: true);
+      let request = UpdateSectionPageSetupOnlineRequest(document: requestDocument, sectionIndex: 0, pageSetup: requestPageSetup);
       _ = try super.getApi().updateSectionPageSetupOnline(request: request);
     }
 
@@ -107,7 +105,8 @@ class PageSetupTests: BaseTestContext {
 
     // Test for page rendering.
     func testGetRenderPageOnline() throws {
-      let request = RenderPageOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localTextFile, isDirectory: false))!, pageIndex: 1, format: "bmp");
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localTextFile, isDirectory: false))!;
+      let request = RenderPageOnlineRequest(document: requestDocument, pageIndex: 1, format: "bmp");
       _ = try super.getApi().renderPageOnline(request: request);
     }
 }

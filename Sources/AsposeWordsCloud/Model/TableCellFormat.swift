@@ -91,40 +91,40 @@ public class TableCellFormat : LinkElement {
     }
 
     // Field of bottomPadding. DTO container with all formatting for a table row.
-    private var bottomPadding : Double?;
+    public var bottomPadding : Double?;
 
     // Field of fitText. DTO container with all formatting for a table row.
-    private var fitText : Bool?;
+    public var fitText : Bool?;
 
     // Field of horizontalMerge. DTO container with all formatting for a table row.
-    private var horizontalMerge : HorizontalMerge?;
+    public var horizontalMerge : HorizontalMerge?;
 
     // Field of leftPadding. DTO container with all formatting for a table row.
-    private var leftPadding : Double?;
+    public var leftPadding : Double?;
 
     // Field of orientation. DTO container with all formatting for a table row.
-    private var orientation : Orientation?;
+    public var orientation : Orientation?;
 
     // Field of preferredWidth. DTO container with all formatting for a table row.
-    private var preferredWidth : PreferredWidth?;
+    public var preferredWidth : PreferredWidth?;
 
     // Field of rightPadding. DTO container with all formatting for a table row.
-    private var rightPadding : Double?;
+    public var rightPadding : Double?;
 
     // Field of topPadding. DTO container with all formatting for a table row.
-    private var topPadding : Double?;
+    public var topPadding : Double?;
 
     // Field of verticalAlignment. DTO container with all formatting for a table row.
-    private var verticalAlignment : VerticalAlignment?;
+    public var verticalAlignment : VerticalAlignment?;
 
     // Field of verticalMerge. DTO container with all formatting for a table row.
-    private var verticalMerge : VerticalMerge?;
+    public var verticalMerge : VerticalMerge?;
 
     // Field of width. DTO container with all formatting for a table row.
-    private var width : Double?;
+    public var width : Double?;
 
     // Field of wrapText. DTO container with all formatting for a table row.
-    private var wrapText : Bool?;
+    public var wrapText : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case bottomPadding = "BottomPadding";
@@ -205,8 +205,9 @@ public class TableCellFormat : LinkElement {
     }
 
     // Sets bottomPadding. Gets or sets the amount of space (in points) to add below the contents of the cell.
-    public func setBottomPadding(bottomPadding : Double?) {
+    public func setBottomPadding(bottomPadding : Double?) -> TableCellFormat {
         self.bottomPadding = bottomPadding;
+        return self;
     }
 
     // Gets bottomPadding. Gets or sets the amount of space (in points) to add below the contents of the cell.
@@ -215,8 +216,9 @@ public class TableCellFormat : LinkElement {
     }
 
     // Sets fitText. Gets or sets a value indicating whether to fit text in the cell, compress each paragraph to the width of the cell.
-    public func setFitText(fitText : Bool?) {
+    public func setFitText(fitText : Bool?) -> TableCellFormat {
         self.fitText = fitText;
+        return self;
     }
 
     // Gets fitText. Gets or sets a value indicating whether to fit text in the cell, compress each paragraph to the width of the cell.
@@ -225,8 +227,9 @@ public class TableCellFormat : LinkElement {
     }
 
     // Sets horizontalMerge. Gets or sets the option that controls how the cell is merged horizontally with other cells in the row.
-    public func setHorizontalMerge(horizontalMerge : HorizontalMerge?) {
+    public func setHorizontalMerge(horizontalMerge : HorizontalMerge?) -> TableCellFormat {
         self.horizontalMerge = horizontalMerge;
+        return self;
     }
 
     // Gets horizontalMerge. Gets or sets the option that controls how the cell is merged horizontally with other cells in the row.
@@ -235,8 +238,9 @@ public class TableCellFormat : LinkElement {
     }
 
     // Sets leftPadding. Gets or sets the amount of space (in points) to add to the left of the contents of the cell.
-    public func setLeftPadding(leftPadding : Double?) {
+    public func setLeftPadding(leftPadding : Double?) -> TableCellFormat {
         self.leftPadding = leftPadding;
+        return self;
     }
 
     // Gets leftPadding. Gets or sets the amount of space (in points) to add to the left of the contents of the cell.
@@ -245,8 +249,9 @@ public class TableCellFormat : LinkElement {
     }
 
     // Sets orientation. Gets or sets the orientation of text in a table cell.
-    public func setOrientation(orientation : Orientation?) {
+    public func setOrientation(orientation : Orientation?) -> TableCellFormat {
         self.orientation = orientation;
+        return self;
     }
 
     // Gets orientation. Gets or sets the orientation of text in a table cell.
@@ -255,8 +260,9 @@ public class TableCellFormat : LinkElement {
     }
 
     // Sets preferredWidth. Gets or sets the preferred width of the cell.
-    public func setPreferredWidth(preferredWidth : PreferredWidth?) {
+    public func setPreferredWidth(preferredWidth : PreferredWidth?) -> TableCellFormat {
         self.preferredWidth = preferredWidth;
+        return self;
     }
 
     // Gets preferredWidth. Gets or sets the preferred width of the cell.
@@ -265,8 +271,9 @@ public class TableCellFormat : LinkElement {
     }
 
     // Sets rightPadding. Gets or sets the amount of space (in points) to add to the right of the contents of the cell.
-    public func setRightPadding(rightPadding : Double?) {
+    public func setRightPadding(rightPadding : Double?) -> TableCellFormat {
         self.rightPadding = rightPadding;
+        return self;
     }
 
     // Gets rightPadding. Gets or sets the amount of space (in points) to add to the right of the contents of the cell.
@@ -275,8 +282,9 @@ public class TableCellFormat : LinkElement {
     }
 
     // Sets topPadding. Gets or sets the amount of space (in points) to add above the contents of the cell.
-    public func setTopPadding(topPadding : Double?) {
+    public func setTopPadding(topPadding : Double?) -> TableCellFormat {
         self.topPadding = topPadding;
+        return self;
     }
 
     // Gets topPadding. Gets or sets the amount of space (in points) to add above the contents of the cell.
@@ -285,8 +293,9 @@ public class TableCellFormat : LinkElement {
     }
 
     // Sets verticalAlignment. Gets or sets the vertical alignment of text in the cell.
-    public func setVerticalAlignment(verticalAlignment : VerticalAlignment?) {
+    public func setVerticalAlignment(verticalAlignment : VerticalAlignment?) -> TableCellFormat {
         self.verticalAlignment = verticalAlignment;
+        return self;
     }
 
     // Gets verticalAlignment. Gets or sets the vertical alignment of text in the cell.
@@ -295,8 +304,9 @@ public class TableCellFormat : LinkElement {
     }
 
     // Sets verticalMerge. Gets or sets the option that controls how the cell is merged with other cells vertically.
-    public func setVerticalMerge(verticalMerge : VerticalMerge?) {
+    public func setVerticalMerge(verticalMerge : VerticalMerge?) -> TableCellFormat {
         self.verticalMerge = verticalMerge;
+        return self;
     }
 
     // Gets verticalMerge. Gets or sets the option that controls how the cell is merged with other cells vertically.
@@ -305,8 +315,9 @@ public class TableCellFormat : LinkElement {
     }
 
     // Sets width. Gets or sets the width of the cell in points.
-    public func setWidth(width : Double?) {
+    public func setWidth(width : Double?) -> TableCellFormat {
         self.width = width;
+        return self;
     }
 
     // Gets width. Gets or sets the width of the cell in points.
@@ -315,8 +326,9 @@ public class TableCellFormat : LinkElement {
     }
 
     // Sets wrapText. Gets or sets a value indicating whether to wrap text in the cell.
-    public func setWrapText(wrapText : Bool?) {
+    public func setWrapText(wrapText : Bool?) -> TableCellFormat {
         self.wrapText = wrapText;
+        return self;
     }
 
     // Gets wrapText. Gets or sets a value indicating whether to wrap text in the cell.

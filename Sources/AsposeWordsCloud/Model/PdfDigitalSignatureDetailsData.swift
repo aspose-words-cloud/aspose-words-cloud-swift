@@ -30,19 +30,19 @@ import Foundation
 // Container class for details of digital signature.
 public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     // Field of certificateFilename. Container class for details of digital signature.
-    private var certificateFilename : String?;
+    public var certificateFilename : String?;
 
     // Field of hashAlgorithm. Container class for details of digital signature.
-    private var hashAlgorithm : String?;
+    public var hashAlgorithm : String?;
 
     // Field of location. Container class for details of digital signature.
-    private var location : String?;
+    public var location : String?;
 
     // Field of reason. Container class for details of digital signature.
-    private var reason : String?;
+    public var reason : String?;
 
     // Field of signatureDate. Container class for details of digital signature.
-    private var signatureDate : Date?;
+    public var signatureDate : Date?;
 
     private enum CodingKeys: String, CodingKey {
         case certificateFilename = "CertificateFilename";
@@ -90,8 +90,9 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     }
 
     // Sets certificateFilename. Gets or sets the certificate's filename using for signing.
-    public func setCertificateFilename(certificateFilename : String?) {
+    public func setCertificateFilename(certificateFilename : String?) -> PdfDigitalSignatureDetailsData {
         self.certificateFilename = certificateFilename;
+        return self;
     }
 
     // Gets certificateFilename. Gets or sets the certificate's filename using for signing.
@@ -100,8 +101,9 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     }
 
     // Sets hashAlgorithm. Gets or sets the hash algorithm.
-    public func setHashAlgorithm(hashAlgorithm : String?) {
+    public func setHashAlgorithm(hashAlgorithm : String?) -> PdfDigitalSignatureDetailsData {
         self.hashAlgorithm = hashAlgorithm;
+        return self;
     }
 
     // Gets hashAlgorithm. Gets or sets the hash algorithm.
@@ -110,8 +112,9 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     }
 
     // Sets location. Gets or sets the location of the signing.
-    public func setLocation(location : String?) {
+    public func setLocation(location : String?) -> PdfDigitalSignatureDetailsData {
         self.location = location;
+        return self;
     }
 
     // Gets location. Gets or sets the location of the signing.
@@ -120,8 +123,9 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     }
 
     // Sets reason. Gets or sets the reason for the signing.
-    public func setReason(reason : String?) {
+    public func setReason(reason : String?) -> PdfDigitalSignatureDetailsData {
         self.reason = reason;
+        return self;
     }
 
     // Gets reason. Gets or sets the reason for the signing.
@@ -130,8 +134,9 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     }
 
     // Sets signatureDate. Gets or sets the date of the signing.
-    public func setSignatureDate(signatureDate : Date?) {
+    public func setSignatureDate(signatureDate : Date?) -> PdfDigitalSignatureDetailsData {
         self.signatureDate = signatureDate;
+        return self;
     }
 
     // Gets signatureDate. Gets or sets the date of the signing.

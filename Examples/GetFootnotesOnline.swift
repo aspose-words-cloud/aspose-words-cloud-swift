@@ -1,5 +1,5 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let request = GetFootnotesOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.doc", isDirectory: false))!);
+let requestDocument = InputStream(url: URL(string: "Sample.doc"))!;
+let request = GetFootnotesOnlineRequest(document: requestDocument);
 _ = try api.getFootnotesOnline(request: request);

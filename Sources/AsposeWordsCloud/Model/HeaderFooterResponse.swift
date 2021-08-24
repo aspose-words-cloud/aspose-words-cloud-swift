@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a HeaderFooter.
 public class HeaderFooterResponse : WordsResponse {
     // Field of headerFooter. The REST response with a HeaderFooter.
-    private var headerFooter : HeaderFooter?;
+    public var headerFooter : HeaderFooter?;
 
     private enum CodingKeys: String, CodingKey {
         case headerFooter = "HeaderFooter";
@@ -56,8 +56,9 @@ public class HeaderFooterResponse : WordsResponse {
     }
 
     // Sets headerFooter. Gets or sets the HeaderFooter.
-    public func setHeaderFooter(headerFooter : HeaderFooter?) {
+    public func setHeaderFooter(headerFooter : HeaderFooter?) -> HeaderFooterResponse {
         self.headerFooter = headerFooter;
+        return self;
     }
 
     // Gets headerFooter. Gets or sets the HeaderFooter.

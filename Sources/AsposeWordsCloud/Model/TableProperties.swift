@@ -1213,46 +1213,46 @@ public class TableProperties : LinkElement {
     }
 
     // Field of alignment. DTO container with table properties.
-    private var alignment : Alignment?;
+    public var alignment : Alignment?;
 
     // Field of allowAutoFit. DTO container with table properties.
-    private var allowAutoFit : Bool?;
+    public var allowAutoFit : Bool?;
 
     // Field of bidi. DTO container with table properties.
-    private var bidi : Bool?;
+    public var bidi : Bool?;
 
     // Field of bottomPadding. DTO container with table properties.
-    private var bottomPadding : Double?;
+    public var bottomPadding : Double?;
 
     // Field of cellSpacing. DTO container with table properties.
-    private var cellSpacing : Double?;
+    public var cellSpacing : Double?;
 
     // Field of leftIndent. DTO container with table properties.
-    private var leftIndent : Double?;
+    public var leftIndent : Double?;
 
     // Field of leftPadding. DTO container with table properties.
-    private var leftPadding : Double?;
+    public var leftPadding : Double?;
 
     // Field of preferredWidth. DTO container with table properties.
-    private var preferredWidth : PreferredWidth?;
+    public var preferredWidth : PreferredWidth?;
 
     // Field of rightPadding. DTO container with table properties.
-    private var rightPadding : Double?;
+    public var rightPadding : Double?;
 
     // Field of styleIdentifier. DTO container with table properties.
-    private var styleIdentifier : StyleIdentifier?;
+    public var styleIdentifier : StyleIdentifier?;
 
     // Field of styleName. DTO container with table properties.
-    private var styleName : String?;
+    public var styleName : String?;
 
     // Field of styleOptions. DTO container with table properties.
-    private var styleOptions : StyleOptions?;
+    public var styleOptions : StyleOptions?;
 
     // Field of textWrapping. DTO container with table properties.
-    private var textWrapping : TextWrapping?;
+    public var textWrapping : TextWrapping?;
 
     // Field of topPadding. DTO container with table properties.
-    private var topPadding : Double?;
+    public var topPadding : Double?;
 
     private enum CodingKeys: String, CodingKey {
         case alignment = "Alignment";
@@ -1343,8 +1343,9 @@ public class TableProperties : LinkElement {
     }
 
     // Sets alignment. Gets or sets the option that controls how an inline table is aligned in the document.
-    public func setAlignment(alignment : Alignment?) {
+    public func setAlignment(alignment : Alignment?) -> TableProperties {
         self.alignment = alignment;
+        return self;
     }
 
     // Gets alignment. Gets or sets the option that controls how an inline table is aligned in the document.
@@ -1353,8 +1354,9 @@ public class TableProperties : LinkElement {
     }
 
     // Sets allowAutoFit. Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents.
-    public func setAllowAutoFit(allowAutoFit : Bool?) {
+    public func setAllowAutoFit(allowAutoFit : Bool?) -> TableProperties {
         self.allowAutoFit = allowAutoFit;
+        return self;
     }
 
     // Gets allowAutoFit. Gets or sets a value indicating whether to automatically resize cells in a table to fit their contents.
@@ -1363,8 +1365,9 @@ public class TableProperties : LinkElement {
     }
 
     // Sets bidi. Gets or sets a value indicating whether this is a right-to-left table.
-    public func setBidi(bidi : Bool?) {
+    public func setBidi(bidi : Bool?) -> TableProperties {
         self.bidi = bidi;
+        return self;
     }
 
     // Gets bidi. Gets or sets a value indicating whether this is a right-to-left table.
@@ -1373,8 +1376,9 @@ public class TableProperties : LinkElement {
     }
 
     // Sets bottomPadding. Gets or sets the amount of space (in points) to add below the contents of cells.
-    public func setBottomPadding(bottomPadding : Double?) {
+    public func setBottomPadding(bottomPadding : Double?) -> TableProperties {
         self.bottomPadding = bottomPadding;
+        return self;
     }
 
     // Gets bottomPadding. Gets or sets the amount of space (in points) to add below the contents of cells.
@@ -1383,8 +1387,9 @@ public class TableProperties : LinkElement {
     }
 
     // Sets cellSpacing. Gets or sets the amount of space (in points) between the cells.
-    public func setCellSpacing(cellSpacing : Double?) {
+    public func setCellSpacing(cellSpacing : Double?) -> TableProperties {
         self.cellSpacing = cellSpacing;
+        return self;
     }
 
     // Gets cellSpacing. Gets or sets the amount of space (in points) between the cells.
@@ -1393,8 +1398,9 @@ public class TableProperties : LinkElement {
     }
 
     // Sets leftIndent. Gets or sets the value, that represents the left indent of the table.
-    public func setLeftIndent(leftIndent : Double?) {
+    public func setLeftIndent(leftIndent : Double?) -> TableProperties {
         self.leftIndent = leftIndent;
+        return self;
     }
 
     // Gets leftIndent. Gets or sets the value, that represents the left indent of the table.
@@ -1403,8 +1409,9 @@ public class TableProperties : LinkElement {
     }
 
     // Sets leftPadding. Gets or sets the amount of space (in points) to add to the left of the contents of cells.
-    public func setLeftPadding(leftPadding : Double?) {
+    public func setLeftPadding(leftPadding : Double?) -> TableProperties {
         self.leftPadding = leftPadding;
+        return self;
     }
 
     // Gets leftPadding. Gets or sets the amount of space (in points) to add to the left of the contents of cells.
@@ -1413,8 +1420,9 @@ public class TableProperties : LinkElement {
     }
 
     // Sets preferredWidth. Gets or sets the table preferred width. Preferred width can be specified as a percentage, number of points or a special "auto" value.
-    public func setPreferredWidth(preferredWidth : PreferredWidth?) {
+    public func setPreferredWidth(preferredWidth : PreferredWidth?) -> TableProperties {
         self.preferredWidth = preferredWidth;
+        return self;
     }
 
     // Gets preferredWidth. Gets or sets the table preferred width. Preferred width can be specified as a percentage, number of points or a special "auto" value.
@@ -1423,8 +1431,9 @@ public class TableProperties : LinkElement {
     }
 
     // Sets rightPadding. Gets or sets the amount of space (in points) to add to the right of the contents of cells.
-    public func setRightPadding(rightPadding : Double?) {
+    public func setRightPadding(rightPadding : Double?) -> TableProperties {
         self.rightPadding = rightPadding;
+        return self;
     }
 
     // Gets rightPadding. Gets or sets the amount of space (in points) to add to the right of the contents of cells.
@@ -1433,8 +1442,9 @@ public class TableProperties : LinkElement {
     }
 
     // Sets styleIdentifier. Gets or sets the locale independent style identifier of the table style applied to this table.
-    public func setStyleIdentifier(styleIdentifier : StyleIdentifier?) {
+    public func setStyleIdentifier(styleIdentifier : StyleIdentifier?) -> TableProperties {
         self.styleIdentifier = styleIdentifier;
+        return self;
     }
 
     // Gets styleIdentifier. Gets or sets the locale independent style identifier of the table style applied to this table.
@@ -1443,8 +1453,9 @@ public class TableProperties : LinkElement {
     }
 
     // Sets styleName. Gets or sets the name of the table style applied to this table.
-    public func setStyleName(styleName : String?) {
+    public func setStyleName(styleName : String?) -> TableProperties {
         self.styleName = styleName;
+        return self;
     }
 
     // Gets styleName. Gets or sets the name of the table style applied to this table.
@@ -1453,8 +1464,9 @@ public class TableProperties : LinkElement {
     }
 
     // Sets styleOptions. Gets or sets the bit flags, that specify how a table style is applied to this table.
-    public func setStyleOptions(styleOptions : StyleOptions?) {
+    public func setStyleOptions(styleOptions : StyleOptions?) -> TableProperties {
         self.styleOptions = styleOptions;
+        return self;
     }
 
     // Gets styleOptions. Gets or sets the bit flags, that specify how a table style is applied to this table.
@@ -1463,8 +1475,9 @@ public class TableProperties : LinkElement {
     }
 
     // Sets textWrapping. Gets or sets the option that controls text wrapping for the table.
-    public func setTextWrapping(textWrapping : TextWrapping?) {
+    public func setTextWrapping(textWrapping : TextWrapping?) -> TableProperties {
         self.textWrapping = textWrapping;
+        return self;
     }
 
     // Gets textWrapping. Gets or sets the option that controls text wrapping for the table.
@@ -1473,8 +1486,9 @@ public class TableProperties : LinkElement {
     }
 
     // Sets topPadding. Gets or sets the amount of space (in points) to add above the contents of cells.
-    public func setTopPadding(topPadding : Double?) {
+    public func setTopPadding(topPadding : Double?) -> TableProperties {
         self.topPadding = topPadding;
+        return self;
     }
 
     // Gets topPadding. Gets or sets the amount of space (in points) to add above the contents of cells.

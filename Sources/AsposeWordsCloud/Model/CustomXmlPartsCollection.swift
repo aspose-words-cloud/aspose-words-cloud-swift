@@ -30,7 +30,7 @@ import Foundation
 // The collection of CustomXmlPart.
 public class CustomXmlPartsCollection : LinkElement {
     // Field of customXmlPartsList. The collection of CustomXmlPart.
-    private var customXmlPartsList : [CustomXmlPart]?;
+    public var customXmlPartsList : [CustomXmlPart]?;
 
     private enum CodingKeys: String, CodingKey {
         case customXmlPartsList = "CustomXmlPartsList";
@@ -56,8 +56,9 @@ public class CustomXmlPartsCollection : LinkElement {
     }
 
     // Sets customXmlPartsList. Gets or sets the collection of CustomXmlPart.
-    public func setCustomXmlPartsList(customXmlPartsList : [CustomXmlPart]?) {
+    public func setCustomXmlPartsList(customXmlPartsList : [CustomXmlPart]?) -> CustomXmlPartsCollection {
         self.customXmlPartsList = customXmlPartsList;
+        return self;
     }
 
     // Gets customXmlPartsList. Gets or sets the collection of CustomXmlPart.

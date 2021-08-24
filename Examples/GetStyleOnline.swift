@@ -1,5 +1,5 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let request = GetStyleOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, styleName: "Heading 1");
+let requestDocument = InputStream(url: URL(string: "Sample.docx"))!;
+let request = GetStyleOnlineRequest(document: requestDocument, styleName: "Heading 1");
 _ = try api.getStyleOnline(request: request);

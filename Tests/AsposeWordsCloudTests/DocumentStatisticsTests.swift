@@ -52,7 +52,8 @@ class DocumentStatisticsTests: BaseTestContext {
 
     // Test for document classification online.
     func testGetDocumentStatisticsOnline() throws {
-      let request = GetDocumentStatisticsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = GetDocumentStatisticsOnlineRequest(document: requestDocument);
       _ = try super.getApi().getDocumentStatisticsOnline(request: request);
     }
 }

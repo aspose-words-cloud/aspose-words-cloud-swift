@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a bookmark.
 public class BookmarkResponse : WordsResponse {
     // Field of bookmark. The REST response with a bookmark.
-    private var bookmark : Bookmark?;
+    public var bookmark : Bookmark?;
 
     private enum CodingKeys: String, CodingKey {
         case bookmark = "Bookmark";
@@ -56,8 +56,9 @@ public class BookmarkResponse : WordsResponse {
     }
 
     // Sets bookmark. Gets or sets the bookmark.
-    public func setBookmark(bookmark : Bookmark?) {
+    public func setBookmark(bookmark : Bookmark?) -> BookmarkResponse {
         self.bookmark = bookmark;
+        return self;
     }
 
     // Gets bookmark. Gets or sets the bookmark.

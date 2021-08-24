@@ -1,7 +1,7 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let requestProtectionRequest = ProtectionRequest();
-requestProtectionRequest.setPassword(password: "aspose");
-let unprotectRequest = UnprotectDocumentOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, protectionRequest: requestProtectionRequest);
+let requestDocument = InputStream(url: URL(string: "Sample.docx"))!;
+let requestProtectionRequest = ProtectionRequest()
+  .setPassword(password: "aspose");
+let unprotectRequest = UnprotectDocumentOnlineRequest(document: requestDocument, protectionRequest: requestProtectionRequest);
 _ = try api.unprotectDocumentOnline(request: unprotectRequest);

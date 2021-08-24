@@ -1172,37 +1172,37 @@ public class Style : LinkElement {
     }
 
     // Field of aliases. DTO container with a single document style.
-    private var aliases : [String]?;
+    public var aliases : [String]?;
 
     // Field of baseStyleName. DTO container with a single document style.
-    private var baseStyleName : String?;
+    public var baseStyleName : String?;
 
     // Field of builtIn. DTO container with a single document style.
-    private var builtIn : Bool?;
+    public var builtIn : Bool?;
 
     // Field of font. DTO container with a single document style.
-    private var font : Font?;
+    public var font : Font?;
 
     // Field of isHeading. DTO container with a single document style.
-    private var isHeading : Bool?;
+    public var isHeading : Bool?;
 
     // Field of isQuickStyle. DTO container with a single document style.
-    private var isQuickStyle : Bool?;
+    public var isQuickStyle : Bool?;
 
     // Field of linkedStyleName. DTO container with a single document style.
-    private var linkedStyleName : String?;
+    public var linkedStyleName : String?;
 
     // Field of name. DTO container with a single document style.
-    private var name : String?;
+    public var name : String?;
 
     // Field of nextParagraphStyleName. DTO container with a single document style.
-    private var nextParagraphStyleName : String?;
+    public var nextParagraphStyleName : String?;
 
     // Field of styleIdentifier. DTO container with a single document style.
-    private var styleIdentifier : StyleIdentifier?;
+    public var styleIdentifier : StyleIdentifier?;
 
     // Field of type. DTO container with a single document style.
-    private var type : ModelType?;
+    public var type : ModelType?;
 
     private enum CodingKeys: String, CodingKey {
         case aliases = "Aliases";
@@ -1278,8 +1278,9 @@ public class Style : LinkElement {
     }
 
     // Sets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
-    public func setAliases(aliases : [String]?) {
+    public func setAliases(aliases : [String]?) -> Style {
         self.aliases = aliases;
+        return self;
     }
 
     // Gets aliases. Gets or sets all aliases of this style. If style has no aliases then empty array of string is returned.
@@ -1288,8 +1289,9 @@ public class Style : LinkElement {
     }
 
     // Sets baseStyleName. Gets or sets the name of the style this style is based on.
-    public func setBaseStyleName(baseStyleName : String?) {
+    public func setBaseStyleName(baseStyleName : String?) -> Style {
         self.baseStyleName = baseStyleName;
+        return self;
     }
 
     // Gets baseStyleName. Gets or sets the name of the style this style is based on.
@@ -1298,8 +1300,9 @@ public class Style : LinkElement {
     }
 
     // Sets builtIn. Gets or sets a value indicating whether this style is one of the built-in styles in MS Word.
-    public func setBuiltIn(builtIn : Bool?) {
+    public func setBuiltIn(builtIn : Bool?) -> Style {
         self.builtIn = builtIn;
+        return self;
     }
 
     // Gets builtIn. Gets or sets a value indicating whether this style is one of the built-in styles in MS Word.
@@ -1308,8 +1311,9 @@ public class Style : LinkElement {
     }
 
     // Sets font. Gets or sets the character formatting of the style.
-    public func setFont(font : Font?) {
+    public func setFont(font : Font?) -> Style {
         self.font = font;
+        return self;
     }
 
     // Gets font. Gets or sets the character formatting of the style.
@@ -1318,8 +1322,9 @@ public class Style : LinkElement {
     }
 
     // Sets isHeading. Gets or sets a value indicating whether the style is one of the built-in Heading styles.
-    public func setIsHeading(isHeading : Bool?) {
+    public func setIsHeading(isHeading : Bool?) -> Style {
         self.isHeading = isHeading;
+        return self;
     }
 
     // Gets isHeading. Gets or sets a value indicating whether the style is one of the built-in Heading styles.
@@ -1328,8 +1333,9 @@ public class Style : LinkElement {
     }
 
     // Sets isQuickStyle. Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
-    public func setIsQuickStyle(isQuickStyle : Bool?) {
+    public func setIsQuickStyle(isQuickStyle : Bool?) -> Style {
         self.isQuickStyle = isQuickStyle;
+        return self;
     }
 
     // Gets isQuickStyle. Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
@@ -1338,8 +1344,9 @@ public class Style : LinkElement {
     }
 
     // Sets linkedStyleName. Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.
-    public func setLinkedStyleName(linkedStyleName : String?) {
+    public func setLinkedStyleName(linkedStyleName : String?) -> Style {
         self.linkedStyleName = linkedStyleName;
+        return self;
     }
 
     // Gets linkedStyleName. Gets or sets the name of the Style linked to this one. Returns Empty string if no styles are linked.
@@ -1348,8 +1355,9 @@ public class Style : LinkElement {
     }
 
     // Sets name. Gets or sets the name of the style.
-    public func setName(name : String?) {
+    public func setName(name : String?) -> Style {
         self.name = name;
+        return self;
     }
 
     // Gets name. Gets or sets the name of the style.
@@ -1358,8 +1366,9 @@ public class Style : LinkElement {
     }
 
     // Sets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
-    public func setNextParagraphStyleName(nextParagraphStyleName : String?) {
+    public func setNextParagraphStyleName(nextParagraphStyleName : String?) -> Style {
         self.nextParagraphStyleName = nextParagraphStyleName;
+        return self;
     }
 
     // Gets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
@@ -1368,8 +1377,9 @@ public class Style : LinkElement {
     }
 
     // Sets styleIdentifier. Gets or sets the locale independent style identifier for a built-in style.
-    public func setStyleIdentifier(styleIdentifier : StyleIdentifier?) {
+    public func setStyleIdentifier(styleIdentifier : StyleIdentifier?) -> Style {
         self.styleIdentifier = styleIdentifier;
+        return self;
     }
 
     // Gets styleIdentifier. Gets or sets the locale independent style identifier for a built-in style.
@@ -1378,8 +1388,9 @@ public class Style : LinkElement {
     }
 
     // Sets type. Gets or sets the style type (paragraph or character).
-    public func setType(type : ModelType?) {
+    public func setType(type : ModelType?) -> Style {
         self.type = type;
+        return self;
     }
 
     // Gets type. Gets or sets the style type (paragraph or character).

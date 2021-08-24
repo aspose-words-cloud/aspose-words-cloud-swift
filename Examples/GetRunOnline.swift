@@ -1,5 +1,5 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let request = GetRunOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, paragraphPath: "paragraphs/0", index: 0);
+let requestDocument = InputStream(url: URL(string: "Sample.docx"))!;
+let request = GetRunOnlineRequest(document: requestDocument, paragraphPath: "paragraphs/0", index: 0);
 _ = try api.getRunOnline(request: request);

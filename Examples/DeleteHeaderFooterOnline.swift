@@ -1,5 +1,5 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let deleteRequest = DeleteHeaderFooterOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.doc", isDirectory: false))!, sectionPath: "", index: 0);
+let requestDocument = InputStream(url: URL(string: "Sample.doc"))!;
+let deleteRequest = DeleteHeaderFooterOnlineRequest(document: requestDocument, sectionPath: "", index: 0);
 _ = try api.deleteHeaderFooterOnline(request: deleteRequest);

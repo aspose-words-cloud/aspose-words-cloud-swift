@@ -30,10 +30,10 @@ import Foundation
 // FormField dropdownlist element.
 public class FormFieldDropDown : FormField {
     // Field of dropDownItems. FormField dropdownlist element.
-    private var dropDownItems : [String]?;
+    public var dropDownItems : [String]?;
 
     // Field of dropDownSelectedIndex. FormField dropdownlist element.
-    private var dropDownSelectedIndex : Int?;
+    public var dropDownSelectedIndex : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case dropDownItems = "DropDownItems";
@@ -64,8 +64,9 @@ public class FormFieldDropDown : FormField {
     }
 
     // Sets dropDownItems. Gets or sets the items array of a dropdown form field.
-    public func setDropDownItems(dropDownItems : [String]?) {
+    public func setDropDownItems(dropDownItems : [String]?) -> FormFieldDropDown {
         self.dropDownItems = dropDownItems;
+        return self;
     }
 
     // Gets dropDownItems. Gets or sets the items array of a dropdown form field.
@@ -74,8 +75,9 @@ public class FormFieldDropDown : FormField {
     }
 
     // Sets dropDownSelectedIndex. Gets or sets the index specifying the currently selected item in a dropdown form field.
-    public func setDropDownSelectedIndex(dropDownSelectedIndex : Int?) {
+    public func setDropDownSelectedIndex(dropDownSelectedIndex : Int?) -> FormFieldDropDown {
         self.dropDownSelectedIndex = dropDownSelectedIndex;
+        return self;
     }
 
     // Gets dropDownSelectedIndex. Gets or sets the index specifying the currently selected item in a dropdown form field.

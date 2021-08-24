@@ -117,28 +117,28 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Field of height. Drawing object element for insert.
-    private var height : Double?;
+    public var height : Double?;
 
     // Field of _left. Drawing object element for insert.
-    private var _left : Double?;
+    public var _left : Double?;
 
     // Field of position. Drawing object element for insert.
-    private var position : DocumentPosition?;
+    public var position : DocumentPosition?;
 
     // Field of relativeHorizontalPosition. Drawing object element for insert.
-    private var relativeHorizontalPosition : RelativeHorizontalPosition?;
+    public var relativeHorizontalPosition : RelativeHorizontalPosition?;
 
     // Field of relativeVerticalPosition. Drawing object element for insert.
-    private var relativeVerticalPosition : RelativeVerticalPosition?;
+    public var relativeVerticalPosition : RelativeVerticalPosition?;
 
     // Field of top. Drawing object element for insert.
-    private var top : Double?;
+    public var top : Double?;
 
     // Field of width. Drawing object element for insert.
-    private var width : Double?;
+    public var width : Double?;
 
     // Field of wrapType. Drawing object element for insert.
-    private var wrapType : WrapType?;
+    public var wrapType : WrapType?;
 
     private enum CodingKeys: String, CodingKey {
         case height = "Height";
@@ -196,8 +196,9 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Sets height. Gets or sets the height of the DrawingObject in points.
-    public func setHeight(height : Double?) {
+    public func setHeight(height : Double?) -> DrawingObjectInsert {
         self.height = height;
+        return self;
     }
 
     // Gets height. Gets or sets the height of the DrawingObject in points.
@@ -206,8 +207,9 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Sets _left. Gets or sets the distance in points from the origin to the left side of the image.
-    public func setLeft(_left : Double?) {
+    public func setLeft(_left : Double?) -> DrawingObjectInsert {
         self._left = _left;
+        return self;
     }
 
     // Gets _left. Gets or sets the distance in points from the origin to the left side of the image.
@@ -216,8 +218,9 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Sets position. Gets or sets the position, before which the DrawingObject will be inserted.
-    public func setPosition(position : DocumentPosition?) {
+    public func setPosition(position : DocumentPosition?) -> DrawingObjectInsert {
         self.position = position;
+        return self;
     }
 
     // Gets position. Gets or sets the position, before which the DrawingObject will be inserted.
@@ -226,8 +229,9 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Sets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
-    public func setRelativeHorizontalPosition(relativeHorizontalPosition : RelativeHorizontalPosition?) {
+    public func setRelativeHorizontalPosition(relativeHorizontalPosition : RelativeHorizontalPosition?) -> DrawingObjectInsert {
         self.relativeHorizontalPosition = relativeHorizontalPosition;
+        return self;
     }
 
     // Gets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
@@ -236,8 +240,9 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Sets relativeVerticalPosition. Gets or sets the relative vertical position, from which the distance to the image is measured.
-    public func setRelativeVerticalPosition(relativeVerticalPosition : RelativeVerticalPosition?) {
+    public func setRelativeVerticalPosition(relativeVerticalPosition : RelativeVerticalPosition?) -> DrawingObjectInsert {
         self.relativeVerticalPosition = relativeVerticalPosition;
+        return self;
     }
 
     // Gets relativeVerticalPosition. Gets or sets the relative vertical position, from which the distance to the image is measured.
@@ -246,8 +251,9 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Sets top. Gets or sets the distance in points from the origin to the top side of the image.
-    public func setTop(top : Double?) {
+    public func setTop(top : Double?) -> DrawingObjectInsert {
         self.top = top;
+        return self;
     }
 
     // Gets top. Gets or sets the distance in points from the origin to the top side of the image.
@@ -256,8 +262,9 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Sets width. Gets or sets the width of the DrawingObjects in points.
-    public func setWidth(width : Double?) {
+    public func setWidth(width : Double?) -> DrawingObjectInsert {
         self.width = width;
+        return self;
     }
 
     // Gets width. Gets or sets the width of the DrawingObjects in points.
@@ -266,8 +273,9 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Sets wrapType. Gets or sets the option indicating how to wrap text around the image.
-    public func setWrapType(wrapType : WrapType?) {
+    public func setWrapType(wrapType : WrapType?) -> DrawingObjectInsert {
         self.wrapType = wrapType;
+        return self;
     }
 
     // Gets wrapType. Gets or sets the option indicating how to wrap text around the image.

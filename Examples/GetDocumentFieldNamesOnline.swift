@@ -1,5 +1,5 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let request = GetDocumentFieldNamesOnlineRequest(template: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, useNonMergeFields: true);
+let requestTemplate = InputStream(url: URL(string: "Sample.docx"))!;
+let request = GetDocumentFieldNamesOnlineRequest(template: requestTemplate, useNonMergeFields: true);
 _ = try api.getDocumentFieldNamesOnline(request: request);

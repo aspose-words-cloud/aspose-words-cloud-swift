@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a collection of comments.
 public class CommentsResponse : WordsResponse {
     // Field of comments. The REST response with a collection of comments.
-    private var comments : CommentsCollection?;
+    public var comments : CommentsCollection?;
 
     private enum CodingKeys: String, CodingKey {
         case comments = "Comments";
@@ -56,8 +56,9 @@ public class CommentsResponse : WordsResponse {
     }
 
     // Sets comments. Gets or sets the collection of comments.
-    public func setComments(comments : CommentsCollection?) {
+    public func setComments(comments : CommentsCollection?) -> CommentsResponse {
         self.comments = comments;
+        return self;
     }
 
     // Gets comments. Gets or sets the collection of comments.

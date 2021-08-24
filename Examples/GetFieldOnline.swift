@@ -1,5 +1,5 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let request = GetFieldOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 0, nodePath: "sections/0/paragraphs/0");
+let requestDocument = InputStream(url: URL(string: "Sample.docx"))!;
+let request = GetFieldOnlineRequest(document: requestDocument, index: 0, nodePath: "sections/0/paragraphs/0");
 _ = try api.getFieldOnline(request: request);

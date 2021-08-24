@@ -62,7 +62,8 @@ class DocumentPropertiesTests: BaseTestContext {
 
     // Test for getting document properties online.
     func testGetDocumentPropertiesOnline() throws {
-      let request = GetDocumentPropertiesOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!);
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = GetDocumentPropertiesOnlineRequest(document: requestDocument);
       _ = try super.getApi().getDocumentPropertiesOnline(request: request);
     }
 
@@ -81,7 +82,8 @@ class DocumentPropertiesTests: BaseTestContext {
 
     // A test for GetDocumentProperty online.
     func testGetDocumentPropertyOnline() throws {
-      let request = GetDocumentPropertyOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, propertyName: "Author");
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = GetDocumentPropertyOnlineRequest(document: requestDocument, propertyName: "Author");
       _ = try super.getApi().getDocumentPropertyOnline(request: request);
     }
 
@@ -97,7 +99,8 @@ class DocumentPropertiesTests: BaseTestContext {
 
     // Test for deleting document property online.
     func testDeleteDocumentPropertyOnline() throws {
-      let request = DeleteDocumentPropertyOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, propertyName: "testProp");
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = DeleteDocumentPropertyOnlineRequest(document: requestDocument, propertyName: "testProp");
       _ = try super.getApi().deleteDocumentPropertyOnline(request: request);
     }
 
@@ -107,11 +110,9 @@ class DocumentPropertiesTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestProperty = DocumentPropertyCreateOrUpdate();
-      requestProperty.setValue(value: "Imran Anwar");
-
-
-      let request = CreateOrUpdateDocumentPropertyRequest(name: remoteFileName, propertyName: "AsposeAuthor", property: requestProperty, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
+      let requestProperty = DocumentPropertyCreateOrUpdate()
+        .setValue(value: "Imran Anwar");
+      let request = CreateOrUpdateDocumentPropertyRequest(name: remoteFileName, propertyName: "AsposeAuthor", property: requestProperty as! DocumentPropertyCreateOrUpdate, folder: remoteDataFolder, destFileName: BaseTestContext.getRemoteTestOut() + "/" + remoteFileName);
       let actual = try super.getApi().createOrUpdateDocumentProperty(request: request);
       XCTAssertNotNil(actual.getDocumentProperty());
       XCTAssertEqual(actual.getDocumentProperty()!.getName(), "AsposeAuthor");
@@ -120,11 +121,10 @@ class DocumentPropertiesTests: BaseTestContext {
 
     // Test for updating document property online.
     func testUpdateDocumentPropertyOnline() throws {
-      let requestProperty = DocumentPropertyCreateOrUpdate();
-      requestProperty.setValue(value: "Imran Anwar");
-
-
-      let request = CreateOrUpdateDocumentPropertyOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, propertyName: "AsposeAuthor", property: requestProperty);
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let requestProperty = DocumentPropertyCreateOrUpdate()
+        .setValue(value: "Imran Anwar");
+      let request = CreateOrUpdateDocumentPropertyOnlineRequest(document: requestDocument, propertyName: "AsposeAuthor", property: requestProperty as! DocumentPropertyCreateOrUpdate);
       _ = try super.getApi().createOrUpdateDocumentPropertyOnline(request: request);
     }
 }

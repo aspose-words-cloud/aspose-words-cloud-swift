@@ -30,10 +30,10 @@ import Foundation
 // Represents a single bookmark.
 public class Bookmark : LinkElement {
     // Field of name. Represents a single bookmark.
-    private var name : String?;
+    public var name : String?;
 
     // Field of text. Represents a single bookmark.
-    private var text : String?;
+    public var text : String?;
 
     private enum CodingKeys: String, CodingKey {
         case name = "Name";
@@ -64,8 +64,9 @@ public class Bookmark : LinkElement {
     }
 
     // Sets name. Gets or sets the name of the bookmark.
-    public func setName(name : String?) {
+    public func setName(name : String?) -> Bookmark {
         self.name = name;
+        return self;
     }
 
     // Gets name. Gets or sets the name of the bookmark.
@@ -74,8 +75,9 @@ public class Bookmark : LinkElement {
     }
 
     // Sets text. Gets or sets text, enclosed in the bookmark.
-    public func setText(text : String?) {
+    public func setText(text : String?) -> Bookmark {
         self.text = text;
+        return self;
     }
 
     // Gets text. Gets or sets text, enclosed in the bookmark.

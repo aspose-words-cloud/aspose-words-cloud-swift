@@ -30,13 +30,13 @@ import Foundation
 // DTO container with a table element.
 public class TableInsert : Codable, WordsApiModel {
     // Field of columnsCount. DTO container with a table element.
-    private var columnsCount : Int?;
+    public var columnsCount : Int?;
 
     // Field of position. DTO container with a table element.
-    private var position : DocumentPosition?;
+    public var position : DocumentPosition?;
 
     // Field of rowsCount. DTO container with a table element.
-    private var rowsCount : Int?;
+    public var rowsCount : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case columnsCount = "ColumnsCount";
@@ -69,8 +69,9 @@ public class TableInsert : Codable, WordsApiModel {
     }
 
     // Sets columnsCount. Gets or sets the number of columns. The default value is 2.
-    public func setColumnsCount(columnsCount : Int?) {
+    public func setColumnsCount(columnsCount : Int?) -> TableInsert {
         self.columnsCount = columnsCount;
+        return self;
     }
 
     // Gets columnsCount. Gets or sets the number of columns. The default value is 2.
@@ -79,8 +80,9 @@ public class TableInsert : Codable, WordsApiModel {
     }
 
     // Sets position. Gets or sets the position to insert the table. The table will be inserted before the specified position.
-    public func setPosition(position : DocumentPosition?) {
+    public func setPosition(position : DocumentPosition?) -> TableInsert {
         self.position = position;
+        return self;
     }
 
     // Gets position. Gets or sets the position to insert the table. The table will be inserted before the specified position.
@@ -89,8 +91,9 @@ public class TableInsert : Codable, WordsApiModel {
     }
 
     // Sets rowsCount. Gets or sets the number of rows. The default value is 2.
-    public func setRowsCount(rowsCount : Int?) {
+    public func setRowsCount(rowsCount : Int?) -> TableInsert {
         self.rowsCount = rowsCount;
+        return self;
     }
 
     // Gets rowsCount. Gets or sets the number of rows. The default value is 2.

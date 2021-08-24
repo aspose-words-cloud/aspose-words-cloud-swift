@@ -146,22 +146,22 @@ public class Border : LinkElement {
     }
 
     // Field of borderType. Represents a border of an object.
-    private var borderType : BorderType?;
+    public var borderType : BorderType?;
 
     // Field of color. Represents a border of an object.
-    private var color : XmlColor?;
+    public var color : XmlColor?;
 
     // Field of distanceFromText. Represents a border of an object.
-    private var distanceFromText : Double?;
+    public var distanceFromText : Double?;
 
     // Field of lineStyle. Represents a border of an object.
-    private var lineStyle : LineStyle?;
+    public var lineStyle : LineStyle?;
 
     // Field of lineWidth. Represents a border of an object.
-    private var lineWidth : Double?;
+    public var lineWidth : Double?;
 
     // Field of shadow. Represents a border of an object.
-    private var shadow : Bool?;
+    public var shadow : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case borderType = "BorderType";
@@ -212,8 +212,9 @@ public class Border : LinkElement {
     }
 
     // Sets borderType. Gets or sets the border type.
-    public func setBorderType(borderType : BorderType?) {
+    public func setBorderType(borderType : BorderType?) -> Border {
         self.borderType = borderType;
+        return self;
     }
 
     // Gets borderType. Gets or sets the border type.
@@ -222,8 +223,9 @@ public class Border : LinkElement {
     }
 
     // Sets color. Gets or sets the border color.
-    public func setColor(color : XmlColor?) {
+    public func setColor(color : XmlColor?) -> Border {
         self.color = color;
+        return self;
     }
 
     // Gets color. Gets or sets the border color.
@@ -232,8 +234,9 @@ public class Border : LinkElement {
     }
 
     // Sets distanceFromText. Gets or sets the distance of the border from text or from the page edge in points.
-    public func setDistanceFromText(distanceFromText : Double?) {
+    public func setDistanceFromText(distanceFromText : Double?) -> Border {
         self.distanceFromText = distanceFromText;
+        return self;
     }
 
     // Gets distanceFromText. Gets or sets the distance of the border from text or from the page edge in points.
@@ -242,8 +245,9 @@ public class Border : LinkElement {
     }
 
     // Sets lineStyle. Gets or sets the border style.
-    public func setLineStyle(lineStyle : LineStyle?) {
+    public func setLineStyle(lineStyle : LineStyle?) -> Border {
         self.lineStyle = lineStyle;
+        return self;
     }
 
     // Gets lineStyle. Gets or sets the border style.
@@ -252,8 +256,9 @@ public class Border : LinkElement {
     }
 
     // Sets lineWidth. Gets or sets the border width in points.
-    public func setLineWidth(lineWidth : Double?) {
+    public func setLineWidth(lineWidth : Double?) -> Border {
         self.lineWidth = lineWidth;
+        return self;
     }
 
     // Gets lineWidth. Gets or sets the border width in points.
@@ -262,8 +267,9 @@ public class Border : LinkElement {
     }
 
     // Sets shadow. Gets or sets a value indicating whether the border has a shadow.
-    public func setShadow(shadow : Bool?) {
+    public func setShadow(shadow : Bool?) -> Border {
         self.shadow = shadow;
+        return self;
     }
 
     // Gets shadow. Gets or sets a value indicating whether the border has a shadow.

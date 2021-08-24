@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a page setup of a section.
 public class SectionPageSetupResponse : WordsResponse {
     // Field of pageSetup. The REST response with a page setup of a section.
-    private var pageSetup : PageSetup?;
+    public var pageSetup : PageSetup?;
 
     private enum CodingKeys: String, CodingKey {
         case pageSetup = "PageSetup";
@@ -56,8 +56,9 @@ public class SectionPageSetupResponse : WordsResponse {
     }
 
     // Sets pageSetup. Gets or sets the page setup of a section.
-    public func setPageSetup(pageSetup : PageSetup?) {
+    public func setPageSetup(pageSetup : PageSetup?) -> SectionPageSetupResponse {
         self.pageSetup = pageSetup;
+        return self;
     }
 
     // Gets pageSetup. Gets or sets the page setup of a section.

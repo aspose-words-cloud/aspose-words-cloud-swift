@@ -1,12 +1,12 @@
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let requestFormField = FormFieldTextInput();
-requestFormField.setName(name: "FullName");
-requestFormField.setEnabled(enabled: true);
-requestFormField.setCalculateOnExit(calculateOnExit: true);
-requestFormField.setStatusText(statusText: "");
-requestFormField.setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular);
-requestFormField.setTextInputDefault(textInputDefault: "123");
-requestFormField.setTextInputFormat(textInputFormat: "UPPERCASE");
-let insertRequest = InsertFormFieldRequest(name: "Sample.docx", formField: requestFormField);
+let requestFormField = FormFieldTextInput()
+  .setTextInputDefault(textInputDefault: "123")
+  .setTextInputFormat(textInputFormat: "UPPERCASE")
+  .setTextInputType(textInputType: FormFieldTextInput.TextInputType.regular)
+  .setCalculateOnExit(calculateOnExit: true)
+  .setEnabled(enabled: true)
+  .setName(name: "FullName")
+  .setStatusText(statusText: "");
+let insertRequest = InsertFormFieldRequest(name: "Sample.docx", formField: requestFormField as! FormFieldTextInput);
 _ = try api.insertFormField(request: insertRequest);

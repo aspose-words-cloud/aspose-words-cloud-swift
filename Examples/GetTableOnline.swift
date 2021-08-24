@@ -1,5 +1,5 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let request = GetTableOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, index: 1);
+let requestDocument = InputStream(url: URL(string: "Sample.docx"))!;
+let request = GetTableOnlineRequest(document: requestDocument, index: 1);
 _ = try api.getTableOnline(request: request);

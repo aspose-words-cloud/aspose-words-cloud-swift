@@ -1,8 +1,8 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let requestSaveOptionsData = SaveOptionsData();
-requestSaveOptionsData.setSaveFormat(saveFormat: "pdf");
-requestSaveOptionsData.setFileName(fileName: "/TestSaveAs.pdf");
-let saveRequest = SaveAsOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Common/test_multi_pages.docx", isDirectory: false))!, saveOptionsData: requestSaveOptionsData);
+let requestDocument = InputStream(url: URL(string: "Common/test_multi_pages.docx"))!;
+let requestSaveOptionsData = SaveOptionsData()
+  .setFileName(fileName: "/TestSaveAs.pdf")
+  .setSaveFormat(saveFormat: "pdf");
+let saveRequest = SaveAsOnlineRequest(document: requestDocument, saveOptionsData: requestSaveOptionsData);
 _ = try api.saveAsOnline(request: saveRequest);

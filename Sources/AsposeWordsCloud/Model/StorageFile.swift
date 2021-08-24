@@ -30,19 +30,19 @@ import Foundation
 // File or folder information.
 public class StorageFile : Codable, WordsApiModel {
     // Field of isFolder. File or folder information.
-    private var isFolder : Bool?;
+    public var isFolder : Bool?;
 
     // Field of modifiedDate. File or folder information.
-    private var modifiedDate : Date?;
+    public var modifiedDate : Date?;
 
     // Field of name. File or folder information.
-    private var name : String?;
+    public var name : String?;
 
     // Field of path. File or folder information.
-    private var path : String?;
+    public var path : String?;
 
     // Field of size. File or folder information.
-    private var size : Int?;
+    public var size : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case isFolder = "IsFolder";
@@ -90,8 +90,9 @@ public class StorageFile : Codable, WordsApiModel {
     }
 
     // Sets isFolder. True if it is a folder.
-    public func setIsFolder(isFolder : Bool?) {
+    public func setIsFolder(isFolder : Bool?) -> StorageFile {
         self.isFolder = isFolder;
+        return self;
     }
 
     // Gets isFolder. True if it is a folder.
@@ -100,8 +101,9 @@ public class StorageFile : Codable, WordsApiModel {
     }
 
     // Sets modifiedDate. File or folder last modified DateTime.
-    public func setModifiedDate(modifiedDate : Date?) {
+    public func setModifiedDate(modifiedDate : Date?) -> StorageFile {
         self.modifiedDate = modifiedDate;
+        return self;
     }
 
     // Gets modifiedDate. File or folder last modified DateTime.
@@ -110,8 +112,9 @@ public class StorageFile : Codable, WordsApiModel {
     }
 
     // Sets name. File or folder name.
-    public func setName(name : String?) {
+    public func setName(name : String?) -> StorageFile {
         self.name = name;
+        return self;
     }
 
     // Gets name. File or folder name.
@@ -120,8 +123,9 @@ public class StorageFile : Codable, WordsApiModel {
     }
 
     // Sets path. File or folder path.
-    public func setPath(path : String?) {
+    public func setPath(path : String?) -> StorageFile {
         self.path = path;
+        return self;
     }
 
     // Gets path. File or folder path.
@@ -130,8 +134,9 @@ public class StorageFile : Codable, WordsApiModel {
     }
 
     // Sets size. File or folder size.
-    public func setSize(size : Int?) {
+    public func setSize(size : Int?) -> StorageFile {
         self.size = size;
+        return self;
     }
 
     // Gets size. File or folder size.

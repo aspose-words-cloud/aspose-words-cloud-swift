@@ -30,16 +30,16 @@ import Foundation
 // Class is used for insert page number request building.
 public class PageNumber : Codable, WordsApiModel {
     // Field of alignment. Class is used for insert page number request building.
-    private var alignment : String?;
+    public var alignment : String?;
 
     // Field of format. Class is used for insert page number request building.
-    private var format : String?;
+    public var format : String?;
 
     // Field of isTop. Class is used for insert page number request building.
-    private var isTop : Bool?;
+    public var isTop : Bool?;
 
     // Field of setPageNumberOnFirstPage. Class is used for insert page number request building.
-    private var setPageNumberOnFirstPage : Bool?;
+    public var setPageNumberOnFirstPage : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case alignment = "Alignment";
@@ -77,8 +77,9 @@ public class PageNumber : Codable, WordsApiModel {
     }
 
     // Sets alignment. Gets or sets text alignment, possible values are left, right, center or justify.
-    public func setAlignment(alignment : String?) {
+    public func setAlignment(alignment : String?) -> PageNumber {
         self.alignment = alignment;
+        return self;
     }
 
     // Gets alignment. Gets or sets text alignment, possible values are left, right, center or justify.
@@ -87,8 +88,9 @@ public class PageNumber : Codable, WordsApiModel {
     }
 
     // Sets format. Gets or sets the page number format, e.g. "{PAGE} of {NUMPAGES}".
-    public func setFormat(format : String?) {
+    public func setFormat(format : String?) -> PageNumber {
         self.format = format;
+        return self;
     }
 
     // Gets format. Gets or sets the page number format, e.g. "{PAGE} of {NUMPAGES}".
@@ -97,8 +99,9 @@ public class PageNumber : Codable, WordsApiModel {
     }
 
     // Sets isTop. Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.
-    public func setIsTop(isTop : Bool?) {
+    public func setIsTop(isTop : Bool?) -> PageNumber {
         self.isTop = isTop;
+        return self;
     }
 
     // Gets isTop. Gets or sets a value indicating whether if true the page number is added at the top of the page, else at the bottom.
@@ -107,8 +110,9 @@ public class PageNumber : Codable, WordsApiModel {
     }
 
     // Sets setPageNumberOnFirstPage. Gets or sets a value indicating whether if true the page number is added on first page too.
-    public func setSetPageNumberOnFirstPage(setPageNumberOnFirstPage : Bool?) {
+    public func setSetPageNumberOnFirstPage(setPageNumberOnFirstPage : Bool?) -> PageNumber {
         self.setPageNumberOnFirstPage = setPageNumberOnFirstPage;
+        return self;
     }
 
     // Gets setPageNumberOnFirstPage. Gets or sets a value indicating whether if true the page number is added on first page too.

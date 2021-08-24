@@ -40,19 +40,19 @@ public class Footnote : FootnoteLink {
     }
 
     // Field of content. DTO container with a footnote.
-    private var content : StoryChildNodes?;
+    public var content : StoryChildNodes?;
 
     // Field of footnoteType. DTO container with a footnote.
-    private var footnoteType : FootnoteType?;
+    public var footnoteType : FootnoteType?;
 
     // Field of position. DTO container with a footnote.
-    private var position : DocumentPosition?;
+    public var position : DocumentPosition?;
 
     // Field of referenceMark. DTO container with a footnote.
-    private var referenceMark : String?;
+    public var referenceMark : String?;
 
     // Field of text. DTO container with a footnote.
-    private var text : String?;
+    public var text : String?;
 
     private enum CodingKeys: String, CodingKey {
         case content = "Content";
@@ -98,8 +98,9 @@ public class Footnote : FootnoteLink {
     }
 
     // Sets content. Gets or sets the content of the footnote.
-    public func setContent(content : StoryChildNodes?) {
+    public func setContent(content : StoryChildNodes?) -> Footnote {
         self.content = content;
+        return self;
     }
 
     // Gets content. Gets or sets the content of the footnote.
@@ -108,8 +109,9 @@ public class Footnote : FootnoteLink {
     }
 
     // Sets footnoteType. Gets or sets the value, that specifies whether this is a footnote or endnote.
-    public func setFootnoteType(footnoteType : FootnoteType?) {
+    public func setFootnoteType(footnoteType : FootnoteType?) -> Footnote {
         self.footnoteType = footnoteType;
+        return self;
     }
 
     // Gets footnoteType. Gets or sets the value, that specifies whether this is a footnote or endnote.
@@ -118,8 +120,9 @@ public class Footnote : FootnoteLink {
     }
 
     // Sets position. Gets or sets the link to comment range start node.
-    public func setPosition(position : DocumentPosition?) {
+    public func setPosition(position : DocumentPosition?) -> Footnote {
         self.position = position;
+        return self;
     }
 
     // Gets position. Gets or sets the link to comment range start node.
@@ -128,8 +131,9 @@ public class Footnote : FootnoteLink {
     }
 
     // Sets referenceMark. Gets or sets the custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.
-    public func setReferenceMark(referenceMark : String?) {
+    public func setReferenceMark(referenceMark : String?) -> Footnote {
         self.referenceMark = referenceMark;
+        return self;
     }
 
     // Gets referenceMark. Gets or sets the custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.
@@ -138,8 +142,9 @@ public class Footnote : FootnoteLink {
     }
 
     // Sets text. Gets or sets text of the footnote.
-    public func setText(text : String?) {
+    public func setText(text : String?) -> Footnote {
         self.text = text;
+        return self;
     }
 
     // Gets text. Gets or sets text of the footnote.

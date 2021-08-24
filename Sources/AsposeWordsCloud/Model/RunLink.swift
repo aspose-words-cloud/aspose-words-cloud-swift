@@ -30,7 +30,7 @@ import Foundation
 // Run link element.
 public class RunLink : NodeLink {
     // Field of text. Run link element.
-    private var text : String?;
+    public var text : String?;
 
     private enum CodingKeys: String, CodingKey {
         case text = "Text";
@@ -56,8 +56,9 @@ public class RunLink : NodeLink {
     }
 
     // Sets text. Gets or sets the run's text.
-    public func setText(text : String?) {
+    public func setText(text : String?) -> RunLink {
         self.text = text;
+        return self;
     }
 
     // Gets text. Gets or sets the run's text.

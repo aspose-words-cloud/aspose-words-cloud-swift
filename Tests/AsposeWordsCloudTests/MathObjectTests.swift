@@ -64,7 +64,8 @@ class MathObjectTests: BaseTestContext {
 
     // Test for getting mathObjects online.
     func testGetOfficeMathObjectsOnline() throws {
-      let request = GetOfficeMathObjectsOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, nodePath: "");
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = GetOfficeMathObjectsOnlineRequest(document: requestDocument, nodePath: "");
       _ = try super.getApi().getOfficeMathObjectsOnline(request: request);
     }
 
@@ -96,7 +97,8 @@ class MathObjectTests: BaseTestContext {
 
     // Test for getting mathObject online.
     func testGetOfficeMathObjectOnline() throws {
-      let request = GetOfficeMathObjectOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, nodePath: "");
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = GetOfficeMathObjectOnlineRequest(document: requestDocument, index: 0, nodePath: "");
       _ = try super.getApi().getOfficeMathObjectOnline(request: request);
     }
 
@@ -124,7 +126,8 @@ class MathObjectTests: BaseTestContext {
 
     // Test for rendering mathObject.
     func testRenderMathObjectOnline() throws {
-      let request = RenderMathObjectOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, format: "png", index: 0, nodePath: "");
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = RenderMathObjectOnlineRequest(document: requestDocument, format: "png", index: 0, nodePath: "");
       _ = try super.getApi().renderMathObjectOnline(request: request);
     }
 
@@ -150,7 +153,8 @@ class MathObjectTests: BaseTestContext {
 
     // Test for deleting mathObject online.
     func testDeleteOfficeMathObjectOnline() throws {
-      let request = DeleteOfficeMathObjectOnlineRequest(document: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!, index: 0, nodePath: "");
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
+      let request = DeleteOfficeMathObjectOnlineRequest(document: requestDocument, index: 0, nodePath: "");
       _ = try super.getApi().deleteOfficeMathObjectOnline(request: request);
     }
 

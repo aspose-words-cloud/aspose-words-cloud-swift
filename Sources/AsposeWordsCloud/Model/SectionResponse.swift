@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a section.
 public class SectionResponse : WordsResponse {
     // Field of section. The REST response with a section.
-    private var section : Section?;
+    public var section : Section?;
 
     private enum CodingKeys: String, CodingKey {
         case section = "Section";
@@ -56,8 +56,9 @@ public class SectionResponse : WordsResponse {
     }
 
     // Sets section. Gets or sets the section.
-    public func setSection(section : Section?) {
+    public func setSection(section : Section?) -> SectionResponse {
         self.section = section;
+        return self;
     }
 
     // Gets section. Gets or sets the section.

@@ -1,5 +1,6 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let insertRequest = InsertWatermarkImageOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, imageFile: InputStream(url: currentDir!.appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!);
+let requestDocument = InputStream(url: URL(string: "Sample.docx"))!;
+let requestImageFile = InputStream(url: URL(string: "Common/aspose-cloud.png"))!;
+let insertRequest = InsertWatermarkImageOnlineRequest(document: requestDocument, imageFile: requestImageFile);
 _ = try api.insertWatermarkImageOnline(request: insertRequest);

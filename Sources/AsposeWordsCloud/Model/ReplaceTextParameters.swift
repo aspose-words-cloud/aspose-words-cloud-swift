@@ -30,19 +30,19 @@ import Foundation
 // Class for document replace text request building.
 public class ReplaceTextParameters : Codable, WordsApiModel {
     // Field of isMatchCase. Class for document replace text request building.
-    private var isMatchCase : Bool?;
+    public var isMatchCase : Bool?;
 
     // Field of isMatchWholeWord. Class for document replace text request building.
-    private var isMatchWholeWord : Bool?;
+    public var isMatchWholeWord : Bool?;
 
     // Field of isOldValueRegex. Class for document replace text request building.
-    private var isOldValueRegex : Bool?;
+    public var isOldValueRegex : Bool?;
 
     // Field of newValue. Class for document replace text request building.
-    private var newValue : String?;
+    public var newValue : String?;
 
     // Field of oldValue. Class for document replace text request building.
-    private var oldValue : String?;
+    public var oldValue : String?;
 
     private enum CodingKeys: String, CodingKey {
         case isMatchCase = "IsMatchCase";
@@ -85,8 +85,9 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     }
 
     // Sets isMatchCase. Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.
-    public func setIsMatchCase(isMatchCase : Bool?) {
+    public func setIsMatchCase(isMatchCase : Bool?) -> ReplaceTextParameters {
         self.isMatchCase = isMatchCase;
+        return self;
     }
 
     // Gets isMatchCase. Gets or sets a value indicating whether flag, true means the search is case-sensitive; false means the search is not case-sensitive.
@@ -95,8 +96,9 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     }
 
     // Sets isMatchWholeWord. Gets or sets a value indicating whether flag, means that only whole word matched are replaced.
-    public func setIsMatchWholeWord(isMatchWholeWord : Bool?) {
+    public func setIsMatchWholeWord(isMatchWholeWord : Bool?) -> ReplaceTextParameters {
         self.isMatchWholeWord = isMatchWholeWord;
+        return self;
     }
 
     // Gets isMatchWholeWord. Gets or sets a value indicating whether flag, means that only whole word matched are replaced.
@@ -105,8 +107,9 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     }
 
     // Sets isOldValueRegex. Gets or sets a value indicating whether flag, means that OldValue contains regex expression.
-    public func setIsOldValueRegex(isOldValueRegex : Bool?) {
+    public func setIsOldValueRegex(isOldValueRegex : Bool?) -> ReplaceTextParameters {
         self.isOldValueRegex = isOldValueRegex;
+        return self;
     }
 
     // Gets isOldValueRegex. Gets or sets a value indicating whether flag, means that OldValue contains regex expression.
@@ -115,8 +118,9 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     }
 
     // Sets newValue. Gets or sets the new text value to replace by.
-    public func setNewValue(newValue : String?) {
+    public func setNewValue(newValue : String?) -> ReplaceTextParameters {
         self.newValue = newValue;
+        return self;
     }
 
     // Gets newValue. Gets or sets the new text value to replace by.
@@ -125,8 +129,9 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     }
 
     // Sets oldValue. Gets or sets the old text value (or regex pattern IsOldValueRegex) to replace.
-    public func setOldValue(oldValue : String?) {
+    public func setOldValue(oldValue : String?) -> ReplaceTextParameters {
         self.oldValue = oldValue;
+        return self;
     }
 
     // Gets oldValue. Gets or sets the old text value (or regex pattern IsOldValueRegex) to replace.

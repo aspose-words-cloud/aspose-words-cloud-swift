@@ -100,7 +100,7 @@ public class ListInsert : Codable, WordsApiModel {
     }
 
     // Field of template. Insert document to document list.
-    private var template : Template?;
+    public var template : Template?;
 
     private enum CodingKeys: String, CodingKey {
         case template = "Template";
@@ -123,8 +123,9 @@ public class ListInsert : Codable, WordsApiModel {
     }
 
     // Sets template. Gets or sets the option that controls how list should be restarted at each section.
-    public func setTemplate(template : Template?) {
+    public func setTemplate(template : Template?) -> ListInsert {
         self.template = template;
+        return self;
     }
 
     // Gets template. Gets or sets the option that controls how list should be restarted at each section.

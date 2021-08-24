@@ -30,10 +30,10 @@ import Foundation
 // The REST response with document's statistical data.
 public class StatDataResponse : WordsResponse {
     // Field of documentLink. The REST response with document's statistical data.
-    private var documentLink : FileLink?;
+    public var documentLink : FileLink?;
 
     // Field of statData. The REST response with document's statistical data.
-    private var statData : DocumentStatData?;
+    public var statData : DocumentStatData?;
 
     private enum CodingKeys: String, CodingKey {
         case documentLink = "DocumentLink";
@@ -64,8 +64,9 @@ public class StatDataResponse : WordsResponse {
     }
 
     // Sets documentLink. Gets or sets the link to the document.
-    public func setDocumentLink(documentLink : FileLink?) {
+    public func setDocumentLink(documentLink : FileLink?) -> StatDataResponse {
         self.documentLink = documentLink;
+        return self;
     }
 
     // Gets documentLink. Gets or sets the link to the document.
@@ -74,8 +75,9 @@ public class StatDataResponse : WordsResponse {
     }
 
     // Sets statData. Gets or sets the statistical data of the document.
-    public func setStatData(statData : DocumentStatData?) {
+    public func setStatData(statData : DocumentStatData?) -> StatDataResponse {
         self.statData = statData;
+        return self;
     }
 
     // Gets statData. Gets or sets the statistical data of the document.

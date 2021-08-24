@@ -30,7 +30,7 @@ import Foundation
 // Container class for epub save options.
 public class EpubSaveOptionsData : HtmlSaveOptionsData {
     // Field of epubNavigationMapLevel. Container class for epub save options.
-    private var epubNavigationMapLevel : Int?;
+    public var epubNavigationMapLevel : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case epubNavigationMapLevel = "EpubNavigationMapLevel";
@@ -56,8 +56,9 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
     }
 
     // Sets epubNavigationMapLevel. Gets or sets the maximum level of headings populated to the navigation map when exporting.
-    public func setEpubNavigationMapLevel(epubNavigationMapLevel : Int?) {
+    public func setEpubNavigationMapLevel(epubNavigationMapLevel : Int?) -> EpubSaveOptionsData {
         self.epubNavigationMapLevel = epubNavigationMapLevel;
+        return self;
     }
 
     // Gets epubNavigationMapLevel. Gets or sets the maximum level of headings populated to the navigation map when exporting.

@@ -1,7 +1,7 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let requestOptions = OptimizationOptions();
-requestOptions.setMsWordVersion(msWordVersion: OptimizationOptions.MsWordVersion.word2002);
-let optimizeRequest = OptimizeDocumentOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, options: requestOptions);
+let requestDocument = InputStream(url: URL(string: "Sample.docx"))!;
+let requestOptions = OptimizationOptions()
+  .setMsWordVersion(msWordVersion: OptimizationOptions.MsWordVersion.word2002);
+let optimizeRequest = OptimizeDocumentOnlineRequest(document: requestDocument, options: requestOptions);
 _ = try api.optimizeDocumentOnline(request: optimizeRequest);

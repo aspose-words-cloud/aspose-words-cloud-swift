@@ -30,7 +30,7 @@ import Foundation
 // DTO container with a single document list.
 public class ListLevels : LinkElement {
     // Field of listLevel. DTO container with a single document list.
-    private var listLevel : [ListLevel]?;
+    public var listLevel : [ListLevel]?;
 
     private enum CodingKeys: String, CodingKey {
         case listLevel = "ListLevel";
@@ -56,8 +56,9 @@ public class ListLevels : LinkElement {
     }
 
     // Sets listLevel. Gets or sets the collection of list levels for this list.
-    public func setListLevel(listLevel : [ListLevel]?) {
+    public func setListLevel(listLevel : [ListLevel]?) -> ListLevels {
         self.listLevel = listLevel;
+        return self;
     }
 
     // Gets listLevel. Gets or sets the collection of list levels for this list.

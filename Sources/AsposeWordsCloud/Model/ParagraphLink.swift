@@ -30,7 +30,7 @@ import Foundation
 // Paragraph link element.
 public class ParagraphLink : NodeLink {
     // Field of text. Paragraph link element.
-    private var text : String?;
+    public var text : String?;
 
     private enum CodingKeys: String, CodingKey {
         case text = "Text";
@@ -56,8 +56,9 @@ public class ParagraphLink : NodeLink {
     }
 
     // Sets text. Gets or sets the paragraph's text.
-    public func setText(text : String?) {
+    public func setText(text : String?) -> ParagraphLink {
         self.text = text;
+        return self;
     }
 
     // Gets text. Gets or sets the paragraph's text.

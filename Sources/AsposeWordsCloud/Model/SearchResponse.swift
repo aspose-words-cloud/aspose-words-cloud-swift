@@ -30,10 +30,10 @@ import Foundation
 // The REST response with a regular expression pattern and a collection of search results.
 public class SearchResponse : WordsResponse {
     // Field of searchingPattern. The REST response with a regular expression pattern and a collection of search results.
-    private var searchingPattern : String?;
+    public var searchingPattern : String?;
 
     // Field of searchResults. The REST response with a regular expression pattern and a collection of search results.
-    private var searchResults : SearchResultsCollection?;
+    public var searchResults : SearchResultsCollection?;
 
     private enum CodingKeys: String, CodingKey {
         case searchingPattern = "SearchingPattern";
@@ -64,8 +64,9 @@ public class SearchResponse : WordsResponse {
     }
 
     // Sets searchingPattern. Gets or sets the regular expression pattern used to find matches.
-    public func setSearchingPattern(searchingPattern : String?) {
+    public func setSearchingPattern(searchingPattern : String?) -> SearchResponse {
         self.searchingPattern = searchingPattern;
+        return self;
     }
 
     // Gets searchingPattern. Gets or sets the regular expression pattern used to find matches.
@@ -74,8 +75,9 @@ public class SearchResponse : WordsResponse {
     }
 
     // Sets searchResults. Gets or sets the collection of search results.
-    public func setSearchResults(searchResults : SearchResultsCollection?) {
+    public func setSearchResults(searchResults : SearchResultsCollection?) -> SearchResponse {
         self.searchResults = searchResults;
+        return self;
     }
 
     // Gets searchResults. Gets or sets the collection of search results.

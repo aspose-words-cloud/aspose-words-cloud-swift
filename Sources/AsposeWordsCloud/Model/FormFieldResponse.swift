@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a form field.
 public class FormFieldResponse : WordsResponse {
     // Field of formField. The REST response with a form field.
-    private var formField : FormField?;
+    public var formField : FormField?;
 
     private enum CodingKeys: String, CodingKey {
         case formField = "FormField";
@@ -56,8 +56,9 @@ public class FormFieldResponse : WordsResponse {
     }
 
     // Sets formField. Gets or sets the form field.
-    public func setFormField(formField : FormField?) {
+    public func setFormField(formField : FormField?) -> FormFieldResponse {
         self.formField = formField;
+        return self;
     }
 
     // Gets formField. Gets or sets the form field.

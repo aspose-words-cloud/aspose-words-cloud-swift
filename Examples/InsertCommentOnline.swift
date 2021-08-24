@@ -1,21 +1,21 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let requestCommentRangeStartNode = NodeLink();
-requestCommentRangeStartNode.setNodeId(nodeId: "0.3.0.3");
-let requestCommentRangeStart = DocumentPosition();
-requestCommentRangeStart.setNode(node: requestCommentRangeStartNode);
-requestCommentRangeStart.setOffset(offset: 0);
-let requestCommentRangeEndNode = NodeLink();
-requestCommentRangeEndNode.setNodeId(nodeId: "0.3.0.3");
-let requestCommentRangeEnd = DocumentPosition();
-requestCommentRangeEnd.setNode(node: requestCommentRangeEndNode);
-requestCommentRangeEnd.setOffset(offset: 0);
-let requestComment = CommentInsert();
-requestComment.setRangeStart(rangeStart: requestCommentRangeStart);
-requestComment.setRangeEnd(rangeEnd: requestCommentRangeEnd);
-requestComment.setInitial(initial: "IA");
-requestComment.setAuthor(author: "Imran Anwar");
-requestComment.setText(text: "A new Comment");
-let insertRequest = InsertCommentOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Sample.docx", isDirectory: false))!, comment: requestComment);
+let requestDocument = InputStream(url: URL(string: "Sample.docx"))!;
+let requestCommentRangeStartNode = NodeLink()
+  .setNodeId(nodeId: "0.3.0.3");
+let requestCommentRangeStart = DocumentPosition()
+  .setNode(node: requestCommentRangeStartNode)
+  .setOffset(offset: 0);
+let requestCommentRangeEndNode = NodeLink()
+  .setNodeId(nodeId: "0.3.0.3");
+let requestCommentRangeEnd = DocumentPosition()
+  .setNode(node: requestCommentRangeEndNode)
+  .setOffset(offset: 0);
+let requestComment = CommentInsert()
+  .setAuthor(author: "Imran Anwar")
+  .setInitial(initial: "IA")
+  .setRangeEnd(rangeEnd: requestCommentRangeEnd)
+  .setRangeStart(rangeStart: requestCommentRangeStart)
+  .setText(text: "A new Comment");
+let insertRequest = InsertCommentOnlineRequest(document: requestDocument, comment: requestComment as! CommentInsert);
 _ = try api.insertCommentOnline(request: insertRequest);

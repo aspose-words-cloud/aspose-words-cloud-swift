@@ -1,8 +1,8 @@
-let currentDir = ...
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = WordsAPI(configuration: config);
-let requestSaveOptions = TiffSaveOptionsData();
-requestSaveOptions.setSaveFormat(saveFormat: "tiff");
-requestSaveOptions.setFileName(fileName: "/abc.tiff");
-let saveRequest = SaveAsTiffOnlineRequest(document: InputStream(url: currentDir!.appendingPathComponent("Common/test_multi_pages.docx", isDirectory: false))!, saveOptions: requestSaveOptions);
+let requestDocument = InputStream(url: URL(string: "Common/test_multi_pages.docx"))!;
+let requestSaveOptions = TiffSaveOptionsData()
+  .setFileName(fileName: "/abc.tiff")
+  .setSaveFormat(saveFormat: "tiff");
+let saveRequest = SaveAsTiffOnlineRequest(document: requestDocument, saveOptions: requestSaveOptions as! TiffSaveOptionsData);
 _ = try api.saveAsTiffOnline(request: saveRequest);

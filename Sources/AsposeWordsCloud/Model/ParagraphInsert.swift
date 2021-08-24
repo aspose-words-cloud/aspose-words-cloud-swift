@@ -30,7 +30,7 @@ import Foundation
 // DTO container with a paragraph's text.
 public class ParagraphInsert : Codable, WordsApiModel {
     // Field of text. DTO container with a paragraph's text.
-    private var text : String?;
+    public var text : String?;
 
     private enum CodingKeys: String, CodingKey {
         case text = "Text";
@@ -53,8 +53,9 @@ public class ParagraphInsert : Codable, WordsApiModel {
     }
 
     // Sets text. Gets or sets the paragraph's text.
-    public func setText(text : String?) {
+    public func setText(text : String?) -> ParagraphInsert {
         self.text = text;
+        return self;
     }
 
     // Gets text. Gets or sets the paragraph's text.

@@ -30,7 +30,7 @@ import Foundation
 // Reference to node.
 public class NodeLink : LinkElement {
     // Field of nodeId. Reference to node.
-    private var nodeId : String?;
+    public var nodeId : String?;
 
     private enum CodingKeys: String, CodingKey {
         case nodeId = "NodeId";
@@ -56,8 +56,9 @@ public class NodeLink : LinkElement {
     }
 
     // Sets nodeId. Gets or sets the node id.
-    public func setNodeId(nodeId : String?) {
+    public func setNodeId(nodeId : String?) -> NodeLink {
         self.nodeId = nodeId;
+        return self;
     }
 
     // Gets nodeId. Gets or sets the node id.

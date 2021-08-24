@@ -30,7 +30,7 @@ import Foundation
 // Update document properties if document list.
 public class ListUpdate : Codable, WordsApiModel {
     // Field of isRestartAtEachSection. Update document properties if document list.
-    private var isRestartAtEachSection : Bool?;
+    public var isRestartAtEachSection : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case isRestartAtEachSection = "IsRestartAtEachSection";
@@ -53,8 +53,9 @@ public class ListUpdate : Codable, WordsApiModel {
     }
 
     // Sets isRestartAtEachSection. Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
-    public func setIsRestartAtEachSection(isRestartAtEachSection : Bool?) {
+    public func setIsRestartAtEachSection(isRestartAtEachSection : Bool?) -> ListUpdate {
         self.isRestartAtEachSection = isRestartAtEachSection;
+        return self;
     }
 
     // Gets isRestartAtEachSection. Gets or sets a value indicating whether list should be restarted at each section. The default value is false.

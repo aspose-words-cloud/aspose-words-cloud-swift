@@ -30,7 +30,7 @@ import Foundation
 // DTO container with paragraph format tab stop.
 public class TabStop : TabStopBase {
     // Field of isClear. DTO container with paragraph format tab stop.
-    private var isClear : Bool?;
+    public var isClear : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case isClear = "IsClear";
@@ -56,8 +56,9 @@ public class TabStop : TabStopBase {
     }
 
     // Sets isClear. Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.
-    public func setIsClear(isClear : Bool?) {
+    public func setIsClear(isClear : Bool?) -> TabStop {
         self.isClear = isClear;
+        return self;
     }
 
     // Gets isClear. Gets or sets a value indicating whether this tab stop clears any existing tab stops in this position.

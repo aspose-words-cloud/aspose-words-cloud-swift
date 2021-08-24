@@ -30,7 +30,7 @@ import Foundation
 // Reference to a document.
 public class LinkElement : Codable, WordsApiModel {
     // Field of link. Reference to a document.
-    private var link : WordsApiLink?;
+    public var link : WordsApiLink?;
 
     private enum CodingKeys: String, CodingKey {
         case link = "Link";
@@ -53,8 +53,9 @@ public class LinkElement : Codable, WordsApiModel {
     }
 
     // Sets link. Gets or sets the link to the document.
-    public func setLink(link : WordsApiLink?) {
+    public func setLink(link : WordsApiLink?) -> LinkElement {
         self.link = link;
+        return self;
     }
 
     // Gets link. Gets or sets the link to the document.
