@@ -42,7 +42,8 @@ class MailMergeFiledsTests: BaseTestContext {
     func testGetDocumentFieldNamesOnline() throws {
       let localDocumentFile = "SampleExecuteTemplate.docx";
 
-      let request = GetDocumentFieldNamesOnlineRequest(template: InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(mailMergeFolder + "/" + localDocumentFile, isDirectory: false))!, useNonMergeFields: true);
+      let requestTemplate = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(mailMergeFolder + "/" + localDocumentFile, isDirectory: false))!;
+      let request = GetDocumentFieldNamesOnlineRequest(template: requestTemplate, useNonMergeFields: true);
       let actual = try super.getApi().getDocumentFieldNamesOnline(request: request);
       XCTAssertNotNil(actual.getFieldNames());
       XCTAssertNotNil(actual.getFieldNames()!.getNames());

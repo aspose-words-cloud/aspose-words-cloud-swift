@@ -1451,6 +1451,164 @@ public class WordsAPI {
         return responseObject!;
     }
 
+    // Async representation of deleteCustomXmlPart method
+    // Removes the custom xml part from the document.
+    public func deleteCustomXmlPart(request : DeleteCustomXmlPartRequest, callback : @escaping (_ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                callback: { response, error in
+                    callback(error);
+                }
+            );
+        }
+        catch let error {
+            callback(error);
+        }
+    }
+
+    // Sync representation of deleteCustomXmlPart method
+    // Removes the custom xml part from the document.
+    public func deleteCustomXmlPart(request : DeleteCustomXmlPartRequest) throws {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseError : Error? = nil;
+        self.deleteCustomXmlPart(request : request, callback: { error in
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+    }
+
+    // Async representation of deleteCustomXmlPartOnline method
+    // Removes the custom xml part from the document.
+    public func deleteCustomXmlPartOnline(request : DeleteCustomXmlPartOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                callback: { response, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of deleteCustomXmlPartOnline method
+    // Removes the custom xml part from the document.
+    public func deleteCustomXmlPartOnline(request : DeleteCustomXmlPartOnlineRequest) throws -> Data {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : Data? = nil;
+        var responseError : Error? = nil;
+        self.deleteCustomXmlPartOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of deleteCustomXmlParts method
+    // Removes all custom xml parts from the document.
+    public func deleteCustomXmlParts(request : DeleteCustomXmlPartsRequest, callback : @escaping (_ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                callback: { response, error in
+                    callback(error);
+                }
+            );
+        }
+        catch let error {
+            callback(error);
+        }
+    }
+
+    // Sync representation of deleteCustomXmlParts method
+    // Removes all custom xml parts from the document.
+    public func deleteCustomXmlParts(request : DeleteCustomXmlPartsRequest) throws {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseError : Error? = nil;
+        self.deleteCustomXmlParts(request : request, callback: { error in
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+    }
+
+    // Async representation of deleteCustomXmlPartsOnline method
+    // Removes all custom xml parts from the document.
+    public func deleteCustomXmlPartsOnline(request : DeleteCustomXmlPartsOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                callback: { response, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of deleteCustomXmlPartsOnline method
+    // Removes all custom xml parts from the document.
+    public func deleteCustomXmlPartsOnline(request : DeleteCustomXmlPartsOnlineRequest) throws -> Data {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : Data? = nil;
+        var responseError : Error? = nil;
+        self.deleteCustomXmlPartsOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of deleteDocumentProperty method
     // Removes a document property.
     public func deleteDocumentProperty(request : DeleteDocumentPropertyRequest, callback : @escaping (_ error : Error?) -> ()) {
@@ -3780,6 +3938,190 @@ public class WordsAPI {
         var responseObject : CommentsResponse? = nil;
         var responseError : Error? = nil;
         self.getCommentsOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of getCustomXmlPart method
+    // Reads the custom xml part from the document.
+    public func getCustomXmlPart(request : GetCustomXmlPartRequest, callback : @escaping (_ response : CustomXmlPartResponse?, _ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                callback: { response, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!) as? CustomXmlPartResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of getCustomXmlPart method
+    // Reads the custom xml part from the document.
+    public func getCustomXmlPart(request : GetCustomXmlPartRequest) throws -> CustomXmlPartResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : CustomXmlPartResponse? = nil;
+        var responseError : Error? = nil;
+        self.getCustomXmlPart(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of getCustomXmlPartOnline method
+    // Reads the custom xml part from the document.
+    public func getCustomXmlPartOnline(request : GetCustomXmlPartOnlineRequest, callback : @escaping (_ response : CustomXmlPartResponse?, _ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                callback: { response, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!) as? CustomXmlPartResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of getCustomXmlPartOnline method
+    // Reads the custom xml part from the document.
+    public func getCustomXmlPartOnline(request : GetCustomXmlPartOnlineRequest) throws -> CustomXmlPartResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : CustomXmlPartResponse? = nil;
+        var responseError : Error? = nil;
+        self.getCustomXmlPartOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of getCustomXmlParts method
+    // Reads custom xml parts from the document.
+    public func getCustomXmlParts(request : GetCustomXmlPartsRequest, callback : @escaping (_ response : CustomXmlPartsResponse?, _ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                callback: { response, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!) as? CustomXmlPartsResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of getCustomXmlParts method
+    // Reads custom xml parts from the document.
+    public func getCustomXmlParts(request : GetCustomXmlPartsRequest) throws -> CustomXmlPartsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : CustomXmlPartsResponse? = nil;
+        var responseError : Error? = nil;
+        self.getCustomXmlParts(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of getCustomXmlPartsOnline method
+    // Reads custom xml parts from the document.
+    public func getCustomXmlPartsOnline(request : GetCustomXmlPartsOnlineRequest, callback : @escaping (_ response : CustomXmlPartsResponse?, _ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                callback: { response, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!) as? CustomXmlPartsResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of getCustomXmlPartsOnline method
+    // Reads custom xml parts from the document.
+    public func getCustomXmlPartsOnline(request : GetCustomXmlPartsOnlineRequest) throws -> CustomXmlPartsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : CustomXmlPartsResponse? = nil;
+        var responseError : Error? = nil;
+        self.getCustomXmlPartsOnline(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();
@@ -8301,6 +8643,98 @@ public class WordsAPI {
         return responseObject!;
     }
 
+    // Async representation of insertCustomXmlPart method
+    // Inserts a new custom xml part to the document.
+    public func insertCustomXmlPart(request : InsertCustomXmlPartRequest, callback : @escaping (_ response : CustomXmlPartResponse?, _ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                callback: { response, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!) as? CustomXmlPartResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of insertCustomXmlPart method
+    // Inserts a new custom xml part to the document.
+    public func insertCustomXmlPart(request : InsertCustomXmlPartRequest) throws -> CustomXmlPartResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : CustomXmlPartResponse? = nil;
+        var responseError : Error? = nil;
+        self.insertCustomXmlPart(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of insertCustomXmlPartOnline method
+    // Inserts a new custom xml part to the document.
+    public func insertCustomXmlPartOnline(request : InsertCustomXmlPartOnlineRequest, callback : @escaping (_ response : InsertCustomXmlPartOnlineResponse?, _ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                callback: { response, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!) as? InsertCustomXmlPartOnlineResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of insertCustomXmlPartOnline method
+    // Inserts a new custom xml part to the document.
+    public func insertCustomXmlPartOnline(request : InsertCustomXmlPartOnlineRequest) throws -> InsertCustomXmlPartOnlineResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : InsertCustomXmlPartOnlineResponse? = nil;
+        var responseError : Error? = nil;
+        self.insertCustomXmlPartOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of insertDrawingObject method
     // Inserts a new DrawingObject to the document node.
     public func insertDrawingObject(request : InsertDrawingObjectRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
@@ -11732,6 +12166,98 @@ public class WordsAPI {
         var responseObject : UpdateCommentOnlineResponse? = nil;
         var responseError : Error? = nil;
         self.updateCommentOnline(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of updateCustomXmlPart method
+    // Updates the custom xml part in the document.
+    public func updateCustomXmlPart(request : UpdateCustomXmlPartRequest, callback : @escaping (_ response : CustomXmlPartResponse?, _ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                callback: { response, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!) as? CustomXmlPartResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of updateCustomXmlPart method
+    // Updates the custom xml part in the document.
+    public func updateCustomXmlPart(request : UpdateCustomXmlPartRequest) throws -> CustomXmlPartResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : CustomXmlPartResponse? = nil;
+        var responseError : Error? = nil;
+        self.updateCustomXmlPart(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
+    // Async representation of updateCustomXmlPartOnline method
+    // Updates the custom xml part in the document.
+    public func updateCustomXmlPartOnline(request : UpdateCustomXmlPartOnlineRequest, callback : @escaping (_ response : UpdateCustomXmlPartOnlineResponse?, _ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                callback: { response, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!) as? UpdateCustomXmlPartOnlineResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of updateCustomXmlPartOnline method
+    // Updates the custom xml part in the document.
+    public func updateCustomXmlPartOnline(request : UpdateCustomXmlPartOnlineRequest) throws -> UpdateCustomXmlPartOnlineResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : UpdateCustomXmlPartOnlineResponse? = nil;
+        var responseError : Error? = nil;
+        self.updateCustomXmlPartOnline(request : request, callback: { response, error in
             responseObject = response;
             responseError = error;
             semaphore.signal();
