@@ -14,49 +14,47 @@ def needToBuild = false
 
 node('words-linux') {
 	cleanWs()
-    if (!params.branch.contains("release")) {
-        dir('swift') {
-            try {
-                stage('checkout'){
-                    checkout([$class: 'GitSCM', branches: [[name: params.branch]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: "**"]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '361885ba-9425-4230-950e-0af201d90547', url: 'https://git.auckland.dynabic.com/words-cloud/words-cloud-sdk-swift.git']]])
-                    
-                    sh 'git show -s HEAD > gitMessage'
-                    def commitMessage = readFile('gitMessage').trim()
-                    echo commitMessage
-                    needToBuild = params.ignoreCiSkip || !commitMessage.contains('[ci skip]')               
-                    sh 'git clean -fdx'
-                    
-                    if (needToBuild) {
-                        withCredentials([usernamePassword(credentialsId: params.credentialsId, passwordVariable: 'ClientSecret', usernameVariable: 'ClientId')]) {
-                            sh 'mkdir -p Settings'
-                            sh 'echo "{\\"ClientId\\": \\"$ClientId\\",\\"ClientSecret\\": \\"$ClientSecret\\", \\"BaseUrl\\": \\"$apiUrl\\"}" > Settings/servercreds.json'
-                        }
-                    }
-                }
+    dir('swift') {
+        try {
+            stage('checkout'){
+                checkout([$class: 'GitSCM', branches: [[name: params.branch]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'LocalBranch', localBranch: "**"]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '361885ba-9425-4230-950e-0af201d90547', url: 'https://git.auckland.dynabic.com/words-cloud/words-cloud-sdk-swift.git']]])
+                
+                sh 'git show -s HEAD > gitMessage'
+                def commitMessage = readFile('gitMessage').trim()
+                echo commitMessage
+                needToBuild = params.ignoreCiSkip || !commitMessage.contains('[ci skip]')               
+                sh 'git clean -fdx'
                 
                 if (needToBuild) {
-                    docker.image('swift:5.0').inside{
-                        stage('build'){
-                            sh "swift build"
-                        }
-                    
-                        stage('tests'){
-                            try{
-                                sh "chmod +x ./Scripts/runTests.sh"
-                                sh "./Scripts/runTests.sh"
-                            } finally{
-                                junit 'tests.xml'
-                            }
-                        }
-                        
-                        stage('clean-compiled'){
-                            sh "rm -rf %s"
-                        }
-                    } 
+                    withCredentials([usernamePassword(credentialsId: params.credentialsId, passwordVariable: 'ClientSecret', usernameVariable: 'ClientId')]) {
+                        sh 'mkdir -p Settings'
+                        sh 'echo "{\\"ClientId\\": \\"$ClientId\\",\\"ClientSecret\\": \\"$ClientSecret\\", \\"BaseUrl\\": \\"$apiUrl\\"}" > Settings/servercreds.json'
+                    }
                 }
-            } finally {
-                deleteDir()
             }
+            
+            if (needToBuild) {
+                docker.image('swift:5.0').inside{
+                    stage('build'){
+                        sh "swift build"
+                    }
+                
+                    stage('tests'){
+                        try{
+                            sh "chmod +x ./Scripts/runTests.sh"
+                            sh "./Scripts/runTests.sh"
+                        } finally{
+                            junit 'tests.xml'
+                        }
+                    }
+                    
+                    stage('clean-compiled'){
+                        sh "rm -rf %s"
+                    }
+                } 
+            }
+        } finally {
+            deleteDir()
         }
     }
 }
