@@ -30,16 +30,16 @@ import Foundation
 // Represents a single document style properties to update.
 public class StyleUpdate : Codable, WordsApiModel {
     // Field of baseStyleName. Represents a single document style properties to update.
-    private var baseStyleName : String?;
+    public var baseStyleName : String?;
 
     // Field of isQuickStyle. Represents a single document style properties to update.
-    private var isQuickStyle : Bool?;
+    public var isQuickStyle : Bool?;
 
     // Field of name. Represents a single document style properties to update.
-    private var name : String?;
+    public var name : String?;
 
     // Field of nextParagraphStyleName. Represents a single document style properties to update.
-    private var nextParagraphStyleName : String?;
+    public var nextParagraphStyleName : String?;
 
     private enum CodingKeys: String, CodingKey {
         case baseStyleName = "BaseStyleName";
@@ -77,8 +77,9 @@ public class StyleUpdate : Codable, WordsApiModel {
     }
 
     // Sets baseStyleName. Gets or sets the name of the style this style is based on.
-    public func setBaseStyleName(baseStyleName : String?) {
+    public func setBaseStyleName(baseStyleName : String?) -> StyleUpdate {
         self.baseStyleName = baseStyleName;
+        return self;
     }
 
     // Gets baseStyleName. Gets or sets the name of the style this style is based on.
@@ -87,8 +88,9 @@ public class StyleUpdate : Codable, WordsApiModel {
     }
 
     // Sets isQuickStyle. Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
-    public func setIsQuickStyle(isQuickStyle : Bool?) {
+    public func setIsQuickStyle(isQuickStyle : Bool?) -> StyleUpdate {
         self.isQuickStyle = isQuickStyle;
+        return self;
     }
 
     // Gets isQuickStyle. Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
@@ -97,8 +99,9 @@ public class StyleUpdate : Codable, WordsApiModel {
     }
 
     // Sets name. Gets or sets the name of the style.
-    public func setName(name : String?) {
+    public func setName(name : String?) -> StyleUpdate {
         self.name = name;
+        return self;
     }
 
     // Gets name. Gets or sets the name of the style.
@@ -107,8 +110,9 @@ public class StyleUpdate : Codable, WordsApiModel {
     }
 
     // Sets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
-    public func setNextParagraphStyleName(nextParagraphStyleName : String?) {
+    public func setNextParagraphStyleName(nextParagraphStyleName : String?) -> StyleUpdate {
         self.nextParagraphStyleName = nextParagraphStyleName;
+        return self;
     }
 
     // Gets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.

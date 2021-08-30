@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a collection of document properties.
 public class DocumentPropertiesResponse : WordsResponse {
     // Field of documentProperties. The REST response with a collection of document properties.
-    private var documentProperties : DocumentProperties?;
+    public var documentProperties : DocumentProperties?;
 
     private enum CodingKeys: String, CodingKey {
         case documentProperties = "DocumentProperties";
@@ -56,8 +56,9 @@ public class DocumentPropertiesResponse : WordsResponse {
     }
 
     // Sets documentProperties. Gets or sets the collection of document properties.
-    public func setDocumentProperties(documentProperties : DocumentProperties?) {
+    public func setDocumentProperties(documentProperties : DocumentProperties?) -> DocumentPropertiesResponse {
         self.documentProperties = documentProperties;
+        return self;
     }
 
     // Gets documentProperties. Gets or sets the collection of document properties.

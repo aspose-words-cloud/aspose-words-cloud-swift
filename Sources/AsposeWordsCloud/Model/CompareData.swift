@@ -30,19 +30,19 @@ import Foundation
 // Container class for compare documents.
 public class CompareData : Codable, WordsApiModel {
     // Field of author. Container class for compare documents.
-    private var author : String?;
+    public var author : String?;
 
     // Field of compareOptions. Container class for compare documents.
-    private var compareOptions : CompareOptions?;
+    public var compareOptions : CompareOptions?;
 
     // Field of comparingWithDocument. Container class for compare documents.
-    private var comparingWithDocument : String?;
+    public var comparingWithDocument : String?;
 
     // Field of dateTime. Container class for compare documents.
-    private var dateTime : Date?;
+    public var dateTime : Date?;
 
     // Field of resultDocumentFormat. Container class for compare documents.
-    private var resultDocumentFormat : String?;
+    public var resultDocumentFormat : String?;
 
     private enum CodingKeys: String, CodingKey {
         case author = "Author";
@@ -90,8 +90,9 @@ public class CompareData : Codable, WordsApiModel {
     }
 
     // Sets author. Gets or sets the initials of the author to use for revisions.
-    public func setAuthor(author : String?) {
+    public func setAuthor(author : String?) -> CompareData {
         self.author = author;
+        return self;
     }
 
     // Gets author. Gets or sets the initials of the author to use for revisions.
@@ -100,8 +101,9 @@ public class CompareData : Codable, WordsApiModel {
     }
 
     // Sets compareOptions. Gets or sets the compare options.
-    public func setCompareOptions(compareOptions : CompareOptions?) {
+    public func setCompareOptions(compareOptions : CompareOptions?) -> CompareData {
         self.compareOptions = compareOptions;
+        return self;
     }
 
     // Gets compareOptions. Gets or sets the compare options.
@@ -110,8 +112,9 @@ public class CompareData : Codable, WordsApiModel {
     }
 
     // Sets comparingWithDocument. Gets or sets the path to document to compare at the server.
-    public func setComparingWithDocument(comparingWithDocument : String?) {
+    public func setComparingWithDocument(comparingWithDocument : String?) -> CompareData {
         self.comparingWithDocument = comparingWithDocument;
+        return self;
     }
 
     // Gets comparingWithDocument. Gets or sets the path to document to compare at the server.
@@ -120,8 +123,9 @@ public class CompareData : Codable, WordsApiModel {
     }
 
     // Sets dateTime. Gets or sets the date and time to use for revisions.
-    public func setDateTime(dateTime : Date?) {
+    public func setDateTime(dateTime : Date?) -> CompareData {
         self.dateTime = dateTime;
+        return self;
     }
 
     // Gets dateTime. Gets or sets the date and time to use for revisions.
@@ -130,8 +134,9 @@ public class CompareData : Codable, WordsApiModel {
     }
 
     // Sets resultDocumentFormat. Gets or sets the result document format.
-    public func setResultDocumentFormat(resultDocumentFormat : String?) {
+    public func setResultDocumentFormat(resultDocumentFormat : String?) -> CompareData {
         self.resultDocumentFormat = resultDocumentFormat;
+        return self;
     }
 
     // Gets resultDocumentFormat. Gets or sets the result document format.

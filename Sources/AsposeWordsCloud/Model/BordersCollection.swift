@@ -30,7 +30,7 @@ import Foundation
 // The collection of borders.
 public class BordersCollection : LinkElement {
     // Field of list. The collection of borders.
-    private var list : [Border]?;
+    public var list : [Border]?;
 
     private enum CodingKeys: String, CodingKey {
         case list = "List";
@@ -56,8 +56,9 @@ public class BordersCollection : LinkElement {
     }
 
     // Sets list. Gets or sets the collection of comments.
-    public func setList(list : [Border]?) {
+    public func setList(list : [Border]?) -> BordersCollection {
         self.list = list;
+        return self;
     }
 
     // Gets list. Gets or sets the collection of comments.

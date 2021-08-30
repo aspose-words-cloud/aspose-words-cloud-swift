@@ -30,10 +30,10 @@ import Foundation
 // DTO container with a table element.
 public class Table : NodeLink {
     // Field of tableProperties. DTO container with a table element.
-    private var tableProperties : TableProperties?;
+    public var tableProperties : TableProperties?;
 
     // Field of tableRowList. DTO container with a table element.
-    private var tableRowList : [TableRow]?;
+    public var tableRowList : [TableRow]?;
 
     private enum CodingKeys: String, CodingKey {
         case tableProperties = "TableProperties";
@@ -64,8 +64,9 @@ public class Table : NodeLink {
     }
 
     // Sets tableProperties. Gets or sets table properties.
-    public func setTableProperties(tableProperties : TableProperties?) {
+    public func setTableProperties(tableProperties : TableProperties?) -> Table {
         self.tableProperties = tableProperties;
+        return self;
     }
 
     // Gets tableProperties. Gets or sets table properties.
@@ -74,8 +75,9 @@ public class Table : NodeLink {
     }
 
     // Sets tableRowList. Gets or sets the collection of table's rows.
-    public func setTableRowList(tableRowList : [TableRow]?) {
+    public func setTableRowList(tableRowList : [TableRow]?) -> Table {
         self.tableRowList = tableRowList;
+        return self;
     }
 
     // Gets tableRowList. Gets or sets the collection of table's rows.

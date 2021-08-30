@@ -30,7 +30,7 @@ import Foundation
 // DTO container with a collection of fields.
 public class FieldCollection : LinkElement {
     // Field of list. DTO container with a collection of fields.
-    private var list : [Field]?;
+    public var list : [Field]?;
 
     private enum CodingKeys: String, CodingKey {
         case list = "List";
@@ -56,8 +56,9 @@ public class FieldCollection : LinkElement {
     }
 
     // Sets list. Gets or sets the collection of fields.
-    public func setList(list : [Field]?) {
+    public func setList(list : [Field]?) -> FieldCollection {
         self.list = list;
+        return self;
     }
 
     // Gets list. Gets or sets the collection of fields.

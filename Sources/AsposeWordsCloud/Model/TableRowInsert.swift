@@ -30,10 +30,10 @@ import Foundation
 // DTO container with a table row element.
 public class TableRowInsert : Codable, WordsApiModel {
     // Field of columnsCount. DTO container with a table row element.
-    private var columnsCount : Int?;
+    public var columnsCount : Int?;
 
     // Field of insertAfter. DTO container with a table row element.
-    private var insertAfter : Int?;
+    public var insertAfter : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case columnsCount = "ColumnsCount";
@@ -61,8 +61,9 @@ public class TableRowInsert : Codable, WordsApiModel {
     }
 
     // Sets columnsCount. Gets or sets the count of columns. The default value is 1.
-    public func setColumnsCount(columnsCount : Int?) {
+    public func setColumnsCount(columnsCount : Int?) -> TableRowInsert {
         self.columnsCount = columnsCount;
+        return self;
     }
 
     // Gets columnsCount. Gets or sets the count of columns. The default value is 1.
@@ -71,8 +72,9 @@ public class TableRowInsert : Codable, WordsApiModel {
     }
 
     // Sets insertAfter. Gets or sets table row will be inserted after row with specified 0-based index.
-    public func setInsertAfter(insertAfter : Int?) {
+    public func setInsertAfter(insertAfter : Int?) -> TableRowInsert {
         self.insertAfter = insertAfter;
+        return self;
     }
 
     // Gets insertAfter. Gets or sets table row will be inserted after row with specified 0-based index.

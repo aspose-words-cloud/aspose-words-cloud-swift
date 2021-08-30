@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a list format for a paragraph.
 public class ParagraphListFormatResponse : WordsResponse {
     // Field of listFormat. The REST response with a list format for a paragraph.
-    private var listFormat : ListFormat?;
+    public var listFormat : ListFormat?;
 
     private enum CodingKeys: String, CodingKey {
         case listFormat = "ListFormat";
@@ -56,8 +56,9 @@ public class ParagraphListFormatResponse : WordsResponse {
     }
 
     // Sets listFormat. Gets or sets the list format for a paragraph.
-    public func setListFormat(listFormat : ListFormat?) {
+    public func setListFormat(listFormat : ListFormat?) -> ParagraphListFormatResponse {
         self.listFormat = listFormat;
+        return self;
     }
 
     // Gets listFormat. Gets or sets the list format for a paragraph.

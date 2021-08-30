@@ -30,10 +30,10 @@ import Foundation
 // Paragraph format element.
 public class ParagraphFormat : ParagraphFormatBase {
     // Field of isHeading. Paragraph format element.
-    private var isHeading : Bool?;
+    public var isHeading : Bool?;
 
     // Field of isListItem. Paragraph format element.
-    private var isListItem : Bool?;
+    public var isListItem : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case isHeading = "IsHeading";
@@ -64,8 +64,9 @@ public class ParagraphFormat : ParagraphFormatBase {
     }
 
     // Sets isHeading. Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
-    public func setIsHeading(isHeading : Bool?) {
+    public func setIsHeading(isHeading : Bool?) -> ParagraphFormat {
         self.isHeading = isHeading;
+        return self;
     }
 
     // Gets isHeading. Gets or sets a value indicating whether the paragraph style is one of the built-in Heading styles.
@@ -74,8 +75,9 @@ public class ParagraphFormat : ParagraphFormatBase {
     }
 
     // Sets isListItem. Gets or sets a value indicating whether the paragraph is an item in a bulleted or numbered list.
-    public func setIsListItem(isListItem : Bool?) {
+    public func setIsListItem(isListItem : Bool?) -> ParagraphFormat {
         self.isListItem = isListItem;
+        return self;
     }
 
     // Gets isListItem. Gets or sets a value indicating whether the paragraph is an item in a bulleted or numbered list.

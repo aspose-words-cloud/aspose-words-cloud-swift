@@ -30,7 +30,7 @@ import Foundation
 // Represents an array of bookmarks.
 public class Bookmarks : LinkElement {
     // Field of bookmarkList. Represents an array of bookmarks.
-    private var bookmarkList : [Bookmark]?;
+    public var bookmarkList : [Bookmark]?;
 
     private enum CodingKeys: String, CodingKey {
         case bookmarkList = "BookmarkList";
@@ -56,8 +56,9 @@ public class Bookmarks : LinkElement {
     }
 
     // Sets bookmarkList. Gets or sets the array of bookmarks.
-    public func setBookmarkList(bookmarkList : [Bookmark]?) {
+    public func setBookmarkList(bookmarkList : [Bookmark]?) -> Bookmarks {
         self.bookmarkList = bookmarkList;
+        return self;
     }
 
     // Gets bookmarkList. Gets or sets the array of bookmarks.

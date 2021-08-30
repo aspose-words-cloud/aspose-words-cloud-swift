@@ -117,25 +117,25 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     }
 
     // Field of height. Drawing object element for update.
-    private var height : Double?;
+    public var height : Double?;
 
     // Field of _left. Drawing object element for update.
-    private var _left : Double?;
+    public var _left : Double?;
 
     // Field of relativeHorizontalPosition. Drawing object element for update.
-    private var relativeHorizontalPosition : RelativeHorizontalPosition?;
+    public var relativeHorizontalPosition : RelativeHorizontalPosition?;
 
     // Field of relativeVerticalPosition. Drawing object element for update.
-    private var relativeVerticalPosition : RelativeVerticalPosition?;
+    public var relativeVerticalPosition : RelativeVerticalPosition?;
 
     // Field of top. Drawing object element for update.
-    private var top : Double?;
+    public var top : Double?;
 
     // Field of width. Drawing object element for update.
-    private var width : Double?;
+    public var width : Double?;
 
     // Field of wrapType. Drawing object element for update.
-    private var wrapType : WrapType?;
+    public var wrapType : WrapType?;
 
     private enum CodingKeys: String, CodingKey {
         case height = "Height";
@@ -188,8 +188,9 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     }
 
     // Sets height. Gets or sets the height of the DrawingObject in points.
-    public func setHeight(height : Double?) {
+    public func setHeight(height : Double?) -> DrawingObjectUpdate {
         self.height = height;
+        return self;
     }
 
     // Gets height. Gets or sets the height of the DrawingObject in points.
@@ -198,8 +199,9 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     }
 
     // Sets _left. Gets or sets the distance in points from the origin to the left side of the image.
-    public func setLeft(_left : Double?) {
+    public func setLeft(_left : Double?) -> DrawingObjectUpdate {
         self._left = _left;
+        return self;
     }
 
     // Gets _left. Gets or sets the distance in points from the origin to the left side of the image.
@@ -208,8 +210,9 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     }
 
     // Sets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
-    public func setRelativeHorizontalPosition(relativeHorizontalPosition : RelativeHorizontalPosition?) {
+    public func setRelativeHorizontalPosition(relativeHorizontalPosition : RelativeHorizontalPosition?) -> DrawingObjectUpdate {
         self.relativeHorizontalPosition = relativeHorizontalPosition;
+        return self;
     }
 
     // Gets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
@@ -218,8 +221,9 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     }
 
     // Sets relativeVerticalPosition. Gets or sets the relative vertical position, from which the distance to the image measured.
-    public func setRelativeVerticalPosition(relativeVerticalPosition : RelativeVerticalPosition?) {
+    public func setRelativeVerticalPosition(relativeVerticalPosition : RelativeVerticalPosition?) -> DrawingObjectUpdate {
         self.relativeVerticalPosition = relativeVerticalPosition;
+        return self;
     }
 
     // Gets relativeVerticalPosition. Gets or sets the relative vertical position, from which the distance to the image measured.
@@ -228,8 +232,9 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     }
 
     // Sets top. Gets or sets the distance in points from the origin to the top side of the image.
-    public func setTop(top : Double?) {
+    public func setTop(top : Double?) -> DrawingObjectUpdate {
         self.top = top;
+        return self;
     }
 
     // Gets top. Gets or sets the distance in points from the origin to the top side of the image.
@@ -238,8 +243,9 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     }
 
     // Sets width. Gets or sets the width of the DrawingObjects in points.
-    public func setWidth(width : Double?) {
+    public func setWidth(width : Double?) -> DrawingObjectUpdate {
         self.width = width;
+        return self;
     }
 
     // Gets width. Gets or sets the width of the DrawingObjects in points.
@@ -248,8 +254,9 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     }
 
     // Sets wrapType. Gets or sets the option that controls how to wrap text around the image.
-    public func setWrapType(wrapType : WrapType?) {
+    public func setWrapType(wrapType : WrapType?) -> DrawingObjectUpdate {
         self.wrapType = wrapType;
+        return self;
     }
 
     // Gets wrapType. Gets or sets the option that controls how to wrap text around the image.

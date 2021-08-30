@@ -30,7 +30,7 @@ import Foundation
 // DTO container with a collection of OfficeMath objects.
 public class OfficeMathObjectsCollection : LinkElement {
     // Field of list. DTO container with a collection of OfficeMath objects.
-    private var list : [OfficeMathObject]?;
+    public var list : [OfficeMathObject]?;
 
     private enum CodingKeys: String, CodingKey {
         case list = "List";
@@ -56,8 +56,9 @@ public class OfficeMathObjectsCollection : LinkElement {
     }
 
     // Sets list. Gets or sets the collection of OfficeMath objects.
-    public func setList(list : [OfficeMathObject]?) {
+    public func setList(list : [OfficeMathObject]?) -> OfficeMathObjectsCollection {
         self.list = list;
+        return self;
     }
 
     // Gets list. Gets or sets the collection of OfficeMath objects.

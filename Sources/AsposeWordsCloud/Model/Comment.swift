@@ -30,25 +30,25 @@ import Foundation
 // DTO container with a comment.
 public class Comment : CommentLink {
     // Field of author. DTO container with a comment.
-    private var author : String?;
+    public var author : String?;
 
     // Field of content. DTO container with a comment.
-    private var content : StoryChildNodes?;
+    public var content : StoryChildNodes?;
 
     // Field of dateTime. DTO container with a comment.
-    private var dateTime : Date?;
+    public var dateTime : Date?;
 
     // Field of initial. DTO container with a comment.
-    private var initial : String?;
+    public var initial : String?;
 
     // Field of rangeEnd. DTO container with a comment.
-    private var rangeEnd : DocumentPosition?;
+    public var rangeEnd : DocumentPosition?;
 
     // Field of rangeStart. DTO container with a comment.
-    private var rangeStart : DocumentPosition?;
+    public var rangeStart : DocumentPosition?;
 
     // Field of text. DTO container with a comment.
-    private var text : String?;
+    public var text : String?;
 
     private enum CodingKeys: String, CodingKey {
         case author = "Author";
@@ -109,8 +109,9 @@ public class Comment : CommentLink {
     }
 
     // Sets author. Gets or sets the author name for a comment.
-    public func setAuthor(author : String?) {
+    public func setAuthor(author : String?) -> Comment {
         self.author = author;
+        return self;
     }
 
     // Gets author. Gets or sets the author name for a comment.
@@ -119,8 +120,9 @@ public class Comment : CommentLink {
     }
 
     // Sets content. Gets or sets the content of the comment.
-    public func setContent(content : StoryChildNodes?) {
+    public func setContent(content : StoryChildNodes?) -> Comment {
         self.content = content;
+        return self;
     }
 
     // Gets content. Gets or sets the content of the comment.
@@ -129,8 +131,9 @@ public class Comment : CommentLink {
     }
 
     // Sets dateTime. Gets or sets the date and time that the comment was made.
-    public func setDateTime(dateTime : Date?) {
+    public func setDateTime(dateTime : Date?) -> Comment {
         self.dateTime = dateTime;
+        return self;
     }
 
     // Gets dateTime. Gets or sets the date and time that the comment was made.
@@ -139,8 +142,9 @@ public class Comment : CommentLink {
     }
 
     // Sets initial. Gets or sets the initials of the user associated with a specific comment.
-    public func setInitial(initial : String?) {
+    public func setInitial(initial : String?) -> Comment {
         self.initial = initial;
+        return self;
     }
 
     // Gets initial. Gets or sets the initials of the user associated with a specific comment.
@@ -149,8 +153,9 @@ public class Comment : CommentLink {
     }
 
     // Sets rangeEnd. Gets or sets the link to comment range end node.
-    public func setRangeEnd(rangeEnd : DocumentPosition?) {
+    public func setRangeEnd(rangeEnd : DocumentPosition?) -> Comment {
         self.rangeEnd = rangeEnd;
+        return self;
     }
 
     // Gets rangeEnd. Gets or sets the link to comment range end node.
@@ -159,8 +164,9 @@ public class Comment : CommentLink {
     }
 
     // Sets rangeStart. Gets or sets the link to comment range start node.
-    public func setRangeStart(rangeStart : DocumentPosition?) {
+    public func setRangeStart(rangeStart : DocumentPosition?) -> Comment {
         self.rangeStart = rangeStart;
+        return self;
     }
 
     // Gets rangeStart. Gets or sets the link to comment range start node.
@@ -169,8 +175,9 @@ public class Comment : CommentLink {
     }
 
     // Sets text. Gets or sets text of the comment.
-    public func setText(text : String?) {
+    public func setText(text : String?) -> Comment {
         self.text = text;
+        return self;
     }
 
     // Gets text. Gets or sets text of the comment.

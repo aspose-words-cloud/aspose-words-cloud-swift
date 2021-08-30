@@ -30,7 +30,7 @@ import Foundation
 // Run element.
 public class RunBase : Codable, WordsApiModel {
     // Field of text. Run element.
-    private var text : String?;
+    public var text : String?;
 
     private enum CodingKeys: String, CodingKey {
         case text = "Text";
@@ -53,8 +53,9 @@ public class RunBase : Codable, WordsApiModel {
     }
 
     // Sets text. Gets or sets the run's text.
-    public func setText(text : String?) {
+    public func setText(text : String?) -> RunBase {
         self.text = text;
+        return self;
     }
 
     // Gets text. Gets or sets the run's text.

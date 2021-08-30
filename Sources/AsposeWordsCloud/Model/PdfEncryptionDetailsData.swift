@@ -30,16 +30,16 @@ import Foundation
 // Container class for details of encryption.
 public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     // Field of encryptionAlgorithm. Container class for details of encryption.
-    private var encryptionAlgorithm : String?;
+    public var encryptionAlgorithm : String?;
 
     // Field of ownerPassword. Container class for details of encryption.
-    private var ownerPassword : String?;
+    public var ownerPassword : String?;
 
     // Field of permissions. Container class for details of encryption.
-    private var permissions : String?;
+    public var permissions : String?;
 
     // Field of userPassword. Container class for details of encryption.
-    private var userPassword : String?;
+    public var userPassword : String?;
 
     private enum CodingKeys: String, CodingKey {
         case encryptionAlgorithm = "EncryptionAlgorithm";
@@ -77,8 +77,9 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     }
 
     // Sets encryptionAlgorithm. Gets or sets the encryption algorithm to use.
-    public func setEncryptionAlgorithm(encryptionAlgorithm : String?) {
+    public func setEncryptionAlgorithm(encryptionAlgorithm : String?) -> PdfEncryptionDetailsData {
         self.encryptionAlgorithm = encryptionAlgorithm;
+        return self;
     }
 
     // Gets encryptionAlgorithm. Gets or sets the encryption algorithm to use.
@@ -87,8 +88,9 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     }
 
     // Sets ownerPassword. Gets or sets the owner password for the encrypted PDF document.
-    public func setOwnerPassword(ownerPassword : String?) {
+    public func setOwnerPassword(ownerPassword : String?) -> PdfEncryptionDetailsData {
         self.ownerPassword = ownerPassword;
+        return self;
     }
 
     // Gets ownerPassword. Gets or sets the owner password for the encrypted PDF document.
@@ -97,8 +99,9 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     }
 
     // Sets permissions. Gets or sets the operations that are allowed to a user on the encrypted PDF document.
-    public func setPermissions(permissions : String?) {
+    public func setPermissions(permissions : String?) -> PdfEncryptionDetailsData {
         self.permissions = permissions;
+        return self;
     }
 
     // Gets permissions. Gets or sets the operations that are allowed to a user on the encrypted PDF document.
@@ -107,8 +110,9 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     }
 
     // Sets userPassword. Gets or sets the user password required for opening the encrypted PDF document.
-    public func setUserPassword(userPassword : String?) {
+    public func setUserPassword(userPassword : String?) -> PdfEncryptionDetailsData {
         self.userPassword = userPassword;
+        return self;
     }
 
     // Gets userPassword. Gets or sets the user password required for opening the encrypted PDF document.

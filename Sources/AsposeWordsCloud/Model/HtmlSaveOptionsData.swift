@@ -70,121 +70,121 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Field of allowNegativeIndent. Container class for html save options.
-    private var allowNegativeIndent : Bool?;
+    public var allowNegativeIndent : Bool?;
 
     // Field of cssClassNamePrefix. Container class for html save options.
-    private var cssClassNamePrefix : String?;
+    public var cssClassNamePrefix : String?;
 
     // Field of cssStyleSheetFileName. Container class for html save options.
-    private var cssStyleSheetFileName : String?;
+    public var cssStyleSheetFileName : String?;
 
     // Field of cssStyleSheetType. Container class for html save options.
-    private var cssStyleSheetType : String?;
+    public var cssStyleSheetType : String?;
 
     // Field of documentSplitCriteria. Container class for html save options.
-    private var documentSplitCriteria : String?;
+    public var documentSplitCriteria : String?;
 
     // Field of documentSplitHeadingLevel. Container class for html save options.
-    private var documentSplitHeadingLevel : Int?;
+    public var documentSplitHeadingLevel : Int?;
 
     // Field of encoding. Container class for html save options.
-    private var encoding : String?;
+    public var encoding : String?;
 
     // Field of exportDocumentProperties. Container class for html save options.
-    private var exportDocumentProperties : Bool?;
+    public var exportDocumentProperties : Bool?;
 
     // Field of exportDropDownFormFieldAsText. Container class for html save options.
-    private var exportDropDownFormFieldAsText : Bool?;
+    public var exportDropDownFormFieldAsText : Bool?;
 
     // Field of exportFontResources. Container class for html save options.
-    private var exportFontResources : Bool?;
+    public var exportFontResources : Bool?;
 
     // Field of exportFontsAsBase64. Container class for html save options.
-    private var exportFontsAsBase64 : Bool?;
+    public var exportFontsAsBase64 : Bool?;
 
     // Field of exportHeadersFootersMode. Container class for html save options.
-    private var exportHeadersFootersMode : String?;
+    public var exportHeadersFootersMode : String?;
 
     // Field of exportImagesAsBase64. Container class for html save options.
-    private var exportImagesAsBase64 : Bool?;
+    public var exportImagesAsBase64 : Bool?;
 
     // Field of exportLanguageInformation. Container class for html save options.
-    private var exportLanguageInformation : Bool?;
+    public var exportLanguageInformation : Bool?;
 
     // Field of exportListLabels. Container class for html save options.
-    private var exportListLabels : String?;
+    public var exportListLabels : String?;
 
     // Field of exportOriginalUrlForLinkedImages. Container class for html save options.
-    private var exportOriginalUrlForLinkedImages : Bool?;
+    public var exportOriginalUrlForLinkedImages : Bool?;
 
     // Field of exportPageMargins. Container class for html save options.
-    private var exportPageMargins : Bool?;
+    public var exportPageMargins : Bool?;
 
     // Field of exportPageSetup. Container class for html save options.
-    private var exportPageSetup : Bool?;
+    public var exportPageSetup : Bool?;
 
     // Field of exportRelativeFontSize. Container class for html save options.
-    private var exportRelativeFontSize : Bool?;
+    public var exportRelativeFontSize : Bool?;
 
     // Field of exportRoundtripInformation. Container class for html save options.
-    private var exportRoundtripInformation : Bool?;
+    public var exportRoundtripInformation : Bool?;
 
     // Field of exportTextBoxAsSvg. Container class for html save options.
-    private var exportTextBoxAsSvg : Bool?;
+    public var exportTextBoxAsSvg : Bool?;
 
     // Field of exportTextInputFormFieldAsText. Container class for html save options.
-    private var exportTextInputFormFieldAsText : Bool?;
+    public var exportTextInputFormFieldAsText : Bool?;
 
     // Field of exportTocPageNumbers. Container class for html save options.
-    private var exportTocPageNumbers : Bool?;
+    public var exportTocPageNumbers : Bool?;
 
     // Field of exportXhtmlTransitional. Container class for html save options.
-    private var exportXhtmlTransitional : Bool?;
+    public var exportXhtmlTransitional : Bool?;
 
     // Field of fontResourcesSubsettingSizeThreshold. Container class for html save options.
-    private var fontResourcesSubsettingSizeThreshold : Int?;
+    public var fontResourcesSubsettingSizeThreshold : Int?;
 
     // Field of fontsFolder. Container class for html save options.
-    private var fontsFolder : String?;
+    public var fontsFolder : String?;
 
     // Field of fontsFolderAlias. Container class for html save options.
-    private var fontsFolderAlias : String?;
+    public var fontsFolderAlias : String?;
 
     // Field of htmlVersion. Container class for html save options.
-    private var htmlVersion : HtmlVersion?;
+    public var htmlVersion : HtmlVersion?;
 
     // Field of imageResolution. Container class for html save options.
-    private var imageResolution : Int?;
+    public var imageResolution : Int?;
 
     // Field of imagesFolder. Container class for html save options.
-    private var imagesFolder : String?;
+    public var imagesFolder : String?;
 
     // Field of imagesFolderAlias. Container class for html save options.
-    private var imagesFolderAlias : String?;
+    public var imagesFolderAlias : String?;
 
     // Field of metafileFormat. Container class for html save options.
-    private var metafileFormat : MetafileFormat?;
+    public var metafileFormat : MetafileFormat?;
 
     // Field of officeMathOutputMode. Container class for html save options.
-    private var officeMathOutputMode : OfficeMathOutputMode?;
+    public var officeMathOutputMode : OfficeMathOutputMode?;
 
     // Field of prettyFormat. Container class for html save options.
-    private var prettyFormat : Bool?;
+    public var prettyFormat : Bool?;
 
     // Field of resolveFontNames. Container class for html save options.
-    private var resolveFontNames : Bool?;
+    public var resolveFontNames : Bool?;
 
     // Field of resourceFolder. Container class for html save options.
-    private var resourceFolder : String?;
+    public var resourceFolder : String?;
 
     // Field of resourceFolderAlias. Container class for html save options.
-    private var resourceFolderAlias : String?;
+    public var resourceFolderAlias : String?;
 
     // Field of scaleImageToShapeSize. Container class for html save options.
-    private var scaleImageToShapeSize : Bool?;
+    public var scaleImageToShapeSize : Bool?;
 
     // Field of tableWidthOutputMode. Container class for html save options.
-    private var tableWidthOutputMode : String?;
+    public var tableWidthOutputMode : String?;
 
     private enum CodingKeys: String, CodingKey {
         case allowNegativeIndent = "AllowNegativeIndent";
@@ -400,8 +400,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets allowNegativeIndent. Gets or sets a value indicating whether negative left and right indents of paragraphs are allowed (not normalized).
-    public func setAllowNegativeIndent(allowNegativeIndent : Bool?) {
+    public func setAllowNegativeIndent(allowNegativeIndent : Bool?) -> HtmlSaveOptionsData {
         self.allowNegativeIndent = allowNegativeIndent;
+        return self;
     }
 
     // Gets allowNegativeIndent. Gets or sets a value indicating whether negative left and right indents of paragraphs are allowed (not normalized).
@@ -410,8 +411,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets cssClassNamePrefix. Gets or sets the prefix which is added to all CSS class names. The default value is an empty string and generated CSS class names have no common prefix. If this value is not empty, all CSS classes generated by Aspose.Words will start with the specified prefix.This might be useful, for example, if you add custom CSS to generated documents and want to prevent class name conflicts. If the value is not null or empty, it must be a valid CSS identifier.
-    public func setCssClassNamePrefix(cssClassNamePrefix : String?) {
+    public func setCssClassNamePrefix(cssClassNamePrefix : String?) -> HtmlSaveOptionsData {
         self.cssClassNamePrefix = cssClassNamePrefix;
+        return self;
     }
 
     // Gets cssClassNamePrefix. Gets or sets the prefix which is added to all CSS class names. The default value is an empty string and generated CSS class names have no common prefix. If this value is not empty, all CSS classes generated by Aspose.Words will start with the specified prefix.This might be useful, for example, if you add custom CSS to generated documents and want to prevent class name conflicts. If the value is not null or empty, it must be a valid CSS identifier.
@@ -420,8 +422,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets cssStyleSheetFileName. Gets or sets the name of the CSS file written when the document is exported to HTML.
-    public func setCssStyleSheetFileName(cssStyleSheetFileName : String?) {
+    public func setCssStyleSheetFileName(cssStyleSheetFileName : String?) -> HtmlSaveOptionsData {
         self.cssStyleSheetFileName = cssStyleSheetFileName;
+        return self;
     }
 
     // Gets cssStyleSheetFileName. Gets or sets the name of the CSS file written when the document is exported to HTML.
@@ -430,8 +433,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets cssStyleSheetType. Gets or sets the option that controls how the CSS styles are exported.
-    public func setCssStyleSheetType(cssStyleSheetType : String?) {
+    public func setCssStyleSheetType(cssStyleSheetType : String?) -> HtmlSaveOptionsData {
         self.cssStyleSheetType = cssStyleSheetType;
+        return self;
     }
 
     // Gets cssStyleSheetType. Gets or sets the option that controls how the CSS styles are exported.
@@ -440,8 +444,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets documentSplitCriteria. Gets or sets the option that controls how the document should be split when saving.
-    public func setDocumentSplitCriteria(documentSplitCriteria : String?) {
+    public func setDocumentSplitCriteria(documentSplitCriteria : String?) -> HtmlSaveOptionsData {
         self.documentSplitCriteria = documentSplitCriteria;
+        return self;
     }
 
     // Gets documentSplitCriteria. Gets or sets the option that controls how the document should be split when saving.
@@ -450,8 +455,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets documentSplitHeadingLevel. Gets or sets the maximum level of headings at which to split the document.
-    public func setDocumentSplitHeadingLevel(documentSplitHeadingLevel : Int?) {
+    public func setDocumentSplitHeadingLevel(documentSplitHeadingLevel : Int?) -> HtmlSaveOptionsData {
         self.documentSplitHeadingLevel = documentSplitHeadingLevel;
+        return self;
     }
 
     // Gets documentSplitHeadingLevel. Gets or sets the maximum level of headings at which to split the document.
@@ -460,8 +466,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets encoding. Gets or sets the character encoding to use when exporting.
-    public func setEncoding(encoding : String?) {
+    public func setEncoding(encoding : String?) -> HtmlSaveOptionsData {
         self.encoding = encoding;
+        return self;
     }
 
     // Gets encoding. Gets or sets the character encoding to use when exporting.
@@ -470,8 +477,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportDocumentProperties. Gets or sets a value indicating whether to export built-in and custom document properties.
-    public func setExportDocumentProperties(exportDocumentProperties : Bool?) {
+    public func setExportDocumentProperties(exportDocumentProperties : Bool?) -> HtmlSaveOptionsData {
         self.exportDocumentProperties = exportDocumentProperties;
+        return self;
     }
 
     // Gets exportDocumentProperties. Gets or sets a value indicating whether to export built-in and custom document properties.
@@ -480,8 +488,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportDropDownFormFieldAsText. Gets or sets the flag, that controls how drop-down form fields are saved to HTML. The default value is false.
-    public func setExportDropDownFormFieldAsText(exportDropDownFormFieldAsText : Bool?) {
+    public func setExportDropDownFormFieldAsText(exportDropDownFormFieldAsText : Bool?) -> HtmlSaveOptionsData {
         self.exportDropDownFormFieldAsText = exportDropDownFormFieldAsText;
+        return self;
     }
 
     // Gets exportDropDownFormFieldAsText. Gets or sets the flag, that controls how drop-down form fields are saved to HTML. The default value is false.
@@ -490,8 +499,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportFontResources. Gets or sets a value indicating whether font resources should be exported.
-    public func setExportFontResources(exportFontResources : Bool?) {
+    public func setExportFontResources(exportFontResources : Bool?) -> HtmlSaveOptionsData {
         self.exportFontResources = exportFontResources;
+        return self;
     }
 
     // Gets exportFontResources. Gets or sets a value indicating whether font resources should be exported.
@@ -500,8 +510,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportFontsAsBase64. Gets or sets a value indicating whether fonts resources should be embedded to HTML in Base64 encoding. The default value is false.
-    public func setExportFontsAsBase64(exportFontsAsBase64 : Bool?) {
+    public func setExportFontsAsBase64(exportFontsAsBase64 : Bool?) -> HtmlSaveOptionsData {
         self.exportFontsAsBase64 = exportFontsAsBase64;
+        return self;
     }
 
     // Gets exportFontsAsBase64. Gets or sets a value indicating whether fonts resources should be embedded to HTML in Base64 encoding. The default value is false.
@@ -510,8 +521,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportHeadersFootersMode. Gets or sets the option that controls how headers and footers are exported.
-    public func setExportHeadersFootersMode(exportHeadersFootersMode : String?) {
+    public func setExportHeadersFootersMode(exportHeadersFootersMode : String?) -> HtmlSaveOptionsData {
         self.exportHeadersFootersMode = exportHeadersFootersMode;
+        return self;
     }
 
     // Gets exportHeadersFootersMode. Gets or sets the option that controls how headers and footers are exported.
@@ -520,8 +532,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportImagesAsBase64. Gets or sets a value indicating whether images are saved in Base64 format.
-    public func setExportImagesAsBase64(exportImagesAsBase64 : Bool?) {
+    public func setExportImagesAsBase64(exportImagesAsBase64 : Bool?) -> HtmlSaveOptionsData {
         self.exportImagesAsBase64 = exportImagesAsBase64;
+        return self;
     }
 
     // Gets exportImagesAsBase64. Gets or sets a value indicating whether images are saved in Base64 format.
@@ -530,8 +543,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportLanguageInformation. Gets or sets a value indicating whether language information is exported.
-    public func setExportLanguageInformation(exportLanguageInformation : Bool?) {
+    public func setExportLanguageInformation(exportLanguageInformation : Bool?) -> HtmlSaveOptionsData {
         self.exportLanguageInformation = exportLanguageInformation;
+        return self;
     }
 
     // Gets exportLanguageInformation. Gets or sets a value indicating whether language information is exported.
@@ -540,8 +554,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportListLabels. Gets or sets the option that controls how list labels are exported.
-    public func setExportListLabels(exportListLabels : String?) {
+    public func setExportListLabels(exportListLabels : String?) -> HtmlSaveOptionsData {
         self.exportListLabels = exportListLabels;
+        return self;
     }
 
     // Gets exportListLabels. Gets or sets the option that controls how list labels are exported.
@@ -550,8 +565,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportOriginalUrlForLinkedImages. Gets or sets a value indicating whether the original URL should be used as the URL of the linked images. The default value is false.
-    public func setExportOriginalUrlForLinkedImages(exportOriginalUrlForLinkedImages : Bool?) {
+    public func setExportOriginalUrlForLinkedImages(exportOriginalUrlForLinkedImages : Bool?) -> HtmlSaveOptionsData {
         self.exportOriginalUrlForLinkedImages = exportOriginalUrlForLinkedImages;
+        return self;
     }
 
     // Gets exportOriginalUrlForLinkedImages. Gets or sets a value indicating whether the original URL should be used as the URL of the linked images. The default value is false.
@@ -560,8 +576,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportPageMargins. Gets or sets a value indicating whether page margins are exported to HTML, MHTML or EPUB. The default value is false.
-    public func setExportPageMargins(exportPageMargins : Bool?) {
+    public func setExportPageMargins(exportPageMargins : Bool?) -> HtmlSaveOptionsData {
         self.exportPageMargins = exportPageMargins;
+        return self;
     }
 
     // Gets exportPageMargins. Gets or sets a value indicating whether page margins are exported to HTML, MHTML or EPUB. The default value is false.
@@ -570,8 +587,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportPageSetup. Gets or sets a value indicating whether page setup is exported.
-    public func setExportPageSetup(exportPageSetup : Bool?) {
+    public func setExportPageSetup(exportPageSetup : Bool?) -> HtmlSaveOptionsData {
         self.exportPageSetup = exportPageSetup;
+        return self;
     }
 
     // Gets exportPageSetup. Gets or sets a value indicating whether page setup is exported.
@@ -580,8 +598,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportRelativeFontSize. Gets or sets a value indicating whether font sizes should be output in relative units when saving.
-    public func setExportRelativeFontSize(exportRelativeFontSize : Bool?) {
+    public func setExportRelativeFontSize(exportRelativeFontSize : Bool?) -> HtmlSaveOptionsData {
         self.exportRelativeFontSize = exportRelativeFontSize;
+        return self;
     }
 
     // Gets exportRelativeFontSize. Gets or sets a value indicating whether font sizes should be output in relative units when saving.
@@ -590,8 +609,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportRoundtripInformation. Gets or sets a value indicating whether to write the roundtrip information when saving to HTML. The default value is true.
-    public func setExportRoundtripInformation(exportRoundtripInformation : Bool?) {
+    public func setExportRoundtripInformation(exportRoundtripInformation : Bool?) -> HtmlSaveOptionsData {
         self.exportRoundtripInformation = exportRoundtripInformation;
+        return self;
     }
 
     // Gets exportRoundtripInformation. Gets or sets a value indicating whether to write the roundtrip information when saving to HTML. The default value is true.
@@ -600,8 +620,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportTextBoxAsSvg. Gets or sets the flag, that controls how textboxes represented by Aspose.Words.Drawing.Shape are saved to HTML, MHTML or EPUB. The default value is false. When set to true, exports textboxes as inline "svg" elements. When false, exports as "image" elements.
-    public func setExportTextBoxAsSvg(exportTextBoxAsSvg : Bool?) {
+    public func setExportTextBoxAsSvg(exportTextBoxAsSvg : Bool?) -> HtmlSaveOptionsData {
         self.exportTextBoxAsSvg = exportTextBoxAsSvg;
+        return self;
     }
 
     // Gets exportTextBoxAsSvg. Gets or sets the flag, that controls how textboxes represented by Aspose.Words.Drawing.Shape are saved to HTML, MHTML or EPUB. The default value is false. When set to true, exports textboxes as inline "svg" elements. When false, exports as "image" elements.
@@ -610,8 +631,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportTextInputFormFieldAsText. Gets or sets the flag, that controls how text input form fields are saved.
-    public func setExportTextInputFormFieldAsText(exportTextInputFormFieldAsText : Bool?) {
+    public func setExportTextInputFormFieldAsText(exportTextInputFormFieldAsText : Bool?) -> HtmlSaveOptionsData {
         self.exportTextInputFormFieldAsText = exportTextInputFormFieldAsText;
+        return self;
     }
 
     // Gets exportTextInputFormFieldAsText. Gets or sets the flag, that controls how text input form fields are saved.
@@ -620,8 +642,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportTocPageNumbers. Gets or sets a value indicating whether to write page numbers to table of contents when saving.
-    public func setExportTocPageNumbers(exportTocPageNumbers : Bool?) {
+    public func setExportTocPageNumbers(exportTocPageNumbers : Bool?) -> HtmlSaveOptionsData {
         self.exportTocPageNumbers = exportTocPageNumbers;
+        return self;
     }
 
     // Gets exportTocPageNumbers. Gets or sets a value indicating whether to write page numbers to table of contents when saving.
@@ -630,8 +653,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets exportXhtmlTransitional. Gets or sets a value indicating whether to write the DOCTYPE declaration when saving.
-    public func setExportXhtmlTransitional(exportXhtmlTransitional : Bool?) {
+    public func setExportXhtmlTransitional(exportXhtmlTransitional : Bool?) -> HtmlSaveOptionsData {
         self.exportXhtmlTransitional = exportXhtmlTransitional;
+        return self;
     }
 
     // Gets exportXhtmlTransitional. Gets or sets a value indicating whether to write the DOCTYPE declaration when saving.
@@ -640,8 +664,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets fontResourcesSubsettingSizeThreshold. Gets or sets the option that controls which font resources need subsetting when saving.
-    public func setFontResourcesSubsettingSizeThreshold(fontResourcesSubsettingSizeThreshold : Int?) {
+    public func setFontResourcesSubsettingSizeThreshold(fontResourcesSubsettingSizeThreshold : Int?) -> HtmlSaveOptionsData {
         self.fontResourcesSubsettingSizeThreshold = fontResourcesSubsettingSizeThreshold;
+        return self;
     }
 
     // Gets fontResourcesSubsettingSizeThreshold. Gets or sets the option that controls which font resources need subsetting when saving.
@@ -650,8 +675,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets fontsFolder. Gets or sets the physical folder where fonts are saved when exporting a document.
-    public func setFontsFolder(fontsFolder : String?) {
+    public func setFontsFolder(fontsFolder : String?) -> HtmlSaveOptionsData {
         self.fontsFolder = fontsFolder;
+        return self;
     }
 
     // Gets fontsFolder. Gets or sets the physical folder where fonts are saved when exporting a document.
@@ -660,8 +686,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets fontsFolderAlias. Gets or sets the name of the folder used to construct font URIs.
-    public func setFontsFolderAlias(fontsFolderAlias : String?) {
+    public func setFontsFolderAlias(fontsFolderAlias : String?) -> HtmlSaveOptionsData {
         self.fontsFolderAlias = fontsFolderAlias;
+        return self;
     }
 
     // Gets fontsFolderAlias. Gets or sets the name of the folder used to construct font URIs.
@@ -670,8 +697,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets htmlVersion. Gets or sets the version of HTML standard, that should be used when saving the document to HTML or MHTML. Default value is Aspose.Words.Saving.HtmlVersion.Xhtml.
-    public func setHtmlVersion(htmlVersion : HtmlVersion?) {
+    public func setHtmlVersion(htmlVersion : HtmlVersion?) -> HtmlSaveOptionsData {
         self.htmlVersion = htmlVersion;
+        return self;
     }
 
     // Gets htmlVersion. Gets or sets the version of HTML standard, that should be used when saving the document to HTML or MHTML. Default value is Aspose.Words.Saving.HtmlVersion.Xhtml.
@@ -680,8 +708,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets imageResolution. Gets or sets the output resolution for images when exporting.
-    public func setImageResolution(imageResolution : Int?) {
+    public func setImageResolution(imageResolution : Int?) -> HtmlSaveOptionsData {
         self.imageResolution = imageResolution;
+        return self;
     }
 
     // Gets imageResolution. Gets or sets the output resolution for images when exporting.
@@ -690,8 +719,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets imagesFolder. Gets or sets the physical folder where images are saved when exporting a document.
-    public func setImagesFolder(imagesFolder : String?) {
+    public func setImagesFolder(imagesFolder : String?) -> HtmlSaveOptionsData {
         self.imagesFolder = imagesFolder;
+        return self;
     }
 
     // Gets imagesFolder. Gets or sets the physical folder where images are saved when exporting a document.
@@ -700,8 +730,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets imagesFolderAlias. Gets or sets the name of the folder used to construct image URIs.
-    public func setImagesFolderAlias(imagesFolderAlias : String?) {
+    public func setImagesFolderAlias(imagesFolderAlias : String?) -> HtmlSaveOptionsData {
         self.imagesFolderAlias = imagesFolderAlias;
+        return self;
     }
 
     // Gets imagesFolderAlias. Gets or sets the name of the folder used to construct image URIs.
@@ -710,8 +741,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets metafileFormat. Gets or sets the options, that controls in what format metafiles are saved when exporting to HTML, MHTML, or EPUB. The default value is Aspose.Words.Saving.HtmlMetafileFormat.Png, meaning that metafiles are rendered to raster PNG images. Metafiles are not natively displayed by HTML browsers. By default, Aspose.Words converts WMF and EMF images into PNG files when exporting to HTML.Other options are to convert metafiles to SVG images or to export them as is without conversion. Some image transforms, in particular image cropping, will not be applied to metafile images if they are exported to HTML without conversion.
-    public func setMetafileFormat(metafileFormat : MetafileFormat?) {
+    public func setMetafileFormat(metafileFormat : MetafileFormat?) -> HtmlSaveOptionsData {
         self.metafileFormat = metafileFormat;
+        return self;
     }
 
     // Gets metafileFormat. Gets or sets the options, that controls in what format metafiles are saved when exporting to HTML, MHTML, or EPUB. The default value is Aspose.Words.Saving.HtmlMetafileFormat.Png, meaning that metafiles are rendered to raster PNG images. Metafiles are not natively displayed by HTML browsers. By default, Aspose.Words converts WMF and EMF images into PNG files when exporting to HTML.Other options are to convert metafiles to SVG images or to export them as is without conversion. Some image transforms, in particular image cropping, will not be applied to metafile images if they are exported to HTML without conversion.
@@ -720,8 +752,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets officeMathOutputMode. Gets or sets the option that controls how OfficeMath objects are exported to HTML, MHTML or EPUB. The default value is HtmlOfficeMathOutputMode.Image.
-    public func setOfficeMathOutputMode(officeMathOutputMode : OfficeMathOutputMode?) {
+    public func setOfficeMathOutputMode(officeMathOutputMode : OfficeMathOutputMode?) -> HtmlSaveOptionsData {
         self.officeMathOutputMode = officeMathOutputMode;
+        return self;
     }
 
     // Gets officeMathOutputMode. Gets or sets the option that controls how OfficeMath objects are exported to HTML, MHTML or EPUB. The default value is HtmlOfficeMathOutputMode.Image.
@@ -730,8 +763,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets prettyFormat. Gets or sets a value indicating whether to use pretty formats output.
-    public func setPrettyFormat(prettyFormat : Bool?) {
+    public func setPrettyFormat(prettyFormat : Bool?) -> HtmlSaveOptionsData {
         self.prettyFormat = prettyFormat;
+        return self;
     }
 
     // Gets prettyFormat. Gets or sets a value indicating whether to use pretty formats output.
@@ -740,8 +774,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets resolveFontNames. Gets or sets a value indicating whether font family names used in the document are resolved and substituted according to FontSettings when being written into HTML-based formats. The default value is false.
-    public func setResolveFontNames(resolveFontNames : Bool?) {
+    public func setResolveFontNames(resolveFontNames : Bool?) -> HtmlSaveOptionsData {
         self.resolveFontNames = resolveFontNames;
+        return self;
     }
 
     // Gets resolveFontNames. Gets or sets a value indicating whether font family names used in the document are resolved and substituted according to FontSettings when being written into HTML-based formats. The default value is false.
@@ -750,8 +785,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets resourceFolder. Gets or sets the physical folder where all resources like images, fonts, and external CSS are saved when a document is exported to HTML. The default value is an empty string.
-    public func setResourceFolder(resourceFolder : String?) {
+    public func setResourceFolder(resourceFolder : String?) -> HtmlSaveOptionsData {
         self.resourceFolder = resourceFolder;
+        return self;
     }
 
     // Gets resourceFolder. Gets or sets the physical folder where all resources like images, fonts, and external CSS are saved when a document is exported to HTML. The default value is an empty string.
@@ -760,8 +796,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets resourceFolderAlias. Gets or sets the name of the folder used to construct URIs of all resources written into HTML document. The default value is an empty string.
-    public func setResourceFolderAlias(resourceFolderAlias : String?) {
+    public func setResourceFolderAlias(resourceFolderAlias : String?) -> HtmlSaveOptionsData {
         self.resourceFolderAlias = resourceFolderAlias;
+        return self;
     }
 
     // Gets resourceFolderAlias. Gets or sets the name of the folder used to construct URIs of all resources written into HTML document. The default value is an empty string.
@@ -770,8 +807,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets scaleImageToShapeSize. Gets or sets a value indicating whether images are scaled by Aspose.Words to the bounding shape size when exporting.
-    public func setScaleImageToShapeSize(scaleImageToShapeSize : Bool?) {
+    public func setScaleImageToShapeSize(scaleImageToShapeSize : Bool?) -> HtmlSaveOptionsData {
         self.scaleImageToShapeSize = scaleImageToShapeSize;
+        return self;
     }
 
     // Gets scaleImageToShapeSize. Gets or sets a value indicating whether images are scaled by Aspose.Words to the bounding shape size when exporting.
@@ -780,8 +818,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets tableWidthOutputMode. Gets or sets the option that controls how table, row and cell widths are exported.
-    public func setTableWidthOutputMode(tableWidthOutputMode : String?) {
+    public func setTableWidthOutputMode(tableWidthOutputMode : String?) -> HtmlSaveOptionsData {
         self.tableWidthOutputMode = tableWidthOutputMode;
+        return self;
     }
 
     // Gets tableWidthOutputMode. Gets or sets the option that controls how table, row and cell widths are exported.

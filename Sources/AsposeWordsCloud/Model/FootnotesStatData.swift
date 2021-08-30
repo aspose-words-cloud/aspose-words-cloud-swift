@@ -30,10 +30,10 @@ import Foundation
 // Container for the footnotes statistical data.
 public class FootnotesStatData : Codable, WordsApiModel {
     // Field of paragraphCount. Container for the footnotes statistical data.
-    private var paragraphCount : Int?;
+    public var paragraphCount : Int?;
 
     // Field of wordCount. Container for the footnotes statistical data.
-    private var wordCount : Int?;
+    public var wordCount : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case paragraphCount = "ParagraphCount";
@@ -61,8 +61,9 @@ public class FootnotesStatData : Codable, WordsApiModel {
     }
 
     // Sets paragraphCount. Gets or sets the total count of paragraphs in footnotes.
-    public func setParagraphCount(paragraphCount : Int?) {
+    public func setParagraphCount(paragraphCount : Int?) -> FootnotesStatData {
         self.paragraphCount = paragraphCount;
+        return self;
     }
 
     // Gets paragraphCount. Gets or sets the total count of paragraphs in footnotes.
@@ -71,8 +72,9 @@ public class FootnotesStatData : Codable, WordsApiModel {
     }
 
     // Sets wordCount. Gets or sets the total count of words in footnotes.
-    public func setWordCount(wordCount : Int?) {
+    public func setWordCount(wordCount : Int?) -> FootnotesStatData {
         self.wordCount = wordCount;
+        return self;
     }
 
     // Gets wordCount. Gets or sets the total count of words in footnotes.

@@ -30,7 +30,7 @@ import Foundation
 // The REST response with the formatting properties of a table cell.
 public class TableCellFormatResponse : WordsResponse {
     // Field of cellFormat. The REST response with the formatting properties of a table cell.
-    private var cellFormat : TableCellFormat?;
+    public var cellFormat : TableCellFormat?;
 
     private enum CodingKeys: String, CodingKey {
         case cellFormat = "CellFormat";
@@ -56,8 +56,9 @@ public class TableCellFormatResponse : WordsResponse {
     }
 
     // Sets cellFormat. Gets or sets the formatting properties of a table cell.
-    public func setCellFormat(cellFormat : TableCellFormat?) {
+    public func setCellFormat(cellFormat : TableCellFormat?) -> TableCellFormatResponse {
         self.cellFormat = cellFormat;
+        return self;
     }
 
     // Gets cellFormat. Gets or sets the formatting properties of a table cell.

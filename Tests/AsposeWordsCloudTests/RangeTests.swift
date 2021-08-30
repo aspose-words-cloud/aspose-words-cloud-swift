@@ -85,8 +85,8 @@ class RangeTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestDocumentParameters = RangeDocument();
-      requestDocumentParameters.setDocumentName(documentName: remoteDataFolder + "/NewDoc.docx");
+      let requestDocumentParameters = RangeDocument()
+        .setDocumentName(documentName: remoteDataFolder + "/NewDoc.docx");
       let request = SaveAsRangeRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", documentParameters: requestDocumentParameters, rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
       let actual = try super.getApi().saveAsRange(request: request);
       XCTAssertNotNil(actual.getDocument());
@@ -96,8 +96,8 @@ class RangeTests: BaseTestContext {
     // Test for saving a range as a new document online.
     func testSaveAsRangeOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestDocumentParameters = RangeDocument();
-      requestDocumentParameters.setDocumentName(documentName: remoteDataFolder + "/NewDoc.docx");
+      let requestDocumentParameters = RangeDocument()
+        .setDocumentName(documentName: remoteDataFolder + "/NewDoc.docx");
       let request = SaveAsRangeOnlineRequest(document: requestDocument, rangeStartIdentifier: "id0.0.0", documentParameters: requestDocumentParameters, rangeEndIdentifier: "id0.0.1");
       _ = try super.getApi().saveAsRangeOnline(request: request);
     }
@@ -108,8 +108,8 @@ class RangeTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestRangeText = ReplaceRange();
-      requestRangeText.setText(text: "Replaced header");
+      let requestRangeText = ReplaceRange()
+        .setText(text: "Replaced header");
       let request = ReplaceWithTextRequest(name: remoteFileName, rangeStartIdentifier: "id0.0.0", rangeText: requestRangeText, rangeEndIdentifier: "id0.0.1", folder: remoteDataFolder);
       let actual = try super.getApi().replaceWithText(request: request);
       XCTAssertNotNil(actual.getDocument());
@@ -119,8 +119,8 @@ class RangeTests: BaseTestContext {
     // Test for replacing text in range online.
     func testReplaceWithTextOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestRangeText = ReplaceRange();
-      requestRangeText.setText(text: "Replaced header");
+      let requestRangeText = ReplaceRange()
+        .setText(text: "Replaced header");
       let request = ReplaceWithTextOnlineRequest(document: requestDocument, rangeStartIdentifier: "id0.0.0", rangeText: requestRangeText, rangeEndIdentifier: "id0.0.1");
       _ = try super.getApi().replaceWithTextOnline(request: request);
     }

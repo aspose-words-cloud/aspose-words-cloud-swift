@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a document property.
 public class DocumentPropertyResponse : WordsResponse {
     // Field of documentProperty. The REST response with a document property.
-    private var documentProperty : DocumentProperty?;
+    public var documentProperty : DocumentProperty?;
 
     private enum CodingKeys: String, CodingKey {
         case documentProperty = "DocumentProperty";
@@ -56,8 +56,9 @@ public class DocumentPropertyResponse : WordsResponse {
     }
 
     // Sets documentProperty. Gets or sets the document property.
-    public func setDocumentProperty(documentProperty : DocumentProperty?) {
+    public func setDocumentProperty(documentProperty : DocumentProperty?) -> DocumentPropertyResponse {
         self.documentProperty = documentProperty;
+        return self;
     }
 
     // Gets documentProperty. Gets or sets the document property.

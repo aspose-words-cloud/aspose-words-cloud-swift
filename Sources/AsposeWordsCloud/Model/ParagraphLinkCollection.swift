@@ -30,7 +30,7 @@ import Foundation
 // The collection of paragraph's links.
 public class ParagraphLinkCollection : LinkElement {
     // Field of paragraphLinkList. The collection of paragraph's links.
-    private var paragraphLinkList : [ParagraphLink]?;
+    public var paragraphLinkList : [ParagraphLink]?;
 
     private enum CodingKeys: String, CodingKey {
         case paragraphLinkList = "ParagraphLinkList";
@@ -56,8 +56,9 @@ public class ParagraphLinkCollection : LinkElement {
     }
 
     // Sets paragraphLinkList. Gets or sets the collection of paragraph's links.
-    public func setParagraphLinkList(paragraphLinkList : [ParagraphLink]?) {
+    public func setParagraphLinkList(paragraphLinkList : [ParagraphLink]?) -> ParagraphLinkCollection {
         self.paragraphLinkList = paragraphLinkList;
+        return self;
     }
 
     // Gets paragraphLinkList. Gets or sets the collection of paragraph's links.

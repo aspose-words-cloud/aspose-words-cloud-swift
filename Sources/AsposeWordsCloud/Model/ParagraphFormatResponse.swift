@@ -30,7 +30,7 @@ import Foundation
 // The REST response with the formatting properties of a paragraph.
 public class ParagraphFormatResponse : WordsResponse {
     // Field of paragraphFormat. The REST response with the formatting properties of a paragraph.
-    private var paragraphFormat : ParagraphFormat?;
+    public var paragraphFormat : ParagraphFormat?;
 
     private enum CodingKeys: String, CodingKey {
         case paragraphFormat = "ParagraphFormat";
@@ -56,8 +56,9 @@ public class ParagraphFormatResponse : WordsResponse {
     }
 
     // Sets paragraphFormat. Gets or sets the formatting properties of a paragraph.
-    public func setParagraphFormat(paragraphFormat : ParagraphFormat?) {
+    public func setParagraphFormat(paragraphFormat : ParagraphFormat?) -> ParagraphFormatResponse {
         self.paragraphFormat = paragraphFormat;
+        return self;
     }
 
     // Gets paragraphFormat. Gets or sets the formatting properties of a paragraph.

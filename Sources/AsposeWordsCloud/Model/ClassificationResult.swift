@@ -30,10 +30,10 @@ import Foundation
 // Represents a single classification result.
 public class ClassificationResult : Codable, WordsApiModel {
     // Field of className. Represents a single classification result.
-    private var className : String?;
+    public var className : String?;
 
     // Field of classProbability. Represents a single classification result.
-    private var classProbability : Double?;
+    public var classProbability : Double?;
 
     private enum CodingKeys: String, CodingKey {
         case className = "ClassName";
@@ -61,8 +61,9 @@ public class ClassificationResult : Codable, WordsApiModel {
     }
 
     // Sets className. Gets or sets the name of the class.
-    public func setClassName(className : String?) {
+    public func setClassName(className : String?) -> ClassificationResult {
         self.className = className;
+        return self;
     }
 
     // Gets className. Gets or sets the name of the class.
@@ -71,8 +72,9 @@ public class ClassificationResult : Codable, WordsApiModel {
     }
 
     // Sets classProbability. Gets or sets the probability of class.
-    public func setClassProbability(classProbability : Double?) {
+    public func setClassProbability(classProbability : Double?) -> ClassificationResult {
         self.classProbability = classProbability;
+        return self;
     }
 
     // Gets classProbability. Gets or sets the probability of class.

@@ -30,7 +30,7 @@ import Foundation
 // The REST response with an array of styles.
 public class StylesResponse : WordsResponse {
     // Field of styles. The REST response with an array of styles.
-    private var styles : [Style]?;
+    public var styles : [Style]?;
 
     private enum CodingKeys: String, CodingKey {
         case styles = "Styles";
@@ -56,8 +56,9 @@ public class StylesResponse : WordsResponse {
     }
 
     // Sets styles. Gets or sets the array of styles.
-    public func setStyles(styles : [Style]?) {
+    public func setStyles(styles : [Style]?) -> StylesResponse {
         self.styles = styles;
+        return self;
     }
 
     // Gets styles. Gets or sets the array of styles.

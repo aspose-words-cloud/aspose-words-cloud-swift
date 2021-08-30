@@ -122,19 +122,19 @@ public class StringFormatData : Codable, WordsApiModel {
     }
 
     // Field of alignment. Allows to specify System.Drawing.StringFormat options.
-    private var alignment : Alignment?;
+    public var alignment : Alignment?;
 
     // Field of formatFlags. Allows to specify System.Drawing.StringFormat options.
-    private var formatFlags : FormatFlags?;
+    public var formatFlags : FormatFlags?;
 
     // Field of hotkeyPrefix. Allows to specify System.Drawing.StringFormat options.
-    private var hotkeyPrefix : HotkeyPrefix?;
+    public var hotkeyPrefix : HotkeyPrefix?;
 
     // Field of lineAlignment. Allows to specify System.Drawing.StringFormat options.
-    private var lineAlignment : LineAlignment?;
+    public var lineAlignment : LineAlignment?;
 
     // Field of trimming. Allows to specify System.Drawing.StringFormat options.
-    private var trimming : Trimming?;
+    public var trimming : Trimming?;
 
     private enum CodingKeys: String, CodingKey {
         case alignment = "Alignment";
@@ -177,8 +177,9 @@ public class StringFormatData : Codable, WordsApiModel {
     }
 
     // Sets alignment. Gets or sets horizontal alignment of the string.
-    public func setAlignment(alignment : Alignment?) {
+    public func setAlignment(alignment : Alignment?) -> StringFormatData {
         self.alignment = alignment;
+        return self;
     }
 
     // Gets alignment. Gets or sets horizontal alignment of the string.
@@ -187,8 +188,9 @@ public class StringFormatData : Codable, WordsApiModel {
     }
 
     // Sets formatFlags. Gets or sets the System.Drawing.StringFormatFlags enumeration, that contains formatting information.
-    public func setFormatFlags(formatFlags : FormatFlags?) {
+    public func setFormatFlags(formatFlags : FormatFlags?) -> StringFormatData {
         self.formatFlags = formatFlags;
+        return self;
     }
 
     // Gets formatFlags. Gets or sets the System.Drawing.StringFormatFlags enumeration, that contains formatting information.
@@ -197,8 +199,9 @@ public class StringFormatData : Codable, WordsApiModel {
     }
 
     // Sets hotkeyPrefix. Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.
-    public func setHotkeyPrefix(hotkeyPrefix : HotkeyPrefix?) {
+    public func setHotkeyPrefix(hotkeyPrefix : HotkeyPrefix?) -> StringFormatData {
         self.hotkeyPrefix = hotkeyPrefix;
+        return self;
     }
 
     // Gets hotkeyPrefix. Gets or sets the System.Drawing.Text.HotkeyPrefix object for this System.Drawing.StringFormat object.
@@ -207,8 +210,9 @@ public class StringFormatData : Codable, WordsApiModel {
     }
 
     // Sets lineAlignment. Gets or sets the vertical alignment of the string.
-    public func setLineAlignment(lineAlignment : LineAlignment?) {
+    public func setLineAlignment(lineAlignment : LineAlignment?) -> StringFormatData {
         self.lineAlignment = lineAlignment;
+        return self;
     }
 
     // Gets lineAlignment. Gets or sets the vertical alignment of the string.
@@ -217,8 +221,9 @@ public class StringFormatData : Codable, WordsApiModel {
     }
 
     // Sets trimming. Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.
-    public func setTrimming(trimming : Trimming?) {
+    public func setTrimming(trimming : Trimming?) -> StringFormatData {
         self.trimming = trimming;
+        return self;
     }
 
     // Gets trimming. Gets or sets the System.Drawing.StringTrimming enumeration for this System.Drawing.StringFormat object.

@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a collection of custom xml parts.
 public class CustomXmlPartsResponse : WordsResponse {
     // Field of customXmlParts. The REST response with a collection of custom xml parts.
-    private var customXmlParts : CustomXmlPartsCollection?;
+    public var customXmlParts : CustomXmlPartsCollection?;
 
     private enum CodingKeys: String, CodingKey {
         case customXmlParts = "CustomXmlParts";
@@ -56,8 +56,9 @@ public class CustomXmlPartsResponse : WordsResponse {
     }
 
     // Sets customXmlParts. Gets or sets the collection of comments.
-    public func setCustomXmlParts(customXmlParts : CustomXmlPartsCollection?) {
+    public func setCustomXmlParts(customXmlParts : CustomXmlPartsCollection?) -> CustomXmlPartsResponse {
         self.customXmlParts = customXmlParts;
+        return self;
     }
 
     // Gets customXmlParts. Gets or sets the collection of comments.

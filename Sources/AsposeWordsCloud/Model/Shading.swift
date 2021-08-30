@@ -196,13 +196,13 @@ public class Shading : Codable, WordsApiModel {
     }
 
     // Field of backgroundPatternColor. DTO container with a paragraph format shading element.
-    private var backgroundPatternColor : XmlColor?;
+    public var backgroundPatternColor : XmlColor?;
 
     // Field of foregroundPatternColor. DTO container with a paragraph format shading element.
-    private var foregroundPatternColor : XmlColor?;
+    public var foregroundPatternColor : XmlColor?;
 
     // Field of texture. DTO container with a paragraph format shading element.
-    private var texture : Texture?;
+    public var texture : Texture?;
 
     private enum CodingKeys: String, CodingKey {
         case backgroundPatternColor = "BackgroundPatternColor";
@@ -235,8 +235,9 @@ public class Shading : Codable, WordsApiModel {
     }
 
     // Sets backgroundPatternColor. Gets or sets the color that's applied to the background of the Shading object.
-    public func setBackgroundPatternColor(backgroundPatternColor : XmlColor?) {
+    public func setBackgroundPatternColor(backgroundPatternColor : XmlColor?) -> Shading {
         self.backgroundPatternColor = backgroundPatternColor;
+        return self;
     }
 
     // Gets backgroundPatternColor. Gets or sets the color that's applied to the background of the Shading object.
@@ -245,8 +246,9 @@ public class Shading : Codable, WordsApiModel {
     }
 
     // Sets foregroundPatternColor. Gets or sets the color that's applied to the foreground of the Shading object.
-    public func setForegroundPatternColor(foregroundPatternColor : XmlColor?) {
+    public func setForegroundPatternColor(foregroundPatternColor : XmlColor?) -> Shading {
         self.foregroundPatternColor = foregroundPatternColor;
+        return self;
     }
 
     // Gets foregroundPatternColor. Gets or sets the color that's applied to the foreground of the Shading object.
@@ -255,8 +257,9 @@ public class Shading : Codable, WordsApiModel {
     }
 
     // Sets texture. Gets or sets the shading texture.
-    public func setTexture(texture : Texture?) {
+    public func setTexture(texture : Texture?) -> Shading {
         self.texture = texture;
+        return self;
     }
 
     // Gets texture. Gets or sets the shading texture.

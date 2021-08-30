@@ -43,16 +43,16 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     }
 
     // Field of csvDataLoadOptions. Report engine settings.
-    private var csvDataLoadOptions : CsvDataLoadOptions?;
+    public var csvDataLoadOptions : CsvDataLoadOptions?;
 
     // Field of dataSourceName. Report engine settings.
-    private var dataSourceName : String?;
+    public var dataSourceName : String?;
 
     // Field of dataSourceType. Report engine settings.
-    private var dataSourceType : DataSourceType?;
+    public var dataSourceType : DataSourceType?;
 
     // Field of reportBuildOptions. Report engine settings.
-    private var reportBuildOptions : [ReportBuildOptions]?;
+    public var reportBuildOptions : [ReportBuildOptions]?;
 
     private enum CodingKeys: String, CodingKey {
         case csvDataLoadOptions = "CsvDataLoadOptions";
@@ -90,8 +90,9 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     }
 
     // Sets csvDataLoadOptions. Gets or sets the options for parsing CSV data.
-    public func setCsvDataLoadOptions(csvDataLoadOptions : CsvDataLoadOptions?) {
+    public func setCsvDataLoadOptions(csvDataLoadOptions : CsvDataLoadOptions?) -> ReportEngineSettings {
         self.csvDataLoadOptions = csvDataLoadOptions;
+        return self;
     }
 
     // Gets csvDataLoadOptions. Gets or sets the options for parsing CSV data.
@@ -100,8 +101,9 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     }
 
     // Sets dataSourceName. Gets or sets the name to reference the data source object in the template.
-    public func setDataSourceName(dataSourceName : String?) {
+    public func setDataSourceName(dataSourceName : String?) -> ReportEngineSettings {
         self.dataSourceName = dataSourceName;
+        return self;
     }
 
     // Gets dataSourceName. Gets or sets the name to reference the data source object in the template.
@@ -110,8 +112,9 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     }
 
     // Sets dataSourceType. Gets or sets type of datasource.
-    public func setDataSourceType(dataSourceType : DataSourceType?) {
+    public func setDataSourceType(dataSourceType : DataSourceType?) -> ReportEngineSettings {
         self.dataSourceType = dataSourceType;
+        return self;
     }
 
     // Gets dataSourceType. Gets or sets type of datasource.
@@ -120,8 +123,9 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     }
 
     // Sets reportBuildOptions. Gets or sets type of options to build report.
-    public func setReportBuildOptions(reportBuildOptions : [ReportBuildOptions]?) {
+    public func setReportBuildOptions(reportBuildOptions : [ReportBuildOptions]?) -> ReportEngineSettings {
         self.reportBuildOptions = reportBuildOptions;
+        return self;
     }
 
     // Gets reportBuildOptions. Gets or sets type of options to build report.

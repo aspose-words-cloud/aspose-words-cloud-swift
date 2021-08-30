@@ -30,10 +30,10 @@ import Foundation
 // Paragraph list format element for update.
 public class ListFormatUpdate : Codable, WordsApiModel {
     // Field of listId. Paragraph list format element for update.
-    private var listId : Int?;
+    public var listId : Int?;
 
     // Field of listLevelNumber. Paragraph list format element for update.
-    private var listLevelNumber : Int?;
+    public var listLevelNumber : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case listId = "ListId";
@@ -61,8 +61,9 @@ public class ListFormatUpdate : Codable, WordsApiModel {
     }
 
     // Sets listId. Gets or sets the list id of this paragraph.
-    public func setListId(listId : Int?) {
+    public func setListId(listId : Int?) -> ListFormatUpdate {
         self.listId = listId;
+        return self;
     }
 
     // Gets listId. Gets or sets the list id of this paragraph.
@@ -71,8 +72,9 @@ public class ListFormatUpdate : Codable, WordsApiModel {
     }
 
     // Sets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
-    public func setListLevelNumber(listLevelNumber : Int?) {
+    public func setListLevelNumber(listLevelNumber : Int?) -> ListFormatUpdate {
         self.listLevelNumber = listLevelNumber;
+        return self;
     }
 
     // Gets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.

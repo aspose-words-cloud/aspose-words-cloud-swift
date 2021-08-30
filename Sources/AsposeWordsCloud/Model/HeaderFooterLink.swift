@@ -52,7 +52,7 @@ public class HeaderFooterLink : LinkElement {
     }
 
     // Field of type. HeaderFooter link element.
-    private var type : ModelType?;
+    public var type : ModelType?;
 
     private enum CodingKeys: String, CodingKey {
         case type = "Type";
@@ -78,8 +78,9 @@ public class HeaderFooterLink : LinkElement {
     }
 
     // Sets type. Gets or sets the paragraph's text.
-    public func setType(type : ModelType?) {
+    public func setType(type : ModelType?) -> HeaderFooterLink {
         self.type = type;
+        return self;
     }
 
     // Gets type. Gets or sets the paragraph's text.

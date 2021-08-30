@@ -30,13 +30,13 @@ import Foundation
 // Words document property DTO.
 public class DocumentProperty : LinkElement {
     // Field of builtIn. Words document property DTO.
-    private var builtIn : Bool?;
+    public var builtIn : Bool?;
 
     // Field of name. Words document property DTO.
-    private var name : String?;
+    public var name : String?;
 
     // Field of value. Words document property DTO.
-    private var value : String?;
+    public var value : String?;
 
     private enum CodingKeys: String, CodingKey {
         case builtIn = "BuiltIn";
@@ -72,8 +72,9 @@ public class DocumentProperty : LinkElement {
     }
 
     // Sets builtIn. Gets or sets a value indicating whether the property is built-in or not. If true the property is built-in, if false the property is custom.
-    public func setBuiltIn(builtIn : Bool?) {
+    public func setBuiltIn(builtIn : Bool?) -> DocumentProperty {
         self.builtIn = builtIn;
+        return self;
     }
 
     // Gets builtIn. Gets or sets a value indicating whether the property is built-in or not. If true the property is built-in, if false the property is custom.
@@ -82,8 +83,9 @@ public class DocumentProperty : LinkElement {
     }
 
     // Sets name. Gets or sets the name of the document property.
-    public func setName(name : String?) {
+    public func setName(name : String?) -> DocumentProperty {
         self.name = name;
+        return self;
     }
 
     // Gets name. Gets or sets the name of the document property.
@@ -92,8 +94,9 @@ public class DocumentProperty : LinkElement {
     }
 
     // Sets value. Gets or sets the value of the document property.
-    public func setValue(value : String?) {
+    public func setValue(value : String?) -> DocumentProperty {
         self.value = value;
+        return self;
     }
 
     // Gets value. Gets or sets the value of the document property.

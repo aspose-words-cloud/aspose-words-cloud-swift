@@ -40,16 +40,16 @@ public class FootnoteBase : Codable, WordsApiModel {
     }
 
     // Field of footnoteType. Footnote base class.
-    private var footnoteType : FootnoteType?;
+    public var footnoteType : FootnoteType?;
 
     // Field of position. Footnote base class.
-    private var position : DocumentPosition?;
+    public var position : DocumentPosition?;
 
     // Field of referenceMark. Footnote base class.
-    private var referenceMark : String?;
+    public var referenceMark : String?;
 
     // Field of text. Footnote base class.
-    private var text : String?;
+    public var text : String?;
 
     private enum CodingKeys: String, CodingKey {
         case footnoteType = "FootnoteType";
@@ -87,8 +87,9 @@ public class FootnoteBase : Codable, WordsApiModel {
     }
 
     // Sets footnoteType. Gets or sets the option, that specifies whether this is a footnote or endnote.
-    public func setFootnoteType(footnoteType : FootnoteType?) {
+    public func setFootnoteType(footnoteType : FootnoteType?) -> FootnoteBase {
         self.footnoteType = footnoteType;
+        return self;
     }
 
     // Gets footnoteType. Gets or sets the option, that specifies whether this is a footnote or endnote.
@@ -97,8 +98,9 @@ public class FootnoteBase : Codable, WordsApiModel {
     }
 
     // Sets position. Gets or sets the link to comment range start node.
-    public func setPosition(position : DocumentPosition?) {
+    public func setPosition(position : DocumentPosition?) -> FootnoteBase {
         self.position = position;
+        return self;
     }
 
     // Gets position. Gets or sets the link to comment range start node.
@@ -107,8 +109,9 @@ public class FootnoteBase : Codable, WordsApiModel {
     }
 
     // Sets referenceMark. Gets or sets the custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.
-    public func setReferenceMark(referenceMark : String?) {
+    public func setReferenceMark(referenceMark : String?) -> FootnoteBase {
         self.referenceMark = referenceMark;
+        return self;
     }
 
     // Gets referenceMark. Gets or sets the custom reference mark to be used for this footnote. Default value is Empty, meaning auto-numbered footnotes are used.
@@ -117,8 +120,9 @@ public class FootnoteBase : Codable, WordsApiModel {
     }
 
     // Sets text. Gets or sets text of the footnote.
-    public func setText(text : String?) {
+    public func setText(text : String?) -> FootnoteBase {
         self.text = text;
+        return self;
     }
 
     // Gets text. Gets or sets text of the footnote.

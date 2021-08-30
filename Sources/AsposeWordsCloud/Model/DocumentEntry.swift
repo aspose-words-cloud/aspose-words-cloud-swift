@@ -30,10 +30,10 @@ import Foundation
 // Represents a document which will be appended to the original resource document.
 public class DocumentEntry : Codable, WordsApiModel {
     // Field of href. Represents a document which will be appended to the original resource document.
-    private var href : String?;
+    public var href : String?;
 
     // Field of importFormatMode. Represents a document which will be appended to the original resource document.
-    private var importFormatMode : String?;
+    public var importFormatMode : String?;
 
     private enum CodingKeys: String, CodingKey {
         case href = "Href";
@@ -61,8 +61,9 @@ public class DocumentEntry : Codable, WordsApiModel {
     }
 
     // Sets href. Gets or sets the path to document to append at the server.
-    public func setHref(href : String?) {
+    public func setHref(href : String?) -> DocumentEntry {
         self.href = href;
+        return self;
     }
 
     // Gets href. Gets or sets the path to document to append at the server.
@@ -71,8 +72,9 @@ public class DocumentEntry : Codable, WordsApiModel {
     }
 
     // Sets importFormatMode. Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
-    public func setImportFormatMode(importFormatMode : String?) {
+    public func setImportFormatMode(importFormatMode : String?) -> DocumentEntry {
         self.importFormatMode = importFormatMode;
+        return self;
     }
 
     // Gets importFormatMode. Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.

@@ -30,10 +30,10 @@ import Foundation
 // File upload result.
 public class FilesUploadResult : Codable, WordsApiModel {
     // Field of errors. File upload result.
-    private var errors : [InternalError]?;
+    public var errors : [InternalError]?;
 
     // Field of uploaded. File upload result.
-    private var uploaded : [String]?;
+    public var uploaded : [String]?;
 
     private enum CodingKeys: String, CodingKey {
         case errors = "Errors";
@@ -61,8 +61,9 @@ public class FilesUploadResult : Codable, WordsApiModel {
     }
 
     // Sets errors. List of errors.
-    public func setErrors(errors : [InternalError]?) {
+    public func setErrors(errors : [InternalError]?) -> FilesUploadResult {
         self.errors = errors;
+        return self;
     }
 
     // Gets errors. List of errors.
@@ -71,8 +72,9 @@ public class FilesUploadResult : Codable, WordsApiModel {
     }
 
     // Sets uploaded. List of uploaded file names.
-    public func setUploaded(uploaded : [String]?) {
+    public func setUploaded(uploaded : [String]?) -> FilesUploadResult {
         self.uploaded = uploaded;
+        return self;
     }
 
     // Gets uploaded. List of uploaded file names.

@@ -30,19 +30,19 @@ import Foundation
 // Api error.
 public class ApiError : Codable, WordsApiModel {
     // Field of code. Api error.
-    private var code : String?;
+    public var code : String?;
 
     // Field of dateTime. Api error.
-    private var dateTime : Date?;
+    public var dateTime : Date?;
 
     // Field of description. Api error.
-    private var description : String?;
+    public var description : String?;
 
     // Field of innerError. Api error.
-    private var innerError : ApiError?;
+    public var innerError : ApiError?;
 
     // Field of message. Api error.
-    private var message : String?;
+    public var message : String?;
 
     private enum CodingKeys: String, CodingKey {
         case code = "Code";
@@ -90,8 +90,9 @@ public class ApiError : Codable, WordsApiModel {
     }
 
     // Sets code. Gets or sets the API error code.
-    public func setCode(code : String?) {
+    public func setCode(code : String?) -> ApiError {
         self.code = code;
+        return self;
     }
 
     // Gets code. Gets or sets the API error code.
@@ -100,8 +101,9 @@ public class ApiError : Codable, WordsApiModel {
     }
 
     // Sets dateTime. Gets or sets the server DateTime.
-    public func setDateTime(dateTime : Date?) {
+    public func setDateTime(dateTime : Date?) -> ApiError {
         self.dateTime = dateTime;
+        return self;
     }
 
     // Gets dateTime. Gets or sets the server DateTime.
@@ -110,8 +112,9 @@ public class ApiError : Codable, WordsApiModel {
     }
 
     // Sets description. Gets or sets the error description.
-    public func setDescription(description : String?) {
+    public func setDescription(description : String?) -> ApiError {
         self.description = description;
+        return self;
     }
 
     // Gets description. Gets or sets the error description.
@@ -120,8 +123,9 @@ public class ApiError : Codable, WordsApiModel {
     }
 
     // Sets innerError. Gets or sets the inner error.
-    public func setInnerError(innerError : ApiError?) {
+    public func setInnerError(innerError : ApiError?) -> ApiError {
         self.innerError = innerError;
+        return self;
     }
 
     // Gets innerError. Gets or sets the inner error.
@@ -130,8 +134,9 @@ public class ApiError : Codable, WordsApiModel {
     }
 
     // Sets message. Gets or sets the error message.
-    public func setMessage(message : String?) {
+    public func setMessage(message : String?) -> ApiError {
         self.message = message;
+        return self;
     }
 
     // Gets message. Gets or sets the error message.

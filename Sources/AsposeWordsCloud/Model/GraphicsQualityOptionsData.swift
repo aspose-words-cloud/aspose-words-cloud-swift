@@ -137,22 +137,22 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
     }
 
     // Field of compositingMode. Allows to specify additional System.Drawing.Graphics quality options.
-    private var compositingMode : CompositingMode?;
+    public var compositingMode : CompositingMode?;
 
     // Field of compositingQuality. Allows to specify additional System.Drawing.Graphics quality options.
-    private var compositingQuality : CompositingQuality?;
+    public var compositingQuality : CompositingQuality?;
 
     // Field of interpolationMode. Allows to specify additional System.Drawing.Graphics quality options.
-    private var interpolationMode : InterpolationMode?;
+    public var interpolationMode : InterpolationMode?;
 
     // Field of smoothingMode. Allows to specify additional System.Drawing.Graphics quality options.
-    private var smoothingMode : SmoothingMode?;
+    public var smoothingMode : SmoothingMode?;
 
     // Field of stringFormat. Allows to specify additional System.Drawing.Graphics quality options.
-    private var stringFormat : StringFormatData?;
+    public var stringFormat : StringFormatData?;
 
     // Field of textRenderingHint. Allows to specify additional System.Drawing.Graphics quality options.
-    private var textRenderingHint : TextRenderingHint?;
+    public var textRenderingHint : TextRenderingHint?;
 
     private enum CodingKeys: String, CodingKey {
         case compositingMode = "CompositingMode";
@@ -200,8 +200,9 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
     }
 
     // Sets compositingMode. Gets or sets the value, that specifies how composited images are drawn to this Graphics.
-    public func setCompositingMode(compositingMode : CompositingMode?) {
+    public func setCompositingMode(compositingMode : CompositingMode?) -> GraphicsQualityOptionsData {
         self.compositingMode = compositingMode;
+        return self;
     }
 
     // Gets compositingMode. Gets or sets the value, that specifies how composited images are drawn to this Graphics.
@@ -210,8 +211,9 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
     }
 
     // Sets compositingQuality. Gets or sets the rendering quality of composited images drawn to this Graphics.
-    public func setCompositingQuality(compositingQuality : CompositingQuality?) {
+    public func setCompositingQuality(compositingQuality : CompositingQuality?) -> GraphicsQualityOptionsData {
         self.compositingQuality = compositingQuality;
+        return self;
     }
 
     // Gets compositingQuality. Gets or sets the rendering quality of composited images drawn to this Graphics.
@@ -220,8 +222,9 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
     }
 
     // Sets interpolationMode. Gets or sets the interpolation mode associated with this Graphics.
-    public func setInterpolationMode(interpolationMode : InterpolationMode?) {
+    public func setInterpolationMode(interpolationMode : InterpolationMode?) -> GraphicsQualityOptionsData {
         self.interpolationMode = interpolationMode;
+        return self;
     }
 
     // Gets interpolationMode. Gets or sets the interpolation mode associated with this Graphics.
@@ -230,8 +233,9 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
     }
 
     // Sets smoothingMode. Gets or sets the rendering quality for this Graphics.
-    public func setSmoothingMode(smoothingMode : SmoothingMode?) {
+    public func setSmoothingMode(smoothingMode : SmoothingMode?) -> GraphicsQualityOptionsData {
         self.smoothingMode = smoothingMode;
+        return self;
     }
 
     // Gets smoothingMode. Gets or sets the rendering quality for this Graphics.
@@ -240,8 +244,9 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
     }
 
     // Sets stringFormat. Gets or sets text layout information (such as alignment, orientation and tab stops) display manipulations (such as ellipsis insertion and national digit substitution) and OpenType features.
-    public func setStringFormat(stringFormat : StringFormatData?) {
+    public func setStringFormat(stringFormat : StringFormatData?) -> GraphicsQualityOptionsData {
         self.stringFormat = stringFormat;
+        return self;
     }
 
     // Gets stringFormat. Gets or sets text layout information (such as alignment, orientation and tab stops) display manipulations (such as ellipsis insertion and national digit substitution) and OpenType features.
@@ -250,8 +255,9 @@ public class GraphicsQualityOptionsData : Codable, WordsApiModel {
     }
 
     // Sets textRenderingHint. Gets or sets the rendering mode for text associated with this Graphics.
-    public func setTextRenderingHint(textRenderingHint : TextRenderingHint?) {
+    public func setTextRenderingHint(textRenderingHint : TextRenderingHint?) -> GraphicsQualityOptionsData {
         self.textRenderingHint = textRenderingHint;
+        return self;
     }
 
     // Gets textRenderingHint. Gets or sets the rendering mode for text associated with this Graphics.

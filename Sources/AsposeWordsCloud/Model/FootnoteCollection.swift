@@ -30,7 +30,7 @@ import Foundation
 // DTO container with a collection of footnotes.
 public class FootnoteCollection : LinkElement {
     // Field of list. DTO container with a collection of footnotes.
-    private var list : [Footnote]?;
+    public var list : [Footnote]?;
 
     private enum CodingKeys: String, CodingKey {
         case list = "List";
@@ -56,8 +56,9 @@ public class FootnoteCollection : LinkElement {
     }
 
     // Sets list. Gets or sets the collection of footnotes.
-    public func setList(list : [Footnote]?) {
+    public func setList(list : [Footnote]?) -> FootnoteCollection {
         self.list = list;
+        return self;
     }
 
     // Gets list. Gets or sets the collection of footnotes.

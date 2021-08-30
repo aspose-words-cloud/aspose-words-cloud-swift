@@ -30,16 +30,16 @@ import Foundation
 // DTO container with font info.
 public class FontInfo : Codable, WordsApiModel {
     // Field of filePath. DTO container with font info.
-    private var filePath : String?;
+    public var filePath : String?;
 
     // Field of fontFamilyName. DTO container with font info.
-    private var fontFamilyName : String?;
+    public var fontFamilyName : String?;
 
     // Field of fullFontName. DTO container with font info.
-    private var fullFontName : String?;
+    public var fullFontName : String?;
 
     // Field of version. DTO container with font info.
-    private var version : String?;
+    public var version : String?;
 
     private enum CodingKeys: String, CodingKey {
         case filePath = "FilePath";
@@ -77,8 +77,9 @@ public class FontInfo : Codable, WordsApiModel {
     }
 
     // Sets filePath. Gets or sets the path to the font file if any.
-    public func setFilePath(filePath : String?) {
+    public func setFilePath(filePath : String?) -> FontInfo {
         self.filePath = filePath;
+        return self;
     }
 
     // Gets filePath. Gets or sets the path to the font file if any.
@@ -87,8 +88,9 @@ public class FontInfo : Codable, WordsApiModel {
     }
 
     // Sets fontFamilyName. Gets or sets the family name of the font.
-    public func setFontFamilyName(fontFamilyName : String?) {
+    public func setFontFamilyName(fontFamilyName : String?) -> FontInfo {
         self.fontFamilyName = fontFamilyName;
+        return self;
     }
 
     // Gets fontFamilyName. Gets or sets the family name of the font.
@@ -97,8 +99,9 @@ public class FontInfo : Codable, WordsApiModel {
     }
 
     // Sets fullFontName. Gets or sets the full name of the font.
-    public func setFullFontName(fullFontName : String?) {
+    public func setFullFontName(fullFontName : String?) -> FontInfo {
         self.fullFontName = fullFontName;
+        return self;
     }
 
     // Gets fullFontName. Gets or sets the full name of the font.
@@ -107,8 +110,9 @@ public class FontInfo : Codable, WordsApiModel {
     }
 
     // Sets version. Gets or sets the version string of the font.
-    public func setVersion(version : String?) {
+    public func setVersion(version : String?) -> FontInfo {
         self.version = version;
+        return self;
     }
 
     // Gets version. Gets or sets the version string of the font.

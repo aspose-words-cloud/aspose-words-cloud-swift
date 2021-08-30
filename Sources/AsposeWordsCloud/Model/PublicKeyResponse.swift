@@ -30,10 +30,10 @@ import Foundation
 // REST response for RSA public key info.
 public class PublicKeyResponse : WordsResponse {
     // Field of exponent. REST response for RSA public key info.
-    private var exponent : String?;
+    public var exponent : String?;
 
     // Field of modulus. REST response for RSA public key info.
-    private var modulus : String?;
+    public var modulus : String?;
 
     private enum CodingKeys: String, CodingKey {
         case exponent = "Exponent";
@@ -64,8 +64,9 @@ public class PublicKeyResponse : WordsResponse {
     }
 
     // Sets exponent. Gets or sets RSA key exponent as Base64 string.
-    public func setExponent(exponent : String?) {
+    public func setExponent(exponent : String?) -> PublicKeyResponse {
         self.exponent = exponent;
+        return self;
     }
 
     // Gets exponent. Gets or sets RSA key exponent as Base64 string.
@@ -74,8 +75,9 @@ public class PublicKeyResponse : WordsResponse {
     }
 
     // Sets modulus. Gets or sets RSA key modulus as Base64 string.
-    public func setModulus(modulus : String?) {
+    public func setModulus(modulus : String?) -> PublicKeyResponse {
         self.modulus = modulus;
+        return self;
     }
 
     // Gets modulus. Gets or sets RSA key modulus as Base64 string.
