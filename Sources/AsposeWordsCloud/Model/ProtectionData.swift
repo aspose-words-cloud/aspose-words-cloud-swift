@@ -30,7 +30,7 @@ import Foundation
 // Container for the data about protection of the document.
 public class ProtectionData : Codable, WordsApiModel {
     // Field of protectionType. Container for the data about protection of the document.
-    private var protectionType : String?;
+    public var protectionType : String?;
 
     private enum CodingKeys: String, CodingKey {
         case protectionType = "ProtectionType";
@@ -53,8 +53,9 @@ public class ProtectionData : Codable, WordsApiModel {
     }
 
     // Sets protectionType. Gets or sets type of the protection.
-    public func setProtectionType(protectionType : String?) {
+    public func setProtectionType(protectionType : String?) -> ProtectionData {
         self.protectionType = protectionType;
+        return self;
     }
 
     // Gets protectionType. Gets or sets type of the protection.

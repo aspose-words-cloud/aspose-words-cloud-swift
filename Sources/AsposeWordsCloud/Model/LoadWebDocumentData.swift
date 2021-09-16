@@ -30,10 +30,10 @@ import Foundation
 // Contains data for load web document.
 public class LoadWebDocumentData : Codable, WordsApiModel {
     // Field of loadingDocumentUrl. Contains data for load web document.
-    private var loadingDocumentUrl : String?;
+    public var loadingDocumentUrl : String?;
 
     // Field of saveOptions. Contains data for load web document.
-    private var saveOptions : SaveOptionsData?;
+    public var saveOptions : SaveOptionsData?;
 
     private enum CodingKeys: String, CodingKey {
         case loadingDocumentUrl = "LoadingDocumentUrl";
@@ -61,8 +61,9 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
     }
 
     // Sets loadingDocumentUrl. Gets or sets the web document URL.
-    public func setLoadingDocumentUrl(loadingDocumentUrl : String?) {
+    public func setLoadingDocumentUrl(loadingDocumentUrl : String?) -> LoadWebDocumentData {
         self.loadingDocumentUrl = loadingDocumentUrl;
+        return self;
     }
 
     // Gets loadingDocumentUrl. Gets or sets the web document URL.
@@ -71,8 +72,9 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
     }
 
     // Sets saveOptions. Gets or sets the save options.
-    public func setSaveOptions(saveOptions : SaveOptionsData?) {
+    public func setSaveOptions(saveOptions : SaveOptionsData?) -> LoadWebDocumentData {
         self.saveOptions = saveOptions;
+        return self;
     }
 
     // Gets saveOptions. Gets or sets the save options.

@@ -47,7 +47,7 @@ public class MarkdownSaveOptionsData : TxtSaveOptionsBaseData {
     }
 
     // Field of tableContentAlignment. Container class for markdown save options.
-    private var tableContentAlignment : TableContentAlignment?;
+    public var tableContentAlignment : TableContentAlignment?;
 
     private enum CodingKeys: String, CodingKey {
         case tableContentAlignment = "TableContentAlignment";
@@ -73,8 +73,9 @@ public class MarkdownSaveOptionsData : TxtSaveOptionsBaseData {
     }
 
     // Sets tableContentAlignment. Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format. The default value is Auto.
-    public func setTableContentAlignment(tableContentAlignment : TableContentAlignment?) {
+    public func setTableContentAlignment(tableContentAlignment : TableContentAlignment?) -> MarkdownSaveOptionsData {
         self.tableContentAlignment = tableContentAlignment;
+        return self;
     }
 
     // Gets tableContentAlignment. Gets or sets the value, that specifies how to align contents in tables when exporting into the Markdown format. The default value is Auto.

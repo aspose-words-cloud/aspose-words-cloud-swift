@@ -30,13 +30,13 @@ import Foundation
 // FormField checkbox element.
 public class FormFieldCheckbox : FormField {
     // Field of checkBoxSize. FormField checkbox element.
-    private var checkBoxSize : Double?;
+    public var checkBoxSize : Double?;
 
     // Field of checked. FormField checkbox element.
-    private var checked : Bool?;
+    public var checked : Bool?;
 
     // Field of isCheckBoxExactSize. FormField checkbox element.
-    private var isCheckBoxExactSize : Bool?;
+    public var isCheckBoxExactSize : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case checkBoxSize = "CheckBoxSize";
@@ -72,8 +72,9 @@ public class FormFieldCheckbox : FormField {
     }
 
     // Sets checkBoxSize. Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.
-    public func setCheckBoxSize(checkBoxSize : Double?) {
+    public func setCheckBoxSize(checkBoxSize : Double?) -> FormFieldCheckbox {
         self.checkBoxSize = checkBoxSize;
+        return self;
     }
 
     // Gets checkBoxSize. Gets or sets the size of the checkbox in points. Has effect only when IsCheckBoxExactSize is true.
@@ -82,8 +83,9 @@ public class FormFieldCheckbox : FormField {
     }
 
     // Sets checked. Gets or sets the checked status of the check box form field.
-    public func setChecked(checked : Bool?) {
+    public func setChecked(checked : Bool?) -> FormFieldCheckbox {
         self.checked = checked;
+        return self;
     }
 
     // Gets checked. Gets or sets the checked status of the check box form field.
@@ -92,8 +94,9 @@ public class FormFieldCheckbox : FormField {
     }
 
     // Sets isCheckBoxExactSize. Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.
-    public func setIsCheckBoxExactSize(isCheckBoxExactSize : Bool?) {
+    public func setIsCheckBoxExactSize(isCheckBoxExactSize : Bool?) -> FormFieldCheckbox {
         self.isCheckBoxExactSize = isCheckBoxExactSize;
+        return self;
     }
 
     // Gets isCheckBoxExactSize. Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.

@@ -30,7 +30,7 @@ import Foundation
 // The collection of search results.
 public class SearchResultsCollection : LinkElement {
     // Field of resultsList. The collection of search results.
-    private var resultsList : [SearchResult]?;
+    public var resultsList : [SearchResult]?;
 
     private enum CodingKeys: String, CodingKey {
         case resultsList = "ResultsList";
@@ -56,8 +56,9 @@ public class SearchResultsCollection : LinkElement {
     }
 
     // Sets resultsList. Gets or sets the collection of comments.
-    public func setResultsList(resultsList : [SearchResult]?) {
+    public func setResultsList(resultsList : [SearchResult]?) -> SearchResultsCollection {
         self.resultsList = resultsList;
+        return self;
     }
 
     // Gets resultsList. Gets or sets the collection of comments.

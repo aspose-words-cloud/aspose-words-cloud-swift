@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a collection of paragraphs.
 public class ParagraphLinkCollectionResponse : WordsResponse {
     // Field of paragraphs. The REST response with a collection of paragraphs.
-    private var paragraphs : ParagraphLinkCollection?;
+    public var paragraphs : ParagraphLinkCollection?;
 
     private enum CodingKeys: String, CodingKey {
         case paragraphs = "Paragraphs";
@@ -56,8 +56,9 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
     }
 
     // Sets paragraphs. Gets or sets the collection of paragraphs.
-    public func setParagraphs(paragraphs : ParagraphLinkCollection?) {
+    public func setParagraphs(paragraphs : ParagraphLinkCollection?) -> ParagraphLinkCollectionResponse {
         self.paragraphs = paragraphs;
+        return self;
     }
 
     // Gets paragraphs. Gets or sets the collection of paragraphs.

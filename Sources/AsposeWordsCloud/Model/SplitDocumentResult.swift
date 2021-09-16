@@ -30,13 +30,13 @@ import Foundation
 // Result of splitting document.
 public class SplitDocumentResult : Codable, WordsApiModel {
     // Field of pages. Result of splitting document.
-    private var pages : [FileLink]?;
+    public var pages : [FileLink]?;
 
     // Field of sourceDocument. Result of splitting document.
-    private var sourceDocument : FileLink?;
+    public var sourceDocument : FileLink?;
 
     // Field of zippedPages. Result of splitting document.
-    private var zippedPages : FileLink?;
+    public var zippedPages : FileLink?;
 
     private enum CodingKeys: String, CodingKey {
         case pages = "Pages";
@@ -69,8 +69,9 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     }
 
     // Sets pages. Gets or sets the list of pages.
-    public func setPages(pages : [FileLink]?) {
+    public func setPages(pages : [FileLink]?) -> SplitDocumentResult {
         self.pages = pages;
+        return self;
     }
 
     // Gets pages. Gets or sets the list of pages.
@@ -79,8 +80,9 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     }
 
     // Sets sourceDocument. Gets or sets the link to the source document.
-    public func setSourceDocument(sourceDocument : FileLink?) {
+    public func setSourceDocument(sourceDocument : FileLink?) -> SplitDocumentResult {
         self.sourceDocument = sourceDocument;
+        return self;
     }
 
     // Gets sourceDocument. Gets or sets the link to the source document.
@@ -89,8 +91,9 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     }
 
     // Sets zippedPages. Gets or sets the link to the file archive with pages.
-    public func setZippedPages(zippedPages : FileLink?) {
+    public func setZippedPages(zippedPages : FileLink?) -> SplitDocumentResult {
         self.zippedPages = zippedPages;
+        return self;
     }
 
     // Gets zippedPages. Gets or sets the link to the file archive with pages.

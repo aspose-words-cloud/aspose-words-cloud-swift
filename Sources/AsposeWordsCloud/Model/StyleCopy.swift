@@ -30,7 +30,7 @@ import Foundation
 // Represents a single document style to insert.
 public class StyleCopy : Codable, WordsApiModel {
     // Field of styleName. Represents a single document style to insert.
-    private var styleName : String?;
+    public var styleName : String?;
 
     private enum CodingKeys: String, CodingKey {
         case styleName = "StyleName";
@@ -53,8 +53,9 @@ public class StyleCopy : Codable, WordsApiModel {
     }
 
     // Sets styleName. Gets or sets the case sensitive name of the style to copy from it.
-    public func setStyleName(styleName : String?) {
+    public func setStyleName(styleName : String?) -> StyleCopy {
         self.styleName = styleName;
+        return self;
     }
 
     // Gets styleName. Gets or sets the case sensitive name of the style to copy from it.

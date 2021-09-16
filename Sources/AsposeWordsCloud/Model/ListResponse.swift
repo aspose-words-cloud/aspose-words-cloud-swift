@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a list information.
 public class ListResponse : WordsResponse {
     // Field of list. The REST response with a list information.
-    private var list : ListInfo?;
+    public var list : ListInfo?;
 
     private enum CodingKeys: String, CodingKey {
         case list = "List";
@@ -56,8 +56,9 @@ public class ListResponse : WordsResponse {
     }
 
     // Sets list. Gets or sets the list information.
-    public func setList(list : ListInfo?) {
+    public func setList(list : ListInfo?) -> ListResponse {
         self.list = list;
+        return self;
     }
 
     // Gets list. Gets or sets the list information.

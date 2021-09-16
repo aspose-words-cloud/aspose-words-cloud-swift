@@ -104,10 +104,10 @@ class CustomXmlPartsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestCustomXmlPart = CustomXmlPartInsert();
-      requestCustomXmlPart.setId(id: "hello");
-      requestCustomXmlPart.setData(data: "<data>Hello world</data>");
-      let request = InsertCustomXmlPartRequest(name: remoteFileName, customXmlPart: requestCustomXmlPart, folder: remoteDataFolder);
+      let requestCustomXmlPart = CustomXmlPartInsert()
+        .setData(data: "<data>Hello world</data>")
+        .setId(id: "hello");
+      let request = InsertCustomXmlPartRequest(name: remoteFileName, customXmlPart: requestCustomXmlPart as! CustomXmlPartInsert, folder: remoteDataFolder);
       let actual = try super.getApi().insertCustomXmlPart(request: request);
       XCTAssertNotNil(actual.getCustomXmlPart());
       XCTAssertEqual(actual.getCustomXmlPart()!.getId(), "hello");
@@ -117,10 +117,10 @@ class CustomXmlPartsTests: BaseTestContext {
     // Test for adding custom xml part online.
     func testInsertCustomXmlPartOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestCustomXmlPart = CustomXmlPartInsert();
-      requestCustomXmlPart.setId(id: "hello");
-      requestCustomXmlPart.setData(data: "<data>Hello world</data>");
-      let request = InsertCustomXmlPartOnlineRequest(document: requestDocument, customXmlPart: requestCustomXmlPart);
+      let requestCustomXmlPart = CustomXmlPartInsert()
+        .setData(data: "<data>Hello world</data>")
+        .setId(id: "hello");
+      let request = InsertCustomXmlPartOnlineRequest(document: requestDocument, customXmlPart: requestCustomXmlPart as! CustomXmlPartInsert);
       let actual = try super.getApi().insertCustomXmlPartOnline(request: request);
       XCTAssertNotNil(actual.getModel()!.getCustomXmlPart());
       XCTAssertEqual(actual.getModel()!.getCustomXmlPart()!.getId(), "hello");
@@ -133,9 +133,9 @@ class CustomXmlPartsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestCustomXmlPart = CustomXmlPartUpdate();
-      requestCustomXmlPart.setData(data: "<data>Hello world</data>");
-      let request = UpdateCustomXmlPartRequest(name: remoteFileName, customXmlPartIndex: 0, customXmlPart: requestCustomXmlPart, folder: remoteDataFolder);
+      let requestCustomXmlPart = CustomXmlPartUpdate()
+        .setData(data: "<data>Hello world</data>");
+      let request = UpdateCustomXmlPartRequest(name: remoteFileName, customXmlPartIndex: 0, customXmlPart: requestCustomXmlPart as! CustomXmlPartUpdate, folder: remoteDataFolder);
       let actual = try super.getApi().updateCustomXmlPart(request: request);
       XCTAssertNotNil(actual.getCustomXmlPart());
       XCTAssertEqual(actual.getCustomXmlPart()!.getId(), "aspose");
@@ -145,9 +145,9 @@ class CustomXmlPartsTests: BaseTestContext {
     // Test for updating custom xml part online.
     func testUpdateCustomXmlPartOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestCustomXmlPart = CustomXmlPartUpdate();
-      requestCustomXmlPart.setData(data: "<data>Hello world</data>");
-      let request = UpdateCustomXmlPartOnlineRequest(document: requestDocument, customXmlPartIndex: 0, customXmlPart: requestCustomXmlPart);
+      let requestCustomXmlPart = CustomXmlPartUpdate()
+        .setData(data: "<data>Hello world</data>");
+      let request = UpdateCustomXmlPartOnlineRequest(document: requestDocument, customXmlPartIndex: 0, customXmlPart: requestCustomXmlPart as! CustomXmlPartUpdate);
       let actual = try super.getApi().updateCustomXmlPartOnline(request: request);
       XCTAssertNotNil(actual.getModel()!.getCustomXmlPart());
       XCTAssertEqual(actual.getModel()!.getCustomXmlPart()!.getId(), "aspose");

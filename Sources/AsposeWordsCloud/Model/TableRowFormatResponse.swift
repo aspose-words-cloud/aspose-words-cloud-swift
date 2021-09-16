@@ -30,7 +30,7 @@ import Foundation
 // The REST response with the formatting properties of a table row.
 public class TableRowFormatResponse : WordsResponse {
     // Field of rowFormat. The REST response with the formatting properties of a table row.
-    private var rowFormat : TableRowFormat?;
+    public var rowFormat : TableRowFormat?;
 
     private enum CodingKeys: String, CodingKey {
         case rowFormat = "RowFormat";
@@ -56,8 +56,9 @@ public class TableRowFormatResponse : WordsResponse {
     }
 
     // Sets rowFormat. Gets or sets the formatting properties of a table row.
-    public func setRowFormat(rowFormat : TableRowFormat?) {
+    public func setRowFormat(rowFormat : TableRowFormat?) -> TableRowFormatResponse {
         self.rowFormat = rowFormat;
+        return self;
     }
 
     // Gets rowFormat. Gets or sets the formatting properties of a table row.

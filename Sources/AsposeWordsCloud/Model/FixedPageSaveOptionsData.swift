@@ -30,25 +30,25 @@ import Foundation
 // Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
 public class FixedPageSaveOptionsData : SaveOptionsData {
     // Field of colorMode. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var colorMode : String?;
+    public var colorMode : String?;
 
     // Field of jpegQuality. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var jpegQuality : Int?;
+    public var jpegQuality : Int?;
 
     // Field of metafileRenderingOptions. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var metafileRenderingOptions : MetafileRenderingOptionsData?;
+    public var metafileRenderingOptions : MetafileRenderingOptionsData?;
 
     // Field of numeralFormat. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var numeralFormat : String?;
+    public var numeralFormat : String?;
 
     // Field of optimizeOutput. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var optimizeOutput : Bool?;
+    public var optimizeOutput : Bool?;
 
     // Field of pageCount. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var pageCount : Int?;
+    public var pageCount : Int?;
 
     // Field of pageIndex. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var pageIndex : Int?;
+    public var pageIndex : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case colorMode = "ColorMode";
@@ -104,8 +104,9 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     }
 
     // Sets colorMode. Gets or sets the value determining how colors are rendered. { Normal | Grayscale}.
-    public func setColorMode(colorMode : String?) {
+    public func setColorMode(colorMode : String?) -> FixedPageSaveOptionsData {
         self.colorMode = colorMode;
+        return self;
     }
 
     // Gets colorMode. Gets or sets the value determining how colors are rendered. { Normal | Grayscale}.
@@ -114,8 +115,9 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     }
 
     // Sets jpegQuality. Gets or sets the quality of the JPEG images inside PDF document.
-    public func setJpegQuality(jpegQuality : Int?) {
+    public func setJpegQuality(jpegQuality : Int?) -> FixedPageSaveOptionsData {
         self.jpegQuality = jpegQuality;
+        return self;
     }
 
     // Gets jpegQuality. Gets or sets the quality of the JPEG images inside PDF document.
@@ -124,8 +126,9 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     }
 
     // Sets metafileRenderingOptions. Gets or sets the metafile rendering options.
-    public func setMetafileRenderingOptions(metafileRenderingOptions : MetafileRenderingOptionsData?) {
+    public func setMetafileRenderingOptions(metafileRenderingOptions : MetafileRenderingOptionsData?) -> FixedPageSaveOptionsData {
         self.metafileRenderingOptions = metafileRenderingOptions;
+        return self;
     }
 
     // Gets metafileRenderingOptions. Gets or sets the metafile rendering options.
@@ -134,8 +137,9 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     }
 
     // Sets numeralFormat. Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
-    public func setNumeralFormat(numeralFormat : String?) {
+    public func setNumeralFormat(numeralFormat : String?) -> FixedPageSaveOptionsData {
         self.numeralFormat = numeralFormat;
+        return self;
     }
 
     // Gets numeralFormat. Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
@@ -144,8 +148,9 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     }
 
     // Sets optimizeOutput. Gets or sets a value indicating whether it is required to optimize output of XPS. If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated. Note: The accuracy of the content display may be affected if this property is set to true.. The default value is false.
-    public func setOptimizeOutput(optimizeOutput : Bool?) {
+    public func setOptimizeOutput(optimizeOutput : Bool?) -> FixedPageSaveOptionsData {
         self.optimizeOutput = optimizeOutput;
+        return self;
     }
 
     // Gets optimizeOutput. Gets or sets a value indicating whether it is required to optimize output of XPS. If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated. Note: The accuracy of the content display may be affected if this property is set to true.. The default value is false.
@@ -154,8 +159,9 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     }
 
     // Sets pageCount. Gets or sets the number of pages to render.
-    public func setPageCount(pageCount : Int?) {
+    public func setPageCount(pageCount : Int?) -> FixedPageSaveOptionsData {
         self.pageCount = pageCount;
+        return self;
     }
 
     // Gets pageCount. Gets or sets the number of pages to render.
@@ -164,8 +170,9 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     }
 
     // Sets pageIndex. Gets or sets the 0-based index of the first page to render.
-    public func setPageIndex(pageIndex : Int?) {
+    public func setPageIndex(pageIndex : Int?) -> FixedPageSaveOptionsData {
         self.pageIndex = pageIndex;
+        return self;
     }
 
     // Gets pageIndex. Gets or sets the 0-based index of the first page to render.

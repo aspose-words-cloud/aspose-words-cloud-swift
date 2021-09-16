@@ -30,16 +30,16 @@ import Foundation
 // Error.
 public class InternalError : Codable, WordsApiModel {
     // Field of code. Error.
-    private var code : String?;
+    public var code : String?;
 
     // Field of description. Error.
-    private var description : String?;
+    public var description : String?;
 
     // Field of innerError. Error.
-    private var innerError : ErrorDetails?;
+    public var innerError : ErrorDetails?;
 
     // Field of message. Error.
-    private var message : String?;
+    public var message : String?;
 
     private enum CodingKeys: String, CodingKey {
         case code = "Code";
@@ -77,8 +77,9 @@ public class InternalError : Codable, WordsApiModel {
     }
 
     // Sets code. Code.
-    public func setCode(code : String?) {
+    public func setCode(code : String?) -> InternalError {
         self.code = code;
+        return self;
     }
 
     // Gets code. Code.
@@ -87,8 +88,9 @@ public class InternalError : Codable, WordsApiModel {
     }
 
     // Sets description. Description.
-    public func setDescription(description : String?) {
+    public func setDescription(description : String?) -> InternalError {
         self.description = description;
+        return self;
     }
 
     // Gets description. Description.
@@ -97,8 +99,9 @@ public class InternalError : Codable, WordsApiModel {
     }
 
     // Sets innerError. Inner Error.
-    public func setInnerError(innerError : ErrorDetails?) {
+    public func setInnerError(innerError : ErrorDetails?) -> InternalError {
         self.innerError = innerError;
+        return self;
     }
 
     // Gets innerError. Inner Error.
@@ -107,8 +110,9 @@ public class InternalError : Codable, WordsApiModel {
     }
 
     // Sets message. Message.
-    public func setMessage(message : String?) {
+    public func setMessage(message : String?) -> InternalError {
         self.message = message;
+        return self;
     }
 
     // Gets message. Message.

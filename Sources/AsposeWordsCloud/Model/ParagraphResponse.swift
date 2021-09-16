@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a paragraph.
 public class ParagraphResponse : WordsResponse {
     // Field of paragraph. The REST response with a paragraph.
-    private var paragraph : Paragraph?;
+    public var paragraph : Paragraph?;
 
     private enum CodingKeys: String, CodingKey {
         case paragraph = "Paragraph";
@@ -56,8 +56,9 @@ public class ParagraphResponse : WordsResponse {
     }
 
     // Sets paragraph. Gets or sets the paragraph.
-    public func setParagraph(paragraph : Paragraph?) {
+    public func setParagraph(paragraph : Paragraph?) -> ParagraphResponse {
         self.paragraph = paragraph;
+        return self;
     }
 
     // Gets paragraph. Gets or sets the paragraph.

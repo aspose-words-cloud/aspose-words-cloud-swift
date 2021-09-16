@@ -30,10 +30,10 @@ import Foundation
 // DTO container with a field.
 public class Field : FieldLink {
     // Field of localeId. DTO container with a field.
-    private var localeId : String?;
+    public var localeId : String?;
 
     // Field of result. DTO container with a field.
-    private var result : String?;
+    public var result : String?;
 
     private enum CodingKeys: String, CodingKey {
         case localeId = "LocaleId";
@@ -64,8 +64,9 @@ public class Field : FieldLink {
     }
 
     // Sets localeId. Gets or sets the LCID of the field.
-    public func setLocaleId(localeId : String?) {
+    public func setLocaleId(localeId : String?) -> Field {
         self.localeId = localeId;
+        return self;
     }
 
     // Gets localeId. Gets or sets the LCID of the field.
@@ -74,8 +75,9 @@ public class Field : FieldLink {
     }
 
     // Sets result. Gets or sets the field result.
-    public func setResult(result : String?) {
+    public func setResult(result : String?) -> Field {
         self.result = result;
+        return self;
     }
 
     // Gets result. Gets or sets the field result.

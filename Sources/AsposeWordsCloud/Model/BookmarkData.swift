@@ -30,10 +30,10 @@ import Foundation
 // DTO for bookmark updating.
 public class BookmarkData : Codable, WordsApiModel {
     // Field of name. DTO for bookmark updating.
-    private var name : String?;
+    public var name : String?;
 
     // Field of text. DTO for bookmark updating.
-    private var text : String?;
+    public var text : String?;
 
     private enum CodingKeys: String, CodingKey {
         case name = "Name";
@@ -61,8 +61,9 @@ public class BookmarkData : Codable, WordsApiModel {
     }
 
     // Sets name. Gets or sets the name of the bookmark.
-    public func setName(name : String?) {
+    public func setName(name : String?) -> BookmarkData {
         self.name = name;
+        return self;
     }
 
     // Gets name. Gets or sets the name of the bookmark.
@@ -71,8 +72,9 @@ public class BookmarkData : Codable, WordsApiModel {
     }
 
     // Sets text. Gets or sets text, enclosed in the bookmark.
-    public func setText(text : String?) {
+    public func setText(text : String?) -> BookmarkData {
         self.text = text;
+        return self;
     }
 
     // Gets text. Gets or sets text, enclosed in the bookmark.

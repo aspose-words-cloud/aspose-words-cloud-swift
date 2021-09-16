@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a Run element.
 public class RunResponse : WordsResponse {
     // Field of run. The REST response with a Run element.
-    private var run : Run?;
+    public var run : Run?;
 
     private enum CodingKeys: String, CodingKey {
         case run = "Run";
@@ -56,8 +56,9 @@ public class RunResponse : WordsResponse {
     }
 
     // Sets run. Gets or sets the Run element.
-    public func setRun(run : Run?) {
+    public func setRun(run : Run?) -> RunResponse {
         self.run = run;
+        return self;
     }
 
     // Gets run. Gets or sets the Run element.

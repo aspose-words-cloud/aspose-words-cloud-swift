@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a result of document splitting.
 public class SplitDocumentResponse : WordsResponse {
     // Field of splitResult. The REST response with a result of document splitting.
-    private var splitResult : SplitDocumentResult?;
+    public var splitResult : SplitDocumentResult?;
 
     private enum CodingKeys: String, CodingKey {
         case splitResult = "SplitResult";
@@ -56,8 +56,9 @@ public class SplitDocumentResponse : WordsResponse {
     }
 
     // Sets splitResult. Gets or sets the result of document splitting.
-    public func setSplitResult(splitResult : SplitDocumentResult?) {
+    public func setSplitResult(splitResult : SplitDocumentResult?) -> SplitDocumentResponse {
         self.splitResult = splitResult;
+        return self;
     }
 
     // Gets splitResult. Gets or sets the result of document splitting.

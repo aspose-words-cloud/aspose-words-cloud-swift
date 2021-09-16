@@ -30,13 +30,13 @@ import Foundation
 // The REST response with data on multi-class text classification.
 public class ClassificationResponse : WordsResponse {
     // Field of bestClassName. The REST response with data on multi-class text classification.
-    private var bestClassName : String?;
+    public var bestClassName : String?;
 
     // Field of bestClassProbability. The REST response with data on multi-class text classification.
-    private var bestClassProbability : Double?;
+    public var bestClassProbability : Double?;
 
     // Field of bestResults. The REST response with data on multi-class text classification.
-    private var bestResults : [ClassificationResult]?;
+    public var bestResults : [ClassificationResult]?;
 
     private enum CodingKeys: String, CodingKey {
         case bestClassName = "BestClassName";
@@ -72,8 +72,9 @@ public class ClassificationResponse : WordsResponse {
     }
 
     // Sets bestClassName. Gets or sets the best class name.
-    public func setBestClassName(bestClassName : String?) {
+    public func setBestClassName(bestClassName : String?) -> ClassificationResponse {
         self.bestClassName = bestClassName;
+        return self;
     }
 
     // Gets bestClassName. Gets or sets the best class name.
@@ -82,8 +83,9 @@ public class ClassificationResponse : WordsResponse {
     }
 
     // Sets bestClassProbability. Gets or sets the best class probability.
-    public func setBestClassProbability(bestClassProbability : Double?) {
+    public func setBestClassProbability(bestClassProbability : Double?) -> ClassificationResponse {
         self.bestClassProbability = bestClassProbability;
+        return self;
     }
 
     // Gets bestClassProbability. Gets or sets the best class probability.
@@ -92,8 +94,9 @@ public class ClassificationResponse : WordsResponse {
     }
 
     // Sets bestResults. Gets or sets the array of best classes results.
-    public func setBestResults(bestResults : [ClassificationResult]?) {
+    public func setBestResults(bestResults : [ClassificationResult]?) -> ClassificationResponse {
         self.bestResults = bestResults;
+        return self;
     }
 
     // Gets bestResults. Gets or sets the array of best classes results.

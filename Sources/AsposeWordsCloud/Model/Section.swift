@@ -30,19 +30,19 @@ import Foundation
 // DTO container with a section element.
 public class Section : LinkElement {
     // Field of childNodes. DTO container with a section element.
-    private var childNodes : [NodeLink]?;
+    public var childNodes : [NodeLink]?;
 
     // Field of headerFooters. DTO container with a section element.
-    private var headerFooters : LinkElement?;
+    public var headerFooters : LinkElement?;
 
     // Field of pageSetup. DTO container with a section element.
-    private var pageSetup : LinkElement?;
+    public var pageSetup : LinkElement?;
 
     // Field of paragraphs. DTO container with a section element.
-    private var paragraphs : LinkElement?;
+    public var paragraphs : LinkElement?;
 
     // Field of tables. DTO container with a section element.
-    private var tables : LinkElement?;
+    public var tables : LinkElement?;
 
     private enum CodingKeys: String, CodingKey {
         case childNodes = "ChildNodes";
@@ -88,8 +88,9 @@ public class Section : LinkElement {
     }
 
     // Sets childNodes. Gets or sets the list of child nodes.
-    public func setChildNodes(childNodes : [NodeLink]?) {
+    public func setChildNodes(childNodes : [NodeLink]?) -> Section {
         self.childNodes = childNodes;
+        return self;
     }
 
     // Gets childNodes. Gets or sets the list of child nodes.
@@ -98,8 +99,9 @@ public class Section : LinkElement {
     }
 
     // Sets headerFooters. Gets or sets the link to HeaderFooters resource.
-    public func setHeaderFooters(headerFooters : LinkElement?) {
+    public func setHeaderFooters(headerFooters : LinkElement?) -> Section {
         self.headerFooters = headerFooters;
+        return self;
     }
 
     // Gets headerFooters. Gets or sets the link to HeaderFooters resource.
@@ -108,8 +110,9 @@ public class Section : LinkElement {
     }
 
     // Sets pageSetup. Gets or sets the link to PageSetup resource.
-    public func setPageSetup(pageSetup : LinkElement?) {
+    public func setPageSetup(pageSetup : LinkElement?) -> Section {
         self.pageSetup = pageSetup;
+        return self;
     }
 
     // Gets pageSetup. Gets or sets the link to PageSetup resource.
@@ -118,8 +121,9 @@ public class Section : LinkElement {
     }
 
     // Sets paragraphs. Gets or sets the link to Paragraphs resource.
-    public func setParagraphs(paragraphs : LinkElement?) {
+    public func setParagraphs(paragraphs : LinkElement?) -> Section {
         self.paragraphs = paragraphs;
+        return self;
     }
 
     // Gets paragraphs. Gets or sets the link to Paragraphs resource.
@@ -128,8 +132,9 @@ public class Section : LinkElement {
     }
 
     // Sets tables. Gets or sets the link to Tables resource.
-    public func setTables(tables : LinkElement?) {
+    public func setTables(tables : LinkElement?) -> Section {
         self.tables = tables;
+        return self;
     }
 
     // Gets tables. Gets or sets the link to Tables resource.

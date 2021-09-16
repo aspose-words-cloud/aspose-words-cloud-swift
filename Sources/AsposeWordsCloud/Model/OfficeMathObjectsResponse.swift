@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a collection of OfficeMath objects.
 public class OfficeMathObjectsResponse : WordsResponse {
     // Field of officeMathObjects. The REST response with a collection of OfficeMath objects.
-    private var officeMathObjects : OfficeMathObjectsCollection?;
+    public var officeMathObjects : OfficeMathObjectsCollection?;
 
     private enum CodingKeys: String, CodingKey {
         case officeMathObjects = "OfficeMathObjects";
@@ -56,8 +56,9 @@ public class OfficeMathObjectsResponse : WordsResponse {
     }
 
     // Sets officeMathObjects. Gets or sets the collection of OfficeMath objects.
-    public func setOfficeMathObjects(officeMathObjects : OfficeMathObjectsCollection?) {
+    public func setOfficeMathObjects(officeMathObjects : OfficeMathObjectsCollection?) -> OfficeMathObjectsResponse {
         self.officeMathObjects = officeMathObjects;
+        return self;
     }
 
     // Gets officeMathObjects. Gets or sets the collection of OfficeMath objects.

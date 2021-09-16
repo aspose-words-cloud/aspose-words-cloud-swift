@@ -30,10 +30,10 @@ import Foundation
 // The REST response with a number of occurrences of the captured text in the document.
 public class ReplaceTextResponse : WordsResponse {
     // Field of documentLink. The REST response with a number of occurrences of the captured text in the document.
-    private var documentLink : FileLink?;
+    public var documentLink : FileLink?;
 
     // Field of matches. The REST response with a number of occurrences of the captured text in the document.
-    private var matches : Int?;
+    public var matches : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case documentLink = "DocumentLink";
@@ -64,8 +64,9 @@ public class ReplaceTextResponse : WordsResponse {
     }
 
     // Sets documentLink. Gets or sets the link to the document.
-    public func setDocumentLink(documentLink : FileLink?) {
+    public func setDocumentLink(documentLink : FileLink?) -> ReplaceTextResponse {
         self.documentLink = documentLink;
+        return self;
     }
 
     // Gets documentLink. Gets or sets the link to the document.
@@ -74,8 +75,9 @@ public class ReplaceTextResponse : WordsResponse {
     }
 
     // Sets matches. Gets or sets the number of occurrences of the captured text in the document.
-    public func setMatches(matches : Int?) {
+    public func setMatches(matches : Int?) -> ReplaceTextResponse {
         self.matches = matches;
+        return self;
     }
 
     // Gets matches. Gets or sets the number of occurrences of the captured text in the document.

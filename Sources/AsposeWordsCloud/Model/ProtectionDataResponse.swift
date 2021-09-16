@@ -30,10 +30,10 @@ import Foundation
 // The REST response with data on document's protection.
 public class ProtectionDataResponse : WordsResponse {
     // Field of documentLink. The REST response with data on document's protection.
-    private var documentLink : FileLink?;
+    public var documentLink : FileLink?;
 
     // Field of protectionData. The REST response with data on document's protection.
-    private var protectionData : ProtectionData?;
+    public var protectionData : ProtectionData?;
 
     private enum CodingKeys: String, CodingKey {
         case documentLink = "DocumentLink";
@@ -64,8 +64,9 @@ public class ProtectionDataResponse : WordsResponse {
     }
 
     // Sets documentLink. Gets or sets the link to the document.
-    public func setDocumentLink(documentLink : FileLink?) {
+    public func setDocumentLink(documentLink : FileLink?) -> ProtectionDataResponse {
         self.documentLink = documentLink;
+        return self;
     }
 
     // Gets documentLink. Gets or sets the link to the document.
@@ -74,8 +75,9 @@ public class ProtectionDataResponse : WordsResponse {
     }
 
     // Sets protectionData. Gets or sets the protection properties of the document.
-    public func setProtectionData(protectionData : ProtectionData?) {
+    public func setProtectionData(protectionData : ProtectionData?) -> ProtectionDataResponse {
         self.protectionData = protectionData;
+        return self;
     }
 
     // Gets protectionData. Gets or sets the protection properties of the document.

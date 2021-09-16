@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a style.
 public class StyleResponse : WordsResponse {
     // Field of style. The REST response with a style.
-    private var style : Style?;
+    public var style : Style?;
 
     private enum CodingKeys: String, CodingKey {
         case style = "Style";
@@ -56,8 +56,9 @@ public class StyleResponse : WordsResponse {
     }
 
     // Sets style. Gets or sets the style, containded in the document.
-    public func setStyle(style : Style?) {
+    public func setStyle(style : Style?) -> StyleResponse {
         self.style = style;
+        return self;
     }
 
     // Gets style. Gets or sets the style, containded in the document.

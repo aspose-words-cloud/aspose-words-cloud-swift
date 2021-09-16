@@ -31,16 +31,16 @@ import Foundation
 // This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
 public class Link : Codable, WordsApiModel {
     // Field of href. Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
-    private var href : String?;
+    public var href : String?;
 
     // Field of rel. Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
-    private var rel : String?;
+    public var rel : String?;
 
     // Field of title. Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
-    private var title : String?;
+    public var title : String?;
 
     // Field of type. Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
-    private var type : String?;
+    public var type : String?;
 
     private enum CodingKeys: String, CodingKey {
         case href = "Href";
@@ -78,8 +78,9 @@ public class Link : Codable, WordsApiModel {
     }
 
     // Sets href. Gets or sets the "href" attribute with the link's IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference.
-    public func setHref(href : String?) {
+    public func setHref(href : String?) -> Link {
         self.href = href;
+        return self;
     }
 
     // Gets href. Gets or sets the "href" attribute with the link's IRI. atom:link elements MUST have an href attribute, whose value MUST be a IRI reference.
@@ -88,8 +89,9 @@ public class Link : Codable, WordsApiModel {
     }
 
     // Sets rel. Gets or sets the option that controls whether atom:link elements MAY have a "rel" attribute that indicates the link relation type.  If the "rel" attribute is not present, the link element MUST be interpreted as if the link relation type is "alternate".
-    public func setRel(rel : String?) {
+    public func setRel(rel : String?) -> Link {
         self.rel = rel;
+        return self;
     }
 
     // Gets rel. Gets or sets the option that controls whether atom:link elements MAY have a "rel" attribute that indicates the link relation type.  If the "rel" attribute is not present, the link element MUST be interpreted as if the link relation type is "alternate".
@@ -98,8 +100,9 @@ public class Link : Codable, WordsApiModel {
     }
 
     // Sets title. Gets or sets the "title" attribute, that conveys human-readable information about the link. The content of the "title" attribute is Language-Sensitive.
-    public func setTitle(title : String?) {
+    public func setTitle(title : String?) -> Link {
         self.title = title;
+        return self;
     }
 
     // Gets title. Gets or sets the "title" attribute, that conveys human-readable information about the link. The content of the "title" attribute is Language-Sensitive.
@@ -108,8 +111,9 @@ public class Link : Codable, WordsApiModel {
     }
 
     // Sets type. Gets or sets the "type" attribute. The "type" attribute's value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced. Note that the type attribute does not override the actual media type returned with the representation.
-    public func setType(type : String?) {
+    public func setType(type : String?) -> Link {
         self.type = type;
+        return self;
     }
 
     // Gets type. Gets or sets the "type" attribute. The "type" attribute's value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced. Note that the type attribute does not override the actual media type returned with the representation.

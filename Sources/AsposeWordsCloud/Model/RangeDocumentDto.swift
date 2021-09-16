@@ -30,7 +30,7 @@ import Foundation
 // DTO container with a Range element.
 public class RangeDocumentDto : Codable, WordsApiModel {
     // Field of documentName. DTO container with a Range element.
-    private var documentName : String?;
+    public var documentName : String?;
 
     private enum CodingKeys: String, CodingKey {
         case documentName = "DocumentName";
@@ -53,8 +53,9 @@ public class RangeDocumentDto : Codable, WordsApiModel {
     }
 
     // Sets documentName. Gets or sets the name for a new document.
-    public func setDocumentName(documentName : String?) {
+    public func setDocumentName(documentName : String?) -> RangeDocumentDto {
         self.documentName = documentName;
+        return self;
     }
 
     // Gets documentName. Gets or sets the name for a new document.

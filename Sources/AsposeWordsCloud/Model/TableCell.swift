@@ -30,7 +30,7 @@ import Foundation
 // DTO container with a table cell element.
 public class TableCell : NodeLink {
     // Field of childNodes. DTO container with a table cell element.
-    private var childNodes : [NodeLink]?;
+    public var childNodes : [NodeLink]?;
 
     private enum CodingKeys: String, CodingKey {
         case childNodes = "ChildNodes";
@@ -56,8 +56,9 @@ public class TableCell : NodeLink {
     }
 
     // Sets childNodes. Gets or sets the list of child nodes.
-    public func setChildNodes(childNodes : [NodeLink]?) {
+    public func setChildNodes(childNodes : [NodeLink]?) -> TableCell {
         self.childNodes = childNodes;
+        return self;
     }
 
     // Gets childNodes. Gets or sets the list of child nodes.

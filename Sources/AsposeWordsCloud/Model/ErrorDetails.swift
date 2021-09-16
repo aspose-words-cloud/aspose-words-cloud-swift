@@ -30,10 +30,10 @@ import Foundation
 // The error details.
 public class ErrorDetails : Codable, WordsApiModel {
     // Field of errorDateTime. The error details.
-    private var errorDateTime : Date?;
+    public var errorDateTime : Date?;
 
     // Field of requestId. The error details.
-    private var requestId : String?;
+    public var requestId : String?;
 
     private enum CodingKeys: String, CodingKey {
         case errorDateTime = "ErrorDateTime";
@@ -66,8 +66,9 @@ public class ErrorDetails : Codable, WordsApiModel {
     }
 
     // Sets errorDateTime. Error datetime.
-    public func setErrorDateTime(errorDateTime : Date?) {
+    public func setErrorDateTime(errorDateTime : Date?) -> ErrorDetails {
         self.errorDateTime = errorDateTime;
+        return self;
     }
 
     // Gets errorDateTime. Error datetime.
@@ -76,8 +77,9 @@ public class ErrorDetails : Codable, WordsApiModel {
     }
 
     // Sets requestId. The request id.
-    public func setRequestId(requestId : String?) {
+    public func setRequestId(requestId : String?) -> ErrorDetails {
         self.requestId = requestId;
+        return self;
     }
 
     // Gets requestId. The request id.

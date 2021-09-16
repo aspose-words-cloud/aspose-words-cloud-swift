@@ -40,49 +40,49 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of allowEmbeddingPostScriptFonts. base container class for save options data.
-    private var allowEmbeddingPostScriptFonts : Bool?;
+    public var allowEmbeddingPostScriptFonts : Bool?;
 
     // Field of customTimeZoneInfoData. base container class for save options data.
-    private var customTimeZoneInfoData : TimeZoneInfoData?;
+    public var customTimeZoneInfoData : TimeZoneInfoData?;
 
     // Field of dml3DEffectsRenderingMode. base container class for save options data.
-    private var dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?;
+    public var dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?;
 
     // Field of dmlEffectsRenderingMode. base container class for save options data.
-    private var dmlEffectsRenderingMode : String?;
+    public var dmlEffectsRenderingMode : String?;
 
     // Field of dmlRenderingMode. base container class for save options data.
-    private var dmlRenderingMode : String?;
+    public var dmlRenderingMode : String?;
 
     // Field of fileName. base container class for save options data.
-    private var fileName : String?;
+    public var fileName : String?;
 
     // Field of flatOpcXmlMappingOnly. base container class for save options data.
-    private var flatOpcXmlMappingOnly : Bool?;
+    public var flatOpcXmlMappingOnly : Bool?;
 
     // Field of imlRenderingMode. base container class for save options data.
-    private var imlRenderingMode : String?;
+    public var imlRenderingMode : String?;
 
     // Field of saveFormat. base container class for save options data.
-    private var saveFormat : String?;
+    public var saveFormat : String?;
 
     // Field of updateCreatedTimeProperty. base container class for save options data.
-    private var updateCreatedTimeProperty : Bool?;
+    public var updateCreatedTimeProperty : Bool?;
 
     // Field of updateFields. base container class for save options data.
-    private var updateFields : Bool?;
+    public var updateFields : Bool?;
 
     // Field of updateLastPrintedProperty. base container class for save options data.
-    private var updateLastPrintedProperty : Bool?;
+    public var updateLastPrintedProperty : Bool?;
 
     // Field of updateLastSavedTimeProperty. base container class for save options data.
-    private var updateLastSavedTimeProperty : Bool?;
+    public var updateLastSavedTimeProperty : Bool?;
 
     // Field of updateSdtContent. base container class for save options data.
-    private var updateSdtContent : Bool?;
+    public var updateSdtContent : Bool?;
 
     // Field of zipOutput. base container class for save options data.
-    private var zipOutput : Bool?;
+    public var zipOutput : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case allowEmbeddingPostScriptFonts = "AllowEmbeddingPostScriptFonts";
@@ -175,8 +175,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Sets allowEmbeddingPostScriptFonts. Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
-    public func setAllowEmbeddingPostScriptFonts(allowEmbeddingPostScriptFonts : Bool?) {
+    public func setAllowEmbeddingPostScriptFonts(allowEmbeddingPostScriptFonts : Bool?) -> SaveOptionsData {
         self.allowEmbeddingPostScriptFonts = allowEmbeddingPostScriptFonts;
+        return self;
     }
 
     // Gets allowEmbeddingPostScriptFonts. Gets or sets a boolean value indicating whether to allow embedding fonts with PostScript outlines when embedding TrueType fonts in a document upon it is saved. The default value is false..
@@ -185,8 +186,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Sets customTimeZoneInfoData. Gets or sets CustomTimeZoneInfo.
-    public func setCustomTimeZoneInfoData(customTimeZoneInfoData : TimeZoneInfoData?) {
+    public func setCustomTimeZoneInfoData(customTimeZoneInfoData : TimeZoneInfoData?) -> SaveOptionsData {
         self.customTimeZoneInfoData = customTimeZoneInfoData;
+        return self;
     }
 
     // Gets customTimeZoneInfoData. Gets or sets CustomTimeZoneInfo.
@@ -195,8 +197,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Sets dml3DEffectsRenderingMode. Gets or sets the value determining how 3D effects are rendered.
-    public func setDml3DEffectsRenderingMode(dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?) {
+    public func setDml3DEffectsRenderingMode(dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?) -> SaveOptionsData {
         self.dml3DEffectsRenderingMode = dml3DEffectsRenderingMode;
+        return self;
     }
 
     // Gets dml3DEffectsRenderingMode. Gets or sets the value determining how 3D effects are rendered.
@@ -205,8 +208,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Sets dmlEffectsRenderingMode. Gets or sets the value determining how DrawingML effects are rendered. { Simplified | None | Fine }.
-    public func setDmlEffectsRenderingMode(dmlEffectsRenderingMode : String?) {
+    public func setDmlEffectsRenderingMode(dmlEffectsRenderingMode : String?) -> SaveOptionsData {
         self.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
+        return self;
     }
 
     // Gets dmlEffectsRenderingMode. Gets or sets the value determining how DrawingML effects are rendered. { Simplified | None | Fine }.
@@ -215,8 +219,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Sets dmlRenderingMode. Gets or sets the option that controls how DrawingML shapes are rendered.
-    public func setDmlRenderingMode(dmlRenderingMode : String?) {
+    public func setDmlRenderingMode(dmlRenderingMode : String?) -> SaveOptionsData {
         self.dmlRenderingMode = dmlRenderingMode;
+        return self;
     }
 
     // Gets dmlRenderingMode. Gets or sets the option that controls how DrawingML shapes are rendered.
@@ -225,8 +230,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Sets fileName. Gets or sets the name of destination file.
-    public func setFileName(fileName : String?) {
+    public func setFileName(fileName : String?) -> SaveOptionsData {
         self.fileName = fileName;
+        return self;
     }
 
     // Gets fileName. Gets or sets the name of destination file.
@@ -235,8 +241,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Sets flatOpcXmlMappingOnly. Gets or sets value determining which document formats are allowed to be mapped by Aspose.Words.Markup.StructuredDocumentTag.XmlMapping. By default only Aspose.Words.LoadFormat.FlatOpc document format is allowed to be mapped.
-    public func setFlatOpcXmlMappingOnly(flatOpcXmlMappingOnly : Bool?) {
+    public func setFlatOpcXmlMappingOnly(flatOpcXmlMappingOnly : Bool?) -> SaveOptionsData {
         self.flatOpcXmlMappingOnly = flatOpcXmlMappingOnly;
+        return self;
     }
 
     // Gets flatOpcXmlMappingOnly. Gets or sets value determining which document formats are allowed to be mapped by Aspose.Words.Markup.StructuredDocumentTag.XmlMapping. By default only Aspose.Words.LoadFormat.FlatOpc document format is allowed to be mapped.
@@ -245,8 +252,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Sets imlRenderingMode. Gets or sets the value determining how ink (InkML) objects are rendered.
-    public func setImlRenderingMode(imlRenderingMode : String?) {
+    public func setImlRenderingMode(imlRenderingMode : String?) -> SaveOptionsData {
         self.imlRenderingMode = imlRenderingMode;
+        return self;
     }
 
     // Gets imlRenderingMode. Gets or sets the value determining how ink (InkML) objects are rendered.
@@ -255,8 +263,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Sets saveFormat. Gets or sets the format of save.
-    public func setSaveFormat(saveFormat : String?) {
+    public func setSaveFormat(saveFormat : String?) -> SaveOptionsData {
         self.saveFormat = saveFormat;
+        return self;
     }
 
     // Gets saveFormat. Gets or sets the format of save.
@@ -265,8 +274,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Sets updateCreatedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving. Default value is false.
-    public func setUpdateCreatedTimeProperty(updateCreatedTimeProperty : Bool?) {
+    public func setUpdateCreatedTimeProperty(updateCreatedTimeProperty : Bool?) -> SaveOptionsData {
         self.updateCreatedTimeProperty = updateCreatedTimeProperty;
+        return self;
     }
 
     // Gets updateCreatedTimeProperty. Gets or sets a value determining whether the Aspose.Words.Properties.BuiltInDocumentProperties.CreatedTime property is updated before saving. Default value is false.
@@ -275,8 +285,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Sets updateFields. Gets or sets a value indicating whether fields should be updated before saving the document to a fixed page format. The default value is true.
-    public func setUpdateFields(updateFields : Bool?) {
+    public func setUpdateFields(updateFields : Bool?) -> SaveOptionsData {
         self.updateFields = updateFields;
+        return self;
     }
 
     // Gets updateFields. Gets or sets a value indicating whether fields should be updated before saving the document to a fixed page format. The default value is true.
@@ -285,8 +296,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Sets updateLastPrintedProperty. Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.
-    public func setUpdateLastPrintedProperty(updateLastPrintedProperty : Bool?) {
+    public func setUpdateLastPrintedProperty(updateLastPrintedProperty : Bool?) -> SaveOptionsData {
         self.updateLastPrintedProperty = updateLastPrintedProperty;
+        return self;
     }
 
     // Gets updateLastPrintedProperty. Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastPrinted property is updated before saving.
@@ -295,8 +307,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Sets updateLastSavedTimeProperty. Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
-    public func setUpdateLastSavedTimeProperty(updateLastSavedTimeProperty : Bool?) {
+    public func setUpdateLastSavedTimeProperty(updateLastSavedTimeProperty : Bool?) -> SaveOptionsData {
         self.updateLastSavedTimeProperty = updateLastSavedTimeProperty;
+        return self;
     }
 
     // Gets updateLastSavedTimeProperty. Gets or sets a value indicating whether the Aspose.Words.Properties.BuiltInDocumentProperties.LastSavedTime property is updated before saving.
@@ -305,8 +318,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Sets updateSdtContent. Gets or sets a value indicating whether content of StructuredDocumentTag is updated before saving.
-    public func setUpdateSdtContent(updateSdtContent : Bool?) {
+    public func setUpdateSdtContent(updateSdtContent : Bool?) -> SaveOptionsData {
         self.updateSdtContent = updateSdtContent;
+        return self;
     }
 
     // Gets updateSdtContent. Gets or sets a value indicating whether content of StructuredDocumentTag is updated before saving.
@@ -315,8 +329,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Sets zipOutput. Gets or sets a value indicating whether to zip output or not. The default value is false.
-    public func setZipOutput(zipOutput : Bool?) {
+    public func setZipOutput(zipOutput : Bool?) -> SaveOptionsData {
         self.zipOutput = zipOutput;
+        return self;
     }
 
     // Gets zipOutput. Gets or sets a value indicating whether to zip output or not. The default value is false.

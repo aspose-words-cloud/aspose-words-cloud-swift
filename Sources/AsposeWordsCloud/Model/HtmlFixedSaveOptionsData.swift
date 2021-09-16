@@ -30,46 +30,46 @@ import Foundation
 // Container class for fixed html save options.
 public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of cssClassNamesPrefix. Container class for fixed html save options.
-    private var cssClassNamesPrefix : String?;
+    public var cssClassNamesPrefix : String?;
 
     // Field of encoding. Container class for fixed html save options.
-    private var encoding : String?;
+    public var encoding : String?;
 
     // Field of exportEmbeddedCss. Container class for fixed html save options.
-    private var exportEmbeddedCss : Bool?;
+    public var exportEmbeddedCss : Bool?;
 
     // Field of exportEmbeddedFonts. Container class for fixed html save options.
-    private var exportEmbeddedFonts : Bool?;
+    public var exportEmbeddedFonts : Bool?;
 
     // Field of exportEmbeddedImages. Container class for fixed html save options.
-    private var exportEmbeddedImages : Bool?;
+    public var exportEmbeddedImages : Bool?;
 
     // Field of exportFormFields. Container class for fixed html save options.
-    private var exportFormFields : Bool?;
+    public var exportFormFields : Bool?;
 
     // Field of fontFormat. Container class for fixed html save options.
-    private var fontFormat : String?;
+    public var fontFormat : String?;
 
     // Field of pageHorizontalAlignment. Container class for fixed html save options.
-    private var pageHorizontalAlignment : String?;
+    public var pageHorizontalAlignment : String?;
 
     // Field of pageMargins. Container class for fixed html save options.
-    private var pageMargins : Double?;
+    public var pageMargins : Double?;
 
     // Field of resourcesFolder. Container class for fixed html save options.
-    private var resourcesFolder : String?;
+    public var resourcesFolder : String?;
 
     // Field of resourcesFolderAlias. Container class for fixed html save options.
-    private var resourcesFolderAlias : String?;
+    public var resourcesFolderAlias : String?;
 
     // Field of saveFontFaceCssSeparately. Container class for fixed html save options.
-    private var saveFontFaceCssSeparately : Bool?;
+    public var saveFontFaceCssSeparately : Bool?;
 
     // Field of showPageBorder. Container class for fixed html save options.
-    private var showPageBorder : Bool?;
+    public var showPageBorder : Bool?;
 
     // Field of useTargetMachineFonts. Container class for fixed html save options.
-    private var useTargetMachineFonts : Bool?;
+    public var useTargetMachineFonts : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case cssClassNamesPrefix = "CssClassNamesPrefix";
@@ -160,8 +160,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets cssClassNamesPrefix. Gets or sets the prefix which is added to all class names in style.css file. Default value is "aw".
-    public func setCssClassNamesPrefix(cssClassNamesPrefix : String?) {
+    public func setCssClassNamesPrefix(cssClassNamesPrefix : String?) -> HtmlFixedSaveOptionsData {
         self.cssClassNamesPrefix = cssClassNamesPrefix;
+        return self;
     }
 
     // Gets cssClassNamesPrefix. Gets or sets the prefix which is added to all class names in style.css file. Default value is "aw".
@@ -170,8 +171,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets encoding. Gets or sets the character encoding.
-    public func setEncoding(encoding : String?) {
+    public func setEncoding(encoding : String?) -> HtmlFixedSaveOptionsData {
         self.encoding = encoding;
+        return self;
     }
 
     // Gets encoding. Gets or sets the character encoding.
@@ -180,8 +182,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets exportEmbeddedCss. Gets or sets a value indicating whether the CSS (Cascading Style Sheet) should be embedded into the Html document.
-    public func setExportEmbeddedCss(exportEmbeddedCss : Bool?) {
+    public func setExportEmbeddedCss(exportEmbeddedCss : Bool?) -> HtmlFixedSaveOptionsData {
         self.exportEmbeddedCss = exportEmbeddedCss;
+        return self;
     }
 
     // Gets exportEmbeddedCss. Gets or sets a value indicating whether the CSS (Cascading Style Sheet) should be embedded into the Html document.
@@ -190,8 +193,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets exportEmbeddedFonts. Gets or sets a value indicating whether fonts should be embedded into the Html document in Base64 format.
-    public func setExportEmbeddedFonts(exportEmbeddedFonts : Bool?) {
+    public func setExportEmbeddedFonts(exportEmbeddedFonts : Bool?) -> HtmlFixedSaveOptionsData {
         self.exportEmbeddedFonts = exportEmbeddedFonts;
+        return self;
     }
 
     // Gets exportEmbeddedFonts. Gets or sets a value indicating whether fonts should be embedded into the Html document in Base64 format.
@@ -200,8 +204,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets exportEmbeddedImages. Gets or sets a value indicating whether images should be embedded into the Html document in Base64 format.
-    public func setExportEmbeddedImages(exportEmbeddedImages : Bool?) {
+    public func setExportEmbeddedImages(exportEmbeddedImages : Bool?) -> HtmlFixedSaveOptionsData {
         self.exportEmbeddedImages = exportEmbeddedImages;
+        return self;
     }
 
     // Gets exportEmbeddedImages. Gets or sets a value indicating whether images should be embedded into the Html document in Base64 format.
@@ -210,8 +215,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets exportFormFields. Gets or sets a value indicating whether form fields are exported as interactive items (as 'input' tag) rather than converted to text or graphics.
-    public func setExportFormFields(exportFormFields : Bool?) {
+    public func setExportFormFields(exportFormFields : Bool?) -> HtmlFixedSaveOptionsData {
         self.exportFormFields = exportFormFields;
+        return self;
     }
 
     // Gets exportFormFields. Gets or sets a value indicating whether form fields are exported as interactive items (as 'input' tag) rather than converted to text or graphics.
@@ -220,8 +226,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets fontFormat. Gets or sets the export format of fonts.
-    public func setFontFormat(fontFormat : String?) {
+    public func setFontFormat(fontFormat : String?) -> HtmlFixedSaveOptionsData {
         self.fontFormat = fontFormat;
+        return self;
     }
 
     // Gets fontFormat. Gets or sets the export format of fonts.
@@ -230,8 +237,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets pageHorizontalAlignment. Gets or sets the horizontal alignment of pages in the HTML document. The default value is HtmlFixedHorizontalPageAlignment.Center.
-    public func setPageHorizontalAlignment(pageHorizontalAlignment : String?) {
+    public func setPageHorizontalAlignment(pageHorizontalAlignment : String?) -> HtmlFixedSaveOptionsData {
         self.pageHorizontalAlignment = pageHorizontalAlignment;
+        return self;
     }
 
     // Gets pageHorizontalAlignment. Gets or sets the horizontal alignment of pages in the HTML document. The default value is HtmlFixedHorizontalPageAlignment.Center.
@@ -240,8 +248,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets pageMargins. Gets or sets the margin around pages in HTML document. The margins value is measured in points and should be equal to or greater than 0. Default value is 10 points.
-    public func setPageMargins(pageMargins : Double?) {
+    public func setPageMargins(pageMargins : Double?) -> HtmlFixedSaveOptionsData {
         self.pageMargins = pageMargins;
+        return self;
     }
 
     // Gets pageMargins. Gets or sets the margin around pages in HTML document. The margins value is measured in points and should be equal to or greater than 0. Default value is 10 points.
@@ -250,8 +259,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets resourcesFolder. Gets or sets the physical folder where resources are saved when exporting the document.
-    public func setResourcesFolder(resourcesFolder : String?) {
+    public func setResourcesFolder(resourcesFolder : String?) -> HtmlFixedSaveOptionsData {
         self.resourcesFolder = resourcesFolder;
+        return self;
     }
 
     // Gets resourcesFolder. Gets or sets the physical folder where resources are saved when exporting the document.
@@ -260,8 +270,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets resourcesFolderAlias. Gets or sets the name of the folder used to construct resource URIs.
-    public func setResourcesFolderAlias(resourcesFolderAlias : String?) {
+    public func setResourcesFolderAlias(resourcesFolderAlias : String?) -> HtmlFixedSaveOptionsData {
         self.resourcesFolderAlias = resourcesFolderAlias;
+        return self;
     }
 
     // Gets resourcesFolderAlias. Gets or sets the name of the folder used to construct resource URIs.
@@ -270,8 +281,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets saveFontFaceCssSeparately. Gets or sets a value indicating whether "@font-face" CSS rules should be placed into a separate file "fontFaces.css" when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). The default value is false, all CSS rules are written into single file "styles.css".
-    public func setSaveFontFaceCssSeparately(saveFontFaceCssSeparately : Bool?) {
+    public func setSaveFontFaceCssSeparately(saveFontFaceCssSeparately : Bool?) -> HtmlFixedSaveOptionsData {
         self.saveFontFaceCssSeparately = saveFontFaceCssSeparately;
+        return self;
     }
 
     // Gets saveFontFaceCssSeparately. Gets or sets a value indicating whether "@font-face" CSS rules should be placed into a separate file "fontFaces.css" when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). The default value is false, all CSS rules are written into single file "styles.css".
@@ -280,8 +292,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets showPageBorder. Gets or sets a value indicating whether to show border around pages.
-    public func setShowPageBorder(showPageBorder : Bool?) {
+    public func setShowPageBorder(showPageBorder : Bool?) -> HtmlFixedSaveOptionsData {
         self.showPageBorder = showPageBorder;
+        return self;
     }
 
     // Gets showPageBorder. Gets or sets a value indicating whether to show border around pages.
@@ -290,8 +303,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets useTargetMachineFonts. Gets or sets a value indicating whether fonts from target machine must be used to display the document. If this flag is set to true, Aspose.Words.Saving.HtmlFixedSaveOptions.FontFormat and Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedFonts properties do not have effect, also Aspose.Words.Saving.HtmlFixedSaveOptions.ResourceSavingCallback is not fired for fonts. The default value is false.
-    public func setUseTargetMachineFonts(useTargetMachineFonts : Bool?) {
+    public func setUseTargetMachineFonts(useTargetMachineFonts : Bool?) -> HtmlFixedSaveOptionsData {
         self.useTargetMachineFonts = useTargetMachineFonts;
+        return self;
     }
 
     // Gets useTargetMachineFonts. Gets or sets a value indicating whether fonts from target machine must be used to display the document. If this flag is set to true, Aspose.Words.Saving.HtmlFixedSaveOptions.FontFormat and Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedFonts properties do not have effect, also Aspose.Words.Saving.HtmlFixedSaveOptions.ResourceSavingCallback is not fired for fonts. The default value is false.

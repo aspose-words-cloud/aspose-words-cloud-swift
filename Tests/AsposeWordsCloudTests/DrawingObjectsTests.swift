@@ -202,14 +202,14 @@ class DrawingObjectsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestDrawingObject = DrawingObjectInsert();
-      requestDrawingObject.setHeight(height: 0);
-      requestDrawingObject.setLeft(_left: 0);
-      requestDrawingObject.setTop(top: 0);
-      requestDrawingObject.setWidth(width: 0);
-      requestDrawingObject.setRelativeHorizontalPosition(relativeHorizontalPosition: DrawingObjectInsert.RelativeHorizontalPosition.margin);
-      requestDrawingObject.setRelativeVerticalPosition(relativeVerticalPosition: DrawingObjectInsert.RelativeVerticalPosition.margin);
-      requestDrawingObject.setWrapType(wrapType: DrawingObjectInsert.WrapType.inline);
+      let requestDrawingObject = DrawingObjectInsert()
+        .setHeight(height: 0)
+        .setLeft(_left: 0)
+        .setRelativeHorizontalPosition(relativeHorizontalPosition: DrawingObjectInsert.RelativeHorizontalPosition.margin)
+        .setRelativeVerticalPosition(relativeVerticalPosition: DrawingObjectInsert.RelativeVerticalPosition.margin)
+        .setTop(top: 0)
+        .setWidth(width: 0)
+        .setWrapType(wrapType: DrawingObjectInsert.WrapType.inline);
       let requestImageFile = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!;
       let request = InsertDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: requestImageFile, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().insertDrawingObject(request: request);
@@ -218,14 +218,14 @@ class DrawingObjectsTests: BaseTestContext {
     // Test for adding drawing object online.
     func testInsertDrawingObjectOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestDrawingObject = DrawingObjectInsert();
-      requestDrawingObject.setHeight(height: 0);
-      requestDrawingObject.setLeft(_left: 0);
-      requestDrawingObject.setTop(top: 0);
-      requestDrawingObject.setWidth(width: 0);
-      requestDrawingObject.setRelativeHorizontalPosition(relativeHorizontalPosition: DrawingObjectInsert.RelativeHorizontalPosition.margin);
-      requestDrawingObject.setRelativeVerticalPosition(relativeVerticalPosition: DrawingObjectInsert.RelativeVerticalPosition.margin);
-      requestDrawingObject.setWrapType(wrapType: DrawingObjectInsert.WrapType.inline);
+      let requestDrawingObject = DrawingObjectInsert()
+        .setHeight(height: 0)
+        .setLeft(_left: 0)
+        .setRelativeHorizontalPosition(relativeHorizontalPosition: DrawingObjectInsert.RelativeHorizontalPosition.margin)
+        .setRelativeVerticalPosition(relativeVerticalPosition: DrawingObjectInsert.RelativeVerticalPosition.margin)
+        .setTop(top: 0)
+        .setWidth(width: 0)
+        .setWrapType(wrapType: DrawingObjectInsert.WrapType.inline);
       let requestImageFile = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!;
       let request = InsertDrawingObjectOnlineRequest(document: requestDocument, drawingObject: requestDrawingObject, imageFile: requestImageFile, nodePath: "");
       _ = try super.getApi().insertDrawingObjectOnline(request: request);
@@ -237,14 +237,14 @@ class DrawingObjectsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestDrawingObject = DrawingObjectInsert();
-      requestDrawingObject.setHeight(height: 0);
-      requestDrawingObject.setLeft(_left: 0);
-      requestDrawingObject.setTop(top: 0);
-      requestDrawingObject.setWidth(width: 0);
-      requestDrawingObject.setRelativeHorizontalPosition(relativeHorizontalPosition: DrawingObjectInsert.RelativeHorizontalPosition.margin);
-      requestDrawingObject.setRelativeVerticalPosition(relativeVerticalPosition: DrawingObjectInsert.RelativeVerticalPosition.margin);
-      requestDrawingObject.setWrapType(wrapType: DrawingObjectInsert.WrapType.inline);
+      let requestDrawingObject = DrawingObjectInsert()
+        .setHeight(height: 0)
+        .setLeft(_left: 0)
+        .setRelativeHorizontalPosition(relativeHorizontalPosition: DrawingObjectInsert.RelativeHorizontalPosition.margin)
+        .setRelativeVerticalPosition(relativeVerticalPosition: DrawingObjectInsert.RelativeVerticalPosition.margin)
+        .setTop(top: 0)
+        .setWidth(width: 0)
+        .setWrapType(wrapType: DrawingObjectInsert.WrapType.inline);
       let requestImageFile = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!;
       let request = InsertDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: requestImageFile, folder: remoteDataFolder);
       _ = try super.getApi().insertDrawingObject(request: request);
@@ -283,8 +283,8 @@ class DrawingObjectsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestDrawingObject = DrawingObjectUpdate();
-      requestDrawingObject.setLeft(_left: 0);
+      let requestDrawingObject = DrawingObjectUpdate()
+        .setLeft(_left: 0);
       let requestImageFile = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!;
       let request = UpdateDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: requestImageFile, index: 0, nodePath: "", folder: remoteDataFolder);
       _ = try super.getApi().updateDrawingObject(request: request);
@@ -293,8 +293,8 @@ class DrawingObjectsTests: BaseTestContext {
     // Test for updating drawing object online.
     func testUpdateDrawingObjectOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
-      let requestDrawingObject = DrawingObjectUpdate();
-      requestDrawingObject.setLeft(_left: 0);
+      let requestDrawingObject = DrawingObjectUpdate()
+        .setLeft(_left: 0);
       let requestImageFile = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!;
       let request = UpdateDrawingObjectOnlineRequest(document: requestDocument, drawingObject: requestDrawingObject, imageFile: requestImageFile, index: 0, nodePath: "");
       _ = try super.getApi().updateDrawingObjectOnline(request: request);
@@ -306,8 +306,8 @@ class DrawingObjectsTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestDrawingObject = DrawingObjectUpdate();
-      requestDrawingObject.setLeft(_left: 0);
+      let requestDrawingObject = DrawingObjectUpdate()
+        .setLeft(_left: 0);
       let requestImageFile = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/aspose-cloud.png", isDirectory: false))!;
       let request = UpdateDrawingObjectRequest(name: remoteFileName, drawingObject: requestDrawingObject, imageFile: requestImageFile, index: 0, folder: remoteDataFolder);
       _ = try super.getApi().updateDrawingObject(request: request);

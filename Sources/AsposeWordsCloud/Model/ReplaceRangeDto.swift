@@ -40,10 +40,10 @@ public class ReplaceRangeDto : Codable, WordsApiModel {
     }
 
     // Field of text. DTO container with a range element.
-    private var text : String?;
+    public var text : String?;
 
     // Field of textType. DTO container with a range element.
-    private var textType : TextType?;
+    public var textType : TextType?;
 
     private enum CodingKeys: String, CodingKey {
         case text = "Text";
@@ -71,8 +71,9 @@ public class ReplaceRangeDto : Codable, WordsApiModel {
     }
 
     // Sets text. Gets or sets the range's text.
-    public func setText(text : String?) {
+    public func setText(text : String?) -> ReplaceRangeDto {
         self.text = text;
+        return self;
     }
 
     // Gets text. Gets or sets the range's text.
@@ -81,8 +82,9 @@ public class ReplaceRangeDto : Codable, WordsApiModel {
     }
 
     // Sets textType. Gets or sets the range's text type.
-    public func setTextType(textType : TextType?) {
+    public func setTextType(textType : TextType?) -> ReplaceRangeDto {
         self.textType = textType;
+        return self;
     }
 
     // Gets textType. Gets or sets the range's text type.

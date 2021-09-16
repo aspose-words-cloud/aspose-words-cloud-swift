@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a collection of form fields.
 public class FormFieldsResponse : WordsResponse {
     // Field of formFields. The REST response with a collection of form fields.
-    private var formFields : FormFieldCollection?;
+    public var formFields : FormFieldCollection?;
 
     private enum CodingKeys: String, CodingKey {
         case formFields = "FormFields";
@@ -56,8 +56,9 @@ public class FormFieldsResponse : WordsResponse {
     }
 
     // Sets formFields. Gets or sets the collection of form fields.
-    public func setFormFields(formFields : FormFieldCollection?) {
+    public func setFormFields(formFields : FormFieldCollection?) -> FormFieldsResponse {
         self.formFields = formFields;
+        return self;
     }
 
     // Gets formFields. Gets or sets the collection of form fields.

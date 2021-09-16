@@ -30,7 +30,7 @@ import Foundation
 // Words document property DTO base class.
 public class DocumentPropertyBase : Codable, WordsApiModel {
     // Field of value. Words document property DTO base class.
-    private var value : String?;
+    public var value : String?;
 
     private enum CodingKeys: String, CodingKey {
         case value = "Value";
@@ -53,8 +53,9 @@ public class DocumentPropertyBase : Codable, WordsApiModel {
     }
 
     // Sets value. Gets or sets the value of the document property.
-    public func setValue(value : String?) {
+    public func setValue(value : String?) -> DocumentPropertyBase {
         self.value = value;
+        return self;
     }
 
     // Gets value. Gets or sets the value of the document property.

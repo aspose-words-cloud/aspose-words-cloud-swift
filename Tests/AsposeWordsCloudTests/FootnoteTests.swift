@@ -57,10 +57,10 @@ class FootnoteTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestFootnoteDto = FootnoteInsert();
-      requestFootnoteDto.setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote);
-      requestFootnoteDto.setText(text: "test endnote");
-      let request = InsertFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, nodePath: "", folder: remoteDataFolder);
+      let requestFootnoteDto = FootnoteInsert()
+        .setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote)
+        .setText(text: "test endnote");
+      let request = InsertFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto as! FootnoteInsert, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().insertFootnote(request: request);
       XCTAssertNotNil(actual.getFootnote());
       XCTAssertEqual(actual.getFootnote()!.getNodeId(), "0.1.7.1");
@@ -70,10 +70,10 @@ class FootnoteTests: BaseTestContext {
     // Test for adding footnote online.
     func testInsertFootnoteOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false))!;
-      let requestFootnoteDto = FootnoteInsert();
-      requestFootnoteDto.setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote);
-      requestFootnoteDto.setText(text: "test endnote");
-      let request = InsertFootnoteOnlineRequest(document: requestDocument, footnoteDto: requestFootnoteDto, nodePath: "");
+      let requestFootnoteDto = FootnoteInsert()
+        .setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote)
+        .setText(text: "test endnote");
+      let request = InsertFootnoteOnlineRequest(document: requestDocument, footnoteDto: requestFootnoteDto as! FootnoteInsert, nodePath: "");
       _ = try super.getApi().insertFootnoteOnline(request: request);
     }
 
@@ -83,10 +83,10 @@ class FootnoteTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestFootnoteDto = FootnoteInsert();
-      requestFootnoteDto.setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote);
-      requestFootnoteDto.setText(text: "test endnote");
-      let request = InsertFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto, folder: remoteDataFolder);
+      let requestFootnoteDto = FootnoteInsert()
+        .setFootnoteType(footnoteType: FootnoteInsert.FootnoteType.endnote)
+        .setText(text: "test endnote");
+      let request = InsertFootnoteRequest(name: remoteFileName, footnoteDto: requestFootnoteDto as! FootnoteInsert, folder: remoteDataFolder);
       let actual = try super.getApi().insertFootnote(request: request);
       XCTAssertNotNil(actual.getFootnote());
       XCTAssertEqual(actual.getFootnote()!.getNodeId(), "0.1.7.1");
@@ -192,9 +192,9 @@ class FootnoteTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestFootnoteDto = FootnoteUpdate();
-      requestFootnoteDto.setText(text: "new text is here");
-      let request = UpdateFootnoteRequest(name: remoteFileName, index: 0, footnoteDto: requestFootnoteDto, nodePath: "", folder: remoteDataFolder);
+      let requestFootnoteDto = FootnoteUpdate()
+        .setText(text: "new text is here");
+      let request = UpdateFootnoteRequest(name: remoteFileName, index: 0, footnoteDto: requestFootnoteDto as! FootnoteUpdate, nodePath: "", folder: remoteDataFolder);
       let actual = try super.getApi().updateFootnote(request: request);
       XCTAssertNotNil(actual.getFootnote());
       XCTAssertEqual(actual.getFootnote()!.getText(), " new text is here" + "\r\n");
@@ -203,9 +203,9 @@ class FootnoteTests: BaseTestContext {
     // Test for updating footnote online.
     func testUpdateFootnoteOnline() throws {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false))!;
-      let requestFootnoteDto = FootnoteUpdate();
-      requestFootnoteDto.setText(text: "new text is here");
-      let request = UpdateFootnoteOnlineRequest(document: requestDocument, footnoteDto: requestFootnoteDto, index: 0, nodePath: "");
+      let requestFootnoteDto = FootnoteUpdate()
+        .setText(text: "new text is here");
+      let request = UpdateFootnoteOnlineRequest(document: requestDocument, footnoteDto: requestFootnoteDto as! FootnoteUpdate, index: 0, nodePath: "");
       _ = try super.getApi().updateFootnoteOnline(request: request);
     }
 
@@ -215,9 +215,9 @@ class FootnoteTests: BaseTestContext {
 
       try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(footnoteFolder + "/Footnote.doc", isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
 
-      let requestFootnoteDto = FootnoteUpdate();
-      requestFootnoteDto.setText(text: "new text is here");
-      let request = UpdateFootnoteRequest(name: remoteFileName, index: 0, footnoteDto: requestFootnoteDto, folder: remoteDataFolder);
+      let requestFootnoteDto = FootnoteUpdate()
+        .setText(text: "new text is here");
+      let request = UpdateFootnoteRequest(name: remoteFileName, index: 0, footnoteDto: requestFootnoteDto as! FootnoteUpdate, folder: remoteDataFolder);
       let actual = try super.getApi().updateFootnote(request: request);
       XCTAssertNotNil(actual.getFootnote());
       XCTAssertEqual(actual.getFootnote()!.getText(), " new text is here" + "\r\n");

@@ -30,31 +30,31 @@ import Foundation
 // FromField.
 public class FormField : NodeLink {
     // Field of calculateOnExit. FromField.
-    private var calculateOnExit : Bool?;
+    public var calculateOnExit : Bool?;
 
     // Field of enabled. FromField.
-    private var enabled : Bool?;
+    public var enabled : Bool?;
 
     // Field of entryMacro. FromField.
-    private var entryMacro : String?;
+    public var entryMacro : String?;
 
     // Field of exitMacro. FromField.
-    private var exitMacro : String?;
+    public var exitMacro : String?;
 
     // Field of helpText. FromField.
-    private var helpText : String?;
+    public var helpText : String?;
 
     // Field of name. FromField.
-    private var name : String?;
+    public var name : String?;
 
     // Field of ownHelp. FromField.
-    private var ownHelp : Bool?;
+    public var ownHelp : Bool?;
 
     // Field of ownStatus. FromField.
-    private var ownStatus : Bool?;
+    public var ownStatus : Bool?;
 
     // Field of statusText. FromField.
-    private var statusText : String?;
+    public var statusText : String?;
 
     private enum CodingKeys: String, CodingKey {
         case calculateOnExit = "CalculateOnExit";
@@ -120,8 +120,9 @@ public class FormField : NodeLink {
     }
 
     // Sets calculateOnExit. Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.
-    public func setCalculateOnExit(calculateOnExit : Bool?) {
+    public func setCalculateOnExit(calculateOnExit : Bool?) -> FormField {
         self.calculateOnExit = calculateOnExit;
+        return self;
     }
 
     // Gets calculateOnExit. Gets or sets a value indicating whether references to the specified form field are automatically updated whenever the field is exited.
@@ -130,8 +131,9 @@ public class FormField : NodeLink {
     }
 
     // Sets enabled. Gets or sets a value indicating whether a form field is enabled.
-    public func setEnabled(enabled : Bool?) {
+    public func setEnabled(enabled : Bool?) -> FormField {
         self.enabled = enabled;
+        return self;
     }
 
     // Gets enabled. Gets or sets a value indicating whether a form field is enabled.
@@ -140,8 +142,9 @@ public class FormField : NodeLink {
     }
 
     // Sets entryMacro. Gets or sets the entry macro name for the form field.
-    public func setEntryMacro(entryMacro : String?) {
+    public func setEntryMacro(entryMacro : String?) -> FormField {
         self.entryMacro = entryMacro;
+        return self;
     }
 
     // Gets entryMacro. Gets or sets the entry macro name for the form field.
@@ -150,8 +153,9 @@ public class FormField : NodeLink {
     }
 
     // Sets exitMacro. Gets or sets the exit macro name for the form field.
-    public func setExitMacro(exitMacro : String?) {
+    public func setExitMacro(exitMacro : String?) -> FormField {
         self.exitMacro = exitMacro;
+        return self;
     }
 
     // Gets exitMacro. Gets or sets the exit macro name for the form field.
@@ -160,8 +164,9 @@ public class FormField : NodeLink {
     }
 
     // Sets helpText. Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.
-    public func setHelpText(helpText : String?) {
+    public func setHelpText(helpText : String?) -> FormField {
         self.helpText = helpText;
+        return self;
     }
 
     // Gets helpText. Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.
@@ -170,8 +175,9 @@ public class FormField : NodeLink {
     }
 
     // Sets name. Gets or sets the form field name.
-    public func setName(name : String?) {
+    public func setName(name : String?) -> FormField {
         self.name = name;
+        return self;
     }
 
     // Gets name. Gets or sets the form field name.
@@ -180,8 +186,9 @@ public class FormField : NodeLink {
     }
 
     // Sets ownHelp. Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
-    public func setOwnHelp(ownHelp : Bool?) {
+    public func setOwnHelp(ownHelp : Bool?) -> FormField {
         self.ownHelp = ownHelp;
+        return self;
     }
 
     // Gets ownHelp. Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
@@ -190,8 +197,9 @@ public class FormField : NodeLink {
     }
 
     // Sets ownStatus. Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.
-    public func setOwnStatus(ownStatus : Bool?) {
+    public func setOwnStatus(ownStatus : Bool?) -> FormField {
         self.ownStatus = ownStatus;
+        return self;
     }
 
     // Gets ownStatus. Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.
@@ -200,8 +208,9 @@ public class FormField : NodeLink {
     }
 
     // Sets statusText. Gets or sets text, displayed in the status bar when a form field has the focus.
-    public func setStatusText(statusText : String?) {
+    public func setStatusText(statusText : String?) -> FormField {
         self.statusText = statusText;
+        return self;
     }
 
     // Gets statusText. Gets or sets text, displayed in the status bar when a form field has the focus.

@@ -30,7 +30,7 @@ import Foundation
 // The REST response with a table cell.
 public class TableCellResponse : WordsResponse {
     // Field of cell. The REST response with a table cell.
-    private var cell : TableCell?;
+    public var cell : TableCell?;
 
     private enum CodingKeys: String, CodingKey {
         case cell = "Cell";
@@ -56,8 +56,9 @@ public class TableCellResponse : WordsResponse {
     }
 
     // Sets cell. Gets or sets the table cell.
-    public func setCell(cell : TableCell?) {
+    public func setCell(cell : TableCell?) -> TableCellResponse {
         self.cell = cell;
+        return self;
     }
 
     // Gets cell. Gets or sets the table cell.

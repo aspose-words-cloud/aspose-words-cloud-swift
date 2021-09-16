@@ -30,16 +30,16 @@ import Foundation
 // Container class for text save options.
 public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     // Field of addBidiMarks. Container class for text save options.
-    private var addBidiMarks : Bool?;
+    public var addBidiMarks : Bool?;
 
     // Field of maxCharactersPerLine. Container class for text save options.
-    private var maxCharactersPerLine : Int?;
+    public var maxCharactersPerLine : Int?;
 
     // Field of preserveTableLayout. Container class for text save options.
-    private var preserveTableLayout : Bool?;
+    public var preserveTableLayout : Bool?;
 
     // Field of simplifyListLabels. Container class for text save options.
-    private var simplifyListLabels : Bool?;
+    public var simplifyListLabels : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case addBidiMarks = "AddBidiMarks";
@@ -80,8 +80,9 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     }
 
     // Sets addBidiMarks. Gets or sets a value indicating whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.
-    public func setAddBidiMarks(addBidiMarks : Bool?) {
+    public func setAddBidiMarks(addBidiMarks : Bool?) -> TextSaveOptionsData {
         self.addBidiMarks = addBidiMarks;
+        return self;
     }
 
     // Gets addBidiMarks. Gets or sets a value indicating whether to add bi-directional marks before each BiDi run when exporting in plain text format. The default value is true.
@@ -90,8 +91,9 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     }
 
     // Sets maxCharactersPerLine. Gets or sets an integer value that specifies the maximum number of characters per one line. The default value is 0, that means no limit.
-    public func setMaxCharactersPerLine(maxCharactersPerLine : Int?) {
+    public func setMaxCharactersPerLine(maxCharactersPerLine : Int?) -> TextSaveOptionsData {
         self.maxCharactersPerLine = maxCharactersPerLine;
+        return self;
     }
 
     // Gets maxCharactersPerLine. Gets or sets an integer value that specifies the maximum number of characters per one line. The default value is 0, that means no limit.
@@ -100,8 +102,9 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     }
 
     // Sets preserveTableLayout. Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.
-    public func setPreserveTableLayout(preserveTableLayout : Bool?) {
+    public func setPreserveTableLayout(preserveTableLayout : Bool?) -> TextSaveOptionsData {
         self.preserveTableLayout = preserveTableLayout;
+        return self;
     }
 
     // Gets preserveTableLayout. Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.
@@ -110,8 +113,9 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     }
 
     // Sets simplifyListLabels. Gets or sets a value indicating whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
-    public func setSimplifyListLabels(simplifyListLabels : Bool?) {
+    public func setSimplifyListLabels(simplifyListLabels : Bool?) -> TextSaveOptionsData {
         self.simplifyListLabels = simplifyListLabels;
+        return self;
     }
 
     // Gets simplifyListLabels. Gets or sets a value indicating whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.

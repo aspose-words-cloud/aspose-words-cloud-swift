@@ -117,6 +117,6 @@ public class Configuration : Codable {
 
     // Returns SDK version for using in statistics headers
     public func getSdkVersion() -> String {
-        return "21.8";
+        return "21.9";
     }
 }
