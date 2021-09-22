@@ -29,9 +29,6 @@ import Foundation
 
 // Container abstract class for image save options.
 public class ImageSaveOptionsData : FixedPageSaveOptionsData {
-    // Field of graphicsQualityOptions. Container abstract class for image save options.
-    public var graphicsQualityOptions : GraphicsQualityOptionsData?;
-
     // Field of horizontalResolution. Container abstract class for image save options.
     public var horizontalResolution : Double?;
 
@@ -69,7 +66,6 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     public var verticalResolution : Double?;
 
     private enum CodingKeys: String, CodingKey {
-        case graphicsQualityOptions = "GraphicsQualityOptions";
         case horizontalResolution = "HorizontalResolution";
         case imageBrightness = "ImageBrightness";
         case imageColorMode = "ImageColorMode";
@@ -92,7 +88,6 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.graphicsQualityOptions = try container.decodeIfPresent(GraphicsQualityOptionsData.self, forKey: .graphicsQualityOptions);
         self.horizontalResolution = try container.decodeIfPresent(Double.self, forKey: .horizontalResolution);
         self.imageBrightness = try container.decodeIfPresent(Double.self, forKey: .imageBrightness);
         self.imageColorMode = try container.decodeIfPresent(String.self, forKey: .imageColorMode);
@@ -110,9 +105,6 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     public override func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder);
         var container = encoder.container(keyedBy: CodingKeys.self);
-        if (self.graphicsQualityOptions != nil) {
-            try container.encode(self.graphicsQualityOptions, forKey: .graphicsQualityOptions);
-        }
         if (self.horizontalResolution != nil) {
             try container.encode(self.horizontalResolution, forKey: .horizontalResolution);
         }
@@ -149,17 +141,6 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         if (self.verticalResolution != nil) {
             try container.encode(self.verticalResolution, forKey: .verticalResolution);
         }
-    }
-
-    // Sets graphicsQualityOptions. Gets or sets the additional System.Drawing.Graphics quality options.
-    public func setGraphicsQualityOptions(graphicsQualityOptions : GraphicsQualityOptionsData?) -> ImageSaveOptionsData {
-        self.graphicsQualityOptions = graphicsQualityOptions;
-        return self;
-    }
-
-    // Gets graphicsQualityOptions. Gets or sets the additional System.Drawing.Graphics quality options.
-    public func getGraphicsQualityOptions() -> GraphicsQualityOptionsData? {
-        return self.graphicsQualityOptions;
     }
 
     // Sets horizontalResolution. Gets or sets the horizontal resolution in dots per inch for the generated images. This property has effect only when saving to raster image formats. The default value is 96.
