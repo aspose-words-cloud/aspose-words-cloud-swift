@@ -33,15 +33,17 @@ public class WordsAPI {
     private let apiInvoker : ApiInvoker;
 
     // Initializes a new instance of the WordsAPI class based on Configuration object.
-    public init(configuration : Configuration) {
+    public init(configuration : Configuration) throws {
         self.configuration = configuration;
         self.apiInvoker = ApiInvoker(configuration: configuration);
+        try self.apiInvoker.setEncryptionData(data: try getPublicKey(request: GetPublicKeyRequest()));
     }
 
     // Initializes a new instance of the WordsAPI class based on ClientId and clientSecret.
-    public init(clientId: String, clientSecret: String) {
+    public init(clientId: String, clientSecret: String) throws {
         self.configuration = Configuration(clientId: clientId, clientSecret: clientSecret);
         self.apiInvoker = ApiInvoker(configuration: configuration);
+        try self.apiInvoker.setEncryptionData(data: try getPublicKey(request: GetPublicKeyRequest()));
     }
 
     // Async representation of acceptAllRevisions method

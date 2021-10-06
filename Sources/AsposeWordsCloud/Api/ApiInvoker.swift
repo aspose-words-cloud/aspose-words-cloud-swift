@@ -31,7 +31,10 @@ import Foundation
 public class ApiInvoker {
     // An object containing the configuration for executing API requests 
     private let configuration : Configuration;
-
+    
+    // RSA key for password encryption
+    private var encryptionKey : SecKey?;
+    
     // Cached value of oauth2 authorization tokeт. 
     // It is filled after the first call to the API. 
     // Mutex is used to synchronize updates in a multi-threaded environment.
@@ -52,6 +55,7 @@ public class ApiInvoker {
         self.configuration = configuration;
         self.mutex = NSLock();
         self.accessTokenCache = nil;
+        self.encryptionKey = nil;
     }
 
     // Internal class for represent API response
@@ -251,11 +255,11 @@ public class ApiInvoker {
         }
     }
 
-    private func invokeEncryptionData() throws {
-
+    public func setEncryptionData(data : PublicKeyResponse) throws {
+        
     }
 
     public func encryptString(value : String) throws -> String {
-        invokeEncryptionData();
+        return "";
     }
 }
