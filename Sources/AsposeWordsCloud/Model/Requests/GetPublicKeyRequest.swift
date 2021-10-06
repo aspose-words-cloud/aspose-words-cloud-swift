@@ -30,7 +30,7 @@ import Foundation
 // Request model for getPublicKey operation.
 public class GetPublicKeyRequest : WordsApiRequest {
     // Creates the api request data
-    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+    public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/encryption/publickey";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 

@@ -49,7 +49,7 @@ public class WordsAPI {
     public func acceptAllRevisions(request : AcceptAllRevisionsRequest, callback : @escaping (_ response : RevisionsModificationResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -95,7 +95,7 @@ public class WordsAPI {
     public func acceptAllRevisionsOnline(request : AcceptAllRevisionsOnlineRequest, callback : @escaping (_ response : AcceptAllRevisionsOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -141,7 +141,7 @@ public class WordsAPI {
     public func appendDocument(request : AppendDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -187,7 +187,7 @@ public class WordsAPI {
     public func appendDocumentOnline(request : AppendDocumentOnlineRequest, callback : @escaping (_ response : AppendDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -233,7 +233,7 @@ public class WordsAPI {
     public func applyStyleToDocumentElement(request : ApplyStyleToDocumentElementRequest, callback : @escaping (_ response : WordsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -279,7 +279,7 @@ public class WordsAPI {
     public func applyStyleToDocumentElementOnline(request : ApplyStyleToDocumentElementOnlineRequest, callback : @escaping (_ response : ApplyStyleToDocumentElementOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -325,7 +325,7 @@ public class WordsAPI {
     public func buildReport(request : BuildReportRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -371,7 +371,7 @@ public class WordsAPI {
     public func buildReportOnline(request : BuildReportOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -417,7 +417,7 @@ public class WordsAPI {
     public func classify(request : ClassifyRequest, callback : @escaping (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -463,7 +463,7 @@ public class WordsAPI {
     public func classifyDocument(request : ClassifyDocumentRequest, callback : @escaping (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -509,7 +509,7 @@ public class WordsAPI {
     public func classifyDocumentOnline(request : ClassifyDocumentOnlineRequest, callback : @escaping (_ response : ClassificationResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -555,7 +555,7 @@ public class WordsAPI {
     public func compareDocument(request : CompareDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -601,7 +601,7 @@ public class WordsAPI {
     public func compareDocumentOnline(request : CompareDocumentOnlineRequest, callback : @escaping (_ response : CompareDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -647,7 +647,7 @@ public class WordsAPI {
     public func convertDocument(request : ConvertDocumentRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -693,7 +693,7 @@ public class WordsAPI {
     public func copyFile(request : CopyFileRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -726,7 +726,7 @@ public class WordsAPI {
     public func copyFolder(request : CopyFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -759,7 +759,7 @@ public class WordsAPI {
     public func copyStyle(request : CopyStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -805,7 +805,7 @@ public class WordsAPI {
     public func copyStyleOnline(request : CopyStyleOnlineRequest, callback : @escaping (_ response : CopyStyleOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -851,7 +851,7 @@ public class WordsAPI {
     public func createDocument(request : CreateDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -897,7 +897,7 @@ public class WordsAPI {
     public func createFolder(request : CreateFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -930,7 +930,7 @@ public class WordsAPI {
     public func createOrUpdateDocumentProperty(request : CreateOrUpdateDocumentPropertyRequest, callback : @escaping (_ response : DocumentPropertyResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -976,7 +976,7 @@ public class WordsAPI {
     public func createOrUpdateDocumentPropertyOnline(request : CreateOrUpdateDocumentPropertyOnlineRequest, callback : @escaping (_ response : CreateOrUpdateDocumentPropertyOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1022,7 +1022,7 @@ public class WordsAPI {
     public func deleteAllParagraphTabStops(request : DeleteAllParagraphTabStopsRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1068,7 +1068,7 @@ public class WordsAPI {
     public func deleteAllParagraphTabStopsOnline(request : DeleteAllParagraphTabStopsOnlineRequest, callback : @escaping (_ response : DeleteAllParagraphTabStopsOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1114,7 +1114,7 @@ public class WordsAPI {
     public func deleteBorder(request : DeleteBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1160,7 +1160,7 @@ public class WordsAPI {
     public func deleteBorderOnline(request : DeleteBorderOnlineRequest, callback : @escaping (_ response : DeleteBorderOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1206,7 +1206,7 @@ public class WordsAPI {
     public func deleteBorders(request : DeleteBordersRequest, callback : @escaping (_ response : BordersResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1252,7 +1252,7 @@ public class WordsAPI {
     public func deleteBordersOnline(request : DeleteBordersOnlineRequest, callback : @escaping (_ response : DeleteBordersOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1298,7 +1298,7 @@ public class WordsAPI {
     public func deleteComment(request : DeleteCommentRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1331,7 +1331,7 @@ public class WordsAPI {
     public func deleteCommentOnline(request : DeleteCommentOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1377,7 +1377,7 @@ public class WordsAPI {
     public func deleteComments(request : DeleteCommentsRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1410,7 +1410,7 @@ public class WordsAPI {
     public func deleteCommentsOnline(request : DeleteCommentsOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1456,7 +1456,7 @@ public class WordsAPI {
     public func deleteCustomXmlPart(request : DeleteCustomXmlPartRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1489,7 +1489,7 @@ public class WordsAPI {
     public func deleteCustomXmlPartOnline(request : DeleteCustomXmlPartOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1535,7 +1535,7 @@ public class WordsAPI {
     public func deleteCustomXmlParts(request : DeleteCustomXmlPartsRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1568,7 +1568,7 @@ public class WordsAPI {
     public func deleteCustomXmlPartsOnline(request : DeleteCustomXmlPartsOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1614,7 +1614,7 @@ public class WordsAPI {
     public func deleteDocumentProperty(request : DeleteDocumentPropertyRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1647,7 +1647,7 @@ public class WordsAPI {
     public func deleteDocumentPropertyOnline(request : DeleteDocumentPropertyOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1693,7 +1693,7 @@ public class WordsAPI {
     public func deleteDrawingObject(request : DeleteDrawingObjectRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1726,7 +1726,7 @@ public class WordsAPI {
     public func deleteDrawingObjectOnline(request : DeleteDrawingObjectOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1772,7 +1772,7 @@ public class WordsAPI {
     public func deleteField(request : DeleteFieldRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1805,7 +1805,7 @@ public class WordsAPI {
     public func deleteFieldOnline(request : DeleteFieldOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1851,7 +1851,7 @@ public class WordsAPI {
     public func deleteFields(request : DeleteFieldsRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1884,7 +1884,7 @@ public class WordsAPI {
     public func deleteFieldsOnline(request : DeleteFieldsOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -1930,7 +1930,7 @@ public class WordsAPI {
     public func deleteFile(request : DeleteFileRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1963,7 +1963,7 @@ public class WordsAPI {
     public func deleteFolder(request : DeleteFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -1996,7 +1996,7 @@ public class WordsAPI {
     public func deleteFootnote(request : DeleteFootnoteRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2029,7 +2029,7 @@ public class WordsAPI {
     public func deleteFootnoteOnline(request : DeleteFootnoteOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2075,7 +2075,7 @@ public class WordsAPI {
     public func deleteFormField(request : DeleteFormFieldRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2108,7 +2108,7 @@ public class WordsAPI {
     public func deleteFormFieldOnline(request : DeleteFormFieldOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2154,7 +2154,7 @@ public class WordsAPI {
     public func deleteHeaderFooter(request : DeleteHeaderFooterRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2187,7 +2187,7 @@ public class WordsAPI {
     public func deleteHeaderFooterOnline(request : DeleteHeaderFooterOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2233,7 +2233,7 @@ public class WordsAPI {
     public func deleteHeadersFooters(request : DeleteHeadersFootersRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2266,7 +2266,7 @@ public class WordsAPI {
     public func deleteHeadersFootersOnline(request : DeleteHeadersFootersOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2312,7 +2312,7 @@ public class WordsAPI {
     public func deleteMacros(request : DeleteMacrosRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2345,7 +2345,7 @@ public class WordsAPI {
     public func deleteMacrosOnline(request : DeleteMacrosOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2391,7 +2391,7 @@ public class WordsAPI {
     public func deleteOfficeMathObject(request : DeleteOfficeMathObjectRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2424,7 +2424,7 @@ public class WordsAPI {
     public func deleteOfficeMathObjectOnline(request : DeleteOfficeMathObjectOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2470,7 +2470,7 @@ public class WordsAPI {
     public func deleteParagraph(request : DeleteParagraphRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2503,7 +2503,7 @@ public class WordsAPI {
     public func deleteParagraphListFormat(request : DeleteParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2549,7 +2549,7 @@ public class WordsAPI {
     public func deleteParagraphListFormatOnline(request : DeleteParagraphListFormatOnlineRequest, callback : @escaping (_ response : DeleteParagraphListFormatOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2595,7 +2595,7 @@ public class WordsAPI {
     public func deleteParagraphOnline(request : DeleteParagraphOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2641,7 +2641,7 @@ public class WordsAPI {
     public func deleteParagraphTabStop(request : DeleteParagraphTabStopRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2687,7 +2687,7 @@ public class WordsAPI {
     public func deleteParagraphTabStopOnline(request : DeleteParagraphTabStopOnlineRequest, callback : @escaping (_ response : DeleteParagraphTabStopOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2733,7 +2733,7 @@ public class WordsAPI {
     public func deleteRun(request : DeleteRunRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2766,7 +2766,7 @@ public class WordsAPI {
     public func deleteRunOnline(request : DeleteRunOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2812,7 +2812,7 @@ public class WordsAPI {
     public func deleteSection(request : DeleteSectionRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2845,7 +2845,7 @@ public class WordsAPI {
     public func deleteSectionOnline(request : DeleteSectionOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -2891,7 +2891,7 @@ public class WordsAPI {
     public func deleteTable(request : DeleteTableRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2924,7 +2924,7 @@ public class WordsAPI {
     public func deleteTableCell(request : DeleteTableCellRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -2957,7 +2957,7 @@ public class WordsAPI {
     public func deleteTableCellOnline(request : DeleteTableCellOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3003,7 +3003,7 @@ public class WordsAPI {
     public func deleteTableOnline(request : DeleteTableOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3049,7 +3049,7 @@ public class WordsAPI {
     public func deleteTableRow(request : DeleteTableRowRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -3082,7 +3082,7 @@ public class WordsAPI {
     public func deleteTableRowOnline(request : DeleteTableRowOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3128,7 +3128,7 @@ public class WordsAPI {
     public func deleteWatermark(request : DeleteWatermarkRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3174,7 +3174,7 @@ public class WordsAPI {
     public func deleteWatermarkOnline(request : DeleteWatermarkOnlineRequest, callback : @escaping (_ response : DeleteWatermarkOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3220,7 +3220,7 @@ public class WordsAPI {
     public func downloadFile(request : DownloadFileRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3266,7 +3266,7 @@ public class WordsAPI {
     public func executeMailMerge(request : ExecuteMailMergeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3312,7 +3312,7 @@ public class WordsAPI {
     public func executeMailMergeOnline(request : ExecuteMailMergeOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3358,7 +3358,7 @@ public class WordsAPI {
     public func getAvailableFonts(request : GetAvailableFontsRequest, callback : @escaping (_ response : AvailableFontsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3404,7 +3404,7 @@ public class WordsAPI {
     public func getBookmarkByName(request : GetBookmarkByNameRequest, callback : @escaping (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3450,7 +3450,7 @@ public class WordsAPI {
     public func getBookmarkByNameOnline(request : GetBookmarkByNameOnlineRequest, callback : @escaping (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3496,7 +3496,7 @@ public class WordsAPI {
     public func getBookmarks(request : GetBookmarksRequest, callback : @escaping (_ response : BookmarksResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3542,7 +3542,7 @@ public class WordsAPI {
     public func getBookmarksOnline(request : GetBookmarksOnlineRequest, callback : @escaping (_ response : BookmarksResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3588,7 +3588,7 @@ public class WordsAPI {
     public func getBorder(request : GetBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3634,7 +3634,7 @@ public class WordsAPI {
     public func getBorderOnline(request : GetBorderOnlineRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3680,7 +3680,7 @@ public class WordsAPI {
     public func getBorders(request : GetBordersRequest, callback : @escaping (_ response : BordersResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3726,7 +3726,7 @@ public class WordsAPI {
     public func getBordersOnline(request : GetBordersOnlineRequest, callback : @escaping (_ response : BordersResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3772,7 +3772,7 @@ public class WordsAPI {
     public func getComment(request : GetCommentRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3818,7 +3818,7 @@ public class WordsAPI {
     public func getCommentOnline(request : GetCommentOnlineRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3864,7 +3864,7 @@ public class WordsAPI {
     public func getComments(request : GetCommentsRequest, callback : @escaping (_ response : CommentsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3910,7 +3910,7 @@ public class WordsAPI {
     public func getCommentsOnline(request : GetCommentsOnlineRequest, callback : @escaping (_ response : CommentsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -3956,7 +3956,7 @@ public class WordsAPI {
     public func getCustomXmlPart(request : GetCustomXmlPartRequest, callback : @escaping (_ response : CustomXmlPartResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4002,7 +4002,7 @@ public class WordsAPI {
     public func getCustomXmlPartOnline(request : GetCustomXmlPartOnlineRequest, callback : @escaping (_ response : CustomXmlPartResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4048,7 +4048,7 @@ public class WordsAPI {
     public func getCustomXmlParts(request : GetCustomXmlPartsRequest, callback : @escaping (_ response : CustomXmlPartsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4094,7 +4094,7 @@ public class WordsAPI {
     public func getCustomXmlPartsOnline(request : GetCustomXmlPartsOnlineRequest, callback : @escaping (_ response : CustomXmlPartsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4140,7 +4140,7 @@ public class WordsAPI {
     public func getDocument(request : GetDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4186,7 +4186,7 @@ public class WordsAPI {
     public func getDocumentDrawingObjectByIndex(request : GetDocumentDrawingObjectByIndexRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4232,7 +4232,7 @@ public class WordsAPI {
     public func getDocumentDrawingObjectByIndexOnline(request : GetDocumentDrawingObjectByIndexOnlineRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4278,7 +4278,7 @@ public class WordsAPI {
     public func getDocumentDrawingObjectImageData(request : GetDocumentDrawingObjectImageDataRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4324,7 +4324,7 @@ public class WordsAPI {
     public func getDocumentDrawingObjectImageDataOnline(request : GetDocumentDrawingObjectImageDataOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4370,7 +4370,7 @@ public class WordsAPI {
     public func getDocumentDrawingObjectOleData(request : GetDocumentDrawingObjectOleDataRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4416,7 +4416,7 @@ public class WordsAPI {
     public func getDocumentDrawingObjectOleDataOnline(request : GetDocumentDrawingObjectOleDataOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4462,7 +4462,7 @@ public class WordsAPI {
     public func getDocumentDrawingObjects(request : GetDocumentDrawingObjectsRequest, callback : @escaping (_ response : DrawingObjectsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4508,7 +4508,7 @@ public class WordsAPI {
     public func getDocumentDrawingObjectsOnline(request : GetDocumentDrawingObjectsOnlineRequest, callback : @escaping (_ response : DrawingObjectsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4554,7 +4554,7 @@ public class WordsAPI {
     public func getDocumentFieldNames(request : GetDocumentFieldNamesRequest, callback : @escaping (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4600,7 +4600,7 @@ public class WordsAPI {
     public func getDocumentFieldNamesOnline(request : GetDocumentFieldNamesOnlineRequest, callback : @escaping (_ response : FieldNamesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4646,7 +4646,7 @@ public class WordsAPI {
     public func getDocumentHyperlinkByIndex(request : GetDocumentHyperlinkByIndexRequest, callback : @escaping (_ response : HyperlinkResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4692,7 +4692,7 @@ public class WordsAPI {
     public func getDocumentHyperlinkByIndexOnline(request : GetDocumentHyperlinkByIndexOnlineRequest, callback : @escaping (_ response : HyperlinkResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4738,7 +4738,7 @@ public class WordsAPI {
     public func getDocumentHyperlinks(request : GetDocumentHyperlinksRequest, callback : @escaping (_ response : HyperlinksResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4784,7 +4784,7 @@ public class WordsAPI {
     public func getDocumentHyperlinksOnline(request : GetDocumentHyperlinksOnlineRequest, callback : @escaping (_ response : HyperlinksResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4830,7 +4830,7 @@ public class WordsAPI {
     public func getDocumentProperties(request : GetDocumentPropertiesRequest, callback : @escaping (_ response : DocumentPropertiesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4876,7 +4876,7 @@ public class WordsAPI {
     public func getDocumentPropertiesOnline(request : GetDocumentPropertiesOnlineRequest, callback : @escaping (_ response : DocumentPropertiesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4922,7 +4922,7 @@ public class WordsAPI {
     public func getDocumentProperty(request : GetDocumentPropertyRequest, callback : @escaping (_ response : DocumentPropertyResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -4968,7 +4968,7 @@ public class WordsAPI {
     public func getDocumentPropertyOnline(request : GetDocumentPropertyOnlineRequest, callback : @escaping (_ response : DocumentPropertyResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5014,7 +5014,7 @@ public class WordsAPI {
     public func getDocumentProtection(request : GetDocumentProtectionRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5060,7 +5060,7 @@ public class WordsAPI {
     public func getDocumentProtectionOnline(request : GetDocumentProtectionOnlineRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5106,7 +5106,7 @@ public class WordsAPI {
     public func getDocumentStatistics(request : GetDocumentStatisticsRequest, callback : @escaping (_ response : StatDataResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5152,7 +5152,7 @@ public class WordsAPI {
     public func getDocumentStatisticsOnline(request : GetDocumentStatisticsOnlineRequest, callback : @escaping (_ response : StatDataResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5198,7 +5198,7 @@ public class WordsAPI {
     public func getDocumentWithFormat(request : GetDocumentWithFormatRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5244,7 +5244,7 @@ public class WordsAPI {
     public func getField(request : GetFieldRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5290,7 +5290,7 @@ public class WordsAPI {
     public func getFieldOnline(request : GetFieldOnlineRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5336,7 +5336,7 @@ public class WordsAPI {
     public func getFields(request : GetFieldsRequest, callback : @escaping (_ response : FieldsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5382,7 +5382,7 @@ public class WordsAPI {
     public func getFieldsOnline(request : GetFieldsOnlineRequest, callback : @escaping (_ response : FieldsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5428,7 +5428,7 @@ public class WordsAPI {
     public func getFilesList(request : GetFilesListRequest, callback : @escaping (_ response : FilesList?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5474,7 +5474,7 @@ public class WordsAPI {
     public func getFootnote(request : GetFootnoteRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5520,7 +5520,7 @@ public class WordsAPI {
     public func getFootnoteOnline(request : GetFootnoteOnlineRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5566,7 +5566,7 @@ public class WordsAPI {
     public func getFootnotes(request : GetFootnotesRequest, callback : @escaping (_ response : FootnotesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5612,7 +5612,7 @@ public class WordsAPI {
     public func getFootnotesOnline(request : GetFootnotesOnlineRequest, callback : @escaping (_ response : FootnotesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5658,7 +5658,7 @@ public class WordsAPI {
     public func getFormField(request : GetFormFieldRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5704,7 +5704,7 @@ public class WordsAPI {
     public func getFormFieldOnline(request : GetFormFieldOnlineRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5750,7 +5750,7 @@ public class WordsAPI {
     public func getFormFields(request : GetFormFieldsRequest, callback : @escaping (_ response : FormFieldsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5796,7 +5796,7 @@ public class WordsAPI {
     public func getFormFieldsOnline(request : GetFormFieldsOnlineRequest, callback : @escaping (_ response : FormFieldsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5842,7 +5842,7 @@ public class WordsAPI {
     public func getHeaderFooter(request : GetHeaderFooterRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5888,7 +5888,7 @@ public class WordsAPI {
     public func getHeaderFooterOfSection(request : GetHeaderFooterOfSectionRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5934,7 +5934,7 @@ public class WordsAPI {
     public func getHeaderFooterOfSectionOnline(request : GetHeaderFooterOfSectionOnlineRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -5980,7 +5980,7 @@ public class WordsAPI {
     public func getHeaderFooterOnline(request : GetHeaderFooterOnlineRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6026,7 +6026,7 @@ public class WordsAPI {
     public func getHeaderFooters(request : GetHeaderFootersRequest, callback : @escaping (_ response : HeaderFootersResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6072,7 +6072,7 @@ public class WordsAPI {
     public func getHeaderFootersOnline(request : GetHeaderFootersOnlineRequest, callback : @escaping (_ response : HeaderFootersResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6118,7 +6118,7 @@ public class WordsAPI {
     public func getList(request : GetListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6164,7 +6164,7 @@ public class WordsAPI {
     public func getListOnline(request : GetListOnlineRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6210,7 +6210,7 @@ public class WordsAPI {
     public func getLists(request : GetListsRequest, callback : @escaping (_ response : ListsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6256,7 +6256,7 @@ public class WordsAPI {
     public func getListsOnline(request : GetListsOnlineRequest, callback : @escaping (_ response : ListsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6302,7 +6302,7 @@ public class WordsAPI {
     public func getOfficeMathObject(request : GetOfficeMathObjectRequest, callback : @escaping (_ response : OfficeMathObjectResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6348,7 +6348,7 @@ public class WordsAPI {
     public func getOfficeMathObjectOnline(request : GetOfficeMathObjectOnlineRequest, callback : @escaping (_ response : OfficeMathObjectResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6394,7 +6394,7 @@ public class WordsAPI {
     public func getOfficeMathObjects(request : GetOfficeMathObjectsRequest, callback : @escaping (_ response : OfficeMathObjectsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6440,7 +6440,7 @@ public class WordsAPI {
     public func getOfficeMathObjectsOnline(request : GetOfficeMathObjectsOnlineRequest, callback : @escaping (_ response : OfficeMathObjectsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6486,7 +6486,7 @@ public class WordsAPI {
     public func getParagraph(request : GetParagraphRequest, callback : @escaping (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6532,7 +6532,7 @@ public class WordsAPI {
     public func getParagraphFormat(request : GetParagraphFormatRequest, callback : @escaping (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6578,7 +6578,7 @@ public class WordsAPI {
     public func getParagraphFormatOnline(request : GetParagraphFormatOnlineRequest, callback : @escaping (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6624,7 +6624,7 @@ public class WordsAPI {
     public func getParagraphListFormat(request : GetParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6670,7 +6670,7 @@ public class WordsAPI {
     public func getParagraphListFormatOnline(request : GetParagraphListFormatOnlineRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6716,7 +6716,7 @@ public class WordsAPI {
     public func getParagraphOnline(request : GetParagraphOnlineRequest, callback : @escaping (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6762,7 +6762,7 @@ public class WordsAPI {
     public func getParagraphs(request : GetParagraphsRequest, callback : @escaping (_ response : ParagraphLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6808,7 +6808,7 @@ public class WordsAPI {
     public func getParagraphsOnline(request : GetParagraphsOnlineRequest, callback : @escaping (_ response : ParagraphLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6854,7 +6854,7 @@ public class WordsAPI {
     public func getParagraphTabStops(request : GetParagraphTabStopsRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6900,7 +6900,7 @@ public class WordsAPI {
     public func getParagraphTabStopsOnline(request : GetParagraphTabStopsOnlineRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6946,7 +6946,7 @@ public class WordsAPI {
     public func getPublicKey(request : GetPublicKeyRequest, callback : @escaping (_ response : PublicKeyResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -6992,7 +6992,7 @@ public class WordsAPI {
     public func getRangeText(request : GetRangeTextRequest, callback : @escaping (_ response : RangeTextResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7038,7 +7038,7 @@ public class WordsAPI {
     public func getRangeTextOnline(request : GetRangeTextOnlineRequest, callback : @escaping (_ response : RangeTextResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7084,7 +7084,7 @@ public class WordsAPI {
     public func getRun(request : GetRunRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7130,7 +7130,7 @@ public class WordsAPI {
     public func getRunFont(request : GetRunFontRequest, callback : @escaping (_ response : FontResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7176,7 +7176,7 @@ public class WordsAPI {
     public func getRunFontOnline(request : GetRunFontOnlineRequest, callback : @escaping (_ response : FontResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7222,7 +7222,7 @@ public class WordsAPI {
     public func getRunOnline(request : GetRunOnlineRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7268,7 +7268,7 @@ public class WordsAPI {
     public func getRuns(request : GetRunsRequest, callback : @escaping (_ response : RunsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7314,7 +7314,7 @@ public class WordsAPI {
     public func getRunsOnline(request : GetRunsOnlineRequest, callback : @escaping (_ response : RunsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7360,7 +7360,7 @@ public class WordsAPI {
     public func getSection(request : GetSectionRequest, callback : @escaping (_ response : SectionResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7406,7 +7406,7 @@ public class WordsAPI {
     public func getSectionOnline(request : GetSectionOnlineRequest, callback : @escaping (_ response : SectionResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7452,7 +7452,7 @@ public class WordsAPI {
     public func getSectionPageSetup(request : GetSectionPageSetupRequest, callback : @escaping (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7498,7 +7498,7 @@ public class WordsAPI {
     public func getSectionPageSetupOnline(request : GetSectionPageSetupOnlineRequest, callback : @escaping (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7544,7 +7544,7 @@ public class WordsAPI {
     public func getSections(request : GetSectionsRequest, callback : @escaping (_ response : SectionLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7590,7 +7590,7 @@ public class WordsAPI {
     public func getSectionsOnline(request : GetSectionsOnlineRequest, callback : @escaping (_ response : SectionLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7636,7 +7636,7 @@ public class WordsAPI {
     public func getStyle(request : GetStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7682,7 +7682,7 @@ public class WordsAPI {
     public func getStyleFromDocumentElement(request : GetStyleFromDocumentElementRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7728,7 +7728,7 @@ public class WordsAPI {
     public func getStyleFromDocumentElementOnline(request : GetStyleFromDocumentElementOnlineRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7774,7 +7774,7 @@ public class WordsAPI {
     public func getStyleOnline(request : GetStyleOnlineRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7820,7 +7820,7 @@ public class WordsAPI {
     public func getStyles(request : GetStylesRequest, callback : @escaping (_ response : StylesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7866,7 +7866,7 @@ public class WordsAPI {
     public func getStylesOnline(request : GetStylesOnlineRequest, callback : @escaping (_ response : StylesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7912,7 +7912,7 @@ public class WordsAPI {
     public func getTable(request : GetTableRequest, callback : @escaping (_ response : TableResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -7958,7 +7958,7 @@ public class WordsAPI {
     public func getTableCell(request : GetTableCellRequest, callback : @escaping (_ response : TableCellResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8004,7 +8004,7 @@ public class WordsAPI {
     public func getTableCellFormat(request : GetTableCellFormatRequest, callback : @escaping (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8050,7 +8050,7 @@ public class WordsAPI {
     public func getTableCellFormatOnline(request : GetTableCellFormatOnlineRequest, callback : @escaping (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8096,7 +8096,7 @@ public class WordsAPI {
     public func getTableCellOnline(request : GetTableCellOnlineRequest, callback : @escaping (_ response : TableCellResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8142,7 +8142,7 @@ public class WordsAPI {
     public func getTableOnline(request : GetTableOnlineRequest, callback : @escaping (_ response : TableResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8188,7 +8188,7 @@ public class WordsAPI {
     public func getTableProperties(request : GetTablePropertiesRequest, callback : @escaping (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8234,7 +8234,7 @@ public class WordsAPI {
     public func getTablePropertiesOnline(request : GetTablePropertiesOnlineRequest, callback : @escaping (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8280,7 +8280,7 @@ public class WordsAPI {
     public func getTableRow(request : GetTableRowRequest, callback : @escaping (_ response : TableRowResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8326,7 +8326,7 @@ public class WordsAPI {
     public func getTableRowFormat(request : GetTableRowFormatRequest, callback : @escaping (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8372,7 +8372,7 @@ public class WordsAPI {
     public func getTableRowFormatOnline(request : GetTableRowFormatOnlineRequest, callback : @escaping (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8418,7 +8418,7 @@ public class WordsAPI {
     public func getTableRowOnline(request : GetTableRowOnlineRequest, callback : @escaping (_ response : TableRowResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8464,7 +8464,7 @@ public class WordsAPI {
     public func getTables(request : GetTablesRequest, callback : @escaping (_ response : TableLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8510,7 +8510,7 @@ public class WordsAPI {
     public func getTablesOnline(request : GetTablesOnlineRequest, callback : @escaping (_ response : TableLinkCollectionResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8556,7 +8556,7 @@ public class WordsAPI {
     public func insertComment(request : InsertCommentRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8602,7 +8602,7 @@ public class WordsAPI {
     public func insertCommentOnline(request : InsertCommentOnlineRequest, callback : @escaping (_ response : InsertCommentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8648,7 +8648,7 @@ public class WordsAPI {
     public func insertCustomXmlPart(request : InsertCustomXmlPartRequest, callback : @escaping (_ response : CustomXmlPartResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8694,7 +8694,7 @@ public class WordsAPI {
     public func insertCustomXmlPartOnline(request : InsertCustomXmlPartOnlineRequest, callback : @escaping (_ response : InsertCustomXmlPartOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8740,7 +8740,7 @@ public class WordsAPI {
     public func insertDrawingObject(request : InsertDrawingObjectRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8786,7 +8786,7 @@ public class WordsAPI {
     public func insertDrawingObjectOnline(request : InsertDrawingObjectOnlineRequest, callback : @escaping (_ response : InsertDrawingObjectOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8832,7 +8832,7 @@ public class WordsAPI {
     public func insertField(request : InsertFieldRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8878,7 +8878,7 @@ public class WordsAPI {
     public func insertFieldOnline(request : InsertFieldOnlineRequest, callback : @escaping (_ response : InsertFieldOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8924,7 +8924,7 @@ public class WordsAPI {
     public func insertFootnote(request : InsertFootnoteRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -8970,7 +8970,7 @@ public class WordsAPI {
     public func insertFootnoteOnline(request : InsertFootnoteOnlineRequest, callback : @escaping (_ response : InsertFootnoteOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9016,7 +9016,7 @@ public class WordsAPI {
     public func insertFormField(request : InsertFormFieldRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9062,7 +9062,7 @@ public class WordsAPI {
     public func insertFormFieldOnline(request : InsertFormFieldOnlineRequest, callback : @escaping (_ response : InsertFormFieldOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9108,7 +9108,7 @@ public class WordsAPI {
     public func insertHeaderFooter(request : InsertHeaderFooterRequest, callback : @escaping (_ response : HeaderFooterResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9154,7 +9154,7 @@ public class WordsAPI {
     public func insertHeaderFooterOnline(request : InsertHeaderFooterOnlineRequest, callback : @escaping (_ response : InsertHeaderFooterOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9200,7 +9200,7 @@ public class WordsAPI {
     public func insertList(request : InsertListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9246,7 +9246,7 @@ public class WordsAPI {
     public func insertListOnline(request : InsertListOnlineRequest, callback : @escaping (_ response : InsertListOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9292,7 +9292,7 @@ public class WordsAPI {
     public func insertOrUpdateParagraphTabStop(request : InsertOrUpdateParagraphTabStopRequest, callback : @escaping (_ response : TabStopsResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9338,7 +9338,7 @@ public class WordsAPI {
     public func insertOrUpdateParagraphTabStopOnline(request : InsertOrUpdateParagraphTabStopOnlineRequest, callback : @escaping (_ response : InsertOrUpdateParagraphTabStopOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9384,7 +9384,7 @@ public class WordsAPI {
     public func insertPageNumbers(request : InsertPageNumbersRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9430,7 +9430,7 @@ public class WordsAPI {
     public func insertPageNumbersOnline(request : InsertPageNumbersOnlineRequest, callback : @escaping (_ response : InsertPageNumbersOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9476,7 +9476,7 @@ public class WordsAPI {
     public func insertParagraph(request : InsertParagraphRequest, callback : @escaping (_ response : ParagraphResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9522,7 +9522,7 @@ public class WordsAPI {
     public func insertParagraphOnline(request : InsertParagraphOnlineRequest, callback : @escaping (_ response : InsertParagraphOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9568,7 +9568,7 @@ public class WordsAPI {
     public func insertRun(request : InsertRunRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9614,7 +9614,7 @@ public class WordsAPI {
     public func insertRunOnline(request : InsertRunOnlineRequest, callback : @escaping (_ response : InsertRunOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9660,7 +9660,7 @@ public class WordsAPI {
     public func insertStyle(request : InsertStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9706,7 +9706,7 @@ public class WordsAPI {
     public func insertStyleOnline(request : InsertStyleOnlineRequest, callback : @escaping (_ response : InsertStyleOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9752,7 +9752,7 @@ public class WordsAPI {
     public func insertTable(request : InsertTableRequest, callback : @escaping (_ response : TableResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9798,7 +9798,7 @@ public class WordsAPI {
     public func insertTableCell(request : InsertTableCellRequest, callback : @escaping (_ response : TableCellResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9844,7 +9844,7 @@ public class WordsAPI {
     public func insertTableCellOnline(request : InsertTableCellOnlineRequest, callback : @escaping (_ response : InsertTableCellOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9890,7 +9890,7 @@ public class WordsAPI {
     public func insertTableOnline(request : InsertTableOnlineRequest, callback : @escaping (_ response : InsertTableOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9936,7 +9936,7 @@ public class WordsAPI {
     public func insertTableRow(request : InsertTableRowRequest, callback : @escaping (_ response : TableRowResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -9982,7 +9982,7 @@ public class WordsAPI {
     public func insertTableRowOnline(request : InsertTableRowOnlineRequest, callback : @escaping (_ response : InsertTableRowOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10028,7 +10028,7 @@ public class WordsAPI {
     public func insertWatermarkImage(request : InsertWatermarkImageRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10074,7 +10074,7 @@ public class WordsAPI {
     public func insertWatermarkImageOnline(request : InsertWatermarkImageOnlineRequest, callback : @escaping (_ response : InsertWatermarkImageOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10120,7 +10120,7 @@ public class WordsAPI {
     public func insertWatermarkText(request : InsertWatermarkTextRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10166,7 +10166,7 @@ public class WordsAPI {
     public func insertWatermarkTextOnline(request : InsertWatermarkTextOnlineRequest, callback : @escaping (_ response : InsertWatermarkTextOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10212,7 +10212,7 @@ public class WordsAPI {
     public func loadWebDocument(request : LoadWebDocumentRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10258,7 +10258,7 @@ public class WordsAPI {
     public func moveFile(request : MoveFileRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -10291,7 +10291,7 @@ public class WordsAPI {
     public func moveFolder(request : MoveFolderRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -10324,7 +10324,7 @@ public class WordsAPI {
     public func optimizeDocument(request : OptimizeDocumentRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -10357,7 +10357,7 @@ public class WordsAPI {
     public func optimizeDocumentOnline(request : OptimizeDocumentOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10403,7 +10403,7 @@ public class WordsAPI {
     public func protectDocument(request : ProtectDocumentRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10449,7 +10449,7 @@ public class WordsAPI {
     public func protectDocumentOnline(request : ProtectDocumentOnlineRequest, callback : @escaping (_ response : ProtectDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10495,7 +10495,7 @@ public class WordsAPI {
     public func rejectAllRevisions(request : RejectAllRevisionsRequest, callback : @escaping (_ response : RevisionsModificationResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10541,7 +10541,7 @@ public class WordsAPI {
     public func rejectAllRevisionsOnline(request : RejectAllRevisionsOnlineRequest, callback : @escaping (_ response : RejectAllRevisionsOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10587,7 +10587,7 @@ public class WordsAPI {
     public func removeRange(request : RemoveRangeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10633,7 +10633,7 @@ public class WordsAPI {
     public func removeRangeOnline(request : RemoveRangeOnlineRequest, callback : @escaping (_ response : RemoveRangeOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10679,7 +10679,7 @@ public class WordsAPI {
     public func renderDrawingObject(request : RenderDrawingObjectRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10725,7 +10725,7 @@ public class WordsAPI {
     public func renderDrawingObjectOnline(request : RenderDrawingObjectOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10771,7 +10771,7 @@ public class WordsAPI {
     public func renderMathObject(request : RenderMathObjectRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10817,7 +10817,7 @@ public class WordsAPI {
     public func renderMathObjectOnline(request : RenderMathObjectOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10863,7 +10863,7 @@ public class WordsAPI {
     public func renderPage(request : RenderPageRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10909,7 +10909,7 @@ public class WordsAPI {
     public func renderPageOnline(request : RenderPageOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -10955,7 +10955,7 @@ public class WordsAPI {
     public func renderParagraph(request : RenderParagraphRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11001,7 +11001,7 @@ public class WordsAPI {
     public func renderParagraphOnline(request : RenderParagraphOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11047,7 +11047,7 @@ public class WordsAPI {
     public func renderTable(request : RenderTableRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11093,7 +11093,7 @@ public class WordsAPI {
     public func renderTableOnline(request : RenderTableOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11139,7 +11139,7 @@ public class WordsAPI {
     public func replaceText(request : ReplaceTextRequest, callback : @escaping (_ response : ReplaceTextResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11185,7 +11185,7 @@ public class WordsAPI {
     public func replaceTextOnline(request : ReplaceTextOnlineRequest, callback : @escaping (_ response : ReplaceTextOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11231,7 +11231,7 @@ public class WordsAPI {
     public func replaceWithText(request : ReplaceWithTextRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11277,7 +11277,7 @@ public class WordsAPI {
     public func replaceWithTextOnline(request : ReplaceWithTextOnlineRequest, callback : @escaping (_ response : ReplaceWithTextOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11323,7 +11323,7 @@ public class WordsAPI {
     public func resetCache(request : ResetCacheRequest, callback : @escaping (_ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     callback(error);
                 }
@@ -11356,7 +11356,7 @@ public class WordsAPI {
     public func saveAs(request : SaveAsRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11402,7 +11402,7 @@ public class WordsAPI {
     public func saveAsOnline(request : SaveAsOnlineRequest, callback : @escaping (_ response : SaveAsOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11448,7 +11448,7 @@ public class WordsAPI {
     public func saveAsRange(request : SaveAsRangeRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11494,7 +11494,7 @@ public class WordsAPI {
     public func saveAsRangeOnline(request : SaveAsRangeOnlineRequest, callback : @escaping (_ response : SaveAsRangeOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11540,7 +11540,7 @@ public class WordsAPI {
     public func saveAsTiff(request : SaveAsTiffRequest, callback : @escaping (_ response : SaveResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11586,7 +11586,7 @@ public class WordsAPI {
     public func saveAsTiffOnline(request : SaveAsTiffOnlineRequest, callback : @escaping (_ response : SaveAsTiffOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11632,7 +11632,7 @@ public class WordsAPI {
     public func search(request : SearchRequest, callback : @escaping (_ response : SearchResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11678,7 +11678,7 @@ public class WordsAPI {
     public func searchOnline(request : SearchOnlineRequest, callback : @escaping (_ response : SearchResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11724,7 +11724,7 @@ public class WordsAPI {
     public func splitDocument(request : SplitDocumentRequest, callback : @escaping (_ response : SplitDocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11770,7 +11770,7 @@ public class WordsAPI {
     public func splitDocumentOnline(request : SplitDocumentOnlineRequest, callback : @escaping (_ response : SplitDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11816,7 +11816,7 @@ public class WordsAPI {
     public func unprotectDocument(request : UnprotectDocumentRequest, callback : @escaping (_ response : ProtectionDataResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11862,7 +11862,7 @@ public class WordsAPI {
     public func unprotectDocumentOnline(request : UnprotectDocumentOnlineRequest, callback : @escaping (_ response : UnprotectDocumentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11908,7 +11908,7 @@ public class WordsAPI {
     public func updateBookmark(request : UpdateBookmarkRequest, callback : @escaping (_ response : BookmarkResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -11954,7 +11954,7 @@ public class WordsAPI {
     public func updateBookmarkOnline(request : UpdateBookmarkOnlineRequest, callback : @escaping (_ response : UpdateBookmarkOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12000,7 +12000,7 @@ public class WordsAPI {
     public func updateBorder(request : UpdateBorderRequest, callback : @escaping (_ response : BorderResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12046,7 +12046,7 @@ public class WordsAPI {
     public func updateBorderOnline(request : UpdateBorderOnlineRequest, callback : @escaping (_ response : UpdateBorderOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12092,7 +12092,7 @@ public class WordsAPI {
     public func updateComment(request : UpdateCommentRequest, callback : @escaping (_ response : CommentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12138,7 +12138,7 @@ public class WordsAPI {
     public func updateCommentOnline(request : UpdateCommentOnlineRequest, callback : @escaping (_ response : UpdateCommentOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12184,7 +12184,7 @@ public class WordsAPI {
     public func updateCustomXmlPart(request : UpdateCustomXmlPartRequest, callback : @escaping (_ response : CustomXmlPartResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12230,7 +12230,7 @@ public class WordsAPI {
     public func updateCustomXmlPartOnline(request : UpdateCustomXmlPartOnlineRequest, callback : @escaping (_ response : UpdateCustomXmlPartOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12276,7 +12276,7 @@ public class WordsAPI {
     public func updateDrawingObject(request : UpdateDrawingObjectRequest, callback : @escaping (_ response : DrawingObjectResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12322,7 +12322,7 @@ public class WordsAPI {
     public func updateDrawingObjectOnline(request : UpdateDrawingObjectOnlineRequest, callback : @escaping (_ response : UpdateDrawingObjectOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12368,7 +12368,7 @@ public class WordsAPI {
     public func updateField(request : UpdateFieldRequest, callback : @escaping (_ response : FieldResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12414,7 +12414,7 @@ public class WordsAPI {
     public func updateFieldOnline(request : UpdateFieldOnlineRequest, callback : @escaping (_ response : UpdateFieldOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12460,7 +12460,7 @@ public class WordsAPI {
     public func updateFields(request : UpdateFieldsRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12506,7 +12506,7 @@ public class WordsAPI {
     public func updateFieldsOnline(request : UpdateFieldsOnlineRequest, callback : @escaping (_ response : UpdateFieldsOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12552,7 +12552,7 @@ public class WordsAPI {
     public func updateFootnote(request : UpdateFootnoteRequest, callback : @escaping (_ response : FootnoteResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12598,7 +12598,7 @@ public class WordsAPI {
     public func updateFootnoteOnline(request : UpdateFootnoteOnlineRequest, callback : @escaping (_ response : UpdateFootnoteOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12644,7 +12644,7 @@ public class WordsAPI {
     public func updateFormField(request : UpdateFormFieldRequest, callback : @escaping (_ response : FormFieldResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12690,7 +12690,7 @@ public class WordsAPI {
     public func updateFormFieldOnline(request : UpdateFormFieldOnlineRequest, callback : @escaping (_ response : UpdateFormFieldOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12736,7 +12736,7 @@ public class WordsAPI {
     public func updateList(request : UpdateListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12782,7 +12782,7 @@ public class WordsAPI {
     public func updateListLevel(request : UpdateListLevelRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12828,7 +12828,7 @@ public class WordsAPI {
     public func updateListLevelOnline(request : UpdateListLevelOnlineRequest, callback : @escaping (_ response : UpdateListLevelOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12874,7 +12874,7 @@ public class WordsAPI {
     public func updateListOnline(request : UpdateListOnlineRequest, callback : @escaping (_ response : UpdateListOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12920,7 +12920,7 @@ public class WordsAPI {
     public func updateParagraphFormat(request : UpdateParagraphFormatRequest, callback : @escaping (_ response : ParagraphFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -12966,7 +12966,7 @@ public class WordsAPI {
     public func updateParagraphFormatOnline(request : UpdateParagraphFormatOnlineRequest, callback : @escaping (_ response : UpdateParagraphFormatOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13012,7 +13012,7 @@ public class WordsAPI {
     public func updateParagraphListFormat(request : UpdateParagraphListFormatRequest, callback : @escaping (_ response : ParagraphListFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13058,7 +13058,7 @@ public class WordsAPI {
     public func updateParagraphListFormatOnline(request : UpdateParagraphListFormatOnlineRequest, callback : @escaping (_ response : UpdateParagraphListFormatOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13104,7 +13104,7 @@ public class WordsAPI {
     public func updateRun(request : UpdateRunRequest, callback : @escaping (_ response : RunResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13150,7 +13150,7 @@ public class WordsAPI {
     public func updateRunFont(request : UpdateRunFontRequest, callback : @escaping (_ response : FontResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13196,7 +13196,7 @@ public class WordsAPI {
     public func updateRunFontOnline(request : UpdateRunFontOnlineRequest, callback : @escaping (_ response : UpdateRunFontOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13242,7 +13242,7 @@ public class WordsAPI {
     public func updateRunOnline(request : UpdateRunOnlineRequest, callback : @escaping (_ response : UpdateRunOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13288,7 +13288,7 @@ public class WordsAPI {
     public func updateSectionPageSetup(request : UpdateSectionPageSetupRequest, callback : @escaping (_ response : SectionPageSetupResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13334,7 +13334,7 @@ public class WordsAPI {
     public func updateSectionPageSetupOnline(request : UpdateSectionPageSetupOnlineRequest, callback : @escaping (_ response : UpdateSectionPageSetupOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13380,7 +13380,7 @@ public class WordsAPI {
     public func updateStyle(request : UpdateStyleRequest, callback : @escaping (_ response : StyleResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13426,7 +13426,7 @@ public class WordsAPI {
     public func updateStyleOnline(request : UpdateStyleOnlineRequest, callback : @escaping (_ response : UpdateStyleOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13472,7 +13472,7 @@ public class WordsAPI {
     public func updateTableCellFormat(request : UpdateTableCellFormatRequest, callback : @escaping (_ response : TableCellFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13518,7 +13518,7 @@ public class WordsAPI {
     public func updateTableCellFormatOnline(request : UpdateTableCellFormatOnlineRequest, callback : @escaping (_ response : UpdateTableCellFormatOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13564,7 +13564,7 @@ public class WordsAPI {
     public func updateTableProperties(request : UpdateTablePropertiesRequest, callback : @escaping (_ response : TablePropertiesResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13610,7 +13610,7 @@ public class WordsAPI {
     public func updateTablePropertiesOnline(request : UpdateTablePropertiesOnlineRequest, callback : @escaping (_ response : UpdateTablePropertiesOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13656,7 +13656,7 @@ public class WordsAPI {
     public func updateTableRowFormat(request : UpdateTableRowFormatRequest, callback : @escaping (_ response : TableRowFormatResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13702,7 +13702,7 @@ public class WordsAPI {
     public func updateTableRowFormatOnline(request : UpdateTableRowFormatOnlineRequest, callback : @escaping (_ response : UpdateTableRowFormatOnlineResponse?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13748,7 +13748,7 @@ public class WordsAPI {
     public func uploadFile(request : UploadFileRequest, callback : @escaping (_ response : FilesUploadResult?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
-                apiRequestData: try request.createApiRequestData(configuration: self.configuration),
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
                 callback: { response, error in
                     if (error != nil) {
                         callback(nil, error);
@@ -13792,7 +13792,7 @@ public class WordsAPI {
     // Async representation of batch method
     public func batch(requests : [BatchRequest], callback : @escaping (_ response : [Any?]?, _ error : Error?) -> ()) {
         do {
-            let apiRequestData = try requests.map { try $0.createApiRequestData(configuration: self.configuration) };
+            let apiRequestData = try requests.map { try $0.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration) };
             let formParams = try apiRequestData.map { RequestFormParam(name: nil, body: try $0.toBatchPart(configuration: self.configuration), contentType: "application/http; msgtype=request") };
             let apiBatchUrl = (try self.configuration.getApiRootUrl()).appendingPathComponent("/words/batch");
             var apiBatchRequestData = WordsApiRequestData(url: apiBatchUrl, method: "PUT");

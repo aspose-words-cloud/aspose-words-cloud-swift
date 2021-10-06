@@ -63,7 +63,7 @@ public class CreateDocumentRequest : WordsApiRequest {
     }
 
     // Creates the api request data
-    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+    public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/create";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
@@ -71,17 +71,14 @@ public class CreateDocumentRequest : WordsApiRequest {
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
          if (self.getFileName() != nil) {
-             queryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: self.getFileName()!)));
+         queryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: self.getFileName()!)));
          }
-
          if (self.getFolder() != nil) {
-             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
          }
-
          if (self.getStorage() != nil) {
-             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
          }
-
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }

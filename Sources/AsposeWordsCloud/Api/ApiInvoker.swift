@@ -250,4 +250,12 @@ public class ApiInvoker {
             callback(accessToken, self.httpStatusCodeOK);
         }
     }
+
+    private func invokeEncryptionData() throws {
+
+    }
+
+    public func encryptString(value : String) throws -> String {
+        invokeEncryptionData();
+    }
 }

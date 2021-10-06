@@ -103,7 +103,7 @@ public class GetDocumentStatisticsRequest : WordsApiRequest {
     }
 
     // Creates the api request data
-    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+    public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/{name}/statistics";
          rawPath = rawPath.replacingOccurrences(of: "{name}", with: try ObjectSerializer.serializeToString(value: self.getName()));
 
@@ -113,33 +113,26 @@ public class GetDocumentStatisticsRequest : WordsApiRequest {
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
          if (self.getFolder() != nil) {
-             queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
          }
-
          if (self.getStorage() != nil) {
-             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
          }
-
          if (self.getLoadEncoding() != nil) {
-             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
          }
-
          if (self.getPassword() != nil) {
-             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try apiInvoker.encryptString(value: self.getPassword()!)));
          }
-
          if (self.getIncludeComments() != nil) {
-             queryItems.append(URLQueryItem(name: "includeComments", value: try ObjectSerializer.serializeToString(value: self.getIncludeComments()!)));
+         queryItems.append(URLQueryItem(name: "includeComments", value: try ObjectSerializer.serializeToString(value: self.getIncludeComments()!)));
          }
-
          if (self.getIncludeFootnotes() != nil) {
-             queryItems.append(URLQueryItem(name: "includeFootnotes", value: try ObjectSerializer.serializeToString(value: self.getIncludeFootnotes()!)));
+         queryItems.append(URLQueryItem(name: "includeFootnotes", value: try ObjectSerializer.serializeToString(value: self.getIncludeFootnotes()!)));
          }
-
          if (self.getIncludeTextInShapes() != nil) {
-             queryItems.append(URLQueryItem(name: "includeTextInShapes", value: try ObjectSerializer.serializeToString(value: self.getIncludeTextInShapes()!)));
+         queryItems.append(URLQueryItem(name: "includeTextInShapes", value: try ObjectSerializer.serializeToString(value: self.getIncludeTextInShapes()!)));
          }
-
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
