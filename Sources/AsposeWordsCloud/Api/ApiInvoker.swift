@@ -31,10 +31,10 @@ import Foundation
 public class ApiInvoker {
     // An object containing the configuration for executing API requests 
     private let configuration : Configuration;
-    
+
     // RSA key for password encryption
     private var encryptionKey : SecKey?;
-    
+
     // Cached value of oauth2 authorization tokeт. 
     // It is filled after the first call to the API. 
     // Mutex is used to synchronize updates in a multi-threaded environment.
@@ -256,7 +256,21 @@ public class ApiInvoker {
     }
 
     public func setEncryptionData(data : PublicKeyResponse) throws {
-        
+        NSString *modulusString = data.modulus;
+        NSString *exponentString = data.exponent;
+
+        NSData *pubKeyModData = bytesFromHexString(modulusString);
+        NSData *pubKeyExpData = bytesFromHexString(exponentString);
+        NSArray *keyArray = @[pubKeyModData, pubKeyExpData];
+
+        //Given that you are using SCZ-BasicEncodingRules-iOS:
+        NSData *berData = [keyArray berData];
+        NSLog(@"berData:\n%@", berData);
+
+        NSString *berBase64 = [berData base64EncodedStringWithOptions:0];
+        NSString *preamble = @"-----BEGIN CERTIFICATE REQUEST-----";
+        NSString *postamble = @"-----END CERTIFICATE REQUEST-----";
+        NSString *pem = [NSString stringWithFormat:@"%@\n%@\n%@", preamble, berBase64, postamble];
     }
 
     public func encryptString(value : String) throws -> String {
