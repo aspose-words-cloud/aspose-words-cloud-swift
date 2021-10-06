@@ -28,6 +28,7 @@
 import Foundation
 
 // Container class for rtf save options.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class RtfSaveOptionsData : SaveOptionsData {
     // Field of exportCompactSize. Container class for rtf save options.
     public var exportCompactSize : Bool?;

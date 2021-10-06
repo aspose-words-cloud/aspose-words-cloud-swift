@@ -28,6 +28,7 @@
 import Foundation
 
 // Response model for copyStyleOnline operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CopyStyleOnlineResponse {
     private let model : StyleResponse?;
     private let document : Data?;

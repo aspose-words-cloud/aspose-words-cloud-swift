@@ -28,6 +28,7 @@
 import Foundation
 
 // Request model for protectDocument operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ProtectDocumentRequest : WordsApiRequest {
     private let name : String;
     private let protectionRequest : ProtectionRequest;

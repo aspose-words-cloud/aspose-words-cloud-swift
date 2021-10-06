@@ -28,6 +28,7 @@
 import Foundation
 
 // DTO container with a single document list.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListInfo : LinkElement {
     // Field of isListStyleDefinition. DTO container with a single document list.
     public var isListStyleDefinition : Bool?;

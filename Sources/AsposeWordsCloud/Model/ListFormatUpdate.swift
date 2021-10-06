@@ -28,6 +28,7 @@
 import Foundation
 
 // Paragraph list format element for update.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListFormatUpdate : Codable, WordsApiModel {
     // Field of listId. Paragraph list format element for update.
     public var listId : Int?;

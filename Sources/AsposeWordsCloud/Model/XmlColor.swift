@@ -28,6 +28,7 @@
 import Foundation
 
 // Utility class for Color serialization.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class XmlColor : Codable, WordsApiModel {
     // Field of alpha. Utility class for Color serialization.
     public var alpha : Int?;

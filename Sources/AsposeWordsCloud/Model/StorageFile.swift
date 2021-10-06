@@ -28,6 +28,7 @@
 import Foundation
 
 // File or folder information.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StorageFile : Codable, WordsApiModel {
     // Field of isFolder. File or folder information.
     public var isFolder : Bool?;

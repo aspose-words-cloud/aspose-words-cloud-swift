@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with a collection of custom xml parts.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CustomXmlPartsResponse : WordsResponse {
     // Field of customXmlParts. The REST response with a collection of custom xml parts.
     public var customXmlParts : CustomXmlPartsCollection?;

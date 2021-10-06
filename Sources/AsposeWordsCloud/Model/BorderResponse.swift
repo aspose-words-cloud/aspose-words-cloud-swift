@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with a border.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BorderResponse : WordsResponse {
     // Field of border. The REST response with a border.
     public var border : Border?;

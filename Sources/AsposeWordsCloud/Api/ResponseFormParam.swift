@@ -28,6 +28,7 @@
 import Foundation
 
 // Represent struct for using as form param in request
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public struct ResponseFormParam {
     private let body : Data;
     private let headers : [String : String];

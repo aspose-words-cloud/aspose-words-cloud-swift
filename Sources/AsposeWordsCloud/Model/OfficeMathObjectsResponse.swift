@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with a collection of OfficeMath objects.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class OfficeMathObjectsResponse : WordsResponse {
     // Field of officeMathObjects. The REST response with a collection of OfficeMath objects.
     public var officeMathObjects : OfficeMathObjectsCollection?;

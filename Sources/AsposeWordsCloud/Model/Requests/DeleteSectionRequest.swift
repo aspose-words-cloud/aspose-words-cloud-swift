@@ -28,6 +28,7 @@
 import Foundation
 
 // Request model for deleteSection operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DeleteSectionRequest : WordsApiRequest {
     private let name : String;
     private let sectionIndex : Int;

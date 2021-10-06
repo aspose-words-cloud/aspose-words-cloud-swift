@@ -28,6 +28,7 @@
 import Foundation
 
 // DTO container with a DrawingObject.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DrawingObject : DrawingObjectLink {
     // Gets or sets the relative horizontal position, from which the distance to the image is measured.
     public enum RelativeHorizontalPosition : String, Codable

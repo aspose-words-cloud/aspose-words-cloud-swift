@@ -28,6 +28,7 @@
 import Foundation
 
 // DTO container with a footnote.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Footnote : FootnoteLink {
     // Gets or sets the value, that specifies whether this is a footnote or endnote.
     public enum FootnoteType : String, Codable

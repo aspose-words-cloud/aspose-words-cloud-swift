@@ -28,6 +28,7 @@
 import Foundation
 
 // DTO container with a font element.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Font : LinkElement {
     // Gets or sets the locale independent style identifier of the character style applied to this formatting.
     public enum StyleIdentifier : String, Codable

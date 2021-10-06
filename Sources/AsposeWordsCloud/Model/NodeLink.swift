@@ -28,6 +28,7 @@
 import Foundation
 
 // Reference to node.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class NodeLink : LinkElement {
     // Field of nodeId. Reference to node.
     public var nodeId : String?;

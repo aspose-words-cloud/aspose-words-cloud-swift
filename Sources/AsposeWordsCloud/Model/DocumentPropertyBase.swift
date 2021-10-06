@@ -28,6 +28,7 @@
 import Foundation
 
 // Words document property DTO base class.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentPropertyBase : Codable, WordsApiModel {
     // Field of value. Words document property DTO base class.
     public var value : String?;

@@ -28,6 +28,7 @@
 import Foundation
 
 // Request model for getCustomXmlParts operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class GetCustomXmlPartsRequest : WordsApiRequest {
     private let name : String;
     private let folder : String?;

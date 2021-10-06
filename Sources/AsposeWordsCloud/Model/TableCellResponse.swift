@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with a table cell.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableCellResponse : WordsResponse {
     // Field of cell. The REST response with a table cell.
     public var cell : TableCell?;

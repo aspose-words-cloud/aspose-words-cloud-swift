@@ -28,6 +28,7 @@
 import Foundation
 
 // Base class for save options of text formats.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TxtSaveOptionsBaseData : SaveOptionsData {
     // Gets or sets the option that controls whether to output headers and footers when exporting in plain text format.
     // default value is TxtExportHeadersFootersMode.PrimaryOnly.
