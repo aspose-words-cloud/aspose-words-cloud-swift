@@ -256,21 +256,16 @@ public class ApiInvoker {
     }
 
     public func setEncryptionData(data : PublicKeyResponse) throws {
-        NSString *modulusString = data.modulus;
-        NSString *exponentString = data.exponent;
+        let modulus = Data(base64Encoded: data.getModulus()!)!;
+        let exponent = Data(base64Encoded: data.getExponent()!)!;
+        var berData = Data();
+        berData.append(modulus);
+        berData.append(exponent);
 
-        NSData *pubKeyModData = bytesFromHexString(modulusString);
-        NSData *pubKeyExpData = bytesFromHexString(exponentString);
-        NSArray *keyArray = @[pubKeyModData, pubKeyExpData];
-
-        //Given that you are using SCZ-BasicEncodingRules-iOS:
-        NSData *berData = [keyArray berData];
-        NSLog(@"berData:\n%@", berData);
-
-        NSString *berBase64 = [berData base64EncodedStringWithOptions:0];
-        NSString *preamble = @"-----BEGIN CERTIFICATE REQUEST-----";
-        NSString *postamble = @"-----END CERTIFICATE REQUEST-----";
-        NSString *pem = [NSString stringWithFormat:@"%@\n%@\n%@", preamble, berBase64, postamble];
+        let berBase64 = berData.base64EncodedString();
+        let preamble = "-----BEGIN CERTIFICATE REQUEST-----";
+        let postamble = "-----END CERTIFICATE REQUEST-----";
+        let pem = preamble + "\n" + berBase64 + "\n" + postamble;
     }
 
     public func encryptString(value : String) throws -> String {
