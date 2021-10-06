@@ -35,7 +35,7 @@ public class ApiInvoker {
     private let configuration : Configuration;
 
     // RSA key for password encryption
-    private var encryptionKey : SecKey?;
+    private var encryptionKey : CryptorRSA.PublicKey?;
 
     // Cached value of oauth2 authorization tokeт. 
     // It is filled after the first call to the API. 
@@ -269,10 +269,12 @@ public class ApiInvoker {
         //let postamble = "-----END CERTIFICATE REQUEST-----";
         //let pem = preamble + "\n" + berBase64 + "\n" + postamble;
 
-        let publicKey = try CryptorRSA.createPublicKey(with: berData);
+        encryptionKey = try CryptorRSA.createPublicKey(with: berData);
     }
 
     public func encryptString(value : String) throws -> String {
-        return "";
+        let plainText = try CryptorRSA.createPlaintext(with: value, using: .utf8);
+        let encryptedText = try plainText.encrypted(with: encryptionKey!, algorithm: .sha1)!;
+        return encryptedText.base64String;
     }
 }
