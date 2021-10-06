@@ -29,6 +29,7 @@ import Foundation
 import CryptorRSA
 
 // Utility class for executing and processing requests to Cloud API
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ApiInvoker {
     // An object containing the configuration for executing API requests 
     private let configuration : Configuration;
@@ -263,12 +264,12 @@ public class ApiInvoker {
         berData.append(modulus);
         berData.append(exponent);
 
-        let berBase64 = berData.base64EncodedString();
-        let preamble = "-----BEGIN CERTIFICATE REQUEST-----";
-        let postamble = "-----END CERTIFICATE REQUEST-----";
-        let pem = preamble + "\n" + berBase64 + "\n" + postamble;
+        //let berBase64 = berData.base64EncodedString();
+        //let preamble = "-----BEGIN CERTIFICATE REQUEST-----";
+        //let postamble = "-----END CERTIFICATE REQUEST-----";
+        //let pem = preamble + "\n" + berBase64 + "\n" + postamble;
 
-        let publicKey = try CryptorRSA.createPublicKey(extractingFrom data: berData);
+        let publicKey = try CryptorRSA.createPublicKey(with: berData);
     }
 
     public func encryptString(value : String) throws -> String {

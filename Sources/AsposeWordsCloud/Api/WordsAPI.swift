@@ -28,6 +28,7 @@
 import Foundation
 
 // Aspose.Words.Cloud API for Swift
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class WordsAPI {
     private let configuration : Configuration;
     private let apiInvoker : ApiInvoker;
