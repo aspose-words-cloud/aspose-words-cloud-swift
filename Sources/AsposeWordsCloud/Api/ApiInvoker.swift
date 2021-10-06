@@ -26,6 +26,7 @@
  */
 
 import Foundation
+import CryptorRSA
 
 // Utility class for executing and processing requests to Cloud API
 public class ApiInvoker {
@@ -266,6 +267,8 @@ public class ApiInvoker {
         let preamble = "-----BEGIN CERTIFICATE REQUEST-----";
         let postamble = "-----END CERTIFICATE REQUEST-----";
         let pem = preamble + "\n" + berBase64 + "\n" + postamble;
+
+        let publicKey = try CryptorRSA.createPublicKey(extractingFrom data: berData);
     }
 
     public func encryptString(value : String) throws -> String {
