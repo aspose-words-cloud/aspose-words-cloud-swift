@@ -320,8 +320,12 @@ public class ApiInvoker {
     }
 
     public func encryptString(value : String) throws -> String {
-        let plainText = try CryptorRSA.createPlaintext(with: value, using: .utf8);
-        let encryptedText = try plainText.encrypted(with: encryptionKey!, algorithm: .sha1)!;
-        return encryptedText.base64String.replacingOccurrences(of: "+", with: "%2B").replacingOccurrences(of: "/", with: "%2F");
+        let buffer = [UInt8](value.utf8);
+        var keySize = SecKeyGetBlockSize(encryptionKey);
+        var keyBuffer = [UInt8](repeating: 0, count: keySize);
+
+        // Encrypto should less than key length
+        SecKeyEncrypt(encryptionKey, SecPadding.PKCS1, buffer, buffer.count, &keyBuffer, &keySize);
+        return Data(bytes: keyBuffer, count: keySize).base64EncodedString().replacingOccurrences(of: "+", with: "%2B").replacingOccurrences(of: "/", with: "%2F");
     }
 }
