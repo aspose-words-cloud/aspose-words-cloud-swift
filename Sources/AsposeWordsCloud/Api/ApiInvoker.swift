@@ -26,7 +26,6 @@
  */
 
 import Foundation
-import CryptorRSA
 
 // Utility class for executing and processing requests to Cloud API
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
@@ -35,7 +34,7 @@ public class ApiInvoker {
     private let configuration : Configuration;
 
     // RSA key for password encryption
-    private var encryptionKey : CryptorRSA.PublicKey?;
+    private var encryptionKey : SecKey?;
 
     // Cached value of oauth2 authorization tokeт. 
     // It is filled after the first call to the API. 
@@ -309,7 +308,15 @@ public class ApiInvoker {
         sequenceEncoded.append(contentsOf: (modulusEncoded + exponentEncoded));
 
         let keyData = Data(bytes: sequenceEncoded);
-        encryptionKey = try CryptorRSA.createPublicKey(with: keyData);
+        let keySize = (modulusBytes.count * 8);
+
+        let attributes: [String: Any] = [
+            kSecAttrKeyType as String: kSecAttrKeyTypeRSA,
+            kSecAttrKeyClass as String: kSecAttrKeyClassPublic,
+            kSecAttrKeySizeInBits as String: keySize
+        ];
+
+        encryptionKey = SecKeyCreateWithData(keyData as CFData, attributes as CFDictionary, nil);
     }
 
     public func encryptString(value : String) throws -> String {
