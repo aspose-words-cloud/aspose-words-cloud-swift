@@ -257,17 +257,57 @@ public class ApiInvoker {
         }
     }
 
+    private func lengthField(of valueField: [UInt8]) -> [UInt8] {
+        var count = valueField.count;
+
+        if (count < 128) {
+            return [ UInt8(count) ];
+        }
+
+        // The number of bytes needed to encode count.
+        let lengthBytesCount = Int((log2(Double(count)) / 8) + 1);
+
+        // The first byte in the length field encoding the number of remaining bytes.
+        let firstLengthFieldByte = UInt8(128 + lengthBytesCount);
+
+        var lengthField: [UInt8] = []
+        for _ in 0..<lengthBytesCount {
+            // Take the last 8 bits of count.
+            let lengthByte = UInt8(count & 0xff);
+            // Add them to the length field.
+            lengthField.insert(lengthByte, at: 0);
+            // Delete the last 8 bits of count.
+            count = count >> 8;
+        }
+
+        // Include the first byte.
+        lengthField.insert(firstLengthFieldByte, at: 0);
+
+        return lengthField;
+    }
+
     public func setEncryptionData(data : PublicKeyResponse) throws {
-        let modulus = Data(base64Encoded: data.getModulus()!)!;
         let exponent = Data(base64Encoded: data.getExponent()!)!;
-        var berData = Data();
-        berData.append(modulus);
-        berData.append(exponent);
-        let berBase64 = berData.base64EncodedString();
-        let preamble = "-----BEGIN CERTIFICATE REQUEST-----";
-        let postamble = "-----END CERTIFICATE REQUEST-----";
-        let pem = preamble + "\n" + berBase64 + "\n" + postamble;
-        encryptionKey = try CryptorRSA.createPublicKey(extractingFrom: pem);
+        var modulus = Data(base64Encoded: data.getModulus()!)!;
+        modulus.insert(0x00, at: 0)
+
+        var modulusEncoded: [UInt8] = [];
+        modulusEncoded.append(0x02);
+        modulusEncoded.append(contentsOf: lengthField(of: modulus));
+        modulusEncoded.append(contentsOf: modulus);
+
+        var exponentEncoded: [UInt8] = [];
+        exponentEncoded.append(0x02);
+        exponentEncoded.append(contentsOf: lengthField(of: exponent));
+        exponentEncoded.append(contentsOf: exponent);
+
+        var sequenceEncoded: [UInt8] = [];
+        sequenceEncoded.append(0x30);
+        sequenceEncoded.append(contentsOf: lengthField(of: (modulusEncoded + exponentEncoded)));
+        sequenceEncoded.append(contentsOf: (modulusEncoded + exponentEncoded));
+
+        let keyData = Data(bytes: sequenceEncoded);
+        encryptionKey = try CryptorRSA.createPublicKey(extractedFrom: keyData);
     }
 
     public func encryptString(value : String) throws -> String {
