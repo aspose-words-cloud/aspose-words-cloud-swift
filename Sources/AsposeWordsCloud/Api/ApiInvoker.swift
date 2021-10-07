@@ -292,16 +292,16 @@ public class ApiInvoker {
         let exponentBytes = [UInt8](exponent);
         var modulusBytes = [UInt8](modulus);
         modulusBytes.insert(0x00, at: 0);
-        
+
         var modulusEncoded: [UInt8] = [];
         modulusEncoded.append(0x02);
         modulusEncoded.append(contentsOf: lengthField(of: modulusBytes));
-        modulusEncoded.append(contentsOf: modulus);
+        modulusEncoded.append(contentsOf: modulusBytes);
 
         var exponentEncoded: [UInt8] = [];
         exponentEncoded.append(0x02);
         exponentEncoded.append(contentsOf: lengthField(of: exponentBytes));
-        exponentEncoded.append(contentsOf: exponent);
+        exponentEncoded.append(contentsOf: exponentBytes);
 
         var sequenceEncoded: [UInt8] = [];
         sequenceEncoded.append(0x30);
@@ -309,7 +309,7 @@ public class ApiInvoker {
         sequenceEncoded.append(contentsOf: (modulusEncoded + exponentEncoded));
 
         let keyData = Data(bytes: sequenceEncoded);
-        encryptionKey = try CryptorRSA.createPublicKey(extractingFrom: keyData);
+        encryptionKey = try CryptorRSA.createPublicKey(with: keyData);
     }
 
     public func encryptString(value : String) throws -> String {
