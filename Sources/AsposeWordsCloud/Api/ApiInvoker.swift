@@ -315,6 +315,6 @@ public class ApiInvoker {
     public func encryptString(value : String) throws -> String {
         let plainText = try CryptorRSA.createPlaintext(with: value, using: .utf8);
         let encryptedText = try plainText.encrypted(with: encryptionKey!, algorithm: .sha1)!;
-        return encryptedText.base64String;
+        return encryptedText.base64String.replacingOccurrences(of: "+", with: "%2B").replacingOccurrences(of: "/", with: "%2F")
     }
 }

@@ -36,7 +36,7 @@ public struct WordsApiRequestData {
     private var headers : Dictionary<String, String>;
 
     public init(url : URL, method : String) {
-        self.url = url;
+        self.url = URL(string: url.absoluteString.replacingOccurrences(of: "%25", with: "%"))!;
         self.method = method;
         self.body = nil;
         self.headers = Dictionary<String, String>();
