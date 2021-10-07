@@ -17,6 +17,7 @@ def runtests(version)
             
             docker.image('swift:' + version).inside{
                 stage('build_' + version){
+                    sh "apt-get -y install openssl-dev"
 					sh "swift build"
 				}
             

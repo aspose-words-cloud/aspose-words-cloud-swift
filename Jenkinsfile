@@ -36,6 +36,7 @@ node('words-linux') {
             if (needToBuild) {
                 docker.image('swift:5.0').inside{
                     stage('build'){
+                        sh "apt-get -y install openssl-dev"
                         sh "swift build"
                     }
                 
