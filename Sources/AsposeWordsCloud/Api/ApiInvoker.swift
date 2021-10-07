@@ -60,7 +60,12 @@ public class ApiInvoker {
         self.configuration = configuration;
         self.mutex = NSLock();
         self.accessTokenCache = nil;
+
+#if os(Linux)
+    // Encryption of passwords in query params not supported on linux
+#else
         self.encryptionKey = nil;
+#endif
     }
 
     // Internal class for represent API response
