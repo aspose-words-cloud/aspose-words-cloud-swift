@@ -27,7 +27,7 @@
 
 import XCTest
 @testable import AsposeWordsCloud
-
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 class BaseTestContext: XCTestCase {
     private var api : WordsAPI?;
     private var baseFolder : URL?;
