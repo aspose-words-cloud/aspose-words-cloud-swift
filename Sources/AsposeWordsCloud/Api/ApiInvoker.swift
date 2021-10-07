@@ -263,7 +263,11 @@ public class ApiInvoker {
         var berData = Data();
         berData.append(modulus);
         berData.append(exponent);
-        encryptionKey = try CryptorRSA.createPublicKey(with: berData);
+        let berBase64 = berData.base64EncodedString();
+        let preamble = "-----BEGIN CERTIFICATE REQUEST-----";
+        let postamble = "-----END CERTIFICATE REQUEST-----";
+        let pem = preamble + "\n" + berBase64 + "\n" + postamble;
+        encryptionKey = try CryptorRSA.createPublicKey(extractingFrom: pem);
     }
 
     public func encryptString(value : String) throws -> String {
