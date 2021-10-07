@@ -73,7 +73,7 @@ class BaseTestContext: XCTestCase {
             do {
                 let credsData = try Data(contentsOf: credsUrl);
                 let config = try ObjectSerializer.deserialize(type: Configuration.self, from: credsData);
-                self.api = WordsAPI(configuration: config);
+                self.api = try WordsAPI(configuration: config);
             }
             catch {
                 XCTFail("File servercreds.json not found in Settings folder of project root.");
