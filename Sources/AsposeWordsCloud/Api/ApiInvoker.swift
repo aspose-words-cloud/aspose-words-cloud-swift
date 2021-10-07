@@ -320,12 +320,13 @@ public class ApiInvoker {
     }
 
     public func encryptString(value : String) throws -> String {
-        let buffer = [UInt8](value.utf8);
-        var keySize = SecKeyGetBlockSize(encryptionKey);
-        var keyBuffer = [UInt8](repeating: 0, count: keySize);
+        let buffer = value.data(using: .utf8)!;
+        var error: Unmanaged<CFError>? = nil;
 
         // Encrypto should less than key length
-        SecKeyEncrypt(encryptionKey, SecPadding.PKCS1, buffer, buffer.count, &keyBuffer, &keySize);
-        return Data(bytes: keyBuffer, count: keySize).base64EncodedString().replacingOccurrences(of: "+", with: "%2B").replacingOccurrences(of: "/", with: "%2F");
+        let secData = SecKeyCreateEncryptedData(encryptionKey!, .rsaEncryptionPKCS1, buffer as CFData, &error)!;
+        var secBuffer = [UInt8](repeating: 0, count: CFDataGetLength(secData));
+        CFDataGetBytes(secData, CFRangeMake(0, CFDataGetLength(secData)), &secBuffer);
+        return Data(bytes: secBuffer).base64EncodedString().replacingOccurrences(of: "+", with: "%2B").replacingOccurrences(of: "/", with: "%2F");
     }
 }
