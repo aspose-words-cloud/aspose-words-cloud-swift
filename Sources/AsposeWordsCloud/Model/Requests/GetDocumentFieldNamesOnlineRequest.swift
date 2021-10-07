@@ -83,7 +83,7 @@ public class GetDocumentFieldNamesOnlineRequest : WordsApiRequest {
          queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
          }
          if (self.getPassword() != nil) {
-         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
          }
          if (self.getUseNonMergeFields() != nil) {
          queryItems.append(URLQueryItem(name: "useNonMergeFields", value: try ObjectSerializer.serializeToString(value: self.getUseNonMergeFields()!)));

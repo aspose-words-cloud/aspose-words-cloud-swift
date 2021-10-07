@@ -34,7 +34,11 @@ public class ApiInvoker {
     private let configuration : Configuration;
 
     // RSA key for password encryption
+#if os(Linux)
+    // Encryption of passwords in query params not supported on linux
+#else
     private var encryptionKey : SecKey?;
+#endif
 
     // Cached value of oauth2 authorization tokeт. 
     // It is filled after the first call to the API. 
@@ -286,6 +290,9 @@ public class ApiInvoker {
     }
 
     public func setEncryptionData(data : PublicKeyResponse) throws {
+#if os(Linux)
+        // Encryption of passwords in query params not supported on linux
+#else
         let exponent = Data(base64Encoded: data.getExponent()!)!;
         let modulus = Data(base64Encoded: data.getModulus()!)!;
         let exponentBytes = [UInt8](exponent);
@@ -317,9 +324,14 @@ public class ApiInvoker {
         ];
 
         encryptionKey = SecKeyCreateWithData(keyData as CFData, attributes as CFDictionary, nil);
+#endif
     }
 
     public func encryptString(value : String) throws -> String {
+#if os(Linux)
+        // Encryption of passwords in query params not supported on linux
+        return value;
+#else
         let buffer = value.data(using: .utf8)!;
         var error: Unmanaged<CFError>? = nil;
 
@@ -328,5 +340,14 @@ public class ApiInvoker {
         var secBuffer = [UInt8](repeating: 0, count: CFDataGetLength(secData));
         CFDataGetBytes(secData, CFRangeMake(0, CFDataGetLength(secData)), &secBuffer);
         return Data(bytes: secBuffer).base64EncodedString().replacingOccurrences(of: "+", with: "%2B").replacingOccurrences(of: "/", with: "%2F");
+#endif
+    }
+
+    public func isEncryptionAllowed() -> Bool {
+#if os(Linux)
+        return false;
+#else
+        return true;
+#endif
     }
 }

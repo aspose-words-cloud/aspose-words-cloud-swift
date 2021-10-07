@@ -127,7 +127,7 @@ public class GetHeaderFooterOfSectionRequest : WordsApiRequest {
          queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
          }
          if (self.getPassword() != nil) {
-         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
          }
          if (self.getFilterByType() != nil) {
          queryItems.append(URLQueryItem(name: "filterByType", value: try ObjectSerializer.serializeToString(value: self.getFilterByType()!)));
