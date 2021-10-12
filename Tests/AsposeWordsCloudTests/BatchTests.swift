@@ -160,11 +160,7 @@ class BatchTests: BaseTestContext {
         request2.setDependsOn(request: request1);
 
         let result = try super.getApi().batch(requests: [request1, request2, request3, request4, request5], displayIntermediateResults: false);
-        XCTAssertEqual(result.count, 5);
-        XCTAssertTrue(result[0] is ParagraphLinkCollectionResponse);
-        XCTAssertTrue(result[1] is ParagraphResponse);
-        XCTAssertTrue(result[2] is ParagraphResponse);
-        XCTAssertTrue(result[3] == nil);
-        XCTAssertTrue(result[4] is Data);
+        XCTAssertEqual(result.count, 1);
+        XCTAssertTrue(result[0] is Data);
     }
 }

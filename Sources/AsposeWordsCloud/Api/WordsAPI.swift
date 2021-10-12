@@ -13797,7 +13797,7 @@ public class WordsAPI {
         do {
             let apiRequestData = try requests.map { try $0.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration) };
             let formParams = try apiRequestData.map { RequestFormParam(name: nil, body: try $0.toBatchPart(configuration: self.configuration), contentType: "application/http; msgtype=request") };
-            let apiBatchUrl = (try self.configuration.getApiRootUrl()).appendingPathComponent("/words/batch?displayIntermediateResults=" + displayIntermediateResults);
+            let apiBatchUrl = (try self.configuration.getApiRootUrl()).appendingPathComponent("/words/batch?displayIntermediateResults=" + displayIntermediateResults.description);
             var apiBatchRequestData = WordsApiRequestData(url: apiBatchUrl, method: "PUT");
             apiBatchRequestData.setBody(formParams: formParams);
             apiInvoker.invoke(
@@ -13815,11 +13815,11 @@ public class WordsAPI {
 
                             var result = [Any?]();
                             for (requestId, partData) in sortedParts {
-                                if (sortedRequests[requestId] == nil) {
+                                if (requestId == nil || sortedRequests[requestId!] == nil) {
                                     throw WordsApiError.invalidMultipartResponse(message: "Failed to parse batch response.");
                                 }
 
-                                result.append(try ObjectSerializer.deserializeBatchPart(request: sortedRequests[requestId], partData: partData));
+                                result.append(try ObjectSerializer.deserializeBatchPart(request: sortedRequests[requestId!]!, partData: partData));
                             }
 
                             callback(result, nil);
