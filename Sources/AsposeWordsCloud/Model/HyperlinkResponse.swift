@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with a hyperlink.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class HyperlinkResponse : WordsResponse {
     // Field of hyperlink. The REST response with a hyperlink.
     public var hyperlink : Hyperlink?;

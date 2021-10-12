@@ -28,6 +28,7 @@
 import Foundation
 
 // Represents options for parsing CSV data.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CsvDataLoadOptions : Codable, WordsApiModel {
     // Field of commentChar. Represents options for parsing CSV data.
     public var commentChar : String?;

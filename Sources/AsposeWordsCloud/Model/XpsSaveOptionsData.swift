@@ -28,6 +28,7 @@
 import Foundation
 
 // Container class for xps save options.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     // Field of bookmarksOutlineLevel. Container class for xps save options.
     public var bookmarksOutlineLevel : Int?;

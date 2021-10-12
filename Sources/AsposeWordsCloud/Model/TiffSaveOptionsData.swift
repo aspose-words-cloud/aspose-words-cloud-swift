@@ -28,6 +28,7 @@
 import Foundation
 
 // Container class for tiff save options.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TiffSaveOptionsData : ImageSaveOptionsData {
     // Field of thresholdForFloydSteinbergDithering. Container class for tiff save options.
     public var thresholdForFloydSteinbergDithering : Int?;

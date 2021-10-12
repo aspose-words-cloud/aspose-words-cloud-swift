@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class RevisionsModificationResponse : WordsResponse {
     // Field of result. The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
     public var result : ModificationOperationResult?;

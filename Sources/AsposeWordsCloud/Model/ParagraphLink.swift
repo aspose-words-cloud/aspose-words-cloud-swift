@@ -28,6 +28,7 @@
 import Foundation
 
 // Paragraph link element.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ParagraphLink : NodeLink {
     // Field of text. Paragraph link element.
     public var text : String?;

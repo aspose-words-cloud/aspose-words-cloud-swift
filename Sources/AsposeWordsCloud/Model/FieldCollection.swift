@@ -28,6 +28,7 @@
 import Foundation
 
 // DTO container with a collection of fields.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FieldCollection : LinkElement {
     // Field of list. DTO container with a collection of fields.
     public var list : [Field]?;

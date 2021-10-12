@@ -28,6 +28,7 @@
 import Foundation
 
 // Common REST API request data
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public struct WordsApiRequestData {
     private let url : URL;
     private let method : String;
@@ -35,7 +36,7 @@ public struct WordsApiRequestData {
     private var headers : Dictionary<String, String>;
 
     public init(url : URL, method : String) {
-        self.url = url;
+        self.url = URL(string: url.absoluteString.replacingOccurrences(of: "%25", with: "%"))!;
         self.method = method;
         self.body = nil;
         self.headers = Dictionary<String, String>();

@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with a collection of bookmarks.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BookmarksResponse : WordsResponse {
     // Field of bookmarks. The REST response with a collection of bookmarks.
     public var bookmarks : Bookmarks?;

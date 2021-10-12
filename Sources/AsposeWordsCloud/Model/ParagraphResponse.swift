@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with a paragraph.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ParagraphResponse : WordsResponse {
     // Field of paragraph. The REST response with a paragraph.
     public var paragraph : Paragraph?;

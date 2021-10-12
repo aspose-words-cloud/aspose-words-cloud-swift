@@ -28,6 +28,7 @@
 import Foundation
 
 // Class for insert watermark text request building.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class WatermarkText : Codable, WordsApiModel {
     // Field of rotationAngle. Class for insert watermark text request building.
     public var rotationAngle : Double?;

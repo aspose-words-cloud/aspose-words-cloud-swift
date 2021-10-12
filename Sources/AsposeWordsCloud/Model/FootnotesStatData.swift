@@ -28,6 +28,7 @@
 import Foundation
 
 // Container for the footnotes statistical data.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FootnotesStatData : Codable, WordsApiModel {
     // Field of paragraphCount. Container for the footnotes statistical data.
     public var paragraphCount : Int?;

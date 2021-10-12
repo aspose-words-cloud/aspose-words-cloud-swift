@@ -28,6 +28,7 @@
 import Foundation
 
 // Contains data for load web document.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class LoadWebDocumentData : Codable, WordsApiModel {
     // Field of loadingDocumentUrl. Contains data for load web document.
     public var loadingDocumentUrl : String?;

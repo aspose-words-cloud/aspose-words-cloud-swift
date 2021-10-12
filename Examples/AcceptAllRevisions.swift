@@ -1,7 +1,7 @@
 import AsposeWordsCloud
 
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
-let api = WordsAPI(configuration: config);
+let api = try WordsAPI(configuration: config);
 let fileName  = "test_doc.docx";
 
 // Upload original document to cloud storage.

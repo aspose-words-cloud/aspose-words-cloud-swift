@@ -28,6 +28,7 @@
 import Foundation
 
 // Result of splitting document.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SplitDocumentResult : Codable, WordsApiModel {
     // Field of pages. Result of splitting document.
     public var pages : [FileLink]?;

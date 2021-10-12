@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with a number of occurrences of the captured text in the document.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ReplaceTextResponse : WordsResponse {
     // Field of documentLink. The REST response with a number of occurrences of the captured text in the document.
     public var documentLink : FileLink?;

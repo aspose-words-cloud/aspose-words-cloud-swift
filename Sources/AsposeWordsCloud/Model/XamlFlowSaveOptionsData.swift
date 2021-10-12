@@ -28,6 +28,7 @@
 import Foundation
 
 // Container class for xaml flow save options.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class XamlFlowSaveOptionsData : SaveOptionsData {
     // Field of imagesFolder. Container class for xaml flow save options.
     public var imagesFolder : String?;

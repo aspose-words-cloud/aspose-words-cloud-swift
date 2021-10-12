@@ -29,6 +29,7 @@ import XCTest
 @testable import AsposeWordsCloud
 
 // Example of how to split document and return result with specified format and page range.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 class SplitDocumentToFormatTests: BaseTestContext {
     static var allTests = [
         ("testSplitDocument", testSplitDocument),

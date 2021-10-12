@@ -28,6 +28,7 @@
 import Foundation
 
 // Report engine settings.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ReportEngineSettings : Codable, WordsApiModel {
     // Gets or sets type of datasource.
     public enum DataSourceType : String, Codable

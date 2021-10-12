@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with a collection of mail merge fields.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FieldNamesResponse : WordsResponse {
     // Field of fieldNames. The REST response with a collection of mail merge fields.
     public var fieldNames : FieldNames?;

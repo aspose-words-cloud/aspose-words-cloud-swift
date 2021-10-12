@@ -28,6 +28,7 @@
 import Foundation
 
 // Result of search operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SearchResult : Codable, WordsApiModel {
     // Field of rangeEnd. Result of search operation.
     public var rangeEnd : DocumentPosition?;

@@ -28,9 +28,10 @@
 import Foundation
 
 // Request model for getPublicKey operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class GetPublicKeyRequest : WordsApiRequest {
     // Creates the api request data
-    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+    public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/encryption/publickey";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 

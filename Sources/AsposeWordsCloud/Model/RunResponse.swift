@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with a Run element.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class RunResponse : WordsResponse {
     // Field of run. The REST response with a Run element.
     public var run : Run?;

@@ -28,6 +28,7 @@
 import Foundation
 
 // Request model for getAvailableFonts operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class GetAvailableFontsRequest : WordsApiRequest {
     private let fontsLocation : String?;
 
@@ -47,7 +48,7 @@ public class GetAvailableFontsRequest : WordsApiRequest {
     }
 
     // Creates the api request data
-    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+    public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/fonts/available";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
@@ -55,9 +56,8 @@ public class GetAvailableFontsRequest : WordsApiRequest {
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
          if (self.getFontsLocation() != nil) {
-             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
+         queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
          }
-
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }

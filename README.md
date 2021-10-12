@@ -158,7 +158,7 @@ Add link to this repository as dependency to your Package.swift:
 
 dependencies: [
     // Dependencies declare other packages that this package depends on.
-    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "21.10"),
+    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "21.9"),
 ],
 targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -176,7 +176,7 @@ targets: [
 Add link to git repository as dependency to your Podfile:
 
 ```ruby
-pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '21.10'
+pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '21.9'
 ```
 
 ## Getting Started
@@ -186,7 +186,7 @@ pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-wo
 import Foundation;
 import AsposeWordsCloud;
 
-let wordsApi = WordsAPI(clientId: "YOUR_APP_SID", clientSecret: "YOUR_APP_KEY");
+let wordsApi = try WordsAPI(clientId: "YOUR_APP_SID", clientSecret: "YOUR_APP_KEY");
 let fileName = "TestCreateDocument.doc";
 let request = CreateDocumentRequest(fileName: fileName);
 let response = try wordsApi.createDocument(request: request);

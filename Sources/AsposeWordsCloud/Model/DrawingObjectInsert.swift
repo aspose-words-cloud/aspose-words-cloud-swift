@@ -28,6 +28,7 @@
 import Foundation
 
 // Drawing object element for insert.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DrawingObjectInsert : Codable, WordsApiModel {
     // Gets or sets the relative horizontal position, from which the distance to the image is measured.
     public enum RelativeHorizontalPosition : String, Codable

@@ -28,6 +28,7 @@
 import Foundation
 
 // Hyperlink element.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Hyperlink : LinkElement {
     // Field of displayText. Hyperlink element.
     public var displayText : String?;

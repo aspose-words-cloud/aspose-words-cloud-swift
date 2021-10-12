@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with a bookmark.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BookmarkResponse : WordsResponse {
     // Field of bookmark. The REST response with a bookmark.
     public var bookmark : Bookmark?;
