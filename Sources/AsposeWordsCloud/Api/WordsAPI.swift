@@ -13806,15 +13806,13 @@ public class WordsAPI {
                     if (response != nil) {
                         do {
                             let parts = try ObjectSerializer.parseMultipart(data: response!);
-                            let sortedParts = parts.reduce(into: [String: ResponseFormParam]()) {
-                                $0[$1.getHeaders()["RequestId"]] = $1
-                            }
                             let sortedRequests = requests.reduce(into: [String: WordsApiRequest]()) {
                                 $0[$1.getRequestId()] = $1.getRequest()
                             }
 
                             var result = [Any?]();
-                            for (requestId, partData) in sortedParts {
+                            for partData in parts {
+                                var requestId = partData.getHeaders()["RequestId"];
                                 if (requestId == nil || sortedRequests[requestId!] == nil) {
                                     throw WordsApiError.invalidMultipartResponse(message: "Failed to parse batch response.");
                                 }

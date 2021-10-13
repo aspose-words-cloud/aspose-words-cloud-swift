@@ -97,6 +97,11 @@ class BatchTests: BaseTestContext {
 
         let result = try super.getApi().batch(requests: [request1, request2, request3, request4, request5]);
         XCTAssertEqual(result.count, 5);
+        XCTAssertTrue(result[0] is ParagraphLinkCollectionResponse);
+        XCTAssertTrue(result[1] is ParagraphResponse);
+        XCTAssertTrue(result[2] is ParagraphResponse);
+        XCTAssertTrue(result[3] == nil);
+        XCTAssertTrue(result[4] is Data);
     }
 
     // Test for simple batch request.
