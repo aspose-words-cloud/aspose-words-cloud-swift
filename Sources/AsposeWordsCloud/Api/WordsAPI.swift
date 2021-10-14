@@ -13797,8 +13797,13 @@ public class WordsAPI {
         do {
             let apiRequestData = try requests.map { try $0.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration) };
             let formParams = try apiRequestData.map { RequestFormParam(name: nil, body: try $0.toBatchPart(configuration: self.configuration), contentType: "application/http; msgtype=request") };
-            let apiBatchUrl = (try self.configuration.getApiRootUrl()).appendingPathComponent("/words/batch?displayIntermediateResults=" + displayIntermediateResults.description);
-            var apiBatchRequestData = WordsApiRequestData(url: apiBatchUrl, method: "PUT");
+            let apiBatchUrl = (try self.configuration.getApiRootUrl()).appendingPathComponent("/words/batch);
+            var urlBuilder = URLComponents(url: apiBatchUrl, resolvingAgainstBaseURL: false)!;
+            var queryItems : [URLQueryItem] = [];
+            queryItems.append(URLQueryItem(name: "displayIntermediateResults", value: try ObjectSerializer.serializeToString(value: displayIntermediateResults)));
+            urlBuilder.queryItems = queryItems;
+
+            var apiBatchRequestData = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");
             apiBatchRequestData.setBody(formParams: formParams);
             apiInvoker.invoke(
                 apiRequestData: apiBatchRequestData,
