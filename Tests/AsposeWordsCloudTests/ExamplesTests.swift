@@ -2,7 +2,7 @@ import AsposeWordsCloud
 
 import XCTest
 @testable import AsposeWordsCloud
-
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 class ExamplesTests : XCTestCase
 {
     static var allTests = [
@@ -37,7 +37,7 @@ class ExamplesTests : XCTestCase
                 .appendingPathComponent("ExamplesData", isDirectory: true);
 
             do {
-                let api = WordsAPI(configuration: configuration!);
+                let api = try WordsAPI(configuration: configuration!);
                 _ = try api.uploadFile(request: UploadFileRequest(fileContent: InputStream(url: currentDir!.appendingPathComponent("test_doc.docx", isDirectory: false))!, path: "test_doc.docx"));
             }
             catch {
@@ -49,7 +49,7 @@ class ExamplesTests : XCTestCase
     func testAcceptAllRevisions() throws
     {
         let config = configuration!;
-        let api = WordsAPI(configuration: config);
+        let api = try WordsAPI(configuration: config);
         let fileName  = "test_doc.docx";
 
         // Upload original document to cloud storage.
@@ -67,7 +67,7 @@ class ExamplesTests : XCTestCase
     func testAcceptAllRevisionsOnline() throws
     {
         let config = configuration!;
-        let api = WordsAPI(configuration: config);
+        let api = try WordsAPI(configuration: config);
         let fileName  = "test_doc.docx";
 
         // Calls AcceptAllRevisionsOnline method for document in cloud.

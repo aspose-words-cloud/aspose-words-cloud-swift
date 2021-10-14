@@ -29,6 +29,7 @@ import XCTest
 @testable import AsposeWordsCloud
 
 // Example of how to convert document to one of the available formats.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 class ConvertDocumentTests: BaseTestContext {
     static var allTests = [
         ("testSaveAs", testSaveAs),

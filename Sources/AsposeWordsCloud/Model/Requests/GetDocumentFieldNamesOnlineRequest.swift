@@ -28,6 +28,7 @@
 import Foundation
 
 // Request model for getDocumentFieldNamesOnline operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class GetDocumentFieldNamesOnlineRequest : WordsApiRequest {
     private let template : InputStream;
     private let loadEncoding : String?;
@@ -71,7 +72,7 @@ public class GetDocumentFieldNamesOnlineRequest : WordsApiRequest {
     }
 
     // Creates the api request data
-    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+    public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/online/get/mailMerge/FieldNames";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
@@ -79,17 +80,14 @@ public class GetDocumentFieldNamesOnlineRequest : WordsApiRequest {
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
          if (self.getLoadEncoding() != nil) {
-             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
          }
-
          if (self.getPassword() != nil) {
-             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
          }
-
          if (self.getUseNonMergeFields() != nil) {
-             queryItems.append(URLQueryItem(name: "useNonMergeFields", value: try ObjectSerializer.serializeToString(value: self.getUseNonMergeFields()!)));
+         queryItems.append(URLQueryItem(name: "useNonMergeFields", value: try ObjectSerializer.serializeToString(value: self.getUseNonMergeFields()!)));
          }
-
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }

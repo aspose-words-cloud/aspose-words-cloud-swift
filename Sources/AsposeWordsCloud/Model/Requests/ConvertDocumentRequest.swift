@@ -28,6 +28,7 @@
 import Foundation
 
 // Request model for convertDocument operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ConvertDocumentRequest : WordsApiRequest {
     private let document : InputStream;
     private let format : String;
@@ -87,7 +88,7 @@ public class ConvertDocumentRequest : WordsApiRequest {
     }
 
     // Creates the api request data
-    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+    public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/convert";
          rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
@@ -95,23 +96,18 @@ public class ConvertDocumentRequest : WordsApiRequest {
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
          queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: self.getFormat())));
-
          if (self.getOutPath() != nil) {
-             queryItems.append(URLQueryItem(name: "outPath", value: try ObjectSerializer.serializeToString(value: self.getOutPath()!)));
+         queryItems.append(URLQueryItem(name: "outPath", value: try ObjectSerializer.serializeToString(value: self.getOutPath()!)));
          }
-
          if (self.getFileNameFieldValue() != nil) {
-             queryItems.append(URLQueryItem(name: "fileNameFieldValue", value: try ObjectSerializer.serializeToString(value: self.getFileNameFieldValue()!)));
+         queryItems.append(URLQueryItem(name: "fileNameFieldValue", value: try ObjectSerializer.serializeToString(value: self.getFileNameFieldValue()!)));
          }
-
          if (self.getStorage() != nil) {
-             queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
          }
-
          if (self.getFontsLocation() != nil) {
-             queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
+         queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
          }
-
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }

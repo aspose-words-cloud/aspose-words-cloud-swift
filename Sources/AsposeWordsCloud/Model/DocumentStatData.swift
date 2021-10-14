@@ -28,6 +28,7 @@
 import Foundation
 
 // Container for the document's statistical data.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentStatData : Codable, WordsApiModel {
     // Field of footnotesStatData. Container for the document's statistical data.
     public var footnotesStatData : FootnotesStatData?;

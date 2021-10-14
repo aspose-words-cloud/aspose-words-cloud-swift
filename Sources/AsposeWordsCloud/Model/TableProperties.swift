@@ -28,6 +28,7 @@
 import Foundation
 
 // DTO container with table properties.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableProperties : LinkElement {
     // Gets or sets the option that controls how an inline table is aligned in the document.
     public enum Alignment : String, Codable

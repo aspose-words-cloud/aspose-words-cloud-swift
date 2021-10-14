@@ -28,6 +28,7 @@
 import Foundation
 
 // Response model for compareDocumentOnline operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CompareDocumentOnlineResponse {
     private let model : DocumentResponse?;
     private let document : Data?;

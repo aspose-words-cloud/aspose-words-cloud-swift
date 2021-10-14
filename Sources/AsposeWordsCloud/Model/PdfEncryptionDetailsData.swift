@@ -28,6 +28,7 @@
 import Foundation
 
 // Container class for details of encryption.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     // Field of encryptionAlgorithm. Container class for details of encryption.
     public var encryptionAlgorithm : String?;

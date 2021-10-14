@@ -28,6 +28,7 @@
 import Foundation
 
 // base container class for save options data.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SaveOptionsData : Codable, WordsApiModel {
     // Gets or sets the value determining how 3D effects are rendered.
     public enum Dml3DEffectsRenderingMode : String, Codable

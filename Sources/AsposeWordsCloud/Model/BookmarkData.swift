@@ -28,6 +28,7 @@
 import Foundation
 
 // DTO for bookmark updating.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BookmarkData : Codable, WordsApiModel {
     // Field of name. DTO for bookmark updating.
     public var name : String?;

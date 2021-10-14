@@ -28,6 +28,7 @@
 import Foundation
 
 // DTO container with a table row element.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableRowInsertDto : Codable, WordsApiModel {
     // Field of columnsCount. DTO container with a table row element.
     public var columnsCount : Int?;

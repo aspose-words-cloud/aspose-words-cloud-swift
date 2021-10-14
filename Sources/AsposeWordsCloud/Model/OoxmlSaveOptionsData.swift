@@ -28,6 +28,7 @@
 import Foundation
 
 // Container class for docx/docm/dotx/dotm/flatopc save options.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class OoxmlSaveOptionsData : SaveOptionsData {
     // Gets or sets the compression level.
     public enum CompressionLevel : String, Codable

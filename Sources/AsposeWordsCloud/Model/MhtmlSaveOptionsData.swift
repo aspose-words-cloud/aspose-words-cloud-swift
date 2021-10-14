@@ -28,6 +28,7 @@
 import Foundation
 
 // Container class for mhtml save options.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
     // Field of exportCidUrlsForMhtmlResources. Container class for mhtml save options.
     public var exportCidUrlsForMhtmlResources : Bool?;

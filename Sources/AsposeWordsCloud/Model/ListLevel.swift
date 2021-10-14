@@ -28,6 +28,7 @@
 import Foundation
 
 // DTO container with a document list level.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListLevel : LinkElement {
     // Gets or sets the justification of the actual number of the list item.
     public enum Alignment : String, Codable

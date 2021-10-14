@@ -28,6 +28,7 @@
 import Foundation
 
 // Container class for Downsample options.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DownsampleOptionsData : Codable, WordsApiModel {
     // Field of downsampleImages. Container class for Downsample options.
     public var downsampleImages : Bool?;

@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with the formatting properties of a paragraph.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ParagraphFormatResponse : WordsResponse {
     // Field of paragraphFormat. The REST response with the formatting properties of a paragraph.
     public var paragraphFormat : ParagraphFormat?;

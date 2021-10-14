@@ -28,6 +28,7 @@
 import Foundation
 
 // Request model for getTableCellFormatOnline operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class GetTableCellFormatOnlineRequest : WordsApiRequest {
     private let document : InputStream;
     private let tableRowPath : String;
@@ -79,7 +80,7 @@ public class GetTableCellFormatOnlineRequest : WordsApiRequest {
     }
 
     // Creates the api request data
-    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+    public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/online/get/{tableRowPath}/cells/{index}/cellformat";
          rawPath = rawPath.replacingOccurrences(of: "{tableRowPath}", with: try ObjectSerializer.serializeToString(value: self.getTableRowPath()));
 
@@ -91,13 +92,11 @@ public class GetTableCellFormatOnlineRequest : WordsApiRequest {
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
          if (self.getLoadEncoding() != nil) {
-             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
          }
-
          if (self.getPassword() != nil) {
-             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
          }
-
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }

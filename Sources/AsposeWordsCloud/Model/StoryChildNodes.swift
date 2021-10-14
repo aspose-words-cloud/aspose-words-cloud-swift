@@ -28,6 +28,7 @@
 import Foundation
 
 // Child nodes of Story or InlineStory.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StoryChildNodes : Codable, WordsApiModel {
     // Field of childNodes. Child nodes of Story or InlineStory.
     public var childNodes : [NodeLink]?;

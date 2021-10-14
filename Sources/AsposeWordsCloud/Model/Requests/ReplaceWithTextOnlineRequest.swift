@@ -28,6 +28,7 @@
 import Foundation
 
 // Request model for replaceWithTextOnline operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ReplaceWithTextOnlineRequest : WordsApiRequest {
     private let document : InputStream;
     private let rangeStartIdentifier : String;
@@ -95,7 +96,7 @@ public class ReplaceWithTextOnlineRequest : WordsApiRequest {
     }
 
     // Creates the api request data
-    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
+    public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
          var rawPath = "/words/online/post/range/{rangeStartIdentifier}/{rangeEndIdentifier}";
          rawPath = rawPath.replacingOccurrences(of: "{rangeStartIdentifier}", with: try ObjectSerializer.serializeToString(value: self.getRangeStartIdentifier()));
 
@@ -112,17 +113,14 @@ public class ReplaceWithTextOnlineRequest : WordsApiRequest {
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
          if (self.getLoadEncoding() != nil) {
-             queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
          }
-
          if (self.getPassword() != nil) {
-             queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
          }
-
          if (self.getDestFileName() != nil) {
-             queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+         queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
          }
-
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }

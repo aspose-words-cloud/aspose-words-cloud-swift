@@ -13,6 +13,12 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 21.10
+
+- Removed 'GraphicsQualityOptions' image save option as it no longer supported.
+- Added query parameter 'displayIntermediateResults' for batch requests. If 'false', the last response in batch will be returned only. Default is 'true'
+
+
 ## Enhancements in Version 21.8
 
 - Added new api methods to get, insert, update or delete custom xml parts from documents.
@@ -186,7 +192,7 @@ pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-wo
 import Foundation;
 import AsposeWordsCloud;
 
-let wordsApi = WordsAPI(clientId: "YOUR_APP_SID", clientSecret: "YOUR_APP_KEY");
+let wordsApi = try WordsAPI(clientId: "YOUR_APP_SID", clientSecret: "YOUR_APP_KEY");
 let fileName = "TestCreateDocument.doc";
 let request = CreateDocumentRequest(fileName: fileName);
 let response = try wordsApi.createDocument(request: request);

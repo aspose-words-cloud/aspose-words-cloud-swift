@@ -28,6 +28,7 @@
 import Foundation
 
 // The collection of paragraph's links.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ParagraphLinkCollection : LinkElement {
     // Field of paragraphLinkList. The collection of paragraph's links.
     public var paragraphLinkList : [ParagraphLink]?;

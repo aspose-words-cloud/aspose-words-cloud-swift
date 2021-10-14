@@ -28,6 +28,7 @@
 import Foundation
 
 // Response model for updateParagraphListFormatOnline operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class UpdateParagraphListFormatOnlineResponse {
     private let model : ParagraphListFormatResponse?;
     private let document : Data?;

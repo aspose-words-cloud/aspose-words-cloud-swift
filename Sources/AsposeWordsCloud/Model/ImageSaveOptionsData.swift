@@ -28,6 +28,7 @@
 import Foundation
 
 // Container abstract class for image save options.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Field of horizontalResolution. Container abstract class for image save options.
     public var horizontalResolution : Double?;

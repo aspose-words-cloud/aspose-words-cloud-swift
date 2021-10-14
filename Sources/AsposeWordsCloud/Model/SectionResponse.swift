@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with a section.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SectionResponse : WordsResponse {
     // Field of section. The REST response with a section.
     public var section : Section?;

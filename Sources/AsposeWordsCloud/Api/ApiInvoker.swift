@@ -28,9 +28,17 @@
 import Foundation
 
 // Utility class for executing and processing requests to Cloud API
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ApiInvoker {
     // An object containing the configuration for executing API requests 
     private let configuration : Configuration;
+
+    // RSA key for password encryption
+#if os(Linux)
+    // Encryption of passwords in query params not supported on linux
+#else
+    private var encryptionKey : SecKey?;
+#endif
 
     // Cached value of oauth2 authorization tokeт. 
     // It is filled after the first call to the API. 
@@ -52,6 +60,12 @@ public class ApiInvoker {
         self.configuration = configuration;
         self.mutex = NSLock();
         self.accessTokenCache = nil;
+
+#if os(Linux)
+    // Encryption of passwords in query params not supported on linux
+#else
+        self.encryptionKey = nil;
+#endif
     }
 
     // Internal class for represent API response
@@ -249,5 +263,96 @@ public class ApiInvoker {
         else {
             callback(accessToken, self.httpStatusCodeOK);
         }
+    }
+
+    private func lengthField(of valueField: [UInt8]) -> [UInt8] {
+        var count = valueField.count;
+
+        if (count < 128) {
+            return [ UInt8(count) ];
+        }
+
+        // The number of bytes needed to encode count.
+        let lengthBytesCount = Int((log2(Double(count)) / 8) + 1);
+
+        // The first byte in the length field encoding the number of remaining bytes.
+        let firstLengthFieldByte = UInt8(128 + lengthBytesCount);
+
+        var lengthField: [UInt8] = []
+        for _ in 0..<lengthBytesCount {
+            // Take the last 8 bits of count.
+            let lengthByte = UInt8(count & 0xff);
+            // Add them to the length field.
+            lengthField.insert(lengthByte, at: 0);
+            // Delete the last 8 bits of count.
+            count = count >> 8;
+        }
+
+        // Include the first byte.
+        lengthField.insert(firstLengthFieldByte, at: 0);
+
+        return lengthField;
+    }
+
+    public func setEncryptionData(data : PublicKeyResponse) throws {
+#if os(Linux)
+        // Encryption of passwords in query params not supported on linux
+#else
+        let exponent = Data(base64Encoded: data.getExponent()!)!;
+        let modulus = Data(base64Encoded: data.getModulus()!)!;
+        let exponentBytes = [UInt8](exponent);
+        var modulusBytes = [UInt8](modulus);
+        modulusBytes.insert(0x00, at: 0);
+
+        var modulusEncoded: [UInt8] = [];
+        modulusEncoded.append(0x02);
+        modulusEncoded.append(contentsOf: lengthField(of: modulusBytes));
+        modulusEncoded.append(contentsOf: modulusBytes);
+
+        var exponentEncoded: [UInt8] = [];
+        exponentEncoded.append(0x02);
+        exponentEncoded.append(contentsOf: lengthField(of: exponentBytes));
+        exponentEncoded.append(contentsOf: exponentBytes);
+
+        var sequenceEncoded: [UInt8] = [];
+        sequenceEncoded.append(0x30);
+        sequenceEncoded.append(contentsOf: lengthField(of: (modulusEncoded + exponentEncoded)));
+        sequenceEncoded.append(contentsOf: (modulusEncoded + exponentEncoded));
+
+        let keyData = Data(bytes: sequenceEncoded);
+        let keySize = (modulusBytes.count * 8);
+
+        let attributes: [String: Any] = [
+            kSecAttrKeyType as String: kSecAttrKeyTypeRSA,
+            kSecAttrKeyClass as String: kSecAttrKeyClassPublic,
+            kSecAttrKeySizeInBits as String: keySize
+        ];
+
+        encryptionKey = SecKeyCreateWithData(keyData as CFData, attributes as CFDictionary, nil);
+#endif
+    }
+
+    public func encryptString(value : String) throws -> String {
+#if os(Linux)
+        // Encryption of passwords in query params not supported on linux
+        return value;
+#else
+        let buffer = value.data(using: .utf8)!;
+        var error: Unmanaged<CFError>? = nil;
+
+        // Encrypto should less than key length
+        let secData = SecKeyCreateEncryptedData(encryptionKey!, .rsaEncryptionPKCS1, buffer as CFData, &error)!;
+        var secBuffer = [UInt8](repeating: 0, count: CFDataGetLength(secData));
+        CFDataGetBytes(secData, CFRangeMake(0, CFDataGetLength(secData)), &secBuffer);
+        return Data(bytes: secBuffer).base64EncodedString().replacingOccurrences(of: "+", with: "%2B").replacingOccurrences(of: "/", with: "%2F");
+#endif
+    }
+
+    public func isEncryptionAllowed() -> Bool {
+#if os(Linux)
+        return false;
+#else
+        return true;
+#endif
     }
 }
