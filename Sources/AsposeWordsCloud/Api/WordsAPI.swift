@@ -13797,7 +13797,7 @@ public class WordsAPI {
         do {
             let apiRequestData = try requests.map { try $0.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration) };
             let formParams = try apiRequestData.map { RequestFormParam(name: nil, body: try $0.toBatchPart(configuration: self.configuration), contentType: "application/http; msgtype=request") };
-            let apiBatchUrl = (try self.configuration.getApiRootUrl()).appendingPathComponent("/words/batch);
+            let apiBatchUrl = (try self.configuration.getApiRootUrl()).appendingPathComponent("/words/batch");
             var urlBuilder = URLComponents(url: apiBatchUrl, resolvingAgainstBaseURL: false)!;
             var queryItems : [URLQueryItem] = [];
             queryItems.append(URLQueryItem(name: "displayIntermediateResults", value: try ObjectSerializer.serializeToString(value: displayIntermediateResults)));
