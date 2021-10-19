@@ -28,6 +28,7 @@
 import Foundation
 
 // DTO container with formatting for a table row.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableRowFormat : LinkElement {
     // Gets or sets the rule for determining the height of the table row.
     public enum HeightRule : String, Codable

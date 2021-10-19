@@ -28,6 +28,7 @@
 import Foundation
 
 // General protocol for all models.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public struct BatchRequest {
     private var requestId : String;
     private var dependsOn : String;
@@ -55,8 +56,8 @@ public struct BatchRequest {
          return InputStream(data: ("ResultOf(" + self.requestId + ")").data(using: .utf8)!);
     }
 
-    public func createApiRequestData(configuration : Configuration) throws -> WordsApiRequestData {
-        var result = try request.createApiRequestData(configuration: configuration);
+    public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
+        var result = try request.createApiRequestData(apiInvoker: apiInvoker, configuration: configuration);
         result.addHeader(key: "RequestId", value: self.requestId);
         if (!self.dependsOn.isEmpty) {
             result.addHeader(key: "DependsOn", value: self.dependsOn);

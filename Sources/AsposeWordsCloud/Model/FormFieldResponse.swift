@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with a form field.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FormFieldResponse : WordsResponse {
     // Field of formField. The REST response with a form field.
     public var formField : FormField?;

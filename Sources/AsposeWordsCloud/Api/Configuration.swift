@@ -28,6 +28,7 @@
 import Foundation
 
 // Represents a set of configuration settings
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Configuration : Codable {
     // Aspose.Words for Cloud base URL
     private var baseUrl : String;
@@ -117,6 +118,6 @@ public class Configuration : Codable {
 
     // Returns SDK version for using in statistics headers
     public func getSdkVersion() -> String {
-        return "21.9";
+        return "21.10";
     }
 }

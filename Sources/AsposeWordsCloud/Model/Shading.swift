@@ -28,6 +28,7 @@
 import Foundation
 
 // DTO container with a paragraph format shading element.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Shading : Codable, WordsApiModel {
     // Gets or sets the shading texture.
     public enum Texture : String, Codable

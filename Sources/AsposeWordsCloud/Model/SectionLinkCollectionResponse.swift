@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with a collection of sections.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SectionLinkCollectionResponse : WordsResponse {
     // Field of sections. The REST response with a collection of sections.
     public var sections : SectionLinkCollection?;

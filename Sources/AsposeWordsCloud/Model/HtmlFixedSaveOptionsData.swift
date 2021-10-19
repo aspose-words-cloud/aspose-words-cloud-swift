@@ -28,6 +28,7 @@
 import Foundation
 
 // Container class for fixed html save options.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of cssClassNamesPrefix. Container class for fixed html save options.
     public var cssClassNamesPrefix : String?;

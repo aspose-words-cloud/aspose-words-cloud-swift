@@ -28,6 +28,7 @@
 import Foundation
 
 // Report engine settings.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ReportEngineSettings : Codable, WordsApiModel {
     // Gets or sets type of datasource.
     public enum DataSourceType : String, Codable
@@ -51,14 +52,22 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     // Field of dataSourceType. Report engine settings.
     public var dataSourceType : DataSourceType?;
 
+    // Field of jsonDataLoadOptions. Report engine settings.
+    public var jsonDataLoadOptions : JsonDataLoadOptions?;
+
     // Field of reportBuildOptions. Report engine settings.
     public var reportBuildOptions : [ReportBuildOptions]?;
+
+    // Field of xmlDataLoadOptions. Report engine settings.
+    public var xmlDataLoadOptions : XmlDataLoadOptions?;
 
     private enum CodingKeys: String, CodingKey {
         case csvDataLoadOptions = "CsvDataLoadOptions";
         case dataSourceName = "DataSourceName";
         case dataSourceType = "DataSourceType";
+        case jsonDataLoadOptions = "JsonDataLoadOptions";
         case reportBuildOptions = "ReportBuildOptions";
+        case xmlDataLoadOptions = "XmlDataLoadOptions";
         case invalidCodingKey;
     }
 
@@ -70,7 +79,9 @@ public class ReportEngineSettings : Codable, WordsApiModel {
         self.csvDataLoadOptions = try container.decodeIfPresent(CsvDataLoadOptions.self, forKey: .csvDataLoadOptions);
         self.dataSourceName = try container.decodeIfPresent(String.self, forKey: .dataSourceName);
         self.dataSourceType = try container.decodeIfPresent(DataSourceType.self, forKey: .dataSourceType);
+        self.jsonDataLoadOptions = try container.decodeIfPresent(JsonDataLoadOptions.self, forKey: .jsonDataLoadOptions);
         self.reportBuildOptions = try container.decodeIfPresent([ReportBuildOptions].self, forKey: .reportBuildOptions);
+        self.xmlDataLoadOptions = try container.decodeIfPresent(XmlDataLoadOptions.self, forKey: .xmlDataLoadOptions);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -84,8 +95,14 @@ public class ReportEngineSettings : Codable, WordsApiModel {
         if (self.dataSourceType != nil) {
             try container.encode(self.dataSourceType, forKey: .dataSourceType);
         }
+        if (self.jsonDataLoadOptions != nil) {
+            try container.encode(self.jsonDataLoadOptions, forKey: .jsonDataLoadOptions);
+        }
         if (self.reportBuildOptions != nil) {
             try container.encode(self.reportBuildOptions, forKey: .reportBuildOptions);
+        }
+        if (self.xmlDataLoadOptions != nil) {
+            try container.encode(self.xmlDataLoadOptions, forKey: .xmlDataLoadOptions);
         }
     }
 
@@ -122,6 +139,17 @@ public class ReportEngineSettings : Codable, WordsApiModel {
         return self.dataSourceType;
     }
 
+    // Sets jsonDataLoadOptions. Gets or sets the options for parsing JSON data.
+    public func setJsonDataLoadOptions(jsonDataLoadOptions : JsonDataLoadOptions?) -> ReportEngineSettings {
+        self.jsonDataLoadOptions = jsonDataLoadOptions;
+        return self;
+    }
+
+    // Gets jsonDataLoadOptions. Gets or sets the options for parsing JSON data.
+    public func getJsonDataLoadOptions() -> JsonDataLoadOptions? {
+        return self.jsonDataLoadOptions;
+    }
+
     // Sets reportBuildOptions. Gets or sets type of options to build report.
     public func setReportBuildOptions(reportBuildOptions : [ReportBuildOptions]?) -> ReportEngineSettings {
         self.reportBuildOptions = reportBuildOptions;
@@ -131,5 +159,16 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     // Gets reportBuildOptions. Gets or sets type of options to build report.
     public func getReportBuildOptions() -> [ReportBuildOptions]? {
         return self.reportBuildOptions;
+    }
+
+    // Sets xmlDataLoadOptions. Gets or sets the options for parsing XML data.
+    public func setXmlDataLoadOptions(xmlDataLoadOptions : XmlDataLoadOptions?) -> ReportEngineSettings {
+        self.xmlDataLoadOptions = xmlDataLoadOptions;
+        return self;
+    }
+
+    // Gets xmlDataLoadOptions. Gets or sets the options for parsing XML data.
+    public func getXmlDataLoadOptions() -> XmlDataLoadOptions? {
+        return self.xmlDataLoadOptions;
     }
 }

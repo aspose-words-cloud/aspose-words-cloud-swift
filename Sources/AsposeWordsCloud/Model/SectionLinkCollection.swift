@@ -28,6 +28,7 @@
 import Foundation
 
 // The collection of section's links.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SectionLinkCollection : LinkElement {
     // Field of sectionLinkList. The collection of section's links.
     public var sectionLinkList : [SectionLink]?;

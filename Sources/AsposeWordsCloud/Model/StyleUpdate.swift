@@ -28,6 +28,7 @@
 import Foundation
 
 // Represents a single document style properties to update.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StyleUpdate : Codable, WordsApiModel {
     // Field of baseStyleName. Represents a single document style properties to update.
     public var baseStyleName : String?;

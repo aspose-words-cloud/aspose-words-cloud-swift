@@ -13,6 +13,13 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 21.10
+
+- Removed 'GraphicsQualityOptions' image save option as it no longer supported.
+- Added query parameter 'displayIntermediateResults' for batch requests. If 'false', the last response in batch will be returned only. Default is 'true'
+- Added 'JsonDataLoadOptions' and 'XmlDataLoadOptions' to 'ReportEngineSettings'
+
+
 ## Enhancements in Version 21.8
 
 - Added new api methods to get, insert, update or delete custom xml parts from documents.
@@ -158,7 +165,7 @@ Add link to this repository as dependency to your Package.swift:
 
 dependencies: [
     // Dependencies declare other packages that this package depends on.
-    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "21.9"),
+    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "21.10"),
 ],
 targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -176,7 +183,7 @@ targets: [
 Add link to git repository as dependency to your Podfile:
 
 ```ruby
-pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '21.9'
+pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '21.10'
 ```
 
 ## Getting Started
@@ -186,7 +193,7 @@ pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-wo
 import Foundation;
 import AsposeWordsCloud;
 
-let wordsApi = WordsAPI(clientId: "YOUR_APP_SID", clientSecret: "YOUR_APP_KEY");
+let wordsApi = try WordsAPI(clientId: "YOUR_APP_SID", clientSecret: "YOUR_APP_KEY");
 let fileName = "TestCreateDocument.doc";
 let request = CreateDocumentRequest(fileName: fileName);
 let response = try wordsApi.createDocument(request: request);

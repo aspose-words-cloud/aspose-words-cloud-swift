@@ -28,6 +28,7 @@
 import Foundation
 
 // Container class for ps save options.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PsSaveOptionsData : FixedPageSaveOptionsData {
     // Field of useBookFoldPrintingSettings. Container class for ps save options.
     public var useBookFoldPrintingSettings : Bool?;

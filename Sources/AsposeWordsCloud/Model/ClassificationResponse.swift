@@ -28,6 +28,7 @@
 import Foundation
 
 // The REST response with data on multi-class text classification.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ClassificationResponse : WordsResponse {
     // Field of bestClassName. The REST response with data on multi-class text classification.
     public var bestClassName : String?;

@@ -28,6 +28,7 @@
 import Foundation
 
 // DTO container with a CustomXmlPart.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CustomXmlPart : CustomXmlPartLink {
     // Field of data. DTO container with a CustomXmlPart.
     public var data : String?;

@@ -28,6 +28,7 @@
 import Foundation
 
 // Container class for html save options.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class HtmlSaveOptionsData : SaveOptionsData {
     // Gets or sets the version of HTML standard, that should be used when saving the document to HTML or MHTML.
     // Default value is Aspose.Words.Saving.HtmlVersion.Xhtml.

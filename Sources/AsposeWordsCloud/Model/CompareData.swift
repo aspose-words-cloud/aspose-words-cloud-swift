@@ -28,6 +28,7 @@
 import Foundation
 
 // Container class for compare documents.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CompareData : Codable, WordsApiModel {
     // Field of author. Container class for compare documents.
     public var author : String?;

@@ -28,6 +28,7 @@
 import Foundation
 
 // The collection of document properties.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentProperties : LinkElement {
     // Field of list. The collection of document properties.
     public var list : [DocumentProperty]?;

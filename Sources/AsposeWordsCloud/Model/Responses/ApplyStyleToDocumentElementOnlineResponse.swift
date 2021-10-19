@@ -28,6 +28,7 @@
 import Foundation
 
 // Response model for applyStyleToDocumentElementOnline operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ApplyStyleToDocumentElementOnlineResponse {
     private let model : WordsResponse?;
     private let document : Data?;

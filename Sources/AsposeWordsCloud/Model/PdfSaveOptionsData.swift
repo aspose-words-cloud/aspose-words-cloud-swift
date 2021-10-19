@@ -28,6 +28,7 @@
 import Foundation
 
 // Container class for pdf save options.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     // Gets or sets the option that controls how bookmarks in headers/footers are exported.
     // The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.

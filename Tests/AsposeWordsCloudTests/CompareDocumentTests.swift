@@ -29,6 +29,7 @@ import XCTest
 @testable import AsposeWordsCloud
 
 // Example of document comparison.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 class CompareDocumentTests: BaseTestContext {
     static var allTests = [
         ("testCompareDocument", testCompareDocument),

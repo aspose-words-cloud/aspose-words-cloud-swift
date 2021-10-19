@@ -28,6 +28,7 @@
 import Foundation
 
 // DTO container with a Range element.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class RangeDocument : Codable, WordsApiModel {
     // Field of documentName. DTO container with a Range element.
     public var documentName : String?;
