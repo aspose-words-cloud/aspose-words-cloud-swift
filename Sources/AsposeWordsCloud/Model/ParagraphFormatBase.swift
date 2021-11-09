@@ -1240,6 +1240,18 @@ public class ParagraphFormatBase : LinkElement {
         // Enum value "smartLink"
         case smartLink = "SmartLink"
 
+        // Enum value "mention"
+        case mention = "Mention"
+
+        // Enum value "smartHyperlink"
+        case smartHyperlink = "SmartHyperlink"
+
+        // Enum value "hashtag"
+        case hashtag = "Hashtag"
+
+        // Enum value "unresolvedMention"
+        case unresolvedMention = "UnresolvedMention"
+
         // Enum value "user"
         case user = "User"
 
