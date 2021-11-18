@@ -55,6 +55,7 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(FootnoteTests.allTests),
         testCase(HeaderFooterTests.allTests),
         testCase(HyperlinkTests.allTests),
+        testCase(InfoTests.allTests),
         testCase(ListsTests.allTests),
         testCase(MacrosTests.allTests),
         testCase(ExecuteMailMergeTests.allTests),
