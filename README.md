@@ -13,6 +13,10 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 21.12
+
+
+
 ## Enhancements in Version 21.11
 
 - Support encryption of 'CommonRequest.Password'. Automatic encryption of all passwords sent to the API server as request parameters.
