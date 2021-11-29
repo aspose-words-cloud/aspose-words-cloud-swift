@@ -32,6 +32,7 @@ import Foundation
 public class ExecuteMailMergeRequest : WordsApiRequest {
     private let name : String;
     private let data : String?;
+    private let options : FieldOptions?;
     private let folder : String?;
     private let storage : String?;
     private let loadEncoding : String?;
@@ -45,6 +46,7 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
     private enum CodingKeys: String, CodingKey {
         case name;
         case data;
+        case options;
         case folder;
         case storage;
         case loadEncoding;
@@ -58,9 +60,10 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the ExecuteMailMergeRequest class.
-    public init(name : String, data : String? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, withRegions : Bool? = nil, mailMergeDataFile : String? = nil, cleanup : String? = nil, useWholeParagraphAsRegion : Bool? = nil, destFileName : String? = nil) {
+    public init(name : String, data : String? = nil, options : FieldOptions? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, withRegions : Bool? = nil, mailMergeDataFile : String? = nil, cleanup : String? = nil, useWholeParagraphAsRegion : Bool? = nil, destFileName : String? = nil) {
         self.name = name;
         self.data = data;
+        self.options = options;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
@@ -80,6 +83,11 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
     // Mail merge data.
     public func getData() -> String? {
         return self.data;
+    }
+
+    // Mail merge options.
+    public func getOptions() -> FieldOptions? {
+        return self.options;
     }
 
     // Original document folder.
@@ -170,6 +178,10 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
          var formParams : [RequestFormParam] = [];
          if (self.getData() != nil) {
              formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serialize(value: self.getData()!), contentType: "application/json"));
+         }
+
+         if (self.getOptions() != nil) {
+             formParams.append(RequestFormParam(name: "options", body: try ObjectSerializer.serialize(value: self.getOptions()!), contentType: "application/json"));
          }
 
 
