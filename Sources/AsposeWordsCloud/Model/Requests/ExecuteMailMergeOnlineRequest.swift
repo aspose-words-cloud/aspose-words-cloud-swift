@@ -32,6 +32,7 @@ import Foundation
 public class ExecuteMailMergeOnlineRequest : WordsApiRequest {
     private let template : InputStream;
     private let data : InputStream;
+    private let options : FieldOptions?;
     private let withRegions : Bool?;
     private let cleanup : String?;
     private let documentFileName : String?;
@@ -39,6 +40,7 @@ public class ExecuteMailMergeOnlineRequest : WordsApiRequest {
     private enum CodingKeys: String, CodingKey {
         case template;
         case data;
+        case options;
         case withRegions;
         case cleanup;
         case documentFileName;
@@ -46,9 +48,10 @@ public class ExecuteMailMergeOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the ExecuteMailMergeOnlineRequest class.
-    public init(template : InputStream, data : InputStream, withRegions : Bool? = nil, cleanup : String? = nil, documentFileName : String? = nil) {
+    public init(template : InputStream, data : InputStream, options : FieldOptions? = nil, withRegions : Bool? = nil, cleanup : String? = nil, documentFileName : String? = nil) {
         self.template = template;
         self.data = data;
+        self.options = options;
         self.withRegions = withRegions;
         self.cleanup = cleanup;
         self.documentFileName = documentFileName;
@@ -62,6 +65,11 @@ public class ExecuteMailMergeOnlineRequest : WordsApiRequest {
     // File with mailmerge data.
     public func getData() -> InputStream {
         return self.data;
+    }
+
+    // Mail merge options.
+    public func getOptions() -> FieldOptions? {
+        return self.options;
     }
 
     // The flag indicating whether to execute Mail Merge operation with regions.
@@ -103,6 +111,10 @@ public class ExecuteMailMergeOnlineRequest : WordsApiRequest {
          formParams.append(RequestFormParam(name: "template", body: try ObjectSerializer.serializeFile(value: self.getTemplate()), contentType: "application/octet-stream"));
 
          formParams.append(RequestFormParam(name: "data", body: try ObjectSerializer.serializeFile(value: self.getData()), contentType: "application/octet-stream"));
+
+         if (self.getOptions() != nil) {
+             formParams.append(RequestFormParam(name: "options", body: try ObjectSerializer.serialize(value: self.getOptions()!), contentType: "application/json"));
+         }
 
 
          var result = WordsApiRequestData(url: urlBuilder.url!, method: "PUT");

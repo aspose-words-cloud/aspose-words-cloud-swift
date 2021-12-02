@@ -42,20 +42,25 @@ public class Configuration : Codable {
     // Indicating whether debug mode
     private var debugMode: Bool?;
 
+    // Specify request timeout
+    private var timeout: TimeInterval;
+
     private enum CodingKeys: String, CodingKey {
         case baseUrl = "BaseUrl";
         case clientId = "ClientId";
         case clientSecret = "ClientSecret";
         case debugMode = "DebugMode";
+        case timeout = "Timeout";
         case invalidCodingKey;
     }
 
     // Initialize new instance of Aspose.Words for Cloud configuration object with given parameters
-    public init(clientId: String, clientSecret: String, baseUrl: String = "https://api.aspose.cloud", debugMode: Bool = false) {
+    public init(clientId: String, clientSecret: String, baseUrl: String = "https://api.aspose.cloud", debugMode: Bool = false, timeout: TimeInterval = 300) {
         self.clientId = clientId;
         self.clientSecret = clientSecret;
         self.baseUrl = baseUrl;
         self.debugMode = debugMode;
+        self.timeout = timeout;
     }
 
     public required init(from decoder: Decoder) throws {
@@ -64,6 +69,7 @@ public class Configuration : Codable {
         self.clientId = try container.decode(String.self, forKey: .clientId);
         self.clientSecret = try container.decode(String.self, forKey: .clientSecret);
         self.debugMode = try container.decodeIfPresent(Bool.self, forKey: .debugMode);
+        self.timeout = try container.decodeIfPresent(TimeInterval.self, forKey: .timeout) ?? 300;
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -74,6 +80,7 @@ public class Configuration : Codable {
         if (self.debugMode != nil) {
             try container.encode(self.debugMode, forKey: .debugMode);
         }
+        try container.encode(self.timeout, forKey: .timeout);
     }
 
     // Returns Aspose.Words for Cloud base URL
@@ -94,6 +101,11 @@ public class Configuration : Codable {
     // Is debug mode enabled
     public func isDebugMode() -> Bool {
         return self.debugMode != nil ? self.debugMode! : false;
+    }
+
+    // Gets request timeout
+    public func getTimeout() -> TimeInterval {
+        return self.timeout;
     }
 
     // Returns general version of cloud api

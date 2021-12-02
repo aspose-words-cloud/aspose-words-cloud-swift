@@ -60,6 +60,7 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(MacrosTests.allTests),
         testCase(ExecuteMailMergeTests.allTests),
         testCase(ExecuteTemplateTests.allTests),
+        testCase(ExecuteTemplateWithFieldOptionsTests.allTests),
         testCase(MailMergeFiledsTests.allTests),
         testCase(MathObjectTests.allTests),
         testCase(PageSetupTests.allTests),
