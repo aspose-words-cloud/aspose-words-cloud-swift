@@ -50,7 +50,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = try WordsAPI(configuration: config);
-        let fileName  = "test_doc.docx";
+        let fileName = "test_doc.docx";
 
         // Upload original document to cloud storage.
         let myVar1 = InputStream(url: currentDir!.appendingPathComponent(fileName, isDirectory: false))!;
@@ -68,7 +68,7 @@ class ExamplesTests : XCTestCase
     {
         let config = configuration!;
         let api = try WordsAPI(configuration: config);
-        let fileName  = "test_doc.docx";
+        let fileName = "test_doc.docx";
 
         // Calls AcceptAllRevisionsOnline method for document in cloud.
         let requestDocument = InputStream(url: currentDir!.appendingPathComponent(fileName, isDirectory: false))!;

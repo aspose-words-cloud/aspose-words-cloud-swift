@@ -1,6 +1,6 @@
 let config = Configuration(clientId: "####-####-####-####-####", clientSecret: "##################");
 let api = try WordsAPI(configuration: config);
-let fileName  = "test_doc.docx";
+let fileName = "test_doc.docx";
 
 // Calls AcceptAllRevisionsOnline method for document in cloud.
 let requestDocument = InputStream(url: URL(string: fileName))!;
