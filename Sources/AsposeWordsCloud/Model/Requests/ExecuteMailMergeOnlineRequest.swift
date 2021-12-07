@@ -67,7 +67,7 @@ public class ExecuteMailMergeOnlineRequest : WordsApiRequest {
         return self.data;
     }
 
-    // Mail merge options.
+    // Field options.
     public func getOptions() -> FieldOptions? {
         return self.options;
     }

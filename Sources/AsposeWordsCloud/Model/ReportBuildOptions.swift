@@ -41,4 +41,7 @@ public enum ReportBuildOptions : String, Codable
 
     // Enum value "inlineErrorMessages"
     case inlineErrorMessages = "InlineErrorMessages"
+
+    // Enum value "useLegacyHeaderFooterVisiting"
+    case useLegacyHeaderFooterVisiting = "UseLegacyHeaderFooterVisiting"
 }
