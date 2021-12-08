@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ReportBuildOptions.swift">
+ * <copyright company="Aspose" file="InfoTests.swift">
  *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -25,23 +25,19 @@
  * --------------------------------------------------------------------------------
  */
 
-import Foundation
+import XCTest
+@testable import AsposeWordsCloud
 
-// Specifies options controlling behavior of ReportingEngine while building a report.
-public enum ReportBuildOptions : String, Codable
-{
-    // Enum value "_none"
-    case _none = "None"
+// Example of how to work api info.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
+class InfoTests: BaseTestContext {
+    static var allTests = [
+        ("testGetInfo", testGetInfo)
+    ];
 
-    // Enum value "allowMissingMembers"
-    case allowMissingMembers = "AllowMissingMembers"
-
-    // Enum value "removeEmptyParagraphs"
-    case removeEmptyParagraphs = "RemoveEmptyParagraphs"
-
-    // Enum value "inlineErrorMessages"
-    case inlineErrorMessages = "InlineErrorMessages"
-
-    // Enum value "useLegacyHeaderFooterVisiting"
-    case useLegacyHeaderFooterVisiting = "UseLegacyHeaderFooterVisiting"
+    // Test for getting api info.
+    func testGetInfo() throws {
+      let request = GetInfoRequest();
+      _ = try super.getApi().getInfo(request: request);
+    }
 }

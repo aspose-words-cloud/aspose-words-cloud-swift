@@ -6116,6 +6116,52 @@ public class WordsAPI {
         return responseObject!;
     }
 
+    // Async representation of getInfo method
+    // Returns application info.
+    public func getInfo(request : GetInfoRequest, callback : @escaping (_ response : InfoResponse?, _ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+                callback: { response, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!) as? InfoResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of getInfo method
+    // Returns application info.
+    public func getInfo(request : GetInfoRequest) throws -> InfoResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : InfoResponse? = nil;
+        var responseError : Error? = nil;
+        self.getInfo(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of getList method
     // Reads a list from the document.
     public func getList(request : GetListRequest, callback : @escaping (_ response : ListResponse?, _ error : Error?) -> ()) {

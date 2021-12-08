@@ -13,6 +13,10 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 21.12
+
+- Added 'timeout' parameter to api configuration
+
 ## Enhancements in Version 21.11
 
 - Support encryption of 'CommonRequest.Password'. Automatic encryption of all passwords sent to the API server as request parameters.
@@ -169,7 +173,7 @@ Add link to this repository as dependency to your Package.swift:
 
 dependencies: [
     // Dependencies declare other packages that this package depends on.
-    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "21.11"),
+    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "21.12"),
 ],
 targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -187,7 +191,7 @@ targets: [
 Add link to git repository as dependency to your Podfile:
 
 ```ruby
-pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '21.11'
+pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '21.12'
 ```
 
 ## Getting Started

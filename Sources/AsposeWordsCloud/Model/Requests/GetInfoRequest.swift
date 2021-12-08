@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ReportBuildOptions.swift">
+ * <copyright company="Aspose" file="GetInfoRequest.swift">
  *   Copyright (c) 2021 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,21 +27,22 @@
 
 import Foundation
 
-// Specifies options controlling behavior of ReportingEngine while building a report.
-public enum ReportBuildOptions : String, Codable
-{
-    // Enum value "_none"
-    case _none = "None"
+// Request model for getInfo operation.
+@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
+public class GetInfoRequest : WordsApiRequest {
+    // Creates the api request data
+    public func createApiRequestData(apiInvoker : ApiInvoker, configuration : Configuration) throws -> WordsApiRequestData {
+         var rawPath = "/words/info";
+         rawPath = rawPath.replacingOccurrences(of: "//", with: "/");
 
-    // Enum value "allowMissingMembers"
-    case allowMissingMembers = "AllowMissingMembers"
+         let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
 
-    // Enum value "removeEmptyParagraphs"
-    case removeEmptyParagraphs = "RemoveEmptyParagraphs"
+         let result = WordsApiRequestData(url: urlPath, method: "GET");
+         return result;
+    }
 
-    // Enum value "inlineErrorMessages"
-    case inlineErrorMessages = "InlineErrorMessages"
-
-    // Enum value "useLegacyHeaderFooterVisiting"
-    case useLegacyHeaderFooterVisiting = "UseLegacyHeaderFooterVisiting"
+    // Deserialize response of this request
+    public func deserializeResponse(data : Data) throws -> Any? {
+        return try ObjectSerializer.deserialize(type: InfoResponse.self, from: data);
+    }
 }

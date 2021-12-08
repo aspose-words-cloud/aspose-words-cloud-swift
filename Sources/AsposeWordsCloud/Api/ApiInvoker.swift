@@ -90,6 +90,7 @@ public class ApiInvoker {
         // Create URL request object
         var request = URLRequest(url: apiRequestData.getURL());
         request.httpMethod = apiRequestData.getMethod();
+        request.timeoutInterval = self.configuration.getTimeout();
 
         // Fill headers
         for (key, value) in apiRequestData.getHeaders() {
@@ -238,6 +239,7 @@ public class ApiInvoker {
             let urlPath = URL(string: self.configuration.getBaseUrl())!.appendingPathComponent("connect/token");
             var request = URLRequest(url: urlPath);
             request.httpMethod = "POST";
+            request.timeoutInterval = self.configuration.getTimeout();
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type");
             request.httpBody = "grant_type=client_credentials&client_id=\(configuration.getClientId())&client_secret=\(configuration.getClientSecret())".data(using: .utf8);
             invokeRequest(urlRequest: &request, accessToken: nil, callback: { response in
