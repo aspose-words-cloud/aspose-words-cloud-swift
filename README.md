@@ -15,7 +15,9 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 
 ## Enhancements in Version 21.12
 
-- Added 'timeout' parameter to api configuration
+- Added FieldOptions parameter to mail merge operations
+- Added timeout parameter to api configuration
+
 
 ## Enhancements in Version 21.11
 
