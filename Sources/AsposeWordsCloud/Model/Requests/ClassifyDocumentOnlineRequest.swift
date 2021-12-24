@@ -33,6 +33,7 @@ public class ClassifyDocumentOnlineRequest : WordsApiRequest {
     private let document : InputStream;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
     private let bestClassesCount : String?;
     private let taxonomy : String?;
 
@@ -40,16 +41,18 @@ public class ClassifyDocumentOnlineRequest : WordsApiRequest {
         case document;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case bestClassesCount;
         case taxonomy;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the ClassifyDocumentOnlineRequest class.
-    public init(document : InputStream, loadEncoding : String? = nil, password : String? = nil, bestClassesCount : String? = nil, taxonomy : String? = nil) {
+    public init(document : InputStream, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, bestClassesCount : String? = nil, taxonomy : String? = nil) {
         self.document = document;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
         self.bestClassesCount = bestClassesCount;
         self.taxonomy = taxonomy;
     }
@@ -64,9 +67,14 @@ public class ClassifyDocumentOnlineRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password for opening an encrypted document. The password is provided as is (obsolete).
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // The number of the best classes to return.
@@ -92,6 +100,9 @@ public class ClassifyDocumentOnlineRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (self.getBestClassesCount() != nil) {
          queryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: self.getBestClassesCount()!)));

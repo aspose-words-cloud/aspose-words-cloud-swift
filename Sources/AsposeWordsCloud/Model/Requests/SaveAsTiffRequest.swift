@@ -36,6 +36,7 @@ public class SaveAsTiffRequest : WordsApiRequest {
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
     private let useAntiAliasing : Bool?;
     private let useHighQualityRendering : Bool?;
     private let imageBrightness : Double?;
@@ -62,6 +63,7 @@ public class SaveAsTiffRequest : WordsApiRequest {
         case storage;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case useAntiAliasing;
         case useHighQualityRendering;
         case imageBrightness;
@@ -84,13 +86,14 @@ public class SaveAsTiffRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the SaveAsTiffRequest class.
-    public init(name : String, saveOptions : TiffSaveOptionsData, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, useAntiAliasing : Bool? = nil, useHighQualityRendering : Bool? = nil, imageBrightness : Double? = nil, imageColorMode : String? = nil, imageContrast : Double? = nil, numeralFormat : String? = nil, pageCount : Int? = nil, pageIndex : Int? = nil, paperColor : String? = nil, pixelFormat : String? = nil, resolution : Double? = nil, scale : Double? = nil, tiffCompression : String? = nil, dmlRenderingMode : String? = nil, dmlEffectsRenderingMode : String? = nil, tiffBinarizationMethod : String? = nil, zipOutput : Bool? = nil, fontsLocation : String? = nil) {
+    public init(name : String, saveOptions : TiffSaveOptionsData, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, useAntiAliasing : Bool? = nil, useHighQualityRendering : Bool? = nil, imageBrightness : Double? = nil, imageColorMode : String? = nil, imageContrast : Double? = nil, numeralFormat : String? = nil, pageCount : Int? = nil, pageIndex : Int? = nil, paperColor : String? = nil, pixelFormat : String? = nil, resolution : Double? = nil, scale : Double? = nil, tiffCompression : String? = nil, dmlRenderingMode : String? = nil, dmlEffectsRenderingMode : String? = nil, tiffBinarizationMethod : String? = nil, zipOutput : Bool? = nil, fontsLocation : String? = nil) {
         self.name = name;
         self.saveOptions = saveOptions;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
         self.useAntiAliasing = useAntiAliasing;
         self.useHighQualityRendering = useHighQualityRendering;
         self.imageBrightness = imageBrightness;
@@ -136,9 +139,14 @@ public class SaveAsTiffRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password for opening an encrypted document. The password is provided as is (obsolete).
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // The flag indicating whether to use antialiasing.
@@ -252,6 +260,9 @@ public class SaveAsTiffRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (self.getUseAntiAliasing() != nil) {
          queryItems.append(URLQueryItem(name: "useAntiAliasing", value: try ObjectSerializer.serializeToString(value: self.getUseAntiAliasing()!)));

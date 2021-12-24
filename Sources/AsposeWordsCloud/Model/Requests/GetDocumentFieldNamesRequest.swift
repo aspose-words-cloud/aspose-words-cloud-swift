@@ -35,6 +35,7 @@ public class GetDocumentFieldNamesRequest : WordsApiRequest {
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
     private let useNonMergeFields : Bool?;
 
     private enum CodingKeys: String, CodingKey {
@@ -43,17 +44,19 @@ public class GetDocumentFieldNamesRequest : WordsApiRequest {
         case storage;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case useNonMergeFields;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetDocumentFieldNamesRequest class.
-    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, useNonMergeFields : Bool? = nil) {
+    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, useNonMergeFields : Bool? = nil) {
         self.name = name;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
         self.useNonMergeFields = useNonMergeFields;
     }
 
@@ -77,9 +80,14 @@ public class GetDocumentFieldNamesRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password for opening an encrypted document. The password is provided as is (obsolete).
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // The flag indicating whether to use non merge fields. If true, result includes "mustache" field names.
@@ -108,6 +116,9 @@ public class GetDocumentFieldNamesRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (self.getUseNonMergeFields() != nil) {
          queryItems.append(URLQueryItem(name: "useNonMergeFields", value: try ObjectSerializer.serializeToString(value: self.getUseNonMergeFields()!)));

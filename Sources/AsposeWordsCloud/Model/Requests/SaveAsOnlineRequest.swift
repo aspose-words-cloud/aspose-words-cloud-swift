@@ -34,6 +34,7 @@ public class SaveAsOnlineRequest : WordsApiRequest {
     private let saveOptionsData : SaveOptionsData;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
     private let fontsLocation : String?;
 
     private enum CodingKeys: String, CodingKey {
@@ -41,16 +42,18 @@ public class SaveAsOnlineRequest : WordsApiRequest {
         case saveOptionsData;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case fontsLocation;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the SaveAsOnlineRequest class.
-    public init(document : InputStream, saveOptionsData : SaveOptionsData, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
+    public init(document : InputStream, saveOptionsData : SaveOptionsData, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, fontsLocation : String? = nil) {
         self.document = document;
         self.saveOptionsData = saveOptionsData;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
         self.fontsLocation = fontsLocation;
     }
 
@@ -69,9 +72,14 @@ public class SaveAsOnlineRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password for opening an encrypted document. The password is provided as is (obsolete).
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // Folder in filestorage with custom fonts.
@@ -92,6 +100,9 @@ public class SaveAsOnlineRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (self.getFontsLocation() != nil) {
          queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));

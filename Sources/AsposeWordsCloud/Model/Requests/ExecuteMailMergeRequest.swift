@@ -37,6 +37,7 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
     private let withRegions : Bool?;
     private let mailMergeDataFile : String?;
     private let cleanup : String?;
@@ -51,6 +52,7 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
         case storage;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case withRegions;
         case mailMergeDataFile;
         case cleanup;
@@ -60,7 +62,7 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the ExecuteMailMergeRequest class.
-    public init(name : String, data : String? = nil, options : FieldOptions? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, withRegions : Bool? = nil, mailMergeDataFile : String? = nil, cleanup : String? = nil, useWholeParagraphAsRegion : Bool? = nil, destFileName : String? = nil) {
+    public init(name : String, data : String? = nil, options : FieldOptions? = nil, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, withRegions : Bool? = nil, mailMergeDataFile : String? = nil, cleanup : String? = nil, useWholeParagraphAsRegion : Bool? = nil, destFileName : String? = nil) {
         self.name = name;
         self.data = data;
         self.options = options;
@@ -68,6 +70,7 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
         self.withRegions = withRegions;
         self.mailMergeDataFile = mailMergeDataFile;
         self.cleanup = cleanup;
@@ -105,9 +108,14 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password for opening an encrypted document. The password is provided as is (obsolete).
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // The flag indicating whether to execute Mail Merge operation with regions.
@@ -156,6 +164,9 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (self.getWithRegions() != nil) {
          queryItems.append(URLQueryItem(name: "withRegions", value: try ObjectSerializer.serializeToString(value: self.getWithRegions()!)));

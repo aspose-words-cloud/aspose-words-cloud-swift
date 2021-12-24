@@ -34,21 +34,24 @@ public class GetTablesOnlineRequest : WordsApiRequest {
     private let nodePath : String?;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
 
     private enum CodingKeys: String, CodingKey {
         case document;
         case nodePath;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetTablesOnlineRequest class.
-    public init(document : InputStream, nodePath : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
+    public init(document : InputStream, nodePath : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil) {
         self.document = document;
         self.nodePath = nodePath;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
     }
 
     // The document.
@@ -66,9 +69,14 @@ public class GetTablesOnlineRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password for opening an encrypted document. The password is provided as is (obsolete).
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // Creates the api request data
@@ -91,6 +99,9 @@ public class GetTablesOnlineRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;

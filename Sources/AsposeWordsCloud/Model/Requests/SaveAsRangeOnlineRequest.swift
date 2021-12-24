@@ -36,6 +36,7 @@ public class SaveAsRangeOnlineRequest : WordsApiRequest {
     private let rangeEndIdentifier : String?;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
 
     private enum CodingKeys: String, CodingKey {
         case document;
@@ -44,17 +45,19 @@ public class SaveAsRangeOnlineRequest : WordsApiRequest {
         case rangeEndIdentifier;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the SaveAsRangeOnlineRequest class.
-    public init(document : InputStream, rangeStartIdentifier : String, documentParameters : RangeDocument, rangeEndIdentifier : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
+    public init(document : InputStream, rangeStartIdentifier : String, documentParameters : RangeDocument, rangeEndIdentifier : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil) {
         self.document = document;
         self.rangeStartIdentifier = rangeStartIdentifier;
         self.documentParameters = documentParameters;
         self.rangeEndIdentifier = rangeEndIdentifier;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
     }
 
     // The document.
@@ -82,9 +85,14 @@ public class SaveAsRangeOnlineRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password for opening an encrypted document. The password is provided as is (obsolete).
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // Creates the api request data
@@ -109,6 +117,9 @@ public class SaveAsRangeOnlineRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;

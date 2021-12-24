@@ -35,6 +35,7 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
     private let comparingDocument : InputStream?;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
     private let destFileName : String?;
 
     private enum CodingKeys: String, CodingKey {
@@ -43,17 +44,19 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
         case comparingDocument;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case destFileName;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the CompareDocumentOnlineRequest class.
-    public init(document : InputStream, compareData : CompareData, comparingDocument : InputStream? = nil, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
+    public init(document : InputStream, compareData : CompareData, comparingDocument : InputStream? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil) {
         self.document = document;
         self.compareData = compareData;
         self.comparingDocument = comparingDocument;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
         self.destFileName = destFileName;
     }
 
@@ -77,9 +80,14 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password for opening an encrypted document. The password is provided as is (obsolete).
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password for opening an encrypted document. The password must be encrypted on RSA public key provided by GetPublicKey() method and then encoded as base64 string.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
@@ -100,6 +108,9 @@ public class CompareDocumentOnlineRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (self.getDestFileName() != nil) {
          queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
