@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="RenderPageOnlineRequest.swift">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -35,6 +35,7 @@ public class RenderPageOnlineRequest : WordsApiRequest {
     private let format : String;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
     private let fontsLocation : String?;
 
     private enum CodingKeys: String, CodingKey {
@@ -43,17 +44,19 @@ public class RenderPageOnlineRequest : WordsApiRequest {
         case format;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case fontsLocation;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the RenderPageOnlineRequest class.
-    public init(document : InputStream, pageIndex : Int, format : String, loadEncoding : String? = nil, password : String? = nil, fontsLocation : String? = nil) {
+    public init(document : InputStream, pageIndex : Int, format : String, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, fontsLocation : String? = nil) {
         self.document = document;
         self.pageIndex = pageIndex;
         self.format = format;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
         self.fontsLocation = fontsLocation;
     }
 
@@ -77,9 +80,14 @@ public class RenderPageOnlineRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // Folder in filestorage with custom fonts.
@@ -103,6 +111,9 @@ public class RenderPageOnlineRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (self.getFontsLocation() != nil) {
          queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="DocumentEntry.swift">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -36,9 +36,13 @@ public class DocumentEntry : Codable, WordsApiModel {
     // Field of importFormatMode. Represents a document which will be appended to the original resource document.
     public var importFormatMode : String?;
 
+    // Field of password. Represents a document which will be appended to the original resource document.
+    public var password : String?;
+
     private enum CodingKeys: String, CodingKey {
         case href = "Href";
         case importFormatMode = "ImportFormatMode";
+        case password = "Password";
         case invalidCodingKey;
     }
 
@@ -49,6 +53,7 @@ public class DocumentEntry : Codable, WordsApiModel {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.href = try container.decodeIfPresent(String.self, forKey: .href);
         self.importFormatMode = try container.decodeIfPresent(String.self, forKey: .importFormatMode);
+        self.password = try container.decodeIfPresent(String.self, forKey: .password);
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -58,6 +63,9 @@ public class DocumentEntry : Codable, WordsApiModel {
         }
         if (self.importFormatMode != nil) {
             try container.encode(self.importFormatMode, forKey: .importFormatMode);
+        }
+        if (self.password != nil) {
+            try container.encode(self.password, forKey: .password);
         }
     }
 
@@ -81,5 +89,16 @@ public class DocumentEntry : Codable, WordsApiModel {
     // Gets importFormatMode. Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
     public func getImportFormatMode() -> String? {
         return self.importFormatMode;
+    }
+
+    // Sets password. Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
+    public func setPassword(password : String?) -> DocumentEntry {
+        self.password = password;
+        return self;
+    }
+
+    // Gets password. Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
+    public func getPassword() -> String? {
+        return self.password;
     }
 }

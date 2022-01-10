@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentWithFormatRequest.swift">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -36,6 +36,7 @@ public class GetDocumentWithFormatRequest : WordsApiRequest {
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
     private let outPath : String?;
     private let fontsLocation : String?;
 
@@ -46,19 +47,21 @@ public class GetDocumentWithFormatRequest : WordsApiRequest {
         case storage;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case outPath;
         case fontsLocation;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetDocumentWithFormatRequest class.
-    public init(name : String, format : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, outPath : String? = nil, fontsLocation : String? = nil) {
+    public init(name : String, format : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, outPath : String? = nil, fontsLocation : String? = nil) {
         self.name = name;
         self.format = format;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
         self.outPath = outPath;
         self.fontsLocation = fontsLocation;
     }
@@ -88,9 +91,14 @@ public class GetDocumentWithFormatRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // The path to the output document.
@@ -125,6 +133,9 @@ public class GetDocumentWithFormatRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (self.getOutPath() != nil) {
          queryItems.append(URLQueryItem(name: "outPath", value: try ObjectSerializer.serializeToString(value: self.getOutPath()!)));

@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetDocumentStatisticsRequest.swift">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -35,6 +35,7 @@ public class GetDocumentStatisticsRequest : WordsApiRequest {
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
     private let includeComments : Bool?;
     private let includeFootnotes : Bool?;
     private let includeTextInShapes : Bool?;
@@ -45,6 +46,7 @@ public class GetDocumentStatisticsRequest : WordsApiRequest {
         case storage;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case includeComments;
         case includeFootnotes;
         case includeTextInShapes;
@@ -52,12 +54,13 @@ public class GetDocumentStatisticsRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the GetDocumentStatisticsRequest class.
-    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, includeComments : Bool? = nil, includeFootnotes : Bool? = nil, includeTextInShapes : Bool? = nil) {
+    public init(name : String, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, includeComments : Bool? = nil, includeFootnotes : Bool? = nil, includeTextInShapes : Bool? = nil) {
         self.name = name;
         self.folder = folder;
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
         self.includeComments = includeComments;
         self.includeFootnotes = includeFootnotes;
         self.includeTextInShapes = includeTextInShapes;
@@ -83,9 +86,14 @@ public class GetDocumentStatisticsRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // The flag indicating whether to include comments from the WordCount. The default value is "false".
@@ -124,6 +132,9 @@ public class GetDocumentStatisticsRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (self.getIncludeComments() != nil) {
          queryItems.append(URLQueryItem(name: "includeComments", value: try ObjectSerializer.serializeToString(value: self.getIncludeComments()!)));
