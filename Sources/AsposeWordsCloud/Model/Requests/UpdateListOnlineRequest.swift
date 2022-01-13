@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="UpdateListOnlineRequest.swift">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -35,6 +35,7 @@ public class UpdateListOnlineRequest : WordsApiRequest {
     private let listUpdate : ListUpdate;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
     private let destFileName : String?;
     private let revisionAuthor : String?;
     private let revisionDateTime : String?;
@@ -45,6 +46,7 @@ public class UpdateListOnlineRequest : WordsApiRequest {
         case listUpdate;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case destFileName;
         case revisionAuthor;
         case revisionDateTime;
@@ -52,12 +54,13 @@ public class UpdateListOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the UpdateListOnlineRequest class.
-    public init(document : InputStream, listId : Int, listUpdate : ListUpdate, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
+    public init(document : InputStream, listId : Int, listUpdate : ListUpdate, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, revisionAuthor : String? = nil, revisionDateTime : String? = nil) {
         self.document = document;
         self.listId = listId;
         self.listUpdate = listUpdate;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
         self.destFileName = destFileName;
         self.revisionAuthor = revisionAuthor;
         self.revisionDateTime = revisionDateTime;
@@ -83,9 +86,14 @@ public class UpdateListOnlineRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
@@ -118,6 +126,9 @@ public class UpdateListOnlineRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (self.getDestFileName() != nil) {
          queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));

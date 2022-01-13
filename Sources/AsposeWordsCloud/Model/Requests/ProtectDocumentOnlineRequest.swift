@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="ProtectDocumentOnlineRequest.swift">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,6 +34,7 @@ public class ProtectDocumentOnlineRequest : WordsApiRequest {
     private let protectionRequest : ProtectionRequest;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
     private let destFileName : String?;
 
     private enum CodingKeys: String, CodingKey {
@@ -41,16 +42,18 @@ public class ProtectDocumentOnlineRequest : WordsApiRequest {
         case protectionRequest;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case destFileName;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the ProtectDocumentOnlineRequest class.
-    public init(document : InputStream, protectionRequest : ProtectionRequest, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil) {
+    public init(document : InputStream, protectionRequest : ProtectionRequest, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil) {
         self.document = document;
         self.protectionRequest = protectionRequest;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
         self.destFileName = destFileName;
     }
 
@@ -69,9 +72,14 @@ public class ProtectDocumentOnlineRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
@@ -92,6 +100,9 @@ public class ProtectDocumentOnlineRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (self.getDestFileName() != nil) {
          queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));

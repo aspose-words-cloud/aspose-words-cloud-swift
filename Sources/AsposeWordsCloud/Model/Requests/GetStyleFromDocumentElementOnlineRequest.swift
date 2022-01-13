@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetStyleFromDocumentElementOnlineRequest.swift">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,21 +34,24 @@ public class GetStyleFromDocumentElementOnlineRequest : WordsApiRequest {
     private let styledNodePath : String;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
 
     private enum CodingKeys: String, CodingKey {
         case document;
         case styledNodePath;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetStyleFromDocumentElementOnlineRequest class.
-    public init(document : InputStream, styledNodePath : String, loadEncoding : String? = nil, password : String? = nil) {
+    public init(document : InputStream, styledNodePath : String, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil) {
         self.document = document;
         self.styledNodePath = styledNodePath;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
     }
 
     // The document.
@@ -66,9 +69,14 @@ public class GetStyleFromDocumentElementOnlineRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // Creates the api request data
@@ -86,6 +94,9 @@ public class GetStyleFromDocumentElementOnlineRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;

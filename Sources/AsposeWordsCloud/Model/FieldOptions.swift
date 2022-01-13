@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="FieldOptions.swift">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -80,6 +80,9 @@ public class FieldOptions : Codable, WordsApiModel {
     // Field of fieldIndexFormat. DTO for field options.
     public var fieldIndexFormat : FieldIndexFormat?;
 
+    // Field of fieldUpdateCultureName. DTO for field options.
+    public var fieldUpdateCultureName : String?;
+
     // Field of fieldUpdateCultureSource. DTO for field options.
     public var fieldUpdateCultureSource : FieldUpdateCultureSource?;
 
@@ -107,6 +110,7 @@ public class FieldOptions : Codable, WordsApiModel {
         case customTocStyleSeparator = "CustomTocStyleSeparator";
         case defaultDocumentAuthor = "DefaultDocumentAuthor";
         case fieldIndexFormat = "FieldIndexFormat";
+        case fieldUpdateCultureName = "FieldUpdateCultureName";
         case fieldUpdateCultureSource = "FieldUpdateCultureSource";
         case fileName = "FileName";
         case isBidiTextSupportedOnUpdate = "IsBidiTextSupportedOnUpdate";
@@ -127,6 +131,7 @@ public class FieldOptions : Codable, WordsApiModel {
         self.customTocStyleSeparator = try container.decodeIfPresent(String.self, forKey: .customTocStyleSeparator);
         self.defaultDocumentAuthor = try container.decodeIfPresent(String.self, forKey: .defaultDocumentAuthor);
         self.fieldIndexFormat = try container.decodeIfPresent(FieldIndexFormat.self, forKey: .fieldIndexFormat);
+        self.fieldUpdateCultureName = try container.decodeIfPresent(String.self, forKey: .fieldUpdateCultureName);
         self.fieldUpdateCultureSource = try container.decodeIfPresent(FieldUpdateCultureSource.self, forKey: .fieldUpdateCultureSource);
         self.fileName = try container.decodeIfPresent(String.self, forKey: .fileName);
         self.isBidiTextSupportedOnUpdate = try container.decodeIfPresent(Bool.self, forKey: .isBidiTextSupportedOnUpdate);
@@ -152,6 +157,9 @@ public class FieldOptions : Codable, WordsApiModel {
         }
         if (self.fieldIndexFormat != nil) {
             try container.encode(self.fieldIndexFormat, forKey: .fieldIndexFormat);
+        }
+        if (self.fieldUpdateCultureName != nil) {
+            try container.encode(self.fieldUpdateCultureName, forKey: .fieldUpdateCultureName);
         }
         if (self.fieldUpdateCultureSource != nil) {
             try container.encode(self.fieldUpdateCultureSource, forKey: .fieldUpdateCultureSource);
@@ -231,6 +239,17 @@ public class FieldOptions : Codable, WordsApiModel {
         return self.fieldIndexFormat;
     }
 
+    // Sets fieldUpdateCultureName. Gets or sets Field Update Culture Name. It is used for all fields if FieldUpdateCultureSource is FieldCode.
+    public func setFieldUpdateCultureName(fieldUpdateCultureName : String?) -> FieldOptions {
+        self.fieldUpdateCultureName = fieldUpdateCultureName;
+        return self;
+    }
+
+    // Gets fieldUpdateCultureName. Gets or sets Field Update Culture Name. It is used for all fields if FieldUpdateCultureSource is FieldCode.
+    public func getFieldUpdateCultureName() -> String? {
+        return self.fieldUpdateCultureName;
+    }
+
     // Sets fieldUpdateCultureSource. Gets or sets Field Update Culture Source.
     public func setFieldUpdateCultureSource(fieldUpdateCultureSource : FieldUpdateCultureSource?) -> FieldOptions {
         self.fieldUpdateCultureSource = fieldUpdateCultureSource;
@@ -275,13 +294,13 @@ public class FieldOptions : Codable, WordsApiModel {
         return self.legacyNumberFormat;
     }
 
-    // Sets preProcessCultureName. Gets or sets PreProcess Culture Name.
+    // Sets preProcessCultureName. Gets or sets PreProcess Culture Name. It is a culture code for DOC fields.
     public func setPreProcessCultureName(preProcessCultureName : String?) -> FieldOptions {
         self.preProcessCultureName = preProcessCultureName;
         return self;
     }
 
-    // Gets preProcessCultureName. Gets or sets PreProcess Culture Name.
+    // Gets preProcessCultureName. Gets or sets PreProcess Culture Name. It is a culture code for DOC fields.
     public func getPreProcessCultureName() -> String? {
         return self.preProcessCultureName;
     }
