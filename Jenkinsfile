@@ -6,11 +6,13 @@ properties([
 			[$class: 'StringParameterDefinition', name: 'apiUrl', defaultValue: 'https://api-qa.aspose.cloud', description: 'api url'],
             [$class: 'BooleanParameterDefinition', name: 'ignoreCiSkip', defaultValue: false, description: 'ignore CI Skip'],
             [$class: 'StringParameterDefinition', name: 'credentialsId', defaultValue: '6839cbe8-39fa-40c0-86ce-90706f0bae5d', description: 'credentials id'],
+            [$class: 'BooleanParameterDefinition', name: 'packageTesting', defaultValue: false, description: 'Testing package from repository without local sources. Used for prodhealthcheck'],
 		]
 	]
 ])
 
 def needToBuild = false
+def packageTesting = false
 
 node('words-linux') {
 	cleanWs()
@@ -22,7 +24,8 @@ node('words-linux') {
                 sh 'git show -s HEAD > gitMessage'
                 def commitMessage = readFile('gitMessage').trim()
                 echo commitMessage
-                needToBuild = params.ignoreCiSkip || !commitMessage.contains('[ci skip]')               
+                needToBuild = params.ignoreCiSkip || !commitMessage.contains('[ci skip]')
+                packageTesting = params.packageTesting
                 sh 'git clean -fdx'
                 
                 if (needToBuild) {
@@ -33,7 +36,30 @@ node('words-linux') {
                 }
             }
             
-            if (needToBuild) {
+            if (packageTesting) {
+                docker.image('swift:5.0').inside{
+                    stage('build'){
+                        sh "rm -rf ./Sources/AsposeWordsCloud"
+                        sh "mkdir ./Sources/AsposeWordsCloudHealthProdCheck"
+                        sh "cp ./PackageHealthProdCheck.swift ./Package.swift"
+                        sh "swift build"
+                    }
+                
+                    stage('tests'){
+                        try{
+                            sh "chmod +x ./Scripts/runTests.sh"
+                            sh "./Scripts/runTests.sh"
+                        } finally{
+                            junit 'tests.xml'
+                        }
+                    }
+                    
+                    stage('clean-compiled'){
+                        sh "rm -rf %s"
+                    }
+                }
+            }
+            else if (needToBuild) {
                 docker.image('swift:5.0').inside{
                     stage('build'){
                         sh "swift build"
