@@ -24,6 +24,6 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "AsposeWordsCloudHealthProdCheckTests",
-            dependencies: ["AsposeWordsCloud", "SwiftTestReporter"]),
+            dependencies: ["AsposeWordsCloud", "AsposeWordsCloudTests", "SwiftTestReporter"]),
     ]
 )
