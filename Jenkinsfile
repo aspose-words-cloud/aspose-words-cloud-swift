@@ -41,6 +41,7 @@ node('words-linux') {
                     stage('build'){
                         sh "rm -rf ./Sources/AsposeWordsCloud"
                         sh "mkdir ./Sources/AsposeWordsCloudHealthProdCheck"
+                        sh "cp ./Scripts/AsposeWordsCloudHealthProdCheck.swift ./Sources/AsposeWordsCloudHealthProdCheck/AsposeWordsCloudHealthProdCheck.swift"
                         sh "cp ./PackageHealthProdCheck.swift ./Package.swift"
                         sh "swift build"
                     }
