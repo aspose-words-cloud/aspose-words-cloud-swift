@@ -43,6 +43,7 @@ node('words-linux') {
                         sh "mkdir ./Sources/AsposeWordsCloudHealthProdCheck"
                         sh "cp ./Scripts/AsposeWordsCloudHealthProdCheck.swift ./Sources/AsposeWordsCloudHealthProdCheck/AsposeWordsCloudHealthProdCheck.swift"
                         sh "cp ./PackageHealthProdCheck.swift ./Package.swift"
+                        sh "mv ./Tests/AsposeWordsCloudTests ./Tests/AsposeWordsCloudHealthProdCheckTests"
                         sh "swift build"
                     }
                 

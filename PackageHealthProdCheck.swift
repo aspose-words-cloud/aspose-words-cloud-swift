@@ -23,7 +23,7 @@ let package = Package(
             name: "AsposeWordsCloudHealthProdCheck",
             dependencies: []),
         .testTarget(
-            name: "AsposeWordsCloudTests",
+            name: "AsposeWordsCloudHealthProdCheckTests",
             dependencies: ["AsposeWordsCloud", "SwiftTestReporter"]),
     ]
 )
