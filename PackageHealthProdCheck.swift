@@ -21,7 +21,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "AsposeWordsCloudHealthProdCheck",
-            dependencies: []),
+            dependencies: ["AsposeWordsCloud", "AsposeWordsCloudTests"]),
         .testTarget(
             name: "AsposeWordsCloudHealthProdCheckTests",
             dependencies: ["AsposeWordsCloud", "AsposeWordsCloudTests", "SwiftTestReporter"]),
