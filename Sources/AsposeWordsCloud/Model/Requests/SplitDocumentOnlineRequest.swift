@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="SplitDocumentOnlineRequest.swift">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,6 +34,7 @@ public class SplitDocumentOnlineRequest : WordsApiRequest {
     private let format : String;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
     private let destFileName : String?;
     private let from : Int?;
     private let to : Int?;
@@ -45,6 +46,7 @@ public class SplitDocumentOnlineRequest : WordsApiRequest {
         case format;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case destFileName;
         case from;
         case to;
@@ -54,11 +56,12 @@ public class SplitDocumentOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the SplitDocumentOnlineRequest class.
-    public init(document : InputStream, format : String, loadEncoding : String? = nil, password : String? = nil, destFileName : String? = nil, from : Int? = nil, to : Int? = nil, zipOutput : Bool? = nil, fontsLocation : String? = nil) {
+    public init(document : InputStream, format : String, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, destFileName : String? = nil, from : Int? = nil, to : Int? = nil, zipOutput : Bool? = nil, fontsLocation : String? = nil) {
         self.document = document;
         self.format = format;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
         self.destFileName = destFileName;
         self.from = from;
         self.to = to;
@@ -81,9 +84,14 @@ public class SplitDocumentOnlineRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // Result path of the document after the operation. If this parameter is omitted then result of the operation will be saved as the source document.
@@ -125,6 +133,9 @@ public class SplitDocumentOnlineRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (self.getDestFileName() != nil) {
          queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));

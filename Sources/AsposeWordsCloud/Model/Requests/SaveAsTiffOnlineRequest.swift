@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="SaveAsTiffOnlineRequest.swift">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,6 +34,7 @@ public class SaveAsTiffOnlineRequest : WordsApiRequest {
     private let saveOptions : TiffSaveOptionsData;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
     private let useAntiAliasing : Bool?;
     private let useHighQualityRendering : Bool?;
     private let imageBrightness : Double?;
@@ -58,6 +59,7 @@ public class SaveAsTiffOnlineRequest : WordsApiRequest {
         case saveOptions;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case useAntiAliasing;
         case useHighQualityRendering;
         case imageBrightness;
@@ -80,11 +82,12 @@ public class SaveAsTiffOnlineRequest : WordsApiRequest {
     }
 
     // Initializes a new instance of the SaveAsTiffOnlineRequest class.
-    public init(document : InputStream, saveOptions : TiffSaveOptionsData, loadEncoding : String? = nil, password : String? = nil, useAntiAliasing : Bool? = nil, useHighQualityRendering : Bool? = nil, imageBrightness : Double? = nil, imageColorMode : String? = nil, imageContrast : Double? = nil, numeralFormat : String? = nil, pageCount : Int? = nil, pageIndex : Int? = nil, paperColor : String? = nil, pixelFormat : String? = nil, resolution : Double? = nil, scale : Double? = nil, tiffCompression : String? = nil, dmlRenderingMode : String? = nil, dmlEffectsRenderingMode : String? = nil, tiffBinarizationMethod : String? = nil, zipOutput : Bool? = nil, fontsLocation : String? = nil) {
+    public init(document : InputStream, saveOptions : TiffSaveOptionsData, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, useAntiAliasing : Bool? = nil, useHighQualityRendering : Bool? = nil, imageBrightness : Double? = nil, imageColorMode : String? = nil, imageContrast : Double? = nil, numeralFormat : String? = nil, pageCount : Int? = nil, pageIndex : Int? = nil, paperColor : String? = nil, pixelFormat : String? = nil, resolution : Double? = nil, scale : Double? = nil, tiffCompression : String? = nil, dmlRenderingMode : String? = nil, dmlEffectsRenderingMode : String? = nil, tiffBinarizationMethod : String? = nil, zipOutput : Bool? = nil, fontsLocation : String? = nil) {
         self.document = document;
         self.saveOptions = saveOptions;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
         self.useAntiAliasing = useAntiAliasing;
         self.useHighQualityRendering = useHighQualityRendering;
         self.imageBrightness = imageBrightness;
@@ -120,9 +123,14 @@ public class SaveAsTiffOnlineRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // The flag indicating whether to use antialiasing.
@@ -228,6 +236,9 @@ public class SaveAsTiffOnlineRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (self.getUseAntiAliasing() != nil) {
          queryItems.append(URLQueryItem(name: "useAntiAliasing", value: try ObjectSerializer.serializeToString(value: self.getUseAntiAliasing()!)));

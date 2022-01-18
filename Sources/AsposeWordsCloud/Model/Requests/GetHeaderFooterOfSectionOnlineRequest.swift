@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetHeaderFooterOfSectionOnlineRequest.swift">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -35,6 +35,7 @@ public class GetHeaderFooterOfSectionOnlineRequest : WordsApiRequest {
     private let sectionIndex : Int;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
     private let filterByType : String?;
 
     private enum CodingKeys: String, CodingKey {
@@ -43,17 +44,19 @@ public class GetHeaderFooterOfSectionOnlineRequest : WordsApiRequest {
         case sectionIndex;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case filterByType;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetHeaderFooterOfSectionOnlineRequest class.
-    public init(document : InputStream, headerFooterIndex : Int, sectionIndex : Int, loadEncoding : String? = nil, password : String? = nil, filterByType : String? = nil) {
+    public init(document : InputStream, headerFooterIndex : Int, sectionIndex : Int, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil, filterByType : String? = nil) {
         self.document = document;
         self.headerFooterIndex = headerFooterIndex;
         self.sectionIndex = sectionIndex;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
         self.filterByType = filterByType;
     }
 
@@ -77,9 +80,14 @@ public class GetHeaderFooterOfSectionOnlineRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // The list of HeaderFooter types.
@@ -104,6 +112,9 @@ public class GetHeaderFooterOfSectionOnlineRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (self.getFilterByType() != nil) {
          queryItems.append(URLQueryItem(name: "filterByType", value: try ObjectSerializer.serializeToString(value: self.getFilterByType()!)));

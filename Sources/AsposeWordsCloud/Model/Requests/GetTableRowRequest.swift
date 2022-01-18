@@ -1,7 +1,7 @@
 /*
  * --------------------------------------------------------------------------------
  * <copyright company="Aspose" file="GetTableRowRequest.swift">
- *   Copyright (c) 2021 Aspose.Words for Cloud
+ *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -37,6 +37,7 @@ public class GetTableRowRequest : WordsApiRequest {
     private let storage : String?;
     private let loadEncoding : String?;
     private let password : String?;
+    private let encryptedPassword : String?;
 
     private enum CodingKeys: String, CodingKey {
         case name;
@@ -46,11 +47,12 @@ public class GetTableRowRequest : WordsApiRequest {
         case storage;
         case loadEncoding;
         case password;
+        case encryptedPassword;
         case invalidCodingKey;
     }
 
     // Initializes a new instance of the GetTableRowRequest class.
-    public init(name : String, tablePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil) {
+    public init(name : String, tablePath : String, index : Int, folder : String? = nil, storage : String? = nil, loadEncoding : String? = nil, password : String? = nil, encryptedPassword : String? = nil) {
         self.name = name;
         self.tablePath = tablePath;
         self.index = index;
@@ -58,6 +60,7 @@ public class GetTableRowRequest : WordsApiRequest {
         self.storage = storage;
         self.loadEncoding = loadEncoding;
         self.password = password;
+        self.encryptedPassword = encryptedPassword;
     }
 
     // The filename of the input document.
@@ -90,9 +93,14 @@ public class GetTableRowRequest : WordsApiRequest {
         return self.loadEncoding;
     }
 
-    // Password for opening an encrypted document.
+    // Password of protected Word document. Use the parameter to pass a password via SDK. SDK encrypts it automatically. We don't recommend to use the parameter to pass a plain password for direct call of API.
     public func getPassword() -> String? {
         return self.password;
+    }
+
+    // Password of protected Word document. Use the parameter to pass an encrypted password for direct calls of API. See SDK code for encyption details.
+    public func getEncryptedPassword() -> String? {
+        return self.encryptedPassword;
     }
 
     // Creates the api request data
@@ -120,6 +128,9 @@ public class GetTableRowRequest : WordsApiRequest {
          }
          if (self.getPassword() != nil) {
          queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         }
+         if (self.getEncryptedPassword() != nil) {
+         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
          }
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
