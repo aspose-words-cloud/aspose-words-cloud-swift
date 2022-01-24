@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SearchResultsCollection : LinkElement {
     // Field of resultsList. The collection of search results.
-    public var resultsList : [SearchResult]?;
+    private var _resultsList : [SearchResult]?;
+
+    public var : [SearchResult]? {
+        get {
+            return self._resultsList;
+        }
+        set {
+            self._resultsList = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case resultsList = "ResultsList";

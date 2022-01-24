@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FootnoteCollection : LinkElement {
     // Field of list. DTO container with a collection of footnotes.
-    public var list : [Footnote]?;
+    private var _list : [Footnote]?;
+
+    public var : [Footnote]? {
+        get {
+            return self._list;
+        }
+        set {
+            self._list = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case list = "List";

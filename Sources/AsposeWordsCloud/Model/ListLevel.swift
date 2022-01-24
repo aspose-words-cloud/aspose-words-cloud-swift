@@ -247,40 +247,148 @@ public class ListLevel : LinkElement {
     }
 
     // Field of alignment. DTO container with a document list level.
-    public var alignment : Alignment?;
+    private var _alignment : Alignment?;
+
+    public var : Alignment? {
+        get {
+            return self._alignment;
+        }
+        set {
+            self._alignment = newValue;
+        }
+    }
 
     // Field of font. DTO container with a document list level.
-    public var font : Font?;
+    private var _font : Font?;
+
+    public var : Font? {
+        get {
+            return self._font;
+        }
+        set {
+            self._font = newValue;
+        }
+    }
 
     // Field of isLegal. DTO container with a document list level.
-    public var isLegal : Bool?;
+    private var _isLegal : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._isLegal;
+        }
+        set {
+            self._isLegal = newValue;
+        }
+    }
 
     // Field of linkedStyle. DTO container with a document list level.
-    public var linkedStyle : Style?;
+    private var _linkedStyle : Style?;
+
+    public var : Style? {
+        get {
+            return self._linkedStyle;
+        }
+        set {
+            self._linkedStyle = newValue;
+        }
+    }
 
     // Field of numberFormat. DTO container with a document list level.
-    public var numberFormat : String?;
+    private var _numberFormat : String?;
+
+    public var : String? {
+        get {
+            return self._numberFormat;
+        }
+        set {
+            self._numberFormat = newValue;
+        }
+    }
 
     // Field of numberPosition. DTO container with a document list level.
-    public var numberPosition : Double?;
+    private var _numberPosition : Double?;
+
+    public var : Double? {
+        get {
+            return self._numberPosition;
+        }
+        set {
+            self._numberPosition = newValue;
+        }
+    }
 
     // Field of numberStyle. DTO container with a document list level.
-    public var numberStyle : NumberStyle?;
+    private var _numberStyle : NumberStyle?;
+
+    public var : NumberStyle? {
+        get {
+            return self._numberStyle;
+        }
+        set {
+            self._numberStyle = newValue;
+        }
+    }
 
     // Field of restartAfterLevel. DTO container with a document list level.
-    public var restartAfterLevel : Int?;
+    private var _restartAfterLevel : Int?;
+
+    public var : Int? {
+        get {
+            return self._restartAfterLevel;
+        }
+        set {
+            self._restartAfterLevel = newValue;
+        }
+    }
 
     // Field of startAt. DTO container with a document list level.
-    public var startAt : Int?;
+    private var _startAt : Int?;
+
+    public var : Int? {
+        get {
+            return self._startAt;
+        }
+        set {
+            self._startAt = newValue;
+        }
+    }
 
     // Field of tabPosition. DTO container with a document list level.
-    public var tabPosition : Double?;
+    private var _tabPosition : Double?;
+
+    public var : Double? {
+        get {
+            return self._tabPosition;
+        }
+        set {
+            self._tabPosition = newValue;
+        }
+    }
 
     // Field of textPosition. DTO container with a document list level.
-    public var textPosition : Double?;
+    private var _textPosition : Double?;
+
+    public var : Double? {
+        get {
+            return self._textPosition;
+        }
+        set {
+            self._textPosition = newValue;
+        }
+    }
 
     // Field of trailingCharacter. DTO container with a document list level.
-    public var trailingCharacter : TrailingCharacter?;
+    private var _trailingCharacter : TrailingCharacter?;
+
+    public var : TrailingCharacter? {
+        get {
+            return self._trailingCharacter;
+        }
+        set {
+            self._trailingCharacter = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case alignment = "Alignment";
@@ -371,6 +479,7 @@ public class ListLevel : LinkElement {
         return self.alignment;
     }
 
+
     // Sets font. Gets or sets character formatting used for the list label.
     public func setFont(font : Font?) -> ListLevel {
         self.font = font;
@@ -381,6 +490,7 @@ public class ListLevel : LinkElement {
     public func getFont() -> Font? {
         return self.font;
     }
+
 
     // Sets isLegal. Gets or sets a value indicating whether the level turns all inherited numbers to Arabic, false if it preserves their number style.
     public func setIsLegal(isLegal : Bool?) -> ListLevel {
@@ -393,6 +503,7 @@ public class ListLevel : LinkElement {
         return self.isLegal;
     }
 
+
     // Sets linkedStyle. Gets or sets the paragraph style that is linked to this list level.
     public func setLinkedStyle(linkedStyle : Style?) -> ListLevel {
         self.linkedStyle = linkedStyle;
@@ -403,6 +514,7 @@ public class ListLevel : LinkElement {
     public func getLinkedStyle() -> Style? {
         return self.linkedStyle;
     }
+
 
     // Sets numberFormat. Gets or sets the number format for the list level.
     public func setNumberFormat(numberFormat : String?) -> ListLevel {
@@ -415,6 +527,7 @@ public class ListLevel : LinkElement {
         return self.numberFormat;
     }
 
+
     // Sets numberPosition. Gets or sets the position (in points) of the number or bullet for the list level.
     public func setNumberPosition(numberPosition : Double?) -> ListLevel {
         self.numberPosition = numberPosition;
@@ -425,6 +538,7 @@ public class ListLevel : LinkElement {
     public func getNumberPosition() -> Double? {
         return self.numberPosition;
     }
+
 
     // Sets numberStyle. Gets or sets the number style for this list level.
     public func setNumberStyle(numberStyle : NumberStyle?) -> ListLevel {
@@ -437,6 +551,7 @@ public class ListLevel : LinkElement {
         return self.numberStyle;
     }
 
+
     // Sets restartAfterLevel. Gets or sets the list level, that must appear before the specified list level restarts numbering.
     public func setRestartAfterLevel(restartAfterLevel : Int?) -> ListLevel {
         self.restartAfterLevel = restartAfterLevel;
@@ -447,6 +562,7 @@ public class ListLevel : LinkElement {
     public func getRestartAfterLevel() -> Int? {
         return self.restartAfterLevel;
     }
+
 
     // Sets startAt. Gets or sets the starting number for this list level.
     public func setStartAt(startAt : Int?) -> ListLevel {
@@ -459,6 +575,7 @@ public class ListLevel : LinkElement {
         return self.startAt;
     }
 
+
     // Sets tabPosition. Gets or sets the tab position (in points) for the list level.
     public func setTabPosition(tabPosition : Double?) -> ListLevel {
         self.tabPosition = tabPosition;
@@ -470,6 +587,7 @@ public class ListLevel : LinkElement {
         return self.tabPosition;
     }
 
+
     // Sets textPosition. Gets or sets the position (in points) for the second line of wrapping text for the list level.
     public func setTextPosition(textPosition : Double?) -> ListLevel {
         self.textPosition = textPosition;
@@ -480,6 +598,7 @@ public class ListLevel : LinkElement {
     public func getTextPosition() -> Double? {
         return self.textPosition;
     }
+
 
     // Sets trailingCharacter. Gets or sets the character inserted after the number for the list level.
     public func setTrailingCharacter(trailingCharacter : TrailingCharacter?) -> ListLevel {

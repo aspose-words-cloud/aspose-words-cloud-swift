@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class HeaderFooterLinkCollection : LinkElement {
     // Field of list. The collection of HeaderFooter's links.
-    public var list : [HeaderFooterLink]?;
+    private var _list : [HeaderFooterLink]?;
+
+    public var : [HeaderFooterLink]? {
+        get {
+            return self._list;
+        }
+        set {
+            self._list = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case list = "List";

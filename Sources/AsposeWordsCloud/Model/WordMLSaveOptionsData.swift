@@ -31,7 +31,25 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class WordMLSaveOptionsData : SaveOptionsData {
     // Field of prettyFormat. Container class for wml save options.
-    public var prettyFormat : Bool?;
+    private var _prettyFormat : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._prettyFormat;
+        }
+        set {
+            self._prettyFormat = newValue;
+        }
+    }
+
+    // Field of saveFormat. Container class for wml save options.
+    private final let _saveFormat : String? = "wml";
+
+    override public var : String? {
+        get {
+            return self._saveFormat;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case prettyFormat = "PrettyFormat";

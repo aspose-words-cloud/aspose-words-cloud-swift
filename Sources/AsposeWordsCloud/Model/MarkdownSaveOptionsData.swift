@@ -47,8 +47,26 @@ public class MarkdownSaveOptionsData : TxtSaveOptionsBaseData {
         case _right = "Right"
     }
 
+    // Field of saveFormat. Container class for markdown save options.
+    private final let _saveFormat : String? = "md";
+
+    override public var : String? {
+        get {
+            return self._saveFormat;
+        }
+    }
+
     // Field of tableContentAlignment. Container class for markdown save options.
-    public var tableContentAlignment : TableContentAlignment?;
+    private var _tableContentAlignment : TableContentAlignment?;
+
+    public var : TableContentAlignment? {
+        get {
+            return self._tableContentAlignment;
+        }
+        set {
+            self._tableContentAlignment = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case tableContentAlignment = "TableContentAlignment";

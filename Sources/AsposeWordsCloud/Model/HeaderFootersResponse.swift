@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class HeaderFootersResponse : WordsResponse {
     // Field of headerFooters. The REST response with a collection of HeaderFooter elements.
-    public var headerFooters : HeaderFooterLinkCollection?;
+    private var _headerFooters : HeaderFooterLinkCollection?;
+
+    public var : HeaderFooterLinkCollection? {
+        get {
+            return self._headerFooters;
+        }
+        set {
+            self._headerFooters = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case headerFooters = "HeaderFooters";

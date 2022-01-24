@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ParagraphInsert : Codable, WordsApiModel {
     // Field of text. DTO container with a paragraph's text.
-    public var text : String?;
+    private var _text : String?;
+
+    public var : String? {
+        get {
+            return self._text;
+        }
+        set {
+            self._text = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case text = "Text";

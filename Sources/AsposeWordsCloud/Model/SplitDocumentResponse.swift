@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SplitDocumentResponse : WordsResponse {
     // Field of splitResult. The REST response with a result of document splitting.
-    public var splitResult : SplitDocumentResult?;
+    private var _splitResult : SplitDocumentResult?;
+
+    public var : SplitDocumentResult? {
+        get {
+            return self._splitResult;
+        }
+        set {
+            self._splitResult = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case splitResult = "SplitResult";

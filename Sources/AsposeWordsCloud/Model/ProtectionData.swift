@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ProtectionData : Codable, WordsApiModel {
     // Field of protectionType. Container for the data about protection of the document.
-    public var protectionType : String?;
+    private var _protectionType : String?;
+
+    public var : String? {
+        get {
+            return self._protectionType;
+        }
+        set {
+            self._protectionType = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case protectionType = "ProtectionType";

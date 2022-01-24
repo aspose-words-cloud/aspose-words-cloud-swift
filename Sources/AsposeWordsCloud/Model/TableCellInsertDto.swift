@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableCellInsertDto : Codable, WordsApiModel {
     // Field of insertAfter. DTO container with a table cell.
-    public var insertAfter : Int?;
+    private var _insertAfter : Int?;
+
+    public var : Int? {
+        get {
+            return self._insertAfter;
+        }
+        set {
+            self._insertAfter = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case insertAfter = "InsertAfter";

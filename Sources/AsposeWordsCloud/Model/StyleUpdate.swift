@@ -31,16 +31,52 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StyleUpdate : Codable, WordsApiModel {
     // Field of baseStyleName. Represents a single document style properties to update.
-    public var baseStyleName : String?;
+    private var _baseStyleName : String?;
+
+    public var : String? {
+        get {
+            return self._baseStyleName;
+        }
+        set {
+            self._baseStyleName = newValue;
+        }
+    }
 
     // Field of isQuickStyle. Represents a single document style properties to update.
-    public var isQuickStyle : Bool?;
+    private var _isQuickStyle : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._isQuickStyle;
+        }
+        set {
+            self._isQuickStyle = newValue;
+        }
+    }
 
     // Field of name. Represents a single document style properties to update.
-    public var name : String?;
+    private var _name : String?;
+
+    public var : String? {
+        get {
+            return self._name;
+        }
+        set {
+            self._name = newValue;
+        }
+    }
 
     // Field of nextParagraphStyleName. Represents a single document style properties to update.
-    public var nextParagraphStyleName : String?;
+    private var _nextParagraphStyleName : String?;
+
+    public var : String? {
+        get {
+            return self._nextParagraphStyleName;
+        }
+        set {
+            self._nextParagraphStyleName = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case baseStyleName = "BaseStyleName";
@@ -88,6 +124,7 @@ public class StyleUpdate : Codable, WordsApiModel {
         return self.baseStyleName;
     }
 
+
     // Sets isQuickStyle. Gets or sets a value indicating whether this style is shown in the Quick Style gallery inside MS Word UI.
     public func setIsQuickStyle(isQuickStyle : Bool?) -> StyleUpdate {
         self.isQuickStyle = isQuickStyle;
@@ -99,6 +136,7 @@ public class StyleUpdate : Codable, WordsApiModel {
         return self.isQuickStyle;
     }
 
+
     // Sets name. Gets or sets the name of the style.
     public func setName(name : String?) -> StyleUpdate {
         self.name = name;
@@ -109,6 +147,7 @@ public class StyleUpdate : Codable, WordsApiModel {
     public func getName() -> String? {
         return self.name;
     }
+
 
     // Sets nextParagraphStyleName. Gets or sets the name of the style to be applied automatically to a new paragraph inserted after a paragraph formatted with the specified style.
     public func setNextParagraphStyleName(nextParagraphStyleName : String?) -> StyleUpdate {

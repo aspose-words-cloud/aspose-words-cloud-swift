@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SectionPageSetupResponse : WordsResponse {
     // Field of pageSetup. The REST response with a page setup of a section.
-    public var pageSetup : PageSetup?;
+    private var _pageSetup : PageSetup?;
+
+    public var : PageSetup? {
+        get {
+            return self._pageSetup;
+        }
+        set {
+            self._pageSetup = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case pageSetup = "PageSetup";

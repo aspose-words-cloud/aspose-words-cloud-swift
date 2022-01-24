@@ -31,25 +31,88 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListInfo : LinkElement {
     // Field of isListStyleDefinition. DTO container with a single document list.
-    public var isListStyleDefinition : Bool?;
+    private var _isListStyleDefinition : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._isListStyleDefinition;
+        }
+        set {
+            self._isListStyleDefinition = newValue;
+        }
+    }
 
     // Field of isListStyleReference. DTO container with a single document list.
-    public var isListStyleReference : Bool?;
+    private var _isListStyleReference : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._isListStyleReference;
+        }
+        set {
+            self._isListStyleReference = newValue;
+        }
+    }
 
     // Field of isMultiLevel. DTO container with a single document list.
-    public var isMultiLevel : Bool?;
+    private var _isMultiLevel : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._isMultiLevel;
+        }
+        set {
+            self._isMultiLevel = newValue;
+        }
+    }
 
     // Field of isRestartAtEachSection. DTO container with a single document list.
-    public var isRestartAtEachSection : Bool?;
+    private var _isRestartAtEachSection : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._isRestartAtEachSection;
+        }
+        set {
+            self._isRestartAtEachSection = newValue;
+        }
+    }
 
     // Field of listId. DTO container with a single document list.
-    public var listId : Int?;
+    private var _listId : Int?;
+
+    public var : Int? {
+        get {
+            return self._listId;
+        }
+        set {
+            self._listId = newValue;
+        }
+    }
 
     // Field of listLevels. DTO container with a single document list.
-    public var listLevels : ListLevels?;
+    private var _listLevels : ListLevels?;
+
+    public var : ListLevels? {
+        get {
+            return self._listLevels;
+        }
+        set {
+            self._listLevels = newValue;
+        }
+    }
 
     // Field of style. DTO container with a single document list.
-    public var style : Style?;
+    private var _style : Style?;
+
+    public var : Style? {
+        get {
+            return self._style;
+        }
+        set {
+            self._style = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case isListStyleDefinition = "IsListStyleDefinition";
@@ -115,6 +178,7 @@ public class ListInfo : LinkElement {
         return self.isListStyleDefinition;
     }
 
+
     // Sets isListStyleReference. Gets or sets a value indicating whether this list is a reference to a list style.
     public func setIsListStyleReference(isListStyleReference : Bool?) -> ListInfo {
         self.isListStyleReference = isListStyleReference;
@@ -125,6 +189,7 @@ public class ListInfo : LinkElement {
     public func getIsListStyleReference() -> Bool? {
         return self.isListStyleReference;
     }
+
 
     // Sets isMultiLevel. Gets or sets a value indicating whether the list contains 9 levels; false when 1 level.
     public func setIsMultiLevel(isMultiLevel : Bool?) -> ListInfo {
@@ -137,6 +202,7 @@ public class ListInfo : LinkElement {
         return self.isMultiLevel;
     }
 
+
     // Sets isRestartAtEachSection. Gets or sets a value indicating whether list should be restarted at each section. The default value is false.
     public func setIsRestartAtEachSection(isRestartAtEachSection : Bool?) -> ListInfo {
         self.isRestartAtEachSection = isRestartAtEachSection;
@@ -147,6 +213,7 @@ public class ListInfo : LinkElement {
     public func getIsRestartAtEachSection() -> Bool? {
         return self.isRestartAtEachSection;
     }
+
 
     // Sets listId. Gets or sets the unique identifier of the list.
     public func setListId(listId : Int?) -> ListInfo {
@@ -159,6 +226,7 @@ public class ListInfo : LinkElement {
         return self.listId;
     }
 
+
     // Sets listLevels. Gets or sets the collection of list levels for this list.
     public func setListLevels(listLevels : ListLevels?) -> ListInfo {
         self.listLevels = listLevels;
@@ -169,6 +237,7 @@ public class ListInfo : LinkElement {
     public func getListLevels() -> ListLevels? {
         return self.listLevels;
     }
+
 
     // Sets style. Gets or sets the list style that this list references or defines.
     public func setStyle(style : Style?) -> ListInfo {

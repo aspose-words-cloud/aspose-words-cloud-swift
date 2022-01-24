@@ -1252,124 +1252,484 @@ public class Font : LinkElement {
     }
 
     // Field of allCaps. DTO container with a font element.
-    public var allCaps : Bool?;
+    private var _allCaps : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._allCaps;
+        }
+        set {
+            self._allCaps = newValue;
+        }
+    }
 
     // Field of bidi. DTO container with a font element.
-    public var bidi : Bool?;
+    private var _bidi : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._bidi;
+        }
+        set {
+            self._bidi = newValue;
+        }
+    }
 
     // Field of bold. DTO container with a font element.
-    public var bold : Bool?;
+    private var _bold : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._bold;
+        }
+        set {
+            self._bold = newValue;
+        }
+    }
 
     // Field of boldBi. DTO container with a font element.
-    public var boldBi : Bool?;
+    private var _boldBi : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._boldBi;
+        }
+        set {
+            self._boldBi = newValue;
+        }
+    }
 
     // Field of border. DTO container with a font element.
-    public var border : Border?;
+    private var _border : Border?;
+
+    public var : Border? {
+        get {
+            return self._border;
+        }
+        set {
+            self._border = newValue;
+        }
+    }
 
     // Field of color. DTO container with a font element.
-    public var color : XmlColor?;
+    private var _color : XmlColor?;
+
+    public var : XmlColor? {
+        get {
+            return self._color;
+        }
+        set {
+            self._color = newValue;
+        }
+    }
 
     // Field of complexScript. DTO container with a font element.
-    public var complexScript : Bool?;
+    private var _complexScript : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._complexScript;
+        }
+        set {
+            self._complexScript = newValue;
+        }
+    }
 
     // Field of doubleStrikeThrough. DTO container with a font element.
-    public var doubleStrikeThrough : Bool?;
+    private var _doubleStrikeThrough : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._doubleStrikeThrough;
+        }
+        set {
+            self._doubleStrikeThrough = newValue;
+        }
+    }
 
     // Field of emboss. DTO container with a font element.
-    public var emboss : Bool?;
+    private var _emboss : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._emboss;
+        }
+        set {
+            self._emboss = newValue;
+        }
+    }
 
     // Field of engrave. DTO container with a font element.
-    public var engrave : Bool?;
+    private var _engrave : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._engrave;
+        }
+        set {
+            self._engrave = newValue;
+        }
+    }
 
     // Field of hidden. DTO container with a font element.
-    public var hidden : Bool?;
+    private var _hidden : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._hidden;
+        }
+        set {
+            self._hidden = newValue;
+        }
+    }
 
     // Field of highlightColor. DTO container with a font element.
-    public var highlightColor : XmlColor?;
+    private var _highlightColor : XmlColor?;
+
+    public var : XmlColor? {
+        get {
+            return self._highlightColor;
+        }
+        set {
+            self._highlightColor = newValue;
+        }
+    }
 
     // Field of italic. DTO container with a font element.
-    public var italic : Bool?;
+    private var _italic : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._italic;
+        }
+        set {
+            self._italic = newValue;
+        }
+    }
 
     // Field of italicBi. DTO container with a font element.
-    public var italicBi : Bool?;
+    private var _italicBi : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._italicBi;
+        }
+        set {
+            self._italicBi = newValue;
+        }
+    }
 
     // Field of kerning. DTO container with a font element.
-    public var kerning : Double?;
+    private var _kerning : Double?;
+
+    public var : Double? {
+        get {
+            return self._kerning;
+        }
+        set {
+            self._kerning = newValue;
+        }
+    }
 
     // Field of localeId. DTO container with a font element.
-    public var localeId : Int?;
+    private var _localeId : Int?;
+
+    public var : Int? {
+        get {
+            return self._localeId;
+        }
+        set {
+            self._localeId = newValue;
+        }
+    }
 
     // Field of localeIdBi. DTO container with a font element.
-    public var localeIdBi : Int?;
+    private var _localeIdBi : Int?;
+
+    public var : Int? {
+        get {
+            return self._localeIdBi;
+        }
+        set {
+            self._localeIdBi = newValue;
+        }
+    }
 
     // Field of localeIdFarEast. DTO container with a font element.
-    public var localeIdFarEast : Int?;
+    private var _localeIdFarEast : Int?;
+
+    public var : Int? {
+        get {
+            return self._localeIdFarEast;
+        }
+        set {
+            self._localeIdFarEast = newValue;
+        }
+    }
 
     // Field of name. DTO container with a font element.
-    public var name : String?;
+    private var _name : String?;
+
+    public var : String? {
+        get {
+            return self._name;
+        }
+        set {
+            self._name = newValue;
+        }
+    }
 
     // Field of nameAscii. DTO container with a font element.
-    public var nameAscii : String?;
+    private var _nameAscii : String?;
+
+    public var : String? {
+        get {
+            return self._nameAscii;
+        }
+        set {
+            self._nameAscii = newValue;
+        }
+    }
 
     // Field of nameBi. DTO container with a font element.
-    public var nameBi : String?;
+    private var _nameBi : String?;
+
+    public var : String? {
+        get {
+            return self._nameBi;
+        }
+        set {
+            self._nameBi = newValue;
+        }
+    }
 
     // Field of nameFarEast. DTO container with a font element.
-    public var nameFarEast : String?;
+    private var _nameFarEast : String?;
+
+    public var : String? {
+        get {
+            return self._nameFarEast;
+        }
+        set {
+            self._nameFarEast = newValue;
+        }
+    }
 
     // Field of nameOther. DTO container with a font element.
-    public var nameOther : String?;
+    private var _nameOther : String?;
+
+    public var : String? {
+        get {
+            return self._nameOther;
+        }
+        set {
+            self._nameOther = newValue;
+        }
+    }
 
     // Field of noProofing. DTO container with a font element.
-    public var noProofing : Bool?;
+    private var _noProofing : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._noProofing;
+        }
+        set {
+            self._noProofing = newValue;
+        }
+    }
 
     // Field of outline. DTO container with a font element.
-    public var outline : Bool?;
+    private var _outline : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._outline;
+        }
+        set {
+            self._outline = newValue;
+        }
+    }
 
     // Field of position. DTO container with a font element.
-    public var position : Double?;
+    private var _position : Double?;
+
+    public var : Double? {
+        get {
+            return self._position;
+        }
+        set {
+            self._position = newValue;
+        }
+    }
 
     // Field of scaling. DTO container with a font element.
-    public var scaling : Int?;
+    private var _scaling : Int?;
+
+    public var : Int? {
+        get {
+            return self._scaling;
+        }
+        set {
+            self._scaling = newValue;
+        }
+    }
 
     // Field of shadow. DTO container with a font element.
-    public var shadow : Bool?;
+    private var _shadow : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._shadow;
+        }
+        set {
+            self._shadow = newValue;
+        }
+    }
 
     // Field of size. DTO container with a font element.
-    public var size : Double?;
+    private var _size : Double?;
+
+    public var : Double? {
+        get {
+            return self._size;
+        }
+        set {
+            self._size = newValue;
+        }
+    }
 
     // Field of sizeBi. DTO container with a font element.
-    public var sizeBi : Double?;
+    private var _sizeBi : Double?;
+
+    public var : Double? {
+        get {
+            return self._sizeBi;
+        }
+        set {
+            self._sizeBi = newValue;
+        }
+    }
 
     // Field of smallCaps. DTO container with a font element.
-    public var smallCaps : Bool?;
+    private var _smallCaps : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._smallCaps;
+        }
+        set {
+            self._smallCaps = newValue;
+        }
+    }
 
     // Field of spacing. DTO container with a font element.
-    public var spacing : Double?;
+    private var _spacing : Double?;
+
+    public var : Double? {
+        get {
+            return self._spacing;
+        }
+        set {
+            self._spacing = newValue;
+        }
+    }
 
     // Field of strikeThrough. DTO container with a font element.
-    public var strikeThrough : Bool?;
+    private var _strikeThrough : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._strikeThrough;
+        }
+        set {
+            self._strikeThrough = newValue;
+        }
+    }
 
     // Field of styleIdentifier. DTO container with a font element.
-    public var styleIdentifier : StyleIdentifier?;
+    private var _styleIdentifier : StyleIdentifier?;
+
+    public var : StyleIdentifier? {
+        get {
+            return self._styleIdentifier;
+        }
+        set {
+            self._styleIdentifier = newValue;
+        }
+    }
 
     // Field of styleName. DTO container with a font element.
-    public var styleName : String?;
+    private var _styleName : String?;
+
+    public var : String? {
+        get {
+            return self._styleName;
+        }
+        set {
+            self._styleName = newValue;
+        }
+    }
 
     // Field of _subscript. DTO container with a font element.
-    public var _subscript : Bool?;
+    private var __subscript : Bool?;
+
+    public var : Bool? {
+        get {
+            return self.__subscript;
+        }
+        set {
+            self.__subscript = newValue;
+        }
+    }
 
     // Field of superscript. DTO container with a font element.
-    public var superscript : Bool?;
+    private var _superscript : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._superscript;
+        }
+        set {
+            self._superscript = newValue;
+        }
+    }
 
     // Field of textEffect. DTO container with a font element.
-    public var textEffect : TextEffect?;
+    private var _textEffect : TextEffect?;
+
+    public var : TextEffect? {
+        get {
+            return self._textEffect;
+        }
+        set {
+            self._textEffect = newValue;
+        }
+    }
 
     // Field of underline. DTO container with a font element.
-    public var underline : Underline?;
+    private var _underline : Underline?;
+
+    public var : Underline? {
+        get {
+            return self._underline;
+        }
+        set {
+            self._underline = newValue;
+        }
+    }
 
     // Field of underlineColor. DTO container with a font element.
-    public var underlineColor : XmlColor?;
+    private var _underlineColor : XmlColor?;
+
+    public var : XmlColor? {
+        get {
+            return self._underlineColor;
+        }
+        set {
+            self._underlineColor = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case allCaps = "AllCaps";
@@ -1600,6 +1960,7 @@ public class Font : LinkElement {
         return self.allCaps;
     }
 
+
     // Sets bidi. Gets or sets a value indicating whether the contents of this run shall have right-to-left characteristics.
     public func setBidi(bidi : Bool?) -> Font {
         self.bidi = bidi;
@@ -1610,6 +1971,7 @@ public class Font : LinkElement {
     public func getBidi() -> Bool? {
         return self.bidi;
     }
+
 
     // Sets bold. Gets or sets a value indicating whether the font is formatted as bold.
     public func setBold(bold : Bool?) -> Font {
@@ -1622,6 +1984,7 @@ public class Font : LinkElement {
         return self.bold;
     }
 
+
     // Sets boldBi. Gets or sets a value indicating whether the right-to-left text is formatted as bold.
     public func setBoldBi(boldBi : Bool?) -> Font {
         self.boldBi = boldBi;
@@ -1632,6 +1995,7 @@ public class Font : LinkElement {
     public func getBoldBi() -> Bool? {
         return self.boldBi;
     }
+
 
     // Sets border. Gets or sets the border object, that specifies border for the font.
     public func setBorder(border : Border?) -> Font {
@@ -1644,6 +2008,7 @@ public class Font : LinkElement {
         return self.border;
     }
 
+
     // Sets color. Gets or sets the color of the font.
     public func setColor(color : XmlColor?) -> Font {
         self.color = color;
@@ -1654,6 +2019,7 @@ public class Font : LinkElement {
     public func getColor() -> XmlColor? {
         return self.color;
     }
+
 
     // Sets complexScript. Gets or sets a value indicating whether the contents of this run shall be treated as complex script text regardless of their Unicode character values when determining the formatting for this run.
     public func setComplexScript(complexScript : Bool?) -> Font {
@@ -1666,6 +2032,7 @@ public class Font : LinkElement {
         return self.complexScript;
     }
 
+
     // Sets doubleStrikeThrough. Gets or sets a value indicating whether the font is formatted as double strikethrough text.
     public func setDoubleStrikeThrough(doubleStrikeThrough : Bool?) -> Font {
         self.doubleStrikeThrough = doubleStrikeThrough;
@@ -1676,6 +2043,7 @@ public class Font : LinkElement {
     public func getDoubleStrikeThrough() -> Bool? {
         return self.doubleStrikeThrough;
     }
+
 
     // Sets emboss. Gets or sets a value indicating whether the font is formatted as embossed.
     public func setEmboss(emboss : Bool?) -> Font {
@@ -1688,6 +2056,7 @@ public class Font : LinkElement {
         return self.emboss;
     }
 
+
     // Sets engrave. Gets or sets a value indicating whether the font is formatted as engraved.
     public func setEngrave(engrave : Bool?) -> Font {
         self.engrave = engrave;
@@ -1698,6 +2067,7 @@ public class Font : LinkElement {
     public func getEngrave() -> Bool? {
         return self.engrave;
     }
+
 
     // Sets hidden. Gets or sets a value indicating whether the font is formatted as hidden text.
     public func setHidden(hidden : Bool?) -> Font {
@@ -1710,6 +2080,7 @@ public class Font : LinkElement {
         return self.hidden;
     }
 
+
     // Sets highlightColor. Gets or sets the highlight (marker) color.
     public func setHighlightColor(highlightColor : XmlColor?) -> Font {
         self.highlightColor = highlightColor;
@@ -1720,6 +2091,7 @@ public class Font : LinkElement {
     public func getHighlightColor() -> XmlColor? {
         return self.highlightColor;
     }
+
 
     // Sets italic. Gets or sets a value indicating whether the font is formatted as italic.
     public func setItalic(italic : Bool?) -> Font {
@@ -1732,6 +2104,7 @@ public class Font : LinkElement {
         return self.italic;
     }
 
+
     // Sets italicBi. Gets or sets a value indicating whether the right-to-left text is formatted as italic.
     public func setItalicBi(italicBi : Bool?) -> Font {
         self.italicBi = italicBi;
@@ -1742,6 +2115,7 @@ public class Font : LinkElement {
     public func getItalicBi() -> Bool? {
         return self.italicBi;
     }
+
 
     // Sets kerning. Gets or sets the font size at which kerning starts.
     public func setKerning(kerning : Double?) -> Font {
@@ -1754,6 +2128,7 @@ public class Font : LinkElement {
         return self.kerning;
     }
 
+
     // Sets localeId. Gets or sets the locale identifier (language) of the formatted characters.
     public func setLocaleId(localeId : Int?) -> Font {
         self.localeId = localeId;
@@ -1764,6 +2139,7 @@ public class Font : LinkElement {
     public func getLocaleId() -> Int? {
         return self.localeId;
     }
+
 
     // Sets localeIdBi. Gets or sets the locale identifier (language) of the formatted right-to-left characters.
     public func setLocaleIdBi(localeIdBi : Int?) -> Font {
@@ -1776,6 +2152,7 @@ public class Font : LinkElement {
         return self.localeIdBi;
     }
 
+
     // Sets localeIdFarEast. Gets or sets the locale identifier (language) of the formatted Asian characters.
     public func setLocaleIdFarEast(localeIdFarEast : Int?) -> Font {
         self.localeIdFarEast = localeIdFarEast;
@@ -1786,6 +2163,7 @@ public class Font : LinkElement {
     public func getLocaleIdFarEast() -> Int? {
         return self.localeIdFarEast;
     }
+
 
     // Sets name. Gets or sets the name of the font.
     public func setName(name : String?) -> Font {
@@ -1798,6 +2176,7 @@ public class Font : LinkElement {
         return self.name;
     }
 
+
     // Sets nameAscii. Gets or sets the font used for Latin text (characters with character codes from 0 (zero) through 127).
     public func setNameAscii(nameAscii : String?) -> Font {
         self.nameAscii = nameAscii;
@@ -1808,6 +2187,7 @@ public class Font : LinkElement {
     public func getNameAscii() -> String? {
         return self.nameAscii;
     }
+
 
     // Sets nameBi. Gets or sets the name of the font in a right-to-left language document.
     public func setNameBi(nameBi : String?) -> Font {
@@ -1820,6 +2200,7 @@ public class Font : LinkElement {
         return self.nameBi;
     }
 
+
     // Sets nameFarEast. Gets or sets the East Asian font name.
     public func setNameFarEast(nameFarEast : String?) -> Font {
         self.nameFarEast = nameFarEast;
@@ -1830,6 +2211,7 @@ public class Font : LinkElement {
     public func getNameFarEast() -> String? {
         return self.nameFarEast;
     }
+
 
     // Sets nameOther. Gets or sets the font used for characters with character codes from 128 through 255.
     public func setNameOther(nameOther : String?) -> Font {
@@ -1842,6 +2224,7 @@ public class Font : LinkElement {
         return self.nameOther;
     }
 
+
     // Sets noProofing. Gets or sets a value indicating whether the formatted characters are not to be spell checked.
     public func setNoProofing(noProofing : Bool?) -> Font {
         self.noProofing = noProofing;
@@ -1852,6 +2235,7 @@ public class Font : LinkElement {
     public func getNoProofing() -> Bool? {
         return self.noProofing;
     }
+
 
     // Sets outline. Gets or sets a value indicating whether the font is formatted as outline.
     public func setOutline(outline : Bool?) -> Font {
@@ -1864,6 +2248,7 @@ public class Font : LinkElement {
         return self.outline;
     }
 
+
     // Sets position. Gets or sets the position of text (in points) relative to the base line. A positive number raises the text, and a negative number lowers it.
     public func setPosition(position : Double?) -> Font {
         self.position = position;
@@ -1874,6 +2259,7 @@ public class Font : LinkElement {
     public func getPosition() -> Double? {
         return self.position;
     }
+
 
     // Sets scaling. Gets or sets character width scaling in percent.
     public func setScaling(scaling : Int?) -> Font {
@@ -1886,6 +2272,7 @@ public class Font : LinkElement {
         return self.scaling;
     }
 
+
     // Sets shadow. Gets or sets a value indicating whether the font is formatted as shadowed.
     public func setShadow(shadow : Bool?) -> Font {
         self.shadow = shadow;
@@ -1896,6 +2283,7 @@ public class Font : LinkElement {
     public func getShadow() -> Bool? {
         return self.shadow;
     }
+
 
     // Sets size. Gets or sets the font size in points.
     public func setSize(size : Double?) -> Font {
@@ -1908,6 +2296,7 @@ public class Font : LinkElement {
         return self.size;
     }
 
+
     // Sets sizeBi. Gets or sets the font size in points used in a right-to-left document.
     public func setSizeBi(sizeBi : Double?) -> Font {
         self.sizeBi = sizeBi;
@@ -1918,6 +2307,7 @@ public class Font : LinkElement {
     public func getSizeBi() -> Double? {
         return self.sizeBi;
     }
+
 
     // Sets smallCaps. Gets or sets a value indicating whether the font is formatted as small capital letters.
     public func setSmallCaps(smallCaps : Bool?) -> Font {
@@ -1930,6 +2320,7 @@ public class Font : LinkElement {
         return self.smallCaps;
     }
 
+
     // Sets spacing. Gets or sets the spacing (in points) between characters.
     public func setSpacing(spacing : Double?) -> Font {
         self.spacing = spacing;
@@ -1940,6 +2331,7 @@ public class Font : LinkElement {
     public func getSpacing() -> Double? {
         return self.spacing;
     }
+
 
     // Sets strikeThrough. Gets or sets a value indicating whether the font is formatted as strikethrough text.
     public func setStrikeThrough(strikeThrough : Bool?) -> Font {
@@ -1952,6 +2344,7 @@ public class Font : LinkElement {
         return self.strikeThrough;
     }
 
+
     // Sets styleIdentifier. Gets or sets the locale independent style identifier of the character style applied to this formatting.
     public func setStyleIdentifier(styleIdentifier : StyleIdentifier?) -> Font {
         self.styleIdentifier = styleIdentifier;
@@ -1962,6 +2355,7 @@ public class Font : LinkElement {
     public func getStyleIdentifier() -> StyleIdentifier? {
         return self.styleIdentifier;
     }
+
 
     // Sets styleName. Gets or sets the name of the character style applied to this formatting.
     public func setStyleName(styleName : String?) -> Font {
@@ -1974,6 +2368,7 @@ public class Font : LinkElement {
         return self.styleName;
     }
 
+
     // Sets _subscript. Gets or sets a value indicating whether the font is formatted as subscript.
     public func setSubscript(_subscript : Bool?) -> Font {
         self._subscript = _subscript;
@@ -1984,6 +2379,7 @@ public class Font : LinkElement {
     public func getSubscript() -> Bool? {
         return self._subscript;
     }
+
 
     // Sets superscript. Gets or sets a value indicating whether the font is formatted as superscript.
     public func setSuperscript(superscript : Bool?) -> Font {
@@ -1996,6 +2392,7 @@ public class Font : LinkElement {
         return self.superscript;
     }
 
+
     // Sets textEffect. Gets or sets the font animation effect.
     public func setTextEffect(textEffect : TextEffect?) -> Font {
         self.textEffect = textEffect;
@@ -2007,6 +2404,7 @@ public class Font : LinkElement {
         return self.textEffect;
     }
 
+
     // Sets underline. Gets or sets the type of underline applied to the font.
     public func setUnderline(underline : Underline?) -> Font {
         self.underline = underline;
@@ -2017,6 +2415,7 @@ public class Font : LinkElement {
     public func getUnderline() -> Underline? {
         return self.underline;
     }
+
 
     // Sets underlineColor. Gets or sets the color of the underline applied to the font.
     public func setUnderlineColor(underlineColor : XmlColor?) -> Font {

@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FieldNames : LinkElement {
     // Field of names. Represents a collection of merge fields within a document.
-    public var names : [String]?;
+    private var _names : [String]?;
+
+    public var : [String]? {
+        get {
+            return self._names;
+        }
+        set {
+            self._names = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case names = "Names";

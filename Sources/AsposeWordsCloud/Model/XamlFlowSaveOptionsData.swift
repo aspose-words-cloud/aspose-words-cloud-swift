@@ -31,10 +31,37 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class XamlFlowSaveOptionsData : SaveOptionsData {
     // Field of imagesFolder. Container class for xaml flow save options.
-    public var imagesFolder : String?;
+    private var _imagesFolder : String?;
+
+    public var : String? {
+        get {
+            return self._imagesFolder;
+        }
+        set {
+            self._imagesFolder = newValue;
+        }
+    }
 
     // Field of imagesFolderAlias. Container class for xaml flow save options.
-    public var imagesFolderAlias : String?;
+    private var _imagesFolderAlias : String?;
+
+    public var : String? {
+        get {
+            return self._imagesFolderAlias;
+        }
+        set {
+            self._imagesFolderAlias = newValue;
+        }
+    }
+
+    // Field of saveFormat. Container class for xaml flow save options.
+    private final let _saveFormat : String? = "xamlflow";
+
+    override public var : String? {
+        get {
+            return self._saveFormat;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case imagesFolder = "ImagesFolder";
@@ -74,6 +101,7 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
     public func getImagesFolder() -> String? {
         return self.imagesFolder;
     }
+
 
     // Sets imagesFolderAlias. Gets or sets the name of the folder used to construct image URIs.
     public func setImagesFolderAlias(imagesFolderAlias : String?) -> XamlFlowSaveOptionsData {

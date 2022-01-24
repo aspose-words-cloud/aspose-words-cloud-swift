@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListResponse : WordsResponse {
     // Field of list. The REST response with a list information.
-    public var list : ListInfo?;
+    private var _list : ListInfo?;
+
+    public var : ListInfo? {
+        get {
+            return self._list;
+        }
+        set {
+            self._list = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case list = "List";

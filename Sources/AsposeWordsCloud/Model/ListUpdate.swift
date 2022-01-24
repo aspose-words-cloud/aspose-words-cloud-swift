@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListUpdate : Codable, WordsApiModel {
     // Field of isRestartAtEachSection. Update document properties if document list.
-    public var isRestartAtEachSection : Bool?;
+    private var _isRestartAtEachSection : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._isRestartAtEachSection;
+        }
+        set {
+            self._isRestartAtEachSection = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case isRestartAtEachSection = "IsRestartAtEachSection";

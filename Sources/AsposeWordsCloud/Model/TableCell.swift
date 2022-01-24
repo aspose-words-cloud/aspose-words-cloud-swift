@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableCell : NodeLink {
     // Field of childNodes. DTO container with a table cell element.
-    public var childNodes : [NodeLink]?;
+    private var _childNodes : [NodeLink]?;
+
+    public var : [NodeLink]? {
+        get {
+            return self._childNodes;
+        }
+        set {
+            self._childNodes = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case childNodes = "ChildNodes";

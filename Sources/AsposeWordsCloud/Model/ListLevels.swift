@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListLevels : LinkElement {
     // Field of listLevel. DTO container with a single document list.
-    public var listLevel : [ListLevel]?;
+    private var _listLevel : [ListLevel]?;
+
+    public var : [ListLevel]? {
+        get {
+            return self._listLevel;
+        }
+        set {
+            self._listLevel = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case listLevel = "ListLevel";

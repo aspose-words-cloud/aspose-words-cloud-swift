@@ -31,10 +31,28 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ModificationOperationResult : Codable, WordsApiModel {
     // Field of dest. result of the operation which modifies the original document and saves the result.
-    public var dest : FileLink?;
+    private var _dest : FileLink?;
+
+    public var : FileLink? {
+        get {
+            return self._dest;
+        }
+        set {
+            self._dest = newValue;
+        }
+    }
 
     // Field of source. result of the operation which modifies the original document and saves the result.
-    public var source : FileLink?;
+    private var _source : FileLink?;
+
+    public var : FileLink? {
+        get {
+            return self._source;
+        }
+        set {
+            self._source = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case dest = "Dest";
@@ -71,6 +89,7 @@ public class ModificationOperationResult : Codable, WordsApiModel {
     public func getDest() -> FileLink? {
         return self.dest;
     }
+
 
     // Sets source. Gets or sets the link to the source document (source for the modification operation).
     public func setSource(source : FileLink?) -> ModificationOperationResult {

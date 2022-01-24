@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class RangeDocument : Codable, WordsApiModel {
     // Field of documentName. DTO container with a Range element.
-    public var documentName : String?;
+    private var _documentName : String?;
+
+    public var : String? {
+        get {
+            return self._documentName;
+        }
+        set {
+            self._documentName = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case documentName = "DocumentName";

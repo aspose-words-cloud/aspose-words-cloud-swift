@@ -43,13 +43,40 @@ public class JsonDataLoadOptions : Codable, WordsApiModel {
     }
 
     // Field of alwaysGenerateRootObject. Represents options for parsing JSON data.
-    public var alwaysGenerateRootObject : Bool?;
+    private var _alwaysGenerateRootObject : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._alwaysGenerateRootObject;
+        }
+        set {
+            self._alwaysGenerateRootObject = newValue;
+        }
+    }
 
     // Field of exactDateTimeParseFormats. Represents options for parsing JSON data.
-    public var exactDateTimeParseFormats : [String]?;
+    private var _exactDateTimeParseFormats : [String]?;
+
+    public var : [String]? {
+        get {
+            return self._exactDateTimeParseFormats;
+        }
+        set {
+            self._exactDateTimeParseFormats = newValue;
+        }
+    }
 
     // Field of simpleValueParseMode. Represents options for parsing JSON data.
-    public var simpleValueParseMode : SimpleValueParseMode?;
+    private var _simpleValueParseMode : SimpleValueParseMode?;
+
+    public var : SimpleValueParseMode? {
+        get {
+            return self._simpleValueParseMode;
+        }
+        set {
+            self._simpleValueParseMode = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case alwaysGenerateRootObject = "AlwaysGenerateRootObject";
@@ -92,6 +119,7 @@ public class JsonDataLoadOptions : Codable, WordsApiModel {
         return self.alwaysGenerateRootObject;
     }
 
+
     // Sets exactDateTimeParseFormats. Gets or sets exact formats for parsing JSON date-time values while loading JSON. The default is null.
     public func setExactDateTimeParseFormats(exactDateTimeParseFormats : [String]?) -> JsonDataLoadOptions {
         self.exactDateTimeParseFormats = exactDateTimeParseFormats;
@@ -102,6 +130,7 @@ public class JsonDataLoadOptions : Codable, WordsApiModel {
     public func getExactDateTimeParseFormats() -> [String]? {
         return self.exactDateTimeParseFormats;
     }
+
 
     // Sets simpleValueParseMode. Gets or sets a mode for parsing JSON simple values (null, boolean, number, integer, and string) while loading JSON. Such a mode does not affect parsing of date-time values. The default is Aspose.Words.Reporting.JsonSimpleValueParseMode.Loose.
     public func setSimpleValueParseMode(simpleValueParseMode : SimpleValueParseMode?) -> JsonDataLoadOptions {

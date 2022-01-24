@@ -30,14 +30,50 @@ import Foundation
 // Container class for tiff save options.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TiffSaveOptionsData : ImageSaveOptionsData {
+    // Field of saveFormat. Container class for tiff save options.
+    private final let _saveFormat : String? = "tiff";
+
+    override public var : String? {
+        get {
+            return self._saveFormat;
+        }
+    }
+
     // Field of thresholdForFloydSteinbergDithering. Container class for tiff save options.
-    public var thresholdForFloydSteinbergDithering : Int?;
+    private var _thresholdForFloydSteinbergDithering : Int?;
+
+    public var : Int? {
+        get {
+            return self._thresholdForFloydSteinbergDithering;
+        }
+        set {
+            self._thresholdForFloydSteinbergDithering = newValue;
+        }
+    }
 
     // Field of tiffBinarizationMethod. Container class for tiff save options.
-    public var tiffBinarizationMethod : String?;
+    private var _tiffBinarizationMethod : String?;
+
+    public var : String? {
+        get {
+            return self._tiffBinarizationMethod;
+        }
+        set {
+            self._tiffBinarizationMethod = newValue;
+        }
+    }
 
     // Field of tiffCompression. Container class for tiff save options.
-    public var tiffCompression : String?;
+    private var _tiffCompression : String?;
+
+    public var : String? {
+        get {
+            return self._tiffCompression;
+        }
+        set {
+            self._tiffCompression = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case thresholdForFloydSteinbergDithering = "ThresholdForFloydSteinbergDithering";
@@ -83,6 +119,7 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
         return self.thresholdForFloydSteinbergDithering;
     }
 
+
     // Sets tiffBinarizationMethod. Gets or sets the method used while converting images to 1 bpp format.
     public func setTiffBinarizationMethod(tiffBinarizationMethod : String?) -> TiffSaveOptionsData {
         self.tiffBinarizationMethod = tiffBinarizationMethod;
@@ -93,6 +130,7 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     public func getTiffBinarizationMethod() -> String? {
         return self.tiffBinarizationMethod;
     }
+
 
     // Sets tiffCompression. Gets or sets the type of compression.
     public func setTiffCompression(tiffCompression : String?) -> TiffSaveOptionsData {

@@ -30,6 +30,15 @@ import Foundation
 // Container class for gif save options.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class GifSaveOptionsData : ImageSaveOptionsData {
+    // Field of saveFormat. Container class for gif save options.
+    private final let _saveFormat : String? = "gif";
+
+    override public var : String? {
+        get {
+            return self._saveFormat;
+        }
+    }
+
     private enum CodingKeys: String, CodingKey {
         case invalidCodingKey;
     }

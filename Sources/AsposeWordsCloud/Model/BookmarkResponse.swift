@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BookmarkResponse : WordsResponse {
     // Field of bookmark. The REST response with a bookmark.
-    public var bookmark : Bookmark?;
+    private var _bookmark : Bookmark?;
+
+    public var : Bookmark? {
+        get {
+            return self._bookmark;
+        }
+        set {
+            self._bookmark = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case bookmark = "Bookmark";

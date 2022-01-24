@@ -31,13 +31,40 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SplitDocumentResult : Codable, WordsApiModel {
     // Field of pages. Result of splitting document.
-    public var pages : [FileLink]?;
+    private var _pages : [FileLink]?;
+
+    public var : [FileLink]? {
+        get {
+            return self._pages;
+        }
+        set {
+            self._pages = newValue;
+        }
+    }
 
     // Field of sourceDocument. Result of splitting document.
-    public var sourceDocument : FileLink?;
+    private var _sourceDocument : FileLink?;
+
+    public var : FileLink? {
+        get {
+            return self._sourceDocument;
+        }
+        set {
+            self._sourceDocument = newValue;
+        }
+    }
 
     // Field of zippedPages. Result of splitting document.
-    public var zippedPages : FileLink?;
+    private var _zippedPages : FileLink?;
+
+    public var : FileLink? {
+        get {
+            return self._zippedPages;
+        }
+        set {
+            self._zippedPages = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case pages = "Pages";
@@ -80,6 +107,7 @@ public class SplitDocumentResult : Codable, WordsApiModel {
         return self.pages;
     }
 
+
     // Sets sourceDocument. Gets or sets the link to the source document.
     public func setSourceDocument(sourceDocument : FileLink?) -> SplitDocumentResult {
         self.sourceDocument = sourceDocument;
@@ -90,6 +118,7 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     public func getSourceDocument() -> FileLink? {
         return self.sourceDocument;
     }
+
 
     // Sets zippedPages. Gets or sets the link to the file archive with pages.
     public func setZippedPages(zippedPages : FileLink?) -> SplitDocumentResult {

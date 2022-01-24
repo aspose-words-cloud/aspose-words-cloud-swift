@@ -31,13 +31,40 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentEntry : Codable, WordsApiModel {
     // Field of href. Represents a document which will be appended to the original resource document.
-    public var href : String?;
+    private var _href : String?;
+
+    public var : String? {
+        get {
+            return self._href;
+        }
+        set {
+            self._href = newValue;
+        }
+    }
 
     // Field of importFormatMode. Represents a document which will be appended to the original resource document.
-    public var importFormatMode : String?;
+    private var _importFormatMode : String?;
+
+    public var : String? {
+        get {
+            return self._importFormatMode;
+        }
+        set {
+            self._importFormatMode = newValue;
+        }
+    }
 
     // Field of password. Represents a document which will be appended to the original resource document.
-    public var password : String?;
+    private var _password : String?;
+
+    public var : String? {
+        get {
+            return self._password;
+        }
+        set {
+            self._password = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case href = "Href";
@@ -80,6 +107,7 @@ public class DocumentEntry : Codable, WordsApiModel {
         return self.href;
     }
 
+
     // Sets importFormatMode. Gets or sets the option that controls formatting will be used: appended or destination document. Can be KeepSourceFormatting or UseDestinationStyles.
     public func setImportFormatMode(importFormatMode : String?) -> DocumentEntry {
         self.importFormatMode = importFormatMode;
@@ -90,6 +118,7 @@ public class DocumentEntry : Codable, WordsApiModel {
     public func getImportFormatMode() -> String? {
         return self.importFormatMode;
     }
+
 
     // Sets password. Gets or sets document password encrypted on API public key. The default value is null (the document has no password).
     public func setPassword(password : String?) -> DocumentEntry {

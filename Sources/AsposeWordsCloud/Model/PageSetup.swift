@@ -357,91 +357,352 @@ public class PageSetup : LinkElement {
     }
 
     // Field of bidi. Represents the page setup properties of a section.
-    public var bidi : Bool?;
+    private var _bidi : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._bidi;
+        }
+        set {
+            self._bidi = newValue;
+        }
+    }
 
     // Field of borderAlwaysInFront. Represents the page setup properties of a section.
-    public var borderAlwaysInFront : Bool?;
+    private var _borderAlwaysInFront : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._borderAlwaysInFront;
+        }
+        set {
+            self._borderAlwaysInFront = newValue;
+        }
+    }
 
     // Field of borderAppliesTo. Represents the page setup properties of a section.
-    public var borderAppliesTo : BorderAppliesTo?;
+    private var _borderAppliesTo : BorderAppliesTo?;
+
+    public var : BorderAppliesTo? {
+        get {
+            return self._borderAppliesTo;
+        }
+        set {
+            self._borderAppliesTo = newValue;
+        }
+    }
 
     // Field of borderDistanceFrom. Represents the page setup properties of a section.
-    public var borderDistanceFrom : BorderDistanceFrom?;
+    private var _borderDistanceFrom : BorderDistanceFrom?;
+
+    public var : BorderDistanceFrom? {
+        get {
+            return self._borderDistanceFrom;
+        }
+        set {
+            self._borderDistanceFrom = newValue;
+        }
+    }
 
     // Field of bottomMargin. Represents the page setup properties of a section.
-    public var bottomMargin : Double?;
+    private var _bottomMargin : Double?;
+
+    public var : Double? {
+        get {
+            return self._bottomMargin;
+        }
+        set {
+            self._bottomMargin = newValue;
+        }
+    }
 
     // Field of differentFirstPageHeaderFooter. Represents the page setup properties of a section.
-    public var differentFirstPageHeaderFooter : Bool?;
+    private var _differentFirstPageHeaderFooter : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._differentFirstPageHeaderFooter;
+        }
+        set {
+            self._differentFirstPageHeaderFooter = newValue;
+        }
+    }
 
     // Field of firstPageTray. Represents the page setup properties of a section.
-    public var firstPageTray : Int?;
+    private var _firstPageTray : Int?;
+
+    public var : Int? {
+        get {
+            return self._firstPageTray;
+        }
+        set {
+            self._firstPageTray = newValue;
+        }
+    }
 
     // Field of footerDistance. Represents the page setup properties of a section.
-    public var footerDistance : Double?;
+    private var _footerDistance : Double?;
+
+    public var : Double? {
+        get {
+            return self._footerDistance;
+        }
+        set {
+            self._footerDistance = newValue;
+        }
+    }
 
     // Field of gutter. Represents the page setup properties of a section.
-    public var gutter : Double?;
+    private var _gutter : Double?;
+
+    public var : Double? {
+        get {
+            return self._gutter;
+        }
+        set {
+            self._gutter = newValue;
+        }
+    }
 
     // Field of headerDistance. Represents the page setup properties of a section.
-    public var headerDistance : Double?;
+    private var _headerDistance : Double?;
+
+    public var : Double? {
+        get {
+            return self._headerDistance;
+        }
+        set {
+            self._headerDistance = newValue;
+        }
+    }
 
     // Field of leftMargin. Represents the page setup properties of a section.
-    public var leftMargin : Double?;
+    private var _leftMargin : Double?;
+
+    public var : Double? {
+        get {
+            return self._leftMargin;
+        }
+        set {
+            self._leftMargin = newValue;
+        }
+    }
 
     // Field of lineNumberCountBy. Represents the page setup properties of a section.
-    public var lineNumberCountBy : Int?;
+    private var _lineNumberCountBy : Int?;
+
+    public var : Int? {
+        get {
+            return self._lineNumberCountBy;
+        }
+        set {
+            self._lineNumberCountBy = newValue;
+        }
+    }
 
     // Field of lineNumberDistanceFromText. Represents the page setup properties of a section.
-    public var lineNumberDistanceFromText : Double?;
+    private var _lineNumberDistanceFromText : Double?;
+
+    public var : Double? {
+        get {
+            return self._lineNumberDistanceFromText;
+        }
+        set {
+            self._lineNumberDistanceFromText = newValue;
+        }
+    }
 
     // Field of lineNumberRestartMode. Represents the page setup properties of a section.
-    public var lineNumberRestartMode : LineNumberRestartMode?;
+    private var _lineNumberRestartMode : LineNumberRestartMode?;
+
+    public var : LineNumberRestartMode? {
+        get {
+            return self._lineNumberRestartMode;
+        }
+        set {
+            self._lineNumberRestartMode = newValue;
+        }
+    }
 
     // Field of lineStartingNumber. Represents the page setup properties of a section.
-    public var lineStartingNumber : Int?;
+    private var _lineStartingNumber : Int?;
+
+    public var : Int? {
+        get {
+            return self._lineStartingNumber;
+        }
+        set {
+            self._lineStartingNumber = newValue;
+        }
+    }
 
     // Field of orientation. Represents the page setup properties of a section.
-    public var orientation : Orientation?;
+    private var _orientation : Orientation?;
+
+    public var : Orientation? {
+        get {
+            return self._orientation;
+        }
+        set {
+            self._orientation = newValue;
+        }
+    }
 
     // Field of otherPagesTray. Represents the page setup properties of a section.
-    public var otherPagesTray : Int?;
+    private var _otherPagesTray : Int?;
+
+    public var : Int? {
+        get {
+            return self._otherPagesTray;
+        }
+        set {
+            self._otherPagesTray = newValue;
+        }
+    }
 
     // Field of pageHeight. Represents the page setup properties of a section.
-    public var pageHeight : Double?;
+    private var _pageHeight : Double?;
+
+    public var : Double? {
+        get {
+            return self._pageHeight;
+        }
+        set {
+            self._pageHeight = newValue;
+        }
+    }
 
     // Field of pageNumberStyle. Represents the page setup properties of a section.
-    public var pageNumberStyle : PageNumberStyle?;
+    private var _pageNumberStyle : PageNumberStyle?;
+
+    public var : PageNumberStyle? {
+        get {
+            return self._pageNumberStyle;
+        }
+        set {
+            self._pageNumberStyle = newValue;
+        }
+    }
 
     // Field of pageStartingNumber. Represents the page setup properties of a section.
-    public var pageStartingNumber : Int?;
+    private var _pageStartingNumber : Int?;
+
+    public var : Int? {
+        get {
+            return self._pageStartingNumber;
+        }
+        set {
+            self._pageStartingNumber = newValue;
+        }
+    }
 
     // Field of pageWidth. Represents the page setup properties of a section.
-    public var pageWidth : Double?;
+    private var _pageWidth : Double?;
+
+    public var : Double? {
+        get {
+            return self._pageWidth;
+        }
+        set {
+            self._pageWidth = newValue;
+        }
+    }
 
     // Field of paperSize. Represents the page setup properties of a section.
-    public var paperSize : PaperSize?;
+    private var _paperSize : PaperSize?;
+
+    public var : PaperSize? {
+        get {
+            return self._paperSize;
+        }
+        set {
+            self._paperSize = newValue;
+        }
+    }
 
     // Field of restartPageNumbering. Represents the page setup properties of a section.
-    public var restartPageNumbering : Bool?;
+    private var _restartPageNumbering : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._restartPageNumbering;
+        }
+        set {
+            self._restartPageNumbering = newValue;
+        }
+    }
 
     // Field of rightMargin. Represents the page setup properties of a section.
-    public var rightMargin : Double?;
+    private var _rightMargin : Double?;
+
+    public var : Double? {
+        get {
+            return self._rightMargin;
+        }
+        set {
+            self._rightMargin = newValue;
+        }
+    }
 
     // Field of rtlGutter. Represents the page setup properties of a section.
-    public var rtlGutter : Bool?;
+    private var _rtlGutter : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._rtlGutter;
+        }
+        set {
+            self._rtlGutter = newValue;
+        }
+    }
 
     // Field of sectionStart. Represents the page setup properties of a section.
-    public var sectionStart : SectionStart?;
+    private var _sectionStart : SectionStart?;
+
+    public var : SectionStart? {
+        get {
+            return self._sectionStart;
+        }
+        set {
+            self._sectionStart = newValue;
+        }
+    }
 
     // Field of suppressEndnotes. Represents the page setup properties of a section.
-    public var suppressEndnotes : Bool?;
+    private var _suppressEndnotes : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._suppressEndnotes;
+        }
+        set {
+            self._suppressEndnotes = newValue;
+        }
+    }
 
     // Field of topMargin. Represents the page setup properties of a section.
-    public var topMargin : Double?;
+    private var _topMargin : Double?;
+
+    public var : Double? {
+        get {
+            return self._topMargin;
+        }
+        set {
+            self._topMargin = newValue;
+        }
+    }
 
     // Field of verticalAlignment. Represents the page setup properties of a section.
-    public var verticalAlignment : VerticalAlignment?;
+    private var _verticalAlignment : VerticalAlignment?;
+
+    public var : VerticalAlignment? {
+        get {
+            return self._verticalAlignment;
+        }
+        set {
+            self._verticalAlignment = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case bidi = "Bidi";
@@ -617,6 +878,7 @@ public class PageSetup : LinkElement {
         return self.bidi;
     }
 
+
     // Sets borderAlwaysInFront. Gets or sets a value indicating whether the page border is positioned relative to intersecting texts and objects.
     public func setBorderAlwaysInFront(borderAlwaysInFront : Bool?) -> PageSetup {
         self.borderAlwaysInFront = borderAlwaysInFront;
@@ -627,6 +889,7 @@ public class PageSetup : LinkElement {
     public func getBorderAlwaysInFront() -> Bool? {
         return self.borderAlwaysInFront;
     }
+
 
     // Sets borderAppliesTo. Gets or sets the option that controls which pages the page border is printed on.
     public func setBorderAppliesTo(borderAppliesTo : BorderAppliesTo?) -> PageSetup {
@@ -639,6 +902,7 @@ public class PageSetup : LinkElement {
         return self.borderAppliesTo;
     }
 
+
     // Sets borderDistanceFrom. Gets or sets the value, that indicates whether the specified page border is measured from the edge of the page or from the text it surrounds.
     public func setBorderDistanceFrom(borderDistanceFrom : BorderDistanceFrom?) -> PageSetup {
         self.borderDistanceFrom = borderDistanceFrom;
@@ -649,6 +913,7 @@ public class PageSetup : LinkElement {
     public func getBorderDistanceFrom() -> BorderDistanceFrom? {
         return self.borderDistanceFrom;
     }
+
 
     // Sets bottomMargin. Gets or sets the distance (in points) between the bottom edge of the page and the bottom boundary of the body text.
     public func setBottomMargin(bottomMargin : Double?) -> PageSetup {
@@ -661,6 +926,7 @@ public class PageSetup : LinkElement {
         return self.bottomMargin;
     }
 
+
     // Sets differentFirstPageHeaderFooter. Gets or sets a value indicating whether a different header or footer is used on the first page.
     public func setDifferentFirstPageHeaderFooter(differentFirstPageHeaderFooter : Bool?) -> PageSetup {
         self.differentFirstPageHeaderFooter = differentFirstPageHeaderFooter;
@@ -671,6 +937,7 @@ public class PageSetup : LinkElement {
     public func getDifferentFirstPageHeaderFooter() -> Bool? {
         return self.differentFirstPageHeaderFooter;
     }
+
 
     // Sets firstPageTray. Gets or sets the paper tray (bin) to use for the first page of a section. The value is implementation (printer) specific.
     public func setFirstPageTray(firstPageTray : Int?) -> PageSetup {
@@ -683,6 +950,7 @@ public class PageSetup : LinkElement {
         return self.firstPageTray;
     }
 
+
     // Sets footerDistance. Gets or sets the distance (in points) between the footer and the bottom of the page.
     public func setFooterDistance(footerDistance : Double?) -> PageSetup {
         self.footerDistance = footerDistance;
@@ -693,6 +961,7 @@ public class PageSetup : LinkElement {
     public func getFooterDistance() -> Double? {
         return self.footerDistance;
     }
+
 
     // Sets gutter. Gets or sets the amount of extra space added to the margin for document binding.
     public func setGutter(gutter : Double?) -> PageSetup {
@@ -705,6 +974,7 @@ public class PageSetup : LinkElement {
         return self.gutter;
     }
 
+
     // Sets headerDistance. Gets or sets the distance (in points) between the header and the top of the page.
     public func setHeaderDistance(headerDistance : Double?) -> PageSetup {
         self.headerDistance = headerDistance;
@@ -715,6 +985,7 @@ public class PageSetup : LinkElement {
     public func getHeaderDistance() -> Double? {
         return self.headerDistance;
     }
+
 
     // Sets leftMargin. Gets or sets the distance (in points) between the left edge of the page and the left boundary of the body text.
     public func setLeftMargin(leftMargin : Double?) -> PageSetup {
@@ -727,6 +998,7 @@ public class PageSetup : LinkElement {
         return self.leftMargin;
     }
 
+
     // Sets lineNumberCountBy. Gets or sets the numeric increment for line numbers.
     public func setLineNumberCountBy(lineNumberCountBy : Int?) -> PageSetup {
         self.lineNumberCountBy = lineNumberCountBy;
@@ -737,6 +1009,7 @@ public class PageSetup : LinkElement {
     public func getLineNumberCountBy() -> Int? {
         return self.lineNumberCountBy;
     }
+
 
     // Sets lineNumberDistanceFromText. Gets or sets the distance between the right edge of line numbers and the left edge of the document.
     public func setLineNumberDistanceFromText(lineNumberDistanceFromText : Double?) -> PageSetup {
@@ -749,6 +1022,7 @@ public class PageSetup : LinkElement {
         return self.lineNumberDistanceFromText;
     }
 
+
     // Sets lineNumberRestartMode. Gets or sets the way line numbering runs  that is, whether it starts over at the beginning of a new page or section or runs continuously.
     public func setLineNumberRestartMode(lineNumberRestartMode : LineNumberRestartMode?) -> PageSetup {
         self.lineNumberRestartMode = lineNumberRestartMode;
@@ -759,6 +1033,7 @@ public class PageSetup : LinkElement {
     public func getLineNumberRestartMode() -> LineNumberRestartMode? {
         return self.lineNumberRestartMode;
     }
+
 
     // Sets lineStartingNumber. Gets or sets the starting line number.
     public func setLineStartingNumber(lineStartingNumber : Int?) -> PageSetup {
@@ -771,6 +1046,7 @@ public class PageSetup : LinkElement {
         return self.lineStartingNumber;
     }
 
+
     // Sets orientation. Gets or sets the orientation of the page.
     public func setOrientation(orientation : Orientation?) -> PageSetup {
         self.orientation = orientation;
@@ -781,6 +1057,7 @@ public class PageSetup : LinkElement {
     public func getOrientation() -> Orientation? {
         return self.orientation;
     }
+
 
     // Sets otherPagesTray. Gets or sets the paper tray (bin) to be used for all but the first page of a section. The value is implementation (printer) specific.
     public func setOtherPagesTray(otherPagesTray : Int?) -> PageSetup {
@@ -793,6 +1070,7 @@ public class PageSetup : LinkElement {
         return self.otherPagesTray;
     }
 
+
     // Sets pageHeight. Gets or sets the height of the page in points.
     public func setPageHeight(pageHeight : Double?) -> PageSetup {
         self.pageHeight = pageHeight;
@@ -803,6 +1081,7 @@ public class PageSetup : LinkElement {
     public func getPageHeight() -> Double? {
         return self.pageHeight;
     }
+
 
     // Sets pageNumberStyle. Gets or sets the page number format.
     public func setPageNumberStyle(pageNumberStyle : PageNumberStyle?) -> PageSetup {
@@ -815,6 +1094,7 @@ public class PageSetup : LinkElement {
         return self.pageNumberStyle;
     }
 
+
     // Sets pageStartingNumber. Gets or sets the starting page number of the section.
     public func setPageStartingNumber(pageStartingNumber : Int?) -> PageSetup {
         self.pageStartingNumber = pageStartingNumber;
@@ -825,6 +1105,7 @@ public class PageSetup : LinkElement {
     public func getPageStartingNumber() -> Int? {
         return self.pageStartingNumber;
     }
+
 
     // Sets pageWidth. Gets or sets the width of the page in points.
     public func setPageWidth(pageWidth : Double?) -> PageSetup {
@@ -837,6 +1118,7 @@ public class PageSetup : LinkElement {
         return self.pageWidth;
     }
 
+
     // Sets paperSize. Gets or sets the paper size.
     public func setPaperSize(paperSize : PaperSize?) -> PageSetup {
         self.paperSize = paperSize;
@@ -847,6 +1129,7 @@ public class PageSetup : LinkElement {
     public func getPaperSize() -> PaperSize? {
         return self.paperSize;
     }
+
 
     // Sets restartPageNumbering. Gets or sets a value indicating whether page numbering restarts at the beginning of the section.
     public func setRestartPageNumbering(restartPageNumbering : Bool?) -> PageSetup {
@@ -859,6 +1142,7 @@ public class PageSetup : LinkElement {
         return self.restartPageNumbering;
     }
 
+
     // Sets rightMargin. Gets or sets the distance (in points) between the right edge of the page and the right boundary of the body text.
     public func setRightMargin(rightMargin : Double?) -> PageSetup {
         self.rightMargin = rightMargin;
@@ -869,6 +1153,7 @@ public class PageSetup : LinkElement {
     public func getRightMargin() -> Double? {
         return self.rightMargin;
     }
+
 
     // Sets rtlGutter. Gets or sets a value indicating whether Microsoft Word uses gutters for the section based on a right-to-left language or a left-to-right language.
     public func setRtlGutter(rtlGutter : Bool?) -> PageSetup {
@@ -881,6 +1166,7 @@ public class PageSetup : LinkElement {
         return self.rtlGutter;
     }
 
+
     // Sets sectionStart. Gets or sets the type of section break for the specified object.
     public func setSectionStart(sectionStart : SectionStart?) -> PageSetup {
         self.sectionStart = sectionStart;
@@ -891,6 +1177,7 @@ public class PageSetup : LinkElement {
     public func getSectionStart() -> SectionStart? {
         return self.sectionStart;
     }
+
 
     // Sets suppressEndnotes. Gets or sets a value indicating whether endnotes are printed at the end of the next section that doesn't suppress endnotes. Suppressed endnotes are printed before the endnotes in that section.
     public func setSuppressEndnotes(suppressEndnotes : Bool?) -> PageSetup {
@@ -903,6 +1190,7 @@ public class PageSetup : LinkElement {
         return self.suppressEndnotes;
     }
 
+
     // Sets topMargin. Gets or sets the distance (in points) between the top edge of the page and the top boundary of the body text.
     public func setTopMargin(topMargin : Double?) -> PageSetup {
         self.topMargin = topMargin;
@@ -913,6 +1201,7 @@ public class PageSetup : LinkElement {
     public func getTopMargin() -> Double? {
         return self.topMargin;
     }
+
 
     // Sets verticalAlignment. Gets or sets the vertical alignment of text on each page in the document.or section.
     public func setVerticalAlignment(verticalAlignment : VerticalAlignment?) -> PageSetup {

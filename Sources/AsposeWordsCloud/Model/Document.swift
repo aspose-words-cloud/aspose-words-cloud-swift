@@ -98,22 +98,76 @@ public class Document : Codable, WordsApiModel {
     }
 
     // Field of documentProperties. Represents Words document DTO.
-    public var documentProperties : DocumentProperties?;
+    private var _documentProperties : DocumentProperties?;
+
+    public var : DocumentProperties? {
+        get {
+            return self._documentProperties;
+        }
+        set {
+            self._documentProperties = newValue;
+        }
+    }
 
     // Field of fileName. Represents Words document DTO.
-    public var fileName : String?;
+    private var _fileName : String?;
+
+    public var : String? {
+        get {
+            return self._fileName;
+        }
+        set {
+            self._fileName = newValue;
+        }
+    }
 
     // Field of isEncrypted. Represents Words document DTO.
-    public var isEncrypted : Bool?;
+    private var _isEncrypted : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._isEncrypted;
+        }
+        set {
+            self._isEncrypted = newValue;
+        }
+    }
 
     // Field of isSigned. Represents Words document DTO.
-    public var isSigned : Bool?;
+    private var _isSigned : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._isSigned;
+        }
+        set {
+            self._isSigned = newValue;
+        }
+    }
 
     // Field of links. Represents Words document DTO.
-    public var links : [Link]?;
+    private var _links : [Link]?;
+
+    public var : [Link]? {
+        get {
+            return self._links;
+        }
+        set {
+            self._links = newValue;
+        }
+    }
 
     // Field of sourceFormat. Represents Words document DTO.
-    public var sourceFormat : SourceFormat?;
+    private var _sourceFormat : SourceFormat?;
+
+    public var : SourceFormat? {
+        get {
+            return self._sourceFormat;
+        }
+        set {
+            self._sourceFormat = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case documentProperties = "DocumentProperties";
@@ -171,6 +225,7 @@ public class Document : Codable, WordsApiModel {
         return self.documentProperties;
     }
 
+
     // Sets fileName. Gets or sets the name of the file.
     public func setFileName(fileName : String?) -> Document {
         self.fileName = fileName;
@@ -181,6 +236,7 @@ public class Document : Codable, WordsApiModel {
     public func getFileName() -> String? {
         return self.fileName;
     }
+
 
     // Sets isEncrypted. Gets or sets a value indicating whether the document is encrypted and requires a password to open.
     public func setIsEncrypted(isEncrypted : Bool?) -> Document {
@@ -193,6 +249,7 @@ public class Document : Codable, WordsApiModel {
         return self.isEncrypted;
     }
 
+
     // Sets isSigned. Gets or sets a value indicating whether the document contains a digital signature. This property merely informs that a digital signature is present on a document, but it does not specify whether the signature is valid or not.
     public func setIsSigned(isSigned : Bool?) -> Document {
         self.isSigned = isSigned;
@@ -204,6 +261,7 @@ public class Document : Codable, WordsApiModel {
         return self.isSigned;
     }
 
+
     // Sets links. Gets or sets the list of links that originate from this document.
     public func setLinks(links : [Link]?) -> Document {
         self.links = links;
@@ -214,6 +272,7 @@ public class Document : Codable, WordsApiModel {
     public func getLinks() -> [Link]? {
         return self.links;
     }
+
 
     // Sets sourceFormat. Gets or sets the original format of the document.
     public func setSourceFormat(sourceFormat : SourceFormat?) -> Document {

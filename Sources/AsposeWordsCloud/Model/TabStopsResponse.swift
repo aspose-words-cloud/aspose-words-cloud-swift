@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TabStopsResponse : WordsResponse {
     // Field of tabStops. The REST response with an array of tab stops.
-    public var tabStops : [TabStop]?;
+    private var _tabStops : [TabStop]?;
+
+    public var : [TabStop]? {
+        get {
+            return self._tabStops;
+        }
+        set {
+            self._tabStops = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case tabStops = "TabStops";

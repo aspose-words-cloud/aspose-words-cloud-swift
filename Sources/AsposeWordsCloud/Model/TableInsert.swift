@@ -31,13 +31,40 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableInsert : Codable, WordsApiModel {
     // Field of columnsCount. DTO container with a table element.
-    public var columnsCount : Int?;
+    private var _columnsCount : Int?;
+
+    public var : Int? {
+        get {
+            return self._columnsCount;
+        }
+        set {
+            self._columnsCount = newValue;
+        }
+    }
 
     // Field of position. DTO container with a table element.
-    public var position : DocumentPosition?;
+    private var _position : DocumentPosition?;
+
+    public var : DocumentPosition? {
+        get {
+            return self._position;
+        }
+        set {
+            self._position = newValue;
+        }
+    }
 
     // Field of rowsCount. DTO container with a table element.
-    public var rowsCount : Int?;
+    private var _rowsCount : Int?;
+
+    public var : Int? {
+        get {
+            return self._rowsCount;
+        }
+        set {
+            self._rowsCount = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case columnsCount = "ColumnsCount";
@@ -80,6 +107,7 @@ public class TableInsert : Codable, WordsApiModel {
         return self.columnsCount;
     }
 
+
     // Sets position. Gets or sets the position to insert the table. The table will be inserted before the specified position.
     public func setPosition(position : DocumentPosition?) -> TableInsert {
         self.position = position;
@@ -90,6 +118,7 @@ public class TableInsert : Codable, WordsApiModel {
     public func getPosition() -> DocumentPosition? {
         return self.position;
     }
+
 
     // Sets rowsCount. Gets or sets the number of rows. The default value is 2.
     public func setRowsCount(rowsCount : Int?) -> TableInsert {

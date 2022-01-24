@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class XmlDataLoadOptions : Codable, WordsApiModel {
     // Field of alwaysGenerateRootObject. Represents options for XML data loading.
-    public var alwaysGenerateRootObject : Bool?;
+    private var _alwaysGenerateRootObject : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._alwaysGenerateRootObject;
+        }
+        set {
+            self._alwaysGenerateRootObject = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case alwaysGenerateRootObject = "AlwaysGenerateRootObject";

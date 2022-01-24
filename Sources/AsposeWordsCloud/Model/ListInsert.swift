@@ -101,7 +101,16 @@ public class ListInsert : Codable, WordsApiModel {
     }
 
     // Field of template. Insert document to document list.
-    public var template : Template?;
+    private var _template : Template?;
+
+    public var : Template? {
+        get {
+            return self._template;
+        }
+        set {
+            self._template = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case template = "Template";

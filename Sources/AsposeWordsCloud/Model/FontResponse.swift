@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FontResponse : WordsResponse {
     // Field of font. The REST response with a font.
-    public var font : Font?;
+    private var _font : Font?;
+
+    public var : Font? {
+        get {
+            return self._font;
+        }
+        set {
+            self._font = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case font = "Font";

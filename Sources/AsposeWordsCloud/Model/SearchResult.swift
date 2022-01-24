@@ -31,10 +31,28 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SearchResult : Codable, WordsApiModel {
     // Field of rangeEnd. Result of search operation.
-    public var rangeEnd : DocumentPosition?;
+    private var _rangeEnd : DocumentPosition?;
+
+    public var : DocumentPosition? {
+        get {
+            return self._rangeEnd;
+        }
+        set {
+            self._rangeEnd = newValue;
+        }
+    }
 
     // Field of rangeStart. Result of search operation.
-    public var rangeStart : DocumentPosition?;
+    private var _rangeStart : DocumentPosition?;
+
+    public var : DocumentPosition? {
+        get {
+            return self._rangeStart;
+        }
+        set {
+            self._rangeStart = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case rangeEnd = "RangeEnd";
@@ -71,6 +89,7 @@ public class SearchResult : Codable, WordsApiModel {
     public func getRangeEnd() -> DocumentPosition? {
         return self.rangeEnd;
     }
+
 
     // Sets rangeStart. Gets or sets the link to result range start node.
     public func setRangeStart(rangeStart : DocumentPosition?) -> SearchResult {

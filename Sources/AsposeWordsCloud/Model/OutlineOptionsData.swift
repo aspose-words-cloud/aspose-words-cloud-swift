@@ -31,22 +31,76 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class OutlineOptionsData : Codable, WordsApiModel {
     // Field of bookmarksOutlineLevels. Container class for outline options.
-    public var bookmarksOutlineLevels : [BookmarksOutlineLevelData]?;
+    private var _bookmarksOutlineLevels : [BookmarksOutlineLevelData]?;
+
+    public var : [BookmarksOutlineLevelData]? {
+        get {
+            return self._bookmarksOutlineLevels;
+        }
+        set {
+            self._bookmarksOutlineLevels = newValue;
+        }
+    }
 
     // Field of createMissingOutlineLevels. Container class for outline options.
-    public var createMissingOutlineLevels : Bool?;
+    private var _createMissingOutlineLevels : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._createMissingOutlineLevels;
+        }
+        set {
+            self._createMissingOutlineLevels = newValue;
+        }
+    }
 
     // Field of createOutlinesForHeadingsInTables. Container class for outline options.
-    public var createOutlinesForHeadingsInTables : Bool?;
+    private var _createOutlinesForHeadingsInTables : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._createOutlinesForHeadingsInTables;
+        }
+        set {
+            self._createOutlinesForHeadingsInTables = newValue;
+        }
+    }
 
     // Field of defaultBookmarksOutlineLevel. Container class for outline options.
-    public var defaultBookmarksOutlineLevel : Int?;
+    private var _defaultBookmarksOutlineLevel : Int?;
+
+    public var : Int? {
+        get {
+            return self._defaultBookmarksOutlineLevel;
+        }
+        set {
+            self._defaultBookmarksOutlineLevel = newValue;
+        }
+    }
 
     // Field of expandedOutlineLevels. Container class for outline options.
-    public var expandedOutlineLevels : Int?;
+    private var _expandedOutlineLevels : Int?;
+
+    public var : Int? {
+        get {
+            return self._expandedOutlineLevels;
+        }
+        set {
+            self._expandedOutlineLevels = newValue;
+        }
+    }
 
     // Field of headingsOutlineLevels. Container class for outline options.
-    public var headingsOutlineLevels : Int?;
+    private var _headingsOutlineLevels : Int?;
+
+    public var : Int? {
+        get {
+            return self._headingsOutlineLevels;
+        }
+        set {
+            self._headingsOutlineLevels = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case bookmarksOutlineLevels = "BookmarksOutlineLevels";
@@ -104,6 +158,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
         return self.bookmarksOutlineLevels;
     }
 
+
     // Sets createMissingOutlineLevels. Gets or sets a value indicating whether to create missing outline levels when the document is exported. The default value is false.
     public func setCreateMissingOutlineLevels(createMissingOutlineLevels : Bool?) -> OutlineOptionsData {
         self.createMissingOutlineLevels = createMissingOutlineLevels;
@@ -114,6 +169,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     public func getCreateMissingOutlineLevels() -> Bool? {
         return self.createMissingOutlineLevels;
     }
+
 
     // Sets createOutlinesForHeadingsInTables. Gets or sets a value indicating whether to create outlines for headings (paragraphs formatted with the Heading styles) inside tables.
     public func setCreateOutlinesForHeadingsInTables(createOutlinesForHeadingsInTables : Bool?) -> OutlineOptionsData {
@@ -126,6 +182,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
         return self.createOutlinesForHeadingsInTables;
     }
 
+
     // Sets defaultBookmarksOutlineLevel. Gets or sets the default level in the document outline at which to display Word bookmarks.
     public func setDefaultBookmarksOutlineLevel(defaultBookmarksOutlineLevel : Int?) -> OutlineOptionsData {
         self.defaultBookmarksOutlineLevel = defaultBookmarksOutlineLevel;
@@ -137,6 +194,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
         return self.defaultBookmarksOutlineLevel;
     }
 
+
     // Sets expandedOutlineLevels. Gets or sets the number of levels in the document outline to show expanded when the file is viewed.
     public func setExpandedOutlineLevels(expandedOutlineLevels : Int?) -> OutlineOptionsData {
         self.expandedOutlineLevels = expandedOutlineLevels;
@@ -147,6 +205,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     public func getExpandedOutlineLevels() -> Int? {
         return self.expandedOutlineLevels;
     }
+
 
     // Sets headingsOutlineLevels. Gets or sets the number of levels of headings (paragraphs formatted with the Heading styles) to include in the document outline.
     public func setHeadingsOutlineLevels(headingsOutlineLevels : Int?) -> OutlineOptionsData {

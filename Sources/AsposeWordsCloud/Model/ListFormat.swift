@@ -31,13 +31,40 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListFormat : LinkElement {
     // Field of isListItem. DTO container with a paragraph list format element.
-    public var isListItem : Bool?;
+    private var _isListItem : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._isListItem;
+        }
+        set {
+            self._isListItem = newValue;
+        }
+    }
 
     // Field of listId. DTO container with a paragraph list format element.
-    public var listId : Int?;
+    private var _listId : Int?;
+
+    public var : Int? {
+        get {
+            return self._listId;
+        }
+        set {
+            self._listId = newValue;
+        }
+    }
 
     // Field of listLevelNumber. DTO container with a paragraph list format element.
-    public var listLevelNumber : Int?;
+    private var _listLevelNumber : Int?;
+
+    public var : Int? {
+        get {
+            return self._listLevelNumber;
+        }
+        set {
+            self._listLevelNumber = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case isListItem = "IsListItem";
@@ -83,6 +110,7 @@ public class ListFormat : LinkElement {
         return self.isListItem;
     }
 
+
     // Sets listId. Gets or sets the list id of this paragraph.
     public func setListId(listId : Int?) -> ListFormat {
         self.listId = listId;
@@ -93,6 +121,7 @@ public class ListFormat : LinkElement {
     public func getListId() -> Int? {
         return self.listId;
     }
+
 
     // Sets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
     public func setListLevelNumber(listLevelNumber : Int?) -> ListFormat {

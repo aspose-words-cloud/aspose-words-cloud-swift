@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CustomXmlPartResponse : WordsResponse {
     // Field of customXmlPart. The REST response with a custom xml part.
-    public var customXmlPart : CustomXmlPart?;
+    private var _customXmlPart : CustomXmlPart?;
+
+    public var : CustomXmlPart? {
+        get {
+            return self._customXmlPart;
+        }
+        set {
+            self._customXmlPart = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case customXmlPart = "CustomXmlPart";

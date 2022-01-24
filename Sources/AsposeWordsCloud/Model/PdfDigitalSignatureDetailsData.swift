@@ -31,19 +31,64 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     // Field of certificateFilename. Container class for details of digital signature.
-    public var certificateFilename : String?;
+    private var _certificateFilename : String?;
+
+    public var : String? {
+        get {
+            return self._certificateFilename;
+        }
+        set {
+            self._certificateFilename = newValue;
+        }
+    }
 
     // Field of hashAlgorithm. Container class for details of digital signature.
-    public var hashAlgorithm : String?;
+    private var _hashAlgorithm : String?;
+
+    public var : String? {
+        get {
+            return self._hashAlgorithm;
+        }
+        set {
+            self._hashAlgorithm = newValue;
+        }
+    }
 
     // Field of location. Container class for details of digital signature.
-    public var location : String?;
+    private var _location : String?;
+
+    public var : String? {
+        get {
+            return self._location;
+        }
+        set {
+            self._location = newValue;
+        }
+    }
 
     // Field of reason. Container class for details of digital signature.
-    public var reason : String?;
+    private var _reason : String?;
+
+    public var : String? {
+        get {
+            return self._reason;
+        }
+        set {
+            self._reason = newValue;
+        }
+    }
 
     // Field of signatureDate. Container class for details of digital signature.
-    public var signatureDate : Date?;
+    private var _signatureDate : Date?;
+
+    public var : Date? {
+        get {
+            return self._signatureDate;
+        }
+        set {
+            self._signatureDate = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case certificateFilename = "CertificateFilename";
@@ -101,6 +146,7 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
         return self.certificateFilename;
     }
 
+
     // Sets hashAlgorithm. Gets or sets the hash algorithm.
     public func setHashAlgorithm(hashAlgorithm : String?) -> PdfDigitalSignatureDetailsData {
         self.hashAlgorithm = hashAlgorithm;
@@ -111,6 +157,7 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     public func getHashAlgorithm() -> String? {
         return self.hashAlgorithm;
     }
+
 
     // Sets location. Gets or sets the location of the signing.
     public func setLocation(location : String?) -> PdfDigitalSignatureDetailsData {
@@ -123,6 +170,7 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
         return self.location;
     }
 
+
     // Sets reason. Gets or sets the reason for the signing.
     public func setReason(reason : String?) -> PdfDigitalSignatureDetailsData {
         self.reason = reason;
@@ -133,6 +181,7 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     public func getReason() -> String? {
         return self.reason;
     }
+
 
     // Sets signatureDate. Gets or sets the date of the signing.
     public func setSignatureDate(signatureDate : Date?) -> PdfDigitalSignatureDetailsData {

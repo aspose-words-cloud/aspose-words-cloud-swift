@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class RunsResponse : WordsResponse {
     // Field of runs. The REST response with a collection of Run elements.
-    public var runs : Runs?;
+    private var _runs : Runs?;
+
+    public var : Runs? {
+        get {
+            return self._runs;
+        }
+        set {
+            self._runs = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case runs = "Runs";

@@ -44,22 +44,76 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     }
 
     // Field of csvDataLoadOptions. Report engine settings.
-    public var csvDataLoadOptions : CsvDataLoadOptions?;
+    private var _csvDataLoadOptions : CsvDataLoadOptions?;
+
+    public var : CsvDataLoadOptions? {
+        get {
+            return self._csvDataLoadOptions;
+        }
+        set {
+            self._csvDataLoadOptions = newValue;
+        }
+    }
 
     // Field of dataSourceName. Report engine settings.
-    public var dataSourceName : String?;
+    private var _dataSourceName : String?;
+
+    public var : String? {
+        get {
+            return self._dataSourceName;
+        }
+        set {
+            self._dataSourceName = newValue;
+        }
+    }
 
     // Field of dataSourceType. Report engine settings.
-    public var dataSourceType : DataSourceType?;
+    private var _dataSourceType : DataSourceType?;
+
+    public var : DataSourceType? {
+        get {
+            return self._dataSourceType;
+        }
+        set {
+            self._dataSourceType = newValue;
+        }
+    }
 
     // Field of jsonDataLoadOptions. Report engine settings.
-    public var jsonDataLoadOptions : JsonDataLoadOptions?;
+    private var _jsonDataLoadOptions : JsonDataLoadOptions?;
+
+    public var : JsonDataLoadOptions? {
+        get {
+            return self._jsonDataLoadOptions;
+        }
+        set {
+            self._jsonDataLoadOptions = newValue;
+        }
+    }
 
     // Field of reportBuildOptions. Report engine settings.
-    public var reportBuildOptions : [ReportBuildOptions]?;
+    private var _reportBuildOptions : [ReportBuildOptions]?;
+
+    public var : [ReportBuildOptions]? {
+        get {
+            return self._reportBuildOptions;
+        }
+        set {
+            self._reportBuildOptions = newValue;
+        }
+    }
 
     // Field of xmlDataLoadOptions. Report engine settings.
-    public var xmlDataLoadOptions : XmlDataLoadOptions?;
+    private var _xmlDataLoadOptions : XmlDataLoadOptions?;
+
+    public var : XmlDataLoadOptions? {
+        get {
+            return self._xmlDataLoadOptions;
+        }
+        set {
+            self._xmlDataLoadOptions = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case csvDataLoadOptions = "CsvDataLoadOptions";
@@ -117,6 +171,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
         return self.csvDataLoadOptions;
     }
 
+
     // Sets dataSourceName. Gets or sets the name to reference the data source object in the template.
     public func setDataSourceName(dataSourceName : String?) -> ReportEngineSettings {
         self.dataSourceName = dataSourceName;
@@ -127,6 +182,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     public func getDataSourceName() -> String? {
         return self.dataSourceName;
     }
+
 
     // Sets dataSourceType. Gets or sets type of datasource.
     public func setDataSourceType(dataSourceType : DataSourceType?) -> ReportEngineSettings {
@@ -139,6 +195,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
         return self.dataSourceType;
     }
 
+
     // Sets jsonDataLoadOptions. Gets or sets the options for parsing JSON data.
     public func setJsonDataLoadOptions(jsonDataLoadOptions : JsonDataLoadOptions?) -> ReportEngineSettings {
         self.jsonDataLoadOptions = jsonDataLoadOptions;
@@ -150,6 +207,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
         return self.jsonDataLoadOptions;
     }
 
+
     // Sets reportBuildOptions. Gets or sets type of options to build report.
     public func setReportBuildOptions(reportBuildOptions : [ReportBuildOptions]?) -> ReportEngineSettings {
         self.reportBuildOptions = reportBuildOptions;
@@ -160,6 +218,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     public func getReportBuildOptions() -> [ReportBuildOptions]? {
         return self.reportBuildOptions;
     }
+
 
     // Sets xmlDataLoadOptions. Gets or sets the options for parsing XML data.
     public func setXmlDataLoadOptions(xmlDataLoadOptions : XmlDataLoadOptions?) -> ReportEngineSettings {

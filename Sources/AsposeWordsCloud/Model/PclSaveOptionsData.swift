@@ -31,10 +31,37 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PclSaveOptionsData : FixedPageSaveOptionsData {
     // Field of falllbackFontName. Container class for pcl save options.
-    public var falllbackFontName : String?;
+    private var _falllbackFontName : String?;
+
+    public var : String? {
+        get {
+            return self._falllbackFontName;
+        }
+        set {
+            self._falllbackFontName = newValue;
+        }
+    }
 
     // Field of rasterizeTransformedElements. Container class for pcl save options.
-    public var rasterizeTransformedElements : Bool?;
+    private var _rasterizeTransformedElements : Bool?;
+
+    public var : Bool? {
+        get {
+            return self._rasterizeTransformedElements;
+        }
+        set {
+            self._rasterizeTransformedElements = newValue;
+        }
+    }
+
+    // Field of saveFormat. Container class for pcl save options.
+    private final let _saveFormat : String? = "pcl";
+
+    override public var : String? {
+        get {
+            return self._saveFormat;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case falllbackFontName = "FalllbackFontName";
@@ -74,6 +101,7 @@ public class PclSaveOptionsData : FixedPageSaveOptionsData {
     public func getFalllbackFontName() -> String? {
         return self.falllbackFontName;
     }
+
 
     // Sets rasterizeTransformedElements. Gets or sets a value indicating whether complex transformed elements should be rasterized before saving to PCL document.. The default value is true.
     public func setRasterizeTransformedElements(rasterizeTransformedElements : Bool?) -> PclSaveOptionsData {

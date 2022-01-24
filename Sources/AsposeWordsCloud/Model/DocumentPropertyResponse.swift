@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentPropertyResponse : WordsResponse {
     // Field of documentProperty. The REST response with a document property.
-    public var documentProperty : DocumentProperty?;
+    private var _documentProperty : DocumentProperty?;
+
+    public var : DocumentProperty? {
+        get {
+            return self._documentProperty;
+        }
+        set {
+            self._documentProperty = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case documentProperty = "DocumentProperty";

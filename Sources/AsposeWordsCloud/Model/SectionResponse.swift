@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SectionResponse : WordsResponse {
     // Field of section. The REST response with a section.
-    public var section : Section?;
+    private var _section : Section?;
+
+    public var : Section? {
+        get {
+            return self._section;
+        }
+        set {
+            self._section = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case section = "Section";
