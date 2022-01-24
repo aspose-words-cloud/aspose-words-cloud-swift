@@ -43,7 +43,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of allowEmbeddingPostScriptFonts. base container class for save options data.
     private var _allowEmbeddingPostScriptFonts : Bool?;
 
-    public var : Bool? {
+    public var allowEmbeddingPostScriptFonts : Bool? {
         get {
             return self._allowEmbeddingPostScriptFonts;
         }
@@ -55,7 +55,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of customTimeZoneInfoData. base container class for save options data.
     private var _customTimeZoneInfoData : TimeZoneInfoData?;
 
-    public var : TimeZoneInfoData? {
+    public var customTimeZoneInfoData : TimeZoneInfoData? {
         get {
             return self._customTimeZoneInfoData;
         }
@@ -67,7 +67,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of dml3DEffectsRenderingMode. base container class for save options data.
     private var _dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?;
 
-    public var : Dml3DEffectsRenderingMode? {
+    public var dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode? {
         get {
             return self._dml3DEffectsRenderingMode;
         }
@@ -79,7 +79,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of dmlEffectsRenderingMode. base container class for save options data.
     private var _dmlEffectsRenderingMode : String?;
 
-    public var : String? {
+    public var dmlEffectsRenderingMode : String? {
         get {
             return self._dmlEffectsRenderingMode;
         }
@@ -91,7 +91,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of dmlRenderingMode. base container class for save options data.
     private var _dmlRenderingMode : String?;
 
-    public var : String? {
+    public var dmlRenderingMode : String? {
         get {
             return self._dmlRenderingMode;
         }
@@ -103,7 +103,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of fileName. base container class for save options data.
     private var _fileName : String?;
 
-    public var : String? {
+    public var fileName : String? {
         get {
             return self._fileName;
         }
@@ -115,7 +115,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of flatOpcXmlMappingOnly. base container class for save options data.
     private var _flatOpcXmlMappingOnly : Bool?;
 
-    public var : Bool? {
+    public var flatOpcXmlMappingOnly : Bool? {
         get {
             return self._flatOpcXmlMappingOnly;
         }
@@ -127,7 +127,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of imlRenderingMode. base container class for save options data.
     private var _imlRenderingMode : String?;
 
-    public var : String? {
+    public var imlRenderingMode : String? {
         get {
             return self._imlRenderingMode;
         }
@@ -139,7 +139,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of saveFormat. base container class for save options data.
     private final let _saveFormat : String?;
 
-    public var : String? {
+    public var saveFormat : String? {
         get {
             return self._saveFormat;
         }
@@ -148,7 +148,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of updateCreatedTimeProperty. base container class for save options data.
     private var _updateCreatedTimeProperty : Bool?;
 
-    public var : Bool? {
+    public var updateCreatedTimeProperty : Bool? {
         get {
             return self._updateCreatedTimeProperty;
         }
@@ -160,7 +160,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of updateFields. base container class for save options data.
     private var _updateFields : Bool?;
 
-    public var : Bool? {
+    public var updateFields : Bool? {
         get {
             return self._updateFields;
         }
@@ -172,7 +172,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of updateLastPrintedProperty. base container class for save options data.
     private var _updateLastPrintedProperty : Bool?;
 
-    public var : Bool? {
+    public var updateLastPrintedProperty : Bool? {
         get {
             return self._updateLastPrintedProperty;
         }
@@ -184,7 +184,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of updateLastSavedTimeProperty. base container class for save options data.
     private var _updateLastSavedTimeProperty : Bool?;
 
-    public var : Bool? {
+    public var updateLastSavedTimeProperty : Bool? {
         get {
             return self._updateLastSavedTimeProperty;
         }
@@ -196,7 +196,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of updateSdtContent. base container class for save options data.
     private var _updateSdtContent : Bool?;
 
-    public var : Bool? {
+    public var updateSdtContent : Bool? {
         get {
             return self._updateSdtContent;
         }
@@ -208,7 +208,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     // Field of zipOutput. base container class for save options data.
     private var _zipOutput : Bool?;
 
-    public var : Bool? {
+    public var zipOutput : Bool? {
         get {
             return self._zipOutput;
         }

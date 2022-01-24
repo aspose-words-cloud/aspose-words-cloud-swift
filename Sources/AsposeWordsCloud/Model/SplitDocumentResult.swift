@@ -33,7 +33,7 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     // Field of pages. Result of splitting document.
     private var _pages : [FileLink]?;
 
-    public var : [FileLink]? {
+    public var pages : [FileLink]? {
         get {
             return self._pages;
         }
@@ -45,7 +45,7 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     // Field of sourceDocument. Result of splitting document.
     private var _sourceDocument : FileLink?;
 
-    public var : FileLink? {
+    public var sourceDocument : FileLink? {
         get {
             return self._sourceDocument;
         }
@@ -57,7 +57,7 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     // Field of zippedPages. Result of splitting document.
     private var _zippedPages : FileLink?;
 
-    public var : FileLink? {
+    public var zippedPages : FileLink? {
         get {
             return self._zippedPages;
         }

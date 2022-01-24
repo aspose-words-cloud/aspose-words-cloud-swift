@@ -33,7 +33,7 @@ public class WordsResponse : Codable, WordsApiModel {
     // Field of requestId. The base class for all responses.
     private var _requestId : String?;
 
-    public var : String? {
+    public var requestId : String? {
         get {
             return self._requestId;
         }

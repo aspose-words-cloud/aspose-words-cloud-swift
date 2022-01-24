@@ -33,7 +33,7 @@ public class TableLinkCollection : LinkElement {
     // Field of tableLinkList. The collection of table's links.
     private var _tableLinkList : [TableLink]?;
 
-    public var : [TableLink]? {
+    public var tableLinkList : [TableLink]? {
         get {
             return self._tableLinkList;
         }

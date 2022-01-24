@@ -33,7 +33,7 @@ public class TableCell : NodeLink {
     // Field of childNodes. DTO container with a table cell element.
     private var _childNodes : [NodeLink]?;
 
-    public var : [NodeLink]? {
+    public var childNodes : [NodeLink]? {
         get {
             return self._childNodes;
         }

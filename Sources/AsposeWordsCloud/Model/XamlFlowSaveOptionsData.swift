@@ -33,7 +33,7 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
     // Field of imagesFolder. Container class for xaml flow save options.
     private var _imagesFolder : String?;
 
-    public var : String? {
+    public var imagesFolder : String? {
         get {
             return self._imagesFolder;
         }
@@ -45,7 +45,7 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
     // Field of imagesFolderAlias. Container class for xaml flow save options.
     private var _imagesFolderAlias : String?;
 
-    public var : String? {
+    public var imagesFolderAlias : String? {
         get {
             return self._imagesFolderAlias;
         }
@@ -57,7 +57,7 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
     // Field of saveFormat. Container class for xaml flow save options.
     private final let _saveFormat : String? = "xamlflow";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

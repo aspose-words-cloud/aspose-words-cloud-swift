@@ -33,7 +33,7 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
     // Field of commentChar. Represents options for parsing CSV data.
     private var _commentChar : String?;
 
-    public var : String? {
+    public var commentChar : String? {
         get {
             return self._commentChar;
         }
@@ -45,7 +45,7 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
     // Field of delimiter. Represents options for parsing CSV data.
     private var _delimiter : String?;
 
-    public var : String? {
+    public var delimiter : String? {
         get {
             return self._delimiter;
         }
@@ -57,7 +57,7 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
     // Field of hasHeaders. Represents options for parsing CSV data.
     private var _hasHeaders : Bool?;
 
-    public var : Bool? {
+    public var hasHeaders : Bool? {
         get {
             return self._hasHeaders;
         }
@@ -69,7 +69,7 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
     // Field of quoteChar. Represents options for parsing CSV data.
     private var _quoteChar : String?;
 
-    public var : String? {
+    public var quoteChar : String? {
         get {
             return self._quoteChar;
         }

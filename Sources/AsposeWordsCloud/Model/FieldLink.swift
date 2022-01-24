@@ -33,7 +33,7 @@ public class FieldLink : NodeLink {
     // Field of fieldCode. Field link.
     private var _fieldCode : String?;
 
-    public var : String? {
+    public var fieldCode : String? {
         get {
             return self._fieldCode;
         }

@@ -199,7 +199,7 @@ public class Shading : Codable, WordsApiModel {
     // Field of backgroundPatternColor. DTO container with a paragraph format shading element.
     private var _backgroundPatternColor : XmlColor?;
 
-    public var : XmlColor? {
+    public var backgroundPatternColor : XmlColor? {
         get {
             return self._backgroundPatternColor;
         }
@@ -211,7 +211,7 @@ public class Shading : Codable, WordsApiModel {
     // Field of foregroundPatternColor. DTO container with a paragraph format shading element.
     private var _foregroundPatternColor : XmlColor?;
 
-    public var : XmlColor? {
+    public var foregroundPatternColor : XmlColor? {
         get {
             return self._foregroundPatternColor;
         }
@@ -223,7 +223,7 @@ public class Shading : Codable, WordsApiModel {
     // Field of texture. DTO container with a paragraph format shading element.
     private var _texture : Texture?;
 
-    public var : Texture? {
+    public var texture : Texture? {
         get {
             return self._texture;
         }

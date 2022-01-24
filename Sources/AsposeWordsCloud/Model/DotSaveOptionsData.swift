@@ -33,7 +33,7 @@ public class DotSaveOptionsData : DocSaveOptionsData {
     // Field of saveFormat. Container class for dot save options.
     private final let _saveFormat : String? = "dot";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

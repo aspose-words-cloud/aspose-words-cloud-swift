@@ -33,7 +33,7 @@ public class DocumentProperties : LinkElement {
     // Field of list. The collection of document properties.
     private var _list : [DocumentProperty]?;
 
-    public var : [DocumentProperty]? {
+    public var list : [DocumentProperty]? {
         get {
             return self._list;
         }

@@ -33,7 +33,7 @@ public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
     // Field of exportCidUrlsForMhtmlResources. Container class for mhtml save options.
     private var _exportCidUrlsForMhtmlResources : Bool?;
 
-    public var : Bool? {
+    public var exportCidUrlsForMhtmlResources : Bool? {
         get {
             return self._exportCidUrlsForMhtmlResources;
         }
@@ -45,7 +45,7 @@ public class MhtmlSaveOptionsData : HtmlSaveOptionsData {
     // Field of saveFormat. Container class for mhtml save options.
     private final let _saveFormat : String? = "mht";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

@@ -33,7 +33,7 @@ public class TableInsert : Codable, WordsApiModel {
     // Field of columnsCount. DTO container with a table element.
     private var _columnsCount : Int?;
 
-    public var : Int? {
+    public var columnsCount : Int? {
         get {
             return self._columnsCount;
         }
@@ -45,7 +45,7 @@ public class TableInsert : Codable, WordsApiModel {
     // Field of position. DTO container with a table element.
     private var _position : DocumentPosition?;
 
-    public var : DocumentPosition? {
+    public var position : DocumentPosition? {
         get {
             return self._position;
         }
@@ -57,7 +57,7 @@ public class TableInsert : Codable, WordsApiModel {
     // Field of rowsCount. DTO container with a table element.
     private var _rowsCount : Int?;
 
-    public var : Int? {
+    public var rowsCount : Int? {
         get {
             return self._rowsCount;
         }

@@ -33,7 +33,7 @@ public class CommentBase : Codable, WordsApiModel {
     // Field of author. Comment.
     private var _author : String?;
 
-    public var : String? {
+    public var author : String? {
         get {
             return self._author;
         }
@@ -45,7 +45,7 @@ public class CommentBase : Codable, WordsApiModel {
     // Field of dateTime. Comment.
     private var _dateTime : Date?;
 
-    public var : Date? {
+    public var dateTime : Date? {
         get {
             return self._dateTime;
         }
@@ -57,7 +57,7 @@ public class CommentBase : Codable, WordsApiModel {
     // Field of initial. Comment.
     private var _initial : String?;
 
-    public var : String? {
+    public var initial : String? {
         get {
             return self._initial;
         }
@@ -69,7 +69,7 @@ public class CommentBase : Codable, WordsApiModel {
     // Field of rangeEnd. Comment.
     private var _rangeEnd : DocumentPosition?;
 
-    public var : DocumentPosition? {
+    public var rangeEnd : DocumentPosition? {
         get {
             return self._rangeEnd;
         }
@@ -81,7 +81,7 @@ public class CommentBase : Codable, WordsApiModel {
     // Field of rangeStart. Comment.
     private var _rangeStart : DocumentPosition?;
 
-    public var : DocumentPosition? {
+    public var rangeStart : DocumentPosition? {
         get {
             return self._rangeStart;
         }
@@ -93,7 +93,7 @@ public class CommentBase : Codable, WordsApiModel {
     // Field of text. Comment.
     private var _text : String?;
 
-    public var : String? {
+    public var text : String? {
         get {
             return self._text;
         }

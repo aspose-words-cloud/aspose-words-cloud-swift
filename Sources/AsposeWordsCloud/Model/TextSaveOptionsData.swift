@@ -33,7 +33,7 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     // Field of addBidiMarks. Container class for text save options.
     private var _addBidiMarks : Bool?;
 
-    public var : Bool? {
+    public var addBidiMarks : Bool? {
         get {
             return self._addBidiMarks;
         }
@@ -45,7 +45,7 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     // Field of maxCharactersPerLine. Container class for text save options.
     private var _maxCharactersPerLine : Int?;
 
-    public var : Int? {
+    public var maxCharactersPerLine : Int? {
         get {
             return self._maxCharactersPerLine;
         }
@@ -57,7 +57,7 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     // Field of preserveTableLayout. Container class for text save options.
     private var _preserveTableLayout : Bool?;
 
-    public var : Bool? {
+    public var preserveTableLayout : Bool? {
         get {
             return self._preserveTableLayout;
         }
@@ -69,7 +69,7 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     // Field of saveFormat. Container class for text save options.
     private final let _saveFormat : String? = "txt";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }
@@ -78,7 +78,7 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     // Field of simplifyListLabels. Container class for text save options.
     private var _simplifyListLabels : Bool?;
 
-    public var : Bool? {
+    public var simplifyListLabels : Bool? {
         get {
             return self._simplifyListLabels;
         }

@@ -34,7 +34,7 @@ public class Link : Codable, WordsApiModel {
     // Field of href. Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
     private var _href : String?;
 
-    public var : String? {
+    public var href : String? {
         get {
             return self._href;
         }
@@ -46,7 +46,7 @@ public class Link : Codable, WordsApiModel {
     // Field of rel. Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
     private var _rel : String?;
 
-    public var : String? {
+    public var rel : String? {
         get {
             return self._rel;
         }
@@ -58,7 +58,7 @@ public class Link : Codable, WordsApiModel {
     // Field of title. Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
     private var _title : String?;
 
-    public var : String? {
+    public var title : String? {
         get {
             return self._title;
         }
@@ -70,7 +70,7 @@ public class Link : Codable, WordsApiModel {
     // Field of type. Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
     private var _type : String?;
 
-    public var : String? {
+    public var type : String? {
         get {
             return self._type;
         }

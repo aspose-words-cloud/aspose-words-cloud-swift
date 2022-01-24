@@ -68,7 +68,7 @@ public class FieldOptions : Codable, WordsApiModel {
     // Field of builtInTemplatesPaths. DTO for field options.
     private var _builtInTemplatesPaths : [String]?;
 
-    public var : [String]? {
+    public var builtInTemplatesPaths : [String]? {
         get {
             return self._builtInTemplatesPaths;
         }
@@ -80,7 +80,7 @@ public class FieldOptions : Codable, WordsApiModel {
     // Field of currentUser. DTO for field options.
     private var _currentUser : UserInformation?;
 
-    public var : UserInformation? {
+    public var currentUser : UserInformation? {
         get {
             return self._currentUser;
         }
@@ -92,7 +92,7 @@ public class FieldOptions : Codable, WordsApiModel {
     // Field of customTocStyleSeparator. DTO for field options.
     private var _customTocStyleSeparator : String?;
 
-    public var : String? {
+    public var customTocStyleSeparator : String? {
         get {
             return self._customTocStyleSeparator;
         }
@@ -104,7 +104,7 @@ public class FieldOptions : Codable, WordsApiModel {
     // Field of defaultDocumentAuthor. DTO for field options.
     private var _defaultDocumentAuthor : String?;
 
-    public var : String? {
+    public var defaultDocumentAuthor : String? {
         get {
             return self._defaultDocumentAuthor;
         }
@@ -116,7 +116,7 @@ public class FieldOptions : Codable, WordsApiModel {
     // Field of fieldIndexFormat. DTO for field options.
     private var _fieldIndexFormat : FieldIndexFormat?;
 
-    public var : FieldIndexFormat? {
+    public var fieldIndexFormat : FieldIndexFormat? {
         get {
             return self._fieldIndexFormat;
         }
@@ -128,7 +128,7 @@ public class FieldOptions : Codable, WordsApiModel {
     // Field of fieldUpdateCultureName. DTO for field options.
     private var _fieldUpdateCultureName : String?;
 
-    public var : String? {
+    public var fieldUpdateCultureName : String? {
         get {
             return self._fieldUpdateCultureName;
         }
@@ -140,7 +140,7 @@ public class FieldOptions : Codable, WordsApiModel {
     // Field of fieldUpdateCultureSource. DTO for field options.
     private var _fieldUpdateCultureSource : FieldUpdateCultureSource?;
 
-    public var : FieldUpdateCultureSource? {
+    public var fieldUpdateCultureSource : FieldUpdateCultureSource? {
         get {
             return self._fieldUpdateCultureSource;
         }
@@ -152,7 +152,7 @@ public class FieldOptions : Codable, WordsApiModel {
     // Field of fileName. DTO for field options.
     private var _fileName : String?;
 
-    public var : String? {
+    public var fileName : String? {
         get {
             return self._fileName;
         }
@@ -164,7 +164,7 @@ public class FieldOptions : Codable, WordsApiModel {
     // Field of isBidiTextSupportedOnUpdate. DTO for field options.
     private var _isBidiTextSupportedOnUpdate : Bool?;
 
-    public var : Bool? {
+    public var isBidiTextSupportedOnUpdate : Bool? {
         get {
             return self._isBidiTextSupportedOnUpdate;
         }
@@ -176,7 +176,7 @@ public class FieldOptions : Codable, WordsApiModel {
     // Field of legacyNumberFormat. DTO for field options.
     private var _legacyNumberFormat : Bool?;
 
-    public var : Bool? {
+    public var legacyNumberFormat : Bool? {
         get {
             return self._legacyNumberFormat;
         }
@@ -188,7 +188,7 @@ public class FieldOptions : Codable, WordsApiModel {
     // Field of preProcessCultureName. DTO for field options.
     private var _preProcessCultureName : String?;
 
-    public var : String? {
+    public var preProcessCultureName : String? {
         get {
             return self._preProcessCultureName;
         }
@@ -200,7 +200,7 @@ public class FieldOptions : Codable, WordsApiModel {
     // Field of templateName. DTO for field options.
     private var _templateName : String?;
 
-    public var : String? {
+    public var templateName : String? {
         get {
             return self._templateName;
         }
@@ -212,7 +212,7 @@ public class FieldOptions : Codable, WordsApiModel {
     // Field of useInvariantCultureNumberFormat. DTO for field options.
     private var _useInvariantCultureNumberFormat : Bool?;
 
-    public var : Bool? {
+    public var useInvariantCultureNumberFormat : Bool? {
         get {
             return self._useInvariantCultureNumberFormat;
         }

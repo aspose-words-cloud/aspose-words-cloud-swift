@@ -33,7 +33,7 @@ public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of resourcesFolder. Container class for xaml fixed save options.
     private var _resourcesFolder : String?;
 
-    public var : String? {
+    public var resourcesFolder : String? {
         get {
             return self._resourcesFolder;
         }
@@ -45,7 +45,7 @@ public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of resourcesFolderAlias. Container class for xaml fixed save options.
     private var _resourcesFolderAlias : String?;
 
-    public var : String? {
+    public var resourcesFolderAlias : String? {
         get {
             return self._resourcesFolderAlias;
         }
@@ -57,7 +57,7 @@ public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of saveFormat. Container class for xaml fixed save options.
     private final let _saveFormat : String? = "xamlfixed";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

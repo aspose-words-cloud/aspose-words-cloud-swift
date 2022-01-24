@@ -33,7 +33,7 @@ public class ProtectionData : Codable, WordsApiModel {
     // Field of protectionType. Container for the data about protection of the document.
     private var _protectionType : String?;
 
-    public var : String? {
+    public var protectionType : String? {
         get {
             return self._protectionType;
         }

@@ -33,7 +33,7 @@ public class ModificationOperationResult : Codable, WordsApiModel {
     // Field of dest. result of the operation which modifies the original document and saves the result.
     private var _dest : FileLink?;
 
-    public var : FileLink? {
+    public var dest : FileLink? {
         get {
             return self._dest;
         }
@@ -45,7 +45,7 @@ public class ModificationOperationResult : Codable, WordsApiModel {
     // Field of source. result of the operation which modifies the original document and saves the result.
     private var _source : FileLink?;
 
-    public var : FileLink? {
+    public var source : FileLink? {
         get {
             return self._source;
         }

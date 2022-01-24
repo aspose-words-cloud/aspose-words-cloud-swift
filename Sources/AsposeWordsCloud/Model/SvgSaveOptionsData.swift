@@ -33,7 +33,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     // Field of exportEmbeddedImages. Container class for svg save options.
     private var _exportEmbeddedImages : Bool?;
 
-    public var : Bool? {
+    public var exportEmbeddedImages : Bool? {
         get {
             return self._exportEmbeddedImages;
         }
@@ -45,7 +45,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     // Field of fitToViewPort. Container class for svg save options.
     private var _fitToViewPort : Bool?;
 
-    public var : Bool? {
+    public var fitToViewPort : Bool? {
         get {
             return self._fitToViewPort;
         }
@@ -57,7 +57,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     // Field of resourcesFolder. Container class for svg save options.
     private var _resourcesFolder : String?;
 
-    public var : String? {
+    public var resourcesFolder : String? {
         get {
             return self._resourcesFolder;
         }
@@ -69,7 +69,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     // Field of resourcesFolderAlias. Container class for svg save options.
     private var _resourcesFolderAlias : String?;
 
-    public var : String? {
+    public var resourcesFolderAlias : String? {
         get {
             return self._resourcesFolderAlias;
         }
@@ -81,7 +81,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     // Field of saveFormat. Container class for svg save options.
     private final let _saveFormat : String? = "svg";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }
@@ -90,7 +90,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     // Field of showPageBorder. Container class for svg save options.
     private var _showPageBorder : Bool?;
 
-    public var : Bool? {
+    public var showPageBorder : Bool? {
         get {
             return self._showPageBorder;
         }
@@ -102,7 +102,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     // Field of textOutputMode. Container class for svg save options.
     private var _textOutputMode : String?;
 
-    public var : String? {
+    public var textOutputMode : String? {
         get {
             return self._textOutputMode;
         }

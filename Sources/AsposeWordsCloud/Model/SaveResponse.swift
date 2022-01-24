@@ -33,7 +33,7 @@ public class SaveResponse : WordsResponse {
     // Field of saveResult. The REST response with a save result.
     private var _saveResult : SaveResult?;
 
-    public var : SaveResult? {
+    public var saveResult : SaveResult? {
         get {
             return self._saveResult;
         }

@@ -33,7 +33,7 @@ public class ListInfo : LinkElement {
     // Field of isListStyleDefinition. DTO container with a single document list.
     private var _isListStyleDefinition : Bool?;
 
-    public var : Bool? {
+    public var isListStyleDefinition : Bool? {
         get {
             return self._isListStyleDefinition;
         }
@@ -45,7 +45,7 @@ public class ListInfo : LinkElement {
     // Field of isListStyleReference. DTO container with a single document list.
     private var _isListStyleReference : Bool?;
 
-    public var : Bool? {
+    public var isListStyleReference : Bool? {
         get {
             return self._isListStyleReference;
         }
@@ -57,7 +57,7 @@ public class ListInfo : LinkElement {
     // Field of isMultiLevel. DTO container with a single document list.
     private var _isMultiLevel : Bool?;
 
-    public var : Bool? {
+    public var isMultiLevel : Bool? {
         get {
             return self._isMultiLevel;
         }
@@ -69,7 +69,7 @@ public class ListInfo : LinkElement {
     // Field of isRestartAtEachSection. DTO container with a single document list.
     private var _isRestartAtEachSection : Bool?;
 
-    public var : Bool? {
+    public var isRestartAtEachSection : Bool? {
         get {
             return self._isRestartAtEachSection;
         }
@@ -81,7 +81,7 @@ public class ListInfo : LinkElement {
     // Field of listId. DTO container with a single document list.
     private var _listId : Int?;
 
-    public var : Int? {
+    public var listId : Int? {
         get {
             return self._listId;
         }
@@ -93,7 +93,7 @@ public class ListInfo : LinkElement {
     // Field of listLevels. DTO container with a single document list.
     private var _listLevels : ListLevels?;
 
-    public var : ListLevels? {
+    public var listLevels : ListLevels? {
         get {
             return self._listLevels;
         }
@@ -105,7 +105,7 @@ public class ListInfo : LinkElement {
     // Field of style. DTO container with a single document list.
     private var _style : Style?;
 
-    public var : Style? {
+    public var style : Style? {
         get {
             return self._style;
         }

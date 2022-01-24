@@ -33,7 +33,7 @@ public class Bookmark : LinkElement {
     // Field of name. Represents a single bookmark.
     private var _name : String?;
 
-    public var : String? {
+    public var name : String? {
         get {
             return self._name;
         }
@@ -45,7 +45,7 @@ public class Bookmark : LinkElement {
     // Field of text. Represents a single bookmark.
     private var _text : String?;
 
-    public var : String? {
+    public var text : String? {
         get {
             return self._text;
         }

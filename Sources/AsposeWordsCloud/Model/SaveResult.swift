@@ -33,7 +33,7 @@ public class SaveResult : Codable, WordsApiModel {
     // Field of additionalItems. Result of saving.
     private var _additionalItems : [FileLink]?;
 
-    public var : [FileLink]? {
+    public var additionalItems : [FileLink]? {
         get {
             return self._additionalItems;
         }
@@ -45,7 +45,7 @@ public class SaveResult : Codable, WordsApiModel {
     // Field of destDocument. Result of saving.
     private var _destDocument : FileLink?;
 
-    public var : FileLink? {
+    public var destDocument : FileLink? {
         get {
             return self._destDocument;
         }
@@ -57,7 +57,7 @@ public class SaveResult : Codable, WordsApiModel {
     // Field of sourceDocument. Result of saving.
     private var _sourceDocument : FileLink?;
 
-    public var : FileLink? {
+    public var sourceDocument : FileLink? {
         get {
             return self._sourceDocument;
         }

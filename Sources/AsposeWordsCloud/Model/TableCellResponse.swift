@@ -33,7 +33,7 @@ public class TableCellResponse : WordsResponse {
     // Field of cell. The REST response with a table cell.
     private var _cell : TableCell?;
 
-    public var : TableCell? {
+    public var cell : TableCell? {
         get {
             return self._cell;
         }

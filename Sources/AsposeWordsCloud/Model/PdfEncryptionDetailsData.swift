@@ -33,7 +33,7 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     // Field of encryptionAlgorithm. Container class for details of encryption.
     private var _encryptionAlgorithm : String?;
 
-    public var : String? {
+    public var encryptionAlgorithm : String? {
         get {
             return self._encryptionAlgorithm;
         }
@@ -45,7 +45,7 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     // Field of ownerPassword. Container class for details of encryption.
     private var _ownerPassword : String?;
 
-    public var : String? {
+    public var ownerPassword : String? {
         get {
             return self._ownerPassword;
         }
@@ -57,7 +57,7 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     // Field of permissions. Container class for details of encryption.
     private var _permissions : String?;
 
-    public var : String? {
+    public var permissions : String? {
         get {
             return self._permissions;
         }
@@ -69,7 +69,7 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     // Field of userPassword. Container class for details of encryption.
     private var _userPassword : String?;
 
-    public var : String? {
+    public var userPassword : String? {
         get {
             return self._userPassword;
         }

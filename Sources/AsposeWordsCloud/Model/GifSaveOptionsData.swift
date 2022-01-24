@@ -33,7 +33,7 @@ public class GifSaveOptionsData : ImageSaveOptionsData {
     // Field of saveFormat. Container class for gif save options.
     private final let _saveFormat : String? = "gif";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

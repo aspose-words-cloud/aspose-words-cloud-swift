@@ -33,7 +33,7 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     // Field of colorMode. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
     private var _colorMode : String?;
 
-    public var : String? {
+    public var colorMode : String? {
         get {
             return self._colorMode;
         }
@@ -45,7 +45,7 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     // Field of jpegQuality. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
     private var _jpegQuality : Int?;
 
-    public var : Int? {
+    public var jpegQuality : Int? {
         get {
             return self._jpegQuality;
         }
@@ -57,7 +57,7 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     // Field of metafileRenderingOptions. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
     private var _metafileRenderingOptions : MetafileRenderingOptionsData?;
 
-    public var : MetafileRenderingOptionsData? {
+    public var metafileRenderingOptions : MetafileRenderingOptionsData? {
         get {
             return self._metafileRenderingOptions;
         }
@@ -69,7 +69,7 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     // Field of numeralFormat. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
     private var _numeralFormat : String?;
 
-    public var : String? {
+    public var numeralFormat : String? {
         get {
             return self._numeralFormat;
         }
@@ -81,7 +81,7 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     // Field of optimizeOutput. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
     private var _optimizeOutput : Bool?;
 
-    public var : Bool? {
+    public var optimizeOutput : Bool? {
         get {
             return self._optimizeOutput;
         }
@@ -93,7 +93,7 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     // Field of pageCount. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
     private var _pageCount : Int?;
 
-    public var : Int? {
+    public var pageCount : Int? {
         get {
             return self._pageCount;
         }
@@ -105,7 +105,7 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     // Field of pageIndex. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
     private var _pageIndex : Int?;
 
-    public var : Int? {
+    public var pageIndex : Int? {
         get {
             return self._pageIndex;
         }

@@ -33,7 +33,7 @@ public class UserInformation : Codable, WordsApiModel {
     // Field of address. DTO for user information.
     private var _address : String?;
 
-    public var : String? {
+    public var address : String? {
         get {
             return self._address;
         }
@@ -45,7 +45,7 @@ public class UserInformation : Codable, WordsApiModel {
     // Field of initials. DTO for user information.
     private var _initials : String?;
 
-    public var : String? {
+    public var initials : String? {
         get {
             return self._initials;
         }
@@ -57,7 +57,7 @@ public class UserInformation : Codable, WordsApiModel {
     // Field of name. DTO for user information.
     private var _name : String?;
 
-    public var : String? {
+    public var name : String? {
         get {
             return self._name;
         }

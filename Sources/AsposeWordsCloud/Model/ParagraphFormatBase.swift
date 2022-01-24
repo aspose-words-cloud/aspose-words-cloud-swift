@@ -1262,7 +1262,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of addSpaceBetweenFarEastAndAlpha. Paragraph format element base class.
     private var _addSpaceBetweenFarEastAndAlpha : Bool?;
 
-    public var : Bool? {
+    public var addSpaceBetweenFarEastAndAlpha : Bool? {
         get {
             return self._addSpaceBetweenFarEastAndAlpha;
         }
@@ -1274,7 +1274,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of addSpaceBetweenFarEastAndDigit. Paragraph format element base class.
     private var _addSpaceBetweenFarEastAndDigit : Bool?;
 
-    public var : Bool? {
+    public var addSpaceBetweenFarEastAndDigit : Bool? {
         get {
             return self._addSpaceBetweenFarEastAndDigit;
         }
@@ -1286,7 +1286,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of alignment. Paragraph format element base class.
     private var _alignment : Alignment?;
 
-    public var : Alignment? {
+    public var alignment : Alignment? {
         get {
             return self._alignment;
         }
@@ -1298,7 +1298,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of bidi. Paragraph format element base class.
     private var _bidi : Bool?;
 
-    public var : Bool? {
+    public var bidi : Bool? {
         get {
             return self._bidi;
         }
@@ -1310,7 +1310,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of dropCapPosition. Paragraph format element base class.
     private var _dropCapPosition : DropCapPosition?;
 
-    public var : DropCapPosition? {
+    public var dropCapPosition : DropCapPosition? {
         get {
             return self._dropCapPosition;
         }
@@ -1322,7 +1322,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of firstLineIndent. Paragraph format element base class.
     private var _firstLineIndent : Double?;
 
-    public var : Double? {
+    public var firstLineIndent : Double? {
         get {
             return self._firstLineIndent;
         }
@@ -1334,7 +1334,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of keepTogether. Paragraph format element base class.
     private var _keepTogether : Bool?;
 
-    public var : Bool? {
+    public var keepTogether : Bool? {
         get {
             return self._keepTogether;
         }
@@ -1346,7 +1346,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of keepWithNext. Paragraph format element base class.
     private var _keepWithNext : Bool?;
 
-    public var : Bool? {
+    public var keepWithNext : Bool? {
         get {
             return self._keepWithNext;
         }
@@ -1358,7 +1358,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of leftIndent. Paragraph format element base class.
     private var _leftIndent : Double?;
 
-    public var : Double? {
+    public var leftIndent : Double? {
         get {
             return self._leftIndent;
         }
@@ -1370,7 +1370,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of lineSpacing. Paragraph format element base class.
     private var _lineSpacing : Double?;
 
-    public var : Double? {
+    public var lineSpacing : Double? {
         get {
             return self._lineSpacing;
         }
@@ -1382,7 +1382,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of lineSpacingRule. Paragraph format element base class.
     private var _lineSpacingRule : LineSpacingRule?;
 
-    public var : LineSpacingRule? {
+    public var lineSpacingRule : LineSpacingRule? {
         get {
             return self._lineSpacingRule;
         }
@@ -1394,7 +1394,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of linesToDrop. Paragraph format element base class.
     private var _linesToDrop : Int?;
 
-    public var : Int? {
+    public var linesToDrop : Int? {
         get {
             return self._linesToDrop;
         }
@@ -1406,7 +1406,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of noSpaceBetweenParagraphsOfSameStyle. Paragraph format element base class.
     private var _noSpaceBetweenParagraphsOfSameStyle : Bool?;
 
-    public var : Bool? {
+    public var noSpaceBetweenParagraphsOfSameStyle : Bool? {
         get {
             return self._noSpaceBetweenParagraphsOfSameStyle;
         }
@@ -1418,7 +1418,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of outlineLevel. Paragraph format element base class.
     private var _outlineLevel : OutlineLevel?;
 
-    public var : OutlineLevel? {
+    public var outlineLevel : OutlineLevel? {
         get {
             return self._outlineLevel;
         }
@@ -1430,7 +1430,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of pageBreakBefore. Paragraph format element base class.
     private var _pageBreakBefore : Bool?;
 
-    public var : Bool? {
+    public var pageBreakBefore : Bool? {
         get {
             return self._pageBreakBefore;
         }
@@ -1442,7 +1442,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of rightIndent. Paragraph format element base class.
     private var _rightIndent : Double?;
 
-    public var : Double? {
+    public var rightIndent : Double? {
         get {
             return self._rightIndent;
         }
@@ -1454,7 +1454,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of shading. Paragraph format element base class.
     private var _shading : Shading?;
 
-    public var : Shading? {
+    public var shading : Shading? {
         get {
             return self._shading;
         }
@@ -1466,7 +1466,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of spaceAfter. Paragraph format element base class.
     private var _spaceAfter : Double?;
 
-    public var : Double? {
+    public var spaceAfter : Double? {
         get {
             return self._spaceAfter;
         }
@@ -1478,7 +1478,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of spaceAfterAuto. Paragraph format element base class.
     private var _spaceAfterAuto : Bool?;
 
-    public var : Bool? {
+    public var spaceAfterAuto : Bool? {
         get {
             return self._spaceAfterAuto;
         }
@@ -1490,7 +1490,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of spaceBefore. Paragraph format element base class.
     private var _spaceBefore : Double?;
 
-    public var : Double? {
+    public var spaceBefore : Double? {
         get {
             return self._spaceBefore;
         }
@@ -1502,7 +1502,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of spaceBeforeAuto. Paragraph format element base class.
     private var _spaceBeforeAuto : Bool?;
 
-    public var : Bool? {
+    public var spaceBeforeAuto : Bool? {
         get {
             return self._spaceBeforeAuto;
         }
@@ -1514,7 +1514,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of styleIdentifier. Paragraph format element base class.
     private var _styleIdentifier : StyleIdentifier?;
 
-    public var : StyleIdentifier? {
+    public var styleIdentifier : StyleIdentifier? {
         get {
             return self._styleIdentifier;
         }
@@ -1526,7 +1526,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of styleName. Paragraph format element base class.
     private var _styleName : String?;
 
-    public var : String? {
+    public var styleName : String? {
         get {
             return self._styleName;
         }
@@ -1538,7 +1538,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of suppressAutoHyphens. Paragraph format element base class.
     private var _suppressAutoHyphens : Bool?;
 
-    public var : Bool? {
+    public var suppressAutoHyphens : Bool? {
         get {
             return self._suppressAutoHyphens;
         }
@@ -1550,7 +1550,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of suppressLineNumbers. Paragraph format element base class.
     private var _suppressLineNumbers : Bool?;
 
-    public var : Bool? {
+    public var suppressLineNumbers : Bool? {
         get {
             return self._suppressLineNumbers;
         }
@@ -1562,7 +1562,7 @@ public class ParagraphFormatBase : LinkElement {
     // Field of widowControl. Paragraph format element base class.
     private var _widowControl : Bool?;
 
-    public var : Bool? {
+    public var widowControl : Bool? {
         get {
             return self._widowControl;
         }

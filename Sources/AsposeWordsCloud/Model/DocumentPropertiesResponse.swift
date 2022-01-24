@@ -33,7 +33,7 @@ public class DocumentPropertiesResponse : WordsResponse {
     // Field of documentProperties. The REST response with a collection of document properties.
     private var _documentProperties : DocumentProperties?;
 
-    public var : DocumentProperties? {
+    public var documentProperties : DocumentProperties? {
         get {
             return self._documentProperties;
         }

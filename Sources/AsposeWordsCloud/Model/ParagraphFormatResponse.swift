@@ -33,7 +33,7 @@ public class ParagraphFormatResponse : WordsResponse {
     // Field of paragraphFormat. The REST response with the formatting properties of a paragraph.
     private var _paragraphFormat : ParagraphFormat?;
 
-    public var : ParagraphFormat? {
+    public var paragraphFormat : ParagraphFormat? {
         get {
             return self._paragraphFormat;
         }

@@ -33,7 +33,7 @@ public class OfficeMathObjectsCollection : LinkElement {
     // Field of list. DTO container with a collection of OfficeMath objects.
     private var _list : [OfficeMathObject]?;
 
-    public var : [OfficeMathObject]? {
+    public var list : [OfficeMathObject]? {
         get {
             return self._list;
         }

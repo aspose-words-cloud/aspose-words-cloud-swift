@@ -33,7 +33,7 @@ public class DocSaveOptionsData : SaveOptionsData {
     // Field of alwaysCompressMetafiles. Container class for doc/dot save options.
     private var _alwaysCompressMetafiles : Bool?;
 
-    public var : Bool? {
+    public var alwaysCompressMetafiles : Bool? {
         get {
             return self._alwaysCompressMetafiles;
         }
@@ -45,7 +45,7 @@ public class DocSaveOptionsData : SaveOptionsData {
     // Field of password. Container class for doc/dot save options.
     private var _password : String?;
 
-    public var : String? {
+    public var password : String? {
         get {
             return self._password;
         }
@@ -57,7 +57,7 @@ public class DocSaveOptionsData : SaveOptionsData {
     // Field of saveFormat. Container class for doc/dot save options.
     private final let _saveFormat : String? = "doc";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }
@@ -66,7 +66,7 @@ public class DocSaveOptionsData : SaveOptionsData {
     // Field of savePictureBullet. Container class for doc/dot save options.
     private var _savePictureBullet : Bool?;
 
-    public var : Bool? {
+    public var savePictureBullet : Bool? {
         get {
             return self._savePictureBullet;
         }
@@ -78,7 +78,7 @@ public class DocSaveOptionsData : SaveOptionsData {
     // Field of saveRoutingSlip. Container class for doc/dot save options.
     private var _saveRoutingSlip : Bool?;
 
-    public var : Bool? {
+    public var saveRoutingSlip : Bool? {
         get {
             return self._saveRoutingSlip;
         }

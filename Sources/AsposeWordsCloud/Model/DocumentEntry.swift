@@ -33,7 +33,7 @@ public class DocumentEntry : Codable, WordsApiModel {
     // Field of href. Represents a document which will be appended to the original resource document.
     private var _href : String?;
 
-    public var : String? {
+    public var href : String? {
         get {
             return self._href;
         }
@@ -45,7 +45,7 @@ public class DocumentEntry : Codable, WordsApiModel {
     // Field of importFormatMode. Represents a document which will be appended to the original resource document.
     private var _importFormatMode : String?;
 
-    public var : String? {
+    public var importFormatMode : String? {
         get {
             return self._importFormatMode;
         }
@@ -57,7 +57,7 @@ public class DocumentEntry : Codable, WordsApiModel {
     // Field of password. Represents a document which will be appended to the original resource document.
     private var _password : String?;
 
-    public var : String? {
+    public var password : String? {
         get {
             return self._password;
         }

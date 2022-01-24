@@ -33,7 +33,7 @@ public class XmlColor : Codable, WordsApiModel {
     // Field of alpha. Utility class for Color serialization.
     private var _alpha : Int?;
 
-    public var : Int? {
+    public var alpha : Int? {
         get {
             return self._alpha;
         }
@@ -45,7 +45,7 @@ public class XmlColor : Codable, WordsApiModel {
     // Field of web. Utility class for Color serialization.
     private var _web : String?;
 
-    public var : String? {
+    public var web : String? {
         get {
             return self._web;
         }

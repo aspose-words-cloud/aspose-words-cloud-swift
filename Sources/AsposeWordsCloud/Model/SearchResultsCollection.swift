@@ -33,7 +33,7 @@ public class SearchResultsCollection : LinkElement {
     // Field of resultsList. The collection of search results.
     private var _resultsList : [SearchResult]?;
 
-    public var : [SearchResult]? {
+    public var resultsList : [SearchResult]? {
         get {
             return self._resultsList;
         }

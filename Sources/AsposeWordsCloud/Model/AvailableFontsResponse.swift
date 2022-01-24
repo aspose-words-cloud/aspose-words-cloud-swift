@@ -33,7 +33,7 @@ public class AvailableFontsResponse : WordsResponse {
     // Field of additionalFonts. The REST response with data on system, additional and custom fonts, available for document processing.
     private var _additionalFonts : [FontInfo]?;
 
-    public var : [FontInfo]? {
+    public var additionalFonts : [FontInfo]? {
         get {
             return self._additionalFonts;
         }
@@ -45,7 +45,7 @@ public class AvailableFontsResponse : WordsResponse {
     // Field of customFonts. The REST response with data on system, additional and custom fonts, available for document processing.
     private var _customFonts : [FontInfo]?;
 
-    public var : [FontInfo]? {
+    public var customFonts : [FontInfo]? {
         get {
             return self._customFonts;
         }
@@ -57,7 +57,7 @@ public class AvailableFontsResponse : WordsResponse {
     // Field of systemFonts. The REST response with data on system, additional and custom fonts, available for document processing.
     private var _systemFonts : [FontInfo]?;
 
-    public var : [FontInfo]? {
+    public var systemFonts : [FontInfo]? {
         get {
             return self._systemFonts;
         }

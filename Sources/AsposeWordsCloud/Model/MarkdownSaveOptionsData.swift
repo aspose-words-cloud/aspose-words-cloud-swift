@@ -50,7 +50,7 @@ public class MarkdownSaveOptionsData : TxtSaveOptionsBaseData {
     // Field of saveFormat. Container class for markdown save options.
     private final let _saveFormat : String? = "md";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }
@@ -59,7 +59,7 @@ public class MarkdownSaveOptionsData : TxtSaveOptionsBaseData {
     // Field of tableContentAlignment. Container class for markdown save options.
     private var _tableContentAlignment : TableContentAlignment?;
 
-    public var : TableContentAlignment? {
+    public var tableContentAlignment : TableContentAlignment? {
         get {
             return self._tableContentAlignment;
         }

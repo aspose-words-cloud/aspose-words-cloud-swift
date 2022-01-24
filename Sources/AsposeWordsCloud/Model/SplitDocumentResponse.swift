@@ -33,7 +33,7 @@ public class SplitDocumentResponse : WordsResponse {
     // Field of splitResult. The REST response with a result of document splitting.
     private var _splitResult : SplitDocumentResult?;
 
-    public var : SplitDocumentResult? {
+    public var splitResult : SplitDocumentResult? {
         get {
             return self._splitResult;
         }

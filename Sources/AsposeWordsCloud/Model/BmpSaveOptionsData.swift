@@ -33,7 +33,7 @@ public class BmpSaveOptionsData : ImageSaveOptionsData {
     // Field of saveFormat. Container class for bmp save options.
     private final let _saveFormat : String? = "bmp";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

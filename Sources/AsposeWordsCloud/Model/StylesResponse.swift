@@ -33,7 +33,7 @@ public class StylesResponse : WordsResponse {
     // Field of styles. The REST response with an array of styles.
     private var _styles : [Style]?;
 
-    public var : [Style]? {
+    public var styles : [Style]? {
         get {
             return self._styles;
         }

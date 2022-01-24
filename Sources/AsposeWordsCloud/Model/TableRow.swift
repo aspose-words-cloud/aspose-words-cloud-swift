@@ -33,7 +33,7 @@ public class TableRow : NodeLink {
     // Field of rowFormat. DTO container with a table row element.
     private var _rowFormat : TableRowFormat?;
 
-    public var : TableRowFormat? {
+    public var rowFormat : TableRowFormat? {
         get {
             return self._rowFormat;
         }
@@ -45,7 +45,7 @@ public class TableRow : NodeLink {
     // Field of tableCellList. DTO container with a table row element.
     private var _tableCellList : [TableCell]?;
 
-    public var : [TableCell]? {
+    public var tableCellList : [TableCell]? {
         get {
             return self._tableCellList;
         }

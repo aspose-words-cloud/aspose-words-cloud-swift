@@ -33,7 +33,7 @@ public class BookmarkResponse : WordsResponse {
     // Field of bookmark. The REST response with a bookmark.
     private var _bookmark : Bookmark?;
 
-    public var : Bookmark? {
+    public var bookmark : Bookmark? {
         get {
             return self._bookmark;
         }

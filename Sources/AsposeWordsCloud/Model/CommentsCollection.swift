@@ -33,7 +33,7 @@ public class CommentsCollection : LinkElement {
     // Field of commentList. The collection of comments.
     private var _commentList : [Comment]?;
 
-    public var : [Comment]? {
+    public var commentList : [Comment]? {
         get {
             return self._commentList;
         }

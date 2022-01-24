@@ -33,7 +33,7 @@ public class SearchResult : Codable, WordsApiModel {
     // Field of rangeEnd. Result of search operation.
     private var _rangeEnd : DocumentPosition?;
 
-    public var : DocumentPosition? {
+    public var rangeEnd : DocumentPosition? {
         get {
             return self._rangeEnd;
         }
@@ -45,7 +45,7 @@ public class SearchResult : Codable, WordsApiModel {
     // Field of rangeStart. Result of search operation.
     private var _rangeStart : DocumentPosition?;
 
-    public var : DocumentPosition? {
+    public var rangeStart : DocumentPosition? {
         get {
             return self._rangeStart;
         }

@@ -33,7 +33,7 @@ public class Runs : LinkElement {
     // Field of list. DTO container with a collection of runs.
     private var _list : [Run]?;
 
-    public var : [Run]? {
+    public var list : [Run]? {
         get {
             return self._list;
         }

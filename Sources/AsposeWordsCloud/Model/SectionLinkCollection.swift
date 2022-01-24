@@ -33,7 +33,7 @@ public class SectionLinkCollection : LinkElement {
     // Field of sectionLinkList. The collection of section's links.
     private var _sectionLinkList : [SectionLink]?;
 
-    public var : [SectionLink]? {
+    public var sectionLinkList : [SectionLink]? {
         get {
             return self._sectionLinkList;
         }

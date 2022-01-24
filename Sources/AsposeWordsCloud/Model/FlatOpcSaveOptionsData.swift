@@ -33,7 +33,7 @@ public class FlatOpcSaveOptionsData : OoxmlSaveOptionsData {
     // Field of saveFormat. Container class for fopc save options.
     private final let _saveFormat : String? = "fopc";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

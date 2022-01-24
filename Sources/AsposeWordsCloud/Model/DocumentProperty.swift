@@ -33,7 +33,7 @@ public class DocumentProperty : LinkElement {
     // Field of builtIn. Words document property DTO.
     private var _builtIn : Bool?;
 
-    public var : Bool? {
+    public var builtIn : Bool? {
         get {
             return self._builtIn;
         }
@@ -45,7 +45,7 @@ public class DocumentProperty : LinkElement {
     // Field of name. Words document property DTO.
     private var _name : String?;
 
-    public var : String? {
+    public var name : String? {
         get {
             return self._name;
         }
@@ -57,7 +57,7 @@ public class DocumentProperty : LinkElement {
     // Field of value. Words document property DTO.
     private var _value : String?;
 
-    public var : String? {
+    public var value : String? {
         get {
             return self._value;
         }

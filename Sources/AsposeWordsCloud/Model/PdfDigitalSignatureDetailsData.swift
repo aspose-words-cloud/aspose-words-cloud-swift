@@ -33,7 +33,7 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     // Field of certificateFilename. Container class for details of digital signature.
     private var _certificateFilename : String?;
 
-    public var : String? {
+    public var certificateFilename : String? {
         get {
             return self._certificateFilename;
         }
@@ -45,7 +45,7 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     // Field of hashAlgorithm. Container class for details of digital signature.
     private var _hashAlgorithm : String?;
 
-    public var : String? {
+    public var hashAlgorithm : String? {
         get {
             return self._hashAlgorithm;
         }
@@ -57,7 +57,7 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     // Field of location. Container class for details of digital signature.
     private var _location : String?;
 
-    public var : String? {
+    public var location : String? {
         get {
             return self._location;
         }
@@ -69,7 +69,7 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     // Field of reason. Container class for details of digital signature.
     private var _reason : String?;
 
-    public var : String? {
+    public var reason : String? {
         get {
             return self._reason;
         }
@@ -81,7 +81,7 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     // Field of signatureDate. Container class for details of digital signature.
     private var _signatureDate : Date?;
 
-    public var : Date? {
+    public var signatureDate : Date? {
         get {
             return self._signatureDate;
         }

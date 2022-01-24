@@ -33,7 +33,7 @@ public class DocumentEntryList : Codable, WordsApiModel {
     // Field of applyBaseDocumentHeadersAndFootersToAppendingDocuments. Represents a list of documents which will be appended to the original resource document.
     private var _applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool?;
 
-    public var : Bool? {
+    public var applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool? {
         get {
             return self._applyBaseDocumentHeadersAndFootersToAppendingDocuments;
         }
@@ -45,7 +45,7 @@ public class DocumentEntryList : Codable, WordsApiModel {
     // Field of documentEntries. Represents a list of documents which will be appended to the original resource document.
     private var _documentEntries : [DocumentEntry]?;
 
-    public var : [DocumentEntry]? {
+    public var documentEntries : [DocumentEntry]? {
         get {
             return self._documentEntries;
         }

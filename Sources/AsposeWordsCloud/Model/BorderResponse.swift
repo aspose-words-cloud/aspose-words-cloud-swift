@@ -33,7 +33,7 @@ public class BorderResponse : WordsResponse {
     // Field of border. The REST response with a border.
     private var _border : Border?;
 
-    public var : Border? {
+    public var border : Border? {
         get {
             return self._border;
         }

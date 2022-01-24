@@ -33,7 +33,7 @@ public class Lists : LinkElement {
     // Field of listInfo. DTO container with an array of document lists.
     private var _listInfo : [ListInfo]?;
 
-    public var : [ListInfo]? {
+    public var listInfo : [ListInfo]? {
         get {
             return self._listInfo;
         }

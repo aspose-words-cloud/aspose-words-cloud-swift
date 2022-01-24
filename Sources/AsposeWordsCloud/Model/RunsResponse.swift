@@ -33,7 +33,7 @@ public class RunsResponse : WordsResponse {
     // Field of runs. The REST response with a collection of Run elements.
     private var _runs : Runs?;
 
-    public var : Runs? {
+    public var runs : Runs? {
         get {
             return self._runs;
         }

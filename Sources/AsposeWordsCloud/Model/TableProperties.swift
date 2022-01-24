@@ -1228,7 +1228,7 @@ public class TableProperties : LinkElement {
     // Field of alignment. DTO container with table properties.
     private var _alignment : Alignment?;
 
-    public var : Alignment? {
+    public var alignment : Alignment? {
         get {
             return self._alignment;
         }
@@ -1240,7 +1240,7 @@ public class TableProperties : LinkElement {
     // Field of allowAutoFit. DTO container with table properties.
     private var _allowAutoFit : Bool?;
 
-    public var : Bool? {
+    public var allowAutoFit : Bool? {
         get {
             return self._allowAutoFit;
         }
@@ -1252,7 +1252,7 @@ public class TableProperties : LinkElement {
     // Field of bidi. DTO container with table properties.
     private var _bidi : Bool?;
 
-    public var : Bool? {
+    public var bidi : Bool? {
         get {
             return self._bidi;
         }
@@ -1264,7 +1264,7 @@ public class TableProperties : LinkElement {
     // Field of bottomPadding. DTO container with table properties.
     private var _bottomPadding : Double?;
 
-    public var : Double? {
+    public var bottomPadding : Double? {
         get {
             return self._bottomPadding;
         }
@@ -1276,7 +1276,7 @@ public class TableProperties : LinkElement {
     // Field of cellSpacing. DTO container with table properties.
     private var _cellSpacing : Double?;
 
-    public var : Double? {
+    public var cellSpacing : Double? {
         get {
             return self._cellSpacing;
         }
@@ -1288,7 +1288,7 @@ public class TableProperties : LinkElement {
     // Field of leftIndent. DTO container with table properties.
     private var _leftIndent : Double?;
 
-    public var : Double? {
+    public var leftIndent : Double? {
         get {
             return self._leftIndent;
         }
@@ -1300,7 +1300,7 @@ public class TableProperties : LinkElement {
     // Field of leftPadding. DTO container with table properties.
     private var _leftPadding : Double?;
 
-    public var : Double? {
+    public var leftPadding : Double? {
         get {
             return self._leftPadding;
         }
@@ -1312,7 +1312,7 @@ public class TableProperties : LinkElement {
     // Field of preferredWidth. DTO container with table properties.
     private var _preferredWidth : PreferredWidth?;
 
-    public var : PreferredWidth? {
+    public var preferredWidth : PreferredWidth? {
         get {
             return self._preferredWidth;
         }
@@ -1324,7 +1324,7 @@ public class TableProperties : LinkElement {
     // Field of rightPadding. DTO container with table properties.
     private var _rightPadding : Double?;
 
-    public var : Double? {
+    public var rightPadding : Double? {
         get {
             return self._rightPadding;
         }
@@ -1336,7 +1336,7 @@ public class TableProperties : LinkElement {
     // Field of styleIdentifier. DTO container with table properties.
     private var _styleIdentifier : StyleIdentifier?;
 
-    public var : StyleIdentifier? {
+    public var styleIdentifier : StyleIdentifier? {
         get {
             return self._styleIdentifier;
         }
@@ -1348,7 +1348,7 @@ public class TableProperties : LinkElement {
     // Field of styleName. DTO container with table properties.
     private var _styleName : String?;
 
-    public var : String? {
+    public var styleName : String? {
         get {
             return self._styleName;
         }
@@ -1360,7 +1360,7 @@ public class TableProperties : LinkElement {
     // Field of styleOptions. DTO container with table properties.
     private var _styleOptions : StyleOptions?;
 
-    public var : StyleOptions? {
+    public var styleOptions : StyleOptions? {
         get {
             return self._styleOptions;
         }
@@ -1372,7 +1372,7 @@ public class TableProperties : LinkElement {
     // Field of textWrapping. DTO container with table properties.
     private var _textWrapping : TextWrapping?;
 
-    public var : TextWrapping? {
+    public var textWrapping : TextWrapping? {
         get {
             return self._textWrapping;
         }
@@ -1384,7 +1384,7 @@ public class TableProperties : LinkElement {
     // Field of topPadding. DTO container with table properties.
     private var _topPadding : Double?;
 
-    public var : Double? {
+    public var topPadding : Double? {
         get {
             return self._topPadding;
         }

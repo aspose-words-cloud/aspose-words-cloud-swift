@@ -55,7 +55,7 @@ public class FormFieldTextInput : FormField {
     // Field of maxLength. FormField text input element.
     private var _maxLength : Int?;
 
-    public var : Int? {
+    public var maxLength : Int? {
         get {
             return self._maxLength;
         }
@@ -67,7 +67,7 @@ public class FormFieldTextInput : FormField {
     // Field of textInputDefault. FormField text input element.
     private var _textInputDefault : String?;
 
-    public var : String? {
+    public var textInputDefault : String? {
         get {
             return self._textInputDefault;
         }
@@ -79,7 +79,7 @@ public class FormFieldTextInput : FormField {
     // Field of textInputFormat. FormField text input element.
     private var _textInputFormat : String?;
 
-    public var : String? {
+    public var textInputFormat : String? {
         get {
             return self._textInputFormat;
         }
@@ -91,7 +91,7 @@ public class FormFieldTextInput : FormField {
     // Field of textInputType. FormField text input element.
     private var _textInputType : TextInputType?;
 
-    public var : TextInputType? {
+    public var textInputType : TextInputType? {
         get {
             return self._textInputType;
         }

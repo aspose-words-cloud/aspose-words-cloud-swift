@@ -33,7 +33,7 @@ public class TableLinkCollectionResponse : WordsResponse {
     // Field of tables. The REST response with a collection of tables.
     private var _tables : TableLinkCollection?;
 
-    public var : TableLinkCollection? {
+    public var tables : TableLinkCollection? {
         get {
             return self._tables;
         }

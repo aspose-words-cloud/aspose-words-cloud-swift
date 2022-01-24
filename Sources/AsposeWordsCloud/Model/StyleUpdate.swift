@@ -33,7 +33,7 @@ public class StyleUpdate : Codable, WordsApiModel {
     // Field of baseStyleName. Represents a single document style properties to update.
     private var _baseStyleName : String?;
 
-    public var : String? {
+    public var baseStyleName : String? {
         get {
             return self._baseStyleName;
         }
@@ -45,7 +45,7 @@ public class StyleUpdate : Codable, WordsApiModel {
     // Field of isQuickStyle. Represents a single document style properties to update.
     private var _isQuickStyle : Bool?;
 
-    public var : Bool? {
+    public var isQuickStyle : Bool? {
         get {
             return self._isQuickStyle;
         }
@@ -57,7 +57,7 @@ public class StyleUpdate : Codable, WordsApiModel {
     // Field of name. Represents a single document style properties to update.
     private var _name : String?;
 
-    public var : String? {
+    public var name : String? {
         get {
             return self._name;
         }
@@ -69,7 +69,7 @@ public class StyleUpdate : Codable, WordsApiModel {
     // Field of nextParagraphStyleName. Represents a single document style properties to update.
     private var _nextParagraphStyleName : String?;
 
-    public var : String? {
+    public var nextParagraphStyleName : String? {
         get {
             return self._nextParagraphStyleName;
         }

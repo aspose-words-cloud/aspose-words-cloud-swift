@@ -33,7 +33,7 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     // Field of saveFormat. Container class for tiff save options.
     private final let _saveFormat : String? = "tiff";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }
@@ -42,7 +42,7 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     // Field of thresholdForFloydSteinbergDithering. Container class for tiff save options.
     private var _thresholdForFloydSteinbergDithering : Int?;
 
-    public var : Int? {
+    public var thresholdForFloydSteinbergDithering : Int? {
         get {
             return self._thresholdForFloydSteinbergDithering;
         }
@@ -54,7 +54,7 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     // Field of tiffBinarizationMethod. Container class for tiff save options.
     private var _tiffBinarizationMethod : String?;
 
-    public var : String? {
+    public var tiffBinarizationMethod : String? {
         get {
             return self._tiffBinarizationMethod;
         }
@@ -66,7 +66,7 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     // Field of tiffCompression. Container class for tiff save options.
     private var _tiffCompression : String?;
 
-    public var : String? {
+    public var tiffCompression : String? {
         get {
             return self._tiffCompression;
         }

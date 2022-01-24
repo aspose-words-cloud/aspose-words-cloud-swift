@@ -33,7 +33,7 @@ public class ReplaceTextResponse : WordsResponse {
     // Field of documentLink. The REST response with a number of occurrences of the captured text in the document.
     private var _documentLink : FileLink?;
 
-    public var : FileLink? {
+    public var documentLink : FileLink? {
         get {
             return self._documentLink;
         }
@@ -45,7 +45,7 @@ public class ReplaceTextResponse : WordsResponse {
     // Field of matches. The REST response with a number of occurrences of the captured text in the document.
     private var _matches : Int?;
 
-    public var : Int? {
+    public var matches : Int? {
         get {
             return self._matches;
         }

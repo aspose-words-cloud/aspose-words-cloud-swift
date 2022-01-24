@@ -33,7 +33,7 @@ public class ParagraphFormat : ParagraphFormatBase {
     // Field of isHeading. Paragraph format element.
     private var _isHeading : Bool?;
 
-    public var : Bool? {
+    public var isHeading : Bool? {
         get {
             return self._isHeading;
         }
@@ -45,7 +45,7 @@ public class ParagraphFormat : ParagraphFormatBase {
     // Field of isListItem. Paragraph format element.
     private var _isListItem : Bool?;
 
-    public var : Bool? {
+    public var isListItem : Bool? {
         get {
             return self._isListItem;
         }

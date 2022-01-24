@@ -33,7 +33,7 @@ public class FontResponse : WordsResponse {
     // Field of font. The REST response with a font.
     private var _font : Font?;
 
-    public var : Font? {
+    public var font : Font? {
         get {
             return self._font;
         }

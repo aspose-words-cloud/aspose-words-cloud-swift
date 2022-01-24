@@ -33,7 +33,7 @@ public class FieldBase : Codable, WordsApiModel {
     // Field of fieldCode. Field.
     private var _fieldCode : String?;
 
-    public var : String? {
+    public var fieldCode : String? {
         get {
             return self._fieldCode;
         }
@@ -45,7 +45,7 @@ public class FieldBase : Codable, WordsApiModel {
     // Field of localeId. Field.
     private var _localeId : String?;
 
-    public var : String? {
+    public var localeId : String? {
         get {
             return self._localeId;
         }

@@ -33,7 +33,7 @@ public class TableCellFormatResponse : WordsResponse {
     // Field of cellFormat. The REST response with the formatting properties of a table cell.
     private var _cellFormat : TableCellFormat?;
 
-    public var : TableCellFormat? {
+    public var cellFormat : TableCellFormat? {
         get {
             return self._cellFormat;
         }

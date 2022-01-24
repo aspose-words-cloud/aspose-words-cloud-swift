@@ -33,7 +33,7 @@ public class ListLevels : LinkElement {
     // Field of listLevel. DTO container with a single document list.
     private var _listLevel : [ListLevel]?;
 
-    public var : [ListLevel]? {
+    public var listLevel : [ListLevel]? {
         get {
             return self._listLevel;
         }

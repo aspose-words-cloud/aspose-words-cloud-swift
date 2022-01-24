@@ -33,7 +33,7 @@ public class FormFieldCheckbox : FormField {
     // Field of checkBoxSize. FormField checkbox element.
     private var _checkBoxSize : Double?;
 
-    public var : Double? {
+    public var checkBoxSize : Double? {
         get {
             return self._checkBoxSize;
         }
@@ -45,7 +45,7 @@ public class FormFieldCheckbox : FormField {
     // Field of checked. FormField checkbox element.
     private var _checked : Bool?;
 
-    public var : Bool? {
+    public var checked : Bool? {
         get {
             return self._checked;
         }
@@ -57,7 +57,7 @@ public class FormFieldCheckbox : FormField {
     // Field of isCheckBoxExactSize. FormField checkbox element.
     private var _isCheckBoxExactSize : Bool?;
 
-    public var : Bool? {
+    public var isCheckBoxExactSize : Bool? {
         get {
             return self._isCheckBoxExactSize;
         }

@@ -33,7 +33,7 @@ public class XamlFlowPackSaveOptionsData : XamlFlowSaveOptionsData {
     // Field of saveFormat. Container class for xamlflow_pack save options.
     private final let _saveFormat : String? = "xamlflow_pack";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

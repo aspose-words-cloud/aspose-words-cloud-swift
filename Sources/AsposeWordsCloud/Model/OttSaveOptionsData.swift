@@ -33,7 +33,7 @@ public class OttSaveOptionsData : OdtSaveOptionsData {
     // Field of saveFormat. Container class for ott save options.
     private final let _saveFormat : String? = "ott";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

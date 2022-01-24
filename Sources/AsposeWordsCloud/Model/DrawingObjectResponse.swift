@@ -33,7 +33,7 @@ public class DrawingObjectResponse : WordsResponse {
     // Field of drawingObject. The REST response with a DrawingObject.
     private var _drawingObject : DrawingObject?;
 
-    public var : DrawingObject? {
+    public var drawingObject : DrawingObject? {
         get {
             return self._drawingObject;
         }

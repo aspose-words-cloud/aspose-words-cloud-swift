@@ -33,7 +33,7 @@ public class TableRowFormatResponse : WordsResponse {
     // Field of rowFormat. The REST response with the formatting properties of a table row.
     private var _rowFormat : TableRowFormat?;
 
-    public var : TableRowFormat? {
+    public var rowFormat : TableRowFormat? {
         get {
             return self._rowFormat;
         }

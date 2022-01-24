@@ -33,7 +33,7 @@ public class CommentsResponse : WordsResponse {
     // Field of comments. The REST response with a collection of comments.
     private var _comments : CommentsCollection?;
 
-    public var : CommentsCollection? {
+    public var comments : CommentsCollection? {
         get {
             return self._comments;
         }

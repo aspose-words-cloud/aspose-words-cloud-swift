@@ -33,7 +33,7 @@ public class SectionResponse : WordsResponse {
     // Field of section. The REST response with a section.
     private var _section : Section?;
 
-    public var : Section? {
+    public var section : Section? {
         get {
             return self._section;
         }

@@ -33,7 +33,7 @@ public class BookmarksResponse : WordsResponse {
     // Field of bookmarks. The REST response with a collection of bookmarks.
     private var _bookmarks : Bookmarks?;
 
-    public var : Bookmarks? {
+    public var bookmarks : Bookmarks? {
         get {
             return self._bookmarks;
         }

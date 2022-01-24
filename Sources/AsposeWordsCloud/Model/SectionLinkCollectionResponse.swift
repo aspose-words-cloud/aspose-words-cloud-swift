@@ -33,7 +33,7 @@ public class SectionLinkCollectionResponse : WordsResponse {
     // Field of sections. The REST response with a collection of sections.
     private var _sections : SectionLinkCollection?;
 
-    public var : SectionLinkCollection? {
+    public var sections : SectionLinkCollection? {
         get {
             return self._sections;
         }

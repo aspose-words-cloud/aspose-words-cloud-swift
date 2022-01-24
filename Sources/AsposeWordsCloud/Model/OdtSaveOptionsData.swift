@@ -44,7 +44,7 @@ public class OdtSaveOptionsData : SaveOptionsData {
     // Field of isStrictSchema11. Container class for odt/ott save options.
     private var _isStrictSchema11 : Bool?;
 
-    public var : Bool? {
+    public var isStrictSchema11 : Bool? {
         get {
             return self._isStrictSchema11;
         }
@@ -56,7 +56,7 @@ public class OdtSaveOptionsData : SaveOptionsData {
     // Field of measureUnit. Container class for odt/ott save options.
     private var _measureUnit : MeasureUnit?;
 
-    public var : MeasureUnit? {
+    public var measureUnit : MeasureUnit? {
         get {
             return self._measureUnit;
         }
@@ -68,7 +68,7 @@ public class OdtSaveOptionsData : SaveOptionsData {
     // Field of password. Container class for odt/ott save options.
     private var _password : String?;
 
-    public var : String? {
+    public var password : String? {
         get {
             return self._password;
         }
@@ -80,7 +80,7 @@ public class OdtSaveOptionsData : SaveOptionsData {
     // Field of prettyFormat. Container class for odt/ott save options.
     private var _prettyFormat : Bool?;
 
-    public var : Bool? {
+    public var prettyFormat : Bool? {
         get {
             return self._prettyFormat;
         }
@@ -92,7 +92,7 @@ public class OdtSaveOptionsData : SaveOptionsData {
     // Field of saveFormat. Container class for odt/ott save options.
     private final let _saveFormat : String? = "odt";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

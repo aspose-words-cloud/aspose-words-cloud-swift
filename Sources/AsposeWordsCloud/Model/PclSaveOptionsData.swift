@@ -33,7 +33,7 @@ public class PclSaveOptionsData : FixedPageSaveOptionsData {
     // Field of falllbackFontName. Container class for pcl save options.
     private var _falllbackFontName : String?;
 
-    public var : String? {
+    public var falllbackFontName : String? {
         get {
             return self._falllbackFontName;
         }
@@ -45,7 +45,7 @@ public class PclSaveOptionsData : FixedPageSaveOptionsData {
     // Field of rasterizeTransformedElements. Container class for pcl save options.
     private var _rasterizeTransformedElements : Bool?;
 
-    public var : Bool? {
+    public var rasterizeTransformedElements : Bool? {
         get {
             return self._rasterizeTransformedElements;
         }
@@ -57,7 +57,7 @@ public class PclSaveOptionsData : FixedPageSaveOptionsData {
     // Field of saveFormat. Container class for pcl save options.
     private final let _saveFormat : String? = "pcl";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

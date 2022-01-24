@@ -33,7 +33,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     // Field of bookmarksOutlineLevel. Container class for xps save options.
     private var _bookmarksOutlineLevel : Int?;
 
-    public var : Int? {
+    public var bookmarksOutlineLevel : Int? {
         get {
             return self._bookmarksOutlineLevel;
         }
@@ -45,7 +45,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     // Field of headingsOutlineLevels. Container class for xps save options.
     private var _headingsOutlineLevels : Int?;
 
-    public var : Int? {
+    public var headingsOutlineLevels : Int? {
         get {
             return self._headingsOutlineLevels;
         }
@@ -57,7 +57,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     // Field of outlineOptions. Container class for xps save options.
     private var _outlineOptions : OutlineOptionsData?;
 
-    public var : OutlineOptionsData? {
+    public var outlineOptions : OutlineOptionsData? {
         get {
             return self._outlineOptions;
         }
@@ -69,7 +69,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     // Field of saveFormat. Container class for xps save options.
     private final let _saveFormat : String? = "xps";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }
@@ -78,7 +78,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     // Field of useBookFoldPrintingSettings. Container class for xps save options.
     private var _useBookFoldPrintingSettings : Bool?;
 
-    public var : Bool? {
+    public var useBookFoldPrintingSettings : Bool? {
         get {
             return self._useBookFoldPrintingSettings;
         }

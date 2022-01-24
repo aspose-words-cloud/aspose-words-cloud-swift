@@ -33,7 +33,7 @@ public class CompareData : Codable, WordsApiModel {
     // Field of author. Container class for compare documents.
     private var _author : String?;
 
-    public var : String? {
+    public var author : String? {
         get {
             return self._author;
         }
@@ -45,7 +45,7 @@ public class CompareData : Codable, WordsApiModel {
     // Field of compareOptions. Container class for compare documents.
     private var _compareOptions : CompareOptions?;
 
-    public var : CompareOptions? {
+    public var compareOptions : CompareOptions? {
         get {
             return self._compareOptions;
         }
@@ -57,7 +57,7 @@ public class CompareData : Codable, WordsApiModel {
     // Field of comparingWithDocument. Container class for compare documents.
     private var _comparingWithDocument : String?;
 
-    public var : String? {
+    public var comparingWithDocument : String? {
         get {
             return self._comparingWithDocument;
         }
@@ -69,7 +69,7 @@ public class CompareData : Codable, WordsApiModel {
     // Field of dateTime. Container class for compare documents.
     private var _dateTime : Date?;
 
-    public var : Date? {
+    public var dateTime : Date? {
         get {
             return self._dateTime;
         }
@@ -81,7 +81,7 @@ public class CompareData : Codable, WordsApiModel {
     // Field of resultDocumentFormat. Container class for compare documents.
     private var _resultDocumentFormat : String?;
 
-    public var : String? {
+    public var resultDocumentFormat : String? {
         get {
             return self._resultDocumentFormat;
         }

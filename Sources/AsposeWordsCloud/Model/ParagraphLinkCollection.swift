@@ -33,7 +33,7 @@ public class ParagraphLinkCollection : LinkElement {
     // Field of paragraphLinkList. The collection of paragraph's links.
     private var _paragraphLinkList : [ParagraphLink]?;
 
-    public var : [ParagraphLink]? {
+    public var paragraphLinkList : [ParagraphLink]? {
         get {
             return self._paragraphLinkList;
         }

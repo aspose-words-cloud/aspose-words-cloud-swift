@@ -359,7 +359,7 @@ public class PageSetup : LinkElement {
     // Field of bidi. Represents the page setup properties of a section.
     private var _bidi : Bool?;
 
-    public var : Bool? {
+    public var bidi : Bool? {
         get {
             return self._bidi;
         }
@@ -371,7 +371,7 @@ public class PageSetup : LinkElement {
     // Field of borderAlwaysInFront. Represents the page setup properties of a section.
     private var _borderAlwaysInFront : Bool?;
 
-    public var : Bool? {
+    public var borderAlwaysInFront : Bool? {
         get {
             return self._borderAlwaysInFront;
         }
@@ -383,7 +383,7 @@ public class PageSetup : LinkElement {
     // Field of borderAppliesTo. Represents the page setup properties of a section.
     private var _borderAppliesTo : BorderAppliesTo?;
 
-    public var : BorderAppliesTo? {
+    public var borderAppliesTo : BorderAppliesTo? {
         get {
             return self._borderAppliesTo;
         }
@@ -395,7 +395,7 @@ public class PageSetup : LinkElement {
     // Field of borderDistanceFrom. Represents the page setup properties of a section.
     private var _borderDistanceFrom : BorderDistanceFrom?;
 
-    public var : BorderDistanceFrom? {
+    public var borderDistanceFrom : BorderDistanceFrom? {
         get {
             return self._borderDistanceFrom;
         }
@@ -407,7 +407,7 @@ public class PageSetup : LinkElement {
     // Field of bottomMargin. Represents the page setup properties of a section.
     private var _bottomMargin : Double?;
 
-    public var : Double? {
+    public var bottomMargin : Double? {
         get {
             return self._bottomMargin;
         }
@@ -419,7 +419,7 @@ public class PageSetup : LinkElement {
     // Field of differentFirstPageHeaderFooter. Represents the page setup properties of a section.
     private var _differentFirstPageHeaderFooter : Bool?;
 
-    public var : Bool? {
+    public var differentFirstPageHeaderFooter : Bool? {
         get {
             return self._differentFirstPageHeaderFooter;
         }
@@ -431,7 +431,7 @@ public class PageSetup : LinkElement {
     // Field of firstPageTray. Represents the page setup properties of a section.
     private var _firstPageTray : Int?;
 
-    public var : Int? {
+    public var firstPageTray : Int? {
         get {
             return self._firstPageTray;
         }
@@ -443,7 +443,7 @@ public class PageSetup : LinkElement {
     // Field of footerDistance. Represents the page setup properties of a section.
     private var _footerDistance : Double?;
 
-    public var : Double? {
+    public var footerDistance : Double? {
         get {
             return self._footerDistance;
         }
@@ -455,7 +455,7 @@ public class PageSetup : LinkElement {
     // Field of gutter. Represents the page setup properties of a section.
     private var _gutter : Double?;
 
-    public var : Double? {
+    public var gutter : Double? {
         get {
             return self._gutter;
         }
@@ -467,7 +467,7 @@ public class PageSetup : LinkElement {
     // Field of headerDistance. Represents the page setup properties of a section.
     private var _headerDistance : Double?;
 
-    public var : Double? {
+    public var headerDistance : Double? {
         get {
             return self._headerDistance;
         }
@@ -479,7 +479,7 @@ public class PageSetup : LinkElement {
     // Field of leftMargin. Represents the page setup properties of a section.
     private var _leftMargin : Double?;
 
-    public var : Double? {
+    public var leftMargin : Double? {
         get {
             return self._leftMargin;
         }
@@ -491,7 +491,7 @@ public class PageSetup : LinkElement {
     // Field of lineNumberCountBy. Represents the page setup properties of a section.
     private var _lineNumberCountBy : Int?;
 
-    public var : Int? {
+    public var lineNumberCountBy : Int? {
         get {
             return self._lineNumberCountBy;
         }
@@ -503,7 +503,7 @@ public class PageSetup : LinkElement {
     // Field of lineNumberDistanceFromText. Represents the page setup properties of a section.
     private var _lineNumberDistanceFromText : Double?;
 
-    public var : Double? {
+    public var lineNumberDistanceFromText : Double? {
         get {
             return self._lineNumberDistanceFromText;
         }
@@ -515,7 +515,7 @@ public class PageSetup : LinkElement {
     // Field of lineNumberRestartMode. Represents the page setup properties of a section.
     private var _lineNumberRestartMode : LineNumberRestartMode?;
 
-    public var : LineNumberRestartMode? {
+    public var lineNumberRestartMode : LineNumberRestartMode? {
         get {
             return self._lineNumberRestartMode;
         }
@@ -527,7 +527,7 @@ public class PageSetup : LinkElement {
     // Field of lineStartingNumber. Represents the page setup properties of a section.
     private var _lineStartingNumber : Int?;
 
-    public var : Int? {
+    public var lineStartingNumber : Int? {
         get {
             return self._lineStartingNumber;
         }
@@ -539,7 +539,7 @@ public class PageSetup : LinkElement {
     // Field of orientation. Represents the page setup properties of a section.
     private var _orientation : Orientation?;
 
-    public var : Orientation? {
+    public var orientation : Orientation? {
         get {
             return self._orientation;
         }
@@ -551,7 +551,7 @@ public class PageSetup : LinkElement {
     // Field of otherPagesTray. Represents the page setup properties of a section.
     private var _otherPagesTray : Int?;
 
-    public var : Int? {
+    public var otherPagesTray : Int? {
         get {
             return self._otherPagesTray;
         }
@@ -563,7 +563,7 @@ public class PageSetup : LinkElement {
     // Field of pageHeight. Represents the page setup properties of a section.
     private var _pageHeight : Double?;
 
-    public var : Double? {
+    public var pageHeight : Double? {
         get {
             return self._pageHeight;
         }
@@ -575,7 +575,7 @@ public class PageSetup : LinkElement {
     // Field of pageNumberStyle. Represents the page setup properties of a section.
     private var _pageNumberStyle : PageNumberStyle?;
 
-    public var : PageNumberStyle? {
+    public var pageNumberStyle : PageNumberStyle? {
         get {
             return self._pageNumberStyle;
         }
@@ -587,7 +587,7 @@ public class PageSetup : LinkElement {
     // Field of pageStartingNumber. Represents the page setup properties of a section.
     private var _pageStartingNumber : Int?;
 
-    public var : Int? {
+    public var pageStartingNumber : Int? {
         get {
             return self._pageStartingNumber;
         }
@@ -599,7 +599,7 @@ public class PageSetup : LinkElement {
     // Field of pageWidth. Represents the page setup properties of a section.
     private var _pageWidth : Double?;
 
-    public var : Double? {
+    public var pageWidth : Double? {
         get {
             return self._pageWidth;
         }
@@ -611,7 +611,7 @@ public class PageSetup : LinkElement {
     // Field of paperSize. Represents the page setup properties of a section.
     private var _paperSize : PaperSize?;
 
-    public var : PaperSize? {
+    public var paperSize : PaperSize? {
         get {
             return self._paperSize;
         }
@@ -623,7 +623,7 @@ public class PageSetup : LinkElement {
     // Field of restartPageNumbering. Represents the page setup properties of a section.
     private var _restartPageNumbering : Bool?;
 
-    public var : Bool? {
+    public var restartPageNumbering : Bool? {
         get {
             return self._restartPageNumbering;
         }
@@ -635,7 +635,7 @@ public class PageSetup : LinkElement {
     // Field of rightMargin. Represents the page setup properties of a section.
     private var _rightMargin : Double?;
 
-    public var : Double? {
+    public var rightMargin : Double? {
         get {
             return self._rightMargin;
         }
@@ -647,7 +647,7 @@ public class PageSetup : LinkElement {
     // Field of rtlGutter. Represents the page setup properties of a section.
     private var _rtlGutter : Bool?;
 
-    public var : Bool? {
+    public var rtlGutter : Bool? {
         get {
             return self._rtlGutter;
         }
@@ -659,7 +659,7 @@ public class PageSetup : LinkElement {
     // Field of sectionStart. Represents the page setup properties of a section.
     private var _sectionStart : SectionStart?;
 
-    public var : SectionStart? {
+    public var sectionStart : SectionStart? {
         get {
             return self._sectionStart;
         }
@@ -671,7 +671,7 @@ public class PageSetup : LinkElement {
     // Field of suppressEndnotes. Represents the page setup properties of a section.
     private var _suppressEndnotes : Bool?;
 
-    public var : Bool? {
+    public var suppressEndnotes : Bool? {
         get {
             return self._suppressEndnotes;
         }
@@ -683,7 +683,7 @@ public class PageSetup : LinkElement {
     // Field of topMargin. Represents the page setup properties of a section.
     private var _topMargin : Double?;
 
-    public var : Double? {
+    public var topMargin : Double? {
         get {
             return self._topMargin;
         }
@@ -695,7 +695,7 @@ public class PageSetup : LinkElement {
     // Field of verticalAlignment. Represents the page setup properties of a section.
     private var _verticalAlignment : VerticalAlignment?;
 
-    public var : VerticalAlignment? {
+    public var verticalAlignment : VerticalAlignment? {
         get {
             return self._verticalAlignment;
         }

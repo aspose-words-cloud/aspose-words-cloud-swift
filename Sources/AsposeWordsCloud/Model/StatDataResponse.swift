@@ -33,7 +33,7 @@ public class StatDataResponse : WordsResponse {
     // Field of documentLink. The REST response with document's statistical data.
     private var _documentLink : FileLink?;
 
-    public var : FileLink? {
+    public var documentLink : FileLink? {
         get {
             return self._documentLink;
         }
@@ -45,7 +45,7 @@ public class StatDataResponse : WordsResponse {
     // Field of statData. The REST response with document's statistical data.
     private var _statData : DocumentStatData?;
 
-    public var : DocumentStatData? {
+    public var statData : DocumentStatData? {
         get {
             return self._statData;
         }

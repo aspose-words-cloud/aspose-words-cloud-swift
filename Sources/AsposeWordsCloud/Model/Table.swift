@@ -33,7 +33,7 @@ public class Table : NodeLink {
     // Field of tableProperties. DTO container with a table element.
     private var _tableProperties : TableProperties?;
 
-    public var : TableProperties? {
+    public var tableProperties : TableProperties? {
         get {
             return self._tableProperties;
         }
@@ -45,7 +45,7 @@ public class Table : NodeLink {
     // Field of tableRowList. DTO container with a table element.
     private var _tableRowList : [TableRow]?;
 
-    public var : [TableRow]? {
+    public var tableRowList : [TableRow]? {
         get {
             return self._tableRowList;
         }

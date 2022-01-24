@@ -33,7 +33,7 @@ public class HyperlinkResponse : WordsResponse {
     // Field of hyperlink. The REST response with a hyperlink.
     private var _hyperlink : Hyperlink?;
 
-    public var : Hyperlink? {
+    public var hyperlink : Hyperlink? {
         get {
             return self._hyperlink;
         }

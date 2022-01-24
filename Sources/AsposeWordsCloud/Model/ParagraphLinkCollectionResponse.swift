@@ -33,7 +33,7 @@ public class ParagraphLinkCollectionResponse : WordsResponse {
     // Field of paragraphs. The REST response with a collection of paragraphs.
     private var _paragraphs : ParagraphLinkCollection?;
 
-    public var : ParagraphLinkCollection? {
+    public var paragraphs : ParagraphLinkCollection? {
         get {
             return self._paragraphs;
         }

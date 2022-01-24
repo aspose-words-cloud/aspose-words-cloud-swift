@@ -33,7 +33,7 @@ public class FormFieldDropDown : FormField {
     // Field of dropDownItems. FormField dropdownlist element.
     private var _dropDownItems : [String]?;
 
-    public var : [String]? {
+    public var dropDownItems : [String]? {
         get {
             return self._dropDownItems;
         }
@@ -45,7 +45,7 @@ public class FormFieldDropDown : FormField {
     // Field of dropDownSelectedIndex. FormField dropdownlist element.
     private var _dropDownSelectedIndex : Int?;
 
-    public var : Int? {
+    public var dropDownSelectedIndex : Int? {
         get {
             return self._dropDownSelectedIndex;
         }

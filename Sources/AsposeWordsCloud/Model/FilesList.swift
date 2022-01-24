@@ -33,7 +33,7 @@ public class FilesList : Codable, WordsApiModel {
     // Field of value. Files list.
     private var _value : [StorageFile]?;
 
-    public var : [StorageFile]? {
+    public var value : [StorageFile]? {
         get {
             return self._value;
         }

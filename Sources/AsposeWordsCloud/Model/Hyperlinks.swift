@@ -33,7 +33,7 @@ public class Hyperlinks : LinkElement {
     // Field of hyperlinkList. Collection of Hyperlink.
     private var _hyperlinkList : [Hyperlink]?;
 
-    public var : [Hyperlink]? {
+    public var hyperlinkList : [Hyperlink]? {
         get {
             return self._hyperlinkList;
         }

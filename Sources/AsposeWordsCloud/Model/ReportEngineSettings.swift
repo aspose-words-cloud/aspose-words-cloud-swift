@@ -46,7 +46,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     // Field of csvDataLoadOptions. Report engine settings.
     private var _csvDataLoadOptions : CsvDataLoadOptions?;
 
-    public var : CsvDataLoadOptions? {
+    public var csvDataLoadOptions : CsvDataLoadOptions? {
         get {
             return self._csvDataLoadOptions;
         }
@@ -58,7 +58,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     // Field of dataSourceName. Report engine settings.
     private var _dataSourceName : String?;
 
-    public var : String? {
+    public var dataSourceName : String? {
         get {
             return self._dataSourceName;
         }
@@ -70,7 +70,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     // Field of dataSourceType. Report engine settings.
     private var _dataSourceType : DataSourceType?;
 
-    public var : DataSourceType? {
+    public var dataSourceType : DataSourceType? {
         get {
             return self._dataSourceType;
         }
@@ -82,7 +82,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     // Field of jsonDataLoadOptions. Report engine settings.
     private var _jsonDataLoadOptions : JsonDataLoadOptions?;
 
-    public var : JsonDataLoadOptions? {
+    public var jsonDataLoadOptions : JsonDataLoadOptions? {
         get {
             return self._jsonDataLoadOptions;
         }
@@ -94,7 +94,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     // Field of reportBuildOptions. Report engine settings.
     private var _reportBuildOptions : [ReportBuildOptions]?;
 
-    public var : [ReportBuildOptions]? {
+    public var reportBuildOptions : [ReportBuildOptions]? {
         get {
             return self._reportBuildOptions;
         }
@@ -106,7 +106,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     // Field of xmlDataLoadOptions. Report engine settings.
     private var _xmlDataLoadOptions : XmlDataLoadOptions?;
 
-    public var : XmlDataLoadOptions? {
+    public var xmlDataLoadOptions : XmlDataLoadOptions? {
         get {
             return self._xmlDataLoadOptions;
         }

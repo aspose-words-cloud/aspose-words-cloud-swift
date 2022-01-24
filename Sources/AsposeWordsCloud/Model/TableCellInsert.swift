@@ -33,7 +33,7 @@ public class TableCellInsert : Codable, WordsApiModel {
     // Field of insertAfter. DTO container with a table cell.
     private var _insertAfter : Int?;
 
-    public var : Int? {
+    public var insertAfter : Int? {
         get {
             return self._insertAfter;
         }

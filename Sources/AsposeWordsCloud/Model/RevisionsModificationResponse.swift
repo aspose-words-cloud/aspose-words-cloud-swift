@@ -33,7 +33,7 @@ public class RevisionsModificationResponse : WordsResponse {
     // Field of result. The REST response with a result of the modification operations for the revisions collection (now these are acceptAll and rejectAll).
     private var _result : ModificationOperationResult?;
 
-    public var : ModificationOperationResult? {
+    public var result : ModificationOperationResult? {
         get {
             return self._result;
         }

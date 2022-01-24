@@ -33,7 +33,7 @@ public class RtfSaveOptionsData : SaveOptionsData {
     // Field of exportCompactSize. Container class for rtf save options.
     private var _exportCompactSize : Bool?;
 
-    public var : Bool? {
+    public var exportCompactSize : Bool? {
         get {
             return self._exportCompactSize;
         }
@@ -45,7 +45,7 @@ public class RtfSaveOptionsData : SaveOptionsData {
     // Field of exportImagesForOldReaders. Container class for rtf save options.
     private var _exportImagesForOldReaders : Bool?;
 
-    public var : Bool? {
+    public var exportImagesForOldReaders : Bool? {
         get {
             return self._exportImagesForOldReaders;
         }
@@ -57,7 +57,7 @@ public class RtfSaveOptionsData : SaveOptionsData {
     // Field of prettyFormat. Container class for rtf save options.
     private var _prettyFormat : Bool?;
 
-    public var : Bool? {
+    public var prettyFormat : Bool? {
         get {
             return self._prettyFormat;
         }
@@ -69,7 +69,7 @@ public class RtfSaveOptionsData : SaveOptionsData {
     // Field of saveFormat. Container class for rtf save options.
     private final let _saveFormat : String? = "rtf";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }
@@ -78,7 +78,7 @@ public class RtfSaveOptionsData : SaveOptionsData {
     // Field of saveImagesAsWmf. Container class for rtf save options.
     private var _saveImagesAsWmf : Bool?;
 
-    public var : Bool? {
+    public var saveImagesAsWmf : Bool? {
         get {
             return self._saveImagesAsWmf;
         }

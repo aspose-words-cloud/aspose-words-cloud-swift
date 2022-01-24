@@ -33,7 +33,7 @@ public class NodeLink : LinkElement {
     // Field of nodeId. Reference to node.
     private var _nodeId : String?;
 
-    public var : String? {
+    public var nodeId : String? {
         get {
             return self._nodeId;
         }

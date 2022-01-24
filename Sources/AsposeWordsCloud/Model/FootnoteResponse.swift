@@ -33,7 +33,7 @@ public class FootnoteResponse : WordsResponse {
     // Field of footnote. The REST response with a footnote.
     private var _footnote : Footnote?;
 
-    public var : Footnote? {
+    public var footnote : Footnote? {
         get {
             return self._footnote;
         }

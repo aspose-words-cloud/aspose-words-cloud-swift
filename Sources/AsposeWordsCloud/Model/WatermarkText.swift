@@ -33,7 +33,7 @@ public class WatermarkText : Codable, WordsApiModel {
     // Field of rotationAngle. Class for insert watermark text request building.
     private var _rotationAngle : Double?;
 
-    public var : Double? {
+    public var rotationAngle : Double? {
         get {
             return self._rotationAngle;
         }
@@ -45,7 +45,7 @@ public class WatermarkText : Codable, WordsApiModel {
     // Field of text. Class for insert watermark text request building.
     private var _text : String?;
 
-    public var : String? {
+    public var text : String? {
         get {
             return self._text;
         }

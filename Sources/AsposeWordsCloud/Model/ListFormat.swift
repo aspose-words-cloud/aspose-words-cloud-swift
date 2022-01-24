@@ -33,7 +33,7 @@ public class ListFormat : LinkElement {
     // Field of isListItem. DTO container with a paragraph list format element.
     private var _isListItem : Bool?;
 
-    public var : Bool? {
+    public var isListItem : Bool? {
         get {
             return self._isListItem;
         }
@@ -45,7 +45,7 @@ public class ListFormat : LinkElement {
     // Field of listId. DTO container with a paragraph list format element.
     private var _listId : Int?;
 
-    public var : Int? {
+    public var listId : Int? {
         get {
             return self._listId;
         }
@@ -57,7 +57,7 @@ public class ListFormat : LinkElement {
     // Field of listLevelNumber. DTO container with a paragraph list format element.
     private var _listLevelNumber : Int?;
 
-    public var : Int? {
+    public var listLevelNumber : Int? {
         get {
             return self._listLevelNumber;
         }

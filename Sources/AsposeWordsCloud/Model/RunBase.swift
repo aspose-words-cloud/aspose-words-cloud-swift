@@ -33,7 +33,7 @@ public class RunBase : Codable, WordsApiModel {
     // Field of text. Run element.
     private var _text : String?;
 
-    public var : String? {
+    public var text : String? {
         get {
             return self._text;
         }

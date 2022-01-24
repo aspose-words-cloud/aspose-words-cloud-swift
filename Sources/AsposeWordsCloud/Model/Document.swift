@@ -100,7 +100,7 @@ public class Document : Codable, WordsApiModel {
     // Field of documentProperties. Represents Words document DTO.
     private var _documentProperties : DocumentProperties?;
 
-    public var : DocumentProperties? {
+    public var documentProperties : DocumentProperties? {
         get {
             return self._documentProperties;
         }
@@ -112,7 +112,7 @@ public class Document : Codable, WordsApiModel {
     // Field of fileName. Represents Words document DTO.
     private var _fileName : String?;
 
-    public var : String? {
+    public var fileName : String? {
         get {
             return self._fileName;
         }
@@ -124,7 +124,7 @@ public class Document : Codable, WordsApiModel {
     // Field of isEncrypted. Represents Words document DTO.
     private var _isEncrypted : Bool?;
 
-    public var : Bool? {
+    public var isEncrypted : Bool? {
         get {
             return self._isEncrypted;
         }
@@ -136,7 +136,7 @@ public class Document : Codable, WordsApiModel {
     // Field of isSigned. Represents Words document DTO.
     private var _isSigned : Bool?;
 
-    public var : Bool? {
+    public var isSigned : Bool? {
         get {
             return self._isSigned;
         }
@@ -148,7 +148,7 @@ public class Document : Codable, WordsApiModel {
     // Field of links. Represents Words document DTO.
     private var _links : [Link]?;
 
-    public var : [Link]? {
+    public var links : [Link]? {
         get {
             return self._links;
         }
@@ -160,7 +160,7 @@ public class Document : Codable, WordsApiModel {
     // Field of sourceFormat. Represents Words document DTO.
     private var _sourceFormat : SourceFormat?;
 
-    public var : SourceFormat? {
+    public var sourceFormat : SourceFormat? {
         get {
             return self._sourceFormat;
         }

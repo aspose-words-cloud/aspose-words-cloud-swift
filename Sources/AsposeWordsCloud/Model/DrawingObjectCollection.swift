@@ -33,7 +33,7 @@ public class DrawingObjectCollection : LinkElement {
     // Field of list. DTO container with a collection of DrawingObjects links.
     private var _list : [LinkElement]?;
 
-    public var : [LinkElement]? {
+    public var list : [LinkElement]? {
         get {
             return self._list;
         }

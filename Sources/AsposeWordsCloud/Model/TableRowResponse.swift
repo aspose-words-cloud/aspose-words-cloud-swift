@@ -33,7 +33,7 @@ public class TableRowResponse : WordsResponse {
     // Field of row. The REST response with a table row.
     private var _row : TableRow?;
 
-    public var : TableRow? {
+    public var row : TableRow? {
         get {
             return self._row;
         }

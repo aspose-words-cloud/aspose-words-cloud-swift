@@ -33,7 +33,7 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
     // Field of epubNavigationMapLevel. Container class for epub save options.
     private var _epubNavigationMapLevel : Int?;
 
-    public var : Int? {
+    public var epubNavigationMapLevel : Int? {
         get {
             return self._epubNavigationMapLevel;
         }
@@ -45,7 +45,7 @@ public class EpubSaveOptionsData : HtmlSaveOptionsData {
     // Field of saveFormat. Container class for epub save options.
     private final let _saveFormat : String? = "epub";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

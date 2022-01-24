@@ -33,7 +33,7 @@ public class FormFieldCollection : LinkElement {
     // Field of list. DTO container with a collection of form fields.
     private var _list : [FormField]?;
 
-    public var : [FormField]? {
+    public var list : [FormField]? {
         get {
             return self._list;
         }

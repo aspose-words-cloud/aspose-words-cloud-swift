@@ -33,7 +33,7 @@ public class ClassificationResult : Codable, WordsApiModel {
     // Field of className. Represents a single classification result.
     private var _className : String?;
 
-    public var : String? {
+    public var className : String? {
         get {
             return self._className;
         }
@@ -45,7 +45,7 @@ public class ClassificationResult : Codable, WordsApiModel {
     // Field of classProbability. Represents a single classification result.
     private var _classProbability : Double?;
 
-    public var : Double? {
+    public var classProbability : Double? {
         get {
             return self._classProbability;
         }

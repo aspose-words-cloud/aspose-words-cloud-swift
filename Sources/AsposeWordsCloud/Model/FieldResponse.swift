@@ -33,7 +33,7 @@ public class FieldResponse : WordsResponse {
     // Field of field. The REST response with a field.
     private var _field : Field?;
 
-    public var : Field? {
+    public var field : Field? {
         get {
             return self._field;
         }

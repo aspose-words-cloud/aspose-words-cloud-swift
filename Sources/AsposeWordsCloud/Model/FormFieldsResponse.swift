@@ -33,7 +33,7 @@ public class FormFieldsResponse : WordsResponse {
     // Field of formFields. The REST response with a collection of form fields.
     private var _formFields : FormFieldCollection?;
 
-    public var : FormFieldCollection? {
+    public var formFields : FormFieldCollection? {
         get {
             return self._formFields;
         }

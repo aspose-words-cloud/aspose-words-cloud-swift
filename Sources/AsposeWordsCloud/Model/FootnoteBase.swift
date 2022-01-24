@@ -43,7 +43,7 @@ public class FootnoteBase : Codable, WordsApiModel {
     // Field of footnoteType. Footnote base class.
     private var _footnoteType : FootnoteType?;
 
-    public var : FootnoteType? {
+    public var footnoteType : FootnoteType? {
         get {
             return self._footnoteType;
         }
@@ -55,7 +55,7 @@ public class FootnoteBase : Codable, WordsApiModel {
     // Field of position. Footnote base class.
     private var _position : DocumentPosition?;
 
-    public var : DocumentPosition? {
+    public var position : DocumentPosition? {
         get {
             return self._position;
         }
@@ -67,7 +67,7 @@ public class FootnoteBase : Codable, WordsApiModel {
     // Field of referenceMark. Footnote base class.
     private var _referenceMark : String?;
 
-    public var : String? {
+    public var referenceMark : String? {
         get {
             return self._referenceMark;
         }
@@ -79,7 +79,7 @@ public class FootnoteBase : Codable, WordsApiModel {
     // Field of text. Footnote base class.
     private var _text : String?;
 
-    public var : String? {
+    public var text : String? {
         get {
             return self._text;
         }

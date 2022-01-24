@@ -33,7 +33,7 @@ public class ListResponse : WordsResponse {
     // Field of list. The REST response with a list information.
     private var _list : ListInfo?;
 
-    public var : ListInfo? {
+    public var list : ListInfo? {
         get {
             return self._list;
         }

@@ -33,7 +33,7 @@ public class PngSaveOptionsData : ImageSaveOptionsData {
     // Field of saveFormat. Container class for png save options.
     private final let _saveFormat : String? = "png";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

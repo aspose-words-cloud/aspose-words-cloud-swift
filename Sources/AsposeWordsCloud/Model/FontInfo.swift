@@ -33,7 +33,7 @@ public class FontInfo : Codable, WordsApiModel {
     // Field of filePath. DTO container with font info.
     private var _filePath : String?;
 
-    public var : String? {
+    public var filePath : String? {
         get {
             return self._filePath;
         }
@@ -45,7 +45,7 @@ public class FontInfo : Codable, WordsApiModel {
     // Field of fontFamilyName. DTO container with font info.
     private var _fontFamilyName : String?;
 
-    public var : String? {
+    public var fontFamilyName : String? {
         get {
             return self._fontFamilyName;
         }
@@ -57,7 +57,7 @@ public class FontInfo : Codable, WordsApiModel {
     // Field of fullFontName. DTO container with font info.
     private var _fullFontName : String?;
 
-    public var : String? {
+    public var fullFontName : String? {
         get {
             return self._fullFontName;
         }
@@ -69,7 +69,7 @@ public class FontInfo : Codable, WordsApiModel {
     // Field of version. DTO container with font info.
     private var _version : String?;
 
-    public var : String? {
+    public var version : String? {
         get {
             return self._version;
         }

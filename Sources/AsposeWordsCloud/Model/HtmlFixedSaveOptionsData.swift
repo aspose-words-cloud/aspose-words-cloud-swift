@@ -33,7 +33,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of cssClassNamesPrefix. Container class for fixed html save options.
     private var _cssClassNamesPrefix : String?;
 
-    public var : String? {
+    public var cssClassNamesPrefix : String? {
         get {
             return self._cssClassNamesPrefix;
         }
@@ -45,7 +45,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of encoding. Container class for fixed html save options.
     private var _encoding : String?;
 
-    public var : String? {
+    public var encoding : String? {
         get {
             return self._encoding;
         }
@@ -57,7 +57,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of exportEmbeddedCss. Container class for fixed html save options.
     private var _exportEmbeddedCss : Bool?;
 
-    public var : Bool? {
+    public var exportEmbeddedCss : Bool? {
         get {
             return self._exportEmbeddedCss;
         }
@@ -69,7 +69,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of exportEmbeddedFonts. Container class for fixed html save options.
     private var _exportEmbeddedFonts : Bool?;
 
-    public var : Bool? {
+    public var exportEmbeddedFonts : Bool? {
         get {
             return self._exportEmbeddedFonts;
         }
@@ -81,7 +81,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of exportEmbeddedImages. Container class for fixed html save options.
     private var _exportEmbeddedImages : Bool?;
 
-    public var : Bool? {
+    public var exportEmbeddedImages : Bool? {
         get {
             return self._exportEmbeddedImages;
         }
@@ -93,7 +93,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of exportFormFields. Container class for fixed html save options.
     private var _exportFormFields : Bool?;
 
-    public var : Bool? {
+    public var exportFormFields : Bool? {
         get {
             return self._exportFormFields;
         }
@@ -105,7 +105,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of fontFormat. Container class for fixed html save options.
     private var _fontFormat : String?;
 
-    public var : String? {
+    public var fontFormat : String? {
         get {
             return self._fontFormat;
         }
@@ -117,7 +117,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of pageHorizontalAlignment. Container class for fixed html save options.
     private var _pageHorizontalAlignment : String?;
 
-    public var : String? {
+    public var pageHorizontalAlignment : String? {
         get {
             return self._pageHorizontalAlignment;
         }
@@ -129,7 +129,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of pageMargins. Container class for fixed html save options.
     private var _pageMargins : Double?;
 
-    public var : Double? {
+    public var pageMargins : Double? {
         get {
             return self._pageMargins;
         }
@@ -141,7 +141,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of resourcesFolder. Container class for fixed html save options.
     private var _resourcesFolder : String?;
 
-    public var : String? {
+    public var resourcesFolder : String? {
         get {
             return self._resourcesFolder;
         }
@@ -153,7 +153,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of resourcesFolderAlias. Container class for fixed html save options.
     private var _resourcesFolderAlias : String?;
 
-    public var : String? {
+    public var resourcesFolderAlias : String? {
         get {
             return self._resourcesFolderAlias;
         }
@@ -165,7 +165,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of saveFontFaceCssSeparately. Container class for fixed html save options.
     private var _saveFontFaceCssSeparately : Bool?;
 
-    public var : Bool? {
+    public var saveFontFaceCssSeparately : Bool? {
         get {
             return self._saveFontFaceCssSeparately;
         }
@@ -177,7 +177,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of saveFormat. Container class for fixed html save options.
     private final let _saveFormat : String? = "htmlfixed";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }
@@ -186,7 +186,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of showPageBorder. Container class for fixed html save options.
     private var _showPageBorder : Bool?;
 
-    public var : Bool? {
+    public var showPageBorder : Bool? {
         get {
             return self._showPageBorder;
         }
@@ -198,7 +198,7 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of useTargetMachineFonts. Container class for fixed html save options.
     private var _useTargetMachineFonts : Bool?;
 
-    public var : Bool? {
+    public var useTargetMachineFonts : Bool? {
         get {
             return self._useTargetMachineFonts;
         }

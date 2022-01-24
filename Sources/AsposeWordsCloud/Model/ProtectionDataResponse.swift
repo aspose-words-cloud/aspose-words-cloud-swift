@@ -33,7 +33,7 @@ public class ProtectionDataResponse : WordsResponse {
     // Field of documentLink. The REST response with data on document's protection.
     private var _documentLink : FileLink?;
 
-    public var : FileLink? {
+    public var documentLink : FileLink? {
         get {
             return self._documentLink;
         }
@@ -45,7 +45,7 @@ public class ProtectionDataResponse : WordsResponse {
     // Field of protectionData. The REST response with data on document's protection.
     private var _protectionData : ProtectionData?;
 
-    public var : ProtectionData? {
+    public var protectionData : ProtectionData? {
         get {
             return self._protectionData;
         }

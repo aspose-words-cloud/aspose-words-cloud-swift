@@ -249,7 +249,7 @@ public class ListLevel : LinkElement {
     // Field of alignment. DTO container with a document list level.
     private var _alignment : Alignment?;
 
-    public var : Alignment? {
+    public var alignment : Alignment? {
         get {
             return self._alignment;
         }
@@ -261,7 +261,7 @@ public class ListLevel : LinkElement {
     // Field of font. DTO container with a document list level.
     private var _font : Font?;
 
-    public var : Font? {
+    public var font : Font? {
         get {
             return self._font;
         }
@@ -273,7 +273,7 @@ public class ListLevel : LinkElement {
     // Field of isLegal. DTO container with a document list level.
     private var _isLegal : Bool?;
 
-    public var : Bool? {
+    public var isLegal : Bool? {
         get {
             return self._isLegal;
         }
@@ -285,7 +285,7 @@ public class ListLevel : LinkElement {
     // Field of linkedStyle. DTO container with a document list level.
     private var _linkedStyle : Style?;
 
-    public var : Style? {
+    public var linkedStyle : Style? {
         get {
             return self._linkedStyle;
         }
@@ -297,7 +297,7 @@ public class ListLevel : LinkElement {
     // Field of numberFormat. DTO container with a document list level.
     private var _numberFormat : String?;
 
-    public var : String? {
+    public var numberFormat : String? {
         get {
             return self._numberFormat;
         }
@@ -309,7 +309,7 @@ public class ListLevel : LinkElement {
     // Field of numberPosition. DTO container with a document list level.
     private var _numberPosition : Double?;
 
-    public var : Double? {
+    public var numberPosition : Double? {
         get {
             return self._numberPosition;
         }
@@ -321,7 +321,7 @@ public class ListLevel : LinkElement {
     // Field of numberStyle. DTO container with a document list level.
     private var _numberStyle : NumberStyle?;
 
-    public var : NumberStyle? {
+    public var numberStyle : NumberStyle? {
         get {
             return self._numberStyle;
         }
@@ -333,7 +333,7 @@ public class ListLevel : LinkElement {
     // Field of restartAfterLevel. DTO container with a document list level.
     private var _restartAfterLevel : Int?;
 
-    public var : Int? {
+    public var restartAfterLevel : Int? {
         get {
             return self._restartAfterLevel;
         }
@@ -345,7 +345,7 @@ public class ListLevel : LinkElement {
     // Field of startAt. DTO container with a document list level.
     private var _startAt : Int?;
 
-    public var : Int? {
+    public var startAt : Int? {
         get {
             return self._startAt;
         }
@@ -357,7 +357,7 @@ public class ListLevel : LinkElement {
     // Field of tabPosition. DTO container with a document list level.
     private var _tabPosition : Double?;
 
-    public var : Double? {
+    public var tabPosition : Double? {
         get {
             return self._tabPosition;
         }
@@ -369,7 +369,7 @@ public class ListLevel : LinkElement {
     // Field of textPosition. DTO container with a document list level.
     private var _textPosition : Double?;
 
-    public var : Double? {
+    public var textPosition : Double? {
         get {
             return self._textPosition;
         }
@@ -381,7 +381,7 @@ public class ListLevel : LinkElement {
     // Field of trailingCharacter. DTO container with a document list level.
     private var _trailingCharacter : TrailingCharacter?;
 
-    public var : TrailingCharacter? {
+    public var trailingCharacter : TrailingCharacter? {
         get {
             return self._trailingCharacter;
         }

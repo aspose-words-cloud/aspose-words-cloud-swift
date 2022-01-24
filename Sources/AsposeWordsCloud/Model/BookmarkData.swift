@@ -33,7 +33,7 @@ public class BookmarkData : Codable, WordsApiModel {
     // Field of name. DTO for bookmark updating.
     private var _name : String?;
 
-    public var : String? {
+    public var name : String? {
         get {
             return self._name;
         }
@@ -45,7 +45,7 @@ public class BookmarkData : Codable, WordsApiModel {
     // Field of text. DTO for bookmark updating.
     private var _text : String?;
 
-    public var : String? {
+    public var text : String? {
         get {
             return self._text;
         }

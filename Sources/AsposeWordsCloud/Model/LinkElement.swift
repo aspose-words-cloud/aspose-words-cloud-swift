@@ -33,7 +33,7 @@ public class LinkElement : Codable, WordsApiModel {
     // Field of link. Reference to a document.
     private var _link : WordsApiLink?;
 
-    public var : WordsApiLink? {
+    public var link : WordsApiLink? {
         get {
             return self._link;
         }

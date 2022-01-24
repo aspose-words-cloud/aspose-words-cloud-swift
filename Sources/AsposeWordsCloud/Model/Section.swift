@@ -33,7 +33,7 @@ public class Section : LinkElement {
     // Field of childNodes. DTO container with a section element.
     private var _childNodes : [NodeLink]?;
 
-    public var : [NodeLink]? {
+    public var childNodes : [NodeLink]? {
         get {
             return self._childNodes;
         }
@@ -45,7 +45,7 @@ public class Section : LinkElement {
     // Field of headerFooters. DTO container with a section element.
     private var _headerFooters : LinkElement?;
 
-    public var : LinkElement? {
+    public var headerFooters : LinkElement? {
         get {
             return self._headerFooters;
         }
@@ -57,7 +57,7 @@ public class Section : LinkElement {
     // Field of pageSetup. DTO container with a section element.
     private var _pageSetup : LinkElement?;
 
-    public var : LinkElement? {
+    public var pageSetup : LinkElement? {
         get {
             return self._pageSetup;
         }
@@ -69,7 +69,7 @@ public class Section : LinkElement {
     // Field of paragraphs. DTO container with a section element.
     private var _paragraphs : LinkElement?;
 
-    public var : LinkElement? {
+    public var paragraphs : LinkElement? {
         get {
             return self._paragraphs;
         }
@@ -81,7 +81,7 @@ public class Section : LinkElement {
     // Field of tables. DTO container with a section element.
     private var _tables : LinkElement?;
 
-    public var : LinkElement? {
+    public var tables : LinkElement? {
         get {
             return self._tables;
         }

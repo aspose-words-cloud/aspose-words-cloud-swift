@@ -33,7 +33,7 @@ public class Hyperlink : LinkElement {
     // Field of displayText. Hyperlink element.
     private var _displayText : String?;
 
-    public var : String? {
+    public var displayText : String? {
         get {
             return self._displayText;
         }
@@ -45,7 +45,7 @@ public class Hyperlink : LinkElement {
     // Field of value. Hyperlink element.
     private var _value : String?;
 
-    public var : String? {
+    public var value : String? {
         get {
             return self._value;
         }

@@ -33,7 +33,7 @@ public class PsSaveOptionsData : FixedPageSaveOptionsData {
     // Field of saveFormat. Container class for ps save options.
     private final let _saveFormat : String? = "ps";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }
@@ -42,7 +42,7 @@ public class PsSaveOptionsData : FixedPageSaveOptionsData {
     // Field of useBookFoldPrintingSettings. Container class for ps save options.
     private var _useBookFoldPrintingSettings : Bool?;
 
-    public var : Bool? {
+    public var useBookFoldPrintingSettings : Bool? {
         get {
             return self._useBookFoldPrintingSettings;
         }

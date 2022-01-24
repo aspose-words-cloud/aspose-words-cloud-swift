@@ -120,7 +120,7 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     // Field of height. Drawing object element for update.
     private var _height : Double?;
 
-    public var : Double? {
+    public var height : Double? {
         get {
             return self._height;
         }
@@ -132,7 +132,7 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     // Field of _left. Drawing object element for update.
     private var __left : Double?;
 
-    public var : Double? {
+    public var _left : Double? {
         get {
             return self.__left;
         }
@@ -144,7 +144,7 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     // Field of relativeHorizontalPosition. Drawing object element for update.
     private var _relativeHorizontalPosition : RelativeHorizontalPosition?;
 
-    public var : RelativeHorizontalPosition? {
+    public var relativeHorizontalPosition : RelativeHorizontalPosition? {
         get {
             return self._relativeHorizontalPosition;
         }
@@ -156,7 +156,7 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     // Field of relativeVerticalPosition. Drawing object element for update.
     private var _relativeVerticalPosition : RelativeVerticalPosition?;
 
-    public var : RelativeVerticalPosition? {
+    public var relativeVerticalPosition : RelativeVerticalPosition? {
         get {
             return self._relativeVerticalPosition;
         }
@@ -168,7 +168,7 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     // Field of top. Drawing object element for update.
     private var _top : Double?;
 
-    public var : Double? {
+    public var top : Double? {
         get {
             return self._top;
         }
@@ -180,7 +180,7 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     // Field of width. Drawing object element for update.
     private var _width : Double?;
 
-    public var : Double? {
+    public var width : Double? {
         get {
             return self._width;
         }
@@ -192,7 +192,7 @@ public class DrawingObjectUpdate : Codable, WordsApiModel {
     // Field of wrapType. Drawing object element for update.
     private var _wrapType : WrapType?;
 
-    public var : WrapType? {
+    public var wrapType : WrapType? {
         get {
             return self._wrapType;
         }

@@ -33,7 +33,7 @@ public class ListUpdate : Codable, WordsApiModel {
     // Field of isRestartAtEachSection. Update document properties if document list.
     private var _isRestartAtEachSection : Bool?;
 
-    public var : Bool? {
+    public var isRestartAtEachSection : Bool? {
         get {
             return self._isRestartAtEachSection;
         }

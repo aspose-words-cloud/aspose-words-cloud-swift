@@ -33,7 +33,7 @@ public class ApiError : Codable, WordsApiModel {
     // Field of code. Api error.
     private var _code : String?;
 
-    public var : String? {
+    public var code : String? {
         get {
             return self._code;
         }
@@ -45,7 +45,7 @@ public class ApiError : Codable, WordsApiModel {
     // Field of dateTime. Api error.
     private var _dateTime : Date?;
 
-    public var : Date? {
+    public var dateTime : Date? {
         get {
             return self._dateTime;
         }
@@ -57,7 +57,7 @@ public class ApiError : Codable, WordsApiModel {
     // Field of description. Api error.
     private var _description : String?;
 
-    public var : String? {
+    public var description : String? {
         get {
             return self._description;
         }
@@ -69,7 +69,7 @@ public class ApiError : Codable, WordsApiModel {
     // Field of innerError. Api error.
     private var _innerError : ApiError?;
 
-    public var : ApiError? {
+    public var innerError : ApiError? {
         get {
             return self._innerError;
         }
@@ -81,7 +81,7 @@ public class ApiError : Codable, WordsApiModel {
     // Field of message. Api error.
     private var _message : String?;
 
-    public var : String? {
+    public var message : String? {
         get {
             return self._message;
         }

@@ -33,7 +33,7 @@ public class FieldCollection : LinkElement {
     // Field of list. DTO container with a collection of fields.
     private var _list : [Field]?;
 
-    public var : [Field]? {
+    public var list : [Field]? {
         get {
             return self._list;
         }

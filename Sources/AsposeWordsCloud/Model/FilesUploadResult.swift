@@ -33,7 +33,7 @@ public class FilesUploadResult : Codable, WordsApiModel {
     // Field of errors. File upload result.
     private var _errors : [InternalError]?;
 
-    public var : [InternalError]? {
+    public var errors : [InternalError]? {
         get {
             return self._errors;
         }
@@ -45,7 +45,7 @@ public class FilesUploadResult : Codable, WordsApiModel {
     // Field of uploaded. File upload result.
     private var _uploaded : [String]?;
 
-    public var : [String]? {
+    public var uploaded : [String]? {
         get {
             return self._uploaded;
         }

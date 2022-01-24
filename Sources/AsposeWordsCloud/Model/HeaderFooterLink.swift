@@ -55,7 +55,7 @@ public class HeaderFooterLink : LinkElement {
     // Field of type. HeaderFooter link element.
     private var _type : ModelType?;
 
-    public var : ModelType? {
+    public var type : ModelType? {
         get {
             return self._type;
         }

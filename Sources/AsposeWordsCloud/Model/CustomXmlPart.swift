@@ -33,7 +33,7 @@ public class CustomXmlPart : CustomXmlPartLink {
     // Field of data. DTO container with a CustomXmlPart.
     private var _data : String?;
 
-    public var : String? {
+    public var data : String? {
         get {
             return self._data;
         }
@@ -45,7 +45,7 @@ public class CustomXmlPart : CustomXmlPartLink {
     // Field of id. DTO container with a CustomXmlPart.
     private var _id : String?;
 
-    public var : String? {
+    public var id : String? {
         get {
             return self._id;
         }

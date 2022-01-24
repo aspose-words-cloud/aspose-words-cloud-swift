@@ -33,7 +33,7 @@ public class FootnoteCollection : LinkElement {
     // Field of list. DTO container with a collection of footnotes.
     private var _list : [Footnote]?;
 
-    public var : [Footnote]? {
+    public var list : [Footnote]? {
         get {
             return self._list;
         }

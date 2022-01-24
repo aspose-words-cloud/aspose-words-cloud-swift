@@ -1187,7 +1187,7 @@ public class Style : LinkElement {
     // Field of aliases. DTO container with a single document style.
     private var _aliases : [String]?;
 
-    public var : [String]? {
+    public var aliases : [String]? {
         get {
             return self._aliases;
         }
@@ -1199,7 +1199,7 @@ public class Style : LinkElement {
     // Field of baseStyleName. DTO container with a single document style.
     private var _baseStyleName : String?;
 
-    public var : String? {
+    public var baseStyleName : String? {
         get {
             return self._baseStyleName;
         }
@@ -1211,7 +1211,7 @@ public class Style : LinkElement {
     // Field of builtIn. DTO container with a single document style.
     private var _builtIn : Bool?;
 
-    public var : Bool? {
+    public var builtIn : Bool? {
         get {
             return self._builtIn;
         }
@@ -1223,7 +1223,7 @@ public class Style : LinkElement {
     // Field of font. DTO container with a single document style.
     private var _font : Font?;
 
-    public var : Font? {
+    public var font : Font? {
         get {
             return self._font;
         }
@@ -1235,7 +1235,7 @@ public class Style : LinkElement {
     // Field of isHeading. DTO container with a single document style.
     private var _isHeading : Bool?;
 
-    public var : Bool? {
+    public var isHeading : Bool? {
         get {
             return self._isHeading;
         }
@@ -1247,7 +1247,7 @@ public class Style : LinkElement {
     // Field of isQuickStyle. DTO container with a single document style.
     private var _isQuickStyle : Bool?;
 
-    public var : Bool? {
+    public var isQuickStyle : Bool? {
         get {
             return self._isQuickStyle;
         }
@@ -1259,7 +1259,7 @@ public class Style : LinkElement {
     // Field of linkedStyleName. DTO container with a single document style.
     private var _linkedStyleName : String?;
 
-    public var : String? {
+    public var linkedStyleName : String? {
         get {
             return self._linkedStyleName;
         }
@@ -1271,7 +1271,7 @@ public class Style : LinkElement {
     // Field of name. DTO container with a single document style.
     private var _name : String?;
 
-    public var : String? {
+    public var name : String? {
         get {
             return self._name;
         }
@@ -1283,7 +1283,7 @@ public class Style : LinkElement {
     // Field of nextParagraphStyleName. DTO container with a single document style.
     private var _nextParagraphStyleName : String?;
 
-    public var : String? {
+    public var nextParagraphStyleName : String? {
         get {
             return self._nextParagraphStyleName;
         }
@@ -1295,7 +1295,7 @@ public class Style : LinkElement {
     // Field of styleIdentifier. DTO container with a single document style.
     private var _styleIdentifier : StyleIdentifier?;
 
-    public var : StyleIdentifier? {
+    public var styleIdentifier : StyleIdentifier? {
         get {
             return self._styleIdentifier;
         }
@@ -1307,7 +1307,7 @@ public class Style : LinkElement {
     // Field of type. DTO container with a single document style.
     private var _type : ModelType?;
 
-    public var : ModelType? {
+    public var type : ModelType? {
         get {
             return self._type;
         }

@@ -33,7 +33,7 @@ public class WordMLSaveOptionsData : SaveOptionsData {
     // Field of prettyFormat. Container class for wml save options.
     private var _prettyFormat : Bool?;
 
-    public var : Bool? {
+    public var prettyFormat : Bool? {
         get {
             return self._prettyFormat;
         }
@@ -45,7 +45,7 @@ public class WordMLSaveOptionsData : SaveOptionsData {
     // Field of saveFormat. Container class for wml save options.
     private final let _saveFormat : String? = "wml";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

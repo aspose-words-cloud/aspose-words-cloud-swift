@@ -1254,7 +1254,7 @@ public class Font : LinkElement {
     // Field of allCaps. DTO container with a font element.
     private var _allCaps : Bool?;
 
-    public var : Bool? {
+    public var allCaps : Bool? {
         get {
             return self._allCaps;
         }
@@ -1266,7 +1266,7 @@ public class Font : LinkElement {
     // Field of bidi. DTO container with a font element.
     private var _bidi : Bool?;
 
-    public var : Bool? {
+    public var bidi : Bool? {
         get {
             return self._bidi;
         }
@@ -1278,7 +1278,7 @@ public class Font : LinkElement {
     // Field of bold. DTO container with a font element.
     private var _bold : Bool?;
 
-    public var : Bool? {
+    public var bold : Bool? {
         get {
             return self._bold;
         }
@@ -1290,7 +1290,7 @@ public class Font : LinkElement {
     // Field of boldBi. DTO container with a font element.
     private var _boldBi : Bool?;
 
-    public var : Bool? {
+    public var boldBi : Bool? {
         get {
             return self._boldBi;
         }
@@ -1302,7 +1302,7 @@ public class Font : LinkElement {
     // Field of border. DTO container with a font element.
     private var _border : Border?;
 
-    public var : Border? {
+    public var border : Border? {
         get {
             return self._border;
         }
@@ -1314,7 +1314,7 @@ public class Font : LinkElement {
     // Field of color. DTO container with a font element.
     private var _color : XmlColor?;
 
-    public var : XmlColor? {
+    public var color : XmlColor? {
         get {
             return self._color;
         }
@@ -1326,7 +1326,7 @@ public class Font : LinkElement {
     // Field of complexScript. DTO container with a font element.
     private var _complexScript : Bool?;
 
-    public var : Bool? {
+    public var complexScript : Bool? {
         get {
             return self._complexScript;
         }
@@ -1338,7 +1338,7 @@ public class Font : LinkElement {
     // Field of doubleStrikeThrough. DTO container with a font element.
     private var _doubleStrikeThrough : Bool?;
 
-    public var : Bool? {
+    public var doubleStrikeThrough : Bool? {
         get {
             return self._doubleStrikeThrough;
         }
@@ -1350,7 +1350,7 @@ public class Font : LinkElement {
     // Field of emboss. DTO container with a font element.
     private var _emboss : Bool?;
 
-    public var : Bool? {
+    public var emboss : Bool? {
         get {
             return self._emboss;
         }
@@ -1362,7 +1362,7 @@ public class Font : LinkElement {
     // Field of engrave. DTO container with a font element.
     private var _engrave : Bool?;
 
-    public var : Bool? {
+    public var engrave : Bool? {
         get {
             return self._engrave;
         }
@@ -1374,7 +1374,7 @@ public class Font : LinkElement {
     // Field of hidden. DTO container with a font element.
     private var _hidden : Bool?;
 
-    public var : Bool? {
+    public var hidden : Bool? {
         get {
             return self._hidden;
         }
@@ -1386,7 +1386,7 @@ public class Font : LinkElement {
     // Field of highlightColor. DTO container with a font element.
     private var _highlightColor : XmlColor?;
 
-    public var : XmlColor? {
+    public var highlightColor : XmlColor? {
         get {
             return self._highlightColor;
         }
@@ -1398,7 +1398,7 @@ public class Font : LinkElement {
     // Field of italic. DTO container with a font element.
     private var _italic : Bool?;
 
-    public var : Bool? {
+    public var italic : Bool? {
         get {
             return self._italic;
         }
@@ -1410,7 +1410,7 @@ public class Font : LinkElement {
     // Field of italicBi. DTO container with a font element.
     private var _italicBi : Bool?;
 
-    public var : Bool? {
+    public var italicBi : Bool? {
         get {
             return self._italicBi;
         }
@@ -1422,7 +1422,7 @@ public class Font : LinkElement {
     // Field of kerning. DTO container with a font element.
     private var _kerning : Double?;
 
-    public var : Double? {
+    public var kerning : Double? {
         get {
             return self._kerning;
         }
@@ -1434,7 +1434,7 @@ public class Font : LinkElement {
     // Field of localeId. DTO container with a font element.
     private var _localeId : Int?;
 
-    public var : Int? {
+    public var localeId : Int? {
         get {
             return self._localeId;
         }
@@ -1446,7 +1446,7 @@ public class Font : LinkElement {
     // Field of localeIdBi. DTO container with a font element.
     private var _localeIdBi : Int?;
 
-    public var : Int? {
+    public var localeIdBi : Int? {
         get {
             return self._localeIdBi;
         }
@@ -1458,7 +1458,7 @@ public class Font : LinkElement {
     // Field of localeIdFarEast. DTO container with a font element.
     private var _localeIdFarEast : Int?;
 
-    public var : Int? {
+    public var localeIdFarEast : Int? {
         get {
             return self._localeIdFarEast;
         }
@@ -1470,7 +1470,7 @@ public class Font : LinkElement {
     // Field of name. DTO container with a font element.
     private var _name : String?;
 
-    public var : String? {
+    public var name : String? {
         get {
             return self._name;
         }
@@ -1482,7 +1482,7 @@ public class Font : LinkElement {
     // Field of nameAscii. DTO container with a font element.
     private var _nameAscii : String?;
 
-    public var : String? {
+    public var nameAscii : String? {
         get {
             return self._nameAscii;
         }
@@ -1494,7 +1494,7 @@ public class Font : LinkElement {
     // Field of nameBi. DTO container with a font element.
     private var _nameBi : String?;
 
-    public var : String? {
+    public var nameBi : String? {
         get {
             return self._nameBi;
         }
@@ -1506,7 +1506,7 @@ public class Font : LinkElement {
     // Field of nameFarEast. DTO container with a font element.
     private var _nameFarEast : String?;
 
-    public var : String? {
+    public var nameFarEast : String? {
         get {
             return self._nameFarEast;
         }
@@ -1518,7 +1518,7 @@ public class Font : LinkElement {
     // Field of nameOther. DTO container with a font element.
     private var _nameOther : String?;
 
-    public var : String? {
+    public var nameOther : String? {
         get {
             return self._nameOther;
         }
@@ -1530,7 +1530,7 @@ public class Font : LinkElement {
     // Field of noProofing. DTO container with a font element.
     private var _noProofing : Bool?;
 
-    public var : Bool? {
+    public var noProofing : Bool? {
         get {
             return self._noProofing;
         }
@@ -1542,7 +1542,7 @@ public class Font : LinkElement {
     // Field of outline. DTO container with a font element.
     private var _outline : Bool?;
 
-    public var : Bool? {
+    public var outline : Bool? {
         get {
             return self._outline;
         }
@@ -1554,7 +1554,7 @@ public class Font : LinkElement {
     // Field of position. DTO container with a font element.
     private var _position : Double?;
 
-    public var : Double? {
+    public var position : Double? {
         get {
             return self._position;
         }
@@ -1566,7 +1566,7 @@ public class Font : LinkElement {
     // Field of scaling. DTO container with a font element.
     private var _scaling : Int?;
 
-    public var : Int? {
+    public var scaling : Int? {
         get {
             return self._scaling;
         }
@@ -1578,7 +1578,7 @@ public class Font : LinkElement {
     // Field of shadow. DTO container with a font element.
     private var _shadow : Bool?;
 
-    public var : Bool? {
+    public var shadow : Bool? {
         get {
             return self._shadow;
         }
@@ -1590,7 +1590,7 @@ public class Font : LinkElement {
     // Field of size. DTO container with a font element.
     private var _size : Double?;
 
-    public var : Double? {
+    public var size : Double? {
         get {
             return self._size;
         }
@@ -1602,7 +1602,7 @@ public class Font : LinkElement {
     // Field of sizeBi. DTO container with a font element.
     private var _sizeBi : Double?;
 
-    public var : Double? {
+    public var sizeBi : Double? {
         get {
             return self._sizeBi;
         }
@@ -1614,7 +1614,7 @@ public class Font : LinkElement {
     // Field of smallCaps. DTO container with a font element.
     private var _smallCaps : Bool?;
 
-    public var : Bool? {
+    public var smallCaps : Bool? {
         get {
             return self._smallCaps;
         }
@@ -1626,7 +1626,7 @@ public class Font : LinkElement {
     // Field of spacing. DTO container with a font element.
     private var _spacing : Double?;
 
-    public var : Double? {
+    public var spacing : Double? {
         get {
             return self._spacing;
         }
@@ -1638,7 +1638,7 @@ public class Font : LinkElement {
     // Field of strikeThrough. DTO container with a font element.
     private var _strikeThrough : Bool?;
 
-    public var : Bool? {
+    public var strikeThrough : Bool? {
         get {
             return self._strikeThrough;
         }
@@ -1650,7 +1650,7 @@ public class Font : LinkElement {
     // Field of styleIdentifier. DTO container with a font element.
     private var _styleIdentifier : StyleIdentifier?;
 
-    public var : StyleIdentifier? {
+    public var styleIdentifier : StyleIdentifier? {
         get {
             return self._styleIdentifier;
         }
@@ -1662,7 +1662,7 @@ public class Font : LinkElement {
     // Field of styleName. DTO container with a font element.
     private var _styleName : String?;
 
-    public var : String? {
+    public var styleName : String? {
         get {
             return self._styleName;
         }
@@ -1674,7 +1674,7 @@ public class Font : LinkElement {
     // Field of _subscript. DTO container with a font element.
     private var __subscript : Bool?;
 
-    public var : Bool? {
+    public var _subscript : Bool? {
         get {
             return self.__subscript;
         }
@@ -1686,7 +1686,7 @@ public class Font : LinkElement {
     // Field of superscript. DTO container with a font element.
     private var _superscript : Bool?;
 
-    public var : Bool? {
+    public var superscript : Bool? {
         get {
             return self._superscript;
         }
@@ -1698,7 +1698,7 @@ public class Font : LinkElement {
     // Field of textEffect. DTO container with a font element.
     private var _textEffect : TextEffect?;
 
-    public var : TextEffect? {
+    public var textEffect : TextEffect? {
         get {
             return self._textEffect;
         }
@@ -1710,7 +1710,7 @@ public class Font : LinkElement {
     // Field of underline. DTO container with a font element.
     private var _underline : Underline?;
 
-    public var : Underline? {
+    public var underline : Underline? {
         get {
             return self._underline;
         }
@@ -1722,7 +1722,7 @@ public class Font : LinkElement {
     // Field of underlineColor. DTO container with a font element.
     private var _underlineColor : XmlColor?;
 
-    public var : XmlColor? {
+    public var underlineColor : XmlColor? {
         get {
             return self._underlineColor;
         }

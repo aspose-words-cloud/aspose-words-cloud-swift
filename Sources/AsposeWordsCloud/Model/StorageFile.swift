@@ -33,7 +33,7 @@ public class StorageFile : Codable, WordsApiModel {
     // Field of isFolder. File or folder information.
     private var _isFolder : Bool?;
 
-    public var : Bool? {
+    public var isFolder : Bool? {
         get {
             return self._isFolder;
         }
@@ -45,7 +45,7 @@ public class StorageFile : Codable, WordsApiModel {
     // Field of modifiedDate. File or folder information.
     private var _modifiedDate : Date?;
 
-    public var : Date? {
+    public var modifiedDate : Date? {
         get {
             return self._modifiedDate;
         }
@@ -57,7 +57,7 @@ public class StorageFile : Codable, WordsApiModel {
     // Field of name. File or folder information.
     private var _name : String?;
 
-    public var : String? {
+    public var name : String? {
         get {
             return self._name;
         }
@@ -69,7 +69,7 @@ public class StorageFile : Codable, WordsApiModel {
     // Field of path. File or folder information.
     private var _path : String?;
 
-    public var : String? {
+    public var path : String? {
         get {
             return self._path;
         }
@@ -81,7 +81,7 @@ public class StorageFile : Codable, WordsApiModel {
     // Field of size. File or folder information.
     private var _size : Int?;
 
-    public var : Int? {
+    public var size : Int? {
         get {
             return self._size;
         }

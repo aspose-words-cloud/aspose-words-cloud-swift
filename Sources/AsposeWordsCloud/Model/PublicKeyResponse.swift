@@ -33,7 +33,7 @@ public class PublicKeyResponse : WordsResponse {
     // Field of exponent. REST response for RSA public key info.
     private var _exponent : String?;
 
-    public var : String? {
+    public var exponent : String? {
         get {
             return self._exponent;
         }
@@ -45,7 +45,7 @@ public class PublicKeyResponse : WordsResponse {
     // Field of modulus. REST response for RSA public key info.
     private var _modulus : String?;
 
-    public var : String? {
+    public var modulus : String? {
         get {
             return self._modulus;
         }

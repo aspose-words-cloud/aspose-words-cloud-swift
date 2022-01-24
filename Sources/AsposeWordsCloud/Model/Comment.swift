@@ -33,7 +33,7 @@ public class Comment : CommentLink {
     // Field of author. DTO container with a comment.
     private var _author : String?;
 
-    public var : String? {
+    public var author : String? {
         get {
             return self._author;
         }
@@ -45,7 +45,7 @@ public class Comment : CommentLink {
     // Field of content. DTO container with a comment.
     private var _content : StoryChildNodes?;
 
-    public var : StoryChildNodes? {
+    public var content : StoryChildNodes? {
         get {
             return self._content;
         }
@@ -57,7 +57,7 @@ public class Comment : CommentLink {
     // Field of dateTime. DTO container with a comment.
     private var _dateTime : Date?;
 
-    public var : Date? {
+    public var dateTime : Date? {
         get {
             return self._dateTime;
         }
@@ -69,7 +69,7 @@ public class Comment : CommentLink {
     // Field of initial. DTO container with a comment.
     private var _initial : String?;
 
-    public var : String? {
+    public var initial : String? {
         get {
             return self._initial;
         }
@@ -81,7 +81,7 @@ public class Comment : CommentLink {
     // Field of rangeEnd. DTO container with a comment.
     private var _rangeEnd : DocumentPosition?;
 
-    public var : DocumentPosition? {
+    public var rangeEnd : DocumentPosition? {
         get {
             return self._rangeEnd;
         }
@@ -93,7 +93,7 @@ public class Comment : CommentLink {
     // Field of rangeStart. DTO container with a comment.
     private var _rangeStart : DocumentPosition?;
 
-    public var : DocumentPosition? {
+    public var rangeStart : DocumentPosition? {
         get {
             return self._rangeStart;
         }
@@ -105,7 +105,7 @@ public class Comment : CommentLink {
     // Field of text. DTO container with a comment.
     private var _text : String?;
 
-    public var : String? {
+    public var text : String? {
         get {
             return self._text;
         }

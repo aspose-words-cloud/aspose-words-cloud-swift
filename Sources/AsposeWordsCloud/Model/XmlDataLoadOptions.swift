@@ -33,7 +33,7 @@ public class XmlDataLoadOptions : Codable, WordsApiModel {
     // Field of alwaysGenerateRootObject. Represents options for XML data loading.
     private var _alwaysGenerateRootObject : Bool?;
 
-    public var : Bool? {
+    public var alwaysGenerateRootObject : Bool? {
         get {
             return self._alwaysGenerateRootObject;
         }

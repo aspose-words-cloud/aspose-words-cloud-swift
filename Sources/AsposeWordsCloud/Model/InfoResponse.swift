@@ -33,7 +33,7 @@ public class InfoResponse : WordsResponse {
     // Field of additionalInfo. Response with API info.
     private var _additionalInfo : [InfoAdditionalItem]?;
 
-    public var : [InfoAdditionalItem]? {
+    public var additionalInfo : [InfoAdditionalItem]? {
         get {
             return self._additionalInfo;
         }
@@ -45,7 +45,7 @@ public class InfoResponse : WordsResponse {
     // Field of name. Response with API info.
     private var _name : String?;
 
-    public var : String? {
+    public var name : String? {
         get {
             return self._name;
         }
@@ -57,7 +57,7 @@ public class InfoResponse : WordsResponse {
     // Field of version. Response with API info.
     private var _version : String?;
 
-    public var : String? {
+    public var version : String? {
         get {
             return self._version;
         }

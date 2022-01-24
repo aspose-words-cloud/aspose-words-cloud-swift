@@ -33,7 +33,7 @@ public class BookmarksOutlineLevelData : Codable, WordsApiModel {
     // Field of bookmarksOutlineLevel. Container class for individual bookmarks outline level.
     private var _bookmarksOutlineLevel : Int?;
 
-    public var : Int? {
+    public var bookmarksOutlineLevel : Int? {
         get {
             return self._bookmarksOutlineLevel;
         }
@@ -45,7 +45,7 @@ public class BookmarksOutlineLevelData : Codable, WordsApiModel {
     // Field of name. Container class for individual bookmarks outline level.
     private var _name : String?;
 
-    public var : String? {
+    public var name : String? {
         get {
             return self._name;
         }

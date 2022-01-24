@@ -33,7 +33,7 @@ public class DocumentStatData : Codable, WordsApiModel {
     // Field of footnotesStatData. Container for the document's statistical data.
     private var _footnotesStatData : FootnotesStatData?;
 
-    public var : FootnotesStatData? {
+    public var footnotesStatData : FootnotesStatData? {
         get {
             return self._footnotesStatData;
         }
@@ -45,7 +45,7 @@ public class DocumentStatData : Codable, WordsApiModel {
     // Field of pageCount. Container for the document's statistical data.
     private var _pageCount : Int?;
 
-    public var : Int? {
+    public var pageCount : Int? {
         get {
             return self._pageCount;
         }
@@ -57,7 +57,7 @@ public class DocumentStatData : Codable, WordsApiModel {
     // Field of pageStatData. Container for the document's statistical data.
     private var _pageStatData : [PageStatData]?;
 
-    public var : [PageStatData]? {
+    public var pageStatData : [PageStatData]? {
         get {
             return self._pageStatData;
         }
@@ -69,7 +69,7 @@ public class DocumentStatData : Codable, WordsApiModel {
     // Field of paragraphCount. Container for the document's statistical data.
     private var _paragraphCount : Int?;
 
-    public var : Int? {
+    public var paragraphCount : Int? {
         get {
             return self._paragraphCount;
         }
@@ -81,7 +81,7 @@ public class DocumentStatData : Codable, WordsApiModel {
     // Field of wordCount. Container for the document's statistical data.
     private var _wordCount : Int?;
 
-    public var : Int? {
+    public var wordCount : Int? {
         get {
             return self._wordCount;
         }

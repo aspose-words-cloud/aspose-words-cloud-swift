@@ -33,7 +33,7 @@ public class FieldNames : LinkElement {
     // Field of names. Represents a collection of merge fields within a document.
     private var _names : [String]?;
 
-    public var : [String]? {
+    public var names : [String]? {
         get {
             return self._names;
         }

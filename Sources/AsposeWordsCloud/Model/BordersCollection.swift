@@ -33,7 +33,7 @@ public class BordersCollection : LinkElement {
     // Field of list. The collection of borders.
     private var _list : [Border]?;
 
-    public var : [Border]? {
+    public var list : [Border]? {
         get {
             return self._list;
         }

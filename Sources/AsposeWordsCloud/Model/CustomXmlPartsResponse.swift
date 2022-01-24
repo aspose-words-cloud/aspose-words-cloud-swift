@@ -33,7 +33,7 @@ public class CustomXmlPartsResponse : WordsResponse {
     // Field of customXmlParts. The REST response with a collection of custom xml parts.
     private var _customXmlParts : CustomXmlPartsCollection?;
 
-    public var : CustomXmlPartsCollection? {
+    public var customXmlParts : CustomXmlPartsCollection? {
         get {
             return self._customXmlParts;
         }

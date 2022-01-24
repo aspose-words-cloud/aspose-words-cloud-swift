@@ -33,7 +33,7 @@ public class ParagraphResponse : WordsResponse {
     // Field of paragraph. The REST response with a paragraph.
     private var _paragraph : Paragraph?;
 
-    public var : Paragraph? {
+    public var paragraph : Paragraph? {
         get {
             return self._paragraph;
         }

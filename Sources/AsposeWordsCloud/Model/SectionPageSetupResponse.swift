@@ -33,7 +33,7 @@ public class SectionPageSetupResponse : WordsResponse {
     // Field of pageSetup. The REST response with a page setup of a section.
     private var _pageSetup : PageSetup?;
 
-    public var : PageSetup? {
+    public var pageSetup : PageSetup? {
         get {
             return self._pageSetup;
         }

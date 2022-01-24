@@ -33,7 +33,7 @@ public class ClassificationResponse : WordsResponse {
     // Field of bestClassName. The REST response with data on multi-class text classification.
     private var _bestClassName : String?;
 
-    public var : String? {
+    public var bestClassName : String? {
         get {
             return self._bestClassName;
         }
@@ -45,7 +45,7 @@ public class ClassificationResponse : WordsResponse {
     // Field of bestClassProbability. The REST response with data on multi-class text classification.
     private var _bestClassProbability : Double?;
 
-    public var : Double? {
+    public var bestClassProbability : Double? {
         get {
             return self._bestClassProbability;
         }
@@ -57,7 +57,7 @@ public class ClassificationResponse : WordsResponse {
     // Field of bestResults. The REST response with data on multi-class text classification.
     private var _bestResults : [ClassificationResult]?;
 
-    public var : [ClassificationResult]? {
+    public var bestResults : [ClassificationResult]? {
         get {
             return self._bestResults;
         }

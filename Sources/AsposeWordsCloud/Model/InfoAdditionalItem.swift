@@ -33,7 +33,7 @@ public class InfoAdditionalItem : Codable, WordsApiModel {
     // Field of key. Info additional item.
     private var _key : String?;
 
-    public var : String? {
+    public var key : String? {
         get {
             return self._key;
         }
@@ -45,7 +45,7 @@ public class InfoAdditionalItem : Codable, WordsApiModel {
     // Field of value. Info additional item.
     private var _value : String?;
 
-    public var : String? {
+    public var value : String? {
         get {
             return self._value;
         }

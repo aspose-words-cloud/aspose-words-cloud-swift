@@ -73,7 +73,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of allowNegativeIndent. Container class for html save options.
     private var _allowNegativeIndent : Bool?;
 
-    public var : Bool? {
+    public var allowNegativeIndent : Bool? {
         get {
             return self._allowNegativeIndent;
         }
@@ -85,7 +85,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of cssClassNamePrefix. Container class for html save options.
     private var _cssClassNamePrefix : String?;
 
-    public var : String? {
+    public var cssClassNamePrefix : String? {
         get {
             return self._cssClassNamePrefix;
         }
@@ -97,7 +97,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of cssStyleSheetFileName. Container class for html save options.
     private var _cssStyleSheetFileName : String?;
 
-    public var : String? {
+    public var cssStyleSheetFileName : String? {
         get {
             return self._cssStyleSheetFileName;
         }
@@ -109,7 +109,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of cssStyleSheetType. Container class for html save options.
     private var _cssStyleSheetType : String?;
 
-    public var : String? {
+    public var cssStyleSheetType : String? {
         get {
             return self._cssStyleSheetType;
         }
@@ -121,7 +121,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of documentSplitCriteria. Container class for html save options.
     private var _documentSplitCriteria : String?;
 
-    public var : String? {
+    public var documentSplitCriteria : String? {
         get {
             return self._documentSplitCriteria;
         }
@@ -133,7 +133,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of documentSplitHeadingLevel. Container class for html save options.
     private var _documentSplitHeadingLevel : Int?;
 
-    public var : Int? {
+    public var documentSplitHeadingLevel : Int? {
         get {
             return self._documentSplitHeadingLevel;
         }
@@ -145,7 +145,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of encoding. Container class for html save options.
     private var _encoding : String?;
 
-    public var : String? {
+    public var encoding : String? {
         get {
             return self._encoding;
         }
@@ -157,7 +157,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportDocumentProperties. Container class for html save options.
     private var _exportDocumentProperties : Bool?;
 
-    public var : Bool? {
+    public var exportDocumentProperties : Bool? {
         get {
             return self._exportDocumentProperties;
         }
@@ -169,7 +169,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportDropDownFormFieldAsText. Container class for html save options.
     private var _exportDropDownFormFieldAsText : Bool?;
 
-    public var : Bool? {
+    public var exportDropDownFormFieldAsText : Bool? {
         get {
             return self._exportDropDownFormFieldAsText;
         }
@@ -181,7 +181,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportFontResources. Container class for html save options.
     private var _exportFontResources : Bool?;
 
-    public var : Bool? {
+    public var exportFontResources : Bool? {
         get {
             return self._exportFontResources;
         }
@@ -193,7 +193,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportFontsAsBase64. Container class for html save options.
     private var _exportFontsAsBase64 : Bool?;
 
-    public var : Bool? {
+    public var exportFontsAsBase64 : Bool? {
         get {
             return self._exportFontsAsBase64;
         }
@@ -205,7 +205,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportHeadersFootersMode. Container class for html save options.
     private var _exportHeadersFootersMode : String?;
 
-    public var : String? {
+    public var exportHeadersFootersMode : String? {
         get {
             return self._exportHeadersFootersMode;
         }
@@ -217,7 +217,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportImagesAsBase64. Container class for html save options.
     private var _exportImagesAsBase64 : Bool?;
 
-    public var : Bool? {
+    public var exportImagesAsBase64 : Bool? {
         get {
             return self._exportImagesAsBase64;
         }
@@ -229,7 +229,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportLanguageInformation. Container class for html save options.
     private var _exportLanguageInformation : Bool?;
 
-    public var : Bool? {
+    public var exportLanguageInformation : Bool? {
         get {
             return self._exportLanguageInformation;
         }
@@ -241,7 +241,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportListLabels. Container class for html save options.
     private var _exportListLabels : String?;
 
-    public var : String? {
+    public var exportListLabels : String? {
         get {
             return self._exportListLabels;
         }
@@ -253,7 +253,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportOriginalUrlForLinkedImages. Container class for html save options.
     private var _exportOriginalUrlForLinkedImages : Bool?;
 
-    public var : Bool? {
+    public var exportOriginalUrlForLinkedImages : Bool? {
         get {
             return self._exportOriginalUrlForLinkedImages;
         }
@@ -265,7 +265,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportPageMargins. Container class for html save options.
     private var _exportPageMargins : Bool?;
 
-    public var : Bool? {
+    public var exportPageMargins : Bool? {
         get {
             return self._exportPageMargins;
         }
@@ -277,7 +277,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportPageSetup. Container class for html save options.
     private var _exportPageSetup : Bool?;
 
-    public var : Bool? {
+    public var exportPageSetup : Bool? {
         get {
             return self._exportPageSetup;
         }
@@ -289,7 +289,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportRelativeFontSize. Container class for html save options.
     private var _exportRelativeFontSize : Bool?;
 
-    public var : Bool? {
+    public var exportRelativeFontSize : Bool? {
         get {
             return self._exportRelativeFontSize;
         }
@@ -301,7 +301,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportRoundtripInformation. Container class for html save options.
     private var _exportRoundtripInformation : Bool?;
 
-    public var : Bool? {
+    public var exportRoundtripInformation : Bool? {
         get {
             return self._exportRoundtripInformation;
         }
@@ -313,7 +313,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportTextBoxAsSvg. Container class for html save options.
     private var _exportTextBoxAsSvg : Bool?;
 
-    public var : Bool? {
+    public var exportTextBoxAsSvg : Bool? {
         get {
             return self._exportTextBoxAsSvg;
         }
@@ -325,7 +325,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportTextInputFormFieldAsText. Container class for html save options.
     private var _exportTextInputFormFieldAsText : Bool?;
 
-    public var : Bool? {
+    public var exportTextInputFormFieldAsText : Bool? {
         get {
             return self._exportTextInputFormFieldAsText;
         }
@@ -337,7 +337,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportTocPageNumbers. Container class for html save options.
     private var _exportTocPageNumbers : Bool?;
 
-    public var : Bool? {
+    public var exportTocPageNumbers : Bool? {
         get {
             return self._exportTocPageNumbers;
         }
@@ -349,7 +349,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of exportXhtmlTransitional. Container class for html save options.
     private var _exportXhtmlTransitional : Bool?;
 
-    public var : Bool? {
+    public var exportXhtmlTransitional : Bool? {
         get {
             return self._exportXhtmlTransitional;
         }
@@ -361,7 +361,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of fontResourcesSubsettingSizeThreshold. Container class for html save options.
     private var _fontResourcesSubsettingSizeThreshold : Int?;
 
-    public var : Int? {
+    public var fontResourcesSubsettingSizeThreshold : Int? {
         get {
             return self._fontResourcesSubsettingSizeThreshold;
         }
@@ -373,7 +373,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of fontsFolder. Container class for html save options.
     private var _fontsFolder : String?;
 
-    public var : String? {
+    public var fontsFolder : String? {
         get {
             return self._fontsFolder;
         }
@@ -385,7 +385,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of fontsFolderAlias. Container class for html save options.
     private var _fontsFolderAlias : String?;
 
-    public var : String? {
+    public var fontsFolderAlias : String? {
         get {
             return self._fontsFolderAlias;
         }
@@ -397,7 +397,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of htmlVersion. Container class for html save options.
     private var _htmlVersion : HtmlVersion?;
 
-    public var : HtmlVersion? {
+    public var htmlVersion : HtmlVersion? {
         get {
             return self._htmlVersion;
         }
@@ -409,7 +409,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of imageResolution. Container class for html save options.
     private var _imageResolution : Int?;
 
-    public var : Int? {
+    public var imageResolution : Int? {
         get {
             return self._imageResolution;
         }
@@ -421,7 +421,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of imagesFolder. Container class for html save options.
     private var _imagesFolder : String?;
 
-    public var : String? {
+    public var imagesFolder : String? {
         get {
             return self._imagesFolder;
         }
@@ -433,7 +433,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of imagesFolderAlias. Container class for html save options.
     private var _imagesFolderAlias : String?;
 
-    public var : String? {
+    public var imagesFolderAlias : String? {
         get {
             return self._imagesFolderAlias;
         }
@@ -445,7 +445,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of metafileFormat. Container class for html save options.
     private var _metafileFormat : MetafileFormat?;
 
-    public var : MetafileFormat? {
+    public var metafileFormat : MetafileFormat? {
         get {
             return self._metafileFormat;
         }
@@ -457,7 +457,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of officeMathOutputMode. Container class for html save options.
     private var _officeMathOutputMode : OfficeMathOutputMode?;
 
-    public var : OfficeMathOutputMode? {
+    public var officeMathOutputMode : OfficeMathOutputMode? {
         get {
             return self._officeMathOutputMode;
         }
@@ -469,7 +469,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of prettyFormat. Container class for html save options.
     private var _prettyFormat : Bool?;
 
-    public var : Bool? {
+    public var prettyFormat : Bool? {
         get {
             return self._prettyFormat;
         }
@@ -481,7 +481,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of resolveFontNames. Container class for html save options.
     private var _resolveFontNames : Bool?;
 
-    public var : Bool? {
+    public var resolveFontNames : Bool? {
         get {
             return self._resolveFontNames;
         }
@@ -493,7 +493,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of resourceFolder. Container class for html save options.
     private var _resourceFolder : String?;
 
-    public var : String? {
+    public var resourceFolder : String? {
         get {
             return self._resourceFolder;
         }
@@ -505,7 +505,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of resourceFolderAlias. Container class for html save options.
     private var _resourceFolderAlias : String?;
 
-    public var : String? {
+    public var resourceFolderAlias : String? {
         get {
             return self._resourceFolderAlias;
         }
@@ -517,7 +517,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of saveFormat. Container class for html save options.
     private final let _saveFormat : String? = "html";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }
@@ -526,7 +526,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of scaleImageToShapeSize. Container class for html save options.
     private var _scaleImageToShapeSize : Bool?;
 
-    public var : Bool? {
+    public var scaleImageToShapeSize : Bool? {
         get {
             return self._scaleImageToShapeSize;
         }
@@ -538,7 +538,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     // Field of tableWidthOutputMode. Container class for html save options.
     private var _tableWidthOutputMode : String?;
 
-    public var : String? {
+    public var tableWidthOutputMode : String? {
         get {
             return self._tableWidthOutputMode;
         }

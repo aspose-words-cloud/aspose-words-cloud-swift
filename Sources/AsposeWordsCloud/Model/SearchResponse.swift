@@ -33,7 +33,7 @@ public class SearchResponse : WordsResponse {
     // Field of searchingPattern. The REST response with a regular expression pattern and a collection of search results.
     private var _searchingPattern : String?;
 
-    public var : String? {
+    public var searchingPattern : String? {
         get {
             return self._searchingPattern;
         }
@@ -45,7 +45,7 @@ public class SearchResponse : WordsResponse {
     // Field of searchResults. The REST response with a regular expression pattern and a collection of search results.
     private var _searchResults : SearchResultsCollection?;
 
-    public var : SearchResultsCollection? {
+    public var searchResults : SearchResultsCollection? {
         get {
             return self._searchResults;
         }

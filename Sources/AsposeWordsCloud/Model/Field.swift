@@ -33,7 +33,7 @@ public class Field : FieldLink {
     // Field of localeId. DTO container with a field.
     private var _localeId : String?;
 
-    public var : String? {
+    public var localeId : String? {
         get {
             return self._localeId;
         }
@@ -45,7 +45,7 @@ public class Field : FieldLink {
     // Field of result. DTO container with a field.
     private var _result : String?;
 
-    public var : String? {
+    public var result : String? {
         get {
             return self._result;
         }

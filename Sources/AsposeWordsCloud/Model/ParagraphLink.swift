@@ -33,7 +33,7 @@ public class ParagraphLink : NodeLink {
     // Field of text. Paragraph link element.
     private var _text : String?;
 
-    public var : String? {
+    public var text : String? {
         get {
             return self._text;
         }

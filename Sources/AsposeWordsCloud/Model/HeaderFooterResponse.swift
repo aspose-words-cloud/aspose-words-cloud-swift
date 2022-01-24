@@ -33,7 +33,7 @@ public class HeaderFooterResponse : WordsResponse {
     // Field of headerFooter. The REST response with a HeaderFooter.
     private var _headerFooter : HeaderFooter?;
 
-    public var : HeaderFooter? {
+    public var headerFooter : HeaderFooter? {
         get {
             return self._headerFooter;
         }

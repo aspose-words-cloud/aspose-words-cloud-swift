@@ -33,7 +33,7 @@ public class ListFormatUpdate : Codable, WordsApiModel {
     // Field of listId. Paragraph list format element for update.
     private var _listId : Int?;
 
-    public var : Int? {
+    public var listId : Int? {
         get {
             return self._listId;
         }
@@ -45,7 +45,7 @@ public class ListFormatUpdate : Codable, WordsApiModel {
     // Field of listLevelNumber. Paragraph list format element for update.
     private var _listLevelNumber : Int?;
 
-    public var : Int? {
+    public var listLevelNumber : Int? {
         get {
             return self._listLevelNumber;
         }

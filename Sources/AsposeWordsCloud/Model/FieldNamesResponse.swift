@@ -33,7 +33,7 @@ public class FieldNamesResponse : WordsResponse {
     // Field of fieldNames. The REST response with a collection of mail merge fields.
     private var _fieldNames : FieldNames?;
 
-    public var : FieldNames? {
+    public var fieldNames : FieldNames? {
         get {
             return self._fieldNames;
         }

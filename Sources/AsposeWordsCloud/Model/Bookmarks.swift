@@ -33,7 +33,7 @@ public class Bookmarks : LinkElement {
     // Field of bookmarkList. Represents an array of bookmarks.
     private var _bookmarkList : [Bookmark]?;
 
-    public var : [Bookmark]? {
+    public var bookmarkList : [Bookmark]? {
         get {
             return self._bookmarkList;
         }

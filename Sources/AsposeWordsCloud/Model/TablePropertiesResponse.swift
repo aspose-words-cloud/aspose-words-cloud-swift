@@ -33,7 +33,7 @@ public class TablePropertiesResponse : WordsResponse {
     // Field of properties. The REST response with a table.
     private var _properties : TableProperties?;
 
-    public var : TableProperties? {
+    public var properties : TableProperties? {
         get {
             return self._properties;
         }

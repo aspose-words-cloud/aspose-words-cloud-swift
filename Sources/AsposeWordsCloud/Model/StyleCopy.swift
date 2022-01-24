@@ -33,7 +33,7 @@ public class StyleCopy : Codable, WordsApiModel {
     // Field of styleName. Represents a single document style to insert.
     private var _styleName : String?;
 
-    public var : String? {
+    public var styleName : String? {
         get {
             return self._styleName;
         }

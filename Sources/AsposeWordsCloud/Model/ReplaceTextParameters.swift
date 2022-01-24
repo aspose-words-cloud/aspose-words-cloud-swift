@@ -33,7 +33,7 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     // Field of isMatchCase. Class for document replace text request building.
     private var _isMatchCase : Bool?;
 
-    public var : Bool? {
+    public var isMatchCase : Bool? {
         get {
             return self._isMatchCase;
         }
@@ -45,7 +45,7 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     // Field of isMatchWholeWord. Class for document replace text request building.
     private var _isMatchWholeWord : Bool?;
 
-    public var : Bool? {
+    public var isMatchWholeWord : Bool? {
         get {
             return self._isMatchWholeWord;
         }
@@ -57,7 +57,7 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     // Field of isOldValueRegex. Class for document replace text request building.
     private var _isOldValueRegex : Bool?;
 
-    public var : Bool? {
+    public var isOldValueRegex : Bool? {
         get {
             return self._isOldValueRegex;
         }
@@ -69,7 +69,7 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     // Field of newValue. Class for document replace text request building.
     private var _newValue : String?;
 
-    public var : String? {
+    public var newValue : String? {
         get {
             return self._newValue;
         }
@@ -81,7 +81,7 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     // Field of oldValue. Class for document replace text request building.
     private var _oldValue : String?;
 
-    public var : String? {
+    public var oldValue : String? {
         get {
             return self._oldValue;
         }

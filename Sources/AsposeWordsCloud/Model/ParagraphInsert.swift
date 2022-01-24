@@ -33,7 +33,7 @@ public class ParagraphInsert : Codable, WordsApiModel {
     // Field of text. DTO container with a paragraph's text.
     private var _text : String?;
 
-    public var : String? {
+    public var text : String? {
         get {
             return self._text;
         }

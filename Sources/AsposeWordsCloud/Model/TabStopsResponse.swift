@@ -33,7 +33,7 @@ public class TabStopsResponse : WordsResponse {
     // Field of tabStops. The REST response with an array of tab stops.
     private var _tabStops : [TabStop]?;
 
-    public var : [TabStop]? {
+    public var tabStops : [TabStop]? {
         get {
             return self._tabStops;
         }

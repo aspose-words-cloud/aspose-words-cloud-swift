@@ -33,7 +33,7 @@ public class HeaderFooter : HeaderFooterLink {
     // Field of childNodes. DTO container with a section element.
     private var _childNodes : [NodeLink]?;
 
-    public var : [NodeLink]? {
+    public var childNodes : [NodeLink]? {
         get {
             return self._childNodes;
         }
@@ -45,7 +45,7 @@ public class HeaderFooter : HeaderFooterLink {
     // Field of drawingObjects. DTO container with a section element.
     private var _drawingObjects : LinkElement?;
 
-    public var : LinkElement? {
+    public var drawingObjects : LinkElement? {
         get {
             return self._drawingObjects;
         }
@@ -57,7 +57,7 @@ public class HeaderFooter : HeaderFooterLink {
     // Field of paragraphs. DTO container with a section element.
     private var _paragraphs : LinkElement?;
 
-    public var : LinkElement? {
+    public var paragraphs : LinkElement? {
         get {
             return self._paragraphs;
         }

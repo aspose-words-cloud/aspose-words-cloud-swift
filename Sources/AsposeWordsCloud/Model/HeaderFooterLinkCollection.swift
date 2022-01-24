@@ -33,7 +33,7 @@ public class HeaderFooterLinkCollection : LinkElement {
     // Field of list. The collection of HeaderFooter's links.
     private var _list : [HeaderFooterLink]?;
 
-    public var : [HeaderFooterLink]? {
+    public var list : [HeaderFooterLink]? {
         get {
             return self._list;
         }

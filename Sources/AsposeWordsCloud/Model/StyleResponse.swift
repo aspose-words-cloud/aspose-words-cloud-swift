@@ -33,7 +33,7 @@ public class StyleResponse : WordsResponse {
     // Field of style. The REST response with a style.
     private var _style : Style?;
 
-    public var : Style? {
+    public var style : Style? {
         get {
             return self._style;
         }

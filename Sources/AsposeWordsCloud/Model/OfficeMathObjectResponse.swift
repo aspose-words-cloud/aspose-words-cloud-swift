@@ -33,7 +33,7 @@ public class OfficeMathObjectResponse : WordsResponse {
     // Field of officeMathObject. The REST response with a OfficeMath object.
     private var _officeMathObject : OfficeMathObject?;
 
-    public var : OfficeMathObject? {
+    public var officeMathObject : OfficeMathObject? {
         get {
             return self._officeMathObject;
         }

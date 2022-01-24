@@ -33,7 +33,7 @@ public class CustomXmlPartsCollection : LinkElement {
     // Field of customXmlPartsList. The collection of CustomXmlPart.
     private var _customXmlPartsList : [CustomXmlPart]?;
 
-    public var : [CustomXmlPart]? {
+    public var customXmlPartsList : [CustomXmlPart]? {
         get {
             return self._customXmlPartsList;
         }

@@ -33,7 +33,7 @@ public class TimeZoneInfoData : Codable, WordsApiModel {
     // Field of baseUtcOffset. Class to specify TimeZoneInfo parameters.
     private var _baseUtcOffset : String?;
 
-    public var : String? {
+    public var baseUtcOffset : String? {
         get {
             return self._baseUtcOffset;
         }
@@ -45,7 +45,7 @@ public class TimeZoneInfoData : Codable, WordsApiModel {
     // Field of displayName. Class to specify TimeZoneInfo parameters.
     private var _displayName : String?;
 
-    public var : String? {
+    public var displayName : String? {
         get {
             return self._displayName;
         }
@@ -57,7 +57,7 @@ public class TimeZoneInfoData : Codable, WordsApiModel {
     // Field of id. Class to specify TimeZoneInfo parameters.
     private var _id : String?;
 
-    public var : String? {
+    public var id : String? {
         get {
             return self._id;
         }
@@ -69,7 +69,7 @@ public class TimeZoneInfoData : Codable, WordsApiModel {
     // Field of standardDisplayName. Class to specify TimeZoneInfo parameters.
     private var _standardDisplayName : String?;
 
-    public var : String? {
+    public var standardDisplayName : String? {
         get {
             return self._standardDisplayName;
         }

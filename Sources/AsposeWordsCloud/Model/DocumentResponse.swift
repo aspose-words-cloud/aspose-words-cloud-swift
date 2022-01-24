@@ -33,7 +33,7 @@ public class DocumentResponse : WordsResponse {
     // Field of document. The REST response with a document description.
     private var _document : Document?;
 
-    public var : Document? {
+    public var document : Document? {
         get {
             return self._document;
         }

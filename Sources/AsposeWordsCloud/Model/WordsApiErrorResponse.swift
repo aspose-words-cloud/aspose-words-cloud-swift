@@ -33,7 +33,7 @@ public class WordsApiErrorResponse : WordsResponse {
     // Field of error. The REST response with an API error.
     private var _error : ApiError?;
 
-    public var : ApiError? {
+    public var error : ApiError? {
         get {
             return self._error;
         }

@@ -33,7 +33,7 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
     // Field of loadingDocumentUrl. Contains data for load web document.
     private var _loadingDocumentUrl : String?;
 
-    public var : String? {
+    public var loadingDocumentUrl : String? {
         get {
             return self._loadingDocumentUrl;
         }
@@ -45,7 +45,7 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
     // Field of saveOptions. Contains data for load web document.
     private var _saveOptions : SaveOptionsData?;
 
-    public var : SaveOptionsData? {
+    public var saveOptions : SaveOptionsData? {
         get {
             return self._saveOptions;
         }

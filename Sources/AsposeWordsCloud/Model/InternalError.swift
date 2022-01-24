@@ -33,7 +33,7 @@ public class InternalError : Codable, WordsApiModel {
     // Field of code. Error.
     private var _code : String?;
 
-    public var : String? {
+    public var code : String? {
         get {
             return self._code;
         }
@@ -45,7 +45,7 @@ public class InternalError : Codable, WordsApiModel {
     // Field of description. Error.
     private var _description : String?;
 
-    public var : String? {
+    public var description : String? {
         get {
             return self._description;
         }
@@ -57,7 +57,7 @@ public class InternalError : Codable, WordsApiModel {
     // Field of innerError. Error.
     private var _innerError : ErrorDetails?;
 
-    public var : ErrorDetails? {
+    public var innerError : ErrorDetails? {
         get {
             return self._innerError;
         }
@@ -69,7 +69,7 @@ public class InternalError : Codable, WordsApiModel {
     // Field of message. Error.
     private var _message : String?;
 
-    public var : String? {
+    public var message : String? {
         get {
             return self._message;
         }

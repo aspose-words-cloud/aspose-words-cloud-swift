@@ -33,7 +33,7 @@ public class PageNumber : Codable, WordsApiModel {
     // Field of alignment. Class is used for insert page number request building.
     private var _alignment : String?;
 
-    public var : String? {
+    public var alignment : String? {
         get {
             return self._alignment;
         }
@@ -45,7 +45,7 @@ public class PageNumber : Codable, WordsApiModel {
     // Field of format. Class is used for insert page number request building.
     private var _format : String?;
 
-    public var : String? {
+    public var format : String? {
         get {
             return self._format;
         }
@@ -57,7 +57,7 @@ public class PageNumber : Codable, WordsApiModel {
     // Field of isTop. Class is used for insert page number request building.
     private var _isTop : Bool?;
 
-    public var : Bool? {
+    public var isTop : Bool? {
         get {
             return self._isTop;
         }
@@ -69,7 +69,7 @@ public class PageNumber : Codable, WordsApiModel {
     // Field of setPageNumberOnFirstPage. Class is used for insert page number request building.
     private var _setPageNumberOnFirstPage : Bool?;
 
-    public var : Bool? {
+    public var setPageNumberOnFirstPage : Bool? {
         get {
             return self._setPageNumberOnFirstPage;
         }

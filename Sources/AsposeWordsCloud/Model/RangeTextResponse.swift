@@ -33,7 +33,7 @@ public class RangeTextResponse : WordsResponse {
     // Field of text. The REST response with a range's text.
     private var _text : String?;
 
-    public var : String? {
+    public var text : String? {
         get {
             return self._text;
         }

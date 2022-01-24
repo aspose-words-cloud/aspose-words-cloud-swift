@@ -33,7 +33,7 @@ public class ParagraphListFormatResponse : WordsResponse {
     // Field of listFormat. The REST response with a list format for a paragraph.
     private var _listFormat : ListFormat?;
 
-    public var : ListFormat? {
+    public var listFormat : ListFormat? {
         get {
             return self._listFormat;
         }

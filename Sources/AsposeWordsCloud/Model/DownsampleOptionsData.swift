@@ -33,7 +33,7 @@ public class DownsampleOptionsData : Codable, WordsApiModel {
     // Field of downsampleImages. Container class for Downsample options.
     private var _downsampleImages : Bool?;
 
-    public var : Bool? {
+    public var downsampleImages : Bool? {
         get {
             return self._downsampleImages;
         }
@@ -45,7 +45,7 @@ public class DownsampleOptionsData : Codable, WordsApiModel {
     // Field of resolution. Container class for Downsample options.
     private var _resolution : Int?;
 
-    public var : Int? {
+    public var resolution : Int? {
         get {
             return self._resolution;
         }
@@ -57,7 +57,7 @@ public class DownsampleOptionsData : Codable, WordsApiModel {
     // Field of resolutionThreshold. Container class for Downsample options.
     private var _resolutionThreshold : Int?;
 
-    public var : Int? {
+    public var resolutionThreshold : Int? {
         get {
             return self._resolutionThreshold;
         }

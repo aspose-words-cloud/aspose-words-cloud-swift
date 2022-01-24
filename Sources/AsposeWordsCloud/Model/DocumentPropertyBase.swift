@@ -33,7 +33,7 @@ public class DocumentPropertyBase : Codable, WordsApiModel {
     // Field of value. Words document property DTO base class.
     private var _value : String?;
 
-    public var : String? {
+    public var value : String? {
         get {
             return self._value;
         }

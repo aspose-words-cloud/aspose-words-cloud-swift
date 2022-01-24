@@ -43,7 +43,7 @@ public class CompareOptions : Codable, WordsApiModel {
     // Field of acceptAllRevisionsBeforeComparison. DTO container with compare documents options.
     private var _acceptAllRevisionsBeforeComparison : Bool?;
 
-    public var : Bool? {
+    public var acceptAllRevisionsBeforeComparison : Bool? {
         get {
             return self._acceptAllRevisionsBeforeComparison;
         }
@@ -55,7 +55,7 @@ public class CompareOptions : Codable, WordsApiModel {
     // Field of ignoreCaseChanges. DTO container with compare documents options.
     private var _ignoreCaseChanges : Bool?;
 
-    public var : Bool? {
+    public var ignoreCaseChanges : Bool? {
         get {
             return self._ignoreCaseChanges;
         }
@@ -67,7 +67,7 @@ public class CompareOptions : Codable, WordsApiModel {
     // Field of ignoreComments. DTO container with compare documents options.
     private var _ignoreComments : Bool?;
 
-    public var : Bool? {
+    public var ignoreComments : Bool? {
         get {
             return self._ignoreComments;
         }
@@ -79,7 +79,7 @@ public class CompareOptions : Codable, WordsApiModel {
     // Field of ignoreFields. DTO container with compare documents options.
     private var _ignoreFields : Bool?;
 
-    public var : Bool? {
+    public var ignoreFields : Bool? {
         get {
             return self._ignoreFields;
         }
@@ -91,7 +91,7 @@ public class CompareOptions : Codable, WordsApiModel {
     // Field of ignoreFootnotes. DTO container with compare documents options.
     private var _ignoreFootnotes : Bool?;
 
-    public var : Bool? {
+    public var ignoreFootnotes : Bool? {
         get {
             return self._ignoreFootnotes;
         }
@@ -103,7 +103,7 @@ public class CompareOptions : Codable, WordsApiModel {
     // Field of ignoreFormatting. DTO container with compare documents options.
     private var _ignoreFormatting : Bool?;
 
-    public var : Bool? {
+    public var ignoreFormatting : Bool? {
         get {
             return self._ignoreFormatting;
         }
@@ -115,7 +115,7 @@ public class CompareOptions : Codable, WordsApiModel {
     // Field of ignoreHeadersAndFooters. DTO container with compare documents options.
     private var _ignoreHeadersAndFooters : Bool?;
 
-    public var : Bool? {
+    public var ignoreHeadersAndFooters : Bool? {
         get {
             return self._ignoreHeadersAndFooters;
         }
@@ -127,7 +127,7 @@ public class CompareOptions : Codable, WordsApiModel {
     // Field of ignoreTables. DTO container with compare documents options.
     private var _ignoreTables : Bool?;
 
-    public var : Bool? {
+    public var ignoreTables : Bool? {
         get {
             return self._ignoreTables;
         }
@@ -139,7 +139,7 @@ public class CompareOptions : Codable, WordsApiModel {
     // Field of ignoreTextboxes. DTO container with compare documents options.
     private var _ignoreTextboxes : Bool?;
 
-    public var : Bool? {
+    public var ignoreTextboxes : Bool? {
         get {
             return self._ignoreTextboxes;
         }
@@ -151,7 +151,7 @@ public class CompareOptions : Codable, WordsApiModel {
     // Field of target. DTO container with compare documents options.
     private var _target : Target?;
 
-    public var : Target? {
+    public var target : Target? {
         get {
             return self._target;
         }

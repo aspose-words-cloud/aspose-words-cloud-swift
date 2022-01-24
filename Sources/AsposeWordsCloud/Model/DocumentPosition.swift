@@ -33,7 +33,7 @@ public class DocumentPosition : Codable, WordsApiModel {
     // Field of node. DTO container with a position in the document tree.
     private var _node : NodeLink?;
 
-    public var : NodeLink? {
+    public var node : NodeLink? {
         get {
             return self._node;
         }
@@ -45,7 +45,7 @@ public class DocumentPosition : Codable, WordsApiModel {
     // Field of offset. DTO container with a position in the document tree.
     private var _offset : Int?;
 
-    public var : Int? {
+    public var offset : Int? {
         get {
             return self._offset;
         }

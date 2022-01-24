@@ -33,7 +33,7 @@ public class ErrorDetails : Codable, WordsApiModel {
     // Field of errorDateTime. The error details.
     private var _errorDateTime : Date?;
 
-    public var : Date? {
+    public var errorDateTime : Date? {
         get {
             return self._errorDateTime;
         }
@@ -45,7 +45,7 @@ public class ErrorDetails : Codable, WordsApiModel {
     // Field of requestId. The error details.
     private var _requestId : String?;
 
-    public var : String? {
+    public var requestId : String? {
         get {
             return self._requestId;
         }

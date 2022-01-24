@@ -33,7 +33,7 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     // Field of emfPlusDualRenderingMode. Container class for options of metafile rendering.
     private var _emfPlusDualRenderingMode : String?;
 
-    public var : String? {
+    public var emfPlusDualRenderingMode : String? {
         get {
             return self._emfPlusDualRenderingMode;
         }
@@ -45,7 +45,7 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     // Field of emulateRasterOperations. Container class for options of metafile rendering.
     private var _emulateRasterOperations : Bool?;
 
-    public var : Bool? {
+    public var emulateRasterOperations : Bool? {
         get {
             return self._emulateRasterOperations;
         }
@@ -57,7 +57,7 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     // Field of renderingMode. Container class for options of metafile rendering.
     private var _renderingMode : String?;
 
-    public var : String? {
+    public var renderingMode : String? {
         get {
             return self._renderingMode;
         }
@@ -69,7 +69,7 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     // Field of scaleWmfFontsToMetafileSize. Container class for options of metafile rendering.
     private var _scaleWmfFontsToMetafileSize : Bool?;
 
-    public var : Bool? {
+    public var scaleWmfFontsToMetafileSize : Bool? {
         get {
             return self._scaleWmfFontsToMetafileSize;
         }
@@ -81,7 +81,7 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     // Field of useEmfEmbeddedToWmf. Container class for options of metafile rendering.
     private var _useEmfEmbeddedToWmf : Bool?;
 
-    public var : Bool? {
+    public var useEmfEmbeddedToWmf : Bool? {
         get {
             return self._useEmfEmbeddedToWmf;
         }

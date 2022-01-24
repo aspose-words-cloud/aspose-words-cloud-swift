@@ -33,7 +33,7 @@ public class ListsResponse : WordsResponse {
     // Field of lists. The REST response with a collection of lists, contained in the document.
     private var _lists : Lists?;
 
-    public var : Lists? {
+    public var lists : Lists? {
         get {
             return self._lists;
         }

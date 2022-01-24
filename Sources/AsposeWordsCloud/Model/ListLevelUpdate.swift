@@ -249,7 +249,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     // Field of alignment. Represents a document list levels.
     private var _alignment : Alignment?;
 
-    public var : Alignment? {
+    public var alignment : Alignment? {
         get {
             return self._alignment;
         }
@@ -261,7 +261,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     // Field of isLegal. Represents a document list levels.
     private var _isLegal : Bool?;
 
-    public var : Bool? {
+    public var isLegal : Bool? {
         get {
             return self._isLegal;
         }
@@ -273,7 +273,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     // Field of numberFormat. Represents a document list levels.
     private var _numberFormat : String?;
 
-    public var : String? {
+    public var numberFormat : String? {
         get {
             return self._numberFormat;
         }
@@ -285,7 +285,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     // Field of numberPosition. Represents a document list levels.
     private var _numberPosition : Double?;
 
-    public var : Double? {
+    public var numberPosition : Double? {
         get {
             return self._numberPosition;
         }
@@ -297,7 +297,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     // Field of numberStyle. Represents a document list levels.
     private var _numberStyle : NumberStyle?;
 
-    public var : NumberStyle? {
+    public var numberStyle : NumberStyle? {
         get {
             return self._numberStyle;
         }
@@ -309,7 +309,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     // Field of restartAfterLevel. Represents a document list levels.
     private var _restartAfterLevel : Int?;
 
-    public var : Int? {
+    public var restartAfterLevel : Int? {
         get {
             return self._restartAfterLevel;
         }
@@ -321,7 +321,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     // Field of startAt. Represents a document list levels.
     private var _startAt : Int?;
 
-    public var : Int? {
+    public var startAt : Int? {
         get {
             return self._startAt;
         }
@@ -333,7 +333,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     // Field of tabPosition. Represents a document list levels.
     private var _tabPosition : Double?;
 
-    public var : Double? {
+    public var tabPosition : Double? {
         get {
             return self._tabPosition;
         }
@@ -345,7 +345,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     // Field of textPosition. Represents a document list levels.
     private var _textPosition : Double?;
 
-    public var : Double? {
+    public var textPosition : Double? {
         get {
             return self._textPosition;
         }
@@ -357,7 +357,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     // Field of trailingCharacter. Represents a document list levels.
     private var _trailingCharacter : TrailingCharacter?;
 
-    public var : TrailingCharacter? {
+    public var trailingCharacter : TrailingCharacter? {
         get {
             return self._trailingCharacter;
         }

@@ -33,7 +33,7 @@ public class JpegSaveOptionsData : ImageSaveOptionsData {
     // Field of saveFormat. Container class for jpeg save options.
     private final let _saveFormat : String? = "jpeg";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

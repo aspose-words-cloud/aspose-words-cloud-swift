@@ -33,7 +33,7 @@ public class RangeDocument : Codable, WordsApiModel {
     // Field of documentName. DTO container with a Range element.
     private var _documentName : String?;
 
-    public var : String? {
+    public var documentName : String? {
         get {
             return self._documentName;
         }

@@ -33,7 +33,7 @@ public class StoryChildNodes : Codable, WordsApiModel {
     // Field of childNodes. Child nodes of Story or InlineStory.
     private var _childNodes : [NodeLink]?;
 
-    public var : [NodeLink]? {
+    public var childNodes : [NodeLink]? {
         get {
             return self._childNodes;
         }

@@ -33,7 +33,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     // Field of bookmarksOutlineLevels. Container class for outline options.
     private var _bookmarksOutlineLevels : [BookmarksOutlineLevelData]?;
 
-    public var : [BookmarksOutlineLevelData]? {
+    public var bookmarksOutlineLevels : [BookmarksOutlineLevelData]? {
         get {
             return self._bookmarksOutlineLevels;
         }
@@ -45,7 +45,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     // Field of createMissingOutlineLevels. Container class for outline options.
     private var _createMissingOutlineLevels : Bool?;
 
-    public var : Bool? {
+    public var createMissingOutlineLevels : Bool? {
         get {
             return self._createMissingOutlineLevels;
         }
@@ -57,7 +57,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     // Field of createOutlinesForHeadingsInTables. Container class for outline options.
     private var _createOutlinesForHeadingsInTables : Bool?;
 
-    public var : Bool? {
+    public var createOutlinesForHeadingsInTables : Bool? {
         get {
             return self._createOutlinesForHeadingsInTables;
         }
@@ -69,7 +69,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     // Field of defaultBookmarksOutlineLevel. Container class for outline options.
     private var _defaultBookmarksOutlineLevel : Int?;
 
-    public var : Int? {
+    public var defaultBookmarksOutlineLevel : Int? {
         get {
             return self._defaultBookmarksOutlineLevel;
         }
@@ -81,7 +81,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     // Field of expandedOutlineLevels. Container class for outline options.
     private var _expandedOutlineLevels : Int?;
 
-    public var : Int? {
+    public var expandedOutlineLevels : Int? {
         get {
             return self._expandedOutlineLevels;
         }
@@ -93,7 +93,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     // Field of headingsOutlineLevels. Container class for outline options.
     private var _headingsOutlineLevels : Int?;
 
-    public var : Int? {
+    public var headingsOutlineLevels : Int? {
         get {
             return self._headingsOutlineLevels;
         }

@@ -33,7 +33,7 @@ public class FormField : NodeLink {
     // Field of calculateOnExit. FromField.
     private var _calculateOnExit : Bool?;
 
-    public var : Bool? {
+    public var calculateOnExit : Bool? {
         get {
             return self._calculateOnExit;
         }
@@ -45,7 +45,7 @@ public class FormField : NodeLink {
     // Field of enabled. FromField.
     private var _enabled : Bool?;
 
-    public var : Bool? {
+    public var enabled : Bool? {
         get {
             return self._enabled;
         }
@@ -57,7 +57,7 @@ public class FormField : NodeLink {
     // Field of entryMacro. FromField.
     private var _entryMacro : String?;
 
-    public var : String? {
+    public var entryMacro : String? {
         get {
             return self._entryMacro;
         }
@@ -69,7 +69,7 @@ public class FormField : NodeLink {
     // Field of exitMacro. FromField.
     private var _exitMacro : String?;
 
-    public var : String? {
+    public var exitMacro : String? {
         get {
             return self._exitMacro;
         }
@@ -81,7 +81,7 @@ public class FormField : NodeLink {
     // Field of helpText. FromField.
     private var _helpText : String?;
 
-    public var : String? {
+    public var helpText : String? {
         get {
             return self._helpText;
         }
@@ -93,7 +93,7 @@ public class FormField : NodeLink {
     // Field of name. FromField.
     private var _name : String?;
 
-    public var : String? {
+    public var name : String? {
         get {
             return self._name;
         }
@@ -105,7 +105,7 @@ public class FormField : NodeLink {
     // Field of ownHelp. FromField.
     private var _ownHelp : Bool?;
 
-    public var : Bool? {
+    public var ownHelp : Bool? {
         get {
             return self._ownHelp;
         }
@@ -117,7 +117,7 @@ public class FormField : NodeLink {
     // Field of ownStatus. FromField.
     private var _ownStatus : Bool?;
 
-    public var : Bool? {
+    public var ownStatus : Bool? {
         get {
             return self._ownStatus;
         }
@@ -129,7 +129,7 @@ public class FormField : NodeLink {
     // Field of statusText. FromField.
     private var _statusText : String?;
 
-    public var : String? {
+    public var statusText : String? {
         get {
             return self._statusText;
         }

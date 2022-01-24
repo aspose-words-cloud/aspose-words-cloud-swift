@@ -33,7 +33,7 @@ public class EmfSaveOptionsData : ImageSaveOptionsData {
     // Field of saveFormat. Container class for emf save options.
     private final let _saveFormat : String? = "emf";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

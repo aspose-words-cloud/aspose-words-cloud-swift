@@ -33,7 +33,7 @@ public class DotmSaveOptionsData : OoxmlSaveOptionsData {
     // Field of saveFormat. Container class for dotm save options.
     private final let _saveFormat : String? = "dotm";
 
-    override public var : String? {
+    override public var saveFormat : String? {
         get {
             return self._saveFormat;
         }

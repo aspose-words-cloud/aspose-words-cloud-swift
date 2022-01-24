@@ -33,7 +33,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Field of horizontalResolution. Container abstract class for image save options.
     private var _horizontalResolution : Double?;
 
-    public var : Double? {
+    public var horizontalResolution : Double? {
         get {
             return self._horizontalResolution;
         }
@@ -45,7 +45,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Field of imageBrightness. Container abstract class for image save options.
     private var _imageBrightness : Double?;
 
-    public var : Double? {
+    public var imageBrightness : Double? {
         get {
             return self._imageBrightness;
         }
@@ -57,7 +57,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Field of imageColorMode. Container abstract class for image save options.
     private var _imageColorMode : String?;
 
-    public var : String? {
+    public var imageColorMode : String? {
         get {
             return self._imageColorMode;
         }
@@ -69,7 +69,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Field of imageContrast. Container abstract class for image save options.
     private var _imageContrast : Double?;
 
-    public var : Double? {
+    public var imageContrast : Double? {
         get {
             return self._imageContrast;
         }
@@ -81,7 +81,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Field of paperColor. Container abstract class for image save options.
     private var _paperColor : String?;
 
-    public var : String? {
+    public var paperColor : String? {
         get {
             return self._paperColor;
         }
@@ -93,7 +93,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Field of pixelFormat. Container abstract class for image save options.
     private var _pixelFormat : String?;
 
-    public var : String? {
+    public var pixelFormat : String? {
         get {
             return self._pixelFormat;
         }
@@ -105,7 +105,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Field of resolution. Container abstract class for image save options.
     private var _resolution : Double?;
 
-    public var : Double? {
+    public var resolution : Double? {
         get {
             return self._resolution;
         }
@@ -117,7 +117,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Field of scale. Container abstract class for image save options.
     private var _scale : Double?;
 
-    public var : Double? {
+    public var scale : Double? {
         get {
             return self._scale;
         }
@@ -129,7 +129,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Field of useAntiAliasing. Container abstract class for image save options.
     private var _useAntiAliasing : Bool?;
 
-    public var : Bool? {
+    public var useAntiAliasing : Bool? {
         get {
             return self._useAntiAliasing;
         }
@@ -141,7 +141,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Field of useGdiEmfRenderer. Container abstract class for image save options.
     private var _useGdiEmfRenderer : Bool?;
 
-    public var : Bool? {
+    public var useGdiEmfRenderer : Bool? {
         get {
             return self._useGdiEmfRenderer;
         }
@@ -153,7 +153,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Field of useHighQualityRendering. Container abstract class for image save options.
     private var _useHighQualityRendering : Bool?;
 
-    public var : Bool? {
+    public var useHighQualityRendering : Bool? {
         get {
             return self._useHighQualityRendering;
         }
@@ -165,7 +165,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Field of verticalResolution. Container abstract class for image save options.
     private var _verticalResolution : Double?;
 
-    public var : Double? {
+    public var verticalResolution : Double? {
         get {
             return self._verticalResolution;
         }

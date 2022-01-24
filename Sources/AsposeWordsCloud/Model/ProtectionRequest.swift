@@ -33,7 +33,7 @@ public class ProtectionRequest : Codable, WordsApiModel {
     // Field of newPassword. Request on changing of protection.
     private var _newPassword : String?;
 
-    public var : String? {
+    public var newPassword : String? {
         get {
             return self._newPassword;
         }
@@ -45,7 +45,7 @@ public class ProtectionRequest : Codable, WordsApiModel {
     // Field of password. Request on changing of protection.
     private var _password : String?;
 
-    public var : String? {
+    public var password : String? {
         get {
             return self._password;
         }
@@ -57,7 +57,7 @@ public class ProtectionRequest : Codable, WordsApiModel {
     // Field of protectionType. Request on changing of protection.
     private var _protectionType : String?;
 
-    public var : String? {
+    public var protectionType : String? {
         get {
             return self._protectionType;
         }

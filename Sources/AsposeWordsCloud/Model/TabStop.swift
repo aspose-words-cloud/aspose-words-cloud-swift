@@ -33,7 +33,7 @@ public class TabStop : TabStopBase {
     // Field of isClear. DTO container with paragraph format tab stop.
     private var _isClear : Bool?;
 
-    public var : Bool? {
+    public var isClear : Bool? {
         get {
             return self._isClear;
         }

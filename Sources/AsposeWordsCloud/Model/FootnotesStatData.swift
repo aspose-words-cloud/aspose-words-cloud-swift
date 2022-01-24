@@ -33,7 +33,7 @@ public class FootnotesStatData : Codable, WordsApiModel {
     // Field of paragraphCount. Container for the footnotes statistical data.
     private var _paragraphCount : Int?;
 
-    public var : Int? {
+    public var paragraphCount : Int? {
         get {
             return self._paragraphCount;
         }
@@ -45,7 +45,7 @@ public class FootnotesStatData : Codable, WordsApiModel {
     // Field of wordCount. Container for the footnotes statistical data.
     private var _wordCount : Int?;
 
-    public var : Int? {
+    public var wordCount : Int? {
         get {
             return self._wordCount;
         }
