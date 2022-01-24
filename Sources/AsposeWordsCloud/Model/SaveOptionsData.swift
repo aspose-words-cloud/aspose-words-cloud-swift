@@ -137,7 +137,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of saveFormat. base container class for save options data.
-    private final let _saveFormat : String?;
+    private final let _saveFormat : String? = nil;
 
     public var saveFormat : String? {
         get {
