@@ -53,7 +53,7 @@ public class HeaderFooterLink : LinkElement {
     }
 
     // Field of type. HeaderFooter link element.
-    private var _type : ModelType?;
+    private var _type : ModelType? = nil;
 
     public var type : ModelType? {
         get {

@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class XmlColor : Codable, WordsApiModel {
     // Field of alpha. Utility class for Color serialization.
-    private var _alpha : Int?;
+    private var _alpha : Int? = nil;
 
     public var alpha : Int? {
         get {
@@ -43,7 +43,7 @@ public class XmlColor : Codable, WordsApiModel {
     }
 
     // Field of web. Utility class for Color serialization.
-    private var _web : String?;
+    private var _web : String? = nil;
 
     public var web : String? {
         get {

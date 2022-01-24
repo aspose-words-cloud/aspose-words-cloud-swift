@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ParagraphFormatResponse : WordsResponse {
     // Field of paragraphFormat. The REST response with the formatting properties of a paragraph.
-    private var _paragraphFormat : ParagraphFormat?;
+    private var _paragraphFormat : ParagraphFormat? = nil;
 
     public var paragraphFormat : ParagraphFormat? {
         get {

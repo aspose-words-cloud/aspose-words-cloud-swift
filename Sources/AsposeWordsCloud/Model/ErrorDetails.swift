@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ErrorDetails : Codable, WordsApiModel {
     // Field of errorDateTime. The error details.
-    private var _errorDateTime : Date?;
+    private var _errorDateTime : Date? = nil;
 
     public var errorDateTime : Date? {
         get {
@@ -43,7 +43,7 @@ public class ErrorDetails : Codable, WordsApiModel {
     }
 
     // Field of requestId. The error details.
-    private var _requestId : String?;
+    private var _requestId : String? = nil;
 
     public var requestId : String? {
         get {

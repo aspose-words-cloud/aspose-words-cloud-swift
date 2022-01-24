@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ProtectionRequest : Codable, WordsApiModel {
     // Field of newPassword. Request on changing of protection.
-    private var _newPassword : String?;
+    private var _newPassword : String? = nil;
 
     public var newPassword : String? {
         get {
@@ -43,7 +43,7 @@ public class ProtectionRequest : Codable, WordsApiModel {
     }
 
     // Field of password. Request on changing of protection.
-    private var _password : String?;
+    private var _password : String? = nil;
 
     public var password : String? {
         get {
@@ -55,7 +55,7 @@ public class ProtectionRequest : Codable, WordsApiModel {
     }
 
     // Field of protectionType. Request on changing of protection.
-    private var _protectionType : String?;
+    private var _protectionType : String? = nil;
 
     public var protectionType : String? {
         get {

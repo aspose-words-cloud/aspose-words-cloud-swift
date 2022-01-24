@@ -1226,7 +1226,7 @@ public class TableProperties : LinkElement {
     }
 
     // Field of alignment. DTO container with table properties.
-    private var _alignment : Alignment?;
+    private var _alignment : Alignment? = nil;
 
     public var alignment : Alignment? {
         get {
@@ -1238,7 +1238,7 @@ public class TableProperties : LinkElement {
     }
 
     // Field of allowAutoFit. DTO container with table properties.
-    private var _allowAutoFit : Bool?;
+    private var _allowAutoFit : Bool? = nil;
 
     public var allowAutoFit : Bool? {
         get {
@@ -1250,7 +1250,7 @@ public class TableProperties : LinkElement {
     }
 
     // Field of bidi. DTO container with table properties.
-    private var _bidi : Bool?;
+    private var _bidi : Bool? = nil;
 
     public var bidi : Bool? {
         get {
@@ -1262,7 +1262,7 @@ public class TableProperties : LinkElement {
     }
 
     // Field of bottomPadding. DTO container with table properties.
-    private var _bottomPadding : Double?;
+    private var _bottomPadding : Double? = nil;
 
     public var bottomPadding : Double? {
         get {
@@ -1274,7 +1274,7 @@ public class TableProperties : LinkElement {
     }
 
     // Field of cellSpacing. DTO container with table properties.
-    private var _cellSpacing : Double?;
+    private var _cellSpacing : Double? = nil;
 
     public var cellSpacing : Double? {
         get {
@@ -1286,7 +1286,7 @@ public class TableProperties : LinkElement {
     }
 
     // Field of leftIndent. DTO container with table properties.
-    private var _leftIndent : Double?;
+    private var _leftIndent : Double? = nil;
 
     public var leftIndent : Double? {
         get {
@@ -1298,7 +1298,7 @@ public class TableProperties : LinkElement {
     }
 
     // Field of leftPadding. DTO container with table properties.
-    private var _leftPadding : Double?;
+    private var _leftPadding : Double? = nil;
 
     public var leftPadding : Double? {
         get {
@@ -1310,7 +1310,7 @@ public class TableProperties : LinkElement {
     }
 
     // Field of preferredWidth. DTO container with table properties.
-    private var _preferredWidth : PreferredWidth?;
+    private var _preferredWidth : PreferredWidth? = nil;
 
     public var preferredWidth : PreferredWidth? {
         get {
@@ -1322,7 +1322,7 @@ public class TableProperties : LinkElement {
     }
 
     // Field of rightPadding. DTO container with table properties.
-    private var _rightPadding : Double?;
+    private var _rightPadding : Double? = nil;
 
     public var rightPadding : Double? {
         get {
@@ -1334,7 +1334,7 @@ public class TableProperties : LinkElement {
     }
 
     // Field of styleIdentifier. DTO container with table properties.
-    private var _styleIdentifier : StyleIdentifier?;
+    private var _styleIdentifier : StyleIdentifier? = nil;
 
     public var styleIdentifier : StyleIdentifier? {
         get {
@@ -1346,7 +1346,7 @@ public class TableProperties : LinkElement {
     }
 
     // Field of styleName. DTO container with table properties.
-    private var _styleName : String?;
+    private var _styleName : String? = nil;
 
     public var styleName : String? {
         get {
@@ -1358,7 +1358,7 @@ public class TableProperties : LinkElement {
     }
 
     // Field of styleOptions. DTO container with table properties.
-    private var _styleOptions : StyleOptions?;
+    private var _styleOptions : StyleOptions? = nil;
 
     public var styleOptions : StyleOptions? {
         get {
@@ -1370,7 +1370,7 @@ public class TableProperties : LinkElement {
     }
 
     // Field of textWrapping. DTO container with table properties.
-    private var _textWrapping : TextWrapping?;
+    private var _textWrapping : TextWrapping? = nil;
 
     public var textWrapping : TextWrapping? {
         get {
@@ -1382,7 +1382,7 @@ public class TableProperties : LinkElement {
     }
 
     // Field of topPadding. DTO container with table properties.
-    private var _topPadding : Double?;
+    private var _topPadding : Double? = nil;
 
     public var topPadding : Double? {
         get {

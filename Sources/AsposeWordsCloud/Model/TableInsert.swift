@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableInsert : Codable, WordsApiModel {
     // Field of columnsCount. DTO container with a table element.
-    private var _columnsCount : Int?;
+    private var _columnsCount : Int? = nil;
 
     public var columnsCount : Int? {
         get {
@@ -43,7 +43,7 @@ public class TableInsert : Codable, WordsApiModel {
     }
 
     // Field of position. DTO container with a table element.
-    private var _position : DocumentPosition?;
+    private var _position : DocumentPosition? = nil;
 
     public var position : DocumentPosition? {
         get {
@@ -55,7 +55,7 @@ public class TableInsert : Codable, WordsApiModel {
     }
 
     // Field of rowsCount. DTO container with a table element.
-    private var _rowsCount : Int?;
+    private var _rowsCount : Int? = nil;
 
     public var rowsCount : Int? {
         get {

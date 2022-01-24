@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BookmarkResponse : WordsResponse {
     // Field of bookmark. The REST response with a bookmark.
-    private var _bookmark : Bookmark?;
+    private var _bookmark : Bookmark? = nil;
 
     public var bookmark : Bookmark? {
         get {

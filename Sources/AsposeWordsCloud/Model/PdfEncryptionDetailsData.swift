@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     // Field of encryptionAlgorithm. Container class for details of encryption.
-    private var _encryptionAlgorithm : String?;
+    private var _encryptionAlgorithm : String? = nil;
 
     public var encryptionAlgorithm : String? {
         get {
@@ -43,7 +43,7 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     }
 
     // Field of ownerPassword. Container class for details of encryption.
-    private var _ownerPassword : String?;
+    private var _ownerPassword : String? = nil;
 
     public var ownerPassword : String? {
         get {
@@ -55,7 +55,7 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     }
 
     // Field of permissions. Container class for details of encryption.
-    private var _permissions : String?;
+    private var _permissions : String? = nil;
 
     public var permissions : String? {
         get {
@@ -67,7 +67,7 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     }
 
     // Field of userPassword. Container class for details of encryption.
-    private var _userPassword : String?;
+    private var _userPassword : String? = nil;
 
     public var userPassword : String? {
         get {

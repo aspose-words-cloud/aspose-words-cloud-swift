@@ -118,7 +118,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Field of height. Drawing object element for insert.
-    private var _height : Double?;
+    private var _height : Double? = nil;
 
     public var height : Double? {
         get {
@@ -130,7 +130,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Field of _left. Drawing object element for insert.
-    private var __left : Double?;
+    private var __left : Double? = nil;
 
     public var _left : Double? {
         get {
@@ -142,7 +142,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Field of position. Drawing object element for insert.
-    private var _position : DocumentPosition?;
+    private var _position : DocumentPosition? = nil;
 
     public var position : DocumentPosition? {
         get {
@@ -154,7 +154,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Field of relativeHorizontalPosition. Drawing object element for insert.
-    private var _relativeHorizontalPosition : RelativeHorizontalPosition?;
+    private var _relativeHorizontalPosition : RelativeHorizontalPosition? = nil;
 
     public var relativeHorizontalPosition : RelativeHorizontalPosition? {
         get {
@@ -166,7 +166,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Field of relativeVerticalPosition. Drawing object element for insert.
-    private var _relativeVerticalPosition : RelativeVerticalPosition?;
+    private var _relativeVerticalPosition : RelativeVerticalPosition? = nil;
 
     public var relativeVerticalPosition : RelativeVerticalPosition? {
         get {
@@ -178,7 +178,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Field of top. Drawing object element for insert.
-    private var _top : Double?;
+    private var _top : Double? = nil;
 
     public var top : Double? {
         get {
@@ -190,7 +190,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Field of width. Drawing object element for insert.
-    private var _width : Double?;
+    private var _width : Double? = nil;
 
     public var width : Double? {
         get {
@@ -202,7 +202,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Field of wrapType. Drawing object element for insert.
-    private var _wrapType : WrapType?;
+    private var _wrapType : WrapType? = nil;
 
     public var wrapType : WrapType? {
         get {

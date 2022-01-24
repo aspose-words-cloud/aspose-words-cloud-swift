@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     // Field of emfPlusDualRenderingMode. Container class for options of metafile rendering.
-    private var _emfPlusDualRenderingMode : String?;
+    private var _emfPlusDualRenderingMode : String? = nil;
 
     public var emfPlusDualRenderingMode : String? {
         get {
@@ -43,7 +43,7 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     }
 
     // Field of emulateRasterOperations. Container class for options of metafile rendering.
-    private var _emulateRasterOperations : Bool?;
+    private var _emulateRasterOperations : Bool? = nil;
 
     public var emulateRasterOperations : Bool? {
         get {
@@ -55,7 +55,7 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     }
 
     // Field of renderingMode. Container class for options of metafile rendering.
-    private var _renderingMode : String?;
+    private var _renderingMode : String? = nil;
 
     public var renderingMode : String? {
         get {
@@ -67,7 +67,7 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     }
 
     // Field of scaleWmfFontsToMetafileSize. Container class for options of metafile rendering.
-    private var _scaleWmfFontsToMetafileSize : Bool?;
+    private var _scaleWmfFontsToMetafileSize : Bool? = nil;
 
     public var scaleWmfFontsToMetafileSize : Bool? {
         get {
@@ -79,7 +79,7 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     }
 
     // Field of useEmfEmbeddedToWmf. Container class for options of metafile rendering.
-    private var _useEmfEmbeddedToWmf : Bool?;
+    private var _useEmfEmbeddedToWmf : Bool? = nil;
 
     public var useEmfEmbeddedToWmf : Bool? {
         get {

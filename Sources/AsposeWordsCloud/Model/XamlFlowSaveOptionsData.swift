@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class XamlFlowSaveOptionsData : SaveOptionsData {
     // Field of imagesFolder. Container class for xaml flow save options.
-    private var _imagesFolder : String?;
+    private var _imagesFolder : String? = nil;
 
     public var imagesFolder : String? {
         get {
@@ -43,7 +43,7 @@ public class XamlFlowSaveOptionsData : SaveOptionsData {
     }
 
     // Field of imagesFolderAlias. Container class for xaml flow save options.
-    private var _imagesFolderAlias : String?;
+    private var _imagesFolderAlias : String? = nil;
 
     public var imagesFolderAlias : String? {
         get {

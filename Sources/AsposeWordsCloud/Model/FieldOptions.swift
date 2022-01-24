@@ -66,7 +66,7 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     // Field of builtInTemplatesPaths. DTO for field options.
-    private var _builtInTemplatesPaths : [String]?;
+    private var _builtInTemplatesPaths : [String]? = nil;
 
     public var builtInTemplatesPaths : [String]? {
         get {
@@ -78,7 +78,7 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     // Field of currentUser. DTO for field options.
-    private var _currentUser : UserInformation?;
+    private var _currentUser : UserInformation? = nil;
 
     public var currentUser : UserInformation? {
         get {
@@ -90,7 +90,7 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     // Field of customTocStyleSeparator. DTO for field options.
-    private var _customTocStyleSeparator : String?;
+    private var _customTocStyleSeparator : String? = nil;
 
     public var customTocStyleSeparator : String? {
         get {
@@ -102,7 +102,7 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     // Field of defaultDocumentAuthor. DTO for field options.
-    private var _defaultDocumentAuthor : String?;
+    private var _defaultDocumentAuthor : String? = nil;
 
     public var defaultDocumentAuthor : String? {
         get {
@@ -114,7 +114,7 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     // Field of fieldIndexFormat. DTO for field options.
-    private var _fieldIndexFormat : FieldIndexFormat?;
+    private var _fieldIndexFormat : FieldIndexFormat? = nil;
 
     public var fieldIndexFormat : FieldIndexFormat? {
         get {
@@ -126,7 +126,7 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     // Field of fieldUpdateCultureName. DTO for field options.
-    private var _fieldUpdateCultureName : String?;
+    private var _fieldUpdateCultureName : String? = nil;
 
     public var fieldUpdateCultureName : String? {
         get {
@@ -138,7 +138,7 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     // Field of fieldUpdateCultureSource. DTO for field options.
-    private var _fieldUpdateCultureSource : FieldUpdateCultureSource?;
+    private var _fieldUpdateCultureSource : FieldUpdateCultureSource? = nil;
 
     public var fieldUpdateCultureSource : FieldUpdateCultureSource? {
         get {
@@ -150,7 +150,7 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     // Field of fileName. DTO for field options.
-    private var _fileName : String?;
+    private var _fileName : String? = nil;
 
     public var fileName : String? {
         get {
@@ -162,7 +162,7 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     // Field of isBidiTextSupportedOnUpdate. DTO for field options.
-    private var _isBidiTextSupportedOnUpdate : Bool?;
+    private var _isBidiTextSupportedOnUpdate : Bool? = nil;
 
     public var isBidiTextSupportedOnUpdate : Bool? {
         get {
@@ -174,7 +174,7 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     // Field of legacyNumberFormat. DTO for field options.
-    private var _legacyNumberFormat : Bool?;
+    private var _legacyNumberFormat : Bool? = nil;
 
     public var legacyNumberFormat : Bool? {
         get {
@@ -186,7 +186,7 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     // Field of preProcessCultureName. DTO for field options.
-    private var _preProcessCultureName : String?;
+    private var _preProcessCultureName : String? = nil;
 
     public var preProcessCultureName : String? {
         get {
@@ -198,7 +198,7 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     // Field of templateName. DTO for field options.
-    private var _templateName : String?;
+    private var _templateName : String? = nil;
 
     public var templateName : String? {
         get {
@@ -210,7 +210,7 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     // Field of useInvariantCultureNumberFormat. DTO for field options.
-    private var _useInvariantCultureNumberFormat : Bool?;
+    private var _useInvariantCultureNumberFormat : Bool? = nil;
 
     public var useInvariantCultureNumberFormat : Bool? {
         get {

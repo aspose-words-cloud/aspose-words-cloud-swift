@@ -47,7 +47,7 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     }
 
     // Field of compliance. Container class for docx/docm/dotx/dotm/flatopc save options.
-    private var _compliance : String?;
+    private var _compliance : String? = nil;
 
     public var compliance : String? {
         get {
@@ -59,7 +59,7 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     }
 
     // Field of compressionLevel. Container class for docx/docm/dotx/dotm/flatopc save options.
-    private var _compressionLevel : CompressionLevel?;
+    private var _compressionLevel : CompressionLevel? = nil;
 
     public var compressionLevel : CompressionLevel? {
         get {
@@ -71,7 +71,7 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     }
 
     // Field of password. Container class for docx/docm/dotx/dotm/flatopc save options.
-    private var _password : String?;
+    private var _password : String? = nil;
 
     public var password : String? {
         get {
@@ -83,7 +83,7 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     }
 
     // Field of prettyFormat. Container class for docx/docm/dotx/dotm/flatopc save options.
-    private var _prettyFormat : Bool?;
+    private var _prettyFormat : Bool? = nil;
 
     public var prettyFormat : Bool? {
         get {

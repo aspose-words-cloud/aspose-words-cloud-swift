@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PublicKeyResponse : WordsResponse {
     // Field of exponent. REST response for RSA public key info.
-    private var _exponent : String?;
+    private var _exponent : String? = nil;
 
     public var exponent : String? {
         get {
@@ -43,7 +43,7 @@ public class PublicKeyResponse : WordsResponse {
     }
 
     // Field of modulus. REST response for RSA public key info.
-    private var _modulus : String?;
+    private var _modulus : String? = nil;
 
     public var modulus : String? {
         get {

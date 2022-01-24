@@ -44,7 +44,7 @@ public class PreferredWidth : Codable, WordsApiModel {
     }
 
     // Field of type. DTO container with a preferred width value.
-    private var _type : ModelType?;
+    private var _type : ModelType? = nil;
 
     public var type : ModelType? {
         get {
@@ -56,7 +56,7 @@ public class PreferredWidth : Codable, WordsApiModel {
     }
 
     // Field of value. DTO container with a preferred width value.
-    private var _value : Double?;
+    private var _value : Double? = nil;
 
     public var value : Double? {
         get {

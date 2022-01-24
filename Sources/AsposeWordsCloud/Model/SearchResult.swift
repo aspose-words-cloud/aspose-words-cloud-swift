@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SearchResult : Codable, WordsApiModel {
     // Field of rangeEnd. Result of search operation.
-    private var _rangeEnd : DocumentPosition?;
+    private var _rangeEnd : DocumentPosition? = nil;
 
     public var rangeEnd : DocumentPosition? {
         get {
@@ -43,7 +43,7 @@ public class SearchResult : Codable, WordsApiModel {
     }
 
     // Field of rangeStart. Result of search operation.
-    private var _rangeStart : DocumentPosition?;
+    private var _rangeStart : DocumentPosition? = nil;
 
     public var rangeStart : DocumentPosition? {
         get {

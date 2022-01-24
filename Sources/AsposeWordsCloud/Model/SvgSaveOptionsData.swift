@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     // Field of exportEmbeddedImages. Container class for svg save options.
-    private var _exportEmbeddedImages : Bool?;
+    private var _exportEmbeddedImages : Bool? = nil;
 
     public var exportEmbeddedImages : Bool? {
         get {
@@ -43,7 +43,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of fitToViewPort. Container class for svg save options.
-    private var _fitToViewPort : Bool?;
+    private var _fitToViewPort : Bool? = nil;
 
     public var fitToViewPort : Bool? {
         get {
@@ -55,7 +55,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of resourcesFolder. Container class for svg save options.
-    private var _resourcesFolder : String?;
+    private var _resourcesFolder : String? = nil;
 
     public var resourcesFolder : String? {
         get {
@@ -67,7 +67,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of resourcesFolderAlias. Container class for svg save options.
-    private var _resourcesFolderAlias : String?;
+    private var _resourcesFolderAlias : String? = nil;
 
     public var resourcesFolderAlias : String? {
         get {
@@ -88,7 +88,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of showPageBorder. Container class for svg save options.
-    private var _showPageBorder : Bool?;
+    private var _showPageBorder : Bool? = nil;
 
     public var showPageBorder : Bool? {
         get {
@@ -100,7 +100,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of textOutputMode. Container class for svg save options.
-    private var _textOutputMode : String?;
+    private var _textOutputMode : String? = nil;
 
     public var textOutputMode : String? {
         get {

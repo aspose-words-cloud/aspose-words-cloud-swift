@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StyleResponse : WordsResponse {
     // Field of style. The REST response with a style.
-    private var _style : Style?;
+    private var _style : Style? = nil;
 
     public var style : Style? {
         get {

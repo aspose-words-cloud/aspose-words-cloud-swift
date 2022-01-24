@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SectionLinkCollectionResponse : WordsResponse {
     // Field of sections. The REST response with a collection of sections.
-    private var _sections : SectionLinkCollection?;
+    private var _sections : SectionLinkCollection? = nil;
 
     public var sections : SectionLinkCollection? {
         get {

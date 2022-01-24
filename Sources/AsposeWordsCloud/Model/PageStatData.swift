@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PageStatData : Codable, WordsApiModel {
     // Field of footnotesStatData. Container for the page's statistical data.
-    private var _footnotesStatData : FootnotesStatData?;
+    private var _footnotesStatData : FootnotesStatData? = nil;
 
     public var footnotesStatData : FootnotesStatData? {
         get {
@@ -43,7 +43,7 @@ public class PageStatData : Codable, WordsApiModel {
     }
 
     // Field of pageNumber. Container for the page's statistical data.
-    private var _pageNumber : Int?;
+    private var _pageNumber : Int? = nil;
 
     public var pageNumber : Int? {
         get {
@@ -55,7 +55,7 @@ public class PageStatData : Codable, WordsApiModel {
     }
 
     // Field of paragraphCount. Container for the page's statistical data.
-    private var _paragraphCount : Int?;
+    private var _paragraphCount : Int? = nil;
 
     public var paragraphCount : Int? {
         get {
@@ -67,7 +67,7 @@ public class PageStatData : Codable, WordsApiModel {
     }
 
     // Field of wordCount. Container for the page's statistical data.
-    private var _wordCount : Int?;
+    private var _wordCount : Int? = nil;
 
     public var wordCount : Int? {
         get {

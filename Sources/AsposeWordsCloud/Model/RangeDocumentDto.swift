@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class RangeDocumentDto : Codable, WordsApiModel {
     // Field of documentName. DTO container with a Range element.
-    private var _documentName : String?;
+    private var _documentName : String? = nil;
 
     public var documentName : String? {
         get {

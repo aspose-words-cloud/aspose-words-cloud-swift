@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableRow : NodeLink {
     // Field of rowFormat. DTO container with a table row element.
-    private var _rowFormat : TableRowFormat?;
+    private var _rowFormat : TableRowFormat? = nil;
 
     public var rowFormat : TableRowFormat? {
         get {
@@ -43,7 +43,7 @@ public class TableRow : NodeLink {
     }
 
     // Field of tableCellList. DTO container with a table row element.
-    private var _tableCellList : [TableCell]?;
+    private var _tableCellList : [TableCell]? = nil;
 
     public var tableCellList : [TableCell]? {
         get {

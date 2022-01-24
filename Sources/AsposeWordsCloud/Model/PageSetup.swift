@@ -357,7 +357,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of bidi. Represents the page setup properties of a section.
-    private var _bidi : Bool?;
+    private var _bidi : Bool? = nil;
 
     public var bidi : Bool? {
         get {
@@ -369,7 +369,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of borderAlwaysInFront. Represents the page setup properties of a section.
-    private var _borderAlwaysInFront : Bool?;
+    private var _borderAlwaysInFront : Bool? = nil;
 
     public var borderAlwaysInFront : Bool? {
         get {
@@ -381,7 +381,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of borderAppliesTo. Represents the page setup properties of a section.
-    private var _borderAppliesTo : BorderAppliesTo?;
+    private var _borderAppliesTo : BorderAppliesTo? = nil;
 
     public var borderAppliesTo : BorderAppliesTo? {
         get {
@@ -393,7 +393,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of borderDistanceFrom. Represents the page setup properties of a section.
-    private var _borderDistanceFrom : BorderDistanceFrom?;
+    private var _borderDistanceFrom : BorderDistanceFrom? = nil;
 
     public var borderDistanceFrom : BorderDistanceFrom? {
         get {
@@ -405,7 +405,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of bottomMargin. Represents the page setup properties of a section.
-    private var _bottomMargin : Double?;
+    private var _bottomMargin : Double? = nil;
 
     public var bottomMargin : Double? {
         get {
@@ -417,7 +417,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of differentFirstPageHeaderFooter. Represents the page setup properties of a section.
-    private var _differentFirstPageHeaderFooter : Bool?;
+    private var _differentFirstPageHeaderFooter : Bool? = nil;
 
     public var differentFirstPageHeaderFooter : Bool? {
         get {
@@ -429,7 +429,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of firstPageTray. Represents the page setup properties of a section.
-    private var _firstPageTray : Int?;
+    private var _firstPageTray : Int? = nil;
 
     public var firstPageTray : Int? {
         get {
@@ -441,7 +441,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of footerDistance. Represents the page setup properties of a section.
-    private var _footerDistance : Double?;
+    private var _footerDistance : Double? = nil;
 
     public var footerDistance : Double? {
         get {
@@ -453,7 +453,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of gutter. Represents the page setup properties of a section.
-    private var _gutter : Double?;
+    private var _gutter : Double? = nil;
 
     public var gutter : Double? {
         get {
@@ -465,7 +465,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of headerDistance. Represents the page setup properties of a section.
-    private var _headerDistance : Double?;
+    private var _headerDistance : Double? = nil;
 
     public var headerDistance : Double? {
         get {
@@ -477,7 +477,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of leftMargin. Represents the page setup properties of a section.
-    private var _leftMargin : Double?;
+    private var _leftMargin : Double? = nil;
 
     public var leftMargin : Double? {
         get {
@@ -489,7 +489,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of lineNumberCountBy. Represents the page setup properties of a section.
-    private var _lineNumberCountBy : Int?;
+    private var _lineNumberCountBy : Int? = nil;
 
     public var lineNumberCountBy : Int? {
         get {
@@ -501,7 +501,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of lineNumberDistanceFromText. Represents the page setup properties of a section.
-    private var _lineNumberDistanceFromText : Double?;
+    private var _lineNumberDistanceFromText : Double? = nil;
 
     public var lineNumberDistanceFromText : Double? {
         get {
@@ -513,7 +513,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of lineNumberRestartMode. Represents the page setup properties of a section.
-    private var _lineNumberRestartMode : LineNumberRestartMode?;
+    private var _lineNumberRestartMode : LineNumberRestartMode? = nil;
 
     public var lineNumberRestartMode : LineNumberRestartMode? {
         get {
@@ -525,7 +525,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of lineStartingNumber. Represents the page setup properties of a section.
-    private var _lineStartingNumber : Int?;
+    private var _lineStartingNumber : Int? = nil;
 
     public var lineStartingNumber : Int? {
         get {
@@ -537,7 +537,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of orientation. Represents the page setup properties of a section.
-    private var _orientation : Orientation?;
+    private var _orientation : Orientation? = nil;
 
     public var orientation : Orientation? {
         get {
@@ -549,7 +549,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of otherPagesTray. Represents the page setup properties of a section.
-    private var _otherPagesTray : Int?;
+    private var _otherPagesTray : Int? = nil;
 
     public var otherPagesTray : Int? {
         get {
@@ -561,7 +561,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of pageHeight. Represents the page setup properties of a section.
-    private var _pageHeight : Double?;
+    private var _pageHeight : Double? = nil;
 
     public var pageHeight : Double? {
         get {
@@ -573,7 +573,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of pageNumberStyle. Represents the page setup properties of a section.
-    private var _pageNumberStyle : PageNumberStyle?;
+    private var _pageNumberStyle : PageNumberStyle? = nil;
 
     public var pageNumberStyle : PageNumberStyle? {
         get {
@@ -585,7 +585,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of pageStartingNumber. Represents the page setup properties of a section.
-    private var _pageStartingNumber : Int?;
+    private var _pageStartingNumber : Int? = nil;
 
     public var pageStartingNumber : Int? {
         get {
@@ -597,7 +597,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of pageWidth. Represents the page setup properties of a section.
-    private var _pageWidth : Double?;
+    private var _pageWidth : Double? = nil;
 
     public var pageWidth : Double? {
         get {
@@ -609,7 +609,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of paperSize. Represents the page setup properties of a section.
-    private var _paperSize : PaperSize?;
+    private var _paperSize : PaperSize? = nil;
 
     public var paperSize : PaperSize? {
         get {
@@ -621,7 +621,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of restartPageNumbering. Represents the page setup properties of a section.
-    private var _restartPageNumbering : Bool?;
+    private var _restartPageNumbering : Bool? = nil;
 
     public var restartPageNumbering : Bool? {
         get {
@@ -633,7 +633,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of rightMargin. Represents the page setup properties of a section.
-    private var _rightMargin : Double?;
+    private var _rightMargin : Double? = nil;
 
     public var rightMargin : Double? {
         get {
@@ -645,7 +645,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of rtlGutter. Represents the page setup properties of a section.
-    private var _rtlGutter : Bool?;
+    private var _rtlGutter : Bool? = nil;
 
     public var rtlGutter : Bool? {
         get {
@@ -657,7 +657,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of sectionStart. Represents the page setup properties of a section.
-    private var _sectionStart : SectionStart?;
+    private var _sectionStart : SectionStart? = nil;
 
     public var sectionStart : SectionStart? {
         get {
@@ -669,7 +669,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of suppressEndnotes. Represents the page setup properties of a section.
-    private var _suppressEndnotes : Bool?;
+    private var _suppressEndnotes : Bool? = nil;
 
     public var suppressEndnotes : Bool? {
         get {
@@ -681,7 +681,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of topMargin. Represents the page setup properties of a section.
-    private var _topMargin : Double?;
+    private var _topMargin : Double? = nil;
 
     public var topMargin : Double? {
         get {
@@ -693,7 +693,7 @@ public class PageSetup : LinkElement {
     }
 
     // Field of verticalAlignment. Represents the page setup properties of a section.
-    private var _verticalAlignment : VerticalAlignment?;
+    private var _verticalAlignment : VerticalAlignment? = nil;
 
     public var verticalAlignment : VerticalAlignment? {
         get {

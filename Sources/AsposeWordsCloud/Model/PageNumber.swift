@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PageNumber : Codable, WordsApiModel {
     // Field of alignment. Class is used for insert page number request building.
-    private var _alignment : String?;
+    private var _alignment : String? = nil;
 
     public var alignment : String? {
         get {
@@ -43,7 +43,7 @@ public class PageNumber : Codable, WordsApiModel {
     }
 
     // Field of format. Class is used for insert page number request building.
-    private var _format : String?;
+    private var _format : String? = nil;
 
     public var format : String? {
         get {
@@ -55,7 +55,7 @@ public class PageNumber : Codable, WordsApiModel {
     }
 
     // Field of isTop. Class is used for insert page number request building.
-    private var _isTop : Bool?;
+    private var _isTop : Bool? = nil;
 
     public var isTop : Bool? {
         get {
@@ -67,7 +67,7 @@ public class PageNumber : Codable, WordsApiModel {
     }
 
     // Field of setPageNumberOnFirstPage. Class is used for insert page number request building.
-    private var _setPageNumberOnFirstPage : Bool?;
+    private var _setPageNumberOnFirstPage : Bool? = nil;
 
     public var setPageNumberOnFirstPage : Bool? {
         get {

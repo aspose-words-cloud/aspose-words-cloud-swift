@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CsvDataLoadOptions : Codable, WordsApiModel {
     // Field of commentChar. Represents options for parsing CSV data.
-    private var _commentChar : String?;
+    private var _commentChar : String? = nil;
 
     public var commentChar : String? {
         get {
@@ -43,7 +43,7 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
     }
 
     // Field of delimiter. Represents options for parsing CSV data.
-    private var _delimiter : String?;
+    private var _delimiter : String? = nil;
 
     public var delimiter : String? {
         get {
@@ -55,7 +55,7 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
     }
 
     // Field of hasHeaders. Represents options for parsing CSV data.
-    private var _hasHeaders : Bool?;
+    private var _hasHeaders : Bool? = nil;
 
     public var hasHeaders : Bool? {
         get {
@@ -67,7 +67,7 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
     }
 
     // Field of quoteChar. Represents options for parsing CSV data.
-    private var _quoteChar : String?;
+    private var _quoteChar : String? = nil;
 
     public var quoteChar : String? {
         get {

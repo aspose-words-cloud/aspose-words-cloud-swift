@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FormField : NodeLink {
     // Field of calculateOnExit. FromField.
-    private var _calculateOnExit : Bool?;
+    private var _calculateOnExit : Bool? = nil;
 
     public var calculateOnExit : Bool? {
         get {
@@ -43,7 +43,7 @@ public class FormField : NodeLink {
     }
 
     // Field of enabled. FromField.
-    private var _enabled : Bool?;
+    private var _enabled : Bool? = nil;
 
     public var enabled : Bool? {
         get {
@@ -55,7 +55,7 @@ public class FormField : NodeLink {
     }
 
     // Field of entryMacro. FromField.
-    private var _entryMacro : String?;
+    private var _entryMacro : String? = nil;
 
     public var entryMacro : String? {
         get {
@@ -67,7 +67,7 @@ public class FormField : NodeLink {
     }
 
     // Field of exitMacro. FromField.
-    private var _exitMacro : String?;
+    private var _exitMacro : String? = nil;
 
     public var exitMacro : String? {
         get {
@@ -79,7 +79,7 @@ public class FormField : NodeLink {
     }
 
     // Field of helpText. FromField.
-    private var _helpText : String?;
+    private var _helpText : String? = nil;
 
     public var helpText : String? {
         get {
@@ -91,7 +91,7 @@ public class FormField : NodeLink {
     }
 
     // Field of name. FromField.
-    private var _name : String?;
+    private var _name : String? = nil;
 
     public var name : String? {
         get {
@@ -103,7 +103,7 @@ public class FormField : NodeLink {
     }
 
     // Field of ownHelp. FromField.
-    private var _ownHelp : Bool?;
+    private var _ownHelp : Bool? = nil;
 
     public var ownHelp : Bool? {
         get {
@@ -115,7 +115,7 @@ public class FormField : NodeLink {
     }
 
     // Field of ownStatus. FromField.
-    private var _ownStatus : Bool?;
+    private var _ownStatus : Bool? = nil;
 
     public var ownStatus : Bool? {
         get {
@@ -127,7 +127,7 @@ public class FormField : NodeLink {
     }
 
     // Field of statusText. FromField.
-    private var _statusText : String?;
+    private var _statusText : String? = nil;
 
     public var statusText : String? {
         get {

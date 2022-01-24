@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FontInfo : Codable, WordsApiModel {
     // Field of filePath. DTO container with font info.
-    private var _filePath : String?;
+    private var _filePath : String? = nil;
 
     public var filePath : String? {
         get {
@@ -43,7 +43,7 @@ public class FontInfo : Codable, WordsApiModel {
     }
 
     // Field of fontFamilyName. DTO container with font info.
-    private var _fontFamilyName : String?;
+    private var _fontFamilyName : String? = nil;
 
     public var fontFamilyName : String? {
         get {
@@ -55,7 +55,7 @@ public class FontInfo : Codable, WordsApiModel {
     }
 
     // Field of fullFontName. DTO container with font info.
-    private var _fullFontName : String?;
+    private var _fullFontName : String? = nil;
 
     public var fullFontName : String? {
         get {
@@ -67,7 +67,7 @@ public class FontInfo : Codable, WordsApiModel {
     }
 
     // Field of version. DTO container with font info.
-    private var _version : String?;
+    private var _version : String? = nil;
 
     public var version : String? {
         get {

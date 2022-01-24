@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FormFieldCollection : LinkElement {
     // Field of list. DTO container with a collection of form fields.
-    private var _list : [FormField]?;
+    private var _list : [FormField]? = nil;
 
     public var list : [FormField]? {
         get {

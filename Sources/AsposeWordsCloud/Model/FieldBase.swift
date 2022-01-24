@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FieldBase : Codable, WordsApiModel {
     // Field of fieldCode. Field.
-    private var _fieldCode : String?;
+    private var _fieldCode : String? = nil;
 
     public var fieldCode : String? {
         get {
@@ -43,7 +43,7 @@ public class FieldBase : Codable, WordsApiModel {
     }
 
     // Field of localeId. Field.
-    private var _localeId : String?;
+    private var _localeId : String? = nil;
 
     public var localeId : String? {
         get {

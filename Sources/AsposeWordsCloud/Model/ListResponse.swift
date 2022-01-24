@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListResponse : WordsResponse {
     // Field of list. The REST response with a list information.
-    private var _list : ListInfo?;
+    private var _list : ListInfo? = nil;
 
     public var list : ListInfo? {
         get {

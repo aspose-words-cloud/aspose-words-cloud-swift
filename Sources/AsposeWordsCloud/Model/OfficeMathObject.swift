@@ -157,7 +157,7 @@ public class OfficeMathObject : OfficeMathLink {
     }
 
     // Field of content. DTO container with an OfficeMath object.
-    private var _content : StoryChildNodes?;
+    private var _content : StoryChildNodes? = nil;
 
     public var content : StoryChildNodes? {
         get {
@@ -169,7 +169,7 @@ public class OfficeMathObject : OfficeMathLink {
     }
 
     // Field of displayType. DTO container with an OfficeMath object.
-    private var _displayType : DisplayType?;
+    private var _displayType : DisplayType? = nil;
 
     public var displayType : DisplayType? {
         get {
@@ -181,7 +181,7 @@ public class OfficeMathObject : OfficeMathLink {
     }
 
     // Field of justification. DTO container with an OfficeMath object.
-    private var _justification : Justification?;
+    private var _justification : Justification? = nil;
 
     public var justification : Justification? {
         get {
@@ -193,7 +193,7 @@ public class OfficeMathObject : OfficeMathLink {
     }
 
     // Field of mathObjectType. DTO container with an OfficeMath object.
-    private var _mathObjectType : MathObjectType?;
+    private var _mathObjectType : MathObjectType? = nil;
 
     public var mathObjectType : MathObjectType? {
         get {

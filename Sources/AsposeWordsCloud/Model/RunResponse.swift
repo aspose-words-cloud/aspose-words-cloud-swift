@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class RunResponse : WordsResponse {
     // Field of run. The REST response with a Run element.
-    private var _run : Run?;
+    private var _run : Run? = nil;
 
     public var run : Run? {
         get {

@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Lists : LinkElement {
     // Field of listInfo. DTO container with an array of document lists.
-    private var _listInfo : [ListInfo]?;
+    private var _listInfo : [ListInfo]? = nil;
 
     public var listInfo : [ListInfo]? {
         get {

@@ -98,7 +98,7 @@ public class Document : Codable, WordsApiModel {
     }
 
     // Field of documentProperties. Represents Words document DTO.
-    private var _documentProperties : DocumentProperties?;
+    private var _documentProperties : DocumentProperties? = nil;
 
     public var documentProperties : DocumentProperties? {
         get {
@@ -110,7 +110,7 @@ public class Document : Codable, WordsApiModel {
     }
 
     // Field of fileName. Represents Words document DTO.
-    private var _fileName : String?;
+    private var _fileName : String? = nil;
 
     public var fileName : String? {
         get {
@@ -122,7 +122,7 @@ public class Document : Codable, WordsApiModel {
     }
 
     // Field of isEncrypted. Represents Words document DTO.
-    private var _isEncrypted : Bool?;
+    private var _isEncrypted : Bool? = nil;
 
     public var isEncrypted : Bool? {
         get {
@@ -134,7 +134,7 @@ public class Document : Codable, WordsApiModel {
     }
 
     // Field of isSigned. Represents Words document DTO.
-    private var _isSigned : Bool?;
+    private var _isSigned : Bool? = nil;
 
     public var isSigned : Bool? {
         get {
@@ -146,7 +146,7 @@ public class Document : Codable, WordsApiModel {
     }
 
     // Field of links. Represents Words document DTO.
-    private var _links : [Link]?;
+    private var _links : [Link]? = nil;
 
     public var links : [Link]? {
         get {
@@ -158,7 +158,7 @@ public class Document : Codable, WordsApiModel {
     }
 
     // Field of sourceFormat. Represents Words document DTO.
-    private var _sourceFormat : SourceFormat?;
+    private var _sourceFormat : SourceFormat? = nil;
 
     public var sourceFormat : SourceFormat? {
         get {

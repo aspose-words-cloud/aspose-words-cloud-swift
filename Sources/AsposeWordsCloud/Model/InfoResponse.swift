@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class InfoResponse : WordsResponse {
     // Field of additionalInfo. Response with API info.
-    private var _additionalInfo : [InfoAdditionalItem]?;
+    private var _additionalInfo : [InfoAdditionalItem]? = nil;
 
     public var additionalInfo : [InfoAdditionalItem]? {
         get {
@@ -43,7 +43,7 @@ public class InfoResponse : WordsResponse {
     }
 
     // Field of name. Response with API info.
-    private var _name : String?;
+    private var _name : String? = nil;
 
     public var name : String? {
         get {
@@ -55,7 +55,7 @@ public class InfoResponse : WordsResponse {
     }
 
     // Field of version. Response with API info.
-    private var _version : String?;
+    private var _version : String? = nil;
 
     public var version : String? {
         get {

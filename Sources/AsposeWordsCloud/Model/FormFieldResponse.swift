@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FormFieldResponse : WordsResponse {
     // Field of formField. The REST response with a form field.
-    private var _formField : FormField?;
+    private var _formField : FormField? = nil;
 
     public var formField : FormField? {
         get {

@@ -45,7 +45,7 @@ public class TxtSaveOptionsBaseData : SaveOptionsData {
     }
 
     // Field of encoding. Base class for save options of text formats.
-    private var _encoding : String?;
+    private var _encoding : String? = nil;
 
     public var encoding : String? {
         get {
@@ -57,7 +57,7 @@ public class TxtSaveOptionsBaseData : SaveOptionsData {
     }
 
     // Field of exportHeadersFootersMode. Base class for save options of text formats.
-    private var _exportHeadersFootersMode : ExportHeadersFootersMode?;
+    private var _exportHeadersFootersMode : ExportHeadersFootersMode? = nil;
 
     public var exportHeadersFootersMode : ExportHeadersFootersMode? {
         get {
@@ -69,7 +69,7 @@ public class TxtSaveOptionsBaseData : SaveOptionsData {
     }
 
     // Field of forcePageBreaks. Base class for save options of text formats.
-    private var _forcePageBreaks : Bool?;
+    private var _forcePageBreaks : Bool? = nil;
 
     public var forcePageBreaks : Bool? {
         get {
@@ -81,7 +81,7 @@ public class TxtSaveOptionsBaseData : SaveOptionsData {
     }
 
     // Field of paragraphBreak. Base class for save options of text formats.
-    private var _paragraphBreak : String?;
+    private var _paragraphBreak : String? = nil;
 
     public var paragraphBreak : String? {
         get {

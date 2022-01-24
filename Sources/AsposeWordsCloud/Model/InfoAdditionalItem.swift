@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class InfoAdditionalItem : Codable, WordsApiModel {
     // Field of key. Info additional item.
-    private var _key : String?;
+    private var _key : String? = nil;
 
     public var key : String? {
         get {
@@ -43,7 +43,7 @@ public class InfoAdditionalItem : Codable, WordsApiModel {
     }
 
     // Field of value. Info additional item.
-    private var _value : String?;
+    private var _value : String? = nil;
 
     public var value : String? {
         get {

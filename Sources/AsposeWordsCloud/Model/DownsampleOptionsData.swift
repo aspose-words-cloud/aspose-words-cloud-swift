@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DownsampleOptionsData : Codable, WordsApiModel {
     // Field of downsampleImages. Container class for Downsample options.
-    private var _downsampleImages : Bool?;
+    private var _downsampleImages : Bool? = nil;
 
     public var downsampleImages : Bool? {
         get {
@@ -43,7 +43,7 @@ public class DownsampleOptionsData : Codable, WordsApiModel {
     }
 
     // Field of resolution. Container class for Downsample options.
-    private var _resolution : Int?;
+    private var _resolution : Int? = nil;
 
     public var resolution : Int? {
         get {
@@ -55,7 +55,7 @@ public class DownsampleOptionsData : Codable, WordsApiModel {
     }
 
     // Field of resolutionThreshold. Container class for Downsample options.
-    private var _resolutionThreshold : Int?;
+    private var _resolutionThreshold : Int? = nil;
 
     public var resolutionThreshold : Int? {
         get {

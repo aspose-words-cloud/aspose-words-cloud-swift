@@ -41,7 +41,7 @@ public class ReplaceRange : Codable, WordsApiModel {
     }
 
     // Field of text. DTO container with a range element.
-    private var _text : String?;
+    private var _text : String? = nil;
 
     public var text : String? {
         get {
@@ -53,7 +53,7 @@ public class ReplaceRange : Codable, WordsApiModel {
     }
 
     // Field of textType. DTO container with a range element.
-    private var _textType : TextType?;
+    private var _textType : TextType? = nil;
 
     public var textType : TextType? {
         get {

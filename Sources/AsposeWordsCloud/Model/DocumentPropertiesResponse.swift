@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentPropertiesResponse : WordsResponse {
     // Field of documentProperties. The REST response with a collection of document properties.
-    private var _documentProperties : DocumentProperties?;
+    private var _documentProperties : DocumentProperties? = nil;
 
     public var documentProperties : DocumentProperties? {
         get {

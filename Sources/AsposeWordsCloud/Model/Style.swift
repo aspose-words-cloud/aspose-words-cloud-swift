@@ -1185,7 +1185,7 @@ public class Style : LinkElement {
     }
 
     // Field of aliases. DTO container with a single document style.
-    private var _aliases : [String]?;
+    private var _aliases : [String]? = nil;
 
     public var aliases : [String]? {
         get {
@@ -1197,7 +1197,7 @@ public class Style : LinkElement {
     }
 
     // Field of baseStyleName. DTO container with a single document style.
-    private var _baseStyleName : String?;
+    private var _baseStyleName : String? = nil;
 
     public var baseStyleName : String? {
         get {
@@ -1209,7 +1209,7 @@ public class Style : LinkElement {
     }
 
     // Field of builtIn. DTO container with a single document style.
-    private var _builtIn : Bool?;
+    private var _builtIn : Bool? = nil;
 
     public var builtIn : Bool? {
         get {
@@ -1221,7 +1221,7 @@ public class Style : LinkElement {
     }
 
     // Field of font. DTO container with a single document style.
-    private var _font : Font?;
+    private var _font : Font? = nil;
 
     public var font : Font? {
         get {
@@ -1233,7 +1233,7 @@ public class Style : LinkElement {
     }
 
     // Field of isHeading. DTO container with a single document style.
-    private var _isHeading : Bool?;
+    private var _isHeading : Bool? = nil;
 
     public var isHeading : Bool? {
         get {
@@ -1245,7 +1245,7 @@ public class Style : LinkElement {
     }
 
     // Field of isQuickStyle. DTO container with a single document style.
-    private var _isQuickStyle : Bool?;
+    private var _isQuickStyle : Bool? = nil;
 
     public var isQuickStyle : Bool? {
         get {
@@ -1257,7 +1257,7 @@ public class Style : LinkElement {
     }
 
     // Field of linkedStyleName. DTO container with a single document style.
-    private var _linkedStyleName : String?;
+    private var _linkedStyleName : String? = nil;
 
     public var linkedStyleName : String? {
         get {
@@ -1269,7 +1269,7 @@ public class Style : LinkElement {
     }
 
     // Field of name. DTO container with a single document style.
-    private var _name : String?;
+    private var _name : String? = nil;
 
     public var name : String? {
         get {
@@ -1281,7 +1281,7 @@ public class Style : LinkElement {
     }
 
     // Field of nextParagraphStyleName. DTO container with a single document style.
-    private var _nextParagraphStyleName : String?;
+    private var _nextParagraphStyleName : String? = nil;
 
     public var nextParagraphStyleName : String? {
         get {
@@ -1293,7 +1293,7 @@ public class Style : LinkElement {
     }
 
     // Field of styleIdentifier. DTO container with a single document style.
-    private var _styleIdentifier : StyleIdentifier?;
+    private var _styleIdentifier : StyleIdentifier? = nil;
 
     public var styleIdentifier : StyleIdentifier? {
         get {
@@ -1305,7 +1305,7 @@ public class Style : LinkElement {
     }
 
     // Field of type. DTO container with a single document style.
-    private var _type : ModelType?;
+    private var _type : ModelType? = nil;
 
     public var type : ModelType? {
         get {

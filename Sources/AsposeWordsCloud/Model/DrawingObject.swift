@@ -118,7 +118,7 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Field of height. DTO container with a DrawingObject.
-    private var _height : Double?;
+    private var _height : Double? = nil;
 
     public var height : Double? {
         get {
@@ -130,7 +130,7 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Field of imageDataLink. DTO container with a DrawingObject.
-    private var _imageDataLink : WordsApiLink?;
+    private var _imageDataLink : WordsApiLink? = nil;
 
     public var imageDataLink : WordsApiLink? {
         get {
@@ -142,7 +142,7 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Field of _left. DTO container with a DrawingObject.
-    private var __left : Double?;
+    private var __left : Double? = nil;
 
     public var _left : Double? {
         get {
@@ -154,7 +154,7 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Field of oleDataLink. DTO container with a DrawingObject.
-    private var _oleDataLink : WordsApiLink?;
+    private var _oleDataLink : WordsApiLink? = nil;
 
     public var oleDataLink : WordsApiLink? {
         get {
@@ -166,7 +166,7 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Field of relativeHorizontalPosition. DTO container with a DrawingObject.
-    private var _relativeHorizontalPosition : RelativeHorizontalPosition?;
+    private var _relativeHorizontalPosition : RelativeHorizontalPosition? = nil;
 
     public var relativeHorizontalPosition : RelativeHorizontalPosition? {
         get {
@@ -178,7 +178,7 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Field of relativeVerticalPosition. DTO container with a DrawingObject.
-    private var _relativeVerticalPosition : RelativeVerticalPosition?;
+    private var _relativeVerticalPosition : RelativeVerticalPosition? = nil;
 
     public var relativeVerticalPosition : RelativeVerticalPosition? {
         get {
@@ -190,7 +190,7 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Field of renderLinks. DTO container with a DrawingObject.
-    private var _renderLinks : [WordsApiLink]?;
+    private var _renderLinks : [WordsApiLink]? = nil;
 
     public var renderLinks : [WordsApiLink]? {
         get {
@@ -202,7 +202,7 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Field of top. DTO container with a DrawingObject.
-    private var _top : Double?;
+    private var _top : Double? = nil;
 
     public var top : Double? {
         get {
@@ -214,7 +214,7 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Field of width. DTO container with a DrawingObject.
-    private var _width : Double?;
+    private var _width : Double? = nil;
 
     public var width : Double? {
         get {
@@ -226,7 +226,7 @@ public class DrawingObject : DrawingObjectLink {
     }
 
     // Field of wrapType. DTO container with a DrawingObject.
-    private var _wrapType : WrapType?;
+    private var _wrapType : WrapType? = nil;
 
     public var wrapType : WrapType? {
         get {

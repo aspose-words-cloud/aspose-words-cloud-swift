@@ -247,7 +247,7 @@ public class ListLevel : LinkElement {
     }
 
     // Field of alignment. DTO container with a document list level.
-    private var _alignment : Alignment?;
+    private var _alignment : Alignment? = nil;
 
     public var alignment : Alignment? {
         get {
@@ -259,7 +259,7 @@ public class ListLevel : LinkElement {
     }
 
     // Field of font. DTO container with a document list level.
-    private var _font : Font?;
+    private var _font : Font? = nil;
 
     public var font : Font? {
         get {
@@ -271,7 +271,7 @@ public class ListLevel : LinkElement {
     }
 
     // Field of isLegal. DTO container with a document list level.
-    private var _isLegal : Bool?;
+    private var _isLegal : Bool? = nil;
 
     public var isLegal : Bool? {
         get {
@@ -283,7 +283,7 @@ public class ListLevel : LinkElement {
     }
 
     // Field of linkedStyle. DTO container with a document list level.
-    private var _linkedStyle : Style?;
+    private var _linkedStyle : Style? = nil;
 
     public var linkedStyle : Style? {
         get {
@@ -295,7 +295,7 @@ public class ListLevel : LinkElement {
     }
 
     // Field of numberFormat. DTO container with a document list level.
-    private var _numberFormat : String?;
+    private var _numberFormat : String? = nil;
 
     public var numberFormat : String? {
         get {
@@ -307,7 +307,7 @@ public class ListLevel : LinkElement {
     }
 
     // Field of numberPosition. DTO container with a document list level.
-    private var _numberPosition : Double?;
+    private var _numberPosition : Double? = nil;
 
     public var numberPosition : Double? {
         get {
@@ -319,7 +319,7 @@ public class ListLevel : LinkElement {
     }
 
     // Field of numberStyle. DTO container with a document list level.
-    private var _numberStyle : NumberStyle?;
+    private var _numberStyle : NumberStyle? = nil;
 
     public var numberStyle : NumberStyle? {
         get {
@@ -331,7 +331,7 @@ public class ListLevel : LinkElement {
     }
 
     // Field of restartAfterLevel. DTO container with a document list level.
-    private var _restartAfterLevel : Int?;
+    private var _restartAfterLevel : Int? = nil;
 
     public var restartAfterLevel : Int? {
         get {
@@ -343,7 +343,7 @@ public class ListLevel : LinkElement {
     }
 
     // Field of startAt. DTO container with a document list level.
-    private var _startAt : Int?;
+    private var _startAt : Int? = nil;
 
     public var startAt : Int? {
         get {
@@ -355,7 +355,7 @@ public class ListLevel : LinkElement {
     }
 
     // Field of tabPosition. DTO container with a document list level.
-    private var _tabPosition : Double?;
+    private var _tabPosition : Double? = nil;
 
     public var tabPosition : Double? {
         get {
@@ -367,7 +367,7 @@ public class ListLevel : LinkElement {
     }
 
     // Field of textPosition. DTO container with a document list level.
-    private var _textPosition : Double?;
+    private var _textPosition : Double? = nil;
 
     public var textPosition : Double? {
         get {
@@ -379,7 +379,7 @@ public class ListLevel : LinkElement {
     }
 
     // Field of trailingCharacter. DTO container with a document list level.
-    private var _trailingCharacter : TrailingCharacter?;
+    private var _trailingCharacter : TrailingCharacter? = nil;
 
     public var trailingCharacter : TrailingCharacter? {
         get {

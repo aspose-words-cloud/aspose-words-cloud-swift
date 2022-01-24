@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CommentBase : Codable, WordsApiModel {
     // Field of author. Comment.
-    private var _author : String?;
+    private var _author : String? = nil;
 
     public var author : String? {
         get {
@@ -43,7 +43,7 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     // Field of dateTime. Comment.
-    private var _dateTime : Date?;
+    private var _dateTime : Date? = nil;
 
     public var dateTime : Date? {
         get {
@@ -55,7 +55,7 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     // Field of initial. Comment.
-    private var _initial : String?;
+    private var _initial : String? = nil;
 
     public var initial : String? {
         get {
@@ -67,7 +67,7 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     // Field of rangeEnd. Comment.
-    private var _rangeEnd : DocumentPosition?;
+    private var _rangeEnd : DocumentPosition? = nil;
 
     public var rangeEnd : DocumentPosition? {
         get {
@@ -79,7 +79,7 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     // Field of rangeStart. Comment.
-    private var _rangeStart : DocumentPosition?;
+    private var _rangeStart : DocumentPosition? = nil;
 
     public var rangeStart : DocumentPosition? {
         get {
@@ -91,7 +91,7 @@ public class CommentBase : Codable, WordsApiModel {
     }
 
     // Field of text. Comment.
-    private var _text : String?;
+    private var _text : String? = nil;
 
     public var text : String? {
         get {

@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FootnotesStatData : Codable, WordsApiModel {
     // Field of paragraphCount. Container for the footnotes statistical data.
-    private var _paragraphCount : Int?;
+    private var _paragraphCount : Int? = nil;
 
     public var paragraphCount : Int? {
         get {
@@ -43,7 +43,7 @@ public class FootnotesStatData : Codable, WordsApiModel {
     }
 
     // Field of wordCount. Container for the footnotes statistical data.
-    private var _wordCount : Int?;
+    private var _wordCount : Int? = nil;
 
     public var wordCount : Int? {
         get {

@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentEntry : Codable, WordsApiModel {
     // Field of href. Represents a document which will be appended to the original resource document.
-    private var _href : String?;
+    private var _href : String? = nil;
 
     public var href : String? {
         get {
@@ -43,7 +43,7 @@ public class DocumentEntry : Codable, WordsApiModel {
     }
 
     // Field of importFormatMode. Represents a document which will be appended to the original resource document.
-    private var _importFormatMode : String?;
+    private var _importFormatMode : String? = nil;
 
     public var importFormatMode : String? {
         get {
@@ -55,7 +55,7 @@ public class DocumentEntry : Codable, WordsApiModel {
     }
 
     // Field of password. Represents a document which will be appended to the original resource document.
-    private var _password : String?;
+    private var _password : String? = nil;
 
     public var password : String? {
         get {

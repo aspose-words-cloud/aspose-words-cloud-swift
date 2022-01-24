@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FontResponse : WordsResponse {
     // Field of font. The REST response with a font.
-    private var _font : Font?;
+    private var _font : Font? = nil;
 
     public var font : Font? {
         get {

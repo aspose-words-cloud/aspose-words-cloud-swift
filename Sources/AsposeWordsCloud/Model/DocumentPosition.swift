@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentPosition : Codable, WordsApiModel {
     // Field of node. DTO container with a position in the document tree.
-    private var _node : NodeLink?;
+    private var _node : NodeLink? = nil;
 
     public var node : NodeLink? {
         get {
@@ -43,7 +43,7 @@ public class DocumentPosition : Codable, WordsApiModel {
     }
 
     // Field of offset. DTO container with a position in the document tree.
-    private var _offset : Int?;
+    private var _offset : Int? = nil;
 
     public var offset : Int? {
         get {

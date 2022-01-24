@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class HyperlinksResponse : WordsResponse {
     // Field of hyperlinks. The REST response with a collection of hyperlinks.
-    private var _hyperlinks : Hyperlinks?;
+    private var _hyperlinks : Hyperlinks? = nil;
 
     public var hyperlinks : Hyperlinks? {
         get {

@@ -40,7 +40,7 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     }
 
     // Field of thresholdForFloydSteinbergDithering. Container class for tiff save options.
-    private var _thresholdForFloydSteinbergDithering : Int?;
+    private var _thresholdForFloydSteinbergDithering : Int? = nil;
 
     public var thresholdForFloydSteinbergDithering : Int? {
         get {
@@ -52,7 +52,7 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     }
 
     // Field of tiffBinarizationMethod. Container class for tiff save options.
-    private var _tiffBinarizationMethod : String?;
+    private var _tiffBinarizationMethod : String? = nil;
 
     public var tiffBinarizationMethod : String? {
         get {
@@ -64,7 +64,7 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     }
 
     // Field of tiffCompression. Container class for tiff save options.
-    private var _tiffCompression : String?;
+    private var _tiffCompression : String? = nil;
 
     public var tiffCompression : String? {
         get {

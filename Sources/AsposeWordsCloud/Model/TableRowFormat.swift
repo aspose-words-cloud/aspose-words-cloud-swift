@@ -44,7 +44,7 @@ public class TableRowFormat : LinkElement {
     }
 
     // Field of allowBreakAcrossPages. DTO container with formatting for a table row.
-    private var _allowBreakAcrossPages : Bool?;
+    private var _allowBreakAcrossPages : Bool? = nil;
 
     public var allowBreakAcrossPages : Bool? {
         get {
@@ -56,7 +56,7 @@ public class TableRowFormat : LinkElement {
     }
 
     // Field of headingFormat. DTO container with formatting for a table row.
-    private var _headingFormat : Bool?;
+    private var _headingFormat : Bool? = nil;
 
     public var headingFormat : Bool? {
         get {
@@ -68,7 +68,7 @@ public class TableRowFormat : LinkElement {
     }
 
     // Field of height. DTO container with formatting for a table row.
-    private var _height : Double?;
+    private var _height : Double? = nil;
 
     public var height : Double? {
         get {
@@ -80,7 +80,7 @@ public class TableRowFormat : LinkElement {
     }
 
     // Field of heightRule. DTO container with formatting for a table row.
-    private var _heightRule : HeightRule?;
+    private var _heightRule : HeightRule? = nil;
 
     public var heightRule : HeightRule? {
         get {

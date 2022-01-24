@@ -43,7 +43,7 @@ public class JsonDataLoadOptions : Codable, WordsApiModel {
     }
 
     // Field of alwaysGenerateRootObject. Represents options for parsing JSON data.
-    private var _alwaysGenerateRootObject : Bool?;
+    private var _alwaysGenerateRootObject : Bool? = nil;
 
     public var alwaysGenerateRootObject : Bool? {
         get {
@@ -55,7 +55,7 @@ public class JsonDataLoadOptions : Codable, WordsApiModel {
     }
 
     // Field of exactDateTimeParseFormats. Represents options for parsing JSON data.
-    private var _exactDateTimeParseFormats : [String]?;
+    private var _exactDateTimeParseFormats : [String]? = nil;
 
     public var exactDateTimeParseFormats : [String]? {
         get {
@@ -67,7 +67,7 @@ public class JsonDataLoadOptions : Codable, WordsApiModel {
     }
 
     // Field of simpleValueParseMode. Represents options for parsing JSON data.
-    private var _simpleValueParseMode : SimpleValueParseMode?;
+    private var _simpleValueParseMode : SimpleValueParseMode? = nil;
 
     public var simpleValueParseMode : SimpleValueParseMode? {
         get {

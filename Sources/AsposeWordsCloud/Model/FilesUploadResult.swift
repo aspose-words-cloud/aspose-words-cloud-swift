@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FilesUploadResult : Codable, WordsApiModel {
     // Field of errors. File upload result.
-    private var _errors : [InternalError]?;
+    private var _errors : [InternalError]? = nil;
 
     public var errors : [InternalError]? {
         get {
@@ -43,7 +43,7 @@ public class FilesUploadResult : Codable, WordsApiModel {
     }
 
     // Field of uploaded. File upload result.
-    private var _uploaded : [String]?;
+    private var _uploaded : [String]? = nil;
 
     public var uploaded : [String]? {
         get {

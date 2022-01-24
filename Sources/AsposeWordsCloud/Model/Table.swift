@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Table : NodeLink {
     // Field of tableProperties. DTO container with a table element.
-    private var _tableProperties : TableProperties?;
+    private var _tableProperties : TableProperties? = nil;
 
     public var tableProperties : TableProperties? {
         get {
@@ -43,7 +43,7 @@ public class Table : NodeLink {
     }
 
     // Field of tableRowList. DTO container with a table element.
-    private var _tableRowList : [TableRow]?;
+    private var _tableRowList : [TableRow]? = nil;
 
     public var tableRowList : [TableRow]? {
         get {

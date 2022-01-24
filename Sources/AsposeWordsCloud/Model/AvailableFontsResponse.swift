@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class AvailableFontsResponse : WordsResponse {
     // Field of additionalFonts. The REST response with data on system, additional and custom fonts, available for document processing.
-    private var _additionalFonts : [FontInfo]?;
+    private var _additionalFonts : [FontInfo]? = nil;
 
     public var additionalFonts : [FontInfo]? {
         get {
@@ -43,7 +43,7 @@ public class AvailableFontsResponse : WordsResponse {
     }
 
     // Field of customFonts. The REST response with data on system, additional and custom fonts, available for document processing.
-    private var _customFonts : [FontInfo]?;
+    private var _customFonts : [FontInfo]? = nil;
 
     public var customFonts : [FontInfo]? {
         get {
@@ -55,7 +55,7 @@ public class AvailableFontsResponse : WordsResponse {
     }
 
     // Field of systemFonts. The REST response with data on system, additional and custom fonts, available for document processing.
-    private var _systemFonts : [FontInfo]?;
+    private var _systemFonts : [FontInfo]? = nil;
 
     public var systemFonts : [FontInfo]? {
         get {

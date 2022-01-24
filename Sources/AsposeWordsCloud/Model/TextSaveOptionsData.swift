@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     // Field of addBidiMarks. Container class for text save options.
-    private var _addBidiMarks : Bool?;
+    private var _addBidiMarks : Bool? = nil;
 
     public var addBidiMarks : Bool? {
         get {
@@ -43,7 +43,7 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     }
 
     // Field of maxCharactersPerLine. Container class for text save options.
-    private var _maxCharactersPerLine : Int?;
+    private var _maxCharactersPerLine : Int? = nil;
 
     public var maxCharactersPerLine : Int? {
         get {
@@ -55,7 +55,7 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     }
 
     // Field of preserveTableLayout. Container class for text save options.
-    private var _preserveTableLayout : Bool?;
+    private var _preserveTableLayout : Bool? = nil;
 
     public var preserveTableLayout : Bool? {
         get {
@@ -76,7 +76,7 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     }
 
     // Field of simplifyListLabels. Container class for text save options.
-    private var _simplifyListLabels : Bool?;
+    private var _simplifyListLabels : Bool? = nil;
 
     public var simplifyListLabels : Bool? {
         get {

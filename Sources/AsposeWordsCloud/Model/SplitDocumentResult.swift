@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SplitDocumentResult : Codable, WordsApiModel {
     // Field of pages. Result of splitting document.
-    private var _pages : [FileLink]?;
+    private var _pages : [FileLink]? = nil;
 
     public var pages : [FileLink]? {
         get {
@@ -43,7 +43,7 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     }
 
     // Field of sourceDocument. Result of splitting document.
-    private var _sourceDocument : FileLink?;
+    private var _sourceDocument : FileLink? = nil;
 
     public var sourceDocument : FileLink? {
         get {
@@ -55,7 +55,7 @@ public class SplitDocumentResult : Codable, WordsApiModel {
     }
 
     // Field of zippedPages. Result of splitting document.
-    private var _zippedPages : FileLink?;
+    private var _zippedPages : FileLink? = nil;
 
     public var zippedPages : FileLink? {
         get {

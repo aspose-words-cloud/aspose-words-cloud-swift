@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class RunLink : NodeLink {
     // Field of text. Run link element.
-    private var _text : String?;
+    private var _text : String? = nil;
 
     public var text : String? {
         get {

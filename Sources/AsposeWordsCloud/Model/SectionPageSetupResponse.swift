@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SectionPageSetupResponse : WordsResponse {
     // Field of pageSetup. The REST response with a page setup of a section.
-    private var _pageSetup : PageSetup?;
+    private var _pageSetup : PageSetup? = nil;
 
     public var pageSetup : PageSetup? {
         get {

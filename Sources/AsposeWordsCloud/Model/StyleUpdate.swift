@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StyleUpdate : Codable, WordsApiModel {
     // Field of baseStyleName. Represents a single document style properties to update.
-    private var _baseStyleName : String?;
+    private var _baseStyleName : String? = nil;
 
     public var baseStyleName : String? {
         get {
@@ -43,7 +43,7 @@ public class StyleUpdate : Codable, WordsApiModel {
     }
 
     // Field of isQuickStyle. Represents a single document style properties to update.
-    private var _isQuickStyle : Bool?;
+    private var _isQuickStyle : Bool? = nil;
 
     public var isQuickStyle : Bool? {
         get {
@@ -55,7 +55,7 @@ public class StyleUpdate : Codable, WordsApiModel {
     }
 
     // Field of name. Represents a single document style properties to update.
-    private var _name : String?;
+    private var _name : String? = nil;
 
     public var name : String? {
         get {
@@ -67,7 +67,7 @@ public class StyleUpdate : Codable, WordsApiModel {
     }
 
     // Field of nextParagraphStyleName. Represents a single document style properties to update.
-    private var _nextParagraphStyleName : String?;
+    private var _nextParagraphStyleName : String? = nil;
 
     public var nextParagraphStyleName : String? {
         get {

@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocSaveOptionsData : SaveOptionsData {
     // Field of alwaysCompressMetafiles. Container class for doc/dot save options.
-    private var _alwaysCompressMetafiles : Bool?;
+    private var _alwaysCompressMetafiles : Bool? = nil;
 
     public var alwaysCompressMetafiles : Bool? {
         get {
@@ -43,7 +43,7 @@ public class DocSaveOptionsData : SaveOptionsData {
     }
 
     // Field of password. Container class for doc/dot save options.
-    private var _password : String?;
+    private var _password : String? = nil;
 
     public var password : String? {
         get {
@@ -64,7 +64,7 @@ public class DocSaveOptionsData : SaveOptionsData {
     }
 
     // Field of savePictureBullet. Container class for doc/dot save options.
-    private var _savePictureBullet : Bool?;
+    private var _savePictureBullet : Bool? = nil;
 
     public var savePictureBullet : Bool? {
         get {
@@ -76,7 +76,7 @@ public class DocSaveOptionsData : SaveOptionsData {
     }
 
     // Field of saveRoutingSlip. Container class for doc/dot save options.
-    private var _saveRoutingSlip : Bool?;
+    private var _saveRoutingSlip : Bool? = nil;
 
     public var saveRoutingSlip : Bool? {
         get {

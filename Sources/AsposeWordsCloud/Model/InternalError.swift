@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class InternalError : Codable, WordsApiModel {
     // Field of code. Error.
-    private var _code : String?;
+    private var _code : String? = nil;
 
     public var code : String? {
         get {
@@ -43,7 +43,7 @@ public class InternalError : Codable, WordsApiModel {
     }
 
     // Field of description. Error.
-    private var _description : String?;
+    private var _description : String? = nil;
 
     public var description : String? {
         get {
@@ -55,7 +55,7 @@ public class InternalError : Codable, WordsApiModel {
     }
 
     // Field of innerError. Error.
-    private var _innerError : ErrorDetails?;
+    private var _innerError : ErrorDetails? = nil;
 
     public var innerError : ErrorDetails? {
         get {
@@ -67,7 +67,7 @@ public class InternalError : Codable, WordsApiModel {
     }
 
     // Field of message. Error.
-    private var _message : String?;
+    private var _message : String? = nil;
 
     public var message : String? {
         get {

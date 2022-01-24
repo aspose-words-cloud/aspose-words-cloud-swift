@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FormFieldCheckbox : FormField {
     // Field of checkBoxSize. FormField checkbox element.
-    private var _checkBoxSize : Double?;
+    private var _checkBoxSize : Double? = nil;
 
     public var checkBoxSize : Double? {
         get {
@@ -43,7 +43,7 @@ public class FormFieldCheckbox : FormField {
     }
 
     // Field of checked. FormField checkbox element.
-    private var _checked : Bool?;
+    private var _checked : Bool? = nil;
 
     public var checked : Bool? {
         get {
@@ -55,7 +55,7 @@ public class FormFieldCheckbox : FormField {
     }
 
     // Field of isCheckBoxExactSize. FormField checkbox element.
-    private var _isCheckBoxExactSize : Bool?;
+    private var _isCheckBoxExactSize : Bool? = nil;
 
     public var isCheckBoxExactSize : Bool? {
         get {

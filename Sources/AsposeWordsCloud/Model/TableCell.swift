@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableCell : NodeLink {
     // Field of childNodes. DTO container with a table cell element.
-    private var _childNodes : [NodeLink]?;
+    private var _childNodes : [NodeLink]? = nil;
 
     public var childNodes : [NodeLink]? {
         get {

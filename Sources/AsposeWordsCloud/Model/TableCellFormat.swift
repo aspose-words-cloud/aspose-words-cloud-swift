@@ -92,7 +92,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Field of bottomPadding. DTO container with all formatting for a table row.
-    private var _bottomPadding : Double?;
+    private var _bottomPadding : Double? = nil;
 
     public var bottomPadding : Double? {
         get {
@@ -104,7 +104,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Field of fitText. DTO container with all formatting for a table row.
-    private var _fitText : Bool?;
+    private var _fitText : Bool? = nil;
 
     public var fitText : Bool? {
         get {
@@ -116,7 +116,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Field of horizontalMerge. DTO container with all formatting for a table row.
-    private var _horizontalMerge : HorizontalMerge?;
+    private var _horizontalMerge : HorizontalMerge? = nil;
 
     public var horizontalMerge : HorizontalMerge? {
         get {
@@ -128,7 +128,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Field of leftPadding. DTO container with all formatting for a table row.
-    private var _leftPadding : Double?;
+    private var _leftPadding : Double? = nil;
 
     public var leftPadding : Double? {
         get {
@@ -140,7 +140,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Field of orientation. DTO container with all formatting for a table row.
-    private var _orientation : Orientation?;
+    private var _orientation : Orientation? = nil;
 
     public var orientation : Orientation? {
         get {
@@ -152,7 +152,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Field of preferredWidth. DTO container with all formatting for a table row.
-    private var _preferredWidth : PreferredWidth?;
+    private var _preferredWidth : PreferredWidth? = nil;
 
     public var preferredWidth : PreferredWidth? {
         get {
@@ -164,7 +164,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Field of rightPadding. DTO container with all formatting for a table row.
-    private var _rightPadding : Double?;
+    private var _rightPadding : Double? = nil;
 
     public var rightPadding : Double? {
         get {
@@ -176,7 +176,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Field of topPadding. DTO container with all formatting for a table row.
-    private var _topPadding : Double?;
+    private var _topPadding : Double? = nil;
 
     public var topPadding : Double? {
         get {
@@ -188,7 +188,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Field of verticalAlignment. DTO container with all formatting for a table row.
-    private var _verticalAlignment : VerticalAlignment?;
+    private var _verticalAlignment : VerticalAlignment? = nil;
 
     public var verticalAlignment : VerticalAlignment? {
         get {
@@ -200,7 +200,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Field of verticalMerge. DTO container with all formatting for a table row.
-    private var _verticalMerge : VerticalMerge?;
+    private var _verticalMerge : VerticalMerge? = nil;
 
     public var verticalMerge : VerticalMerge? {
         get {
@@ -212,7 +212,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Field of width. DTO container with all formatting for a table row.
-    private var _width : Double?;
+    private var _width : Double? = nil;
 
     public var width : Double? {
         get {
@@ -224,7 +224,7 @@ public class TableCellFormat : LinkElement {
     }
 
     // Field of wrapText. DTO container with all formatting for a table row.
-    private var _wrapText : Bool?;
+    private var _wrapText : Bool? = nil;
 
     public var wrapText : Bool? {
         get {

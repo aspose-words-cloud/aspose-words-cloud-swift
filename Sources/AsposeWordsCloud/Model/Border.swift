@@ -147,7 +147,7 @@ public class Border : LinkElement {
     }
 
     // Field of borderType. Represents a border of an object.
-    private var _borderType : BorderType?;
+    private var _borderType : BorderType? = nil;
 
     public var borderType : BorderType? {
         get {
@@ -159,7 +159,7 @@ public class Border : LinkElement {
     }
 
     // Field of color. Represents a border of an object.
-    private var _color : XmlColor?;
+    private var _color : XmlColor? = nil;
 
     public var color : XmlColor? {
         get {
@@ -171,7 +171,7 @@ public class Border : LinkElement {
     }
 
     // Field of distanceFromText. Represents a border of an object.
-    private var _distanceFromText : Double?;
+    private var _distanceFromText : Double? = nil;
 
     public var distanceFromText : Double? {
         get {
@@ -183,7 +183,7 @@ public class Border : LinkElement {
     }
 
     // Field of lineStyle. Represents a border of an object.
-    private var _lineStyle : LineStyle?;
+    private var _lineStyle : LineStyle? = nil;
 
     public var lineStyle : LineStyle? {
         get {
@@ -195,7 +195,7 @@ public class Border : LinkElement {
     }
 
     // Field of lineWidth. Represents a border of an object.
-    private var _lineWidth : Double?;
+    private var _lineWidth : Double? = nil;
 
     public var lineWidth : Double? {
         get {
@@ -207,7 +207,7 @@ public class Border : LinkElement {
     }
 
     // Field of shadow. Represents a border of an object.
-    private var _shadow : Bool?;
+    private var _shadow : Bool? = nil;
 
     public var shadow : Bool? {
         get {

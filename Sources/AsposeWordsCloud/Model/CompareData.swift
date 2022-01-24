@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CompareData : Codable, WordsApiModel {
     // Field of author. Container class for compare documents.
-    private var _author : String?;
+    private var _author : String? = nil;
 
     public var author : String? {
         get {
@@ -43,7 +43,7 @@ public class CompareData : Codable, WordsApiModel {
     }
 
     // Field of compareOptions. Container class for compare documents.
-    private var _compareOptions : CompareOptions?;
+    private var _compareOptions : CompareOptions? = nil;
 
     public var compareOptions : CompareOptions? {
         get {
@@ -55,7 +55,7 @@ public class CompareData : Codable, WordsApiModel {
     }
 
     // Field of comparingWithDocument. Container class for compare documents.
-    private var _comparingWithDocument : String?;
+    private var _comparingWithDocument : String? = nil;
 
     public var comparingWithDocument : String? {
         get {
@@ -67,7 +67,7 @@ public class CompareData : Codable, WordsApiModel {
     }
 
     // Field of dateTime. Container class for compare documents.
-    private var _dateTime : Date?;
+    private var _dateTime : Date? = nil;
 
     public var dateTime : Date? {
         get {
@@ -79,7 +79,7 @@ public class CompareData : Codable, WordsApiModel {
     }
 
     // Field of resultDocumentFormat. Container class for compare documents.
-    private var _resultDocumentFormat : String?;
+    private var _resultDocumentFormat : String? = nil;
 
     public var resultDocumentFormat : String? {
         get {

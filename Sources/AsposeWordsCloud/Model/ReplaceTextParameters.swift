@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ReplaceTextParameters : Codable, WordsApiModel {
     // Field of isMatchCase. Class for document replace text request building.
-    private var _isMatchCase : Bool?;
+    private var _isMatchCase : Bool? = nil;
 
     public var isMatchCase : Bool? {
         get {
@@ -43,7 +43,7 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     }
 
     // Field of isMatchWholeWord. Class for document replace text request building.
-    private var _isMatchWholeWord : Bool?;
+    private var _isMatchWholeWord : Bool? = nil;
 
     public var isMatchWholeWord : Bool? {
         get {
@@ -55,7 +55,7 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     }
 
     // Field of isOldValueRegex. Class for document replace text request building.
-    private var _isOldValueRegex : Bool?;
+    private var _isOldValueRegex : Bool? = nil;
 
     public var isOldValueRegex : Bool? {
         get {
@@ -67,7 +67,7 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     }
 
     // Field of newValue. Class for document replace text request building.
-    private var _newValue : String?;
+    private var _newValue : String? = nil;
 
     public var newValue : String? {
         get {
@@ -79,7 +79,7 @@ public class ReplaceTextParameters : Codable, WordsApiModel {
     }
 
     // Field of oldValue. Class for document replace text request building.
-    private var _oldValue : String?;
+    private var _oldValue : String? = nil;
 
     public var oldValue : String? {
         get {

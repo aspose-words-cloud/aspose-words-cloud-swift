@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FieldResponse : WordsResponse {
     // Field of field. The REST response with a field.
-    private var _field : Field?;
+    private var _field : Field? = nil;
 
     public var field : Field? {
         get {

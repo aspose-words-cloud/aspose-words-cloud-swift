@@ -1260,7 +1260,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of addSpaceBetweenFarEastAndAlpha. Paragraph format element base class.
-    private var _addSpaceBetweenFarEastAndAlpha : Bool?;
+    private var _addSpaceBetweenFarEastAndAlpha : Bool? = nil;
 
     public var addSpaceBetweenFarEastAndAlpha : Bool? {
         get {
@@ -1272,7 +1272,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of addSpaceBetweenFarEastAndDigit. Paragraph format element base class.
-    private var _addSpaceBetweenFarEastAndDigit : Bool?;
+    private var _addSpaceBetweenFarEastAndDigit : Bool? = nil;
 
     public var addSpaceBetweenFarEastAndDigit : Bool? {
         get {
@@ -1284,7 +1284,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of alignment. Paragraph format element base class.
-    private var _alignment : Alignment?;
+    private var _alignment : Alignment? = nil;
 
     public var alignment : Alignment? {
         get {
@@ -1296,7 +1296,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of bidi. Paragraph format element base class.
-    private var _bidi : Bool?;
+    private var _bidi : Bool? = nil;
 
     public var bidi : Bool? {
         get {
@@ -1308,7 +1308,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of dropCapPosition. Paragraph format element base class.
-    private var _dropCapPosition : DropCapPosition?;
+    private var _dropCapPosition : DropCapPosition? = nil;
 
     public var dropCapPosition : DropCapPosition? {
         get {
@@ -1320,7 +1320,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of firstLineIndent. Paragraph format element base class.
-    private var _firstLineIndent : Double?;
+    private var _firstLineIndent : Double? = nil;
 
     public var firstLineIndent : Double? {
         get {
@@ -1332,7 +1332,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of keepTogether. Paragraph format element base class.
-    private var _keepTogether : Bool?;
+    private var _keepTogether : Bool? = nil;
 
     public var keepTogether : Bool? {
         get {
@@ -1344,7 +1344,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of keepWithNext. Paragraph format element base class.
-    private var _keepWithNext : Bool?;
+    private var _keepWithNext : Bool? = nil;
 
     public var keepWithNext : Bool? {
         get {
@@ -1356,7 +1356,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of leftIndent. Paragraph format element base class.
-    private var _leftIndent : Double?;
+    private var _leftIndent : Double? = nil;
 
     public var leftIndent : Double? {
         get {
@@ -1368,7 +1368,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of lineSpacing. Paragraph format element base class.
-    private var _lineSpacing : Double?;
+    private var _lineSpacing : Double? = nil;
 
     public var lineSpacing : Double? {
         get {
@@ -1380,7 +1380,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of lineSpacingRule. Paragraph format element base class.
-    private var _lineSpacingRule : LineSpacingRule?;
+    private var _lineSpacingRule : LineSpacingRule? = nil;
 
     public var lineSpacingRule : LineSpacingRule? {
         get {
@@ -1392,7 +1392,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of linesToDrop. Paragraph format element base class.
-    private var _linesToDrop : Int?;
+    private var _linesToDrop : Int? = nil;
 
     public var linesToDrop : Int? {
         get {
@@ -1404,7 +1404,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of noSpaceBetweenParagraphsOfSameStyle. Paragraph format element base class.
-    private var _noSpaceBetweenParagraphsOfSameStyle : Bool?;
+    private var _noSpaceBetweenParagraphsOfSameStyle : Bool? = nil;
 
     public var noSpaceBetweenParagraphsOfSameStyle : Bool? {
         get {
@@ -1416,7 +1416,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of outlineLevel. Paragraph format element base class.
-    private var _outlineLevel : OutlineLevel?;
+    private var _outlineLevel : OutlineLevel? = nil;
 
     public var outlineLevel : OutlineLevel? {
         get {
@@ -1428,7 +1428,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of pageBreakBefore. Paragraph format element base class.
-    private var _pageBreakBefore : Bool?;
+    private var _pageBreakBefore : Bool? = nil;
 
     public var pageBreakBefore : Bool? {
         get {
@@ -1440,7 +1440,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of rightIndent. Paragraph format element base class.
-    private var _rightIndent : Double?;
+    private var _rightIndent : Double? = nil;
 
     public var rightIndent : Double? {
         get {
@@ -1452,7 +1452,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of shading. Paragraph format element base class.
-    private var _shading : Shading?;
+    private var _shading : Shading? = nil;
 
     public var shading : Shading? {
         get {
@@ -1464,7 +1464,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of spaceAfter. Paragraph format element base class.
-    private var _spaceAfter : Double?;
+    private var _spaceAfter : Double? = nil;
 
     public var spaceAfter : Double? {
         get {
@@ -1476,7 +1476,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of spaceAfterAuto. Paragraph format element base class.
-    private var _spaceAfterAuto : Bool?;
+    private var _spaceAfterAuto : Bool? = nil;
 
     public var spaceAfterAuto : Bool? {
         get {
@@ -1488,7 +1488,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of spaceBefore. Paragraph format element base class.
-    private var _spaceBefore : Double?;
+    private var _spaceBefore : Double? = nil;
 
     public var spaceBefore : Double? {
         get {
@@ -1500,7 +1500,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of spaceBeforeAuto. Paragraph format element base class.
-    private var _spaceBeforeAuto : Bool?;
+    private var _spaceBeforeAuto : Bool? = nil;
 
     public var spaceBeforeAuto : Bool? {
         get {
@@ -1512,7 +1512,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of styleIdentifier. Paragraph format element base class.
-    private var _styleIdentifier : StyleIdentifier?;
+    private var _styleIdentifier : StyleIdentifier? = nil;
 
     public var styleIdentifier : StyleIdentifier? {
         get {
@@ -1524,7 +1524,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of styleName. Paragraph format element base class.
-    private var _styleName : String?;
+    private var _styleName : String? = nil;
 
     public var styleName : String? {
         get {
@@ -1536,7 +1536,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of suppressAutoHyphens. Paragraph format element base class.
-    private var _suppressAutoHyphens : Bool?;
+    private var _suppressAutoHyphens : Bool? = nil;
 
     public var suppressAutoHyphens : Bool? {
         get {
@@ -1548,7 +1548,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of suppressLineNumbers. Paragraph format element base class.
-    private var _suppressLineNumbers : Bool?;
+    private var _suppressLineNumbers : Bool? = nil;
 
     public var suppressLineNumbers : Bool? {
         get {
@@ -1560,7 +1560,7 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of widowControl. Paragraph format element base class.
-    private var _widowControl : Bool?;
+    private var _widowControl : Bool? = nil;
 
     public var widowControl : Bool? {
         get {

@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TimeZoneInfoData : Codable, WordsApiModel {
     // Field of baseUtcOffset. Class to specify TimeZoneInfo parameters.
-    private var _baseUtcOffset : String?;
+    private var _baseUtcOffset : String? = nil;
 
     public var baseUtcOffset : String? {
         get {
@@ -43,7 +43,7 @@ public class TimeZoneInfoData : Codable, WordsApiModel {
     }
 
     // Field of displayName. Class to specify TimeZoneInfo parameters.
-    private var _displayName : String?;
+    private var _displayName : String? = nil;
 
     public var displayName : String? {
         get {
@@ -55,7 +55,7 @@ public class TimeZoneInfoData : Codable, WordsApiModel {
     }
 
     // Field of id. Class to specify TimeZoneInfo parameters.
-    private var _id : String?;
+    private var _id : String? = nil;
 
     public var id : String? {
         get {
@@ -67,7 +67,7 @@ public class TimeZoneInfoData : Codable, WordsApiModel {
     }
 
     // Field of standardDisplayName. Class to specify TimeZoneInfo parameters.
-    private var _standardDisplayName : String?;
+    private var _standardDisplayName : String? = nil;
 
     public var standardDisplayName : String? {
         get {

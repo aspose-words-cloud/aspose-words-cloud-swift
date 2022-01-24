@@ -78,7 +78,7 @@ public class TabStopBase : Codable, WordsApiModel {
     }
 
     // Field of alignment. Base class for paragraph format tab stop DTO.
-    private var _alignment : Alignment?;
+    private var _alignment : Alignment? = nil;
 
     public var alignment : Alignment? {
         get {
@@ -90,7 +90,7 @@ public class TabStopBase : Codable, WordsApiModel {
     }
 
     // Field of leader. Base class for paragraph format tab stop DTO.
-    private var _leader : Leader?;
+    private var _leader : Leader? = nil;
 
     public var leader : Leader? {
         get {
@@ -102,7 +102,7 @@ public class TabStopBase : Codable, WordsApiModel {
     }
 
     // Field of position. Base class for paragraph format tab stop DTO.
-    private var _position : Double?;
+    private var _position : Double? = nil;
 
     public var position : Double? {
         get {

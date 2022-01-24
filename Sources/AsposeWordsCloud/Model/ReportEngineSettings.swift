@@ -44,7 +44,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     }
 
     // Field of csvDataLoadOptions. Report engine settings.
-    private var _csvDataLoadOptions : CsvDataLoadOptions?;
+    private var _csvDataLoadOptions : CsvDataLoadOptions? = nil;
 
     public var csvDataLoadOptions : CsvDataLoadOptions? {
         get {
@@ -56,7 +56,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     }
 
     // Field of dataSourceName. Report engine settings.
-    private var _dataSourceName : String?;
+    private var _dataSourceName : String? = nil;
 
     public var dataSourceName : String? {
         get {
@@ -68,7 +68,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     }
 
     // Field of dataSourceType. Report engine settings.
-    private var _dataSourceType : DataSourceType?;
+    private var _dataSourceType : DataSourceType? = nil;
 
     public var dataSourceType : DataSourceType? {
         get {
@@ -80,7 +80,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     }
 
     // Field of jsonDataLoadOptions. Report engine settings.
-    private var _jsonDataLoadOptions : JsonDataLoadOptions?;
+    private var _jsonDataLoadOptions : JsonDataLoadOptions? = nil;
 
     public var jsonDataLoadOptions : JsonDataLoadOptions? {
         get {
@@ -92,7 +92,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     }
 
     // Field of reportBuildOptions. Report engine settings.
-    private var _reportBuildOptions : [ReportBuildOptions]?;
+    private var _reportBuildOptions : [ReportBuildOptions]? = nil;
 
     public var reportBuildOptions : [ReportBuildOptions]? {
         get {
@@ -104,7 +104,7 @@ public class ReportEngineSettings : Codable, WordsApiModel {
     }
 
     // Field of xmlDataLoadOptions. Report engine settings.
-    private var _xmlDataLoadOptions : XmlDataLoadOptions?;
+    private var _xmlDataLoadOptions : XmlDataLoadOptions? = nil;
 
     public var xmlDataLoadOptions : XmlDataLoadOptions? {
         get {

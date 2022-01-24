@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ProtectionDataResponse : WordsResponse {
     // Field of documentLink. The REST response with data on document's protection.
-    private var _documentLink : FileLink?;
+    private var _documentLink : FileLink? = nil;
 
     public var documentLink : FileLink? {
         get {
@@ -43,7 +43,7 @@ public class ProtectionDataResponse : WordsResponse {
     }
 
     // Field of protectionData. The REST response with data on document's protection.
-    private var _protectionData : ProtectionData?;
+    private var _protectionData : ProtectionData? = nil;
 
     public var protectionData : ProtectionData? {
         get {

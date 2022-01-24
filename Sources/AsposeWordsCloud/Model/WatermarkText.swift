@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class WatermarkText : Codable, WordsApiModel {
     // Field of rotationAngle. Class for insert watermark text request building.
-    private var _rotationAngle : Double?;
+    private var _rotationAngle : Double? = nil;
 
     public var rotationAngle : Double? {
         get {
@@ -43,7 +43,7 @@ public class WatermarkText : Codable, WordsApiModel {
     }
 
     // Field of text. Class for insert watermark text request building.
-    private var _text : String?;
+    private var _text : String? = nil;
 
     public var text : String? {
         get {

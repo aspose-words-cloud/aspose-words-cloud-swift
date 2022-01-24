@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Section : LinkElement {
     // Field of childNodes. DTO container with a section element.
-    private var _childNodes : [NodeLink]?;
+    private var _childNodes : [NodeLink]? = nil;
 
     public var childNodes : [NodeLink]? {
         get {
@@ -43,7 +43,7 @@ public class Section : LinkElement {
     }
 
     // Field of headerFooters. DTO container with a section element.
-    private var _headerFooters : LinkElement?;
+    private var _headerFooters : LinkElement? = nil;
 
     public var headerFooters : LinkElement? {
         get {
@@ -55,7 +55,7 @@ public class Section : LinkElement {
     }
 
     // Field of pageSetup. DTO container with a section element.
-    private var _pageSetup : LinkElement?;
+    private var _pageSetup : LinkElement? = nil;
 
     public var pageSetup : LinkElement? {
         get {
@@ -67,7 +67,7 @@ public class Section : LinkElement {
     }
 
     // Field of paragraphs. DTO container with a section element.
-    private var _paragraphs : LinkElement?;
+    private var _paragraphs : LinkElement? = nil;
 
     public var paragraphs : LinkElement? {
         get {
@@ -79,7 +79,7 @@ public class Section : LinkElement {
     }
 
     // Field of tables. DTO container with a section element.
-    private var _tables : LinkElement?;
+    private var _tables : LinkElement? = nil;
 
     public var tables : LinkElement? {
         get {

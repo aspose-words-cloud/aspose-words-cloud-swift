@@ -40,7 +40,7 @@ public class PsSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of useBookFoldPrintingSettings. Container class for ps save options.
-    private var _useBookFoldPrintingSettings : Bool?;
+    private var _useBookFoldPrintingSettings : Bool? = nil;
 
     public var useBookFoldPrintingSettings : Bool? {
         get {

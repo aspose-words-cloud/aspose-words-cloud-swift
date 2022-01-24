@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class OutlineOptionsData : Codable, WordsApiModel {
     // Field of bookmarksOutlineLevels. Container class for outline options.
-    private var _bookmarksOutlineLevels : [BookmarksOutlineLevelData]?;
+    private var _bookmarksOutlineLevels : [BookmarksOutlineLevelData]? = nil;
 
     public var bookmarksOutlineLevels : [BookmarksOutlineLevelData]? {
         get {
@@ -43,7 +43,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     }
 
     // Field of createMissingOutlineLevels. Container class for outline options.
-    private var _createMissingOutlineLevels : Bool?;
+    private var _createMissingOutlineLevels : Bool? = nil;
 
     public var createMissingOutlineLevels : Bool? {
         get {
@@ -55,7 +55,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     }
 
     // Field of createOutlinesForHeadingsInTables. Container class for outline options.
-    private var _createOutlinesForHeadingsInTables : Bool?;
+    private var _createOutlinesForHeadingsInTables : Bool? = nil;
 
     public var createOutlinesForHeadingsInTables : Bool? {
         get {
@@ -67,7 +67,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     }
 
     // Field of defaultBookmarksOutlineLevel. Container class for outline options.
-    private var _defaultBookmarksOutlineLevel : Int?;
+    private var _defaultBookmarksOutlineLevel : Int? = nil;
 
     public var defaultBookmarksOutlineLevel : Int? {
         get {
@@ -79,7 +79,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     }
 
     // Field of expandedOutlineLevels. Container class for outline options.
-    private var _expandedOutlineLevels : Int?;
+    private var _expandedOutlineLevels : Int? = nil;
 
     public var expandedOutlineLevels : Int? {
         get {
@@ -91,7 +91,7 @@ public class OutlineOptionsData : Codable, WordsApiModel {
     }
 
     // Field of headingsOutlineLevels. Container class for outline options.
-    private var _headingsOutlineLevels : Int?;
+    private var _headingsOutlineLevels : Int? = nil;
 
     public var headingsOutlineLevels : Int? {
         get {

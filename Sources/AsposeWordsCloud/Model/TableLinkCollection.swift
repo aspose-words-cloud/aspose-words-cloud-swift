@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableLinkCollection : LinkElement {
     // Field of tableLinkList. The collection of table's links.
-    private var _tableLinkList : [TableLink]?;
+    private var _tableLinkList : [TableLink]? = nil;
 
     public var tableLinkList : [TableLink]? {
         get {

@@ -41,7 +41,7 @@ public class Footnote : FootnoteLink {
     }
 
     // Field of content. DTO container with a footnote.
-    private var _content : StoryChildNodes?;
+    private var _content : StoryChildNodes? = nil;
 
     public var content : StoryChildNodes? {
         get {
@@ -53,7 +53,7 @@ public class Footnote : FootnoteLink {
     }
 
     // Field of footnoteType. DTO container with a footnote.
-    private var _footnoteType : FootnoteType?;
+    private var _footnoteType : FootnoteType? = nil;
 
     public var footnoteType : FootnoteType? {
         get {
@@ -65,7 +65,7 @@ public class Footnote : FootnoteLink {
     }
 
     // Field of position. DTO container with a footnote.
-    private var _position : DocumentPosition?;
+    private var _position : DocumentPosition? = nil;
 
     public var position : DocumentPosition? {
         get {
@@ -77,7 +77,7 @@ public class Footnote : FootnoteLink {
     }
 
     // Field of referenceMark. DTO container with a footnote.
-    private var _referenceMark : String?;
+    private var _referenceMark : String? = nil;
 
     public var referenceMark : String? {
         get {
@@ -89,7 +89,7 @@ public class Footnote : FootnoteLink {
     }
 
     // Field of text. DTO container with a footnote.
-    private var _text : String?;
+    private var _text : String? = nil;
 
     public var text : String? {
         get {

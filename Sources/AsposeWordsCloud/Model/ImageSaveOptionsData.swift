@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Field of horizontalResolution. Container abstract class for image save options.
-    private var _horizontalResolution : Double?;
+    private var _horizontalResolution : Double? = nil;
 
     public var horizontalResolution : Double? {
         get {
@@ -43,7 +43,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of imageBrightness. Container abstract class for image save options.
-    private var _imageBrightness : Double?;
+    private var _imageBrightness : Double? = nil;
 
     public var imageBrightness : Double? {
         get {
@@ -55,7 +55,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of imageColorMode. Container abstract class for image save options.
-    private var _imageColorMode : String?;
+    private var _imageColorMode : String? = nil;
 
     public var imageColorMode : String? {
         get {
@@ -67,7 +67,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of imageContrast. Container abstract class for image save options.
-    private var _imageContrast : Double?;
+    private var _imageContrast : Double? = nil;
 
     public var imageContrast : Double? {
         get {
@@ -79,7 +79,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of paperColor. Container abstract class for image save options.
-    private var _paperColor : String?;
+    private var _paperColor : String? = nil;
 
     public var paperColor : String? {
         get {
@@ -91,7 +91,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of pixelFormat. Container abstract class for image save options.
-    private var _pixelFormat : String?;
+    private var _pixelFormat : String? = nil;
 
     public var pixelFormat : String? {
         get {
@@ -103,7 +103,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of resolution. Container abstract class for image save options.
-    private var _resolution : Double?;
+    private var _resolution : Double? = nil;
 
     public var resolution : Double? {
         get {
@@ -115,7 +115,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of scale. Container abstract class for image save options.
-    private var _scale : Double?;
+    private var _scale : Double? = nil;
 
     public var scale : Double? {
         get {
@@ -127,7 +127,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of useAntiAliasing. Container abstract class for image save options.
-    private var _useAntiAliasing : Bool?;
+    private var _useAntiAliasing : Bool? = nil;
 
     public var useAntiAliasing : Bool? {
         get {
@@ -139,7 +139,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of useGdiEmfRenderer. Container abstract class for image save options.
-    private var _useGdiEmfRenderer : Bool?;
+    private var _useGdiEmfRenderer : Bool? = nil;
 
     public var useGdiEmfRenderer : Bool? {
         get {
@@ -151,7 +151,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of useHighQualityRendering. Container abstract class for image save options.
-    private var _useHighQualityRendering : Bool?;
+    private var _useHighQualityRendering : Bool? = nil;
 
     public var useHighQualityRendering : Bool? {
         get {
@@ -163,7 +163,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of verticalResolution. Container abstract class for image save options.
-    private var _verticalResolution : Double?;
+    private var _verticalResolution : Double? = nil;
 
     public var verticalResolution : Double? {
         get {

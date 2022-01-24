@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ClassificationResponse : WordsResponse {
     // Field of bestClassName. The REST response with data on multi-class text classification.
-    private var _bestClassName : String?;
+    private var _bestClassName : String? = nil;
 
     public var bestClassName : String? {
         get {
@@ -43,7 +43,7 @@ public class ClassificationResponse : WordsResponse {
     }
 
     // Field of bestClassProbability. The REST response with data on multi-class text classification.
-    private var _bestClassProbability : Double?;
+    private var _bestClassProbability : Double? = nil;
 
     public var bestClassProbability : Double? {
         get {
@@ -55,7 +55,7 @@ public class ClassificationResponse : WordsResponse {
     }
 
     // Field of bestResults. The REST response with data on multi-class text classification.
-    private var _bestResults : [ClassificationResult]?;
+    private var _bestResults : [ClassificationResult]? = nil;
 
     public var bestResults : [ClassificationResult]? {
         get {

@@ -47,7 +47,7 @@ public class StyleInsert : Codable, WordsApiModel {
     }
 
     // Field of styleName. Represents a single document style to insert.
-    private var _styleName : String?;
+    private var _styleName : String? = nil;
 
     public var styleName : String? {
         get {
@@ -59,7 +59,7 @@ public class StyleInsert : Codable, WordsApiModel {
     }
 
     // Field of styleType. Represents a single document style to insert.
-    private var _styleType : StyleType?;
+    private var _styleType : StyleType? = nil;
 
     public var styleType : StyleType? {
         get {

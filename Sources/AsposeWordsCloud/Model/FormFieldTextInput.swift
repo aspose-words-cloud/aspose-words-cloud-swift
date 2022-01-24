@@ -53,7 +53,7 @@ public class FormFieldTextInput : FormField {
     }
 
     // Field of maxLength. FormField text input element.
-    private var _maxLength : Int?;
+    private var _maxLength : Int? = nil;
 
     public var maxLength : Int? {
         get {
@@ -65,7 +65,7 @@ public class FormFieldTextInput : FormField {
     }
 
     // Field of textInputDefault. FormField text input element.
-    private var _textInputDefault : String?;
+    private var _textInputDefault : String? = nil;
 
     public var textInputDefault : String? {
         get {
@@ -77,7 +77,7 @@ public class FormFieldTextInput : FormField {
     }
 
     // Field of textInputFormat. FormField text input element.
-    private var _textInputFormat : String?;
+    private var _textInputFormat : String? = nil;
 
     public var textInputFormat : String? {
         get {
@@ -89,7 +89,7 @@ public class FormFieldTextInput : FormField {
     }
 
     // Field of textInputType. FormField text input element.
-    private var _textInputType : TextInputType?;
+    private var _textInputType : TextInputType? = nil;
 
     public var textInputType : TextInputType? {
         get {

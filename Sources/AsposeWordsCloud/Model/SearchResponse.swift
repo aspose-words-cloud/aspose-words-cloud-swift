@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SearchResponse : WordsResponse {
     // Field of searchingPattern. The REST response with a regular expression pattern and a collection of search results.
-    private var _searchingPattern : String?;
+    private var _searchingPattern : String? = nil;
 
     public var searchingPattern : String? {
         get {
@@ -43,7 +43,7 @@ public class SearchResponse : WordsResponse {
     }
 
     // Field of searchResults. The REST response with a regular expression pattern and a collection of search results.
-    private var _searchResults : SearchResultsCollection?;
+    private var _searchResults : SearchResultsCollection? = nil;
 
     public var searchResults : SearchResultsCollection? {
         get {

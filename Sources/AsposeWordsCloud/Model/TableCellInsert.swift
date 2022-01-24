@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableCellInsert : Codable, WordsApiModel {
     // Field of insertAfter. DTO container with a table cell.
-    private var _insertAfter : Int?;
+    private var _insertAfter : Int? = nil;
 
     public var insertAfter : Int? {
         get {

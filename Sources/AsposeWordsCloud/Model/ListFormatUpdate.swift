@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListFormatUpdate : Codable, WordsApiModel {
     // Field of listId. Paragraph list format element for update.
-    private var _listId : Int?;
+    private var _listId : Int? = nil;
 
     public var listId : Int? {
         get {
@@ -43,7 +43,7 @@ public class ListFormatUpdate : Codable, WordsApiModel {
     }
 
     // Field of listLevelNumber. Paragraph list format element for update.
-    private var _listLevelNumber : Int?;
+    private var _listLevelNumber : Int? = nil;
 
     public var listLevelNumber : Int? {
         get {

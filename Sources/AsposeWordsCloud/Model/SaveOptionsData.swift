@@ -41,7 +41,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of allowEmbeddingPostScriptFonts. base container class for save options data.
-    private var _allowEmbeddingPostScriptFonts : Bool?;
+    private var _allowEmbeddingPostScriptFonts : Bool? = nil;
 
     public var allowEmbeddingPostScriptFonts : Bool? {
         get {
@@ -53,7 +53,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of customTimeZoneInfoData. base container class for save options data.
-    private var _customTimeZoneInfoData : TimeZoneInfoData?;
+    private var _customTimeZoneInfoData : TimeZoneInfoData? = nil;
 
     public var customTimeZoneInfoData : TimeZoneInfoData? {
         get {
@@ -65,7 +65,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of dml3DEffectsRenderingMode. base container class for save options data.
-    private var _dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode?;
+    private var _dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode? = nil;
 
     public var dml3DEffectsRenderingMode : Dml3DEffectsRenderingMode? {
         get {
@@ -77,7 +77,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of dmlEffectsRenderingMode. base container class for save options data.
-    private var _dmlEffectsRenderingMode : String?;
+    private var _dmlEffectsRenderingMode : String? = nil;
 
     public var dmlEffectsRenderingMode : String? {
         get {
@@ -89,7 +89,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of dmlRenderingMode. base container class for save options data.
-    private var _dmlRenderingMode : String?;
+    private var _dmlRenderingMode : String? = nil;
 
     public var dmlRenderingMode : String? {
         get {
@@ -101,7 +101,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of fileName. base container class for save options data.
-    private var _fileName : String?;
+    private var _fileName : String? = nil;
 
     public var fileName : String? {
         get {
@@ -113,7 +113,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of flatOpcXmlMappingOnly. base container class for save options data.
-    private var _flatOpcXmlMappingOnly : Bool?;
+    private var _flatOpcXmlMappingOnly : Bool? = nil;
 
     public var flatOpcXmlMappingOnly : Bool? {
         get {
@@ -125,7 +125,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of imlRenderingMode. base container class for save options data.
-    private var _imlRenderingMode : String?;
+    private var _imlRenderingMode : String? = nil;
 
     public var imlRenderingMode : String? {
         get {
@@ -146,7 +146,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of updateCreatedTimeProperty. base container class for save options data.
-    private var _updateCreatedTimeProperty : Bool?;
+    private var _updateCreatedTimeProperty : Bool? = nil;
 
     public var updateCreatedTimeProperty : Bool? {
         get {
@@ -158,7 +158,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of updateFields. base container class for save options data.
-    private var _updateFields : Bool?;
+    private var _updateFields : Bool? = nil;
 
     public var updateFields : Bool? {
         get {
@@ -170,7 +170,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of updateLastPrintedProperty. base container class for save options data.
-    private var _updateLastPrintedProperty : Bool?;
+    private var _updateLastPrintedProperty : Bool? = nil;
 
     public var updateLastPrintedProperty : Bool? {
         get {
@@ -182,7 +182,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of updateLastSavedTimeProperty. base container class for save options data.
-    private var _updateLastSavedTimeProperty : Bool?;
+    private var _updateLastSavedTimeProperty : Bool? = nil;
 
     public var updateLastSavedTimeProperty : Bool? {
         get {
@@ -194,7 +194,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of updateSdtContent. base container class for save options data.
-    private var _updateSdtContent : Bool?;
+    private var _updateSdtContent : Bool? = nil;
 
     public var updateSdtContent : Bool? {
         get {
@@ -206,7 +206,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of zipOutput. base container class for save options data.
-    private var _zipOutput : Bool?;
+    private var _zipOutput : Bool? = nil;
 
     public var zipOutput : Bool? {
         get {

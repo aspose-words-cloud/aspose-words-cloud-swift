@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StorageFile : Codable, WordsApiModel {
     // Field of isFolder. File or folder information.
-    private var _isFolder : Bool?;
+    private var _isFolder : Bool? = nil;
 
     public var isFolder : Bool? {
         get {
@@ -43,7 +43,7 @@ public class StorageFile : Codable, WordsApiModel {
     }
 
     // Field of modifiedDate. File or folder information.
-    private var _modifiedDate : Date?;
+    private var _modifiedDate : Date? = nil;
 
     public var modifiedDate : Date? {
         get {
@@ -55,7 +55,7 @@ public class StorageFile : Codable, WordsApiModel {
     }
 
     // Field of name. File or folder information.
-    private var _name : String?;
+    private var _name : String? = nil;
 
     public var name : String? {
         get {
@@ -67,7 +67,7 @@ public class StorageFile : Codable, WordsApiModel {
     }
 
     // Field of path. File or folder information.
-    private var _path : String?;
+    private var _path : String? = nil;
 
     public var path : String? {
         get {
@@ -79,7 +79,7 @@ public class StorageFile : Codable, WordsApiModel {
     }
 
     // Field of size. File or folder information.
-    private var _size : Int?;
+    private var _size : Int? = nil;
 
     public var size : Int? {
         get {

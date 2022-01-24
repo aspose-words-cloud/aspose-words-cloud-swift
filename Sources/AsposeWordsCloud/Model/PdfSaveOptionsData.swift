@@ -45,7 +45,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of compliance. Container class for pdf save options.
-    private var _compliance : String?;
+    private var _compliance : String? = nil;
 
     public var compliance : String? {
         get {
@@ -57,7 +57,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of createNoteHyperlinks. Container class for pdf save options.
-    private var _createNoteHyperlinks : Bool?;
+    private var _createNoteHyperlinks : Bool? = nil;
 
     public var createNoteHyperlinks : Bool? {
         get {
@@ -69,7 +69,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of customPropertiesExport. Container class for pdf save options.
-    private var _customPropertiesExport : String?;
+    private var _customPropertiesExport : String? = nil;
 
     public var customPropertiesExport : String? {
         get {
@@ -81,7 +81,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of digitalSignatureDetails. Container class for pdf save options.
-    private var _digitalSignatureDetails : PdfDigitalSignatureDetailsData?;
+    private var _digitalSignatureDetails : PdfDigitalSignatureDetailsData? = nil;
 
     public var digitalSignatureDetails : PdfDigitalSignatureDetailsData? {
         get {
@@ -93,7 +93,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of displayDocTitle. Container class for pdf save options.
-    private var _displayDocTitle : Bool?;
+    private var _displayDocTitle : Bool? = nil;
 
     public var displayDocTitle : Bool? {
         get {
@@ -105,7 +105,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of downsampleOptions. Container class for pdf save options.
-    private var _downsampleOptions : DownsampleOptionsData?;
+    private var _downsampleOptions : DownsampleOptionsData? = nil;
 
     public var downsampleOptions : DownsampleOptionsData? {
         get {
@@ -117,7 +117,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of embedFullFonts. Container class for pdf save options.
-    private var _embedFullFonts : Bool?;
+    private var _embedFullFonts : Bool? = nil;
 
     public var embedFullFonts : Bool? {
         get {
@@ -129,7 +129,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of encryptionDetails. Container class for pdf save options.
-    private var _encryptionDetails : PdfEncryptionDetailsData?;
+    private var _encryptionDetails : PdfEncryptionDetailsData? = nil;
 
     public var encryptionDetails : PdfEncryptionDetailsData? {
         get {
@@ -141,7 +141,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of exportDocumentStructure. Container class for pdf save options.
-    private var _exportDocumentStructure : Bool?;
+    private var _exportDocumentStructure : Bool? = nil;
 
     public var exportDocumentStructure : Bool? {
         get {
@@ -153,7 +153,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of exportLanguageToSpanTag. Container class for pdf save options.
-    private var _exportLanguageToSpanTag : Bool?;
+    private var _exportLanguageToSpanTag : Bool? = nil;
 
     public var exportLanguageToSpanTag : Bool? {
         get {
@@ -165,7 +165,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of fontEmbeddingMode. Container class for pdf save options.
-    private var _fontEmbeddingMode : String?;
+    private var _fontEmbeddingMode : String? = nil;
 
     public var fontEmbeddingMode : String? {
         get {
@@ -177,7 +177,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of headerFooterBookmarksExportMode. Container class for pdf save options.
-    private var _headerFooterBookmarksExportMode : HeaderFooterBookmarksExportMode?;
+    private var _headerFooterBookmarksExportMode : HeaderFooterBookmarksExportMode? = nil;
 
     public var headerFooterBookmarksExportMode : HeaderFooterBookmarksExportMode? {
         get {
@@ -189,7 +189,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of imageColorSpaceExportMode. Container class for pdf save options.
-    private var _imageColorSpaceExportMode : String?;
+    private var _imageColorSpaceExportMode : String? = nil;
 
     public var imageColorSpaceExportMode : String? {
         get {
@@ -201,7 +201,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of imageCompression. Container class for pdf save options.
-    private var _imageCompression : String?;
+    private var _imageCompression : String? = nil;
 
     public var imageCompression : String? {
         get {
@@ -213,7 +213,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of interpolateImages. Container class for pdf save options.
-    private var _interpolateImages : Bool?;
+    private var _interpolateImages : Bool? = nil;
 
     public var interpolateImages : Bool? {
         get {
@@ -225,7 +225,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of openHyperlinksInNewWindow. Container class for pdf save options.
-    private var _openHyperlinksInNewWindow : Bool?;
+    private var _openHyperlinksInNewWindow : Bool? = nil;
 
     public var openHyperlinksInNewWindow : Bool? {
         get {
@@ -237,7 +237,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of outlineOptions. Container class for pdf save options.
-    private var _outlineOptions : OutlineOptionsData?;
+    private var _outlineOptions : OutlineOptionsData? = nil;
 
     public var outlineOptions : OutlineOptionsData? {
         get {
@@ -249,7 +249,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of pageMode. Container class for pdf save options.
-    private var _pageMode : String?;
+    private var _pageMode : String? = nil;
 
     public var pageMode : String? {
         get {
@@ -261,7 +261,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of preblendImages. Container class for pdf save options.
-    private var _preblendImages : Bool?;
+    private var _preblendImages : Bool? = nil;
 
     public var preblendImages : Bool? {
         get {
@@ -273,7 +273,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of preserveFormFields. Container class for pdf save options.
-    private var _preserveFormFields : Bool?;
+    private var _preserveFormFields : Bool? = nil;
 
     public var preserveFormFields : Bool? {
         get {
@@ -294,7 +294,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of textCompression. Container class for pdf save options.
-    private var _textCompression : String?;
+    private var _textCompression : String? = nil;
 
     public var textCompression : String? {
         get {
@@ -306,7 +306,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of useBookFoldPrintingSettings. Container class for pdf save options.
-    private var _useBookFoldPrintingSettings : Bool?;
+    private var _useBookFoldPrintingSettings : Bool? = nil;
 
     public var useBookFoldPrintingSettings : Bool? {
         get {
@@ -318,7 +318,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of useCoreFonts. Container class for pdf save options.
-    private var _useCoreFonts : Bool?;
+    private var _useCoreFonts : Bool? = nil;
 
     public var useCoreFonts : Bool? {
         get {
@@ -330,7 +330,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of zoomBehavior. Container class for pdf save options.
-    private var _zoomBehavior : String?;
+    private var _zoomBehavior : String? = nil;
 
     public var zoomBehavior : String? {
         get {
@@ -342,7 +342,7 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of zoomFactor. Container class for pdf save options.
-    private var _zoomFactor : Int?;
+    private var _zoomFactor : Int? = nil;
 
     public var zoomFactor : Int? {
         get {

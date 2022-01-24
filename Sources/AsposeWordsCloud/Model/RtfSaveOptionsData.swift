@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class RtfSaveOptionsData : SaveOptionsData {
     // Field of exportCompactSize. Container class for rtf save options.
-    private var _exportCompactSize : Bool?;
+    private var _exportCompactSize : Bool? = nil;
 
     public var exportCompactSize : Bool? {
         get {
@@ -43,7 +43,7 @@ public class RtfSaveOptionsData : SaveOptionsData {
     }
 
     // Field of exportImagesForOldReaders. Container class for rtf save options.
-    private var _exportImagesForOldReaders : Bool?;
+    private var _exportImagesForOldReaders : Bool? = nil;
 
     public var exportImagesForOldReaders : Bool? {
         get {
@@ -55,7 +55,7 @@ public class RtfSaveOptionsData : SaveOptionsData {
     }
 
     // Field of prettyFormat. Container class for rtf save options.
-    private var _prettyFormat : Bool?;
+    private var _prettyFormat : Bool? = nil;
 
     public var prettyFormat : Bool? {
         get {
@@ -76,7 +76,7 @@ public class RtfSaveOptionsData : SaveOptionsData {
     }
 
     // Field of saveImagesAsWmf. Container class for rtf save options.
-    private var _saveImagesAsWmf : Bool?;
+    private var _saveImagesAsWmf : Bool? = nil;
 
     public var saveImagesAsWmf : Bool? {
         get {

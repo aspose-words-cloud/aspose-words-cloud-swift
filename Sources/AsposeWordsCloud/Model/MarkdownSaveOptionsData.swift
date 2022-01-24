@@ -57,7 +57,7 @@ public class MarkdownSaveOptionsData : TxtSaveOptionsBaseData {
     }
 
     // Field of tableContentAlignment. Container class for markdown save options.
-    private var _tableContentAlignment : TableContentAlignment?;
+    private var _tableContentAlignment : TableContentAlignment? = nil;
 
     public var tableContentAlignment : TableContentAlignment? {
         get {

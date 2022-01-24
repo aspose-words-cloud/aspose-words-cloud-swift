@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableLinkCollectionResponse : WordsResponse {
     // Field of tables. The REST response with a collection of tables.
-    private var _tables : TableLinkCollection?;
+    private var _tables : TableLinkCollection? = nil;
 
     public var tables : TableLinkCollection? {
         get {

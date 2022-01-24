@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class UserInformation : Codable, WordsApiModel {
     // Field of address. DTO for user information.
-    private var _address : String?;
+    private var _address : String? = nil;
 
     public var address : String? {
         get {
@@ -43,7 +43,7 @@ public class UserInformation : Codable, WordsApiModel {
     }
 
     // Field of initials. DTO for user information.
-    private var _initials : String?;
+    private var _initials : String? = nil;
 
     public var initials : String? {
         get {
@@ -55,7 +55,7 @@ public class UserInformation : Codable, WordsApiModel {
     }
 
     // Field of name. DTO for user information.
-    private var _name : String?;
+    private var _name : String? = nil;
 
     public var name : String? {
         get {

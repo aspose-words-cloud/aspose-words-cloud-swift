@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SaveResult : Codable, WordsApiModel {
     // Field of additionalItems. Result of saving.
-    private var _additionalItems : [FileLink]?;
+    private var _additionalItems : [FileLink]? = nil;
 
     public var additionalItems : [FileLink]? {
         get {
@@ -43,7 +43,7 @@ public class SaveResult : Codable, WordsApiModel {
     }
 
     // Field of destDocument. Result of saving.
-    private var _destDocument : FileLink?;
+    private var _destDocument : FileLink? = nil;
 
     public var destDocument : FileLink? {
         get {
@@ -55,7 +55,7 @@ public class SaveResult : Codable, WordsApiModel {
     }
 
     // Field of sourceDocument. Result of saving.
-    private var _sourceDocument : FileLink?;
+    private var _sourceDocument : FileLink? = nil;
 
     public var sourceDocument : FileLink? {
         get {

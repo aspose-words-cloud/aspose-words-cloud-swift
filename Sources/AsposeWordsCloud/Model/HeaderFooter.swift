@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class HeaderFooter : HeaderFooterLink {
     // Field of childNodes. DTO container with a section element.
-    private var _childNodes : [NodeLink]?;
+    private var _childNodes : [NodeLink]? = nil;
 
     public var childNodes : [NodeLink]? {
         get {
@@ -43,7 +43,7 @@ public class HeaderFooter : HeaderFooterLink {
     }
 
     // Field of drawingObjects. DTO container with a section element.
-    private var _drawingObjects : LinkElement?;
+    private var _drawingObjects : LinkElement? = nil;
 
     public var drawingObjects : LinkElement? {
         get {
@@ -55,7 +55,7 @@ public class HeaderFooter : HeaderFooterLink {
     }
 
     // Field of paragraphs. DTO container with a section element.
-    private var _paragraphs : LinkElement?;
+    private var _paragraphs : LinkElement? = nil;
 
     public var paragraphs : LinkElement? {
         get {

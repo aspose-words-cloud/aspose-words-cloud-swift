@@ -42,7 +42,7 @@ public class OdtSaveOptionsData : SaveOptionsData {
     }
 
     // Field of isStrictSchema11. Container class for odt/ott save options.
-    private var _isStrictSchema11 : Bool?;
+    private var _isStrictSchema11 : Bool? = nil;
 
     public var isStrictSchema11 : Bool? {
         get {
@@ -54,7 +54,7 @@ public class OdtSaveOptionsData : SaveOptionsData {
     }
 
     // Field of measureUnit. Container class for odt/ott save options.
-    private var _measureUnit : MeasureUnit?;
+    private var _measureUnit : MeasureUnit? = nil;
 
     public var measureUnit : MeasureUnit? {
         get {
@@ -66,7 +66,7 @@ public class OdtSaveOptionsData : SaveOptionsData {
     }
 
     // Field of password. Container class for odt/ott save options.
-    private var _password : String?;
+    private var _password : String? = nil;
 
     public var password : String? {
         get {
@@ -78,7 +78,7 @@ public class OdtSaveOptionsData : SaveOptionsData {
     }
 
     // Field of prettyFormat. Container class for odt/ott save options.
-    private var _prettyFormat : Bool?;
+    private var _prettyFormat : Bool? = nil;
 
     public var prettyFormat : Bool? {
         get {

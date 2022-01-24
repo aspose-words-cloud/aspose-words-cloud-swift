@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentProperty : LinkElement {
     // Field of builtIn. Words document property DTO.
-    private var _builtIn : Bool?;
+    private var _builtIn : Bool? = nil;
 
     public var builtIn : Bool? {
         get {
@@ -43,7 +43,7 @@ public class DocumentProperty : LinkElement {
     }
 
     // Field of name. Words document property DTO.
-    private var _name : String?;
+    private var _name : String? = nil;
 
     public var name : String? {
         get {
@@ -55,7 +55,7 @@ public class DocumentProperty : LinkElement {
     }
 
     // Field of value. Words document property DTO.
-    private var _value : String?;
+    private var _value : String? = nil;
 
     public var value : String? {
         get {

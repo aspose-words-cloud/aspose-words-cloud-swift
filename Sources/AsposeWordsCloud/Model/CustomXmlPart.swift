@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CustomXmlPart : CustomXmlPartLink {
     // Field of data. DTO container with a CustomXmlPart.
-    private var _data : String?;
+    private var _data : String? = nil;
 
     public var data : String? {
         get {
@@ -43,7 +43,7 @@ public class CustomXmlPart : CustomXmlPartLink {
     }
 
     // Field of id. DTO container with a CustomXmlPart.
-    private var _id : String?;
+    private var _id : String? = nil;
 
     public var id : String? {
         get {

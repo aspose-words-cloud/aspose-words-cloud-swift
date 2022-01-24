@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ClassificationResult : Codable, WordsApiModel {
     // Field of className. Represents a single classification result.
-    private var _className : String?;
+    private var _className : String? = nil;
 
     public var className : String? {
         get {
@@ -43,7 +43,7 @@ public class ClassificationResult : Codable, WordsApiModel {
     }
 
     // Field of classProbability. Represents a single classification result.
-    private var _classProbability : Double?;
+    private var _classProbability : Double? = nil;
 
     public var classProbability : Double? {
         get {

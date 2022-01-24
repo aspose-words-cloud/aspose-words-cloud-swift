@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     // Field of bookmarksOutlineLevel. Container class for xps save options.
-    private var _bookmarksOutlineLevel : Int?;
+    private var _bookmarksOutlineLevel : Int? = nil;
 
     public var bookmarksOutlineLevel : Int? {
         get {
@@ -43,7 +43,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of headingsOutlineLevels. Container class for xps save options.
-    private var _headingsOutlineLevels : Int?;
+    private var _headingsOutlineLevels : Int? = nil;
 
     public var headingsOutlineLevels : Int? {
         get {
@@ -55,7 +55,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of outlineOptions. Container class for xps save options.
-    private var _outlineOptions : OutlineOptionsData?;
+    private var _outlineOptions : OutlineOptionsData? = nil;
 
     public var outlineOptions : OutlineOptionsData? {
         get {
@@ -76,7 +76,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of useBookFoldPrintingSettings. Container class for xps save options.
-    private var _useBookFoldPrintingSettings : Bool?;
+    private var _useBookFoldPrintingSettings : Bool? = nil;
 
     public var useBookFoldPrintingSettings : Bool? {
         get {

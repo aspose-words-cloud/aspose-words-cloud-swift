@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentProperties : LinkElement {
     // Field of list. The collection of document properties.
-    private var _list : [DocumentProperty]?;
+    private var _list : [DocumentProperty]? = nil;
 
     public var list : [DocumentProperty]? {
         get {

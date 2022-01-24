@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StatDataResponse : WordsResponse {
     // Field of documentLink. The REST response with document's statistical data.
-    private var _documentLink : FileLink?;
+    private var _documentLink : FileLink? = nil;
 
     public var documentLink : FileLink? {
         get {
@@ -43,7 +43,7 @@ public class StatDataResponse : WordsResponse {
     }
 
     // Field of statData. The REST response with document's statistical data.
-    private var _statData : DocumentStatData?;
+    private var _statData : DocumentStatData? = nil;
 
     public var statData : DocumentStatData? {
         get {

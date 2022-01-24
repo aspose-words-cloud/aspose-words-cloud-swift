@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListInfo : LinkElement {
     // Field of isListStyleDefinition. DTO container with a single document list.
-    private var _isListStyleDefinition : Bool?;
+    private var _isListStyleDefinition : Bool? = nil;
 
     public var isListStyleDefinition : Bool? {
         get {
@@ -43,7 +43,7 @@ public class ListInfo : LinkElement {
     }
 
     // Field of isListStyleReference. DTO container with a single document list.
-    private var _isListStyleReference : Bool?;
+    private var _isListStyleReference : Bool? = nil;
 
     public var isListStyleReference : Bool? {
         get {
@@ -55,7 +55,7 @@ public class ListInfo : LinkElement {
     }
 
     // Field of isMultiLevel. DTO container with a single document list.
-    private var _isMultiLevel : Bool?;
+    private var _isMultiLevel : Bool? = nil;
 
     public var isMultiLevel : Bool? {
         get {
@@ -67,7 +67,7 @@ public class ListInfo : LinkElement {
     }
 
     // Field of isRestartAtEachSection. DTO container with a single document list.
-    private var _isRestartAtEachSection : Bool?;
+    private var _isRestartAtEachSection : Bool? = nil;
 
     public var isRestartAtEachSection : Bool? {
         get {
@@ -79,7 +79,7 @@ public class ListInfo : LinkElement {
     }
 
     // Field of listId. DTO container with a single document list.
-    private var _listId : Int?;
+    private var _listId : Int? = nil;
 
     public var listId : Int? {
         get {
@@ -91,7 +91,7 @@ public class ListInfo : LinkElement {
     }
 
     // Field of listLevels. DTO container with a single document list.
-    private var _listLevels : ListLevels?;
+    private var _listLevels : ListLevels? = nil;
 
     public var listLevels : ListLevels? {
         get {
@@ -103,7 +103,7 @@ public class ListInfo : LinkElement {
     }
 
     // Field of style. DTO container with a single document list.
-    private var _style : Style?;
+    private var _style : Style? = nil;
 
     public var style : Style? {
         get {

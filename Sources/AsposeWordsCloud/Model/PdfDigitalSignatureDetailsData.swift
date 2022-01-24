@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     // Field of certificateFilename. Container class for details of digital signature.
-    private var _certificateFilename : String?;
+    private var _certificateFilename : String? = nil;
 
     public var certificateFilename : String? {
         get {
@@ -43,7 +43,7 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     }
 
     // Field of hashAlgorithm. Container class for details of digital signature.
-    private var _hashAlgorithm : String?;
+    private var _hashAlgorithm : String? = nil;
 
     public var hashAlgorithm : String? {
         get {
@@ -55,7 +55,7 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     }
 
     // Field of location. Container class for details of digital signature.
-    private var _location : String?;
+    private var _location : String? = nil;
 
     public var location : String? {
         get {
@@ -67,7 +67,7 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     }
 
     // Field of reason. Container class for details of digital signature.
-    private var _reason : String?;
+    private var _reason : String? = nil;
 
     public var reason : String? {
         get {
@@ -79,7 +79,7 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     }
 
     // Field of signatureDate. Container class for details of digital signature.
-    private var _signatureDate : Date?;
+    private var _signatureDate : Date? = nil;
 
     public var signatureDate : Date? {
         get {
