@@ -403,7 +403,7 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
 
-    // Gets saveFormat. Gets or sets the format of save.
+    // Gets saveFormat. Gets the format of save.
     public func getSaveFormat() -> String? {
         return self.saveFormat;
     }
