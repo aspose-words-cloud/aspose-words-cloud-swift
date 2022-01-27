@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BorderResponse : WordsResponse {
     // Field of border. The REST response with a border.
-    public var border : Border?;
+    private var _border : Border? = nil;
+
+    public var border : Border? {
+        get {
+            return self._border;
+        }
+        set {
+            self._border = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case border = "Border";

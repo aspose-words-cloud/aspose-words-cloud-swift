@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class WordsApiErrorResponse : WordsResponse {
     // Field of error. The REST response with an API error.
-    public var error : ApiError?;
+    private var _error : ApiError? = nil;
+
+    public var error : ApiError? {
+        get {
+            return self._error;
+        }
+        set {
+            self._error = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case error = "Error";

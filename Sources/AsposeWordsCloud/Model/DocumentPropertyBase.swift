@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentPropertyBase : Codable, WordsApiModel {
     // Field of value. Words document property DTO base class.
-    public var value : String?;
+    private var _value : String? = nil;
+
+    public var value : String? {
+        get {
+            return self._value;
+        }
+        set {
+            self._value = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case value = "Value";

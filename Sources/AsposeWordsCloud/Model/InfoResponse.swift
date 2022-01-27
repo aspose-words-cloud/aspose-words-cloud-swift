@@ -31,13 +31,40 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class InfoResponse : WordsResponse {
     // Field of additionalInfo. Response with API info.
-    public var additionalInfo : [InfoAdditionalItem]?;
+    private var _additionalInfo : [InfoAdditionalItem]? = nil;
+
+    public var additionalInfo : [InfoAdditionalItem]? {
+        get {
+            return self._additionalInfo;
+        }
+        set {
+            self._additionalInfo = newValue;
+        }
+    }
 
     // Field of name. Response with API info.
-    public var name : String?;
+    private var _name : String? = nil;
+
+    public var name : String? {
+        get {
+            return self._name;
+        }
+        set {
+            self._name = newValue;
+        }
+    }
 
     // Field of version. Response with API info.
-    public var version : String?;
+    private var _version : String? = nil;
+
+    public var version : String? {
+        get {
+            return self._version;
+        }
+        set {
+            self._version = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case additionalInfo = "AdditionalInfo";
@@ -83,6 +110,7 @@ public class InfoResponse : WordsResponse {
         return self.additionalInfo;
     }
 
+
     // Sets name. Gets or sets application name.
     public func setName(name : String?) -> InfoResponse {
         self.name = name;
@@ -93,6 +121,7 @@ public class InfoResponse : WordsResponse {
     public func getName() -> String? {
         return self.name;
     }
+
 
     // Sets version. Gets or sets version.
     public func setVersion(version : String?) -> InfoResponse {

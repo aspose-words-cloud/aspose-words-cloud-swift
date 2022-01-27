@@ -31,16 +31,52 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PageStatData : Codable, WordsApiModel {
     // Field of footnotesStatData. Container for the page's statistical data.
-    public var footnotesStatData : FootnotesStatData?;
+    private var _footnotesStatData : FootnotesStatData? = nil;
+
+    public var footnotesStatData : FootnotesStatData? {
+        get {
+            return self._footnotesStatData;
+        }
+        set {
+            self._footnotesStatData = newValue;
+        }
+    }
 
     // Field of pageNumber. Container for the page's statistical data.
-    public var pageNumber : Int?;
+    private var _pageNumber : Int? = nil;
+
+    public var pageNumber : Int? {
+        get {
+            return self._pageNumber;
+        }
+        set {
+            self._pageNumber = newValue;
+        }
+    }
 
     // Field of paragraphCount. Container for the page's statistical data.
-    public var paragraphCount : Int?;
+    private var _paragraphCount : Int? = nil;
+
+    public var paragraphCount : Int? {
+        get {
+            return self._paragraphCount;
+        }
+        set {
+            self._paragraphCount = newValue;
+        }
+    }
 
     // Field of wordCount. Container for the page's statistical data.
-    public var wordCount : Int?;
+    private var _wordCount : Int? = nil;
+
+    public var wordCount : Int? {
+        get {
+            return self._wordCount;
+        }
+        set {
+            self._wordCount = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case footnotesStatData = "FootnotesStatData";
@@ -88,6 +124,7 @@ public class PageStatData : Codable, WordsApiModel {
         return self.footnotesStatData;
     }
 
+
     // Sets pageNumber. Gets or sets the page number.
     public func setPageNumber(pageNumber : Int?) -> PageStatData {
         self.pageNumber = pageNumber;
@@ -99,6 +136,7 @@ public class PageStatData : Codable, WordsApiModel {
         return self.pageNumber;
     }
 
+
     // Sets paragraphCount. Gets or sets the total count of paragraphs in the page.
     public func setParagraphCount(paragraphCount : Int?) -> PageStatData {
         self.paragraphCount = paragraphCount;
@@ -109,6 +147,7 @@ public class PageStatData : Codable, WordsApiModel {
     public func getParagraphCount() -> Int? {
         return self.paragraphCount;
     }
+
 
     // Sets wordCount. Gets or sets the total count of words in the page.
     public func setWordCount(wordCount : Int?) -> PageStatData {

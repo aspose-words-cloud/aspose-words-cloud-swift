@@ -118,28 +118,100 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     }
 
     // Field of height. Drawing object element for insert.
-    public var height : Double?;
+    private var _height : Double? = nil;
+
+    public var height : Double? {
+        get {
+            return self._height;
+        }
+        set {
+            self._height = newValue;
+        }
+    }
 
     // Field of _left. Drawing object element for insert.
-    public var _left : Double?;
+    private var __left : Double? = nil;
+
+    public var _left : Double? {
+        get {
+            return self.__left;
+        }
+        set {
+            self.__left = newValue;
+        }
+    }
 
     // Field of position. Drawing object element for insert.
-    public var position : DocumentPosition?;
+    private var _position : DocumentPosition? = nil;
+
+    public var position : DocumentPosition? {
+        get {
+            return self._position;
+        }
+        set {
+            self._position = newValue;
+        }
+    }
 
     // Field of relativeHorizontalPosition. Drawing object element for insert.
-    public var relativeHorizontalPosition : RelativeHorizontalPosition?;
+    private var _relativeHorizontalPosition : RelativeHorizontalPosition? = nil;
+
+    public var relativeHorizontalPosition : RelativeHorizontalPosition? {
+        get {
+            return self._relativeHorizontalPosition;
+        }
+        set {
+            self._relativeHorizontalPosition = newValue;
+        }
+    }
 
     // Field of relativeVerticalPosition. Drawing object element for insert.
-    public var relativeVerticalPosition : RelativeVerticalPosition?;
+    private var _relativeVerticalPosition : RelativeVerticalPosition? = nil;
+
+    public var relativeVerticalPosition : RelativeVerticalPosition? {
+        get {
+            return self._relativeVerticalPosition;
+        }
+        set {
+            self._relativeVerticalPosition = newValue;
+        }
+    }
 
     // Field of top. Drawing object element for insert.
-    public var top : Double?;
+    private var _top : Double? = nil;
+
+    public var top : Double? {
+        get {
+            return self._top;
+        }
+        set {
+            self._top = newValue;
+        }
+    }
 
     // Field of width. Drawing object element for insert.
-    public var width : Double?;
+    private var _width : Double? = nil;
+
+    public var width : Double? {
+        get {
+            return self._width;
+        }
+        set {
+            self._width = newValue;
+        }
+    }
 
     // Field of wrapType. Drawing object element for insert.
-    public var wrapType : WrapType?;
+    private var _wrapType : WrapType? = nil;
+
+    public var wrapType : WrapType? {
+        get {
+            return self._wrapType;
+        }
+        set {
+            self._wrapType = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case height = "Height";
@@ -207,6 +279,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
         return self.height;
     }
 
+
     // Sets _left. Gets or sets the distance in points from the origin to the left side of the image.
     public func setLeft(_left : Double?) -> DrawingObjectInsert {
         self._left = _left;
@@ -217,6 +290,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     public func getLeft() -> Double? {
         return self._left;
     }
+
 
     // Sets position. Gets or sets the position, before which the DrawingObject will be inserted.
     public func setPosition(position : DocumentPosition?) -> DrawingObjectInsert {
@@ -229,6 +303,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
         return self.position;
     }
 
+
     // Sets relativeHorizontalPosition. Gets or sets the relative horizontal position, from which the distance to the image is measured.
     public func setRelativeHorizontalPosition(relativeHorizontalPosition : RelativeHorizontalPosition?) -> DrawingObjectInsert {
         self.relativeHorizontalPosition = relativeHorizontalPosition;
@@ -239,6 +314,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     public func getRelativeHorizontalPosition() -> RelativeHorizontalPosition? {
         return self.relativeHorizontalPosition;
     }
+
 
     // Sets relativeVerticalPosition. Gets or sets the relative vertical position, from which the distance to the image is measured.
     public func setRelativeVerticalPosition(relativeVerticalPosition : RelativeVerticalPosition?) -> DrawingObjectInsert {
@@ -251,6 +327,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
         return self.relativeVerticalPosition;
     }
 
+
     // Sets top. Gets or sets the distance in points from the origin to the top side of the image.
     public func setTop(top : Double?) -> DrawingObjectInsert {
         self.top = top;
@@ -262,6 +339,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
         return self.top;
     }
 
+
     // Sets width. Gets or sets the width of the DrawingObjects in points.
     public func setWidth(width : Double?) -> DrawingObjectInsert {
         self.width = width;
@@ -272,6 +350,7 @@ public class DrawingObjectInsert : Codable, WordsApiModel {
     public func getWidth() -> Double? {
         return self.width;
     }
+
 
     // Sets wrapType. Gets or sets the option indicating how to wrap text around the image.
     public func setWrapType(wrapType : WrapType?) -> DrawingObjectInsert {

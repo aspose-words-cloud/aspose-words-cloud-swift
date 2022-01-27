@@ -31,10 +31,28 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StatDataResponse : WordsResponse {
     // Field of documentLink. The REST response with document's statistical data.
-    public var documentLink : FileLink?;
+    private var _documentLink : FileLink? = nil;
+
+    public var documentLink : FileLink? {
+        get {
+            return self._documentLink;
+        }
+        set {
+            self._documentLink = newValue;
+        }
+    }
 
     // Field of statData. The REST response with document's statistical data.
-    public var statData : DocumentStatData?;
+    private var _statData : DocumentStatData? = nil;
+
+    public var statData : DocumentStatData? {
+        get {
+            return self._statData;
+        }
+        set {
+            self._statData = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case documentLink = "DocumentLink";
@@ -74,6 +92,7 @@ public class StatDataResponse : WordsResponse {
     public func getDocumentLink() -> FileLink? {
         return self.documentLink;
     }
+
 
     // Sets statData. Gets or sets the statistical data of the document.
     public func setStatData(statData : DocumentStatData?) -> StatDataResponse {

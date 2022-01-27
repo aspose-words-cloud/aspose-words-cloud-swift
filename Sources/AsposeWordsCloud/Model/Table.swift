@@ -31,10 +31,28 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Table : NodeLink {
     // Field of tableProperties. DTO container with a table element.
-    public var tableProperties : TableProperties?;
+    private var _tableProperties : TableProperties? = nil;
+
+    public var tableProperties : TableProperties? {
+        get {
+            return self._tableProperties;
+        }
+        set {
+            self._tableProperties = newValue;
+        }
+    }
 
     // Field of tableRowList. DTO container with a table element.
-    public var tableRowList : [TableRow]?;
+    private var _tableRowList : [TableRow]? = nil;
+
+    public var tableRowList : [TableRow]? {
+        get {
+            return self._tableRowList;
+        }
+        set {
+            self._tableRowList = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case tableProperties = "TableProperties";
@@ -74,6 +92,7 @@ public class Table : NodeLink {
     public func getTableProperties() -> TableProperties? {
         return self.tableProperties;
     }
+
 
     // Sets tableRowList. Gets or sets the collection of table's rows.
     public func setTableRowList(tableRowList : [TableRow]?) -> Table {
