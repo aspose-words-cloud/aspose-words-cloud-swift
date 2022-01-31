@@ -151,7 +151,7 @@ public class FormField : NodeLink {
         case invalidCodingKey;
     }
 
-    internal override init() {
+    public override init() {
         super.init();
     }
 
