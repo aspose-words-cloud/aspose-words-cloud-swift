@@ -29,22 +29,32 @@ import Foundation
 
 // Aspose.Words.Cloud API for Swift
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class WordsAPI {
+protocol Encryptor {
+    func isEncryptionAllowed() -> Bool
+    func encrypt(data : : String) throws -> String
+}
+
+public class WordsAPI: Encryptor {
     private let configuration : Configuration;
     private let apiInvoker : ApiInvoker;
+    
+#if os(Linux)
+    // Encryption of passwords in query params not supported on linux
+#else
+    // RSA key for password encryption
+    private var encryptionKey : SecKey?;
+#endif
 
     // Initializes a new instance of the WordsAPI class based on Configuration object.
     public init(configuration : Configuration) throws {
         self.configuration = configuration;
-        self.apiInvoker = ApiInvoker(configuration: configuration);
-        try self.apiInvoker.setEncryptionData(data: try getPublicKey(request: GetPublicKeyRequest()));
+        self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
     }
 
     // Initializes a new instance of the WordsAPI class based on ClientId and clientSecret.
     public init(clientId: String, clientSecret: String) throws {
         self.configuration = Configuration(clientId: clientId, clientSecret: clientSecret);
-        self.apiInvoker = ApiInvoker(configuration: configuration);
-        try self.apiInvoker.setEncryptionData(data: try getPublicKey(request: GetPublicKeyRequest()));
+        self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
     }
 
     // Async representation of acceptAllRevisions method
@@ -13906,4 +13916,84 @@ public class WordsAPI {
 
         return responseObject!;
     }
+    
+    // Encrypt string data
+    public func encrypt(data : : String) throws -> String {
+#if os(Linux)
+        // Encryption of passwords in query params not supported on linux
+        throw WordsApiError.notSupportedMethod(methodName: "setEncryptionData"); 
+#else    
+
+        if (encryptionKey == null) {
+        
+            let modulus = self.configuration.getRsaModulus();
+            let exponent = self.configuration.getRsaExponent();
+            
+            if (modulus == nil || exponent == nil) {
+                let response = try getPublicKey(request: GetPublicKeyRequest()));
+                exponent = response.getExponent();
+                modulus = response.getModulus();
+            }
+            
+            setEncryptionData(exponent, modulus);
+        }
+        
+        let buffer = data.data(using: .utf8)!;
+        var error: Unmanaged<CFError>? = nil;
+
+        // Encrypto should less than key length
+        let secData = SecKeyCreateEncryptedData(encryptionKey!, .rsaEncryptionPKCS1, buffer as CFData, &error)!;
+        var secBuffer = [UInt8](repeating: 0, count: CFDataGetLength(secData));
+        CFDataGetBytes(secData, CFRangeMake(0, CFDataGetLength(secData)), &secBuffer);
+        return Data(bytes: secBuffer).base64EncodedString().replacingOccurrences(of: "+", with: "%2B").replacingOccurrences(of: "/", with: "%2F");
+#endif        
+    }
+    
+    private func setEncryptionData(exponent: String, modulus: String) throws {
+#if os(Linux)
+        // Encryption of passwords in query params not supported on linux
+        throw WordsApiError.notSupportedMethod(methodName: "setEncryptionData"); 
+#else
+        let exponent = Data(base64Encoded: data.getExponent()!)!;
+        let modulus = Data(base64Encoded: data.getModulus()!)!;
+        let exponentBytes = [UInt8](exponent);
+        var modulusBytes = [UInt8](modulus);
+        modulusBytes.insert(0x00, at: 0);
+
+        var modulusEncoded: [UInt8] = [];
+        modulusEncoded.append(0x02);
+        modulusEncoded.append(contentsOf: lengthField(of: modulusBytes));
+        modulusEncoded.append(contentsOf: modulusBytes);
+
+        var exponentEncoded: [UInt8] = [];
+        exponentEncoded.append(0x02);
+        exponentEncoded.append(contentsOf: lengthField(of: exponentBytes));
+        exponentEncoded.append(contentsOf: exponentBytes);
+
+        var sequenceEncoded: [UInt8] = [];
+        sequenceEncoded.append(0x30);
+        sequenceEncoded.append(contentsOf: lengthField(of: (modulusEncoded + exponentEncoded)));
+        sequenceEncoded.append(contentsOf: (modulusEncoded + exponentEncoded));
+
+        let keyData = Data(bytes: sequenceEncoded);
+        let keySize = (modulusBytes.count * 8);
+
+        let attributes: [String: Any] = [
+            kSecAttrKeyType as String: kSecAttrKeyTypeRSA,
+            kSecAttrKeyClass as String: kSecAttrKeyClassPublic,
+            kSecAttrKeySizeInBits as String: keySize
+        ];
+
+        encryptionKey = SecKeyCreateWithData(keyData as CFData, attributes as CFDictionary, nil);
+#endif
+    }
+    
+    public func isEncryptionAllowed() -> Bool {
+#if os(Linux)
+        return false;
+#else
+        return true;
+#endif
+    }
+
 }
