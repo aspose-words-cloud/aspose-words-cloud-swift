@@ -30,14 +30,14 @@ import Foundation
 // Aspose.Words.Cloud API for Swift
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 #if os(Linux)
-public class WordsAPI {
 #else
 protocol Encryptor {
     func encrypt(data : : String) throws -> String
 }
-
-public class WordsAPI: Encryptor {
 #endif
+
+public class WordsAPI #if os(Linux) #else : Encryptor #endif {
+
     private let configuration : Configuration;
     private let apiInvoker : ApiInvoker;
 

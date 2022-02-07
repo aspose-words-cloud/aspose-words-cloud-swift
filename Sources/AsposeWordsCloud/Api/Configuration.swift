@@ -73,21 +73,23 @@ public class Configuration : Codable {
     // Initialize new instance of Aspose.Words for Cloud configuration object with given parameters
 #if os(Linux)
     public init(clientId: String, clientSecret: String, baseUrl: String = "https://api.aspose.cloud", debugMode: Bool = false, timeout: TimeInterval = 300) {
-#else
-    public init(clientId: String, clientSecret: String, baseUrl: String = "https://api.aspose.cloud", debugMode: Bool = false, timeout: TimeInterval = 300, rsaExponent: String = nil, rsaModulus: String = nil) {
-#endif
         self.clientId = clientId;
         self.clientSecret = clientSecret;
         self.baseUrl = baseUrl;
         self.debugMode = debugMode;
         self.timeout = timeout;
-#if os(Linux)
-        // Encryption of passwords in query params not supported on linux
+    }    
 #else
+    public init(clientId: String, clientSecret: String, baseUrl: String = "https://api.aspose.cloud", debugMode: Bool = false, timeout: TimeInterval = 300, rsaExponent: String = nil, rsaModulus: String = nil) {
+        self.clientId = clientId;
+        self.clientSecret = clientSecret;
+        self.baseUrl = baseUrl;
+        self.debugMode = debugMode;
+        self.timeout = timeout;
         self.rsaExponent = rsaExponent;
         self.rsaModulus = rsaModulus;
-#endif
     }
+#endif
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
@@ -151,7 +153,6 @@ public class Configuration : Codable {
     }
 
 #if os(Linux)
-        // Encryption of passwords in query params not supported on linux
 #else
     // Returns RSA exponent
     public func getRsaExponent() -> String {

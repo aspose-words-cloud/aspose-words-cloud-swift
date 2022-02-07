@@ -61,15 +61,17 @@ public class ApiInvoker {
     private let httpStatusCodeTimeout = 408;
 
     // Initialize ApiInvoker object with specific configuration
+#if os(Linux)
     public init(configuration : Configuration) {
         self.configuration = configuration;
         self.mutex = NSLock();
         self.accessTokenCache = nil;
     }
-#if os(Linux)
 #else
     public init(configuration : Configuration, encryptor: Encryptor) {
-        self.init(configuration: configuration);
+        self.configuration = configuration;
+        self.mutex = NSLock();
+        self.accessTokenCache = nil;
         this.encryptor = encryptor;
     }
 #endif
