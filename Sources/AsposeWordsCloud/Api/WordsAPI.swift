@@ -29,14 +29,11 @@ import Foundation
 
 // Aspose.Words.Cloud API for Swift
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-#if os(Linux)
-#else
 protocol Encryptor {
     func encrypt(data : : String) throws -> String
 }
-#endif
 
-public class WordsAPI #if os(Linux) #else : Encryptor #endif {
+public class WordsAPI : Encryptor {
 
     private let configuration : Configuration;
     private let apiInvoker : ApiInvoker;
@@ -13929,7 +13926,9 @@ public class WordsAPI #if os(Linux) #else : Encryptor #endif {
     }
 
 #if os(Linux)    
-    // Encryption of passwords in query params not supported on linux
+    public func encrypt(data : String) throws -> String {
+        throw WordsApiError.notSupportedMethod('encrypt');
+    }
 #else    
     // Encrypt string data
     public func encrypt(data : String) throws -> String {
