@@ -125,7 +125,7 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         case invalidCodingKey;
     }
 
-    public override init() {
+    internal override init() {
         super.init();
     }
 

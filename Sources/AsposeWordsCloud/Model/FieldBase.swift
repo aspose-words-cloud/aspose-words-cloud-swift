@@ -60,7 +60,7 @@ public class FieldBase : Codable, WordsApiModel {
         case invalidCodingKey;
     }
 
-    public init() {
+    internal init() {
     }
 
     public required init(from decoder: Decoder) throws {

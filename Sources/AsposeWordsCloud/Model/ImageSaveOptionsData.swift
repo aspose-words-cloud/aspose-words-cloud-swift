@@ -190,7 +190,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         case invalidCodingKey;
     }
 
-    public override init() {
+    internal override init() {
         super.init();
     }
 
