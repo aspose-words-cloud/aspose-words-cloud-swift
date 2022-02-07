@@ -31,85 +31,22 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     // Field of exportEmbeddedImages. Container class for svg save options.
-    private var _exportEmbeddedImages : Bool? = nil;
-
-    public var exportEmbeddedImages : Bool? {
-        get {
-            return self._exportEmbeddedImages;
-        }
-        set {
-            self._exportEmbeddedImages = newValue;
-        }
-    }
+    public var exportEmbeddedImages : Bool?;
 
     // Field of fitToViewPort. Container class for svg save options.
-    private var _fitToViewPort : Bool? = nil;
-
-    public var fitToViewPort : Bool? {
-        get {
-            return self._fitToViewPort;
-        }
-        set {
-            self._fitToViewPort = newValue;
-        }
-    }
+    public var fitToViewPort : Bool?;
 
     // Field of resourcesFolder. Container class for svg save options.
-    private var _resourcesFolder : String? = nil;
-
-    public var resourcesFolder : String? {
-        get {
-            return self._resourcesFolder;
-        }
-        set {
-            self._resourcesFolder = newValue;
-        }
-    }
+    public var resourcesFolder : String?;
 
     // Field of resourcesFolderAlias. Container class for svg save options.
-    private var _resourcesFolderAlias : String? = nil;
-
-    public var resourcesFolderAlias : String? {
-        get {
-            return self._resourcesFolderAlias;
-        }
-        set {
-            self._resourcesFolderAlias = newValue;
-        }
-    }
-
-    // Field of saveFormat. Container class for svg save options.
-    private final let _saveFormat : String? = "svg";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
+    public var resourcesFolderAlias : String?;
 
     // Field of showPageBorder. Container class for svg save options.
-    private var _showPageBorder : Bool? = nil;
-
-    public var showPageBorder : Bool? {
-        get {
-            return self._showPageBorder;
-        }
-        set {
-            self._showPageBorder = newValue;
-        }
-    }
+    public var showPageBorder : Bool?;
 
     // Field of textOutputMode. Container class for svg save options.
-    private var _textOutputMode : String? = nil;
-
-    public var textOutputMode : String? {
-        get {
-            return self._textOutputMode;
-        }
-        set {
-            self._textOutputMode = newValue;
-        }
-    }
+    public var textOutputMode : String?;
 
     private enum CodingKeys: String, CodingKey {
         case exportEmbeddedImages = "ExportEmbeddedImages";
@@ -170,7 +107,6 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         return self.exportEmbeddedImages;
     }
 
-
     // Sets fitToViewPort. Gets or sets a value indicating whether the output SVG should fill the available viewport area (browser window or container). When set to true width and height of output SVG are set to 100%.
     public func setFitToViewPort(fitToViewPort : Bool?) -> SvgSaveOptionsData {
         self.fitToViewPort = fitToViewPort;
@@ -181,7 +117,6 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     public func getFitToViewPort() -> Bool? {
         return self.fitToViewPort;
     }
-
 
     // Sets resourcesFolder. Gets or sets the physical folder where resources (images) are saved when exporting.
     public func setResourcesFolder(resourcesFolder : String?) -> SvgSaveOptionsData {
@@ -194,7 +129,6 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         return self.resourcesFolder;
     }
 
-
     // Sets resourcesFolderAlias. Gets or sets the name of the folder used to construct image URIs.
     public func setResourcesFolderAlias(resourcesFolderAlias : String?) -> SvgSaveOptionsData {
         self.resourcesFolderAlias = resourcesFolderAlias;
@@ -206,7 +140,6 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         return self.resourcesFolderAlias;
     }
 
-
     // Sets showPageBorder. Gets or sets a value indicating whether to show or hide page stepper.
     public func setShowPageBorder(showPageBorder : Bool?) -> SvgSaveOptionsData {
         self.showPageBorder = showPageBorder;
@@ -217,7 +150,6 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     public func getShowPageBorder() -> Bool? {
         return self.showPageBorder;
     }
-
 
     // Sets textOutputMode. Gets or sets the option that controls how text should be rendered.
     public func setTextOutputMode(textOutputMode : String?) -> SvgSaveOptionsData {

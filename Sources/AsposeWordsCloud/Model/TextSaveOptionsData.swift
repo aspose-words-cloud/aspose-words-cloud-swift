@@ -31,61 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     // Field of addBidiMarks. Container class for text save options.
-    private var _addBidiMarks : Bool? = nil;
-
-    public var addBidiMarks : Bool? {
-        get {
-            return self._addBidiMarks;
-        }
-        set {
-            self._addBidiMarks = newValue;
-        }
-    }
+    public var addBidiMarks : Bool?;
 
     // Field of maxCharactersPerLine. Container class for text save options.
-    private var _maxCharactersPerLine : Int? = nil;
-
-    public var maxCharactersPerLine : Int? {
-        get {
-            return self._maxCharactersPerLine;
-        }
-        set {
-            self._maxCharactersPerLine = newValue;
-        }
-    }
+    public var maxCharactersPerLine : Int?;
 
     // Field of preserveTableLayout. Container class for text save options.
-    private var _preserveTableLayout : Bool? = nil;
-
-    public var preserveTableLayout : Bool? {
-        get {
-            return self._preserveTableLayout;
-        }
-        set {
-            self._preserveTableLayout = newValue;
-        }
-    }
-
-    // Field of saveFormat. Container class for text save options.
-    private final let _saveFormat : String? = "txt";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
+    public var preserveTableLayout : Bool?;
 
     // Field of simplifyListLabels. Container class for text save options.
-    private var _simplifyListLabels : Bool? = nil;
-
-    public var simplifyListLabels : Bool? {
-        get {
-            return self._simplifyListLabels;
-        }
-        set {
-            self._simplifyListLabels = newValue;
-        }
-    }
+    public var simplifyListLabels : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case addBidiMarks = "AddBidiMarks";
@@ -136,7 +91,6 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
         return self.addBidiMarks;
     }
 
-
     // Sets maxCharactersPerLine. Gets or sets an integer value that specifies the maximum number of characters per one line. The default value is 0, that means no limit.
     public func setMaxCharactersPerLine(maxCharactersPerLine : Int?) -> TextSaveOptionsData {
         self.maxCharactersPerLine = maxCharactersPerLine;
@@ -148,7 +102,6 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
         return self.maxCharactersPerLine;
     }
 
-
     // Sets preserveTableLayout. Gets or sets a value indicating whether the program should attempt to preserve layout of tables when saving in the plain text format.
     public func setPreserveTableLayout(preserveTableLayout : Bool?) -> TextSaveOptionsData {
         self.preserveTableLayout = preserveTableLayout;
@@ -159,7 +112,6 @@ public class TextSaveOptionsData : TxtSaveOptionsBaseData {
     public func getPreserveTableLayout() -> Bool? {
         return self.preserveTableLayout;
     }
-
 
     // Sets simplifyListLabels. Gets or sets a value indicating whether the program should simplify list labels in case of complex label formatting not being adequately represented by plain text.
     public func setSimplifyListLabels(simplifyListLabels : Bool?) -> TextSaveOptionsData {

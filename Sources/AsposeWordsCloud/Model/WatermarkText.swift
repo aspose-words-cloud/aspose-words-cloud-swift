@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class WatermarkText : Codable, WordsApiModel {
     // Field of rotationAngle. Class for insert watermark text request building.
-    private var _rotationAngle : Double? = nil;
-
-    public var rotationAngle : Double? {
-        get {
-            return self._rotationAngle;
-        }
-        set {
-            self._rotationAngle = newValue;
-        }
-    }
+    public var rotationAngle : Double?;
 
     // Field of text. Class for insert watermark text request building.
-    private var _text : String? = nil;
-
-    public var text : String? {
-        get {
-            return self._text;
-        }
-        set {
-            self._text = newValue;
-        }
-    }
+    public var text : String?;
 
     private enum CodingKeys: String, CodingKey {
         case rotationAngle = "RotationAngle";
@@ -89,7 +71,6 @@ public class WatermarkText : Codable, WordsApiModel {
     public func getRotationAngle() -> Double? {
         return self.rotationAngle;
     }
-
 
     // Sets text. Gets or sets the watermark text.
     public func setText(text : String?) -> WatermarkText {

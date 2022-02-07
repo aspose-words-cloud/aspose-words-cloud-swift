@@ -92,148 +92,40 @@ public class TableCellFormat : LinkElement {
     }
 
     // Field of bottomPadding. DTO container with all formatting for a table row.
-    private var _bottomPadding : Double? = nil;
-
-    public var bottomPadding : Double? {
-        get {
-            return self._bottomPadding;
-        }
-        set {
-            self._bottomPadding = newValue;
-        }
-    }
+    public var bottomPadding : Double?;
 
     // Field of fitText. DTO container with all formatting for a table row.
-    private var _fitText : Bool? = nil;
-
-    public var fitText : Bool? {
-        get {
-            return self._fitText;
-        }
-        set {
-            self._fitText = newValue;
-        }
-    }
+    public var fitText : Bool?;
 
     // Field of horizontalMerge. DTO container with all formatting for a table row.
-    private var _horizontalMerge : HorizontalMerge? = nil;
-
-    public var horizontalMerge : HorizontalMerge? {
-        get {
-            return self._horizontalMerge;
-        }
-        set {
-            self._horizontalMerge = newValue;
-        }
-    }
+    public var horizontalMerge : HorizontalMerge?;
 
     // Field of leftPadding. DTO container with all formatting for a table row.
-    private var _leftPadding : Double? = nil;
-
-    public var leftPadding : Double? {
-        get {
-            return self._leftPadding;
-        }
-        set {
-            self._leftPadding = newValue;
-        }
-    }
+    public var leftPadding : Double?;
 
     // Field of orientation. DTO container with all formatting for a table row.
-    private var _orientation : Orientation? = nil;
-
-    public var orientation : Orientation? {
-        get {
-            return self._orientation;
-        }
-        set {
-            self._orientation = newValue;
-        }
-    }
+    public var orientation : Orientation?;
 
     // Field of preferredWidth. DTO container with all formatting for a table row.
-    private var _preferredWidth : PreferredWidth? = nil;
-
-    public var preferredWidth : PreferredWidth? {
-        get {
-            return self._preferredWidth;
-        }
-        set {
-            self._preferredWidth = newValue;
-        }
-    }
+    public var preferredWidth : PreferredWidth?;
 
     // Field of rightPadding. DTO container with all formatting for a table row.
-    private var _rightPadding : Double? = nil;
-
-    public var rightPadding : Double? {
-        get {
-            return self._rightPadding;
-        }
-        set {
-            self._rightPadding = newValue;
-        }
-    }
+    public var rightPadding : Double?;
 
     // Field of topPadding. DTO container with all formatting for a table row.
-    private var _topPadding : Double? = nil;
-
-    public var topPadding : Double? {
-        get {
-            return self._topPadding;
-        }
-        set {
-            self._topPadding = newValue;
-        }
-    }
+    public var topPadding : Double?;
 
     // Field of verticalAlignment. DTO container with all formatting for a table row.
-    private var _verticalAlignment : VerticalAlignment? = nil;
-
-    public var verticalAlignment : VerticalAlignment? {
-        get {
-            return self._verticalAlignment;
-        }
-        set {
-            self._verticalAlignment = newValue;
-        }
-    }
+    public var verticalAlignment : VerticalAlignment?;
 
     // Field of verticalMerge. DTO container with all formatting for a table row.
-    private var _verticalMerge : VerticalMerge? = nil;
-
-    public var verticalMerge : VerticalMerge? {
-        get {
-            return self._verticalMerge;
-        }
-        set {
-            self._verticalMerge = newValue;
-        }
-    }
+    public var verticalMerge : VerticalMerge?;
 
     // Field of width. DTO container with all formatting for a table row.
-    private var _width : Double? = nil;
-
-    public var width : Double? {
-        get {
-            return self._width;
-        }
-        set {
-            self._width = newValue;
-        }
-    }
+    public var width : Double?;
 
     // Field of wrapText. DTO container with all formatting for a table row.
-    private var _wrapText : Bool? = nil;
-
-    public var wrapText : Bool? {
-        get {
-            return self._wrapText;
-        }
-        set {
-            self._wrapText = newValue;
-        }
-    }
+    public var wrapText : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case bottomPadding = "BottomPadding";
@@ -324,7 +216,6 @@ public class TableCellFormat : LinkElement {
         return self.bottomPadding;
     }
 
-
     // Sets fitText. Gets or sets a value indicating whether to fit text in the cell, compress each paragraph to the width of the cell.
     public func setFitText(fitText : Bool?) -> TableCellFormat {
         self.fitText = fitText;
@@ -335,7 +226,6 @@ public class TableCellFormat : LinkElement {
     public func getFitText() -> Bool? {
         return self.fitText;
     }
-
 
     // Sets horizontalMerge. Gets or sets the option that controls how the cell is merged horizontally with other cells in the row.
     public func setHorizontalMerge(horizontalMerge : HorizontalMerge?) -> TableCellFormat {
@@ -348,7 +238,6 @@ public class TableCellFormat : LinkElement {
         return self.horizontalMerge;
     }
 
-
     // Sets leftPadding. Gets or sets the amount of space (in points) to add to the left of the contents of the cell.
     public func setLeftPadding(leftPadding : Double?) -> TableCellFormat {
         self.leftPadding = leftPadding;
@@ -359,7 +248,6 @@ public class TableCellFormat : LinkElement {
     public func getLeftPadding() -> Double? {
         return self.leftPadding;
     }
-
 
     // Sets orientation. Gets or sets the orientation of text in a table cell.
     public func setOrientation(orientation : Orientation?) -> TableCellFormat {
@@ -372,7 +260,6 @@ public class TableCellFormat : LinkElement {
         return self.orientation;
     }
 
-
     // Sets preferredWidth. Gets or sets the preferred width of the cell.
     public func setPreferredWidth(preferredWidth : PreferredWidth?) -> TableCellFormat {
         self.preferredWidth = preferredWidth;
@@ -383,7 +270,6 @@ public class TableCellFormat : LinkElement {
     public func getPreferredWidth() -> PreferredWidth? {
         return self.preferredWidth;
     }
-
 
     // Sets rightPadding. Gets or sets the amount of space (in points) to add to the right of the contents of the cell.
     public func setRightPadding(rightPadding : Double?) -> TableCellFormat {
@@ -396,7 +282,6 @@ public class TableCellFormat : LinkElement {
         return self.rightPadding;
     }
 
-
     // Sets topPadding. Gets or sets the amount of space (in points) to add above the contents of the cell.
     public func setTopPadding(topPadding : Double?) -> TableCellFormat {
         self.topPadding = topPadding;
@@ -407,7 +292,6 @@ public class TableCellFormat : LinkElement {
     public func getTopPadding() -> Double? {
         return self.topPadding;
     }
-
 
     // Sets verticalAlignment. Gets or sets the vertical alignment of text in the cell.
     public func setVerticalAlignment(verticalAlignment : VerticalAlignment?) -> TableCellFormat {
@@ -420,7 +304,6 @@ public class TableCellFormat : LinkElement {
         return self.verticalAlignment;
     }
 
-
     // Sets verticalMerge. Gets or sets the option that controls how the cell is merged with other cells vertically.
     public func setVerticalMerge(verticalMerge : VerticalMerge?) -> TableCellFormat {
         self.verticalMerge = verticalMerge;
@@ -432,7 +315,6 @@ public class TableCellFormat : LinkElement {
         return self.verticalMerge;
     }
 
-
     // Sets width. Gets or sets the width of the cell in points.
     public func setWidth(width : Double?) -> TableCellFormat {
         self.width = width;
@@ -443,7 +325,6 @@ public class TableCellFormat : LinkElement {
     public func getWidth() -> Double? {
         return self.width;
     }
-
 
     // Sets wrapText. Gets or sets a value indicating whether to wrap text in the cell.
     public func setWrapText(wrapText : Bool?) -> TableCellFormat {

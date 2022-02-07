@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SectionLinkCollection : LinkElement {
     // Field of sectionLinkList. The collection of section's links.
-    private var _sectionLinkList : [SectionLink]? = nil;
-
-    public var sectionLinkList : [SectionLink]? {
-        get {
-            return self._sectionLinkList;
-        }
-        set {
-            self._sectionLinkList = newValue;
-        }
-    }
+    public var sectionLinkList : [SectionLink]?;
 
     private enum CodingKeys: String, CodingKey {
         case sectionLinkList = "SectionLinkList";

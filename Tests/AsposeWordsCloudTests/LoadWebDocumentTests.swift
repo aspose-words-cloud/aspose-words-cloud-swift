@@ -37,15 +37,16 @@ class LoadWebDocumentTests: BaseTestContext {
 
     // Test for loading web document.
     func testLoadWebDocument() throws {
-      let requestDataSaveOptions = DocSaveOptionsData()
+      let requestDataSaveOptions = SaveOptionsData()
         .setDmlEffectsRenderingMode(dmlEffectsRenderingMode: "1")
         .setDmlRenderingMode(dmlRenderingMode: "1")
         .setFileName(fileName: "google.doc")
+        .setSaveFormat(saveFormat: "doc")
         .setUpdateSdtContent(updateSdtContent: false)
         .setZipOutput(zipOutput: false);
       let requestData = LoadWebDocumentData()
         .setLoadingDocumentUrl(loadingDocumentUrl: "http://google.com")
-        .setSaveOptions(saveOptions: requestDataSaveOptions as! DocSaveOptionsData);
+        .setSaveOptions(saveOptions: requestDataSaveOptions);
       let request = LoadWebDocumentRequest(data: requestData);
       let actual = try super.getApi().loadWebDocument(request: request);
       XCTAssertNotNil(actual.getSaveResult());

@@ -44,52 +44,16 @@ public class TableRowFormat : LinkElement {
     }
 
     // Field of allowBreakAcrossPages. DTO container with formatting for a table row.
-    private var _allowBreakAcrossPages : Bool? = nil;
-
-    public var allowBreakAcrossPages : Bool? {
-        get {
-            return self._allowBreakAcrossPages;
-        }
-        set {
-            self._allowBreakAcrossPages = newValue;
-        }
-    }
+    public var allowBreakAcrossPages : Bool?;
 
     // Field of headingFormat. DTO container with formatting for a table row.
-    private var _headingFormat : Bool? = nil;
-
-    public var headingFormat : Bool? {
-        get {
-            return self._headingFormat;
-        }
-        set {
-            self._headingFormat = newValue;
-        }
-    }
+    public var headingFormat : Bool?;
 
     // Field of height. DTO container with formatting for a table row.
-    private var _height : Double? = nil;
-
-    public var height : Double? {
-        get {
-            return self._height;
-        }
-        set {
-            self._height = newValue;
-        }
-    }
+    public var height : Double?;
 
     // Field of heightRule. DTO container with formatting for a table row.
-    private var _heightRule : HeightRule? = nil;
-
-    public var heightRule : HeightRule? {
-        get {
-            return self._heightRule;
-        }
-        set {
-            self._heightRule = newValue;
-        }
-    }
+    public var heightRule : HeightRule?;
 
     private enum CodingKeys: String, CodingKey {
         case allowBreakAcrossPages = "AllowBreakAcrossPages";
@@ -140,7 +104,6 @@ public class TableRowFormat : LinkElement {
         return self.allowBreakAcrossPages;
     }
 
-
     // Sets headingFormat. Gets or sets a value indicating whether the row is repeated as a table heading on every page when the table spans more than one page.
     public func setHeadingFormat(headingFormat : Bool?) -> TableRowFormat {
         self.headingFormat = headingFormat;
@@ -152,7 +115,6 @@ public class TableRowFormat : LinkElement {
         return self.headingFormat;
     }
 
-
     // Sets height. Gets or sets the height of the table row in points.
     public func setHeight(height : Double?) -> TableRowFormat {
         self.height = height;
@@ -163,7 +125,6 @@ public class TableRowFormat : LinkElement {
     public func getHeight() -> Double? {
         return self.height;
     }
-
 
     // Sets heightRule. Gets or sets the rule for determining the height of the table row.
     public func setHeightRule(heightRule : HeightRule?) -> TableRowFormat {

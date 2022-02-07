@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FormFieldDropDown : FormField {
     // Field of dropDownItems. FormField dropdownlist element.
-    private var _dropDownItems : [String]? = nil;
-
-    public var dropDownItems : [String]? {
-        get {
-            return self._dropDownItems;
-        }
-        set {
-            self._dropDownItems = newValue;
-        }
-    }
+    public var dropDownItems : [String]?;
 
     // Field of dropDownSelectedIndex. FormField dropdownlist element.
-    private var _dropDownSelectedIndex : Int? = nil;
-
-    public var dropDownSelectedIndex : Int? {
-        get {
-            return self._dropDownSelectedIndex;
-        }
-        set {
-            self._dropDownSelectedIndex = newValue;
-        }
-    }
+    public var dropDownSelectedIndex : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case dropDownItems = "DropDownItems";
@@ -92,7 +74,6 @@ public class FormFieldDropDown : FormField {
     public func getDropDownItems() -> [String]? {
         return self.dropDownItems;
     }
-
 
     // Sets dropDownSelectedIndex. Gets or sets the index specifying the currently selected item in a dropdown form field.
     public func setDropDownSelectedIndex(dropDownSelectedIndex : Int?) -> FormFieldDropDown {

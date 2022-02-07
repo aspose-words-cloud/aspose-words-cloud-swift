@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableRow : NodeLink {
     // Field of rowFormat. DTO container with a table row element.
-    private var _rowFormat : TableRowFormat? = nil;
-
-    public var rowFormat : TableRowFormat? {
-        get {
-            return self._rowFormat;
-        }
-        set {
-            self._rowFormat = newValue;
-        }
-    }
+    public var rowFormat : TableRowFormat?;
 
     // Field of tableCellList. DTO container with a table row element.
-    private var _tableCellList : [TableCell]? = nil;
-
-    public var tableCellList : [TableCell]? {
-        get {
-            return self._tableCellList;
-        }
-        set {
-            self._tableCellList = newValue;
-        }
-    }
+    public var tableCellList : [TableCell]?;
 
     private enum CodingKeys: String, CodingKey {
         case rowFormat = "RowFormat";
@@ -92,7 +74,6 @@ public class TableRow : NodeLink {
     public func getRowFormat() -> TableRowFormat? {
         return self.rowFormat;
     }
-
 
     // Sets tableCellList. Gets or sets the collection of rows.
     public func setTableCellList(tableCellList : [TableCell]?) -> TableRow {

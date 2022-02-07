@@ -31,40 +31,13 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FormFieldCheckbox : FormField {
     // Field of checkBoxSize. FormField checkbox element.
-    private var _checkBoxSize : Double? = nil;
-
-    public var checkBoxSize : Double? {
-        get {
-            return self._checkBoxSize;
-        }
-        set {
-            self._checkBoxSize = newValue;
-        }
-    }
+    public var checkBoxSize : Double?;
 
     // Field of checked. FormField checkbox element.
-    private var _checked : Bool? = nil;
-
-    public var checked : Bool? {
-        get {
-            return self._checked;
-        }
-        set {
-            self._checked = newValue;
-        }
-    }
+    public var checked : Bool?;
 
     // Field of isCheckBoxExactSize. FormField checkbox element.
-    private var _isCheckBoxExactSize : Bool? = nil;
-
-    public var isCheckBoxExactSize : Bool? {
-        get {
-            return self._isCheckBoxExactSize;
-        }
-        set {
-            self._isCheckBoxExactSize = newValue;
-        }
-    }
+    public var isCheckBoxExactSize : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case checkBoxSize = "CheckBoxSize";
@@ -110,7 +83,6 @@ public class FormFieldCheckbox : FormField {
         return self.checkBoxSize;
     }
 
-
     // Sets checked. Gets or sets the checked status of the check box form field.
     public func setChecked(checked : Bool?) -> FormFieldCheckbox {
         self.checked = checked;
@@ -121,7 +93,6 @@ public class FormFieldCheckbox : FormField {
     public func getChecked() -> Bool? {
         return self.checked;
     }
-
 
     // Sets isCheckBoxExactSize. Gets or sets a value indicating whether the size of the textbox is automatic or specified explicitly.
     public func setIsCheckBoxExactSize(isCheckBoxExactSize : Bool?) -> FormFieldCheckbox {

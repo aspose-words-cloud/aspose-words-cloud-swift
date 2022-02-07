@@ -31,40 +31,13 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentProperty : LinkElement {
     // Field of builtIn. Words document property DTO.
-    private var _builtIn : Bool? = nil;
-
-    public var builtIn : Bool? {
-        get {
-            return self._builtIn;
-        }
-        set {
-            self._builtIn = newValue;
-        }
-    }
+    public var builtIn : Bool?;
 
     // Field of name. Words document property DTO.
-    private var _name : String? = nil;
-
-    public var name : String? {
-        get {
-            return self._name;
-        }
-        set {
-            self._name = newValue;
-        }
-    }
+    public var name : String?;
 
     // Field of value. Words document property DTO.
-    private var _value : String? = nil;
-
-    public var value : String? {
-        get {
-            return self._value;
-        }
-        set {
-            self._value = newValue;
-        }
-    }
+    public var value : String?;
 
     private enum CodingKeys: String, CodingKey {
         case builtIn = "BuiltIn";
@@ -110,7 +83,6 @@ public class DocumentProperty : LinkElement {
         return self.builtIn;
     }
 
-
     // Sets name. Gets or sets the name of the document property.
     public func setName(name : String?) -> DocumentProperty {
         self.name = name;
@@ -121,7 +93,6 @@ public class DocumentProperty : LinkElement {
     public func getName() -> String? {
         return self.name;
     }
-
 
     // Sets value. Gets or sets the value of the document property.
     public func setValue(value : String?) -> DocumentProperty {

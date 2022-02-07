@@ -31,37 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of resourcesFolder. Container class for xaml fixed save options.
-    private var _resourcesFolder : String? = nil;
-
-    public var resourcesFolder : String? {
-        get {
-            return self._resourcesFolder;
-        }
-        set {
-            self._resourcesFolder = newValue;
-        }
-    }
+    public var resourcesFolder : String?;
 
     // Field of resourcesFolderAlias. Container class for xaml fixed save options.
-    private var _resourcesFolderAlias : String? = nil;
-
-    public var resourcesFolderAlias : String? {
-        get {
-            return self._resourcesFolderAlias;
-        }
-        set {
-            self._resourcesFolderAlias = newValue;
-        }
-    }
-
-    // Field of saveFormat. Container class for xaml fixed save options.
-    private final let _saveFormat : String? = "xamlfixed";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
+    public var resourcesFolderAlias : String?;
 
     private enum CodingKeys: String, CodingKey {
         case resourcesFolder = "ResourcesFolder";
@@ -101,7 +74,6 @@ public class XamlFixedSaveOptionsData : FixedPageSaveOptionsData {
     public func getResourcesFolder() -> String? {
         return self.resourcesFolder;
     }
-
 
     // Sets resourcesFolderAlias. Gets or sets the name of the folder used to construct image URIs written into an fixed page Xaml document. The default value is null.
     public func setResourcesFolderAlias(resourcesFolderAlias : String?) -> XamlFixedSaveOptionsData {

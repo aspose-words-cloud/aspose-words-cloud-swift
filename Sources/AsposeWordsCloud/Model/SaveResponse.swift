@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SaveResponse : WordsResponse {
     // Field of saveResult. The REST response with a save result.
-    private var _saveResult : SaveResult? = nil;
-
-    public var saveResult : SaveResult? {
-        get {
-            return self._saveResult;
-        }
-        set {
-            self._saveResult = newValue;
-        }
-    }
+    public var saveResult : SaveResult?;
 
     private enum CodingKeys: String, CodingKey {
         case saveResult = "SaveResult";

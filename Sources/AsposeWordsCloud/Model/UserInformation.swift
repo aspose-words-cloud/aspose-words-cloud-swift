@@ -31,40 +31,13 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class UserInformation : Codable, WordsApiModel {
     // Field of address. DTO for user information.
-    private var _address : String? = nil;
-
-    public var address : String? {
-        get {
-            return self._address;
-        }
-        set {
-            self._address = newValue;
-        }
-    }
+    public var address : String?;
 
     // Field of initials. DTO for user information.
-    private var _initials : String? = nil;
-
-    public var initials : String? {
-        get {
-            return self._initials;
-        }
-        set {
-            self._initials = newValue;
-        }
-    }
+    public var initials : String?;
 
     // Field of name. DTO for user information.
-    private var _name : String? = nil;
-
-    public var name : String? {
-        get {
-            return self._name;
-        }
-        set {
-            self._name = newValue;
-        }
-    }
+    public var name : String?;
 
     private enum CodingKeys: String, CodingKey {
         case address = "Address";
@@ -107,7 +80,6 @@ public class UserInformation : Codable, WordsApiModel {
         return self.address;
     }
 
-
     // Sets initials. Gets or sets user initials.
     public func setInitials(initials : String?) -> UserInformation {
         self.initials = initials;
@@ -118,7 +90,6 @@ public class UserInformation : Codable, WordsApiModel {
     public func getInitials() -> String? {
         return self.initials;
     }
-
 
     // Sets name. Gets or sets user name.
     public func setName(name : String?) -> UserInformation {

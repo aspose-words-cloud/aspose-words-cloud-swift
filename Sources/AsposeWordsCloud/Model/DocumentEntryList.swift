@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentEntryList : Codable, WordsApiModel {
     // Field of applyBaseDocumentHeadersAndFootersToAppendingDocuments. Represents a list of documents which will be appended to the original resource document.
-    private var _applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool? = nil;
-
-    public var applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool? {
-        get {
-            return self._applyBaseDocumentHeadersAndFootersToAppendingDocuments;
-        }
-        set {
-            self._applyBaseDocumentHeadersAndFootersToAppendingDocuments = newValue;
-        }
-    }
+    public var applyBaseDocumentHeadersAndFootersToAppendingDocuments : Bool?;
 
     // Field of documentEntries. Represents a list of documents which will be appended to the original resource document.
-    private var _documentEntries : [DocumentEntry]? = nil;
-
-    public var documentEntries : [DocumentEntry]? {
-        get {
-            return self._documentEntries;
-        }
-        set {
-            self._documentEntries = newValue;
-        }
-    }
+    public var documentEntries : [DocumentEntry]?;
 
     private enum CodingKeys: String, CodingKey {
         case applyBaseDocumentHeadersAndFootersToAppendingDocuments = "ApplyBaseDocumentHeadersAndFootersToAppendingDocuments";
@@ -89,7 +71,6 @@ public class DocumentEntryList : Codable, WordsApiModel {
     public func getApplyBaseDocumentHeadersAndFootersToAppendingDocuments() -> Bool? {
         return self.applyBaseDocumentHeadersAndFootersToAppendingDocuments;
     }
-
 
     // Sets documentEntries. Gets or sets the list of documents.
     public func setDocumentEntries(documentEntries : [DocumentEntry]?) -> DocumentEntryList {

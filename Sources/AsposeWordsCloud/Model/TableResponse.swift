@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableResponse : WordsResponse {
     // Field of table. The REST response with a table.
-    private var _table : Table? = nil;
-
-    public var table : Table? {
-        get {
-            return self._table;
-        }
-        set {
-            self._table = newValue;
-        }
-    }
+    public var table : Table?;
 
     private enum CodingKeys: String, CodingKey {
         case table = "Table";

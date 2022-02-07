@@ -32,15 +32,24 @@ import Foundation
 public class ApiInvoker {
     // An object containing the configuration for executing API requests 
     private let configuration : Configuration;
-    
-    // data encryptor
-    private encryptor : Encryptor;
+
+#if os(Linux)
+    // Encryption of passwords in query params not supported on linux
+#else
+    private let encryptor : Encryptor;
+#endif
 
     // Cached value of oauth2 authorization tokeт. 
     // It is filled after the first call to the API. 
     // Mutex is used to synchronize updates in a multi-threaded environment.
     private let mutex : NSLock;
     private var accessTokenCache : String?;
+
+#if os(Linux)
+    // Encryption of passwords in query params not supported on linux
+#else
+    private let encryptor : Encryptor;
+#endif
 
     // Maximum size of printing body content in debug mode
     private let maxDebugPrintingContentSize = 1024 * 1024; // 1Mb
@@ -52,16 +61,19 @@ public class ApiInvoker {
     private let httpStatusCodeTimeout = 408;
 
     // Initialize ApiInvoker object with specific configuration
+#if os(Linux)
+    public init(configuration : Configuration) {
+#else
     public init(configuration : Configuration, encryptor: Encryptor) {
+#endif
         self.configuration = configuration;
         self.mutex = NSLock();
         self.accessTokenCache = nil;
+#if os(Linux)
+    // Encryption of passwords in query params not supported on linux
+#else
         this.encryptor = encryptor;
-    }
-    
-    // get encryptor
-    public func getEncryptor() -> Encryptor {
-        return encryptor;
+#endif
     }
 
     // Internal class for represent API response
@@ -291,4 +303,12 @@ public class ApiInvoker {
 
         return lengthField;
     }
+
+#if os(Linux)
+    // Encryption of passwords in query params not supported on linux
+#else
+    public func encryptString(data : String) throws -> String {
+        return encryptor.encrypt(data);
+    }
+#endif
 }

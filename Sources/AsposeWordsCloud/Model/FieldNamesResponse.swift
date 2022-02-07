@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FieldNamesResponse : WordsResponse {
     // Field of fieldNames. The REST response with a collection of mail merge fields.
-    private var _fieldNames : FieldNames? = nil;
-
-    public var fieldNames : FieldNames? {
-        get {
-            return self._fieldNames;
-        }
-        set {
-            self._fieldNames = newValue;
-        }
-    }
+    public var fieldNames : FieldNames?;
 
     private enum CodingKeys: String, CodingKey {
         case fieldNames = "FieldNames";

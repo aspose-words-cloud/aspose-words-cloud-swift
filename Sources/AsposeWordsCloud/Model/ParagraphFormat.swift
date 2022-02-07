@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ParagraphFormat : ParagraphFormatBase {
     // Field of isHeading. Paragraph format element.
-    private var _isHeading : Bool? = nil;
-
-    public var isHeading : Bool? {
-        get {
-            return self._isHeading;
-        }
-        set {
-            self._isHeading = newValue;
-        }
-    }
+    public var isHeading : Bool?;
 
     // Field of isListItem. Paragraph format element.
-    private var _isListItem : Bool? = nil;
-
-    public var isListItem : Bool? {
-        get {
-            return self._isListItem;
-        }
-        set {
-            self._isListItem = newValue;
-        }
-    }
+    public var isListItem : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case isHeading = "IsHeading";
@@ -92,7 +74,6 @@ public class ParagraphFormat : ParagraphFormatBase {
     public func getIsHeading() -> Bool? {
         return self.isHeading;
     }
-
 
     // Sets isListItem. Gets or sets a value indicating whether the paragraph is an item in a bulleted or numbered list.
     public func setIsListItem(isListItem : Bool?) -> ParagraphFormat {

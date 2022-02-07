@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class WordsResponse : Codable, WordsApiModel {
     // Field of requestId. The base class for all responses.
-    private var _requestId : String? = nil;
-
-    public var requestId : String? {
-        get {
-            return self._requestId;
-        }
-        set {
-            self._requestId = newValue;
-        }
-    }
+    public var requestId : String?;
 
     private enum CodingKeys: String, CodingKey {
         case requestId = "RequestId";

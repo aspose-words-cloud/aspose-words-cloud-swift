@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableRowInsertDto : Codable, WordsApiModel {
     // Field of columnsCount. DTO container with a table row element.
-    private var _columnsCount : Int? = nil;
-
-    public var columnsCount : Int? {
-        get {
-            return self._columnsCount;
-        }
-        set {
-            self._columnsCount = newValue;
-        }
-    }
+    public var columnsCount : Int?;
 
     // Field of insertAfter. DTO container with a table row element.
-    private var _insertAfter : Int? = nil;
-
-    public var insertAfter : Int? {
-        get {
-            return self._insertAfter;
-        }
-        set {
-            self._insertAfter = newValue;
-        }
-    }
+    public var insertAfter : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case columnsCount = "ColumnsCount";
@@ -89,7 +71,6 @@ public class TableRowInsertDto : Codable, WordsApiModel {
     public func getColumnsCount() -> Int? {
         return self.columnsCount;
     }
-
 
     // Sets insertAfter. Gets or sets table row will be inserted after row with specified 0-based index.
     public func setInsertAfter(insertAfter : Int?) -> TableRowInsertDto {

@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class OfficeMathObjectsCollection : LinkElement {
     // Field of list. DTO container with a collection of OfficeMath objects.
-    private var _list : [OfficeMathObject]? = nil;
-
-    public var list : [OfficeMathObject]? {
-        get {
-            return self._list;
-        }
-        set {
-            self._list = newValue;
-        }
-    }
+    public var list : [OfficeMathObject]?;
 
     private enum CodingKeys: String, CodingKey {
         case list = "List";

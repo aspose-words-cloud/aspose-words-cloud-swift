@@ -72,14 +72,17 @@ public class CreateDocumentRequest : WordsApiRequest {
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
          if (self.getFileName() != nil) {
-         queryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: self.getFileName()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: self.getFileName()!)));
+         #elsequeryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: self.getFileName()!)));
+         #endif        }
          if (self.getFolder() != nil) {
-         queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         #elsequeryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         #endif        }
          if (self.getStorage() != nil) {
-         queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         #elsequeryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         #endif        }
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }

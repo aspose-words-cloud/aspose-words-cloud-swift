@@ -31,181 +31,46 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     // Field of cssClassNamesPrefix. Container class for fixed html save options.
-    private var _cssClassNamesPrefix : String? = nil;
-
-    public var cssClassNamesPrefix : String? {
-        get {
-            return self._cssClassNamesPrefix;
-        }
-        set {
-            self._cssClassNamesPrefix = newValue;
-        }
-    }
+    public var cssClassNamesPrefix : String?;
 
     // Field of encoding. Container class for fixed html save options.
-    private var _encoding : String? = nil;
-
-    public var encoding : String? {
-        get {
-            return self._encoding;
-        }
-        set {
-            self._encoding = newValue;
-        }
-    }
+    public var encoding : String?;
 
     // Field of exportEmbeddedCss. Container class for fixed html save options.
-    private var _exportEmbeddedCss : Bool? = nil;
-
-    public var exportEmbeddedCss : Bool? {
-        get {
-            return self._exportEmbeddedCss;
-        }
-        set {
-            self._exportEmbeddedCss = newValue;
-        }
-    }
+    public var exportEmbeddedCss : Bool?;
 
     // Field of exportEmbeddedFonts. Container class for fixed html save options.
-    private var _exportEmbeddedFonts : Bool? = nil;
-
-    public var exportEmbeddedFonts : Bool? {
-        get {
-            return self._exportEmbeddedFonts;
-        }
-        set {
-            self._exportEmbeddedFonts = newValue;
-        }
-    }
+    public var exportEmbeddedFonts : Bool?;
 
     // Field of exportEmbeddedImages. Container class for fixed html save options.
-    private var _exportEmbeddedImages : Bool? = nil;
-
-    public var exportEmbeddedImages : Bool? {
-        get {
-            return self._exportEmbeddedImages;
-        }
-        set {
-            self._exportEmbeddedImages = newValue;
-        }
-    }
+    public var exportEmbeddedImages : Bool?;
 
     // Field of exportFormFields. Container class for fixed html save options.
-    private var _exportFormFields : Bool? = nil;
-
-    public var exportFormFields : Bool? {
-        get {
-            return self._exportFormFields;
-        }
-        set {
-            self._exportFormFields = newValue;
-        }
-    }
+    public var exportFormFields : Bool?;
 
     // Field of fontFormat. Container class for fixed html save options.
-    private var _fontFormat : String? = nil;
-
-    public var fontFormat : String? {
-        get {
-            return self._fontFormat;
-        }
-        set {
-            self._fontFormat = newValue;
-        }
-    }
+    public var fontFormat : String?;
 
     // Field of pageHorizontalAlignment. Container class for fixed html save options.
-    private var _pageHorizontalAlignment : String? = nil;
-
-    public var pageHorizontalAlignment : String? {
-        get {
-            return self._pageHorizontalAlignment;
-        }
-        set {
-            self._pageHorizontalAlignment = newValue;
-        }
-    }
+    public var pageHorizontalAlignment : String?;
 
     // Field of pageMargins. Container class for fixed html save options.
-    private var _pageMargins : Double? = nil;
-
-    public var pageMargins : Double? {
-        get {
-            return self._pageMargins;
-        }
-        set {
-            self._pageMargins = newValue;
-        }
-    }
+    public var pageMargins : Double?;
 
     // Field of resourcesFolder. Container class for fixed html save options.
-    private var _resourcesFolder : String? = nil;
-
-    public var resourcesFolder : String? {
-        get {
-            return self._resourcesFolder;
-        }
-        set {
-            self._resourcesFolder = newValue;
-        }
-    }
+    public var resourcesFolder : String?;
 
     // Field of resourcesFolderAlias. Container class for fixed html save options.
-    private var _resourcesFolderAlias : String? = nil;
-
-    public var resourcesFolderAlias : String? {
-        get {
-            return self._resourcesFolderAlias;
-        }
-        set {
-            self._resourcesFolderAlias = newValue;
-        }
-    }
+    public var resourcesFolderAlias : String?;
 
     // Field of saveFontFaceCssSeparately. Container class for fixed html save options.
-    private var _saveFontFaceCssSeparately : Bool? = nil;
-
-    public var saveFontFaceCssSeparately : Bool? {
-        get {
-            return self._saveFontFaceCssSeparately;
-        }
-        set {
-            self._saveFontFaceCssSeparately = newValue;
-        }
-    }
-
-    // Field of saveFormat. Container class for fixed html save options.
-    private final let _saveFormat : String? = "htmlfixed";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
+    public var saveFontFaceCssSeparately : Bool?;
 
     // Field of showPageBorder. Container class for fixed html save options.
-    private var _showPageBorder : Bool? = nil;
-
-    public var showPageBorder : Bool? {
-        get {
-            return self._showPageBorder;
-        }
-        set {
-            self._showPageBorder = newValue;
-        }
-    }
+    public var showPageBorder : Bool?;
 
     // Field of useTargetMachineFonts. Container class for fixed html save options.
-    private var _useTargetMachineFonts : Bool? = nil;
-
-    public var useTargetMachineFonts : Bool? {
-        get {
-            return self._useTargetMachineFonts;
-        }
-        set {
-            self._useTargetMachineFonts = newValue;
-        }
-    }
+    public var useTargetMachineFonts : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case cssClassNamesPrefix = "CssClassNamesPrefix";
@@ -306,7 +171,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         return self.cssClassNamesPrefix;
     }
 
-
     // Sets encoding. Gets or sets the character encoding.
     public func setEncoding(encoding : String?) -> HtmlFixedSaveOptionsData {
         self.encoding = encoding;
@@ -317,7 +181,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     public func getEncoding() -> String? {
         return self.encoding;
     }
-
 
     // Sets exportEmbeddedCss. Gets or sets a value indicating whether the CSS (Cascading Style Sheet) should be embedded into the Html document.
     public func setExportEmbeddedCss(exportEmbeddedCss : Bool?) -> HtmlFixedSaveOptionsData {
@@ -330,7 +193,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         return self.exportEmbeddedCss;
     }
 
-
     // Sets exportEmbeddedFonts. Gets or sets a value indicating whether fonts should be embedded into the Html document in Base64 format.
     public func setExportEmbeddedFonts(exportEmbeddedFonts : Bool?) -> HtmlFixedSaveOptionsData {
         self.exportEmbeddedFonts = exportEmbeddedFonts;
@@ -341,7 +203,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     public func getExportEmbeddedFonts() -> Bool? {
         return self.exportEmbeddedFonts;
     }
-
 
     // Sets exportEmbeddedImages. Gets or sets a value indicating whether images should be embedded into the Html document in Base64 format.
     public func setExportEmbeddedImages(exportEmbeddedImages : Bool?) -> HtmlFixedSaveOptionsData {
@@ -354,7 +215,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         return self.exportEmbeddedImages;
     }
 
-
     // Sets exportFormFields. Gets or sets a value indicating whether form fields are exported as interactive items (as 'input' tag) rather than converted to text or graphics.
     public func setExportFormFields(exportFormFields : Bool?) -> HtmlFixedSaveOptionsData {
         self.exportFormFields = exportFormFields;
@@ -365,7 +225,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     public func getExportFormFields() -> Bool? {
         return self.exportFormFields;
     }
-
 
     // Sets fontFormat. Gets or sets the export format of fonts.
     public func setFontFormat(fontFormat : String?) -> HtmlFixedSaveOptionsData {
@@ -378,7 +237,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         return self.fontFormat;
     }
 
-
     // Sets pageHorizontalAlignment. Gets or sets the horizontal alignment of pages in the HTML document. The default value is HtmlFixedHorizontalPageAlignment.Center.
     public func setPageHorizontalAlignment(pageHorizontalAlignment : String?) -> HtmlFixedSaveOptionsData {
         self.pageHorizontalAlignment = pageHorizontalAlignment;
@@ -389,7 +247,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     public func getPageHorizontalAlignment() -> String? {
         return self.pageHorizontalAlignment;
     }
-
 
     // Sets pageMargins. Gets or sets the margin around pages in HTML document. The margins value is measured in points and should be equal to or greater than 0. Default value is 10 points.
     public func setPageMargins(pageMargins : Double?) -> HtmlFixedSaveOptionsData {
@@ -402,7 +259,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         return self.pageMargins;
     }
 
-
     // Sets resourcesFolder. Gets or sets the physical folder where resources are saved when exporting the document.
     public func setResourcesFolder(resourcesFolder : String?) -> HtmlFixedSaveOptionsData {
         self.resourcesFolder = resourcesFolder;
@@ -413,7 +269,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     public func getResourcesFolder() -> String? {
         return self.resourcesFolder;
     }
-
 
     // Sets resourcesFolderAlias. Gets or sets the name of the folder used to construct resource URIs.
     public func setResourcesFolderAlias(resourcesFolderAlias : String?) -> HtmlFixedSaveOptionsData {
@@ -426,7 +281,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         return self.resourcesFolderAlias;
     }
 
-
     // Sets saveFontFaceCssSeparately. Gets or sets a value indicating whether "@font-face" CSS rules should be placed into a separate file "fontFaces.css" when a document is being saved with external stylesheet (that is, when Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedCss is false). The default value is false, all CSS rules are written into single file "styles.css".
     public func setSaveFontFaceCssSeparately(saveFontFaceCssSeparately : Bool?) -> HtmlFixedSaveOptionsData {
         self.saveFontFaceCssSeparately = saveFontFaceCssSeparately;
@@ -438,7 +292,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         return self.saveFontFaceCssSeparately;
     }
 
-
     // Sets showPageBorder. Gets or sets a value indicating whether to show border around pages.
     public func setShowPageBorder(showPageBorder : Bool?) -> HtmlFixedSaveOptionsData {
         self.showPageBorder = showPageBorder;
@@ -449,7 +302,6 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     public func getShowPageBorder() -> Bool? {
         return self.showPageBorder;
     }
-
 
     // Sets useTargetMachineFonts. Gets or sets a value indicating whether fonts from target machine must be used to display the document. If this flag is set to true, Aspose.Words.Saving.HtmlFixedSaveOptions.FontFormat and Aspose.Words.Saving.HtmlFixedSaveOptions.ExportEmbeddedFonts properties do not have effect, also Aspose.Words.Saving.HtmlFixedSaveOptions.ResourceSavingCallback is not fired for fonts. The default value is false.
     public func setUseTargetMachineFonts(useTargetMachineFonts : Bool?) -> HtmlFixedSaveOptionsData {

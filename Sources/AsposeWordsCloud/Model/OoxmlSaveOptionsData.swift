@@ -47,52 +47,16 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     }
 
     // Field of compliance. Container class for docx/docm/dotx/dotm/flatopc save options.
-    private var _compliance : String? = nil;
-
-    public var compliance : String? {
-        get {
-            return self._compliance;
-        }
-        set {
-            self._compliance = newValue;
-        }
-    }
+    public var compliance : String?;
 
     // Field of compressionLevel. Container class for docx/docm/dotx/dotm/flatopc save options.
-    private var _compressionLevel : CompressionLevel? = nil;
-
-    public var compressionLevel : CompressionLevel? {
-        get {
-            return self._compressionLevel;
-        }
-        set {
-            self._compressionLevel = newValue;
-        }
-    }
+    public var compressionLevel : CompressionLevel?;
 
     // Field of password. Container class for docx/docm/dotx/dotm/flatopc save options.
-    private var _password : String? = nil;
-
-    public var password : String? {
-        get {
-            return self._password;
-        }
-        set {
-            self._password = newValue;
-        }
-    }
+    public var password : String?;
 
     // Field of prettyFormat. Container class for docx/docm/dotx/dotm/flatopc save options.
-    private var _prettyFormat : Bool? = nil;
-
-    public var prettyFormat : Bool? {
-        get {
-            return self._prettyFormat;
-        }
-        set {
-            self._prettyFormat = newValue;
-        }
-    }
+    public var prettyFormat : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case compliance = "Compliance";
@@ -143,7 +107,6 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
         return self.compliance;
     }
 
-
     // Sets compressionLevel. Gets or sets the compression level.
     public func setCompressionLevel(compressionLevel : CompressionLevel?) -> OoxmlSaveOptionsData {
         self.compressionLevel = compressionLevel;
@@ -155,7 +118,6 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
         return self.compressionLevel;
     }
 
-
     // Sets password. Gets or sets the password to encrypt document using ECMA376 Standard encryption algorithm.
     public func setPassword(password : String?) -> OoxmlSaveOptionsData {
         self.password = password;
@@ -166,7 +128,6 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     public func getPassword() -> String? {
         return self.password;
     }
-
 
     // Sets prettyFormat. Gets or sets a value indicating whether to use pretty formats output.
     public func setPrettyFormat(prettyFormat : Bool?) -> OoxmlSaveOptionsData {

@@ -42,61 +42,16 @@ public class OdtSaveOptionsData : SaveOptionsData {
     }
 
     // Field of isStrictSchema11. Container class for odt/ott save options.
-    private var _isStrictSchema11 : Bool? = nil;
-
-    public var isStrictSchema11 : Bool? {
-        get {
-            return self._isStrictSchema11;
-        }
-        set {
-            self._isStrictSchema11 = newValue;
-        }
-    }
+    public var isStrictSchema11 : Bool?;
 
     // Field of measureUnit. Container class for odt/ott save options.
-    private var _measureUnit : MeasureUnit? = nil;
-
-    public var measureUnit : MeasureUnit? {
-        get {
-            return self._measureUnit;
-        }
-        set {
-            self._measureUnit = newValue;
-        }
-    }
+    public var measureUnit : MeasureUnit?;
 
     // Field of password. Container class for odt/ott save options.
-    private var _password : String? = nil;
-
-    public var password : String? {
-        get {
-            return self._password;
-        }
-        set {
-            self._password = newValue;
-        }
-    }
+    public var password : String?;
 
     // Field of prettyFormat. Container class for odt/ott save options.
-    private var _prettyFormat : Bool? = nil;
-
-    public var prettyFormat : Bool? {
-        get {
-            return self._prettyFormat;
-        }
-        set {
-            self._prettyFormat = newValue;
-        }
-    }
-
-    // Field of saveFormat. Container class for odt/ott save options.
-    private final let _saveFormat : String? = "odt";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
+    public var prettyFormat : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case isStrictSchema11 = "IsStrictSchema11";
@@ -147,7 +102,6 @@ public class OdtSaveOptionsData : SaveOptionsData {
         return self.isStrictSchema11;
     }
 
-
     // Sets measureUnit. Gets or sets the units of measure to apply to document content. The default value is Aspose.Words.Saving.OdtSaveMeasureUnit.Centimeters. Open Office uses centimeters when specifying lengths, widths and other measurable formatting and content properties in documents whereas MS Office uses inches.
     public func setMeasureUnit(measureUnit : MeasureUnit?) -> OdtSaveOptionsData {
         self.measureUnit = measureUnit;
@@ -159,7 +113,6 @@ public class OdtSaveOptionsData : SaveOptionsData {
         return self.measureUnit;
     }
 
-
     // Sets password. Gets or sets the password to encrypt document.
     public func setPassword(password : String?) -> OdtSaveOptionsData {
         self.password = password;
@@ -170,7 +123,6 @@ public class OdtSaveOptionsData : SaveOptionsData {
     public func getPassword() -> String? {
         return self.password;
     }
-
 
     // Sets prettyFormat. Gets or sets a value indicating whether to use pretty formats output.
     public func setPrettyFormat(prettyFormat : Bool?) -> OdtSaveOptionsData {

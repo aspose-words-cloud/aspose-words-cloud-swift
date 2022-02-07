@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CommentResponse : WordsResponse {
     // Field of comment. The REST response with a comment.
-    private var _comment : Comment? = nil;
-
-    public var comment : Comment? {
-        get {
-            return self._comment;
-        }
-        set {
-            self._comment = newValue;
-        }
-    }
+    public var comment : Comment?;
 
     private enum CodingKeys: String, CodingKey {
         case comment = "Comment";

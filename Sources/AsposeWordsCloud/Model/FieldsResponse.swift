@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FieldsResponse : WordsResponse {
     // Field of fields. The REST response with a collection of fields.
-    private var _fields : FieldCollection? = nil;
-
-    public var fields : FieldCollection? {
-        get {
-            return self._fields;
-        }
-        set {
-            self._fields = newValue;
-        }
-    }
+    public var fields : FieldCollection?;
 
     private enum CodingKeys: String, CodingKey {
         case fields = "Fields";

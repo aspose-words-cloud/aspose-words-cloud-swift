@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class LoadWebDocumentData : Codable, WordsApiModel {
     // Field of loadingDocumentUrl. Contains data for load web document.
-    private var _loadingDocumentUrl : String? = nil;
-
-    public var loadingDocumentUrl : String? {
-        get {
-            return self._loadingDocumentUrl;
-        }
-        set {
-            self._loadingDocumentUrl = newValue;
-        }
-    }
+    public var loadingDocumentUrl : String?;
 
     // Field of saveOptions. Contains data for load web document.
-    private var _saveOptions : SaveOptionsData? = nil;
-
-    public var saveOptions : SaveOptionsData? {
-        get {
-            return self._saveOptions;
-        }
-        set {
-            self._saveOptions = newValue;
-        }
-    }
+    public var saveOptions : SaveOptionsData?;
 
     private enum CodingKeys: String, CodingKey {
         case loadingDocumentUrl = "LoadingDocumentUrl";
@@ -89,7 +71,6 @@ public class LoadWebDocumentData : Codable, WordsApiModel {
     public func getLoadingDocumentUrl() -> String? {
         return self.loadingDocumentUrl;
     }
-
 
     // Sets saveOptions. Gets or sets the save options.
     public func setSaveOptions(saveOptions : SaveOptionsData?) -> LoadWebDocumentData {

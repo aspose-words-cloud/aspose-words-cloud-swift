@@ -31,88 +31,25 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FixedPageSaveOptionsData : SaveOptionsData {
     // Field of colorMode. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var _colorMode : String? = nil;
-
-    public var colorMode : String? {
-        get {
-            return self._colorMode;
-        }
-        set {
-            self._colorMode = newValue;
-        }
-    }
+    public var colorMode : String?;
 
     // Field of jpegQuality. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var _jpegQuality : Int? = nil;
-
-    public var jpegQuality : Int? {
-        get {
-            return self._jpegQuality;
-        }
-        set {
-            self._jpegQuality = newValue;
-        }
-    }
+    public var jpegQuality : Int?;
 
     // Field of metafileRenderingOptions. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var _metafileRenderingOptions : MetafileRenderingOptionsData? = nil;
-
-    public var metafileRenderingOptions : MetafileRenderingOptionsData? {
-        get {
-            return self._metafileRenderingOptions;
-        }
-        set {
-            self._metafileRenderingOptions = newValue;
-        }
-    }
+    public var metafileRenderingOptions : MetafileRenderingOptionsData?;
 
     // Field of numeralFormat. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var _numeralFormat : String? = nil;
-
-    public var numeralFormat : String? {
-        get {
-            return self._numeralFormat;
-        }
-        set {
-            self._numeralFormat = newValue;
-        }
-    }
+    public var numeralFormat : String?;
 
     // Field of optimizeOutput. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var _optimizeOutput : Bool? = nil;
-
-    public var optimizeOutput : Bool? {
-        get {
-            return self._optimizeOutput;
-        }
-        set {
-            self._optimizeOutput = newValue;
-        }
-    }
+    public var optimizeOutput : Bool?;
 
     // Field of pageCount. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var _pageCount : Int? = nil;
-
-    public var pageCount : Int? {
-        get {
-            return self._pageCount;
-        }
-        set {
-            self._pageCount = newValue;
-        }
-    }
+    public var pageCount : Int?;
 
     // Field of pageIndex. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var _pageIndex : Int? = nil;
-
-    public var pageIndex : Int? {
-        get {
-            return self._pageIndex;
-        }
-        set {
-            self._pageIndex = newValue;
-        }
-    }
+    public var pageIndex : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case colorMode = "ColorMode";
@@ -178,7 +115,6 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         return self.colorMode;
     }
 
-
     // Sets jpegQuality. Gets or sets the quality of the JPEG images inside PDF document.
     public func setJpegQuality(jpegQuality : Int?) -> FixedPageSaveOptionsData {
         self.jpegQuality = jpegQuality;
@@ -189,7 +125,6 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     public func getJpegQuality() -> Int? {
         return self.jpegQuality;
     }
-
 
     // Sets metafileRenderingOptions. Gets or sets the metafile rendering options.
     public func setMetafileRenderingOptions(metafileRenderingOptions : MetafileRenderingOptionsData?) -> FixedPageSaveOptionsData {
@@ -202,7 +137,6 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         return self.metafileRenderingOptions;
     }
 
-
     // Sets numeralFormat. Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
     public func setNumeralFormat(numeralFormat : String?) -> FixedPageSaveOptionsData {
         self.numeralFormat = numeralFormat;
@@ -213,7 +147,6 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     public func getNumeralFormat() -> String? {
         return self.numeralFormat;
     }
-
 
     // Sets optimizeOutput. Gets or sets a value indicating whether it is required to optimize output of XPS. If this flag is set redundant nested canvases and empty canvases are removed, also neighbor glyphs with the same formatting are concatenated. Note: The accuracy of the content display may be affected if this property is set to true.. The default value is false.
     public func setOptimizeOutput(optimizeOutput : Bool?) -> FixedPageSaveOptionsData {
@@ -226,7 +159,6 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
         return self.optimizeOutput;
     }
 
-
     // Sets pageCount. Gets or sets the number of pages to render.
     public func setPageCount(pageCount : Int?) -> FixedPageSaveOptionsData {
         self.pageCount = pageCount;
@@ -237,7 +169,6 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     public func getPageCount() -> Int? {
         return self.pageCount;
     }
-
 
     // Sets pageIndex. Gets or sets the 0-based index of the first page to render.
     public func setPageIndex(pageIndex : Int?) -> FixedPageSaveOptionsData {

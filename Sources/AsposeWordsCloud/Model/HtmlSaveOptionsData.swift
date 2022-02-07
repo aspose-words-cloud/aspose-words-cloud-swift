@@ -71,481 +71,121 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Field of allowNegativeIndent. Container class for html save options.
-    private var _allowNegativeIndent : Bool? = nil;
-
-    public var allowNegativeIndent : Bool? {
-        get {
-            return self._allowNegativeIndent;
-        }
-        set {
-            self._allowNegativeIndent = newValue;
-        }
-    }
+    public var allowNegativeIndent : Bool?;
 
     // Field of cssClassNamePrefix. Container class for html save options.
-    private var _cssClassNamePrefix : String? = nil;
-
-    public var cssClassNamePrefix : String? {
-        get {
-            return self._cssClassNamePrefix;
-        }
-        set {
-            self._cssClassNamePrefix = newValue;
-        }
-    }
+    public var cssClassNamePrefix : String?;
 
     // Field of cssStyleSheetFileName. Container class for html save options.
-    private var _cssStyleSheetFileName : String? = nil;
-
-    public var cssStyleSheetFileName : String? {
-        get {
-            return self._cssStyleSheetFileName;
-        }
-        set {
-            self._cssStyleSheetFileName = newValue;
-        }
-    }
+    public var cssStyleSheetFileName : String?;
 
     // Field of cssStyleSheetType. Container class for html save options.
-    private var _cssStyleSheetType : String? = nil;
-
-    public var cssStyleSheetType : String? {
-        get {
-            return self._cssStyleSheetType;
-        }
-        set {
-            self._cssStyleSheetType = newValue;
-        }
-    }
+    public var cssStyleSheetType : String?;
 
     // Field of documentSplitCriteria. Container class for html save options.
-    private var _documentSplitCriteria : String? = nil;
-
-    public var documentSplitCriteria : String? {
-        get {
-            return self._documentSplitCriteria;
-        }
-        set {
-            self._documentSplitCriteria = newValue;
-        }
-    }
+    public var documentSplitCriteria : String?;
 
     // Field of documentSplitHeadingLevel. Container class for html save options.
-    private var _documentSplitHeadingLevel : Int? = nil;
-
-    public var documentSplitHeadingLevel : Int? {
-        get {
-            return self._documentSplitHeadingLevel;
-        }
-        set {
-            self._documentSplitHeadingLevel = newValue;
-        }
-    }
+    public var documentSplitHeadingLevel : Int?;
 
     // Field of encoding. Container class for html save options.
-    private var _encoding : String? = nil;
-
-    public var encoding : String? {
-        get {
-            return self._encoding;
-        }
-        set {
-            self._encoding = newValue;
-        }
-    }
+    public var encoding : String?;
 
     // Field of exportDocumentProperties. Container class for html save options.
-    private var _exportDocumentProperties : Bool? = nil;
-
-    public var exportDocumentProperties : Bool? {
-        get {
-            return self._exportDocumentProperties;
-        }
-        set {
-            self._exportDocumentProperties = newValue;
-        }
-    }
+    public var exportDocumentProperties : Bool?;
 
     // Field of exportDropDownFormFieldAsText. Container class for html save options.
-    private var _exportDropDownFormFieldAsText : Bool? = nil;
-
-    public var exportDropDownFormFieldAsText : Bool? {
-        get {
-            return self._exportDropDownFormFieldAsText;
-        }
-        set {
-            self._exportDropDownFormFieldAsText = newValue;
-        }
-    }
+    public var exportDropDownFormFieldAsText : Bool?;
 
     // Field of exportFontResources. Container class for html save options.
-    private var _exportFontResources : Bool? = nil;
-
-    public var exportFontResources : Bool? {
-        get {
-            return self._exportFontResources;
-        }
-        set {
-            self._exportFontResources = newValue;
-        }
-    }
+    public var exportFontResources : Bool?;
 
     // Field of exportFontsAsBase64. Container class for html save options.
-    private var _exportFontsAsBase64 : Bool? = nil;
-
-    public var exportFontsAsBase64 : Bool? {
-        get {
-            return self._exportFontsAsBase64;
-        }
-        set {
-            self._exportFontsAsBase64 = newValue;
-        }
-    }
+    public var exportFontsAsBase64 : Bool?;
 
     // Field of exportHeadersFootersMode. Container class for html save options.
-    private var _exportHeadersFootersMode : String? = nil;
-
-    public var exportHeadersFootersMode : String? {
-        get {
-            return self._exportHeadersFootersMode;
-        }
-        set {
-            self._exportHeadersFootersMode = newValue;
-        }
-    }
+    public var exportHeadersFootersMode : String?;
 
     // Field of exportImagesAsBase64. Container class for html save options.
-    private var _exportImagesAsBase64 : Bool? = nil;
-
-    public var exportImagesAsBase64 : Bool? {
-        get {
-            return self._exportImagesAsBase64;
-        }
-        set {
-            self._exportImagesAsBase64 = newValue;
-        }
-    }
+    public var exportImagesAsBase64 : Bool?;
 
     // Field of exportLanguageInformation. Container class for html save options.
-    private var _exportLanguageInformation : Bool? = nil;
-
-    public var exportLanguageInformation : Bool? {
-        get {
-            return self._exportLanguageInformation;
-        }
-        set {
-            self._exportLanguageInformation = newValue;
-        }
-    }
+    public var exportLanguageInformation : Bool?;
 
     // Field of exportListLabels. Container class for html save options.
-    private var _exportListLabels : String? = nil;
-
-    public var exportListLabels : String? {
-        get {
-            return self._exportListLabels;
-        }
-        set {
-            self._exportListLabels = newValue;
-        }
-    }
+    public var exportListLabels : String?;
 
     // Field of exportOriginalUrlForLinkedImages. Container class for html save options.
-    private var _exportOriginalUrlForLinkedImages : Bool? = nil;
-
-    public var exportOriginalUrlForLinkedImages : Bool? {
-        get {
-            return self._exportOriginalUrlForLinkedImages;
-        }
-        set {
-            self._exportOriginalUrlForLinkedImages = newValue;
-        }
-    }
+    public var exportOriginalUrlForLinkedImages : Bool?;
 
     // Field of exportPageMargins. Container class for html save options.
-    private var _exportPageMargins : Bool? = nil;
-
-    public var exportPageMargins : Bool? {
-        get {
-            return self._exportPageMargins;
-        }
-        set {
-            self._exportPageMargins = newValue;
-        }
-    }
+    public var exportPageMargins : Bool?;
 
     // Field of exportPageSetup. Container class for html save options.
-    private var _exportPageSetup : Bool? = nil;
-
-    public var exportPageSetup : Bool? {
-        get {
-            return self._exportPageSetup;
-        }
-        set {
-            self._exportPageSetup = newValue;
-        }
-    }
+    public var exportPageSetup : Bool?;
 
     // Field of exportRelativeFontSize. Container class for html save options.
-    private var _exportRelativeFontSize : Bool? = nil;
-
-    public var exportRelativeFontSize : Bool? {
-        get {
-            return self._exportRelativeFontSize;
-        }
-        set {
-            self._exportRelativeFontSize = newValue;
-        }
-    }
+    public var exportRelativeFontSize : Bool?;
 
     // Field of exportRoundtripInformation. Container class for html save options.
-    private var _exportRoundtripInformation : Bool? = nil;
-
-    public var exportRoundtripInformation : Bool? {
-        get {
-            return self._exportRoundtripInformation;
-        }
-        set {
-            self._exportRoundtripInformation = newValue;
-        }
-    }
+    public var exportRoundtripInformation : Bool?;
 
     // Field of exportTextBoxAsSvg. Container class for html save options.
-    private var _exportTextBoxAsSvg : Bool? = nil;
-
-    public var exportTextBoxAsSvg : Bool? {
-        get {
-            return self._exportTextBoxAsSvg;
-        }
-        set {
-            self._exportTextBoxAsSvg = newValue;
-        }
-    }
+    public var exportTextBoxAsSvg : Bool?;
 
     // Field of exportTextInputFormFieldAsText. Container class for html save options.
-    private var _exportTextInputFormFieldAsText : Bool? = nil;
-
-    public var exportTextInputFormFieldAsText : Bool? {
-        get {
-            return self._exportTextInputFormFieldAsText;
-        }
-        set {
-            self._exportTextInputFormFieldAsText = newValue;
-        }
-    }
+    public var exportTextInputFormFieldAsText : Bool?;
 
     // Field of exportTocPageNumbers. Container class for html save options.
-    private var _exportTocPageNumbers : Bool? = nil;
-
-    public var exportTocPageNumbers : Bool? {
-        get {
-            return self._exportTocPageNumbers;
-        }
-        set {
-            self._exportTocPageNumbers = newValue;
-        }
-    }
+    public var exportTocPageNumbers : Bool?;
 
     // Field of exportXhtmlTransitional. Container class for html save options.
-    private var _exportXhtmlTransitional : Bool? = nil;
-
-    public var exportXhtmlTransitional : Bool? {
-        get {
-            return self._exportXhtmlTransitional;
-        }
-        set {
-            self._exportXhtmlTransitional = newValue;
-        }
-    }
+    public var exportXhtmlTransitional : Bool?;
 
     // Field of fontResourcesSubsettingSizeThreshold. Container class for html save options.
-    private var _fontResourcesSubsettingSizeThreshold : Int? = nil;
-
-    public var fontResourcesSubsettingSizeThreshold : Int? {
-        get {
-            return self._fontResourcesSubsettingSizeThreshold;
-        }
-        set {
-            self._fontResourcesSubsettingSizeThreshold = newValue;
-        }
-    }
+    public var fontResourcesSubsettingSizeThreshold : Int?;
 
     // Field of fontsFolder. Container class for html save options.
-    private var _fontsFolder : String? = nil;
-
-    public var fontsFolder : String? {
-        get {
-            return self._fontsFolder;
-        }
-        set {
-            self._fontsFolder = newValue;
-        }
-    }
+    public var fontsFolder : String?;
 
     // Field of fontsFolderAlias. Container class for html save options.
-    private var _fontsFolderAlias : String? = nil;
-
-    public var fontsFolderAlias : String? {
-        get {
-            return self._fontsFolderAlias;
-        }
-        set {
-            self._fontsFolderAlias = newValue;
-        }
-    }
+    public var fontsFolderAlias : String?;
 
     // Field of htmlVersion. Container class for html save options.
-    private var _htmlVersion : HtmlVersion? = nil;
-
-    public var htmlVersion : HtmlVersion? {
-        get {
-            return self._htmlVersion;
-        }
-        set {
-            self._htmlVersion = newValue;
-        }
-    }
+    public var htmlVersion : HtmlVersion?;
 
     // Field of imageResolution. Container class for html save options.
-    private var _imageResolution : Int? = nil;
-
-    public var imageResolution : Int? {
-        get {
-            return self._imageResolution;
-        }
-        set {
-            self._imageResolution = newValue;
-        }
-    }
+    public var imageResolution : Int?;
 
     // Field of imagesFolder. Container class for html save options.
-    private var _imagesFolder : String? = nil;
-
-    public var imagesFolder : String? {
-        get {
-            return self._imagesFolder;
-        }
-        set {
-            self._imagesFolder = newValue;
-        }
-    }
+    public var imagesFolder : String?;
 
     // Field of imagesFolderAlias. Container class for html save options.
-    private var _imagesFolderAlias : String? = nil;
-
-    public var imagesFolderAlias : String? {
-        get {
-            return self._imagesFolderAlias;
-        }
-        set {
-            self._imagesFolderAlias = newValue;
-        }
-    }
+    public var imagesFolderAlias : String?;
 
     // Field of metafileFormat. Container class for html save options.
-    private var _metafileFormat : MetafileFormat? = nil;
-
-    public var metafileFormat : MetafileFormat? {
-        get {
-            return self._metafileFormat;
-        }
-        set {
-            self._metafileFormat = newValue;
-        }
-    }
+    public var metafileFormat : MetafileFormat?;
 
     // Field of officeMathOutputMode. Container class for html save options.
-    private var _officeMathOutputMode : OfficeMathOutputMode? = nil;
-
-    public var officeMathOutputMode : OfficeMathOutputMode? {
-        get {
-            return self._officeMathOutputMode;
-        }
-        set {
-            self._officeMathOutputMode = newValue;
-        }
-    }
+    public var officeMathOutputMode : OfficeMathOutputMode?;
 
     // Field of prettyFormat. Container class for html save options.
-    private var _prettyFormat : Bool? = nil;
-
-    public var prettyFormat : Bool? {
-        get {
-            return self._prettyFormat;
-        }
-        set {
-            self._prettyFormat = newValue;
-        }
-    }
+    public var prettyFormat : Bool?;
 
     // Field of resolveFontNames. Container class for html save options.
-    private var _resolveFontNames : Bool? = nil;
-
-    public var resolveFontNames : Bool? {
-        get {
-            return self._resolveFontNames;
-        }
-        set {
-            self._resolveFontNames = newValue;
-        }
-    }
+    public var resolveFontNames : Bool?;
 
     // Field of resourceFolder. Container class for html save options.
-    private var _resourceFolder : String? = nil;
-
-    public var resourceFolder : String? {
-        get {
-            return self._resourceFolder;
-        }
-        set {
-            self._resourceFolder = newValue;
-        }
-    }
+    public var resourceFolder : String?;
 
     // Field of resourceFolderAlias. Container class for html save options.
-    private var _resourceFolderAlias : String? = nil;
-
-    public var resourceFolderAlias : String? {
-        get {
-            return self._resourceFolderAlias;
-        }
-        set {
-            self._resourceFolderAlias = newValue;
-        }
-    }
-
-    // Field of saveFormat. Container class for html save options.
-    private final let _saveFormat : String? = "html";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
+    public var resourceFolderAlias : String?;
 
     // Field of scaleImageToShapeSize. Container class for html save options.
-    private var _scaleImageToShapeSize : Bool? = nil;
-
-    public var scaleImageToShapeSize : Bool? {
-        get {
-            return self._scaleImageToShapeSize;
-        }
-        set {
-            self._scaleImageToShapeSize = newValue;
-        }
-    }
+    public var scaleImageToShapeSize : Bool?;
 
     // Field of tableWidthOutputMode. Container class for html save options.
-    private var _tableWidthOutputMode : String? = nil;
-
-    public var tableWidthOutputMode : String? {
-        get {
-            return self._tableWidthOutputMode;
-        }
-        set {
-            self._tableWidthOutputMode = newValue;
-        }
-    }
+    public var tableWidthOutputMode : String?;
 
     private enum CodingKeys: String, CodingKey {
         case allowNegativeIndent = "AllowNegativeIndent";
@@ -771,7 +411,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.allowNegativeIndent;
     }
 
-
     // Sets cssClassNamePrefix. Gets or sets the prefix which is added to all CSS class names. The default value is an empty string and generated CSS class names have no common prefix. If this value is not empty, all CSS classes generated by Aspose.Words will start with the specified prefix.This might be useful, for example, if you add custom CSS to generated documents and want to prevent class name conflicts. If the value is not null or empty, it must be a valid CSS identifier.
     public func setCssClassNamePrefix(cssClassNamePrefix : String?) -> HtmlSaveOptionsData {
         self.cssClassNamePrefix = cssClassNamePrefix;
@@ -782,7 +421,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getCssClassNamePrefix() -> String? {
         return self.cssClassNamePrefix;
     }
-
 
     // Sets cssStyleSheetFileName. Gets or sets the name of the CSS file written when the document is exported to HTML.
     public func setCssStyleSheetFileName(cssStyleSheetFileName : String?) -> HtmlSaveOptionsData {
@@ -795,7 +433,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.cssStyleSheetFileName;
     }
 
-
     // Sets cssStyleSheetType. Gets or sets the option that controls how the CSS styles are exported.
     public func setCssStyleSheetType(cssStyleSheetType : String?) -> HtmlSaveOptionsData {
         self.cssStyleSheetType = cssStyleSheetType;
@@ -806,7 +443,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getCssStyleSheetType() -> String? {
         return self.cssStyleSheetType;
     }
-
 
     // Sets documentSplitCriteria. Gets or sets the option that controls how the document should be split when saving.
     public func setDocumentSplitCriteria(documentSplitCriteria : String?) -> HtmlSaveOptionsData {
@@ -819,7 +455,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.documentSplitCriteria;
     }
 
-
     // Sets documentSplitHeadingLevel. Gets or sets the maximum level of headings at which to split the document.
     public func setDocumentSplitHeadingLevel(documentSplitHeadingLevel : Int?) -> HtmlSaveOptionsData {
         self.documentSplitHeadingLevel = documentSplitHeadingLevel;
@@ -830,7 +465,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getDocumentSplitHeadingLevel() -> Int? {
         return self.documentSplitHeadingLevel;
     }
-
 
     // Sets encoding. Gets or sets the character encoding to use when exporting.
     public func setEncoding(encoding : String?) -> HtmlSaveOptionsData {
@@ -843,7 +477,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.encoding;
     }
 
-
     // Sets exportDocumentProperties. Gets or sets a value indicating whether to export built-in and custom document properties.
     public func setExportDocumentProperties(exportDocumentProperties : Bool?) -> HtmlSaveOptionsData {
         self.exportDocumentProperties = exportDocumentProperties;
@@ -854,7 +487,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getExportDocumentProperties() -> Bool? {
         return self.exportDocumentProperties;
     }
-
 
     // Sets exportDropDownFormFieldAsText. Gets or sets the flag, that controls how drop-down form fields are saved to HTML. The default value is false.
     public func setExportDropDownFormFieldAsText(exportDropDownFormFieldAsText : Bool?) -> HtmlSaveOptionsData {
@@ -867,7 +499,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.exportDropDownFormFieldAsText;
     }
 
-
     // Sets exportFontResources. Gets or sets a value indicating whether font resources should be exported.
     public func setExportFontResources(exportFontResources : Bool?) -> HtmlSaveOptionsData {
         self.exportFontResources = exportFontResources;
@@ -878,7 +509,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getExportFontResources() -> Bool? {
         return self.exportFontResources;
     }
-
 
     // Sets exportFontsAsBase64. Gets or sets a value indicating whether fonts resources should be embedded to HTML in Base64 encoding. The default value is false.
     public func setExportFontsAsBase64(exportFontsAsBase64 : Bool?) -> HtmlSaveOptionsData {
@@ -891,7 +521,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.exportFontsAsBase64;
     }
 
-
     // Sets exportHeadersFootersMode. Gets or sets the option that controls how headers and footers are exported.
     public func setExportHeadersFootersMode(exportHeadersFootersMode : String?) -> HtmlSaveOptionsData {
         self.exportHeadersFootersMode = exportHeadersFootersMode;
@@ -902,7 +531,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getExportHeadersFootersMode() -> String? {
         return self.exportHeadersFootersMode;
     }
-
 
     // Sets exportImagesAsBase64. Gets or sets a value indicating whether images are saved in Base64 format.
     public func setExportImagesAsBase64(exportImagesAsBase64 : Bool?) -> HtmlSaveOptionsData {
@@ -915,7 +543,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.exportImagesAsBase64;
     }
 
-
     // Sets exportLanguageInformation. Gets or sets a value indicating whether language information is exported.
     public func setExportLanguageInformation(exportLanguageInformation : Bool?) -> HtmlSaveOptionsData {
         self.exportLanguageInformation = exportLanguageInformation;
@@ -926,7 +553,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getExportLanguageInformation() -> Bool? {
         return self.exportLanguageInformation;
     }
-
 
     // Sets exportListLabels. Gets or sets the option that controls how list labels are exported.
     public func setExportListLabels(exportListLabels : String?) -> HtmlSaveOptionsData {
@@ -939,7 +565,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.exportListLabels;
     }
 
-
     // Sets exportOriginalUrlForLinkedImages. Gets or sets a value indicating whether the original URL should be used as the URL of the linked images. The default value is false.
     public func setExportOriginalUrlForLinkedImages(exportOriginalUrlForLinkedImages : Bool?) -> HtmlSaveOptionsData {
         self.exportOriginalUrlForLinkedImages = exportOriginalUrlForLinkedImages;
@@ -950,7 +575,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getExportOriginalUrlForLinkedImages() -> Bool? {
         return self.exportOriginalUrlForLinkedImages;
     }
-
 
     // Sets exportPageMargins. Gets or sets a value indicating whether page margins are exported to HTML, MHTML or EPUB. The default value is false.
     public func setExportPageMargins(exportPageMargins : Bool?) -> HtmlSaveOptionsData {
@@ -963,7 +587,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.exportPageMargins;
     }
 
-
     // Sets exportPageSetup. Gets or sets a value indicating whether page setup is exported.
     public func setExportPageSetup(exportPageSetup : Bool?) -> HtmlSaveOptionsData {
         self.exportPageSetup = exportPageSetup;
@@ -974,7 +597,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getExportPageSetup() -> Bool? {
         return self.exportPageSetup;
     }
-
 
     // Sets exportRelativeFontSize. Gets or sets a value indicating whether font sizes should be output in relative units when saving.
     public func setExportRelativeFontSize(exportRelativeFontSize : Bool?) -> HtmlSaveOptionsData {
@@ -987,7 +609,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.exportRelativeFontSize;
     }
 
-
     // Sets exportRoundtripInformation. Gets or sets a value indicating whether to write the roundtrip information when saving to HTML. The default value is true.
     public func setExportRoundtripInformation(exportRoundtripInformation : Bool?) -> HtmlSaveOptionsData {
         self.exportRoundtripInformation = exportRoundtripInformation;
@@ -998,7 +619,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getExportRoundtripInformation() -> Bool? {
         return self.exportRoundtripInformation;
     }
-
 
     // Sets exportTextBoxAsSvg. Gets or sets the flag, that controls how textboxes represented by Aspose.Words.Drawing.Shape are saved to HTML, MHTML or EPUB. The default value is false. When set to true, exports textboxes as inline "svg" elements. When false, exports as "image" elements.
     public func setExportTextBoxAsSvg(exportTextBoxAsSvg : Bool?) -> HtmlSaveOptionsData {
@@ -1011,7 +631,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.exportTextBoxAsSvg;
     }
 
-
     // Sets exportTextInputFormFieldAsText. Gets or sets the flag, that controls how text input form fields are saved.
     public func setExportTextInputFormFieldAsText(exportTextInputFormFieldAsText : Bool?) -> HtmlSaveOptionsData {
         self.exportTextInputFormFieldAsText = exportTextInputFormFieldAsText;
@@ -1022,7 +641,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getExportTextInputFormFieldAsText() -> Bool? {
         return self.exportTextInputFormFieldAsText;
     }
-
 
     // Sets exportTocPageNumbers. Gets or sets a value indicating whether to write page numbers to table of contents when saving.
     public func setExportTocPageNumbers(exportTocPageNumbers : Bool?) -> HtmlSaveOptionsData {
@@ -1035,7 +653,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.exportTocPageNumbers;
     }
 
-
     // Sets exportXhtmlTransitional. Gets or sets a value indicating whether to write the DOCTYPE declaration when saving.
     public func setExportXhtmlTransitional(exportXhtmlTransitional : Bool?) -> HtmlSaveOptionsData {
         self.exportXhtmlTransitional = exportXhtmlTransitional;
@@ -1046,7 +663,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getExportXhtmlTransitional() -> Bool? {
         return self.exportXhtmlTransitional;
     }
-
 
     // Sets fontResourcesSubsettingSizeThreshold. Gets or sets the option that controls which font resources need subsetting when saving.
     public func setFontResourcesSubsettingSizeThreshold(fontResourcesSubsettingSizeThreshold : Int?) -> HtmlSaveOptionsData {
@@ -1059,7 +675,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.fontResourcesSubsettingSizeThreshold;
     }
 
-
     // Sets fontsFolder. Gets or sets the physical folder where fonts are saved when exporting a document.
     public func setFontsFolder(fontsFolder : String?) -> HtmlSaveOptionsData {
         self.fontsFolder = fontsFolder;
@@ -1070,7 +685,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getFontsFolder() -> String? {
         return self.fontsFolder;
     }
-
 
     // Sets fontsFolderAlias. Gets or sets the name of the folder used to construct font URIs.
     public func setFontsFolderAlias(fontsFolderAlias : String?) -> HtmlSaveOptionsData {
@@ -1083,7 +697,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.fontsFolderAlias;
     }
 
-
     // Sets htmlVersion. Gets or sets the version of HTML standard, that should be used when saving the document to HTML or MHTML. Default value is Aspose.Words.Saving.HtmlVersion.Xhtml.
     public func setHtmlVersion(htmlVersion : HtmlVersion?) -> HtmlSaveOptionsData {
         self.htmlVersion = htmlVersion;
@@ -1094,7 +707,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getHtmlVersion() -> HtmlVersion? {
         return self.htmlVersion;
     }
-
 
     // Sets imageResolution. Gets or sets the output resolution for images when exporting.
     public func setImageResolution(imageResolution : Int?) -> HtmlSaveOptionsData {
@@ -1107,7 +719,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.imageResolution;
     }
 
-
     // Sets imagesFolder. Gets or sets the physical folder where images are saved when exporting a document.
     public func setImagesFolder(imagesFolder : String?) -> HtmlSaveOptionsData {
         self.imagesFolder = imagesFolder;
@@ -1118,7 +729,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getImagesFolder() -> String? {
         return self.imagesFolder;
     }
-
 
     // Sets imagesFolderAlias. Gets or sets the name of the folder used to construct image URIs.
     public func setImagesFolderAlias(imagesFolderAlias : String?) -> HtmlSaveOptionsData {
@@ -1131,7 +741,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.imagesFolderAlias;
     }
 
-
     // Sets metafileFormat. Gets or sets the options, that controls in what format metafiles are saved when exporting to HTML, MHTML, or EPUB. The default value is Aspose.Words.Saving.HtmlMetafileFormat.Png, meaning that metafiles are rendered to raster PNG images. Metafiles are not natively displayed by HTML browsers. By default, Aspose.Words converts WMF and EMF images into PNG files when exporting to HTML.Other options are to convert metafiles to SVG images or to export them as is without conversion. Some image transforms, in particular image cropping, will not be applied to metafile images if they are exported to HTML without conversion.
     public func setMetafileFormat(metafileFormat : MetafileFormat?) -> HtmlSaveOptionsData {
         self.metafileFormat = metafileFormat;
@@ -1142,7 +751,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getMetafileFormat() -> MetafileFormat? {
         return self.metafileFormat;
     }
-
 
     // Sets officeMathOutputMode. Gets or sets the option that controls how OfficeMath objects are exported to HTML, MHTML or EPUB. The default value is HtmlOfficeMathOutputMode.Image.
     public func setOfficeMathOutputMode(officeMathOutputMode : OfficeMathOutputMode?) -> HtmlSaveOptionsData {
@@ -1155,7 +763,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.officeMathOutputMode;
     }
 
-
     // Sets prettyFormat. Gets or sets a value indicating whether to use pretty formats output.
     public func setPrettyFormat(prettyFormat : Bool?) -> HtmlSaveOptionsData {
         self.prettyFormat = prettyFormat;
@@ -1166,7 +773,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }
-
 
     // Sets resolveFontNames. Gets or sets a value indicating whether font family names used in the document are resolved and substituted according to FontSettings when being written into HTML-based formats. The default value is false.
     public func setResolveFontNames(resolveFontNames : Bool?) -> HtmlSaveOptionsData {
@@ -1179,7 +785,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.resolveFontNames;
     }
 
-
     // Sets resourceFolder. Gets or sets the physical folder where all resources like images, fonts, and external CSS are saved when a document is exported to HTML. The default value is an empty string.
     public func setResourceFolder(resourceFolder : String?) -> HtmlSaveOptionsData {
         self.resourceFolder = resourceFolder;
@@ -1190,7 +795,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getResourceFolder() -> String? {
         return self.resourceFolder;
     }
-
 
     // Sets resourceFolderAlias. Gets or sets the name of the folder used to construct URIs of all resources written into HTML document. The default value is an empty string.
     public func setResourceFolderAlias(resourceFolderAlias : String?) -> HtmlSaveOptionsData {
@@ -1203,7 +807,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         return self.resourceFolderAlias;
     }
 
-
     // Sets scaleImageToShapeSize. Gets or sets a value indicating whether images are scaled by Aspose.Words to the bounding shape size when exporting.
     public func setScaleImageToShapeSize(scaleImageToShapeSize : Bool?) -> HtmlSaveOptionsData {
         self.scaleImageToShapeSize = scaleImageToShapeSize;
@@ -1214,7 +817,6 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     public func getScaleImageToShapeSize() -> Bool? {
         return self.scaleImageToShapeSize;
     }
-
 
     // Sets tableWidthOutputMode. Gets or sets the option that controls how table, row and cell widths are exported.
     public func setTableWidthOutputMode(tableWidthOutputMode : String?) -> HtmlSaveOptionsData {

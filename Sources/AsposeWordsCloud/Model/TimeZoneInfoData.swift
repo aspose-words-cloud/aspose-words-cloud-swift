@@ -31,52 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TimeZoneInfoData : Codable, WordsApiModel {
     // Field of baseUtcOffset. Class to specify TimeZoneInfo parameters.
-    private var _baseUtcOffset : String? = nil;
-
-    public var baseUtcOffset : String? {
-        get {
-            return self._baseUtcOffset;
-        }
-        set {
-            self._baseUtcOffset = newValue;
-        }
-    }
+    public var baseUtcOffset : String?;
 
     // Field of displayName. Class to specify TimeZoneInfo parameters.
-    private var _displayName : String? = nil;
-
-    public var displayName : String? {
-        get {
-            return self._displayName;
-        }
-        set {
-            self._displayName = newValue;
-        }
-    }
+    public var displayName : String?;
 
     // Field of id. Class to specify TimeZoneInfo parameters.
-    private var _id : String? = nil;
-
-    public var id : String? {
-        get {
-            return self._id;
-        }
-        set {
-            self._id = newValue;
-        }
-    }
+    public var id : String?;
 
     // Field of standardDisplayName. Class to specify TimeZoneInfo parameters.
-    private var _standardDisplayName : String? = nil;
-
-    public var standardDisplayName : String? {
-        get {
-            return self._standardDisplayName;
-        }
-        set {
-            self._standardDisplayName = newValue;
-        }
-    }
+    public var standardDisplayName : String?;
 
     private enum CodingKeys: String, CodingKey {
         case baseUtcOffset = "BaseUtcOffset";
@@ -124,7 +88,6 @@ public class TimeZoneInfoData : Codable, WordsApiModel {
         return self.baseUtcOffset;
     }
 
-
     // Sets displayName. Gets or sets display name.
     public func setDisplayName(displayName : String?) -> TimeZoneInfoData {
         self.displayName = displayName;
@@ -136,7 +99,6 @@ public class TimeZoneInfoData : Codable, WordsApiModel {
         return self.displayName;
     }
 
-
     // Sets id. Gets or sets an Id string for CustomTimeZoneInfo.
     public func setId(id : String?) -> TimeZoneInfoData {
         self.id = id;
@@ -147,7 +109,6 @@ public class TimeZoneInfoData : Codable, WordsApiModel {
     public func getId() -> String? {
         return self.id;
     }
-
 
     // Sets standardDisplayName. Gets or sets standard display name.
     public func setStandardDisplayName(standardDisplayName : String?) -> TimeZoneInfoData {

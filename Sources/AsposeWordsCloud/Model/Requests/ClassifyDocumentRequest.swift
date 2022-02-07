@@ -114,26 +114,33 @@ public class ClassifyDocumentRequest : WordsApiRequest {
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
          if (self.getFolder() != nil) {
-         queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         #elsequeryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         #endif        }
          if (self.getStorage() != nil) {
-         queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         #elsequeryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         #endif        }
          if (self.getLoadEncoding() != nil) {
-         queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         #elsequeryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         #endif        }
          if (self.getPassword() != nil) {
-         queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         #elsequeryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         #endif        }
          if (self.getEncryptedPassword() != nil) {
-         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
+         #elsequeryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
+         #endif        }
          if (self.getBestClassesCount() != nil) {
-         queryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: self.getBestClassesCount()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: self.getBestClassesCount()!)));
+         #elsequeryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: self.getBestClassesCount()!)));
+         #endif        }
          if (self.getTaxonomy() != nil) {
-         queryItems.append(URLQueryItem(name: "taxonomy", value: try ObjectSerializer.serializeToString(value: self.getTaxonomy()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "taxonomy", value: try ObjectSerializer.serializeToString(value: self.getTaxonomy()!)));
+         #elsequeryItems.append(URLQueryItem(name: "taxonomy", value: try ObjectSerializer.serializeToString(value: self.getTaxonomy()!)));
+         #endif        }
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }

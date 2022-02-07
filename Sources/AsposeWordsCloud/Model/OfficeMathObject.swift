@@ -157,52 +157,16 @@ public class OfficeMathObject : OfficeMathLink {
     }
 
     // Field of content. DTO container with an OfficeMath object.
-    private var _content : StoryChildNodes? = nil;
-
-    public var content : StoryChildNodes? {
-        get {
-            return self._content;
-        }
-        set {
-            self._content = newValue;
-        }
-    }
+    public var content : StoryChildNodes?;
 
     // Field of displayType. DTO container with an OfficeMath object.
-    private var _displayType : DisplayType? = nil;
-
-    public var displayType : DisplayType? {
-        get {
-            return self._displayType;
-        }
-        set {
-            self._displayType = newValue;
-        }
-    }
+    public var displayType : DisplayType?;
 
     // Field of justification. DTO container with an OfficeMath object.
-    private var _justification : Justification? = nil;
-
-    public var justification : Justification? {
-        get {
-            return self._justification;
-        }
-        set {
-            self._justification = newValue;
-        }
-    }
+    public var justification : Justification?;
 
     // Field of mathObjectType. DTO container with an OfficeMath object.
-    private var _mathObjectType : MathObjectType? = nil;
-
-    public var mathObjectType : MathObjectType? {
-        get {
-            return self._mathObjectType;
-        }
-        set {
-            self._mathObjectType = newValue;
-        }
-    }
+    public var mathObjectType : MathObjectType?;
 
     private enum CodingKeys: String, CodingKey {
         case content = "Content";
@@ -253,7 +217,6 @@ public class OfficeMathObject : OfficeMathLink {
         return self.content;
     }
 
-
     // Sets displayType. Gets or sets the display format type of the OfficeMath object. This display format defines whether an equation is displayed inline with the text or displayed on its own line.
     public func setDisplayType(displayType : DisplayType?) -> OfficeMathObject {
         self.displayType = displayType;
@@ -265,7 +228,6 @@ public class OfficeMathObject : OfficeMathLink {
         return self.displayType;
     }
 
-
     // Sets justification. Gets or sets the justification of the OfficeMath object.
     public func setJustification(justification : Justification?) -> OfficeMathObject {
         self.justification = justification;
@@ -276,7 +238,6 @@ public class OfficeMathObject : OfficeMathLink {
     public func getJustification() -> Justification? {
         return self.justification;
     }
-
 
     // Sets mathObjectType. Gets or sets the type of the OfficeMath object.
     public func setMathObjectType(mathObjectType : MathObjectType?) -> OfficeMathObject {

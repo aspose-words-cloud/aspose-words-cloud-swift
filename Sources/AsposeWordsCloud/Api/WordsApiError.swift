@@ -34,7 +34,6 @@ public enum WordsApiError : LocalizedError {
     case invalidTypeSerialization(typeName: String)
     case invalidMultipartResponse(message: String)
     case badHostAddress(hostName: String)
-    case notSupportedMethod(methodName: String)
 
     public var errorDescription: String? {
         switch self {
@@ -48,8 +47,6 @@ public enum WordsApiError : LocalizedError {
                 return "Failed to parse multipart response: \(message).";
             case let .badHostAddress(hostName):
                 return "Unable to resolve hostname address '\(hostName)' as url.";
-            case let .notSupportedMethod(methodName):
-                return "Not supported method '\(methodName)' for the OS.";
         }
     }
 }

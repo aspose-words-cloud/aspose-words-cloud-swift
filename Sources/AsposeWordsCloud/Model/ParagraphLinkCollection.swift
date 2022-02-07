@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ParagraphLinkCollection : LinkElement {
     // Field of paragraphLinkList. The collection of paragraph's links.
-    private var _paragraphLinkList : [ParagraphLink]? = nil;
-
-    public var paragraphLinkList : [ParagraphLink]? {
-        get {
-            return self._paragraphLinkList;
-        }
-        set {
-            self._paragraphLinkList = newValue;
-        }
-    }
+    public var paragraphLinkList : [ParagraphLink]?;
 
     private enum CodingKeys: String, CodingKey {
         case paragraphLinkList = "ParagraphLinkList";

@@ -66,160 +66,43 @@ public class FieldOptions : Codable, WordsApiModel {
     }
 
     // Field of builtInTemplatesPaths. DTO for field options.
-    private var _builtInTemplatesPaths : [String]? = nil;
-
-    public var builtInTemplatesPaths : [String]? {
-        get {
-            return self._builtInTemplatesPaths;
-        }
-        set {
-            self._builtInTemplatesPaths = newValue;
-        }
-    }
+    public var builtInTemplatesPaths : [String]?;
 
     // Field of currentUser. DTO for field options.
-    private var _currentUser : UserInformation? = nil;
-
-    public var currentUser : UserInformation? {
-        get {
-            return self._currentUser;
-        }
-        set {
-            self._currentUser = newValue;
-        }
-    }
+    public var currentUser : UserInformation?;
 
     // Field of customTocStyleSeparator. DTO for field options.
-    private var _customTocStyleSeparator : String? = nil;
-
-    public var customTocStyleSeparator : String? {
-        get {
-            return self._customTocStyleSeparator;
-        }
-        set {
-            self._customTocStyleSeparator = newValue;
-        }
-    }
+    public var customTocStyleSeparator : String?;
 
     // Field of defaultDocumentAuthor. DTO for field options.
-    private var _defaultDocumentAuthor : String? = nil;
-
-    public var defaultDocumentAuthor : String? {
-        get {
-            return self._defaultDocumentAuthor;
-        }
-        set {
-            self._defaultDocumentAuthor = newValue;
-        }
-    }
+    public var defaultDocumentAuthor : String?;
 
     // Field of fieldIndexFormat. DTO for field options.
-    private var _fieldIndexFormat : FieldIndexFormat? = nil;
-
-    public var fieldIndexFormat : FieldIndexFormat? {
-        get {
-            return self._fieldIndexFormat;
-        }
-        set {
-            self._fieldIndexFormat = newValue;
-        }
-    }
+    public var fieldIndexFormat : FieldIndexFormat?;
 
     // Field of fieldUpdateCultureName. DTO for field options.
-    private var _fieldUpdateCultureName : String? = nil;
-
-    public var fieldUpdateCultureName : String? {
-        get {
-            return self._fieldUpdateCultureName;
-        }
-        set {
-            self._fieldUpdateCultureName = newValue;
-        }
-    }
+    public var fieldUpdateCultureName : String?;
 
     // Field of fieldUpdateCultureSource. DTO for field options.
-    private var _fieldUpdateCultureSource : FieldUpdateCultureSource? = nil;
-
-    public var fieldUpdateCultureSource : FieldUpdateCultureSource? {
-        get {
-            return self._fieldUpdateCultureSource;
-        }
-        set {
-            self._fieldUpdateCultureSource = newValue;
-        }
-    }
+    public var fieldUpdateCultureSource : FieldUpdateCultureSource?;
 
     // Field of fileName. DTO for field options.
-    private var _fileName : String? = nil;
-
-    public var fileName : String? {
-        get {
-            return self._fileName;
-        }
-        set {
-            self._fileName = newValue;
-        }
-    }
+    public var fileName : String?;
 
     // Field of isBidiTextSupportedOnUpdate. DTO for field options.
-    private var _isBidiTextSupportedOnUpdate : Bool? = nil;
-
-    public var isBidiTextSupportedOnUpdate : Bool? {
-        get {
-            return self._isBidiTextSupportedOnUpdate;
-        }
-        set {
-            self._isBidiTextSupportedOnUpdate = newValue;
-        }
-    }
+    public var isBidiTextSupportedOnUpdate : Bool?;
 
     // Field of legacyNumberFormat. DTO for field options.
-    private var _legacyNumberFormat : Bool? = nil;
-
-    public var legacyNumberFormat : Bool? {
-        get {
-            return self._legacyNumberFormat;
-        }
-        set {
-            self._legacyNumberFormat = newValue;
-        }
-    }
+    public var legacyNumberFormat : Bool?;
 
     // Field of preProcessCultureName. DTO for field options.
-    private var _preProcessCultureName : String? = nil;
-
-    public var preProcessCultureName : String? {
-        get {
-            return self._preProcessCultureName;
-        }
-        set {
-            self._preProcessCultureName = newValue;
-        }
-    }
+    public var preProcessCultureName : String?;
 
     // Field of templateName. DTO for field options.
-    private var _templateName : String? = nil;
-
-    public var templateName : String? {
-        get {
-            return self._templateName;
-        }
-        set {
-            self._templateName = newValue;
-        }
-    }
+    public var templateName : String?;
 
     // Field of useInvariantCultureNumberFormat. DTO for field options.
-    private var _useInvariantCultureNumberFormat : Bool? = nil;
-
-    public var useInvariantCultureNumberFormat : Bool? {
-        get {
-            return self._useInvariantCultureNumberFormat;
-        }
-        set {
-            self._useInvariantCultureNumberFormat = newValue;
-        }
-    }
+    public var useInvariantCultureNumberFormat : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case builtInTemplatesPaths = "BuiltInTemplatesPaths";
@@ -312,7 +195,6 @@ public class FieldOptions : Codable, WordsApiModel {
         return self.builtInTemplatesPaths;
     }
 
-
     // Sets currentUser. Gets or sets Curren tUser.
     public func setCurrentUser(currentUser : UserInformation?) -> FieldOptions {
         self.currentUser = currentUser;
@@ -323,7 +205,6 @@ public class FieldOptions : Codable, WordsApiModel {
     public func getCurrentUser() -> UserInformation? {
         return self.currentUser;
     }
-
 
     // Sets customTocStyleSeparator. Gets or sets Custom Toc Style Separator.
     public func setCustomTocStyleSeparator(customTocStyleSeparator : String?) -> FieldOptions {
@@ -336,7 +217,6 @@ public class FieldOptions : Codable, WordsApiModel {
         return self.customTocStyleSeparator;
     }
 
-
     // Sets defaultDocumentAuthor. Gets or sets Default Document Author.
     public func setDefaultDocumentAuthor(defaultDocumentAuthor : String?) -> FieldOptions {
         self.defaultDocumentAuthor = defaultDocumentAuthor;
@@ -347,7 +227,6 @@ public class FieldOptions : Codable, WordsApiModel {
     public func getDefaultDocumentAuthor() -> String? {
         return self.defaultDocumentAuthor;
     }
-
 
     // Sets fieldIndexFormat. Gets or sets Field Index Format.
     public func setFieldIndexFormat(fieldIndexFormat : FieldIndexFormat?) -> FieldOptions {
@@ -360,7 +239,6 @@ public class FieldOptions : Codable, WordsApiModel {
         return self.fieldIndexFormat;
     }
 
-
     // Sets fieldUpdateCultureName. Gets or sets Field Update Culture Name. It is used for all fields if FieldUpdateCultureSource is FieldCode.
     public func setFieldUpdateCultureName(fieldUpdateCultureName : String?) -> FieldOptions {
         self.fieldUpdateCultureName = fieldUpdateCultureName;
@@ -371,7 +249,6 @@ public class FieldOptions : Codable, WordsApiModel {
     public func getFieldUpdateCultureName() -> String? {
         return self.fieldUpdateCultureName;
     }
-
 
     // Sets fieldUpdateCultureSource. Gets or sets Field Update Culture Source.
     public func setFieldUpdateCultureSource(fieldUpdateCultureSource : FieldUpdateCultureSource?) -> FieldOptions {
@@ -384,7 +261,6 @@ public class FieldOptions : Codable, WordsApiModel {
         return self.fieldUpdateCultureSource;
     }
 
-
     // Sets fileName. Gets or sets File Name.
     public func setFileName(fileName : String?) -> FieldOptions {
         self.fileName = fileName;
@@ -395,7 +271,6 @@ public class FieldOptions : Codable, WordsApiModel {
     public func getFileName() -> String? {
         return self.fileName;
     }
-
 
     // Sets isBidiTextSupportedOnUpdate. Gets or sets if Bidi Text Supported OnUpdate.
     public func setIsBidiTextSupportedOnUpdate(isBidiTextSupportedOnUpdate : Bool?) -> FieldOptions {
@@ -408,7 +283,6 @@ public class FieldOptions : Codable, WordsApiModel {
         return self.isBidiTextSupportedOnUpdate;
     }
 
-
     // Sets legacyNumberFormat. Gets or sets if Legacy Number Format.
     public func setLegacyNumberFormat(legacyNumberFormat : Bool?) -> FieldOptions {
         self.legacyNumberFormat = legacyNumberFormat;
@@ -419,7 +293,6 @@ public class FieldOptions : Codable, WordsApiModel {
     public func getLegacyNumberFormat() -> Bool? {
         return self.legacyNumberFormat;
     }
-
 
     // Sets preProcessCultureName. Gets or sets PreProcess Culture Name. It is a culture code for DOC fields.
     public func setPreProcessCultureName(preProcessCultureName : String?) -> FieldOptions {
@@ -432,7 +305,6 @@ public class FieldOptions : Codable, WordsApiModel {
         return self.preProcessCultureName;
     }
 
-
     // Sets templateName. Gets or sets Template Name.
     public func setTemplateName(templateName : String?) -> FieldOptions {
         self.templateName = templateName;
@@ -443,7 +315,6 @@ public class FieldOptions : Codable, WordsApiModel {
     public func getTemplateName() -> String? {
         return self.templateName;
     }
-
 
     // Sets useInvariantCultureNumberFormat. Gets or sets if Use Invariant Culture Number Format.
     public func setUseInvariantCultureNumberFormat(useInvariantCultureNumberFormat : Bool?) -> FieldOptions {

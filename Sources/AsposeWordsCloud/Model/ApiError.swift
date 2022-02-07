@@ -31,64 +31,19 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ApiError : Codable, WordsApiModel {
     // Field of code. Api error.
-    private var _code : String? = nil;
-
-    public var code : String? {
-        get {
-            return self._code;
-        }
-        set {
-            self._code = newValue;
-        }
-    }
+    public var code : String?;
 
     // Field of dateTime. Api error.
-    private var _dateTime : Date? = nil;
-
-    public var dateTime : Date? {
-        get {
-            return self._dateTime;
-        }
-        set {
-            self._dateTime = newValue;
-        }
-    }
+    public var dateTime : Date?;
 
     // Field of description. Api error.
-    private var _description : String? = nil;
-
-    public var description : String? {
-        get {
-            return self._description;
-        }
-        set {
-            self._description = newValue;
-        }
-    }
+    public var description : String?;
 
     // Field of innerError. Api error.
-    private var _innerError : ApiError? = nil;
-
-    public var innerError : ApiError? {
-        get {
-            return self._innerError;
-        }
-        set {
-            self._innerError = newValue;
-        }
-    }
+    public var innerError : ApiError?;
 
     // Field of message. Api error.
-    private var _message : String? = nil;
-
-    public var message : String? {
-        get {
-            return self._message;
-        }
-        set {
-            self._message = newValue;
-        }
-    }
+    public var message : String?;
 
     private enum CodingKeys: String, CodingKey {
         case code = "Code";
@@ -146,7 +101,6 @@ public class ApiError : Codable, WordsApiModel {
         return self.code;
     }
 
-
     // Sets dateTime. Gets or sets the server DateTime.
     public func setDateTime(dateTime : Date?) -> ApiError {
         self.dateTime = dateTime;
@@ -157,7 +111,6 @@ public class ApiError : Codable, WordsApiModel {
     public func getDateTime() -> Date? {
         return self.dateTime;
     }
-
 
     // Sets description. Gets or sets the error description.
     public func setDescription(description : String?) -> ApiError {
@@ -170,7 +123,6 @@ public class ApiError : Codable, WordsApiModel {
         return self.description;
     }
 
-
     // Sets innerError. Gets or sets the inner error.
     public func setInnerError(innerError : ApiError?) -> ApiError {
         self.innerError = innerError;
@@ -181,7 +133,6 @@ public class ApiError : Codable, WordsApiModel {
     public func getInnerError() -> ApiError? {
         return self.innerError;
     }
-
 
     // Sets message. Gets or sets the error message.
     public func setMessage(message : String?) -> ApiError {

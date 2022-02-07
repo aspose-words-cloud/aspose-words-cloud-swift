@@ -44,12 +44,16 @@ public class Configuration : Codable {
 
     // Specify request timeout
     private var timeout: TimeInterval;
-    
+
+#if os(Linux)
+    // Encryption of passwords in query params not supported on linux
+#else    
     // Specify RSA exponent
     private var rsaExponent: String;
-    
+
     // Specify RSA modulus
     private var rsaModulus: String;
+#endif
 
     private enum CodingKeys: String, CodingKey {
         case baseUrl = "BaseUrl";
@@ -57,20 +61,32 @@ public class Configuration : Codable {
         case clientSecret = "ClientSecret";
         case debugMode = "DebugMode";
         case timeout = "Timeout";
+#if os(Linux)
+        // Encryption of passwords in query params not supported on linux
+#else
         case rsaExponent = "RsaExponent";
         case rsaModulus = "RsaModulus";
+#endif
         case invalidCodingKey;
     }
 
     // Initialize new instance of Aspose.Words for Cloud configuration object with given parameters
+#if os(Linux)
+    public init(clientId: String, clientSecret: String, baseUrl: String = "https://api.aspose.cloud", debugMode: Bool = false, timeout: TimeInterval = 300) {
+#else
     public init(clientId: String, clientSecret: String, baseUrl: String = "https://api.aspose.cloud", debugMode: Bool = false, timeout: TimeInterval = 300, rsaExponent: String = nil, rsaModulus: String = nil) {
+#endif
         self.clientId = clientId;
         self.clientSecret = clientSecret;
         self.baseUrl = baseUrl;
         self.debugMode = debugMode;
         self.timeout = timeout;
+#if os(Linux)
+        // Encryption of passwords in query params not supported on linux
+#else
         self.rsaExponent = rsaExponent;
         self.rsaModulus = rsaModulus;
+#endif
     }
 
     public required init(from decoder: Decoder) throws {
@@ -80,8 +96,12 @@ public class Configuration : Codable {
         self.clientSecret = try container.decode(String.self, forKey: .clientSecret);
         self.debugMode = try container.decodeIfPresent(Bool.self, forKey: .debugMode);
         self.timeout = try container.decodeIfPresent(TimeInterval.self, forKey: .timeout) ?? 300;
+#if os(Linux)
+        // Encryption of passwords in query params not supported on linux
+#else
         self.rsaExponent = try container.decodeIfPresent(String.self, forKey: .rsaExponent) ?? nil;
         self.rsaModulus = try container.decodeIfPresent(String.self, forKey: .rsaModulus) ?? nil;
+#endif
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -93,12 +113,16 @@ public class Configuration : Codable {
             try container.encode(self.debugMode, forKey: .debugMode);
         }
         try container.encode(self.timeout, forKey: .timeout);
+#if os(Linux)
+        // Encryption of passwords in query params not supported on linux
+#else
         if (self.rsaExponent != nil) {
             try container.encode(self.rsaExponent, forKey: .rsaExponent);
         }
         if (self.rsaModulus != nil) {
             try container.encode(self.rsaModulus, forKey: .rsaModulus);
         }
+#endif
     }
 
     // Returns Aspose.Words for Cloud base URL
@@ -126,6 +150,9 @@ public class Configuration : Codable {
         return self.timeout;
     }
 
+#if os(Linux)
+        // Encryption of passwords in query params not supported on linux
+#else
     // Returns RSA exponent
     public func getRsaExponent() -> String {
         return self.rsaExponent;
@@ -135,6 +162,7 @@ public class Configuration : Codable {
     public func getRsaModulus() -> String {
         return self.rsaModulus;
     }
+#endif
 
     // Returns general version of cloud api
     public func getApiVersion() -> String {

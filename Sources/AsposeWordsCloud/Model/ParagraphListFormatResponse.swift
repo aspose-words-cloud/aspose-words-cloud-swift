@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ParagraphListFormatResponse : WordsResponse {
     // Field of listFormat. The REST response with a list format for a paragraph.
-    private var _listFormat : ListFormat? = nil;
-
-    public var listFormat : ListFormat? {
-        get {
-            return self._listFormat;
-        }
-        set {
-            self._listFormat = newValue;
-        }
-    }
+    public var listFormat : ListFormat?;
 
     private enum CodingKeys: String, CodingKey {
         case listFormat = "ListFormat";

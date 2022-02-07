@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class LinkElement : Codable, WordsApiModel {
     // Field of link. Reference to a document.
-    private var _link : WordsApiLink? = nil;
-
-    public var link : WordsApiLink? {
-        get {
-            return self._link;
-        }
-        set {
-            self._link = newValue;
-        }
-    }
+    public var link : WordsApiLink?;
 
     private enum CodingKeys: String, CodingKey {
         case link = "Link";

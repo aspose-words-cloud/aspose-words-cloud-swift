@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BookmarksOutlineLevelData : Codable, WordsApiModel {
     // Field of bookmarksOutlineLevel. Container class for individual bookmarks outline level.
-    private var _bookmarksOutlineLevel : Int? = nil;
-
-    public var bookmarksOutlineLevel : Int? {
-        get {
-            return self._bookmarksOutlineLevel;
-        }
-        set {
-            self._bookmarksOutlineLevel = newValue;
-        }
-    }
+    public var bookmarksOutlineLevel : Int?;
 
     // Field of name. Container class for individual bookmarks outline level.
-    private var _name : String? = nil;
-
-    public var name : String? {
-        get {
-            return self._name;
-        }
-        set {
-            self._name = newValue;
-        }
-    }
+    public var name : String?;
 
     private enum CodingKeys: String, CodingKey {
         case bookmarksOutlineLevel = "BookmarksOutlineLevel";
@@ -89,7 +71,6 @@ public class BookmarksOutlineLevelData : Codable, WordsApiModel {
     public func getBookmarksOutlineLevel() -> Int? {
         return self.bookmarksOutlineLevel;
     }
-
 
     // Sets name. Gets or sets the bookmark's name.
     public func setName(name : String?) -> BookmarksOutlineLevelData {

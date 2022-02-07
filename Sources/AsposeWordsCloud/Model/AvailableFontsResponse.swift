@@ -31,40 +31,13 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class AvailableFontsResponse : WordsResponse {
     // Field of additionalFonts. The REST response with data on system, additional and custom fonts, available for document processing.
-    private var _additionalFonts : [FontInfo]? = nil;
-
-    public var additionalFonts : [FontInfo]? {
-        get {
-            return self._additionalFonts;
-        }
-        set {
-            self._additionalFonts = newValue;
-        }
-    }
+    public var additionalFonts : [FontInfo]?;
 
     // Field of customFonts. The REST response with data on system, additional and custom fonts, available for document processing.
-    private var _customFonts : [FontInfo]? = nil;
-
-    public var customFonts : [FontInfo]? {
-        get {
-            return self._customFonts;
-        }
-        set {
-            self._customFonts = newValue;
-        }
-    }
+    public var customFonts : [FontInfo]?;
 
     // Field of systemFonts. The REST response with data on system, additional and custom fonts, available for document processing.
-    private var _systemFonts : [FontInfo]? = nil;
-
-    public var systemFonts : [FontInfo]? {
-        get {
-            return self._systemFonts;
-        }
-        set {
-            self._systemFonts = newValue;
-        }
-    }
+    public var systemFonts : [FontInfo]?;
 
     private enum CodingKeys: String, CodingKey {
         case additionalFonts = "AdditionalFonts";
@@ -110,7 +83,6 @@ public class AvailableFontsResponse : WordsResponse {
         return self.additionalFonts;
     }
 
-
     // Sets customFonts. Gets or sets the list of custom user fonts from user cloud storage. To use them, you should specify "fontsLocation" parameter in any request.
     public func setCustomFonts(customFonts : [FontInfo]?) -> AvailableFontsResponse {
         self.customFonts = customFonts;
@@ -121,7 +93,6 @@ public class AvailableFontsResponse : WordsResponse {
     public func getCustomFonts() -> [FontInfo]? {
         return self.customFonts;
     }
-
 
     // Sets systemFonts. Gets or sets the list of system fonts, available on the server.
     public func setSystemFonts(systemFonts : [FontInfo]?) -> AvailableFontsResponse {

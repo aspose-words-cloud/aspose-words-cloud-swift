@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PublicKeyResponse : WordsResponse {
     // Field of exponent. REST response for RSA public key info.
-    private var _exponent : String? = nil;
-
-    public var exponent : String? {
-        get {
-            return self._exponent;
-        }
-        set {
-            self._exponent = newValue;
-        }
-    }
+    public var exponent : String?;
 
     // Field of modulus. REST response for RSA public key info.
-    private var _modulus : String? = nil;
-
-    public var modulus : String? {
-        get {
-            return self._modulus;
-        }
-        set {
-            self._modulus = newValue;
-        }
-    }
+    public var modulus : String?;
 
     private enum CodingKeys: String, CodingKey {
         case exponent = "Exponent";
@@ -92,7 +74,6 @@ public class PublicKeyResponse : WordsResponse {
     public func getExponent() -> String? {
         return self.exponent;
     }
-
 
     // Sets modulus. Gets or sets RSA key modulus as Base64 string.
     public func setModulus(modulus : String?) -> PublicKeyResponse {

@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CustomXmlPart : CustomXmlPartLink {
     // Field of data. DTO container with a CustomXmlPart.
-    private var _data : String? = nil;
-
-    public var data : String? {
-        get {
-            return self._data;
-        }
-        set {
-            self._data = newValue;
-        }
-    }
+    public var data : String?;
 
     // Field of id. DTO container with a CustomXmlPart.
-    private var _id : String? = nil;
-
-    public var id : String? {
-        get {
-            return self._id;
-        }
-        set {
-            self._id = newValue;
-        }
-    }
+    public var id : String?;
 
     private enum CodingKeys: String, CodingKey {
         case data = "Data";
@@ -92,7 +74,6 @@ public class CustomXmlPart : CustomXmlPartLink {
     public func getData() -> String? {
         return self.data;
     }
-
 
     // Sets id. Gets or sets the custom xml part id.
     public func setId(id : String?) -> CustomXmlPart {

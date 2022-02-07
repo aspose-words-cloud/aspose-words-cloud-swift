@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableRowFormatResponse : WordsResponse {
     // Field of rowFormat. The REST response with the formatting properties of a table row.
-    private var _rowFormat : TableRowFormat? = nil;
-
-    public var rowFormat : TableRowFormat? {
-        get {
-            return self._rowFormat;
-        }
-        set {
-            self._rowFormat = newValue;
-        }
-    }
+    public var rowFormat : TableRowFormat?;
 
     private enum CodingKeys: String, CodingKey {
         case rowFormat = "RowFormat";

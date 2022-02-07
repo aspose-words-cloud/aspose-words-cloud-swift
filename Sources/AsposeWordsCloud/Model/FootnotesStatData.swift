@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FootnotesStatData : Codable, WordsApiModel {
     // Field of paragraphCount. Container for the footnotes statistical data.
-    private var _paragraphCount : Int? = nil;
-
-    public var paragraphCount : Int? {
-        get {
-            return self._paragraphCount;
-        }
-        set {
-            self._paragraphCount = newValue;
-        }
-    }
+    public var paragraphCount : Int?;
 
     // Field of wordCount. Container for the footnotes statistical data.
-    private var _wordCount : Int? = nil;
-
-    public var wordCount : Int? {
-        get {
-            return self._wordCount;
-        }
-        set {
-            self._wordCount = newValue;
-        }
-    }
+    public var wordCount : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case paragraphCount = "ParagraphCount";
@@ -89,7 +71,6 @@ public class FootnotesStatData : Codable, WordsApiModel {
     public func getParagraphCount() -> Int? {
         return self.paragraphCount;
     }
-
 
     // Sets wordCount. Gets or sets the total count of words in footnotes.
     public func setWordCount(wordCount : Int?) -> FootnotesStatData {

@@ -29,15 +29,18 @@ import Foundation
 
 // Aspose.Words.Cloud API for Swift
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
+#if os(Linux)
+public class WordsAPI {
+#else
 protocol Encryptor {
-    func isEncryptionAllowed() -> Bool
     func encrypt(data : : String) throws -> String
 }
 
 public class WordsAPI: Encryptor {
+#endif
     private let configuration : Configuration;
     private let apiInvoker : ApiInvoker;
-    
+
 #if os(Linux)
     // Encryption of passwords in query params not supported on linux
 #else
@@ -48,13 +51,21 @@ public class WordsAPI: Encryptor {
     // Initializes a new instance of the WordsAPI class based on Configuration object.
     public init(configuration : Configuration) throws {
         self.configuration = configuration;
+#if os(Linux)
+        self.apiInvoker = ApiInvoker(configuration: configuration);
+#else
         self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+#endif
     }
 
     // Initializes a new instance of the WordsAPI class based on ClientId and clientSecret.
     public init(clientId: String, clientSecret: String) throws {
         self.configuration = Configuration(clientId: clientId, clientSecret: clientSecret);
+#if os(Linux)
+        self.apiInvoker = ApiInvoker(configuration: configuration);
+#else
         self.apiInvoker = ApiInvoker(configuration: configuration, encryptor: self);
+#endif
     }
 
     // Async representation of acceptAllRevisions method
@@ -13916,44 +13927,37 @@ public class WordsAPI: Encryptor {
 
         return responseObject!;
     }
-    
-    // Encrypt string data
-    public func encrypt(data : : String) throws -> String {
-#if os(Linux)
-        // Encryption of passwords in query params not supported on linux
-        throw WordsApiError.notSupportedMethod(methodName: "setEncryptionData"); 
-#else    
 
+#if os(Linux)    
+    // Encryption of passwords in query params not supported on linux
+#else    
+    // Encrypt string data
+    public func encrypt(data : String) throws -> String {
         if (encryptionKey == null) {
-        
+
             let modulus = self.configuration.getRsaModulus();
             let exponent = self.configuration.getRsaExponent();
-            
+
             if (modulus == nil || exponent == nil) {
                 let response = try getPublicKey(request: GetPublicKeyRequest()));
                 exponent = response.getExponent();
                 modulus = response.getModulus();
             }
-            
+
             setEncryptionData(exponent, modulus);
         }
-        
+
         let buffer = data.data(using: .utf8)!;
         var error: Unmanaged<CFError>? = nil;
 
-        // Encrypto should less than key length
+        // Encryptor should less than key length
         let secData = SecKeyCreateEncryptedData(encryptionKey!, .rsaEncryptionPKCS1, buffer as CFData, &error)!;
         var secBuffer = [UInt8](repeating: 0, count: CFDataGetLength(secData));
         CFDataGetBytes(secData, CFRangeMake(0, CFDataGetLength(secData)), &secBuffer);
-        return Data(bytes: secBuffer).base64EncodedString().replacingOccurrences(of: "+", with: "%2B").replacingOccurrences(of: "/", with: "%2F");
-#endif        
+        return Data(bytes: secBuffer).base64EncodedString().replacingOccurrences(of: "+", with: "%2B").replacingOccurrences(of: "/", with: "%2F");      
     }
-    
+
     private func setEncryptionData(exponent: String, modulus: String) throws {
-#if os(Linux)
-        // Encryption of passwords in query params not supported on linux
-        throw WordsApiError.notSupportedMethod(methodName: "setEncryptionData"); 
-#else
         let exponent = Data(base64Encoded: data.getExponent()!)!;
         let modulus = Data(base64Encoded: data.getModulus()!)!;
         let exponentBytes = [UInt8](exponent);
@@ -13985,9 +13989,9 @@ public class WordsAPI: Encryptor {
         ];
 
         encryptionKey = SecKeyCreateWithData(keyData as CFData, attributes as CFDictionary, nil);
-#endif
     }
-    
+#endif
+
     public func isEncryptionAllowed() -> Bool {
 #if os(Linux)
         return false;
@@ -13995,5 +13999,4 @@ public class WordsAPI: Encryptor {
         return true;
 #endif
     }
-
 }

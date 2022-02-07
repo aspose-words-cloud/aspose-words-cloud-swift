@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TableRowResponse : WordsResponse {
     // Field of row. The REST response with a table row.
-    private var _row : TableRow? = nil;
-
-    public var row : TableRow? {
-        get {
-            return self._row;
-        }
-        set {
-            self._row = newValue;
-        }
-    }
+    public var row : TableRow?;
 
     private enum CodingKeys: String, CodingKey {
         case row = "Row";

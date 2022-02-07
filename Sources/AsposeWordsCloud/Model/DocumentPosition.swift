@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentPosition : Codable, WordsApiModel {
     // Field of node. DTO container with a position in the document tree.
-    private var _node : NodeLink? = nil;
-
-    public var node : NodeLink? {
-        get {
-            return self._node;
-        }
-        set {
-            self._node = newValue;
-        }
-    }
+    public var node : NodeLink?;
 
     // Field of offset. DTO container with a position in the document tree.
-    private var _offset : Int? = nil;
-
-    public var offset : Int? {
-        get {
-            return self._offset;
-        }
-        set {
-            self._offset = newValue;
-        }
-    }
+    public var offset : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case node = "Node";
@@ -89,7 +71,6 @@ public class DocumentPosition : Codable, WordsApiModel {
     public func getNode() -> NodeLink? {
         return self.node;
     }
-
 
     // Sets offset. Gets or sets the offset in the node.
     public func setOffset(offset : Int?) -> DocumentPosition {

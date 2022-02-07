@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListFormatUpdate : Codable, WordsApiModel {
     // Field of listId. Paragraph list format element for update.
-    private var _listId : Int? = nil;
-
-    public var listId : Int? {
-        get {
-            return self._listId;
-        }
-        set {
-            self._listId = newValue;
-        }
-    }
+    public var listId : Int?;
 
     // Field of listLevelNumber. Paragraph list format element for update.
-    private var _listLevelNumber : Int? = nil;
-
-    public var listLevelNumber : Int? {
-        get {
-            return self._listLevelNumber;
-        }
-        set {
-            self._listLevelNumber = newValue;
-        }
-    }
+    public var listLevelNumber : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case listId = "ListId";
@@ -89,7 +71,6 @@ public class ListFormatUpdate : Codable, WordsApiModel {
     public func getListId() -> Int? {
         return self.listId;
     }
-
 
     // Sets listLevelNumber. Gets or sets the list level number (0 to 8) for the paragraph.
     public func setListLevelNumber(listLevelNumber : Int?) -> ListFormatUpdate {

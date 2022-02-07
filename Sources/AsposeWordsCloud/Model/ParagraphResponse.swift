@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ParagraphResponse : WordsResponse {
     // Field of paragraph. The REST response with a paragraph.
-    private var _paragraph : Paragraph? = nil;
-
-    public var paragraph : Paragraph? {
-        get {
-            return self._paragraph;
-        }
-        set {
-            self._paragraph = newValue;
-        }
-    }
+    public var paragraph : Paragraph?;
 
     private enum CodingKeys: String, CodingKey {
         case paragraph = "Paragraph";

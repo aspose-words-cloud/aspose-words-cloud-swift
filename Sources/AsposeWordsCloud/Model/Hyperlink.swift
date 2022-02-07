@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Hyperlink : LinkElement {
     // Field of displayText. Hyperlink element.
-    private var _displayText : String? = nil;
-
-    public var displayText : String? {
-        get {
-            return self._displayText;
-        }
-        set {
-            self._displayText = newValue;
-        }
-    }
+    public var displayText : String?;
 
     // Field of value. Hyperlink element.
-    private var _value : String? = nil;
-
-    public var value : String? {
-        get {
-            return self._value;
-        }
-        set {
-            self._value = newValue;
-        }
-    }
+    public var value : String?;
 
     private enum CodingKeys: String, CodingKey {
         case displayText = "DisplayText";
@@ -92,7 +74,6 @@ public class Hyperlink : LinkElement {
     public func getDisplayText() -> String? {
         return self.displayText;
     }
-
 
     // Sets value. Gets or sets the value.
     public func setValue(value : String?) -> Hyperlink {

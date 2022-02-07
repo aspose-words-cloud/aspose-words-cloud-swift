@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StoryChildNodes : Codable, WordsApiModel {
     // Field of childNodes. Child nodes of Story or InlineStory.
-    private var _childNodes : [NodeLink]? = nil;
-
-    public var childNodes : [NodeLink]? {
-        get {
-            return self._childNodes;
-        }
-        set {
-            self._childNodes = newValue;
-        }
-    }
+    public var childNodes : [NodeLink]?;
 
     private enum CodingKeys: String, CodingKey {
         case childNodes = "ChildNodes";

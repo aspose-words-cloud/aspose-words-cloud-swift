@@ -31,40 +31,13 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class HeaderFooter : HeaderFooterLink {
     // Field of childNodes. DTO container with a section element.
-    private var _childNodes : [NodeLink]? = nil;
-
-    public var childNodes : [NodeLink]? {
-        get {
-            return self._childNodes;
-        }
-        set {
-            self._childNodes = newValue;
-        }
-    }
+    public var childNodes : [NodeLink]?;
 
     // Field of drawingObjects. DTO container with a section element.
-    private var _drawingObjects : LinkElement? = nil;
-
-    public var drawingObjects : LinkElement? {
-        get {
-            return self._drawingObjects;
-        }
-        set {
-            self._drawingObjects = newValue;
-        }
-    }
+    public var drawingObjects : LinkElement?;
 
     // Field of paragraphs. DTO container with a section element.
-    private var _paragraphs : LinkElement? = nil;
-
-    public var paragraphs : LinkElement? {
-        get {
-            return self._paragraphs;
-        }
-        set {
-            self._paragraphs = newValue;
-        }
-    }
+    public var paragraphs : LinkElement?;
 
     private enum CodingKeys: String, CodingKey {
         case childNodes = "ChildNodes";
@@ -110,7 +83,6 @@ public class HeaderFooter : HeaderFooterLink {
         return self.childNodes;
     }
 
-
     // Sets drawingObjects. Gets or sets the link to DrawingObjects resource.
     public func setDrawingObjects(drawingObjects : LinkElement?) -> HeaderFooter {
         self.drawingObjects = drawingObjects;
@@ -121,7 +93,6 @@ public class HeaderFooter : HeaderFooterLink {
     public func getDrawingObjects() -> LinkElement? {
         return self.drawingObjects;
     }
-
 
     // Sets paragraphs. Gets or sets the link to Paragraphs resource.
     public func setParagraphs(paragraphs : LinkElement?) -> HeaderFooter {

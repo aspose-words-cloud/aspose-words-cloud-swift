@@ -47,28 +47,10 @@ public class StyleInsert : Codable, WordsApiModel {
     }
 
     // Field of styleName. Represents a single document style to insert.
-    private var _styleName : String? = nil;
-
-    public var styleName : String? {
-        get {
-            return self._styleName;
-        }
-        set {
-            self._styleName = newValue;
-        }
-    }
+    public var styleName : String?;
 
     // Field of styleType. Represents a single document style to insert.
-    private var _styleType : StyleType? = nil;
-
-    public var styleType : StyleType? {
-        get {
-            return self._styleType;
-        }
-        set {
-            self._styleType = newValue;
-        }
-    }
+    public var styleType : StyleType?;
 
     private enum CodingKeys: String, CodingKey {
         case styleName = "StyleName";
@@ -105,7 +87,6 @@ public class StyleInsert : Codable, WordsApiModel {
     public func getStyleName() -> String? {
         return self.styleName;
     }
-
 
     // Sets styleType. Gets or sets the StyleType value that specifies the type of the style to create.
     public func setStyleType(styleType : StyleType?) -> StyleInsert {

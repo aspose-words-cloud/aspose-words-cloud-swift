@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Bookmarks : LinkElement {
     // Field of bookmarkList. Represents an array of bookmarks.
-    private var _bookmarkList : [Bookmark]? = nil;
-
-    public var bookmarkList : [Bookmark]? {
-        get {
-            return self._bookmarkList;
-        }
-        set {
-            self._bookmarkList = newValue;
-        }
-    }
+    public var bookmarkList : [Bookmark]?;
 
     private enum CodingKeys: String, CodingKey {
         case bookmarkList = "BookmarkList";

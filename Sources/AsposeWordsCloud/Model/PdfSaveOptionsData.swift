@@ -45,313 +45,79 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of compliance. Container class for pdf save options.
-    private var _compliance : String? = nil;
-
-    public var compliance : String? {
-        get {
-            return self._compliance;
-        }
-        set {
-            self._compliance = newValue;
-        }
-    }
+    public var compliance : String?;
 
     // Field of createNoteHyperlinks. Container class for pdf save options.
-    private var _createNoteHyperlinks : Bool? = nil;
-
-    public var createNoteHyperlinks : Bool? {
-        get {
-            return self._createNoteHyperlinks;
-        }
-        set {
-            self._createNoteHyperlinks = newValue;
-        }
-    }
+    public var createNoteHyperlinks : Bool?;
 
     // Field of customPropertiesExport. Container class for pdf save options.
-    private var _customPropertiesExport : String? = nil;
-
-    public var customPropertiesExport : String? {
-        get {
-            return self._customPropertiesExport;
-        }
-        set {
-            self._customPropertiesExport = newValue;
-        }
-    }
+    public var customPropertiesExport : String?;
 
     // Field of digitalSignatureDetails. Container class for pdf save options.
-    private var _digitalSignatureDetails : PdfDigitalSignatureDetailsData? = nil;
-
-    public var digitalSignatureDetails : PdfDigitalSignatureDetailsData? {
-        get {
-            return self._digitalSignatureDetails;
-        }
-        set {
-            self._digitalSignatureDetails = newValue;
-        }
-    }
+    public var digitalSignatureDetails : PdfDigitalSignatureDetailsData?;
 
     // Field of displayDocTitle. Container class for pdf save options.
-    private var _displayDocTitle : Bool? = nil;
-
-    public var displayDocTitle : Bool? {
-        get {
-            return self._displayDocTitle;
-        }
-        set {
-            self._displayDocTitle = newValue;
-        }
-    }
+    public var displayDocTitle : Bool?;
 
     // Field of downsampleOptions. Container class for pdf save options.
-    private var _downsampleOptions : DownsampleOptionsData? = nil;
-
-    public var downsampleOptions : DownsampleOptionsData? {
-        get {
-            return self._downsampleOptions;
-        }
-        set {
-            self._downsampleOptions = newValue;
-        }
-    }
+    public var downsampleOptions : DownsampleOptionsData?;
 
     // Field of embedFullFonts. Container class for pdf save options.
-    private var _embedFullFonts : Bool? = nil;
-
-    public var embedFullFonts : Bool? {
-        get {
-            return self._embedFullFonts;
-        }
-        set {
-            self._embedFullFonts = newValue;
-        }
-    }
+    public var embedFullFonts : Bool?;
 
     // Field of encryptionDetails. Container class for pdf save options.
-    private var _encryptionDetails : PdfEncryptionDetailsData? = nil;
-
-    public var encryptionDetails : PdfEncryptionDetailsData? {
-        get {
-            return self._encryptionDetails;
-        }
-        set {
-            self._encryptionDetails = newValue;
-        }
-    }
+    public var encryptionDetails : PdfEncryptionDetailsData?;
 
     // Field of exportDocumentStructure. Container class for pdf save options.
-    private var _exportDocumentStructure : Bool? = nil;
-
-    public var exportDocumentStructure : Bool? {
-        get {
-            return self._exportDocumentStructure;
-        }
-        set {
-            self._exportDocumentStructure = newValue;
-        }
-    }
+    public var exportDocumentStructure : Bool?;
 
     // Field of exportLanguageToSpanTag. Container class for pdf save options.
-    private var _exportLanguageToSpanTag : Bool? = nil;
-
-    public var exportLanguageToSpanTag : Bool? {
-        get {
-            return self._exportLanguageToSpanTag;
-        }
-        set {
-            self._exportLanguageToSpanTag = newValue;
-        }
-    }
+    public var exportLanguageToSpanTag : Bool?;
 
     // Field of fontEmbeddingMode. Container class for pdf save options.
-    private var _fontEmbeddingMode : String? = nil;
-
-    public var fontEmbeddingMode : String? {
-        get {
-            return self._fontEmbeddingMode;
-        }
-        set {
-            self._fontEmbeddingMode = newValue;
-        }
-    }
+    public var fontEmbeddingMode : String?;
 
     // Field of headerFooterBookmarksExportMode. Container class for pdf save options.
-    private var _headerFooterBookmarksExportMode : HeaderFooterBookmarksExportMode? = nil;
-
-    public var headerFooterBookmarksExportMode : HeaderFooterBookmarksExportMode? {
-        get {
-            return self._headerFooterBookmarksExportMode;
-        }
-        set {
-            self._headerFooterBookmarksExportMode = newValue;
-        }
-    }
+    public var headerFooterBookmarksExportMode : HeaderFooterBookmarksExportMode?;
 
     // Field of imageColorSpaceExportMode. Container class for pdf save options.
-    private var _imageColorSpaceExportMode : String? = nil;
-
-    public var imageColorSpaceExportMode : String? {
-        get {
-            return self._imageColorSpaceExportMode;
-        }
-        set {
-            self._imageColorSpaceExportMode = newValue;
-        }
-    }
+    public var imageColorSpaceExportMode : String?;
 
     // Field of imageCompression. Container class for pdf save options.
-    private var _imageCompression : String? = nil;
-
-    public var imageCompression : String? {
-        get {
-            return self._imageCompression;
-        }
-        set {
-            self._imageCompression = newValue;
-        }
-    }
+    public var imageCompression : String?;
 
     // Field of interpolateImages. Container class for pdf save options.
-    private var _interpolateImages : Bool? = nil;
-
-    public var interpolateImages : Bool? {
-        get {
-            return self._interpolateImages;
-        }
-        set {
-            self._interpolateImages = newValue;
-        }
-    }
+    public var interpolateImages : Bool?;
 
     // Field of openHyperlinksInNewWindow. Container class for pdf save options.
-    private var _openHyperlinksInNewWindow : Bool? = nil;
-
-    public var openHyperlinksInNewWindow : Bool? {
-        get {
-            return self._openHyperlinksInNewWindow;
-        }
-        set {
-            self._openHyperlinksInNewWindow = newValue;
-        }
-    }
+    public var openHyperlinksInNewWindow : Bool?;
 
     // Field of outlineOptions. Container class for pdf save options.
-    private var _outlineOptions : OutlineOptionsData? = nil;
-
-    public var outlineOptions : OutlineOptionsData? {
-        get {
-            return self._outlineOptions;
-        }
-        set {
-            self._outlineOptions = newValue;
-        }
-    }
+    public var outlineOptions : OutlineOptionsData?;
 
     // Field of pageMode. Container class for pdf save options.
-    private var _pageMode : String? = nil;
-
-    public var pageMode : String? {
-        get {
-            return self._pageMode;
-        }
-        set {
-            self._pageMode = newValue;
-        }
-    }
+    public var pageMode : String?;
 
     // Field of preblendImages. Container class for pdf save options.
-    private var _preblendImages : Bool? = nil;
-
-    public var preblendImages : Bool? {
-        get {
-            return self._preblendImages;
-        }
-        set {
-            self._preblendImages = newValue;
-        }
-    }
+    public var preblendImages : Bool?;
 
     // Field of preserveFormFields. Container class for pdf save options.
-    private var _preserveFormFields : Bool? = nil;
-
-    public var preserveFormFields : Bool? {
-        get {
-            return self._preserveFormFields;
-        }
-        set {
-            self._preserveFormFields = newValue;
-        }
-    }
-
-    // Field of saveFormat. Container class for pdf save options.
-    private final let _saveFormat : String? = "pdf";
-
-    override public var saveFormat : String? {
-        get {
-            return self._saveFormat;
-        }
-    }
+    public var preserveFormFields : Bool?;
 
     // Field of textCompression. Container class for pdf save options.
-    private var _textCompression : String? = nil;
-
-    public var textCompression : String? {
-        get {
-            return self._textCompression;
-        }
-        set {
-            self._textCompression = newValue;
-        }
-    }
+    public var textCompression : String?;
 
     // Field of useBookFoldPrintingSettings. Container class for pdf save options.
-    private var _useBookFoldPrintingSettings : Bool? = nil;
-
-    public var useBookFoldPrintingSettings : Bool? {
-        get {
-            return self._useBookFoldPrintingSettings;
-        }
-        set {
-            self._useBookFoldPrintingSettings = newValue;
-        }
-    }
+    public var useBookFoldPrintingSettings : Bool?;
 
     // Field of useCoreFonts. Container class for pdf save options.
-    private var _useCoreFonts : Bool? = nil;
-
-    public var useCoreFonts : Bool? {
-        get {
-            return self._useCoreFonts;
-        }
-        set {
-            self._useCoreFonts = newValue;
-        }
-    }
+    public var useCoreFonts : Bool?;
 
     // Field of zoomBehavior. Container class for pdf save options.
-    private var _zoomBehavior : String? = nil;
-
-    public var zoomBehavior : String? {
-        get {
-            return self._zoomBehavior;
-        }
-        set {
-            self._zoomBehavior = newValue;
-        }
-    }
+    public var zoomBehavior : String?;
 
     // Field of zoomFactor. Container class for pdf save options.
-    private var _zoomFactor : Int? = nil;
-
-    public var zoomFactor : Int? {
-        get {
-            return self._zoomFactor;
-        }
-        set {
-            self._zoomFactor = newValue;
-        }
-    }
+    public var zoomFactor : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case compliance = "Compliance";
@@ -507,7 +273,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.compliance;
     }
 
-
     // Sets createNoteHyperlinks. Gets or sets a value indicating whether to convert footnote/endnote references in main text story into active hyperlinks. When clicked the hyperlink will lead to the corresponding footnote/endnote. The default value is false.
     public func setCreateNoteHyperlinks(createNoteHyperlinks : Bool?) -> PdfSaveOptionsData {
         self.createNoteHyperlinks = createNoteHyperlinks;
@@ -518,7 +283,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public func getCreateNoteHyperlinks() -> Bool? {
         return self.createNoteHyperlinks;
     }
-
 
     // Sets customPropertiesExport. Gets or sets the option that controls the way CustomDocumentProperties are exported to PDF file. The default value is None.
     public func setCustomPropertiesExport(customPropertiesExport : String?) -> PdfSaveOptionsData {
@@ -531,7 +295,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.customPropertiesExport;
     }
 
-
     // Sets digitalSignatureDetails. Gets or sets the details for signing the output PDF document.
     public func setDigitalSignatureDetails(digitalSignatureDetails : PdfDigitalSignatureDetailsData?) -> PdfSaveOptionsData {
         self.digitalSignatureDetails = digitalSignatureDetails;
@@ -542,7 +305,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public func getDigitalSignatureDetails() -> PdfDigitalSignatureDetailsData? {
         return self.digitalSignatureDetails;
     }
-
 
     // Sets displayDocTitle. Gets or sets a value indicating whether the window’s title bar should display the document title taken from the Title entry of the document information dictionary.
     public func setDisplayDocTitle(displayDocTitle : Bool?) -> PdfSaveOptionsData {
@@ -555,7 +317,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.displayDocTitle;
     }
 
-
     // Sets downsampleOptions. Gets or sets the downsample options.
     public func setDownsampleOptions(downsampleOptions : DownsampleOptionsData?) -> PdfSaveOptionsData {
         self.downsampleOptions = downsampleOptions;
@@ -566,7 +327,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public func getDownsampleOptions() -> DownsampleOptionsData? {
         return self.downsampleOptions;
     }
-
 
     // Sets embedFullFonts. Gets or sets a value indicating whether fonts are embedded into the resulting PDF documents.
     public func setEmbedFullFonts(embedFullFonts : Bool?) -> PdfSaveOptionsData {
@@ -579,7 +339,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.embedFullFonts;
     }
 
-
     // Sets encryptionDetails. Gets or sets the details for encrypting the output PDF document.
     public func setEncryptionDetails(encryptionDetails : PdfEncryptionDetailsData?) -> PdfSaveOptionsData {
         self.encryptionDetails = encryptionDetails;
@@ -590,7 +349,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public func getEncryptionDetails() -> PdfEncryptionDetailsData? {
         return self.encryptionDetails;
     }
-
 
     // Sets exportDocumentStructure. Gets or sets a value indicating whether to export document structure.
     public func setExportDocumentStructure(exportDocumentStructure : Bool?) -> PdfSaveOptionsData {
@@ -603,7 +361,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.exportDocumentStructure;
     }
 
-
     // Sets exportLanguageToSpanTag. Gets or sets a value determining whether or not to create a "Span" tag in the document structure to export the text language.
     public func setExportLanguageToSpanTag(exportLanguageToSpanTag : Bool?) -> PdfSaveOptionsData {
         self.exportLanguageToSpanTag = exportLanguageToSpanTag;
@@ -614,7 +371,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public func getExportLanguageToSpanTag() -> Bool? {
         return self.exportLanguageToSpanTag;
     }
-
 
     // Sets fontEmbeddingMode. Gets or sets the font embedding mode.
     public func setFontEmbeddingMode(fontEmbeddingMode : String?) -> PdfSaveOptionsData {
@@ -627,7 +383,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.fontEmbeddingMode;
     }
 
-
     // Sets headerFooterBookmarksExportMode. Gets or sets the option that controls how bookmarks in headers/footers are exported. The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
     public func setHeaderFooterBookmarksExportMode(headerFooterBookmarksExportMode : HeaderFooterBookmarksExportMode?) -> PdfSaveOptionsData {
         self.headerFooterBookmarksExportMode = headerFooterBookmarksExportMode;
@@ -638,7 +393,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public func getHeaderFooterBookmarksExportMode() -> HeaderFooterBookmarksExportMode? {
         return self.headerFooterBookmarksExportMode;
     }
-
 
     // Sets imageColorSpaceExportMode. Gets or sets the option that controls how the color space will be selected for the images in PDF document.
     public func setImageColorSpaceExportMode(imageColorSpaceExportMode : String?) -> PdfSaveOptionsData {
@@ -651,7 +405,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.imageColorSpaceExportMode;
     }
 
-
     // Sets imageCompression. Gets or sets the compression type to be used for all images in the document.
     public func setImageCompression(imageCompression : String?) -> PdfSaveOptionsData {
         self.imageCompression = imageCompression;
@@ -662,7 +415,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public func getImageCompression() -> String? {
         return self.imageCompression;
     }
-
 
     // Sets interpolateImages. Gets or sets a value indicating whether image interpolation shall be performed by a conforming reader. When false is specified, the flag is not written to the output document and the default behavior of reader is used instead.
     public func setInterpolateImages(interpolateImages : Bool?) -> PdfSaveOptionsData {
@@ -675,7 +427,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.interpolateImages;
     }
 
-
     // Sets openHyperlinksInNewWindow. Gets or sets a value indicating whether hyperlinks in the output Pdf document are forced to be opened in a new window (or tab) of a browser.
     public func setOpenHyperlinksInNewWindow(openHyperlinksInNewWindow : Bool?) -> PdfSaveOptionsData {
         self.openHyperlinksInNewWindow = openHyperlinksInNewWindow;
@@ -686,7 +437,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public func getOpenHyperlinksInNewWindow() -> Bool? {
         return self.openHyperlinksInNewWindow;
     }
-
 
     // Sets outlineOptions. Gets or sets the outline options.
     public func setOutlineOptions(outlineOptions : OutlineOptionsData?) -> PdfSaveOptionsData {
@@ -699,7 +449,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.outlineOptions;
     }
 
-
     // Sets pageMode. Gets or sets the option that controls how the PDF document should be displayed when opened in the PDF reader.
     public func setPageMode(pageMode : String?) -> PdfSaveOptionsData {
         self.pageMode = pageMode;
@@ -710,7 +459,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public func getPageMode() -> String? {
         return self.pageMode;
     }
-
 
     // Sets preblendImages. Gets or sets a value indicating whether to preblend transparent images with black background color.
     public func setPreblendImages(preblendImages : Bool?) -> PdfSaveOptionsData {
@@ -723,7 +471,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.preblendImages;
     }
 
-
     // Sets preserveFormFields. Gets or sets a value indicating whether to preserve Microsoft Word form fields as form fields in PDF or convert them to text.
     public func setPreserveFormFields(preserveFormFields : Bool?) -> PdfSaveOptionsData {
         self.preserveFormFields = preserveFormFields;
@@ -734,7 +481,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public func getPreserveFormFields() -> Bool? {
         return self.preserveFormFields;
     }
-
 
     // Sets textCompression. Gets or sets the compression type to be used for all textual content in the document.
     public func setTextCompression(textCompression : String?) -> PdfSaveOptionsData {
@@ -747,7 +493,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.textCompression;
     }
 
-
     // Sets useBookFoldPrintingSettings. Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
     public func setUseBookFoldPrintingSettings(useBookFoldPrintingSettings : Bool?) -> PdfSaveOptionsData {
         self.useBookFoldPrintingSettings = useBookFoldPrintingSettings;
@@ -758,7 +503,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public func getUseBookFoldPrintingSettings() -> Bool? {
         return self.useBookFoldPrintingSettings;
     }
-
 
     // Sets useCoreFonts. Gets or sets a value indicating whether to substitute TrueType fonts Arial, Times New Roman, Courier New and Symbol with core PDF Type 1 fonts.
     public func setUseCoreFonts(useCoreFonts : Bool?) -> PdfSaveOptionsData {
@@ -771,7 +515,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         return self.useCoreFonts;
     }
 
-
     // Sets zoomBehavior. Gets or sets the option that controls what type of zoom should be applied when a document is opened with a PDF viewer.
     public func setZoomBehavior(zoomBehavior : String?) -> PdfSaveOptionsData {
         self.zoomBehavior = zoomBehavior;
@@ -782,7 +525,6 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public func getZoomBehavior() -> String? {
         return self.zoomBehavior;
     }
-
 
     // Sets zoomFactor. Gets or sets the zoom factor (in percentages) for a document.
     public func setZoomFactor(zoomFactor : Int?) -> PdfSaveOptionsData {

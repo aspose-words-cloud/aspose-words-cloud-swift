@@ -31,52 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FontInfo : Codable, WordsApiModel {
     // Field of filePath. DTO container with font info.
-    private var _filePath : String? = nil;
-
-    public var filePath : String? {
-        get {
-            return self._filePath;
-        }
-        set {
-            self._filePath = newValue;
-        }
-    }
+    public var filePath : String?;
 
     // Field of fontFamilyName. DTO container with font info.
-    private var _fontFamilyName : String? = nil;
-
-    public var fontFamilyName : String? {
-        get {
-            return self._fontFamilyName;
-        }
-        set {
-            self._fontFamilyName = newValue;
-        }
-    }
+    public var fontFamilyName : String?;
 
     // Field of fullFontName. DTO container with font info.
-    private var _fullFontName : String? = nil;
-
-    public var fullFontName : String? {
-        get {
-            return self._fullFontName;
-        }
-        set {
-            self._fullFontName = newValue;
-        }
-    }
+    public var fullFontName : String?;
 
     // Field of version. DTO container with font info.
-    private var _version : String? = nil;
-
-    public var version : String? {
-        get {
-            return self._version;
-        }
-        set {
-            self._version = newValue;
-        }
-    }
+    public var version : String?;
 
     private enum CodingKeys: String, CodingKey {
         case filePath = "FilePath";
@@ -124,7 +88,6 @@ public class FontInfo : Codable, WordsApiModel {
         return self.filePath;
     }
 
-
     // Sets fontFamilyName. Gets or sets the family name of the font.
     public func setFontFamilyName(fontFamilyName : String?) -> FontInfo {
         self.fontFamilyName = fontFamilyName;
@@ -136,7 +99,6 @@ public class FontInfo : Codable, WordsApiModel {
         return self.fontFamilyName;
     }
 
-
     // Sets fullFontName. Gets or sets the full name of the font.
     public func setFullFontName(fullFontName : String?) -> FontInfo {
         self.fullFontName = fullFontName;
@@ -147,7 +109,6 @@ public class FontInfo : Codable, WordsApiModel {
     public func getFullFontName() -> String? {
         return self.fullFontName;
     }
-
 
     // Sets version. Gets or sets the version string of the font.
     public func setVersion(version : String?) -> FontInfo {

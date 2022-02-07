@@ -31,52 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CsvDataLoadOptions : Codable, WordsApiModel {
     // Field of commentChar. Represents options for parsing CSV data.
-    private var _commentChar : String? = nil;
-
-    public var commentChar : String? {
-        get {
-            return self._commentChar;
-        }
-        set {
-            self._commentChar = newValue;
-        }
-    }
+    public var commentChar : String?;
 
     // Field of delimiter. Represents options for parsing CSV data.
-    private var _delimiter : String? = nil;
-
-    public var delimiter : String? {
-        get {
-            return self._delimiter;
-        }
-        set {
-            self._delimiter = newValue;
-        }
-    }
+    public var delimiter : String?;
 
     // Field of hasHeaders. Represents options for parsing CSV data.
-    private var _hasHeaders : Bool? = nil;
-
-    public var hasHeaders : Bool? {
-        get {
-            return self._hasHeaders;
-        }
-        set {
-            self._hasHeaders = newValue;
-        }
-    }
+    public var hasHeaders : Bool?;
 
     // Field of quoteChar. Represents options for parsing CSV data.
-    private var _quoteChar : String? = nil;
-
-    public var quoteChar : String? {
-        get {
-            return self._quoteChar;
-        }
-        set {
-            self._quoteChar = newValue;
-        }
-    }
+    public var quoteChar : String?;
 
     private enum CodingKeys: String, CodingKey {
         case commentChar = "CommentChar";
@@ -124,7 +88,6 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
         return self.commentChar;
     }
 
-
     // Sets delimiter. Gets or sets the character to be used as a column delimiter.
     public func setDelimiter(delimiter : String?) -> CsvDataLoadOptions {
         self.delimiter = delimiter;
@@ -136,7 +99,6 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
         return self.delimiter;
     }
 
-
     // Sets hasHeaders. Gets or sets a value indicating whether the first record of CSV data contains column names.
     public func setHasHeaders(hasHeaders : Bool?) -> CsvDataLoadOptions {
         self.hasHeaders = hasHeaders;
@@ -147,7 +109,6 @@ public class CsvDataLoadOptions : Codable, WordsApiModel {
     public func getHasHeaders() -> Bool? {
         return self.hasHeaders;
     }
-
 
     // Sets quoteChar. Gets or sets the character that is used to quote field values.
     public func setQuoteChar(quoteChar : String?) -> CsvDataLoadOptions {

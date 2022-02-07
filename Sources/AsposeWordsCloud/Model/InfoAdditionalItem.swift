@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class InfoAdditionalItem : Codable, WordsApiModel {
     // Field of key. Info additional item.
-    private var _key : String? = nil;
-
-    public var key : String? {
-        get {
-            return self._key;
-        }
-        set {
-            self._key = newValue;
-        }
-    }
+    public var key : String?;
 
     // Field of value. Info additional item.
-    private var _value : String? = nil;
-
-    public var value : String? {
-        get {
-            return self._value;
-        }
-        set {
-            self._value = newValue;
-        }
-    }
+    public var value : String?;
 
     private enum CodingKeys: String, CodingKey {
         case key = "Key";
@@ -89,7 +71,6 @@ public class InfoAdditionalItem : Codable, WordsApiModel {
     public func getKey() -> String? {
         return self.key;
     }
-
 
     // Sets value. Gets or sets Value.
     public func setValue(value : String?) -> InfoAdditionalItem {

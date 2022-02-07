@@ -31,40 +31,13 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DownsampleOptionsData : Codable, WordsApiModel {
     // Field of downsampleImages. Container class for Downsample options.
-    private var _downsampleImages : Bool? = nil;
-
-    public var downsampleImages : Bool? {
-        get {
-            return self._downsampleImages;
-        }
-        set {
-            self._downsampleImages = newValue;
-        }
-    }
+    public var downsampleImages : Bool?;
 
     // Field of resolution. Container class for Downsample options.
-    private var _resolution : Int? = nil;
-
-    public var resolution : Int? {
-        get {
-            return self._resolution;
-        }
-        set {
-            self._resolution = newValue;
-        }
-    }
+    public var resolution : Int?;
 
     // Field of resolutionThreshold. Container class for Downsample options.
-    private var _resolutionThreshold : Int? = nil;
-
-    public var resolutionThreshold : Int? {
-        get {
-            return self._resolutionThreshold;
-        }
-        set {
-            self._resolutionThreshold = newValue;
-        }
-    }
+    public var resolutionThreshold : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case downsampleImages = "DownsampleImages";
@@ -107,7 +80,6 @@ public class DownsampleOptionsData : Codable, WordsApiModel {
         return self.downsampleImages;
     }
 
-
     // Sets resolution. Gets or sets the resolution in pixels per inch which the images should be downsampled to.
     public func setResolution(resolution : Int?) -> DownsampleOptionsData {
         self.resolution = resolution;
@@ -118,7 +90,6 @@ public class DownsampleOptionsData : Codable, WordsApiModel {
     public func getResolution() -> Int? {
         return self.resolution;
     }
-
 
     // Sets resolutionThreshold. Gets or sets the threshold resolution in pixels per inch. If resolution of an image in the document is less than threshold value, the downsampling algorithm will not be applied. A value of 0 means the threshold check is not used and all images that can be reduced in size are downsampled.
     public func setResolutionThreshold(resolutionThreshold : Int?) -> DownsampleOptionsData {

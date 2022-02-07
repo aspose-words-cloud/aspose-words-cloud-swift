@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Field : FieldLink {
     // Field of localeId. DTO container with a field.
-    private var _localeId : String? = nil;
-
-    public var localeId : String? {
-        get {
-            return self._localeId;
-        }
-        set {
-            self._localeId = newValue;
-        }
-    }
+    public var localeId : String?;
 
     // Field of result. DTO container with a field.
-    private var _result : String? = nil;
-
-    public var result : String? {
-        get {
-            return self._result;
-        }
-        set {
-            self._result = newValue;
-        }
-    }
+    public var result : String?;
 
     private enum CodingKeys: String, CodingKey {
         case localeId = "LocaleId";
@@ -92,7 +74,6 @@ public class Field : FieldLink {
     public func getLocaleId() -> String? {
         return self.localeId;
     }
-
 
     // Sets result. Gets or sets the field result.
     public func setResult(result : String?) -> Field {

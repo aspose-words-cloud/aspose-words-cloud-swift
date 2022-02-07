@@ -53,16 +53,7 @@ public class HeaderFooterLink : LinkElement {
     }
 
     // Field of type. HeaderFooter link element.
-    private var _type : ModelType? = nil;
-
-    public var type : ModelType? {
-        get {
-            return self._type;
-        }
-        set {
-            self._type = newValue;
-        }
-    }
+    public var type : ModelType?;
 
     private enum CodingKeys: String, CodingKey {
         case type = "Type";

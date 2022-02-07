@@ -44,28 +44,10 @@ public class PreferredWidth : Codable, WordsApiModel {
     }
 
     // Field of type. DTO container with a preferred width value.
-    private var _type : ModelType? = nil;
-
-    public var type : ModelType? {
-        get {
-            return self._type;
-        }
-        set {
-            self._type = newValue;
-        }
-    }
+    public var type : ModelType?;
 
     // Field of value. DTO container with a preferred width value.
-    private var _value : Double? = nil;
-
-    public var value : Double? {
-        get {
-            return self._value;
-        }
-        set {
-            self._value = newValue;
-        }
-    }
+    public var value : Double?;
 
     private enum CodingKeys: String, CodingKey {
         case type = "Type";
@@ -102,7 +84,6 @@ public class PreferredWidth : Codable, WordsApiModel {
     public func getType() -> ModelType? {
         return self.type;
     }
-
 
     // Sets value. Gets or sets the preferred width value. The unit of measure is specified in the Type property.
     public func setValue(value : Double?) -> PreferredWidth {

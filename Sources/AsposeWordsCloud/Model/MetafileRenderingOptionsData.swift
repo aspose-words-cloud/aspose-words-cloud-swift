@@ -31,64 +31,19 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     // Field of emfPlusDualRenderingMode. Container class for options of metafile rendering.
-    private var _emfPlusDualRenderingMode : String? = nil;
-
-    public var emfPlusDualRenderingMode : String? {
-        get {
-            return self._emfPlusDualRenderingMode;
-        }
-        set {
-            self._emfPlusDualRenderingMode = newValue;
-        }
-    }
+    public var emfPlusDualRenderingMode : String?;
 
     // Field of emulateRasterOperations. Container class for options of metafile rendering.
-    private var _emulateRasterOperations : Bool? = nil;
-
-    public var emulateRasterOperations : Bool? {
-        get {
-            return self._emulateRasterOperations;
-        }
-        set {
-            self._emulateRasterOperations = newValue;
-        }
-    }
+    public var emulateRasterOperations : Bool?;
 
     // Field of renderingMode. Container class for options of metafile rendering.
-    private var _renderingMode : String? = nil;
-
-    public var renderingMode : String? {
-        get {
-            return self._renderingMode;
-        }
-        set {
-            self._renderingMode = newValue;
-        }
-    }
+    public var renderingMode : String?;
 
     // Field of scaleWmfFontsToMetafileSize. Container class for options of metafile rendering.
-    private var _scaleWmfFontsToMetafileSize : Bool? = nil;
-
-    public var scaleWmfFontsToMetafileSize : Bool? {
-        get {
-            return self._scaleWmfFontsToMetafileSize;
-        }
-        set {
-            self._scaleWmfFontsToMetafileSize = newValue;
-        }
-    }
+    public var scaleWmfFontsToMetafileSize : Bool?;
 
     // Field of useEmfEmbeddedToWmf. Container class for options of metafile rendering.
-    private var _useEmfEmbeddedToWmf : Bool? = nil;
-
-    public var useEmfEmbeddedToWmf : Bool? {
-        get {
-            return self._useEmfEmbeddedToWmf;
-        }
-        set {
-            self._useEmfEmbeddedToWmf = newValue;
-        }
-    }
+    public var useEmfEmbeddedToWmf : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case emfPlusDualRenderingMode = "EmfPlusDualRenderingMode";
@@ -141,7 +96,6 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
         return self.emfPlusDualRenderingMode;
     }
 
-
     // Sets emulateRasterOperations. Gets or sets a value indicating whether the raster operations should be emulated.
     public func setEmulateRasterOperations(emulateRasterOperations : Bool?) -> MetafileRenderingOptionsData {
         self.emulateRasterOperations = emulateRasterOperations;
@@ -152,7 +106,6 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     public func getEmulateRasterOperations() -> Bool? {
         return self.emulateRasterOperations;
     }
-
 
     // Sets renderingMode. Gets or sets the option that controls how metafile images should be rendered.
     public func setRenderingMode(renderingMode : String?) -> MetafileRenderingOptionsData {
@@ -165,7 +118,6 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
         return self.renderingMode;
     }
 
-
     // Sets scaleWmfFontsToMetafileSize. Gets or sets a value indicating whether to scale fonts in WMF metafile according to metafile size on the page. The default value is true.
     public func setScaleWmfFontsToMetafileSize(scaleWmfFontsToMetafileSize : Bool?) -> MetafileRenderingOptionsData {
         self.scaleWmfFontsToMetafileSize = scaleWmfFontsToMetafileSize;
@@ -176,7 +128,6 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     public func getScaleWmfFontsToMetafileSize() -> Bool? {
         return self.scaleWmfFontsToMetafileSize;
     }
-
 
     // Sets useEmfEmbeddedToWmf. Gets or sets the flag, that controls how WMF metafiles with embedded EMF metafiles should be rendered.
     public func setUseEmfEmbeddedToWmf(useEmfEmbeddedToWmf : Bool?) -> MetafileRenderingOptionsData {

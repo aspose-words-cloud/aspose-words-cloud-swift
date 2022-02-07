@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StylesResponse : WordsResponse {
     // Field of styles. The REST response with an array of styles.
-    private var _styles : [Style]? = nil;
-
-    public var styles : [Style]? {
-        get {
-            return self._styles;
-        }
-        set {
-            self._styles = newValue;
-        }
-    }
+    public var styles : [Style]?;
 
     private enum CodingKeys: String, CodingKey {
         case styles = "Styles";

@@ -31,112 +31,31 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FormField : NodeLink {
     // Field of calculateOnExit. FromField.
-    private var _calculateOnExit : Bool? = nil;
-
-    public var calculateOnExit : Bool? {
-        get {
-            return self._calculateOnExit;
-        }
-        set {
-            self._calculateOnExit = newValue;
-        }
-    }
+    public var calculateOnExit : Bool?;
 
     // Field of enabled. FromField.
-    private var _enabled : Bool? = nil;
-
-    public var enabled : Bool? {
-        get {
-            return self._enabled;
-        }
-        set {
-            self._enabled = newValue;
-        }
-    }
+    public var enabled : Bool?;
 
     // Field of entryMacro. FromField.
-    private var _entryMacro : String? = nil;
-
-    public var entryMacro : String? {
-        get {
-            return self._entryMacro;
-        }
-        set {
-            self._entryMacro = newValue;
-        }
-    }
+    public var entryMacro : String?;
 
     // Field of exitMacro. FromField.
-    private var _exitMacro : String? = nil;
-
-    public var exitMacro : String? {
-        get {
-            return self._exitMacro;
-        }
-        set {
-            self._exitMacro = newValue;
-        }
-    }
+    public var exitMacro : String?;
 
     // Field of helpText. FromField.
-    private var _helpText : String? = nil;
-
-    public var helpText : String? {
-        get {
-            return self._helpText;
-        }
-        set {
-            self._helpText = newValue;
-        }
-    }
+    public var helpText : String?;
 
     // Field of name. FromField.
-    private var _name : String? = nil;
-
-    public var name : String? {
-        get {
-            return self._name;
-        }
-        set {
-            self._name = newValue;
-        }
-    }
+    public var name : String?;
 
     // Field of ownHelp. FromField.
-    private var _ownHelp : Bool? = nil;
-
-    public var ownHelp : Bool? {
-        get {
-            return self._ownHelp;
-        }
-        set {
-            self._ownHelp = newValue;
-        }
-    }
+    public var ownHelp : Bool?;
 
     // Field of ownStatus. FromField.
-    private var _ownStatus : Bool? = nil;
-
-    public var ownStatus : Bool? {
-        get {
-            return self._ownStatus;
-        }
-        set {
-            self._ownStatus = newValue;
-        }
-    }
+    public var ownStatus : Bool?;
 
     // Field of statusText. FromField.
-    private var _statusText : String? = nil;
-
-    public var statusText : String? {
-        get {
-            return self._statusText;
-        }
-        set {
-            self._statusText = newValue;
-        }
-    }
+    public var statusText : String?;
 
     private enum CodingKeys: String, CodingKey {
         case calculateOnExit = "CalculateOnExit";
@@ -212,7 +131,6 @@ public class FormField : NodeLink {
         return self.calculateOnExit;
     }
 
-
     // Sets enabled. Gets or sets a value indicating whether a form field is enabled.
     public func setEnabled(enabled : Bool?) -> FormField {
         self.enabled = enabled;
@@ -223,7 +141,6 @@ public class FormField : NodeLink {
     public func getEnabled() -> Bool? {
         return self.enabled;
     }
-
 
     // Sets entryMacro. Gets or sets the entry macro name for the form field.
     public func setEntryMacro(entryMacro : String?) -> FormField {
@@ -236,7 +153,6 @@ public class FormField : NodeLink {
         return self.entryMacro;
     }
 
-
     // Sets exitMacro. Gets or sets the exit macro name for the form field.
     public func setExitMacro(exitMacro : String?) -> FormField {
         self.exitMacro = exitMacro;
@@ -247,7 +163,6 @@ public class FormField : NodeLink {
     public func getExitMacro() -> String? {
         return self.exitMacro;
     }
-
 
     // Sets helpText. Gets or sets text, displayed in a message box when the form field has the focus and the user presses F1.
     public func setHelpText(helpText : String?) -> FormField {
@@ -260,7 +175,6 @@ public class FormField : NodeLink {
         return self.helpText;
     }
 
-
     // Sets name. Gets or sets the form field name.
     public func setName(name : String?) -> FormField {
         self.name = name;
@@ -271,7 +185,6 @@ public class FormField : NodeLink {
     public func getName() -> String? {
         return self.name;
     }
-
 
     // Sets ownHelp. Gets or sets a value indicating whether the source of the text that's displayed in a message box when a form field has the focus and the user presses F1.
     public func setOwnHelp(ownHelp : Bool?) -> FormField {
@@ -284,7 +197,6 @@ public class FormField : NodeLink {
         return self.ownHelp;
     }
 
-
     // Sets ownStatus. Gets or sets a value indicating whether the source of the text that's displayed in the status bar when a form field has the focus.
     public func setOwnStatus(ownStatus : Bool?) -> FormField {
         self.ownStatus = ownStatus;
@@ -295,7 +207,6 @@ public class FormField : NodeLink {
     public func getOwnStatus() -> Bool? {
         return self.ownStatus;
     }
-
 
     // Sets statusText. Gets or sets text, displayed in the status bar when a form field has the focus.
     public func setStatusText(statusText : String?) -> FormField {

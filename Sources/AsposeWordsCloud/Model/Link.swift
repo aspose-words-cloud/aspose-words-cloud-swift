@@ -32,52 +32,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Link : Codable, WordsApiModel {
     // Field of href. Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
-    private var _href : String? = nil;
-
-    public var href : String? {
-        get {
-            return self._href;
-        }
-        set {
-            self._href = newValue;
-        }
-    }
+    public var href : String?;
 
     // Field of rel. Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
-    private var _rel : String? = nil;
-
-    public var rel : String? {
-        get {
-            return self._rel;
-        }
-        set {
-            self._rel = newValue;
-        }
-    }
+    public var rel : String?;
 
     // Field of title. Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
-    private var _title : String? = nil;
-
-    public var title : String? {
-        get {
-            return self._title;
-        }
-        set {
-            self._title = newValue;
-        }
-    }
+    public var title : String?;
 
     // Field of type. Provides information for the object link. This is supposed to be an atom:link, therefore it should have all attributes specified here http://tools.ietf.org/html/rfc4287#section-4.2.7.
-    private var _type : String? = nil;
-
-    public var type : String? {
-        get {
-            return self._type;
-        }
-        set {
-            self._type = newValue;
-        }
-    }
+    public var type : String?;
 
     private enum CodingKeys: String, CodingKey {
         case href = "Href";
@@ -125,7 +89,6 @@ public class Link : Codable, WordsApiModel {
         return self.href;
     }
 
-
     // Sets rel. Gets or sets the option that controls whether atom:link elements MAY have a "rel" attribute that indicates the link relation type.  If the "rel" attribute is not present, the link element MUST be interpreted as if the link relation type is "alternate".
     public func setRel(rel : String?) -> Link {
         self.rel = rel;
@@ -137,7 +100,6 @@ public class Link : Codable, WordsApiModel {
         return self.rel;
     }
 
-
     // Sets title. Gets or sets the "title" attribute, that conveys human-readable information about the link. The content of the "title" attribute is Language-Sensitive.
     public func setTitle(title : String?) -> Link {
         self.title = title;
@@ -148,7 +110,6 @@ public class Link : Codable, WordsApiModel {
     public func getTitle() -> String? {
         return self.title;
     }
-
 
     // Sets type. Gets or sets the "type" attribute. The "type" attribute's value is an advisory media type: it is a hint about the type of the representation that is expected to be returned when the value of the href attribute is dereferenced. Note that the type attribute does not override the actual media type returned with the representation.
     public func setType(type : String?) -> Link {

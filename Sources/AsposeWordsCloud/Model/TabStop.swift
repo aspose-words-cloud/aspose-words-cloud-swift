@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TabStop : TabStopBase {
     // Field of isClear. DTO container with paragraph format tab stop.
-    private var _isClear : Bool? = nil;
-
-    public var isClear : Bool? {
-        get {
-            return self._isClear;
-        }
-        set {
-            self._isClear = newValue;
-        }
-    }
+    public var isClear : Bool?;
 
     private enum CodingKeys: String, CodingKey {
         case isClear = "IsClear";

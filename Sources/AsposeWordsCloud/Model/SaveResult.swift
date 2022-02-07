@@ -31,40 +31,13 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SaveResult : Codable, WordsApiModel {
     // Field of additionalItems. Result of saving.
-    private var _additionalItems : [FileLink]? = nil;
-
-    public var additionalItems : [FileLink]? {
-        get {
-            return self._additionalItems;
-        }
-        set {
-            self._additionalItems = newValue;
-        }
-    }
+    public var additionalItems : [FileLink]?;
 
     // Field of destDocument. Result of saving.
-    private var _destDocument : FileLink? = nil;
-
-    public var destDocument : FileLink? {
-        get {
-            return self._destDocument;
-        }
-        set {
-            self._destDocument = newValue;
-        }
-    }
+    public var destDocument : FileLink?;
 
     // Field of sourceDocument. Result of saving.
-    private var _sourceDocument : FileLink? = nil;
-
-    public var sourceDocument : FileLink? {
-        get {
-            return self._sourceDocument;
-        }
-        set {
-            self._sourceDocument = newValue;
-        }
-    }
+    public var sourceDocument : FileLink?;
 
     private enum CodingKeys: String, CodingKey {
         case additionalItems = "AdditionalItems";
@@ -107,7 +80,6 @@ public class SaveResult : Codable, WordsApiModel {
         return self.additionalItems;
     }
 
-
     // Sets destDocument. Gets or sets the link to destination document.
     public func setDestDocument(destDocument : FileLink?) -> SaveResult {
         self.destDocument = destDocument;
@@ -118,7 +90,6 @@ public class SaveResult : Codable, WordsApiModel {
     public func getDestDocument() -> FileLink? {
         return self.destDocument;
     }
-
 
     // Sets sourceDocument. Gets or sets the link to source document.
     public func setSourceDocument(sourceDocument : FileLink?) -> SaveResult {

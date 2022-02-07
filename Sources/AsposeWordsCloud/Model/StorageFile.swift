@@ -31,64 +31,19 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StorageFile : Codable, WordsApiModel {
     // Field of isFolder. File or folder information.
-    private var _isFolder : Bool? = nil;
-
-    public var isFolder : Bool? {
-        get {
-            return self._isFolder;
-        }
-        set {
-            self._isFolder = newValue;
-        }
-    }
+    public var isFolder : Bool?;
 
     // Field of modifiedDate. File or folder information.
-    private var _modifiedDate : Date? = nil;
-
-    public var modifiedDate : Date? {
-        get {
-            return self._modifiedDate;
-        }
-        set {
-            self._modifiedDate = newValue;
-        }
-    }
+    public var modifiedDate : Date?;
 
     // Field of name. File or folder information.
-    private var _name : String? = nil;
-
-    public var name : String? {
-        get {
-            return self._name;
-        }
-        set {
-            self._name = newValue;
-        }
-    }
+    public var name : String?;
 
     // Field of path. File or folder information.
-    private var _path : String? = nil;
-
-    public var path : String? {
-        get {
-            return self._path;
-        }
-        set {
-            self._path = newValue;
-        }
-    }
+    public var path : String?;
 
     // Field of size. File or folder information.
-    private var _size : Int? = nil;
-
-    public var size : Int? {
-        get {
-            return self._size;
-        }
-        set {
-            self._size = newValue;
-        }
-    }
+    public var size : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case isFolder = "IsFolder";
@@ -146,7 +101,6 @@ public class StorageFile : Codable, WordsApiModel {
         return self.isFolder;
     }
 
-
     // Sets modifiedDate. File or folder last modified DateTime.
     public func setModifiedDate(modifiedDate : Date?) -> StorageFile {
         self.modifiedDate = modifiedDate;
@@ -157,7 +111,6 @@ public class StorageFile : Codable, WordsApiModel {
     public func getModifiedDate() -> Date? {
         return self.modifiedDate;
     }
-
 
     // Sets name. File or folder name.
     public func setName(name : String?) -> StorageFile {
@@ -170,7 +123,6 @@ public class StorageFile : Codable, WordsApiModel {
         return self.name;
     }
 
-
     // Sets path. File or folder path.
     public func setPath(path : String?) -> StorageFile {
         self.path = path;
@@ -181,7 +133,6 @@ public class StorageFile : Codable, WordsApiModel {
     public func getPath() -> String? {
         return self.path;
     }
-
 
     // Sets size. File or folder size.
     public func setSize(size : Int?) -> StorageFile {

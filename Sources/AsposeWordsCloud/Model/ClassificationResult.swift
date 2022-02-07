@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ClassificationResult : Codable, WordsApiModel {
     // Field of className. Represents a single classification result.
-    private var _className : String? = nil;
-
-    public var className : String? {
-        get {
-            return self._className;
-        }
-        set {
-            self._className = newValue;
-        }
-    }
+    public var className : String?;
 
     // Field of classProbability. Represents a single classification result.
-    private var _classProbability : Double? = nil;
-
-    public var classProbability : Double? {
-        get {
-            return self._classProbability;
-        }
-        set {
-            self._classProbability = newValue;
-        }
-    }
+    public var classProbability : Double?;
 
     private enum CodingKeys: String, CodingKey {
         case className = "ClassName";
@@ -89,7 +71,6 @@ public class ClassificationResult : Codable, WordsApiModel {
     public func getClassName() -> String? {
         return self.className;
     }
-
 
     // Sets classProbability. Gets or sets the probability of class.
     public func setClassProbability(classProbability : Double?) -> ClassificationResult {

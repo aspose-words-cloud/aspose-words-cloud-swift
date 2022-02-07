@@ -250,74 +250,97 @@ public class SaveAsTiffRequest : WordsApiRequest {
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
          if (self.getFolder() != nil) {
-         queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         #elsequeryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+         #endif        }
          if (self.getStorage() != nil) {
-         queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         #elsequeryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+         #endif        }
          if (self.getLoadEncoding() != nil) {
-         queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         #elsequeryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+         #endif        }
          if (self.getPassword() != nil) {
-         queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+         #elsequeryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+         #endif        }
          if (self.getEncryptedPassword() != nil) {
-         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
+         #elsequeryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
+         #endif        }
          if (self.getUseAntiAliasing() != nil) {
-         queryItems.append(URLQueryItem(name: "useAntiAliasing", value: try ObjectSerializer.serializeToString(value: self.getUseAntiAliasing()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "useAntiAliasing", value: try ObjectSerializer.serializeToString(value: self.getUseAntiAliasing()!)));
+         #elsequeryItems.append(URLQueryItem(name: "useAntiAliasing", value: try ObjectSerializer.serializeToString(value: self.getUseAntiAliasing()!)));
+         #endif        }
          if (self.getUseHighQualityRendering() != nil) {
-         queryItems.append(URLQueryItem(name: "useHighQualityRendering", value: try ObjectSerializer.serializeToString(value: self.getUseHighQualityRendering()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "useHighQualityRendering", value: try ObjectSerializer.serializeToString(value: self.getUseHighQualityRendering()!)));
+         #elsequeryItems.append(URLQueryItem(name: "useHighQualityRendering", value: try ObjectSerializer.serializeToString(value: self.getUseHighQualityRendering()!)));
+         #endif        }
          if (self.getImageBrightness() != nil) {
-         queryItems.append(URLQueryItem(name: "imageBrightness", value: try ObjectSerializer.serializeToString(value: self.getImageBrightness()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "imageBrightness", value: try ObjectSerializer.serializeToString(value: self.getImageBrightness()!)));
+         #elsequeryItems.append(URLQueryItem(name: "imageBrightness", value: try ObjectSerializer.serializeToString(value: self.getImageBrightness()!)));
+         #endif        }
          if (self.getImageColorMode() != nil) {
-         queryItems.append(URLQueryItem(name: "imageColorMode", value: try ObjectSerializer.serializeToString(value: self.getImageColorMode()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "imageColorMode", value: try ObjectSerializer.serializeToString(value: self.getImageColorMode()!)));
+         #elsequeryItems.append(URLQueryItem(name: "imageColorMode", value: try ObjectSerializer.serializeToString(value: self.getImageColorMode()!)));
+         #endif        }
          if (self.getImageContrast() != nil) {
-         queryItems.append(URLQueryItem(name: "imageContrast", value: try ObjectSerializer.serializeToString(value: self.getImageContrast()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "imageContrast", value: try ObjectSerializer.serializeToString(value: self.getImageContrast()!)));
+         #elsequeryItems.append(URLQueryItem(name: "imageContrast", value: try ObjectSerializer.serializeToString(value: self.getImageContrast()!)));
+         #endif        }
          if (self.getNumeralFormat() != nil) {
-         queryItems.append(URLQueryItem(name: "numeralFormat", value: try ObjectSerializer.serializeToString(value: self.getNumeralFormat()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "numeralFormat", value: try ObjectSerializer.serializeToString(value: self.getNumeralFormat()!)));
+         #elsequeryItems.append(URLQueryItem(name: "numeralFormat", value: try ObjectSerializer.serializeToString(value: self.getNumeralFormat()!)));
+         #endif        }
          if (self.getPageCount() != nil) {
-         queryItems.append(URLQueryItem(name: "pageCount", value: try ObjectSerializer.serializeToString(value: self.getPageCount()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "pageCount", value: try ObjectSerializer.serializeToString(value: self.getPageCount()!)));
+         #elsequeryItems.append(URLQueryItem(name: "pageCount", value: try ObjectSerializer.serializeToString(value: self.getPageCount()!)));
+         #endif        }
          if (self.getPageIndex() != nil) {
-         queryItems.append(URLQueryItem(name: "pageIndex", value: try ObjectSerializer.serializeToString(value: self.getPageIndex()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "pageIndex", value: try ObjectSerializer.serializeToString(value: self.getPageIndex()!)));
+         #elsequeryItems.append(URLQueryItem(name: "pageIndex", value: try ObjectSerializer.serializeToString(value: self.getPageIndex()!)));
+         #endif        }
          if (self.getPaperColor() != nil) {
-         queryItems.append(URLQueryItem(name: "paperColor", value: try ObjectSerializer.serializeToString(value: self.getPaperColor()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "paperColor", value: try ObjectSerializer.serializeToString(value: self.getPaperColor()!)));
+         #elsequeryItems.append(URLQueryItem(name: "paperColor", value: try ObjectSerializer.serializeToString(value: self.getPaperColor()!)));
+         #endif        }
          if (self.getPixelFormat() != nil) {
-         queryItems.append(URLQueryItem(name: "pixelFormat", value: try ObjectSerializer.serializeToString(value: self.getPixelFormat()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "pixelFormat", value: try ObjectSerializer.serializeToString(value: self.getPixelFormat()!)));
+         #elsequeryItems.append(URLQueryItem(name: "pixelFormat", value: try ObjectSerializer.serializeToString(value: self.getPixelFormat()!)));
+         #endif        }
          if (self.getResolution() != nil) {
-         queryItems.append(URLQueryItem(name: "resolution", value: try ObjectSerializer.serializeToString(value: self.getResolution()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "resolution", value: try ObjectSerializer.serializeToString(value: self.getResolution()!)));
+         #elsequeryItems.append(URLQueryItem(name: "resolution", value: try ObjectSerializer.serializeToString(value: self.getResolution()!)));
+         #endif        }
          if (self.getScale() != nil) {
-         queryItems.append(URLQueryItem(name: "scale", value: try ObjectSerializer.serializeToString(value: self.getScale()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "scale", value: try ObjectSerializer.serializeToString(value: self.getScale()!)));
+         #elsequeryItems.append(URLQueryItem(name: "scale", value: try ObjectSerializer.serializeToString(value: self.getScale()!)));
+         #endif        }
          if (self.getTiffCompression() != nil) {
-         queryItems.append(URLQueryItem(name: "tiffCompression", value: try ObjectSerializer.serializeToString(value: self.getTiffCompression()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "tiffCompression", value: try ObjectSerializer.serializeToString(value: self.getTiffCompression()!)));
+         #elsequeryItems.append(URLQueryItem(name: "tiffCompression", value: try ObjectSerializer.serializeToString(value: self.getTiffCompression()!)));
+         #endif        }
          if (self.getDmlRenderingMode() != nil) {
-         queryItems.append(URLQueryItem(name: "dmlRenderingMode", value: try ObjectSerializer.serializeToString(value: self.getDmlRenderingMode()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "dmlRenderingMode", value: try ObjectSerializer.serializeToString(value: self.getDmlRenderingMode()!)));
+         #elsequeryItems.append(URLQueryItem(name: "dmlRenderingMode", value: try ObjectSerializer.serializeToString(value: self.getDmlRenderingMode()!)));
+         #endif        }
          if (self.getDmlEffectsRenderingMode() != nil) {
-         queryItems.append(URLQueryItem(name: "dmlEffectsRenderingMode", value: try ObjectSerializer.serializeToString(value: self.getDmlEffectsRenderingMode()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "dmlEffectsRenderingMode", value: try ObjectSerializer.serializeToString(value: self.getDmlEffectsRenderingMode()!)));
+         #elsequeryItems.append(URLQueryItem(name: "dmlEffectsRenderingMode", value: try ObjectSerializer.serializeToString(value: self.getDmlEffectsRenderingMode()!)));
+         #endif        }
          if (self.getTiffBinarizationMethod() != nil) {
-         queryItems.append(URLQueryItem(name: "tiffBinarizationMethod", value: try ObjectSerializer.serializeToString(value: self.getTiffBinarizationMethod()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "tiffBinarizationMethod", value: try ObjectSerializer.serializeToString(value: self.getTiffBinarizationMethod()!)));
+         #elsequeryItems.append(URLQueryItem(name: "tiffBinarizationMethod", value: try ObjectSerializer.serializeToString(value: self.getTiffBinarizationMethod()!)));
+         #endif        }
          if (self.getZipOutput() != nil) {
-         queryItems.append(URLQueryItem(name: "zipOutput", value: try ObjectSerializer.serializeToString(value: self.getZipOutput()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "zipOutput", value: try ObjectSerializer.serializeToString(value: self.getZipOutput()!)));
+         #elsequeryItems.append(URLQueryItem(name: "zipOutput", value: try ObjectSerializer.serializeToString(value: self.getZipOutput()!)));
+         #endif        }
          if (self.getFontsLocation() != nil) {
-         queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
-         }
+         #if os(Linux)queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
+         #elsequeryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
+         #endif        }
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }

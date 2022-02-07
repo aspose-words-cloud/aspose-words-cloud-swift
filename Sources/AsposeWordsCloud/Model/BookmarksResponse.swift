@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BookmarksResponse : WordsResponse {
     // Field of bookmarks. The REST response with a collection of bookmarks.
-    private var _bookmarks : Bookmarks? = nil;
-
-    public var bookmarks : Bookmarks? {
-        get {
-            return self._bookmarks;
-        }
-        set {
-            self._bookmarks = newValue;
-        }
-    }
+    public var bookmarks : Bookmarks?;
 
     private enum CodingKeys: String, CodingKey {
         case bookmarks = "Bookmarks";

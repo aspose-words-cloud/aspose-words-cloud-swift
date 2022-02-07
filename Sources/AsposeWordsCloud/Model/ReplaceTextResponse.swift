@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ReplaceTextResponse : WordsResponse {
     // Field of documentLink. The REST response with a number of occurrences of the captured text in the document.
-    private var _documentLink : FileLink? = nil;
-
-    public var documentLink : FileLink? {
-        get {
-            return self._documentLink;
-        }
-        set {
-            self._documentLink = newValue;
-        }
-    }
+    public var documentLink : FileLink?;
 
     // Field of matches. The REST response with a number of occurrences of the captured text in the document.
-    private var _matches : Int? = nil;
-
-    public var matches : Int? {
-        get {
-            return self._matches;
-        }
-        set {
-            self._matches = newValue;
-        }
-    }
+    public var matches : Int?;
 
     private enum CodingKeys: String, CodingKey {
         case documentLink = "DocumentLink";
@@ -92,7 +74,6 @@ public class ReplaceTextResponse : WordsResponse {
     public func getDocumentLink() -> FileLink? {
         return self.documentLink;
     }
-
 
     // Sets matches. Gets or sets the number of occurrences of the captured text in the document.
     public func setMatches(matches : Int?) -> ReplaceTextResponse {

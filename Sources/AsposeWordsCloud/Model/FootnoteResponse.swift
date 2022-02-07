@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FootnoteResponse : WordsResponse {
     // Field of footnote. The REST response with a footnote.
-    private var _footnote : Footnote? = nil;
-
-    public var footnote : Footnote? {
-        get {
-            return self._footnote;
-        }
-        set {
-            self._footnote = newValue;
-        }
-    }
+    public var footnote : Footnote?;
 
     private enum CodingKeys: String, CodingKey {
         case footnote = "Footnote";

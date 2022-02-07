@@ -31,52 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class InternalError : Codable, WordsApiModel {
     // Field of code. Error.
-    private var _code : String? = nil;
-
-    public var code : String? {
-        get {
-            return self._code;
-        }
-        set {
-            self._code = newValue;
-        }
-    }
+    public var code : String?;
 
     // Field of description. Error.
-    private var _description : String? = nil;
-
-    public var description : String? {
-        get {
-            return self._description;
-        }
-        set {
-            self._description = newValue;
-        }
-    }
+    public var description : String?;
 
     // Field of innerError. Error.
-    private var _innerError : ErrorDetails? = nil;
-
-    public var innerError : ErrorDetails? {
-        get {
-            return self._innerError;
-        }
-        set {
-            self._innerError = newValue;
-        }
-    }
+    public var innerError : ErrorDetails?;
 
     // Field of message. Error.
-    private var _message : String? = nil;
-
-    public var message : String? {
-        get {
-            return self._message;
-        }
-        set {
-            self._message = newValue;
-        }
-    }
+    public var message : String?;
 
     private enum CodingKeys: String, CodingKey {
         case code = "Code";
@@ -124,7 +88,6 @@ public class InternalError : Codable, WordsApiModel {
         return self.code;
     }
 
-
     // Sets description. Description.
     public func setDescription(description : String?) -> InternalError {
         self.description = description;
@@ -136,7 +99,6 @@ public class InternalError : Codable, WordsApiModel {
         return self.description;
     }
 
-
     // Sets innerError. Inner Error.
     public func setInnerError(innerError : ErrorDetails?) -> InternalError {
         self.innerError = innerError;
@@ -147,7 +109,6 @@ public class InternalError : Codable, WordsApiModel {
     public func getInnerError() -> ErrorDetails? {
         return self.innerError;
     }
-
 
     // Sets message. Message.
     public func setMessage(message : String?) -> InternalError {

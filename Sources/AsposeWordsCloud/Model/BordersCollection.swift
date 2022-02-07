@@ -31,16 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class BordersCollection : LinkElement {
     // Field of list. The collection of borders.
-    private var _list : [Border]? = nil;
-
-    public var list : [Border]? {
-        get {
-            return self._list;
-        }
-        set {
-            self._list = newValue;
-        }
-    }
+    public var list : [Border]?;
 
     private enum CodingKeys: String, CodingKey {
         case list = "List";

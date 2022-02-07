@@ -31,28 +31,10 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FieldBase : Codable, WordsApiModel {
     // Field of fieldCode. Field.
-    private var _fieldCode : String? = nil;
-
-    public var fieldCode : String? {
-        get {
-            return self._fieldCode;
-        }
-        set {
-            self._fieldCode = newValue;
-        }
-    }
+    public var fieldCode : String?;
 
     // Field of localeId. Field.
-    private var _localeId : String? = nil;
-
-    public var localeId : String? {
-        get {
-            return self._localeId;
-        }
-        set {
-            self._localeId = newValue;
-        }
-    }
+    public var localeId : String?;
 
     private enum CodingKeys: String, CodingKey {
         case fieldCode = "FieldCode";
@@ -89,7 +71,6 @@ public class FieldBase : Codable, WordsApiModel {
     public func getFieldCode() -> String? {
         return self.fieldCode;
     }
-
 
     // Sets localeId. Gets or sets the LCID of the field.
     public func setLocaleId(localeId : String?) -> FieldBase {
