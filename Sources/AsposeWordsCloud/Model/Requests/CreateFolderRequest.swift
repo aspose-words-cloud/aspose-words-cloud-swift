@@ -65,10 +65,17 @@ public class CreateFolderRequest : WordsApiRequest {
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         if (self.getStorageName() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: self.getStorageName()!)));
-         #elsequeryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: self.getStorageName()!)));
-         #endif        }
+             if (self.getStorageName() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: self.getStorageName()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "storageName", value: try ObjectSerializer.serializeToString(value: self.getStorageName()!)));
+
+         #endif        
+             }
+
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }

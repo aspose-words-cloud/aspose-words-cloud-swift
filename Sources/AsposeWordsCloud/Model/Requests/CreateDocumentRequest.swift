@@ -71,18 +71,41 @@ public class CreateDocumentRequest : WordsApiRequest {
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         if (self.getFileName() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: self.getFileName()!)));
-         #elsequeryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: self.getFileName()!)));
-         #endif        }
-         if (self.getFolder() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
-         #elsequeryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
-         #endif        }
-         if (self.getStorage() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
-         #elsequeryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
-         #endif        }
+             if (self.getFileName() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: self.getFileName()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "fileName", value: try ObjectSerializer.serializeToString(value: self.getFileName()!)));
+
+         #endif        
+             }
+
+
+             if (self.getFolder() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+
+         #endif        
+             }
+
+
+             if (self.getStorage() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+
+         #endif        
+             }
+
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }

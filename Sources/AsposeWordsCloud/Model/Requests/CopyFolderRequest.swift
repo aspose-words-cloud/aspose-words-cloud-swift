@@ -81,15 +81,36 @@ public class CopyFolderRequest : WordsApiRequest {
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         #if os(Linux)queryItems.append(URLQueryItem(name: "destPath", value: try ObjectSerializer.serializeToString(value: self.getDestPath())));#elsequeryItems.append(URLQueryItem(name: "destPath", value: try ObjectSerializer.serializeToString(value: self.getDestPath())));#endif
-         if (self.getSrcStorageName() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "srcStorageName", value: try ObjectSerializer.serializeToString(value: self.getSrcStorageName()!)));
-         #elsequeryItems.append(URLQueryItem(name: "srcStorageName", value: try ObjectSerializer.serializeToString(value: self.getSrcStorageName()!)));
-         #endif        }
-         if (self.getDestStorageName() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "destStorageName", value: try ObjectSerializer.serializeToString(value: self.getDestStorageName()!)));
-         #elsequeryItems.append(URLQueryItem(name: "destStorageName", value: try ObjectSerializer.serializeToString(value: self.getDestStorageName()!)));
-         #endif        }
+         #if os(Linux) 
+             queryItems.append(URLQueryItem(name: "destPath", value: try ObjectSerializer.serializeToString(value: self.getDestPath())));
+         #else
+                 queryItems.append(URLQueryItem(name: "destPath", value: try ObjectSerializer.serializeToString(value: self.getDestPath())));
+         #endif
+
+
+             if (self.getSrcStorageName() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "srcStorageName", value: try ObjectSerializer.serializeToString(value: self.getSrcStorageName()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "srcStorageName", value: try ObjectSerializer.serializeToString(value: self.getSrcStorageName()!)));
+
+         #endif        
+             }
+
+
+             if (self.getDestStorageName() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "destStorageName", value: try ObjectSerializer.serializeToString(value: self.getDestStorageName()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "destStorageName", value: try ObjectSerializer.serializeToString(value: self.getDestStorageName()!)));
+
+         #endif        
+             }
+
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }

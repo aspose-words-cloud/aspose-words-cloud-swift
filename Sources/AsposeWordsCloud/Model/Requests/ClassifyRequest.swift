@@ -63,10 +63,17 @@ public class ClassifyRequest : WordsApiRequest {
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         if (self.getBestClassesCount() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: self.getBestClassesCount()!)));
-         #elsequeryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: self.getBestClassesCount()!)));
-         #endif        }
+             if (self.getBestClassesCount() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: self.getBestClassesCount()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "bestClassesCount", value: try ObjectSerializer.serializeToString(value: self.getBestClassesCount()!)));
+
+         #endif        
+             }
+
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }

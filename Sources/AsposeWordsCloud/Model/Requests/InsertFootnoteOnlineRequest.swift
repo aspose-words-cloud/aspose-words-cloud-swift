@@ -126,30 +126,77 @@ public class InsertFootnoteOnlineRequest : WordsApiRequest {
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         if (self.getLoadEncoding() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
-         #elsequeryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
-         #endif        }
-         if (self.getPassword() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
-         #elsequeryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
-         #endif        }
-         if (self.getEncryptedPassword() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
-         #elsequeryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
-         #endif        }
-         if (self.getDestFileName() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
-         #elsequeryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
-         #endif        }
-         if (self.getRevisionAuthor() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
-         #elsequeryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
-         #endif        }
-         if (self.getRevisionDateTime() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
-         #elsequeryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
-         #endif        }
+             if (self.getLoadEncoding() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+
+         #endif        
+             }
+
+
+             if (self.getPassword() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+
+         #endif        
+             }
+
+
+             if (self.getEncryptedPassword() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
+
+         #endif        
+             }
+
+
+             if (self.getDestFileName() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+
+         #endif        
+             }
+
+
+             if (self.getRevisionAuthor() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "revisionAuthor", value: try ObjectSerializer.serializeToString(value: self.getRevisionAuthor()!)));
+
+         #endif        
+             }
+
+
+             if (self.getRevisionDateTime() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "revisionDateTime", value: try ObjectSerializer.serializeToString(value: self.getRevisionDateTime()!)));
+
+         #endif        
+             }
+
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }

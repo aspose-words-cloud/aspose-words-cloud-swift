@@ -95,23 +95,60 @@ public class ConvertDocumentRequest : WordsApiRequest {
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         #if os(Linux)queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: self.getFormat())));#elsequeryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: self.getFormat())));#endif
-         if (self.getOutPath() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "outPath", value: try ObjectSerializer.serializeToString(value: self.getOutPath()!)));
-         #elsequeryItems.append(URLQueryItem(name: "outPath", value: try ObjectSerializer.serializeToString(value: self.getOutPath()!)));
-         #endif        }
-         if (self.getFileNameFieldValue() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "fileNameFieldValue", value: try ObjectSerializer.serializeToString(value: self.getFileNameFieldValue()!)));
-         #elsequeryItems.append(URLQueryItem(name: "fileNameFieldValue", value: try ObjectSerializer.serializeToString(value: self.getFileNameFieldValue()!)));
-         #endif        }
-         if (self.getStorage() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
-         #elsequeryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
-         #endif        }
-         if (self.getFontsLocation() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
-         #elsequeryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
-         #endif        }
+         #if os(Linux) 
+             queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: self.getFormat())));
+         #else
+                 queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: self.getFormat())));
+         #endif
+
+
+             if (self.getOutPath() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "outPath", value: try ObjectSerializer.serializeToString(value: self.getOutPath()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "outPath", value: try ObjectSerializer.serializeToString(value: self.getOutPath()!)));
+
+         #endif        
+             }
+
+
+             if (self.getFileNameFieldValue() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "fileNameFieldValue", value: try ObjectSerializer.serializeToString(value: self.getFileNameFieldValue()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "fileNameFieldValue", value: try ObjectSerializer.serializeToString(value: self.getFileNameFieldValue()!)));
+
+         #endif        
+             }
+
+
+             if (self.getStorage() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+
+         #endif        
+             }
+
+
+             if (self.getFontsLocation() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
+
+         #endif        
+             }
+
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }

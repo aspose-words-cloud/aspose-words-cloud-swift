@@ -153,46 +153,125 @@ public class ExecuteMailMergeRequest : WordsApiRequest {
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         if (self.getFolder() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
-         #elsequeryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
-         #endif        }
-         if (self.getStorage() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
-         #elsequeryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
-         #endif        }
-         if (self.getLoadEncoding() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
-         #elsequeryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
-         #endif        }
-         if (self.getPassword() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
-         #elsequeryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
-         #endif        }
-         if (self.getEncryptedPassword() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
-         #elsequeryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
-         #endif        }
-         if (self.getWithRegions() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "withRegions", value: try ObjectSerializer.serializeToString(value: self.getWithRegions()!)));
-         #elsequeryItems.append(URLQueryItem(name: "withRegions", value: try ObjectSerializer.serializeToString(value: self.getWithRegions()!)));
-         #endif        }
-         if (self.getMailMergeDataFile() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "mailMergeDataFile", value: try ObjectSerializer.serializeToString(value: self.getMailMergeDataFile()!)));
-         #elsequeryItems.append(URLQueryItem(name: "mailMergeDataFile", value: try ObjectSerializer.serializeToString(value: self.getMailMergeDataFile()!)));
-         #endif        }
-         if (self.getCleanup() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "cleanup", value: try ObjectSerializer.serializeToString(value: self.getCleanup()!)));
-         #elsequeryItems.append(URLQueryItem(name: "cleanup", value: try ObjectSerializer.serializeToString(value: self.getCleanup()!)));
-         #endif        }
-         if (self.getUseWholeParagraphAsRegion() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "useWholeParagraphAsRegion", value: try ObjectSerializer.serializeToString(value: self.getUseWholeParagraphAsRegion()!)));
-         #elsequeryItems.append(URLQueryItem(name: "useWholeParagraphAsRegion", value: try ObjectSerializer.serializeToString(value: self.getUseWholeParagraphAsRegion()!)));
-         #endif        }
-         if (self.getDestFileName() != nil) {
-         #if os(Linux)queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
-         #elsequeryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
-         #endif        }
+             if (self.getFolder() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "folder", value: try ObjectSerializer.serializeToString(value: self.getFolder()!)));
+
+         #endif        
+             }
+
+
+             if (self.getStorage() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "storage", value: try ObjectSerializer.serializeToString(value: self.getStorage()!)));
+
+         #endif        
+             }
+
+
+             if (self.getLoadEncoding() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+
+         #endif        
+             }
+
+
+             if (self.getPassword() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+
+         #endif        
+             }
+
+
+             if (self.getEncryptedPassword() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
+
+         #endif        
+             }
+
+
+             if (self.getWithRegions() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "withRegions", value: try ObjectSerializer.serializeToString(value: self.getWithRegions()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "withRegions", value: try ObjectSerializer.serializeToString(value: self.getWithRegions()!)));
+
+         #endif        
+             }
+
+
+             if (self.getMailMergeDataFile() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "mailMergeDataFile", value: try ObjectSerializer.serializeToString(value: self.getMailMergeDataFile()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "mailMergeDataFile", value: try ObjectSerializer.serializeToString(value: self.getMailMergeDataFile()!)));
+
+         #endif        
+             }
+
+
+             if (self.getCleanup() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "cleanup", value: try ObjectSerializer.serializeToString(value: self.getCleanup()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "cleanup", value: try ObjectSerializer.serializeToString(value: self.getCleanup()!)));
+
+         #endif        
+             }
+
+
+             if (self.getUseWholeParagraphAsRegion() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "useWholeParagraphAsRegion", value: try ObjectSerializer.serializeToString(value: self.getUseWholeParagraphAsRegion()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "useWholeParagraphAsRegion", value: try ObjectSerializer.serializeToString(value: self.getUseWholeParagraphAsRegion()!)));
+
+         #endif        
+             }
+
+
+             if (self.getDestFileName() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+
+         #endif        
+             }
+
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
