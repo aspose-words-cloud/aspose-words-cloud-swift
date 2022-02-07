@@ -62,10 +62,11 @@ public class ApiInvoker {
 
     // Initialize ApiInvoker object with specific configuration
 #if os(Linux)
-    public init(configuration : Configuration) {
+    public init(configuration : Configuration)
 #else
-    public init(configuration : Configuration, encryptor: Encryptor) {
+    public init(configuration : Configuration, encryptor: Encryptor)
 #endif
+    {
         self.configuration = configuration;
         self.mutex = NSLock();
         self.accessTokenCache = nil;
