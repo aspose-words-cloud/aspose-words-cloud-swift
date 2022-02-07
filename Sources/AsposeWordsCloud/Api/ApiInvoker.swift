@@ -61,21 +61,18 @@ public class ApiInvoker {
     private let httpStatusCodeTimeout = 408;
 
     // Initialize ApiInvoker object with specific configuration
-#if os(Linux)
-    public init(configuration : Configuration)
-#else
-    public init(configuration : Configuration, encryptor: Encryptor)
-#endif
-    {
+    public init(configuration : Configuration) {
         self.configuration = configuration;
         self.mutex = NSLock();
         self.accessTokenCache = nil;
-#if os(Linux)
-    // Encryption of passwords in query params not supported on linux
-#else
-        this.encryptor = encryptor;
-#endif
     }
+#if os(Linux)
+#else
+    public init(configuration : Configuration, encryptor: Encryptor) {
+        self.init(configuration: configuration);
+        this.encryptor = encryptor;
+    }
+#endif
 
     // Internal class for represent API response
     private class InvokeResponse {
