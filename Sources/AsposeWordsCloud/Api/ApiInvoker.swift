@@ -192,7 +192,7 @@ public class ApiInvoker {
                 invokeResponse.errorCode = rawResponse!.statusCode;
                 invokeResponse.errorMessage = rawResponse!.description;
                 for header in rawResponse!.allHeaderFields {
-                    invokeResponse.headers[header.key.description] = header.value.description;
+                    invokeResponse.headers[String(describing: header.key)] = String(describing: header.value);
                 }
             }
             else {
