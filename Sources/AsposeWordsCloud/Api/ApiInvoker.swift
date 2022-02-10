@@ -71,6 +71,7 @@ public class ApiInvoker {
     // Internal class for represent API response
     private class InvokeResponse {
         public var data : Data?;
+        public var headers : [String : String];
         public var errorCode : Int;
         public var errorMessage : String?;
 
@@ -118,12 +119,12 @@ public class ApiInvoker {
                                         callback(response.data, response.headers, nil);
                                     }
                                     else {
-                                        callback(nil, [], WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
+                                        callback(nil, [String : String](), WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
                                     }
                                 });
                             }
                             else {
-                                callback(nil, [], WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
+                                callback(nil, [String : String](), WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
                             }
                         });
                     }
@@ -132,12 +133,12 @@ public class ApiInvoker {
                         callback(response.data, response.headers, nil);
                     }
                     else {
-                        callback(nil, [], WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
+                        callback(nil, [String : String](), WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
                     }
                 });
             }
             else {
-                callback(nil, [], WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
+                callback(nil, [String : String](), WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
             }
         });
     }
@@ -186,9 +187,13 @@ public class ApiInvoker {
             let invokeResponse = InvokeResponse(errorCode: self.httpStatusCodeTimeout);
 
             invokeResponse.data = d;
+            invokeResponse.headers = [String : String]();
             if (rawResponse != nil) {
                 invokeResponse.errorCode = rawResponse!.statusCode;
                 invokeResponse.errorMessage = rawResponse!.description;
+                for header in rawResponse!.allHeaderFields {
+                    invokeResponse.headers[header.key.description] = header.value.description;
+                }
             }
             else {
                 invokeResponse.errorCode = self.httpStatusCodeBadRequest;
