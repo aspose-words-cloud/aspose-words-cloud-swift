@@ -148,7 +148,7 @@ class ObjectSerializer {
                 if (disposition == nil) {
                     continue;
                 }
-                
+
                 let dispparts = disposition!.split(separator: ";");
                 for disppart in dispparts {
                     let dispparttrim = disppart.trimmingCharacters(in: .whitespaces);
@@ -159,14 +159,14 @@ class ObjectSerializer {
                         }
                     }
                 }
-                
+
                 result[filename] = part.getBody();
             }
         }
         else {
             result[""] = data;
         }
-        
+
         return result;
     }
 
@@ -231,7 +231,7 @@ class ObjectSerializer {
                     let componentDataParts = componentData.split(separator: "=");
                     if (componentDataParts.count == 2) {
                         let componentKey = componentDataParts[0].trimmingCharacters(in: .whitespaces);
-                        let componentValue = componentDataParts[1].trimmingCharacters(in: .whitespaces);
+                        let componentValue = componentDataParts[1].trimmingCharacters(in: CharacterSet(charactersIn: " \""));
                         if (componentKey == "name") {
                             partName = componentValue;
                             break;

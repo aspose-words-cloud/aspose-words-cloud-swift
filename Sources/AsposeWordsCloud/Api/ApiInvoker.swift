@@ -188,7 +188,6 @@ public class ApiInvoker {
             let invokeResponse = InvokeResponse(errorCode: self.httpStatusCodeTimeout);
 
             invokeResponse.data = d;
-            invokeResponse.headers = [String : String]();
             if (rawResponse != nil) {
                 invokeResponse.errorCode = rawResponse!.statusCode;
                 invokeResponse.errorMessage = rawResponse!.description;
