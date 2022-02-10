@@ -145,6 +145,6 @@ public class DeleteCustomXmlPartOnlineRequest : WordsApiRequest {
 
     // Deserialize response of this request
     public func deserializeResponse(data : Data, headers : [String: String]) throws -> Any? {
-        return try ObjectSerializer.parseFilesCollection(from: data, headers: headers);
+        return try ObjectSerializer.parseFilesCollection(data: data, headers: headers);
     }
 }
