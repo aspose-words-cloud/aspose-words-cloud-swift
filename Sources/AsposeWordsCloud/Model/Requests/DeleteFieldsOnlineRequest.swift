@@ -149,7 +149,7 @@ public class DeleteFieldsOnlineRequest : WordsApiRequest {
     }
 
     // Deserialize response of this request
-    public func deserializeResponse(data : Data) throws -> Any? {
-        return data;
+    public func deserializeResponse(data : Data, headers : [String: String]) throws -> Any? {
+        return try ObjectSerializer.parseFilesCollection(from: data, headers: headers);
     }
 }

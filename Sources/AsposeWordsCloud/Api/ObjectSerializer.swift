@@ -131,6 +131,16 @@ class ObjectSerializer {
         return try customDecoder.decode(type, from: data);
     }
 
+    // Parse files collection
+    public static func parseFilesCollection(part: ResponseFormParam) throws -> [String : Data] {
+        return try parseFilesCollection(part.getBody(), part.getHeaders());
+    }
+
+    // Parse files collection
+    public static func parseFilesCollection(data: Data, headers: [String : String]) throws -> [String : Data] {
+
+    }
+
     // Deserialize an multipart response
     public static func parseMultipart(data: Data) throws -> [ResponseFormParam] {
         var result = [ResponseFormParam]();
@@ -256,13 +266,25 @@ class ObjectSerializer {
             throw WordsApiError.invalidMultipartResponse(message: "Failed to parse head content");
         }
 
+        var headers = [String : String]();
+        for headerLine in headParts {
+            if (!headerLine.contains(":")) {
+                continue;
+            }
+
+            let headerParts = headerLine.components(separatedBy: ":");
+            if (headerParts.count == 2) {
+                headers[headerParts[0].trimmingCharacters(in: .whitespacesAndNewlines)] = headerParts[1].trimmingCharacters(in: .whitespacesAndNewlines);
+            }
+        }
+
         let bodyData = data.subdata(in: partDataBounds!.upperBound..<data.endIndex);
         if (codeStatus != 200) {
             let errorMessage = String(decoding: bodyData, as: UTF8.self);
             return WordsApiError.requestError(errorCode: codeStatus!, message: errorMessage);
         }
 
-        return try request.deserializeResponse(data: bodyData);
+        return try request.deserializeResponse(data: bodyData, headers: headers);
     }
 
     // Configuration for DateTime serialization/deserialization

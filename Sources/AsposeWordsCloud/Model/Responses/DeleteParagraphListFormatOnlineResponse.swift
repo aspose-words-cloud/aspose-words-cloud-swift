@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DeleteParagraphListFormatOnlineResponse {
     private let model : ParagraphListFormatResponse?;
-    private let document : Data?;
+    private let document : [String: Data]?;
 
     private enum CodingKeys: String, CodingKey {
         case model;
@@ -40,7 +40,7 @@ public class DeleteParagraphListFormatOnlineResponse {
     }
 
     // Initializes a new instance of the DeleteParagraphListFormatOnlineResponse class.
-    public init(model : ParagraphListFormatResponse?, document : Data?) {
+    public init(model : ParagraphListFormatResponse?, document : [String: Data]?) {
         self.model = model;
         self.document = document;
     }
@@ -51,7 +51,7 @@ public class DeleteParagraphListFormatOnlineResponse {
     }
 
     // The document after modification.
-    public func getDocument() -> Data? {
+    public func getDocument() -> [String: Data]? {
         return self.document;
     }
 }

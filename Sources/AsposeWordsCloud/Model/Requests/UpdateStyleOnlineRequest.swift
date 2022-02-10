@@ -154,14 +154,14 @@ public class UpdateStyleOnlineRequest : WordsApiRequest {
     }
 
     // Deserialize response of this request
-    public func deserializeResponse(data : Data) throws -> Any? {
+    public func deserializeResponse(data : Data, headers : [String: String]) throws -> Any? {
         let multipart = try ObjectSerializer.parseMultipart(data: data);
         return UpdateStyleOnlineResponse(
             model: try ObjectSerializer.deserialize(
                 type: StyleResponse.self,
                 from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()
             ),
-            document: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document")).getBody()
+            document: return try ObjectSerializer.parseFilesCollection(part: try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document"));
         );
     }
 }

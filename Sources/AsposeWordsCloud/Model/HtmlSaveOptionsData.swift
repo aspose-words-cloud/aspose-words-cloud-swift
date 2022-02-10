@@ -30,6 +30,19 @@ import Foundation
 // Container class for html save options.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class HtmlSaveOptionsData : SaveOptionsData {
+    // Gets or sets the option that controls how the CSS styles are exported.
+    public enum CssStyleSheetType : String, Codable
+    {
+        // Enum value "inline"
+        case inline = "Inline"
+
+        // Enum value "embedded"
+        case embedded = "Embedded"
+
+        // Enum value "external"
+        case external = "External"
+    }
+
     // Gets or sets the version of HTML standard, that should be used when saving the document to HTML or MHTML.
     // Default value is Aspose.Words.Saving.HtmlVersion.Xhtml.
     public enum HtmlVersion : String, Codable
@@ -107,9 +120,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Field of cssStyleSheetType. Container class for html save options.
-    private var _cssStyleSheetType : String? = nil;
+    private var _cssStyleSheetType : CssStyleSheetType? = nil;
 
-    public var cssStyleSheetType : String? {
+    public var cssStyleSheetType : CssStyleSheetType? {
         get {
             return self._cssStyleSheetType;
         }
@@ -600,7 +613,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         self.allowNegativeIndent = try container.decodeIfPresent(Bool.self, forKey: .allowNegativeIndent);
         self.cssClassNamePrefix = try container.decodeIfPresent(String.self, forKey: .cssClassNamePrefix);
         self.cssStyleSheetFileName = try container.decodeIfPresent(String.self, forKey: .cssStyleSheetFileName);
-        self.cssStyleSheetType = try container.decodeIfPresent(String.self, forKey: .cssStyleSheetType);
+        self.cssStyleSheetType = try container.decodeIfPresent(CssStyleSheetType.self, forKey: .cssStyleSheetType);
         self.documentSplitCriteria = try container.decodeIfPresent(String.self, forKey: .documentSplitCriteria);
         self.documentSplitHeadingLevel = try container.decodeIfPresent(Int.self, forKey: .documentSplitHeadingLevel);
         self.encoding = try container.decodeIfPresent(String.self, forKey: .encoding);
@@ -797,13 +810,13 @@ public class HtmlSaveOptionsData : SaveOptionsData {
 
 
     // Sets cssStyleSheetType. Gets or sets the option that controls how the CSS styles are exported.
-    public func setCssStyleSheetType(cssStyleSheetType : String?) -> HtmlSaveOptionsData {
+    public func setCssStyleSheetType(cssStyleSheetType : CssStyleSheetType?) -> HtmlSaveOptionsData {
         self.cssStyleSheetType = cssStyleSheetType;
         return self;
     }
 
     // Gets cssStyleSheetType. Gets or sets the option that controls how the CSS styles are exported.
-    public func getCssStyleSheetType() -> String? {
+    public func getCssStyleSheetType() -> CssStyleSheetType? {
         return self.cssStyleSheetType;
     }
 

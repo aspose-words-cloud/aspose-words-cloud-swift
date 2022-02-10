@@ -85,7 +85,7 @@ public class ApiInvoker {
     }
 
     // Invoke request to the API with the specified set of arguments and execute callback after the request is completed
-    public func invoke(apiRequestData : WordsApiRequestData, callback: @escaping (_ response: Data?, _ error: Error?) -> ()
+    public func invoke(apiRequestData : WordsApiRequestData, callback: @escaping (_ response: Data?, _ headers: [String: String], _ error: Error?) -> ()
     ) {
         // Create URL request object
         var request = URLRequest(url: apiRequestData.getURL());
@@ -115,29 +115,29 @@ public class ApiInvoker {
                                 self.invokeRequest(urlRequest: &request, accessToken: accessToken, callback: { response in
                                     if (response.errorCode == self.httpStatusCodeOK) {
                                         // Api request success
-                                        callback(response.data, nil);
+                                        callback(response.data, response.headers, nil);
                                     }
                                     else {
-                                        callback(nil, WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
+                                        callback(nil, [], WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
                                     }
                                 });
                             }
                             else {
-                                callback(nil, WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
+                                callback(nil, [], WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
                             }
                         });
                     }
                     else if (response.errorCode == self.httpStatusCodeOK) {
                         // Api request success
-                        callback(response.data, nil);
+                        callback(response.data, response.headers, nil);
                     }
                     else {
-                        callback(nil, WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
+                        callback(nil, [], WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
                     }
                 });
             }
             else {
-                callback(nil, WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
+                callback(nil, [], WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
             }
         });
     }

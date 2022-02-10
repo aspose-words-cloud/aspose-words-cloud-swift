@@ -53,13 +53,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RevisionsModificationResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? RevisionsModificationResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -99,13 +99,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? AcceptAllRevisionsOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? AcceptAllRevisionsOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -145,13 +145,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -191,13 +191,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? AppendDocumentOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? AppendDocumentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -237,13 +237,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? WordsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? WordsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -283,13 +283,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ApplyStyleToDocumentElementOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ApplyStyleToDocumentElementOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -329,13 +329,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -375,13 +375,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -421,13 +421,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ClassificationResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ClassificationResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -467,13 +467,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ClassificationResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ClassificationResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -513,13 +513,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ClassificationResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ClassificationResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -559,13 +559,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -605,13 +605,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CompareDocumentOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CompareDocumentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -651,13 +651,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -697,7 +697,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -730,7 +730,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -763,13 +763,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? StyleResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StyleResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -809,13 +809,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CopyStyleOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CopyStyleOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -855,13 +855,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -901,7 +901,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -934,13 +934,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentPropertyResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentPropertyResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -980,13 +980,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CreateOrUpdateDocumentPropertyOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CreateOrUpdateDocumentPropertyOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1026,13 +1026,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TabStopsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TabStopsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1072,13 +1072,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DeleteAllParagraphTabStopsOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DeleteAllParagraphTabStopsOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1118,13 +1118,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? BorderResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? BorderResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1164,13 +1164,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DeleteBorderOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DeleteBorderOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1210,13 +1210,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? BordersResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? BordersResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1256,13 +1256,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DeleteBordersOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DeleteBordersOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1302,7 +1302,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -1331,17 +1331,17 @@ public class WordsAPI {
 
     // Async representation of deleteCommentOnline method
     // Removes a comment from the document.
-    public func deleteCommentOnline(request : DeleteCommentOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteCommentOnline(request : DeleteCommentOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1357,9 +1357,9 @@ public class WordsAPI {
 
     // Sync representation of deleteCommentOnline method
     // Removes a comment from the document.
-    public func deleteCommentOnline(request : DeleteCommentOnlineRequest) throws -> Data {
+    public func deleteCommentOnline(request : DeleteCommentOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteCommentOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -1381,7 +1381,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -1410,17 +1410,17 @@ public class WordsAPI {
 
     // Async representation of deleteCommentsOnline method
     // Removes all comments from the document.
-    public func deleteCommentsOnline(request : DeleteCommentsOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteCommentsOnline(request : DeleteCommentsOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1436,9 +1436,9 @@ public class WordsAPI {
 
     // Sync representation of deleteCommentsOnline method
     // Removes all comments from the document.
-    public func deleteCommentsOnline(request : DeleteCommentsOnlineRequest) throws -> Data {
+    public func deleteCommentsOnline(request : DeleteCommentsOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteCommentsOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -1460,7 +1460,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -1489,17 +1489,17 @@ public class WordsAPI {
 
     // Async representation of deleteCustomXmlPartOnline method
     // Removes the custom xml part from the document.
-    public func deleteCustomXmlPartOnline(request : DeleteCustomXmlPartOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteCustomXmlPartOnline(request : DeleteCustomXmlPartOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1515,9 +1515,9 @@ public class WordsAPI {
 
     // Sync representation of deleteCustomXmlPartOnline method
     // Removes the custom xml part from the document.
-    public func deleteCustomXmlPartOnline(request : DeleteCustomXmlPartOnlineRequest) throws -> Data {
+    public func deleteCustomXmlPartOnline(request : DeleteCustomXmlPartOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteCustomXmlPartOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -1539,7 +1539,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -1568,17 +1568,17 @@ public class WordsAPI {
 
     // Async representation of deleteCustomXmlPartsOnline method
     // Removes all custom xml parts from the document.
-    public func deleteCustomXmlPartsOnline(request : DeleteCustomXmlPartsOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteCustomXmlPartsOnline(request : DeleteCustomXmlPartsOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1594,9 +1594,9 @@ public class WordsAPI {
 
     // Sync representation of deleteCustomXmlPartsOnline method
     // Removes all custom xml parts from the document.
-    public func deleteCustomXmlPartsOnline(request : DeleteCustomXmlPartsOnlineRequest) throws -> Data {
+    public func deleteCustomXmlPartsOnline(request : DeleteCustomXmlPartsOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteCustomXmlPartsOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -1618,7 +1618,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -1647,17 +1647,17 @@ public class WordsAPI {
 
     // Async representation of deleteDocumentPropertyOnline method
     // Removes a document property.
-    public func deleteDocumentPropertyOnline(request : DeleteDocumentPropertyOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteDocumentPropertyOnline(request : DeleteDocumentPropertyOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1673,9 +1673,9 @@ public class WordsAPI {
 
     // Sync representation of deleteDocumentPropertyOnline method
     // Removes a document property.
-    public func deleteDocumentPropertyOnline(request : DeleteDocumentPropertyOnlineRequest) throws -> Data {
+    public func deleteDocumentPropertyOnline(request : DeleteDocumentPropertyOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteDocumentPropertyOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -1697,7 +1697,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -1726,17 +1726,17 @@ public class WordsAPI {
 
     // Async representation of deleteDrawingObjectOnline method
     // Removes a DrawingObject from the document node.
-    public func deleteDrawingObjectOnline(request : DeleteDrawingObjectOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteDrawingObjectOnline(request : DeleteDrawingObjectOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1752,9 +1752,9 @@ public class WordsAPI {
 
     // Sync representation of deleteDrawingObjectOnline method
     // Removes a DrawingObject from the document node.
-    public func deleteDrawingObjectOnline(request : DeleteDrawingObjectOnlineRequest) throws -> Data {
+    public func deleteDrawingObjectOnline(request : DeleteDrawingObjectOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteDrawingObjectOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -1776,7 +1776,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -1805,17 +1805,17 @@ public class WordsAPI {
 
     // Async representation of deleteFieldOnline method
     // Removes a field from the document node.
-    public func deleteFieldOnline(request : DeleteFieldOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteFieldOnline(request : DeleteFieldOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1831,9 +1831,9 @@ public class WordsAPI {
 
     // Sync representation of deleteFieldOnline method
     // Removes a field from the document node.
-    public func deleteFieldOnline(request : DeleteFieldOnlineRequest) throws -> Data {
+    public func deleteFieldOnline(request : DeleteFieldOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteFieldOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -1855,7 +1855,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -1884,17 +1884,17 @@ public class WordsAPI {
 
     // Async representation of deleteFieldsOnline method
     // Removes fields from the document node.
-    public func deleteFieldsOnline(request : DeleteFieldsOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteFieldsOnline(request : DeleteFieldsOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -1910,9 +1910,9 @@ public class WordsAPI {
 
     // Sync representation of deleteFieldsOnline method
     // Removes fields from the document node.
-    public func deleteFieldsOnline(request : DeleteFieldsOnlineRequest) throws -> Data {
+    public func deleteFieldsOnline(request : DeleteFieldsOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteFieldsOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -1934,7 +1934,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -1967,7 +1967,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -2000,7 +2000,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -2029,17 +2029,17 @@ public class WordsAPI {
 
     // Async representation of deleteFootnoteOnline method
     // Removes a footnote from the document node.
-    public func deleteFootnoteOnline(request : DeleteFootnoteOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteFootnoteOnline(request : DeleteFootnoteOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2055,9 +2055,9 @@ public class WordsAPI {
 
     // Sync representation of deleteFootnoteOnline method
     // Removes a footnote from the document node.
-    public func deleteFootnoteOnline(request : DeleteFootnoteOnlineRequest) throws -> Data {
+    public func deleteFootnoteOnline(request : DeleteFootnoteOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteFootnoteOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -2079,7 +2079,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -2108,17 +2108,17 @@ public class WordsAPI {
 
     // Async representation of deleteFormFieldOnline method
     // Removes a form field from the document node.
-    public func deleteFormFieldOnline(request : DeleteFormFieldOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteFormFieldOnline(request : DeleteFormFieldOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2134,9 +2134,9 @@ public class WordsAPI {
 
     // Sync representation of deleteFormFieldOnline method
     // Removes a form field from the document node.
-    public func deleteFormFieldOnline(request : DeleteFormFieldOnlineRequest) throws -> Data {
+    public func deleteFormFieldOnline(request : DeleteFormFieldOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteFormFieldOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -2158,7 +2158,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -2187,17 +2187,17 @@ public class WordsAPI {
 
     // Async representation of deleteHeaderFooterOnline method
     // Removes a HeaderFooter object from the document section.
-    public func deleteHeaderFooterOnline(request : DeleteHeaderFooterOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteHeaderFooterOnline(request : DeleteHeaderFooterOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2213,9 +2213,9 @@ public class WordsAPI {
 
     // Sync representation of deleteHeaderFooterOnline method
     // Removes a HeaderFooter object from the document section.
-    public func deleteHeaderFooterOnline(request : DeleteHeaderFooterOnlineRequest) throws -> Data {
+    public func deleteHeaderFooterOnline(request : DeleteHeaderFooterOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteHeaderFooterOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -2237,7 +2237,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -2266,17 +2266,17 @@ public class WordsAPI {
 
     // Async representation of deleteHeadersFootersOnline method
     // Removes HeaderFooter objects from the document section.
-    public func deleteHeadersFootersOnline(request : DeleteHeadersFootersOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteHeadersFootersOnline(request : DeleteHeadersFootersOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2292,9 +2292,9 @@ public class WordsAPI {
 
     // Sync representation of deleteHeadersFootersOnline method
     // Removes HeaderFooter objects from the document section.
-    public func deleteHeadersFootersOnline(request : DeleteHeadersFootersOnlineRequest) throws -> Data {
+    public func deleteHeadersFootersOnline(request : DeleteHeadersFootersOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteHeadersFootersOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -2316,7 +2316,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -2345,17 +2345,17 @@ public class WordsAPI {
 
     // Async representation of deleteMacrosOnline method
     // Removes macros from the document.
-    public func deleteMacrosOnline(request : DeleteMacrosOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteMacrosOnline(request : DeleteMacrosOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2371,9 +2371,9 @@ public class WordsAPI {
 
     // Sync representation of deleteMacrosOnline method
     // Removes macros from the document.
-    public func deleteMacrosOnline(request : DeleteMacrosOnlineRequest) throws -> Data {
+    public func deleteMacrosOnline(request : DeleteMacrosOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteMacrosOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -2395,7 +2395,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -2424,17 +2424,17 @@ public class WordsAPI {
 
     // Async representation of deleteOfficeMathObjectOnline method
     // Removes an OfficeMath object from the document node.
-    public func deleteOfficeMathObjectOnline(request : DeleteOfficeMathObjectOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteOfficeMathObjectOnline(request : DeleteOfficeMathObjectOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2450,9 +2450,9 @@ public class WordsAPI {
 
     // Sync representation of deleteOfficeMathObjectOnline method
     // Removes an OfficeMath object from the document node.
-    public func deleteOfficeMathObjectOnline(request : DeleteOfficeMathObjectOnlineRequest) throws -> Data {
+    public func deleteOfficeMathObjectOnline(request : DeleteOfficeMathObjectOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteOfficeMathObjectOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -2474,7 +2474,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -2507,13 +2507,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ParagraphListFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ParagraphListFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2553,13 +2553,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DeleteParagraphListFormatOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DeleteParagraphListFormatOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2595,17 +2595,17 @@ public class WordsAPI {
 
     // Async representation of deleteParagraphOnline method
     // Removes a paragraph from the document node.
-    public func deleteParagraphOnline(request : DeleteParagraphOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteParagraphOnline(request : DeleteParagraphOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2621,9 +2621,9 @@ public class WordsAPI {
 
     // Sync representation of deleteParagraphOnline method
     // Removes a paragraph from the document node.
-    public func deleteParagraphOnline(request : DeleteParagraphOnlineRequest) throws -> Data {
+    public func deleteParagraphOnline(request : DeleteParagraphOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteParagraphOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -2645,13 +2645,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TabStopsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TabStopsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2691,13 +2691,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DeleteParagraphTabStopOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DeleteParagraphTabStopOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2737,7 +2737,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -2766,17 +2766,17 @@ public class WordsAPI {
 
     // Async representation of deleteRunOnline method
     // Removes a Run object from the paragraph.
-    public func deleteRunOnline(request : DeleteRunOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteRunOnline(request : DeleteRunOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2792,9 +2792,9 @@ public class WordsAPI {
 
     // Sync representation of deleteRunOnline method
     // Removes a Run object from the paragraph.
-    public func deleteRunOnline(request : DeleteRunOnlineRequest) throws -> Data {
+    public func deleteRunOnline(request : DeleteRunOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteRunOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -2816,7 +2816,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -2845,17 +2845,17 @@ public class WordsAPI {
 
     // Async representation of deleteSectionOnline method
     // Removes a section from the document.
-    public func deleteSectionOnline(request : DeleteSectionOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteSectionOnline(request : DeleteSectionOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2871,9 +2871,9 @@ public class WordsAPI {
 
     // Sync representation of deleteSectionOnline method
     // Removes a section from the document.
-    public func deleteSectionOnline(request : DeleteSectionOnlineRequest) throws -> Data {
+    public func deleteSectionOnline(request : DeleteSectionOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteSectionOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -2895,7 +2895,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -2928,7 +2928,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -2957,17 +2957,17 @@ public class WordsAPI {
 
     // Async representation of deleteTableCellOnline method
     // Removes a cell from the table row.
-    public func deleteTableCellOnline(request : DeleteTableCellOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteTableCellOnline(request : DeleteTableCellOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -2983,9 +2983,9 @@ public class WordsAPI {
 
     // Sync representation of deleteTableCellOnline method
     // Removes a cell from the table row.
-    public func deleteTableCellOnline(request : DeleteTableCellOnlineRequest) throws -> Data {
+    public func deleteTableCellOnline(request : DeleteTableCellOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteTableCellOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -3003,17 +3003,17 @@ public class WordsAPI {
 
     // Async representation of deleteTableOnline method
     // Removes a table from the document node.
-    public func deleteTableOnline(request : DeleteTableOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteTableOnline(request : DeleteTableOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3029,9 +3029,9 @@ public class WordsAPI {
 
     // Sync representation of deleteTableOnline method
     // Removes a table from the document node.
-    public func deleteTableOnline(request : DeleteTableOnlineRequest) throws -> Data {
+    public func deleteTableOnline(request : DeleteTableOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteTableOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -3053,7 +3053,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -3082,17 +3082,17 @@ public class WordsAPI {
 
     // Async representation of deleteTableRowOnline method
     // Removes a row from the table.
-    public func deleteTableRowOnline(request : DeleteTableRowOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func deleteTableRowOnline(request : DeleteTableRowOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3108,9 +3108,9 @@ public class WordsAPI {
 
     // Sync representation of deleteTableRowOnline method
     // Removes a row from the table.
-    public func deleteTableRowOnline(request : DeleteTableRowOnlineRequest) throws -> Data {
+    public func deleteTableRowOnline(request : DeleteTableRowOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.deleteTableRowOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -3132,13 +3132,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3178,13 +3178,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DeleteWatermarkOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DeleteWatermarkOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3224,13 +3224,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3270,13 +3270,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3316,13 +3316,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3362,13 +3362,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? AvailableFontsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? AvailableFontsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3408,13 +3408,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? BookmarkResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? BookmarkResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3454,13 +3454,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? BookmarkResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? BookmarkResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3500,13 +3500,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? BookmarksResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? BookmarksResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3546,13 +3546,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? BookmarksResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? BookmarksResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3592,13 +3592,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? BorderResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? BorderResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3638,13 +3638,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? BorderResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? BorderResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3684,13 +3684,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? BordersResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? BordersResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3730,13 +3730,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? BordersResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? BordersResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3776,13 +3776,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CommentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CommentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3822,13 +3822,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CommentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CommentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3868,13 +3868,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CommentsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CommentsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3914,13 +3914,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CommentsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CommentsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -3960,13 +3960,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CustomXmlPartResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CustomXmlPartResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4006,13 +4006,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CustomXmlPartResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CustomXmlPartResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4052,13 +4052,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CustomXmlPartsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CustomXmlPartsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4098,13 +4098,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CustomXmlPartsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CustomXmlPartsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4144,13 +4144,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4190,13 +4190,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DrawingObjectResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DrawingObjectResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4236,13 +4236,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DrawingObjectResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DrawingObjectResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4282,13 +4282,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4328,13 +4328,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4374,13 +4374,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4420,13 +4420,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4466,13 +4466,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DrawingObjectsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DrawingObjectsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4512,13 +4512,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DrawingObjectsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DrawingObjectsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4558,13 +4558,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FieldNamesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FieldNamesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4604,13 +4604,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FieldNamesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FieldNamesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4650,13 +4650,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? HyperlinkResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? HyperlinkResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4696,13 +4696,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? HyperlinkResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? HyperlinkResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4742,13 +4742,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? HyperlinksResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? HyperlinksResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4788,13 +4788,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? HyperlinksResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? HyperlinksResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4834,13 +4834,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentPropertiesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentPropertiesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4880,13 +4880,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentPropertiesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentPropertiesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4926,13 +4926,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentPropertyResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentPropertyResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -4972,13 +4972,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentPropertyResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentPropertyResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5018,13 +5018,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ProtectionDataResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ProtectionDataResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5064,13 +5064,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ProtectionDataResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ProtectionDataResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5110,13 +5110,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? StatDataResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StatDataResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5156,13 +5156,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? StatDataResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StatDataResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5202,13 +5202,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5248,13 +5248,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5294,13 +5294,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5340,13 +5340,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FieldsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FieldsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5386,13 +5386,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FieldsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FieldsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5432,13 +5432,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FilesList, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FilesList, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5478,13 +5478,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FootnoteResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FootnoteResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5524,13 +5524,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FootnoteResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FootnoteResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5570,13 +5570,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FootnotesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FootnotesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5616,13 +5616,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FootnotesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FootnotesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5662,13 +5662,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FormFieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FormFieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5708,13 +5708,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FormFieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FormFieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5754,13 +5754,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FormFieldsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FormFieldsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5800,13 +5800,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FormFieldsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FormFieldsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5846,13 +5846,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? HeaderFooterResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5892,13 +5892,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? HeaderFooterResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5938,13 +5938,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? HeaderFooterResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -5984,13 +5984,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? HeaderFooterResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6030,13 +6030,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? HeaderFootersResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? HeaderFootersResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6076,13 +6076,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? HeaderFootersResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? HeaderFootersResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6122,13 +6122,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InfoResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InfoResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6168,13 +6168,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ListResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ListResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6214,13 +6214,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ListResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ListResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6260,13 +6260,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ListsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ListsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6306,13 +6306,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ListsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ListsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6352,13 +6352,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? OfficeMathObjectResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? OfficeMathObjectResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6398,13 +6398,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? OfficeMathObjectResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? OfficeMathObjectResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6444,13 +6444,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? OfficeMathObjectsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? OfficeMathObjectsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6490,13 +6490,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? OfficeMathObjectsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? OfficeMathObjectsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6536,13 +6536,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ParagraphResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ParagraphResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6582,13 +6582,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ParagraphFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ParagraphFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6628,13 +6628,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ParagraphFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ParagraphFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6674,13 +6674,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ParagraphListFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ParagraphListFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6720,13 +6720,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ParagraphListFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ParagraphListFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6766,13 +6766,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ParagraphResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ParagraphResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6812,13 +6812,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ParagraphLinkCollectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ParagraphLinkCollectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6858,13 +6858,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ParagraphLinkCollectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ParagraphLinkCollectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6904,13 +6904,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TabStopsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TabStopsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6950,13 +6950,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TabStopsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TabStopsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -6996,13 +6996,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? PublicKeyResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? PublicKeyResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7042,13 +7042,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RangeTextResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? RangeTextResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7088,13 +7088,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RangeTextResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? RangeTextResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7134,13 +7134,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RunResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? RunResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7180,13 +7180,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FontResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FontResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7226,13 +7226,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FontResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FontResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7272,13 +7272,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RunResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? RunResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7318,13 +7318,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RunsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? RunsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7364,13 +7364,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RunsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? RunsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7410,13 +7410,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7456,13 +7456,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7502,13 +7502,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SectionPageSetupResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SectionPageSetupResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7548,13 +7548,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SectionPageSetupResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SectionPageSetupResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7594,13 +7594,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SectionLinkCollectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SectionLinkCollectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7640,13 +7640,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SectionLinkCollectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SectionLinkCollectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7686,13 +7686,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? StyleResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StyleResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7732,13 +7732,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? StyleResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StyleResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7778,13 +7778,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? StyleResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StyleResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7824,13 +7824,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? StyleResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StyleResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7870,13 +7870,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? StylesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StylesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7916,13 +7916,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? StylesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StylesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -7962,13 +7962,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8008,13 +8008,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableCellResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableCellResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8054,13 +8054,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableCellFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableCellFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8100,13 +8100,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableCellFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableCellFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8146,13 +8146,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableCellResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableCellResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8192,13 +8192,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8238,13 +8238,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TablePropertiesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TablePropertiesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8284,13 +8284,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TablePropertiesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TablePropertiesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8330,13 +8330,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableRowResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableRowResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8376,13 +8376,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableRowFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableRowFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8422,13 +8422,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableRowFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableRowFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8468,13 +8468,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableRowResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableRowResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8514,13 +8514,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableLinkCollectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableLinkCollectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8560,13 +8560,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableLinkCollectionResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableLinkCollectionResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8606,13 +8606,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CommentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CommentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8652,13 +8652,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertCommentOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertCommentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8698,13 +8698,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CustomXmlPartResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CustomXmlPartResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8744,13 +8744,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertCustomXmlPartOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertCustomXmlPartOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8790,13 +8790,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DrawingObjectResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DrawingObjectResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8836,13 +8836,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertDrawingObjectOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertDrawingObjectOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8882,13 +8882,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8928,13 +8928,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertFieldOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertFieldOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -8974,13 +8974,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FootnoteResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FootnoteResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9020,13 +9020,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertFootnoteOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertFootnoteOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9066,13 +9066,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FormFieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FormFieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9112,13 +9112,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertFormFieldOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertFormFieldOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9158,13 +9158,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? HeaderFooterResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? HeaderFooterResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9204,13 +9204,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertHeaderFooterOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertHeaderFooterOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9250,13 +9250,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ListResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ListResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9296,13 +9296,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertListOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertListOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9342,13 +9342,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TabStopsResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TabStopsResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9388,13 +9388,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertOrUpdateParagraphTabStopOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertOrUpdateParagraphTabStopOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9434,13 +9434,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9480,13 +9480,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertPageNumbersOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertPageNumbersOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9526,13 +9526,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ParagraphResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ParagraphResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9572,13 +9572,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertParagraphOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertParagraphOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9618,13 +9618,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RunResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? RunResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9664,13 +9664,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertRunOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertRunOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9710,13 +9710,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? StyleResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StyleResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9756,13 +9756,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertStyleOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertStyleOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9802,13 +9802,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9848,13 +9848,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableCellResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableCellResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9894,13 +9894,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertTableCellOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertTableCellOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9940,13 +9940,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertTableOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertTableOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -9986,13 +9986,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableRowResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableRowResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10032,13 +10032,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertTableRowOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertTableRowOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10078,13 +10078,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10124,13 +10124,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertWatermarkImageOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertWatermarkImageOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10170,13 +10170,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10216,13 +10216,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? InsertWatermarkTextOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? InsertWatermarkTextOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10262,13 +10262,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SaveResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SaveResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10308,7 +10308,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -10341,7 +10341,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -10374,7 +10374,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -10403,17 +10403,17 @@ public class WordsAPI {
 
     // Async representation of optimizeDocumentOnline method
     // Applies document content optimization options, specific to a particular versions of Microsoft Word.
-    public func optimizeDocumentOnline(request : OptimizeDocumentOnlineRequest, callback : @escaping (_ response : Data?, _ error : Error?) -> ()) {
+    public func optimizeDocumentOnline(request : OptimizeDocumentOnlineRequest, callback : @escaping (_ response : [String: Data]?, _ error : Error?) -> ()) {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? [String: Data], nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10429,9 +10429,9 @@ public class WordsAPI {
 
     // Sync representation of optimizeDocumentOnline method
     // Applies document content optimization options, specific to a particular versions of Microsoft Word.
-    public func optimizeDocumentOnline(request : OptimizeDocumentOnlineRequest) throws -> Data {
+    public func optimizeDocumentOnline(request : OptimizeDocumentOnlineRequest) throws -> [String: Data] {
         let semaphore = DispatchSemaphore(value: 0);
-        var responseObject : Data? = nil;
+        var responseObject : [String: Data]? = nil;
         var responseError : Error? = nil;
         self.optimizeDocumentOnline(request : request, callback: { response, error in
             responseObject = response;
@@ -10453,13 +10453,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ProtectionDataResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ProtectionDataResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10499,13 +10499,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ProtectDocumentOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ProtectDocumentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10545,13 +10545,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RevisionsModificationResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? RevisionsModificationResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10591,13 +10591,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RejectAllRevisionsOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? RejectAllRevisionsOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10637,13 +10637,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10683,13 +10683,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RemoveRangeOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? RemoveRangeOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10729,13 +10729,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10775,13 +10775,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10821,13 +10821,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10867,13 +10867,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10913,13 +10913,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -10959,13 +10959,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11005,13 +11005,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11051,13 +11051,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11097,13 +11097,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11143,13 +11143,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? Data, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? Data, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11189,13 +11189,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ReplaceTextResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ReplaceTextResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11235,13 +11235,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ReplaceTextOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ReplaceTextOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11281,13 +11281,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11327,13 +11327,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ReplaceWithTextOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ReplaceWithTextOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11373,7 +11373,7 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     callback(error);
                 }
             );
@@ -11406,13 +11406,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SaveResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SaveResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11452,13 +11452,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SaveAsOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SaveAsOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11498,13 +11498,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11544,13 +11544,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SaveAsRangeOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SaveAsRangeOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11590,13 +11590,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SaveResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SaveResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11636,13 +11636,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SaveAsTiffOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SaveAsTiffOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11682,13 +11682,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SearchResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SearchResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11728,13 +11728,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SearchResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SearchResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11774,13 +11774,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SplitDocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SplitDocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11820,13 +11820,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SplitDocumentOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SplitDocumentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11866,13 +11866,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ProtectionDataResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ProtectionDataResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11912,13 +11912,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UnprotectDocumentOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UnprotectDocumentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -11958,13 +11958,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? BookmarkResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? BookmarkResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12004,13 +12004,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateBookmarkOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateBookmarkOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12050,13 +12050,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? BorderResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? BorderResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12096,13 +12096,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateBorderOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateBorderOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12142,13 +12142,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CommentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CommentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12188,13 +12188,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateCommentOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateCommentOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12234,13 +12234,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? CustomXmlPartResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? CustomXmlPartResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12280,13 +12280,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateCustomXmlPartOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateCustomXmlPartOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12326,13 +12326,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DrawingObjectResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DrawingObjectResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12372,13 +12372,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateDrawingObjectOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateDrawingObjectOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12418,13 +12418,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12464,13 +12464,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateFieldOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateFieldOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12510,13 +12510,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? DocumentResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? DocumentResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12556,13 +12556,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateFieldsOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateFieldsOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12602,13 +12602,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FootnoteResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FootnoteResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12648,13 +12648,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateFootnoteOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateFootnoteOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12694,13 +12694,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FormFieldResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FormFieldResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12740,13 +12740,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateFormFieldOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateFormFieldOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12786,13 +12786,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ListResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ListResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12832,13 +12832,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ListResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ListResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12878,13 +12878,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateListLevelOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateListLevelOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12924,13 +12924,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateListOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateListOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -12970,13 +12970,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ParagraphFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ParagraphFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13016,13 +13016,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateParagraphFormatOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateParagraphFormatOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13062,13 +13062,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? ParagraphListFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? ParagraphListFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13108,13 +13108,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateParagraphListFormatOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateParagraphListFormatOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13154,13 +13154,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? RunResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? RunResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13200,13 +13200,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FontResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FontResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13246,13 +13246,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateRunFontOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateRunFontOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13292,13 +13292,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateRunOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateRunOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13338,13 +13338,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? SectionPageSetupResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? SectionPageSetupResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13384,13 +13384,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateSectionPageSetupOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateSectionPageSetupOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13430,13 +13430,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? StyleResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? StyleResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13476,13 +13476,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateStyleOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateStyleOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13522,13 +13522,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableCellFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableCellFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13568,13 +13568,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateTableCellFormatOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateTableCellFormatOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13614,13 +13614,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TablePropertiesResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TablePropertiesResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13660,13 +13660,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateTablePropertiesOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateTablePropertiesOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13706,13 +13706,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? TableRowFormatResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? TableRowFormatResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13752,13 +13752,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? UpdateTableRowFormatOnlineResponse, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? UpdateTableRowFormatOnlineResponse, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13798,13 +13798,13 @@ public class WordsAPI {
         do {
             apiInvoker.invoke(
                 apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (error != nil) {
                         callback(nil, error);
                     }
                     else {
                         do {
-                            callback(try request.deserializeResponse(data: response!) as? FilesUploadResult, nil);
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? FilesUploadResult, nil);
                         }
                         catch let deserializeError {
                             callback(nil, deserializeError);
@@ -13853,7 +13853,7 @@ public class WordsAPI {
             apiBatchRequestData.setBody(formParams: formParams);
             apiInvoker.invoke(
                 apiRequestData: apiBatchRequestData,
-                callback: { response, error in
+                callback: { response, headers, error in
                     if (response != nil) {
                         do {
                             let parts = try ObjectSerializer.parseMultipart(data: response!);

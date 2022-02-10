@@ -132,7 +132,7 @@ public class AcceptAllRevisionsRequest : WordsApiRequest {
     }
 
     // Deserialize response of this request
-    public func deserializeResponse(data : Data) throws -> Any? {
+    public func deserializeResponse(data : Data, headers : [String: String]) throws -> Any? {
         return try ObjectSerializer.deserialize(type: RevisionsModificationResponse.self, from: data);
     }
 }
