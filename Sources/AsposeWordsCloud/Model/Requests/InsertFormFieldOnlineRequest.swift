@@ -177,7 +177,7 @@ public class InsertFormFieldOnlineRequest : WordsApiRequest {
                 type: FormFieldResponse.self,
                 from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()
             ),
-            document: return try ObjectSerializer.parseFilesCollection(part: try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document"));
+            document: try ObjectSerializer.parseFilesCollection(part: try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document"));
         );
     }
 }
