@@ -133,12 +133,41 @@ class ObjectSerializer {
 
     // Parse files collection
     public static func parseFilesCollection(part: ResponseFormParam) throws -> [String : Data] {
-        return try parseFilesCollection(part.getBody(), part.getHeaders());
+        return try parseFilesCollection(data: part.getBody(), headers: part.getHeaders());
     }
 
     // Parse files collection
     public static func parseFilesCollection(data: Data, headers: [String : String]) throws -> [String : Data] {
-
+        var result = [String : Data]();
+        let contentType = headers["Content-Type"];
+        if (contentType?.starts(with: "multipart/mixed") == true) {
+            let parts = try parseMultipart(data: data);
+            for part in parts {
+                var filename = "";
+                let disposition = part.getHeaders()["Content-Disposition"];
+                if (disposition == nil) {
+                    continue;
+                }
+                
+                let dispparts = disposition!.split(separator: ";");
+                for disppart in dispparts {
+                    let dispparttrim = disppart.trimmingCharacters(in: .whitespaces);
+                    if (dispparttrim.starts(with: "filename=")) {
+                        let subparts = dispparttrim.split(separator: "=");
+                        if (subparts.count == 2) {
+                            filename = subparts[1].trimmingCharacters(in: CharacterSet(charactersIn: " \""));
+                        }
+                    }
+                }
+                
+                result[filename] = part.getBody();
+            }
+        }
+        else {
+            result[""] = data;
+        }
+        
+        return result;
     }
 
     // Deserialize an multipart response

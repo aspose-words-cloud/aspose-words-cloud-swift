@@ -77,6 +77,7 @@ public class ApiInvoker {
 
         public init(errorCode : Int) {
             self.errorCode = errorCode;
+            self.headers = [String : String]();
         }
     }
 
