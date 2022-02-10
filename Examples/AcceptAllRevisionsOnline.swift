@@ -6,4 +6,4 @@ let fileName = "test_doc.docx";
 let requestDocument = InputStream(url: URL(string: fileName))!;
 let request = AcceptAllRevisionsOnlineRequest(document: requestDocument);
 let acceptAllRevisionsOnlineResult = try api.acceptAllRevisionsOnline(request: request);
-try acceptAllRevisionsOnlineResult.getDocument()?.write(to: currentDir!.appendingPathComponent("test_result.docx", isDirectory: false));
+try acceptAllRevisionsOnlineResult.getDocument()?first?.value.write(to: currentDir!.appendingPathComponent("test_result.docx", isDirectory: false));
