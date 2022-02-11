@@ -30,8 +30,26 @@ import Foundation
 // Container class for ps save options.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PsSaveOptionsData : FixedPageSaveOptionsData {
+    // Field of saveFormat. Container class for ps save options.
+    private final let _saveFormat : String? = "ps";
+
+    override public var saveFormat : String? {
+        get {
+            return self._saveFormat;
+        }
+    }
+
     // Field of useBookFoldPrintingSettings. Container class for ps save options.
-    public var useBookFoldPrintingSettings : Bool?;
+    private var _useBookFoldPrintingSettings : Bool? = nil;
+
+    public var useBookFoldPrintingSettings : Bool? {
+        get {
+            return self._useBookFoldPrintingSettings;
+        }
+        set {
+            self._useBookFoldPrintingSettings = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case useBookFoldPrintingSettings = "UseBookFoldPrintingSettings";

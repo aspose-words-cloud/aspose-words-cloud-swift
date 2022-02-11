@@ -31,13 +31,40 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ClassificationResponse : WordsResponse {
     // Field of bestClassName. The REST response with data on multi-class text classification.
-    public var bestClassName : String?;
+    private var _bestClassName : String? = nil;
+
+    public var bestClassName : String? {
+        get {
+            return self._bestClassName;
+        }
+        set {
+            self._bestClassName = newValue;
+        }
+    }
 
     // Field of bestClassProbability. The REST response with data on multi-class text classification.
-    public var bestClassProbability : Double?;
+    private var _bestClassProbability : Double? = nil;
+
+    public var bestClassProbability : Double? {
+        get {
+            return self._bestClassProbability;
+        }
+        set {
+            self._bestClassProbability = newValue;
+        }
+    }
 
     // Field of bestResults. The REST response with data on multi-class text classification.
-    public var bestResults : [ClassificationResult]?;
+    private var _bestResults : [ClassificationResult]? = nil;
+
+    public var bestResults : [ClassificationResult]? {
+        get {
+            return self._bestResults;
+        }
+        set {
+            self._bestResults = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case bestClassName = "BestClassName";
@@ -83,6 +110,7 @@ public class ClassificationResponse : WordsResponse {
         return self.bestClassName;
     }
 
+
     // Sets bestClassProbability. Gets or sets the best class probability.
     public func setBestClassProbability(bestClassProbability : Double?) -> ClassificationResponse {
         self.bestClassProbability = bestClassProbability;
@@ -93,6 +121,7 @@ public class ClassificationResponse : WordsResponse {
     public func getBestClassProbability() -> Double? {
         return self.bestClassProbability;
     }
+
 
     // Sets bestResults. Gets or sets the array of best classes results.
     public func setBestResults(bestResults : [ClassificationResult]?) -> ClassificationResponse {

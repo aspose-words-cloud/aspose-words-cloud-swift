@@ -147,22 +147,76 @@ public class Border : LinkElement {
     }
 
     // Field of borderType. Represents a border of an object.
-    public var borderType : BorderType?;
+    private var _borderType : BorderType? = nil;
+
+    public var borderType : BorderType? {
+        get {
+            return self._borderType;
+        }
+        set {
+            self._borderType = newValue;
+        }
+    }
 
     // Field of color. Represents a border of an object.
-    public var color : XmlColor?;
+    private var _color : XmlColor? = nil;
+
+    public var color : XmlColor? {
+        get {
+            return self._color;
+        }
+        set {
+            self._color = newValue;
+        }
+    }
 
     // Field of distanceFromText. Represents a border of an object.
-    public var distanceFromText : Double?;
+    private var _distanceFromText : Double? = nil;
+
+    public var distanceFromText : Double? {
+        get {
+            return self._distanceFromText;
+        }
+        set {
+            self._distanceFromText = newValue;
+        }
+    }
 
     // Field of lineStyle. Represents a border of an object.
-    public var lineStyle : LineStyle?;
+    private var _lineStyle : LineStyle? = nil;
+
+    public var lineStyle : LineStyle? {
+        get {
+            return self._lineStyle;
+        }
+        set {
+            self._lineStyle = newValue;
+        }
+    }
 
     // Field of lineWidth. Represents a border of an object.
-    public var lineWidth : Double?;
+    private var _lineWidth : Double? = nil;
+
+    public var lineWidth : Double? {
+        get {
+            return self._lineWidth;
+        }
+        set {
+            self._lineWidth = newValue;
+        }
+    }
 
     // Field of shadow. Represents a border of an object.
-    public var shadow : Bool?;
+    private var _shadow : Bool? = nil;
+
+    public var shadow : Bool? {
+        get {
+            return self._shadow;
+        }
+        set {
+            self._shadow = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case borderType = "BorderType";
@@ -223,6 +277,7 @@ public class Border : LinkElement {
         return self.borderType;
     }
 
+
     // Sets color. Gets or sets the border color.
     public func setColor(color : XmlColor?) -> Border {
         self.color = color;
@@ -233,6 +288,7 @@ public class Border : LinkElement {
     public func getColor() -> XmlColor? {
         return self.color;
     }
+
 
     // Sets distanceFromText. Gets or sets the distance of the border from text or from the page edge in points.
     public func setDistanceFromText(distanceFromText : Double?) -> Border {
@@ -245,6 +301,7 @@ public class Border : LinkElement {
         return self.distanceFromText;
     }
 
+
     // Sets lineStyle. Gets or sets the border style.
     public func setLineStyle(lineStyle : LineStyle?) -> Border {
         self.lineStyle = lineStyle;
@@ -256,6 +313,7 @@ public class Border : LinkElement {
         return self.lineStyle;
     }
 
+
     // Sets lineWidth. Gets or sets the border width in points.
     public func setLineWidth(lineWidth : Double?) -> Border {
         self.lineWidth = lineWidth;
@@ -266,6 +324,7 @@ public class Border : LinkElement {
     public func getLineWidth() -> Double? {
         return self.lineWidth;
     }
+
 
     // Sets shadow. Gets or sets a value indicating whether the border has a shadow.
     public func setShadow(shadow : Bool?) -> Border {

@@ -31,19 +31,64 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Section : LinkElement {
     // Field of childNodes. DTO container with a section element.
-    public var childNodes : [NodeLink]?;
+    private var _childNodes : [NodeLink]? = nil;
+
+    public var childNodes : [NodeLink]? {
+        get {
+            return self._childNodes;
+        }
+        set {
+            self._childNodes = newValue;
+        }
+    }
 
     // Field of headerFooters. DTO container with a section element.
-    public var headerFooters : LinkElement?;
+    private var _headerFooters : LinkElement? = nil;
+
+    public var headerFooters : LinkElement? {
+        get {
+            return self._headerFooters;
+        }
+        set {
+            self._headerFooters = newValue;
+        }
+    }
 
     // Field of pageSetup. DTO container with a section element.
-    public var pageSetup : LinkElement?;
+    private var _pageSetup : LinkElement? = nil;
+
+    public var pageSetup : LinkElement? {
+        get {
+            return self._pageSetup;
+        }
+        set {
+            self._pageSetup = newValue;
+        }
+    }
 
     // Field of paragraphs. DTO container with a section element.
-    public var paragraphs : LinkElement?;
+    private var _paragraphs : LinkElement? = nil;
+
+    public var paragraphs : LinkElement? {
+        get {
+            return self._paragraphs;
+        }
+        set {
+            self._paragraphs = newValue;
+        }
+    }
 
     // Field of tables. DTO container with a section element.
-    public var tables : LinkElement?;
+    private var _tables : LinkElement? = nil;
+
+    public var tables : LinkElement? {
+        get {
+            return self._tables;
+        }
+        set {
+            self._tables = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case childNodes = "ChildNodes";
@@ -99,6 +144,7 @@ public class Section : LinkElement {
         return self.childNodes;
     }
 
+
     // Sets headerFooters. Gets or sets the link to HeaderFooters resource.
     public func setHeaderFooters(headerFooters : LinkElement?) -> Section {
         self.headerFooters = headerFooters;
@@ -109,6 +155,7 @@ public class Section : LinkElement {
     public func getHeaderFooters() -> LinkElement? {
         return self.headerFooters;
     }
+
 
     // Sets pageSetup. Gets or sets the link to PageSetup resource.
     public func setPageSetup(pageSetup : LinkElement?) -> Section {
@@ -121,6 +168,7 @@ public class Section : LinkElement {
         return self.pageSetup;
     }
 
+
     // Sets paragraphs. Gets or sets the link to Paragraphs resource.
     public func setParagraphs(paragraphs : LinkElement?) -> Section {
         self.paragraphs = paragraphs;
@@ -131,6 +179,7 @@ public class Section : LinkElement {
     public func getParagraphs() -> LinkElement? {
         return self.paragraphs;
     }
+
 
     // Sets tables. Gets or sets the link to Tables resource.
     public func setTables(tables : LinkElement?) -> Section {

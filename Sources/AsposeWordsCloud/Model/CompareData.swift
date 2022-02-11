@@ -31,19 +31,64 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CompareData : Codable, WordsApiModel {
     // Field of author. Container class for compare documents.
-    public var author : String?;
+    private var _author : String? = nil;
+
+    public var author : String? {
+        get {
+            return self._author;
+        }
+        set {
+            self._author = newValue;
+        }
+    }
 
     // Field of compareOptions. Container class for compare documents.
-    public var compareOptions : CompareOptions?;
+    private var _compareOptions : CompareOptions? = nil;
+
+    public var compareOptions : CompareOptions? {
+        get {
+            return self._compareOptions;
+        }
+        set {
+            self._compareOptions = newValue;
+        }
+    }
 
     // Field of comparingWithDocument. Container class for compare documents.
-    public var comparingWithDocument : String?;
+    private var _comparingWithDocument : String? = nil;
+
+    public var comparingWithDocument : String? {
+        get {
+            return self._comparingWithDocument;
+        }
+        set {
+            self._comparingWithDocument = newValue;
+        }
+    }
 
     // Field of dateTime. Container class for compare documents.
-    public var dateTime : Date?;
+    private var _dateTime : Date? = nil;
+
+    public var dateTime : Date? {
+        get {
+            return self._dateTime;
+        }
+        set {
+            self._dateTime = newValue;
+        }
+    }
 
     // Field of resultDocumentFormat. Container class for compare documents.
-    public var resultDocumentFormat : String?;
+    private var _resultDocumentFormat : String? = nil;
+
+    public var resultDocumentFormat : String? {
+        get {
+            return self._resultDocumentFormat;
+        }
+        set {
+            self._resultDocumentFormat = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case author = "Author";
@@ -101,6 +146,7 @@ public class CompareData : Codable, WordsApiModel {
         return self.author;
     }
 
+
     // Sets compareOptions. Gets or sets the compare options.
     public func setCompareOptions(compareOptions : CompareOptions?) -> CompareData {
         self.compareOptions = compareOptions;
@@ -111,6 +157,7 @@ public class CompareData : Codable, WordsApiModel {
     public func getCompareOptions() -> CompareOptions? {
         return self.compareOptions;
     }
+
 
     // Sets comparingWithDocument. Gets or sets the path to document to compare at the server.
     public func setComparingWithDocument(comparingWithDocument : String?) -> CompareData {
@@ -123,6 +170,7 @@ public class CompareData : Codable, WordsApiModel {
         return self.comparingWithDocument;
     }
 
+
     // Sets dateTime. Gets or sets the date and time to use for revisions.
     public func setDateTime(dateTime : Date?) -> CompareData {
         self.dateTime = dateTime;
@@ -133,6 +181,7 @@ public class CompareData : Codable, WordsApiModel {
     public func getDateTime() -> Date? {
         return self.dateTime;
     }
+
 
     // Sets resultDocumentFormat. Gets or sets the result document format.
     public func setResultDocumentFormat(resultDocumentFormat : String?) -> CompareData {

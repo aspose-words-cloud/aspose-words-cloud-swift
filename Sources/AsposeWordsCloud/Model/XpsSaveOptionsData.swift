@@ -31,16 +31,61 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     // Field of bookmarksOutlineLevel. Container class for xps save options.
-    public var bookmarksOutlineLevel : Int?;
+    private var _bookmarksOutlineLevel : Int? = nil;
+
+    public var bookmarksOutlineLevel : Int? {
+        get {
+            return self._bookmarksOutlineLevel;
+        }
+        set {
+            self._bookmarksOutlineLevel = newValue;
+        }
+    }
 
     // Field of headingsOutlineLevels. Container class for xps save options.
-    public var headingsOutlineLevels : Int?;
+    private var _headingsOutlineLevels : Int? = nil;
+
+    public var headingsOutlineLevels : Int? {
+        get {
+            return self._headingsOutlineLevels;
+        }
+        set {
+            self._headingsOutlineLevels = newValue;
+        }
+    }
 
     // Field of outlineOptions. Container class for xps save options.
-    public var outlineOptions : OutlineOptionsData?;
+    private var _outlineOptions : OutlineOptionsData? = nil;
+
+    public var outlineOptions : OutlineOptionsData? {
+        get {
+            return self._outlineOptions;
+        }
+        set {
+            self._outlineOptions = newValue;
+        }
+    }
+
+    // Field of saveFormat. Container class for xps save options.
+    private final let _saveFormat : String? = "xps";
+
+    override public var saveFormat : String? {
+        get {
+            return self._saveFormat;
+        }
+    }
 
     // Field of useBookFoldPrintingSettings. Container class for xps save options.
-    public var useBookFoldPrintingSettings : Bool?;
+    private var _useBookFoldPrintingSettings : Bool? = nil;
+
+    public var useBookFoldPrintingSettings : Bool? {
+        get {
+            return self._useBookFoldPrintingSettings;
+        }
+        set {
+            self._useBookFoldPrintingSettings = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case bookmarksOutlineLevel = "BookmarksOutlineLevel";
@@ -91,6 +136,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         return self.bookmarksOutlineLevel;
     }
 
+
     // Sets headingsOutlineLevels. Gets or sets the number of heading levels (paragraphs formatted with the Heading styles) to include in the XPS document outline.
     public func setHeadingsOutlineLevels(headingsOutlineLevels : Int?) -> XpsSaveOptionsData {
         self.headingsOutlineLevels = headingsOutlineLevels;
@@ -102,6 +148,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
         return self.headingsOutlineLevels;
     }
 
+
     // Sets outlineOptions. Gets or sets the outline options.
     public func setOutlineOptions(outlineOptions : OutlineOptionsData?) -> XpsSaveOptionsData {
         self.outlineOptions = outlineOptions;
@@ -112,6 +159,7 @@ public class XpsSaveOptionsData : FixedPageSaveOptionsData {
     public func getOutlineOptions() -> OutlineOptionsData? {
         return self.outlineOptions;
     }
+
 
     // Sets useBookFoldPrintingSettings. Gets or sets a value indicating whether the document should be saved using a booklet printing layout.
     public func setUseBookFoldPrintingSettings(useBookFoldPrintingSettings : Bool?) -> XpsSaveOptionsData {

@@ -31,10 +31,28 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class Bookmark : LinkElement {
     // Field of name. Represents a single bookmark.
-    public var name : String?;
+    private var _name : String? = nil;
+
+    public var name : String? {
+        get {
+            return self._name;
+        }
+        set {
+            self._name = newValue;
+        }
+    }
 
     // Field of text. Represents a single bookmark.
-    public var text : String?;
+    private var _text : String? = nil;
+
+    public var text : String? {
+        get {
+            return self._text;
+        }
+        set {
+            self._text = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case name = "Name";
@@ -74,6 +92,7 @@ public class Bookmark : LinkElement {
     public func getName() -> String? {
         return self.name;
     }
+
 
     // Sets text. Gets or sets text, enclosed in the bookmark.
     public func setText(text : String?) -> Bookmark {

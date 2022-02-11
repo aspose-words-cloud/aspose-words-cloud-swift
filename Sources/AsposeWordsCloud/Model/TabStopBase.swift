@@ -78,13 +78,40 @@ public class TabStopBase : Codable, WordsApiModel {
     }
 
     // Field of alignment. Base class for paragraph format tab stop DTO.
-    public var alignment : Alignment?;
+    private var _alignment : Alignment? = nil;
+
+    public var alignment : Alignment? {
+        get {
+            return self._alignment;
+        }
+        set {
+            self._alignment = newValue;
+        }
+    }
 
     // Field of leader. Base class for paragraph format tab stop DTO.
-    public var leader : Leader?;
+    private var _leader : Leader? = nil;
+
+    public var leader : Leader? {
+        get {
+            return self._leader;
+        }
+        set {
+            self._leader = newValue;
+        }
+    }
 
     // Field of position. Base class for paragraph format tab stop DTO.
-    public var position : Double?;
+    private var _position : Double? = nil;
+
+    public var position : Double? {
+        get {
+            return self._position;
+        }
+        set {
+            self._position = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case alignment = "Alignment";
@@ -127,6 +154,7 @@ public class TabStopBase : Codable, WordsApiModel {
         return self.alignment;
     }
 
+
     // Sets leader. Gets or sets the type of the leader line displayed under the tab character.
     public func setLeader(leader : Leader?) -> TabStopBase {
         self.leader = leader;
@@ -137,6 +165,7 @@ public class TabStopBase : Codable, WordsApiModel {
     public func getLeader() -> Leader? {
         return self.leader;
     }
+
 
     // Sets position. Gets or sets the position of the tab stop in points.
     public func setPosition(position : Double?) -> TabStopBase {

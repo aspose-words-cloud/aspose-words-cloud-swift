@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ListsResponse : WordsResponse {
     // Field of lists. The REST response with a collection of lists, contained in the document.
-    public var lists : Lists?;
+    private var _lists : Lists? = nil;
+
+    public var lists : Lists? {
+        get {
+            return self._lists;
+        }
+        set {
+            self._lists = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case lists = "Lists";

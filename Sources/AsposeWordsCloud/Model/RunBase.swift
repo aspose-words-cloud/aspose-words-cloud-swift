@@ -31,14 +31,23 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class RunBase : Codable, WordsApiModel {
     // Field of text. Run element.
-    public var text : String?;
+    private var _text : String? = nil;
+
+    public var text : String? {
+        get {
+            return self._text;
+        }
+        set {
+            self._text = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case text = "Text";
         case invalidCodingKey;
     }
 
-    public init() {
+    internal init() {
     }
 
     public required init(from decoder: Decoder) throws {

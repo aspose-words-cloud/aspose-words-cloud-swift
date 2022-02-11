@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FieldLink : NodeLink {
     // Field of fieldCode. Field link.
-    public var fieldCode : String?;
+    private var _fieldCode : String? = nil;
+
+    public var fieldCode : String? {
+        get {
+            return self._fieldCode;
+        }
+        set {
+            self._fieldCode = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case fieldCode = "FieldCode";

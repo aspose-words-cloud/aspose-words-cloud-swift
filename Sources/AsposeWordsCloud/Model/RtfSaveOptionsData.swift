@@ -31,16 +31,61 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class RtfSaveOptionsData : SaveOptionsData {
     // Field of exportCompactSize. Container class for rtf save options.
-    public var exportCompactSize : Bool?;
+    private var _exportCompactSize : Bool? = nil;
+
+    public var exportCompactSize : Bool? {
+        get {
+            return self._exportCompactSize;
+        }
+        set {
+            self._exportCompactSize = newValue;
+        }
+    }
 
     // Field of exportImagesForOldReaders. Container class for rtf save options.
-    public var exportImagesForOldReaders : Bool?;
+    private var _exportImagesForOldReaders : Bool? = nil;
+
+    public var exportImagesForOldReaders : Bool? {
+        get {
+            return self._exportImagesForOldReaders;
+        }
+        set {
+            self._exportImagesForOldReaders = newValue;
+        }
+    }
 
     // Field of prettyFormat. Container class for rtf save options.
-    public var prettyFormat : Bool?;
+    private var _prettyFormat : Bool? = nil;
+
+    public var prettyFormat : Bool? {
+        get {
+            return self._prettyFormat;
+        }
+        set {
+            self._prettyFormat = newValue;
+        }
+    }
+
+    // Field of saveFormat. Container class for rtf save options.
+    private final let _saveFormat : String? = "rtf";
+
+    override public var saveFormat : String? {
+        get {
+            return self._saveFormat;
+        }
+    }
 
     // Field of saveImagesAsWmf. Container class for rtf save options.
-    public var saveImagesAsWmf : Bool?;
+    private var _saveImagesAsWmf : Bool? = nil;
+
+    public var saveImagesAsWmf : Bool? {
+        get {
+            return self._saveImagesAsWmf;
+        }
+        set {
+            self._saveImagesAsWmf = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case exportCompactSize = "ExportCompactSize";
@@ -91,6 +136,7 @@ public class RtfSaveOptionsData : SaveOptionsData {
         return self.exportCompactSize;
     }
 
+
     // Sets exportImagesForOldReaders. Gets or sets a value indicating whether the keywords for "old readers" are written to RTF or not.
     public func setExportImagesForOldReaders(exportImagesForOldReaders : Bool?) -> RtfSaveOptionsData {
         self.exportImagesForOldReaders = exportImagesForOldReaders;
@@ -102,6 +148,7 @@ public class RtfSaveOptionsData : SaveOptionsData {
         return self.exportImagesForOldReaders;
     }
 
+
     // Sets prettyFormat. Gets or sets a value indicating whether to use pretty formats output.
     public func setPrettyFormat(prettyFormat : Bool?) -> RtfSaveOptionsData {
         self.prettyFormat = prettyFormat;
@@ -112,6 +159,7 @@ public class RtfSaveOptionsData : SaveOptionsData {
     public func getPrettyFormat() -> Bool? {
         return self.prettyFormat;
     }
+
 
     // Sets saveImagesAsWmf. Gets or sets a value indicating whether when true all images will be saved as WMF. This option might help to avoid WordPad warning messages.
     public func setSaveImagesAsWmf(saveImagesAsWmf : Bool?) -> RtfSaveOptionsData {

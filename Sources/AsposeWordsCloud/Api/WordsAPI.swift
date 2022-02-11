@@ -13863,7 +13863,7 @@ public class WordsAPI {
 
                             var result = [Any?]();
                             for partData in parts {
-                                var requestId = partData.getHeaders()["RequestId"];
+                                let requestId = partData.getHeaders()["RequestId"];
                                 if (requestId == nil || sortedRequests[requestId!] == nil) {
                                     throw WordsApiError.invalidMultipartResponse(message: "Failed to parse batch response.");
                                 }

@@ -31,16 +31,61 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocSaveOptionsData : SaveOptionsData {
     // Field of alwaysCompressMetafiles. Container class for doc/dot save options.
-    public var alwaysCompressMetafiles : Bool?;
+    private var _alwaysCompressMetafiles : Bool? = nil;
+
+    public var alwaysCompressMetafiles : Bool? {
+        get {
+            return self._alwaysCompressMetafiles;
+        }
+        set {
+            self._alwaysCompressMetafiles = newValue;
+        }
+    }
 
     // Field of password. Container class for doc/dot save options.
-    public var password : String?;
+    private var _password : String? = nil;
+
+    public var password : String? {
+        get {
+            return self._password;
+        }
+        set {
+            self._password = newValue;
+        }
+    }
+
+    // Field of saveFormat. Container class for doc/dot save options.
+    private final let _saveFormat : String? = "doc";
+
+    override public var saveFormat : String? {
+        get {
+            return self._saveFormat;
+        }
+    }
 
     // Field of savePictureBullet. Container class for doc/dot save options.
-    public var savePictureBullet : Bool?;
+    private var _savePictureBullet : Bool? = nil;
+
+    public var savePictureBullet : Bool? {
+        get {
+            return self._savePictureBullet;
+        }
+        set {
+            self._savePictureBullet = newValue;
+        }
+    }
 
     // Field of saveRoutingSlip. Container class for doc/dot save options.
-    public var saveRoutingSlip : Bool?;
+    private var _saveRoutingSlip : Bool? = nil;
+
+    public var saveRoutingSlip : Bool? {
+        get {
+            return self._saveRoutingSlip;
+        }
+        set {
+            self._saveRoutingSlip = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case alwaysCompressMetafiles = "AlwaysCompressMetafiles";
@@ -91,6 +136,7 @@ public class DocSaveOptionsData : SaveOptionsData {
         return self.alwaysCompressMetafiles;
     }
 
+
     // Sets password. Gets or sets the password.
     public func setPassword(password : String?) -> DocSaveOptionsData {
         self.password = password;
@@ -102,6 +148,7 @@ public class DocSaveOptionsData : SaveOptionsData {
         return self.password;
     }
 
+
     // Sets savePictureBullet. Gets or sets a value indicating when False, that PictureBullet data is not saved to the output document. The default value is true.
     public func setSavePictureBullet(savePictureBullet : Bool?) -> DocSaveOptionsData {
         self.savePictureBullet = savePictureBullet;
@@ -112,6 +159,7 @@ public class DocSaveOptionsData : SaveOptionsData {
     public func getSavePictureBullet() -> Bool? {
         return self.savePictureBullet;
     }
+
 
     // Sets saveRoutingSlip. Gets or sets a value indicating whether to save RoutingSlip data to output document.
     public func setSaveRoutingSlip(saveRoutingSlip : Bool?) -> DocSaveOptionsData {

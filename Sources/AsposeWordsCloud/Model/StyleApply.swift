@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class StyleApply : Codable, WordsApiModel {
     // Field of styleName. Represents a single document style to insert.
-    public var styleName : String?;
+    private var _styleName : String? = nil;
+
+    public var styleName : String? {
+        get {
+            return self._styleName;
+        }
+        set {
+            self._styleName = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case styleName = "StyleName";

@@ -31,10 +31,28 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ErrorDetails : Codable, WordsApiModel {
     // Field of errorDateTime. The error details.
-    public var errorDateTime : Date?;
+    private var _errorDateTime : Date? = nil;
+
+    public var errorDateTime : Date? {
+        get {
+            return self._errorDateTime;
+        }
+        set {
+            self._errorDateTime = newValue;
+        }
+    }
 
     // Field of requestId. The error details.
-    public var requestId : String?;
+    private var _requestId : String? = nil;
+
+    public var requestId : String? {
+        get {
+            return self._requestId;
+        }
+        set {
+            self._requestId = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case errorDateTime = "ErrorDateTime";
@@ -76,6 +94,7 @@ public class ErrorDetails : Codable, WordsApiModel {
     public func getErrorDateTime() -> Date? {
         return self.errorDateTime;
     }
+
 
     // Sets requestId. The request id.
     public func setRequestId(requestId : String?) -> ErrorDetails {

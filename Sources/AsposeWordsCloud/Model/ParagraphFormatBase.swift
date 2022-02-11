@@ -1260,82 +1260,316 @@ public class ParagraphFormatBase : LinkElement {
     }
 
     // Field of addSpaceBetweenFarEastAndAlpha. Paragraph format element base class.
-    public var addSpaceBetweenFarEastAndAlpha : Bool?;
+    private var _addSpaceBetweenFarEastAndAlpha : Bool? = nil;
+
+    public var addSpaceBetweenFarEastAndAlpha : Bool? {
+        get {
+            return self._addSpaceBetweenFarEastAndAlpha;
+        }
+        set {
+            self._addSpaceBetweenFarEastAndAlpha = newValue;
+        }
+    }
 
     // Field of addSpaceBetweenFarEastAndDigit. Paragraph format element base class.
-    public var addSpaceBetweenFarEastAndDigit : Bool?;
+    private var _addSpaceBetweenFarEastAndDigit : Bool? = nil;
+
+    public var addSpaceBetweenFarEastAndDigit : Bool? {
+        get {
+            return self._addSpaceBetweenFarEastAndDigit;
+        }
+        set {
+            self._addSpaceBetweenFarEastAndDigit = newValue;
+        }
+    }
 
     // Field of alignment. Paragraph format element base class.
-    public var alignment : Alignment?;
+    private var _alignment : Alignment? = nil;
+
+    public var alignment : Alignment? {
+        get {
+            return self._alignment;
+        }
+        set {
+            self._alignment = newValue;
+        }
+    }
 
     // Field of bidi. Paragraph format element base class.
-    public var bidi : Bool?;
+    private var _bidi : Bool? = nil;
+
+    public var bidi : Bool? {
+        get {
+            return self._bidi;
+        }
+        set {
+            self._bidi = newValue;
+        }
+    }
 
     // Field of dropCapPosition. Paragraph format element base class.
-    public var dropCapPosition : DropCapPosition?;
+    private var _dropCapPosition : DropCapPosition? = nil;
+
+    public var dropCapPosition : DropCapPosition? {
+        get {
+            return self._dropCapPosition;
+        }
+        set {
+            self._dropCapPosition = newValue;
+        }
+    }
 
     // Field of firstLineIndent. Paragraph format element base class.
-    public var firstLineIndent : Double?;
+    private var _firstLineIndent : Double? = nil;
+
+    public var firstLineIndent : Double? {
+        get {
+            return self._firstLineIndent;
+        }
+        set {
+            self._firstLineIndent = newValue;
+        }
+    }
 
     // Field of keepTogether. Paragraph format element base class.
-    public var keepTogether : Bool?;
+    private var _keepTogether : Bool? = nil;
+
+    public var keepTogether : Bool? {
+        get {
+            return self._keepTogether;
+        }
+        set {
+            self._keepTogether = newValue;
+        }
+    }
 
     // Field of keepWithNext. Paragraph format element base class.
-    public var keepWithNext : Bool?;
+    private var _keepWithNext : Bool? = nil;
+
+    public var keepWithNext : Bool? {
+        get {
+            return self._keepWithNext;
+        }
+        set {
+            self._keepWithNext = newValue;
+        }
+    }
 
     // Field of leftIndent. Paragraph format element base class.
-    public var leftIndent : Double?;
+    private var _leftIndent : Double? = nil;
+
+    public var leftIndent : Double? {
+        get {
+            return self._leftIndent;
+        }
+        set {
+            self._leftIndent = newValue;
+        }
+    }
 
     // Field of lineSpacing. Paragraph format element base class.
-    public var lineSpacing : Double?;
+    private var _lineSpacing : Double? = nil;
+
+    public var lineSpacing : Double? {
+        get {
+            return self._lineSpacing;
+        }
+        set {
+            self._lineSpacing = newValue;
+        }
+    }
 
     // Field of lineSpacingRule. Paragraph format element base class.
-    public var lineSpacingRule : LineSpacingRule?;
+    private var _lineSpacingRule : LineSpacingRule? = nil;
+
+    public var lineSpacingRule : LineSpacingRule? {
+        get {
+            return self._lineSpacingRule;
+        }
+        set {
+            self._lineSpacingRule = newValue;
+        }
+    }
 
     // Field of linesToDrop. Paragraph format element base class.
-    public var linesToDrop : Int?;
+    private var _linesToDrop : Int? = nil;
+
+    public var linesToDrop : Int? {
+        get {
+            return self._linesToDrop;
+        }
+        set {
+            self._linesToDrop = newValue;
+        }
+    }
 
     // Field of noSpaceBetweenParagraphsOfSameStyle. Paragraph format element base class.
-    public var noSpaceBetweenParagraphsOfSameStyle : Bool?;
+    private var _noSpaceBetweenParagraphsOfSameStyle : Bool? = nil;
+
+    public var noSpaceBetweenParagraphsOfSameStyle : Bool? {
+        get {
+            return self._noSpaceBetweenParagraphsOfSameStyle;
+        }
+        set {
+            self._noSpaceBetweenParagraphsOfSameStyle = newValue;
+        }
+    }
 
     // Field of outlineLevel. Paragraph format element base class.
-    public var outlineLevel : OutlineLevel?;
+    private var _outlineLevel : OutlineLevel? = nil;
+
+    public var outlineLevel : OutlineLevel? {
+        get {
+            return self._outlineLevel;
+        }
+        set {
+            self._outlineLevel = newValue;
+        }
+    }
 
     // Field of pageBreakBefore. Paragraph format element base class.
-    public var pageBreakBefore : Bool?;
+    private var _pageBreakBefore : Bool? = nil;
+
+    public var pageBreakBefore : Bool? {
+        get {
+            return self._pageBreakBefore;
+        }
+        set {
+            self._pageBreakBefore = newValue;
+        }
+    }
 
     // Field of rightIndent. Paragraph format element base class.
-    public var rightIndent : Double?;
+    private var _rightIndent : Double? = nil;
+
+    public var rightIndent : Double? {
+        get {
+            return self._rightIndent;
+        }
+        set {
+            self._rightIndent = newValue;
+        }
+    }
 
     // Field of shading. Paragraph format element base class.
-    public var shading : Shading?;
+    private var _shading : Shading? = nil;
+
+    public var shading : Shading? {
+        get {
+            return self._shading;
+        }
+        set {
+            self._shading = newValue;
+        }
+    }
 
     // Field of spaceAfter. Paragraph format element base class.
-    public var spaceAfter : Double?;
+    private var _spaceAfter : Double? = nil;
+
+    public var spaceAfter : Double? {
+        get {
+            return self._spaceAfter;
+        }
+        set {
+            self._spaceAfter = newValue;
+        }
+    }
 
     // Field of spaceAfterAuto. Paragraph format element base class.
-    public var spaceAfterAuto : Bool?;
+    private var _spaceAfterAuto : Bool? = nil;
+
+    public var spaceAfterAuto : Bool? {
+        get {
+            return self._spaceAfterAuto;
+        }
+        set {
+            self._spaceAfterAuto = newValue;
+        }
+    }
 
     // Field of spaceBefore. Paragraph format element base class.
-    public var spaceBefore : Double?;
+    private var _spaceBefore : Double? = nil;
+
+    public var spaceBefore : Double? {
+        get {
+            return self._spaceBefore;
+        }
+        set {
+            self._spaceBefore = newValue;
+        }
+    }
 
     // Field of spaceBeforeAuto. Paragraph format element base class.
-    public var spaceBeforeAuto : Bool?;
+    private var _spaceBeforeAuto : Bool? = nil;
+
+    public var spaceBeforeAuto : Bool? {
+        get {
+            return self._spaceBeforeAuto;
+        }
+        set {
+            self._spaceBeforeAuto = newValue;
+        }
+    }
 
     // Field of styleIdentifier. Paragraph format element base class.
-    public var styleIdentifier : StyleIdentifier?;
+    private var _styleIdentifier : StyleIdentifier? = nil;
+
+    public var styleIdentifier : StyleIdentifier? {
+        get {
+            return self._styleIdentifier;
+        }
+        set {
+            self._styleIdentifier = newValue;
+        }
+    }
 
     // Field of styleName. Paragraph format element base class.
-    public var styleName : String?;
+    private var _styleName : String? = nil;
+
+    public var styleName : String? {
+        get {
+            return self._styleName;
+        }
+        set {
+            self._styleName = newValue;
+        }
+    }
 
     // Field of suppressAutoHyphens. Paragraph format element base class.
-    public var suppressAutoHyphens : Bool?;
+    private var _suppressAutoHyphens : Bool? = nil;
+
+    public var suppressAutoHyphens : Bool? {
+        get {
+            return self._suppressAutoHyphens;
+        }
+        set {
+            self._suppressAutoHyphens = newValue;
+        }
+    }
 
     // Field of suppressLineNumbers. Paragraph format element base class.
-    public var suppressLineNumbers : Bool?;
+    private var _suppressLineNumbers : Bool? = nil;
+
+    public var suppressLineNumbers : Bool? {
+        get {
+            return self._suppressLineNumbers;
+        }
+        set {
+            self._suppressLineNumbers = newValue;
+        }
+    }
 
     // Field of widowControl. Paragraph format element base class.
-    public var widowControl : Bool?;
+    private var _widowControl : Bool? = nil;
+
+    public var widowControl : Bool? {
+        get {
+            return self._widowControl;
+        }
+        set {
+            self._widowControl = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case addSpaceBetweenFarEastAndAlpha = "AddSpaceBetweenFarEastAndAlpha";
@@ -1496,6 +1730,7 @@ public class ParagraphFormatBase : LinkElement {
         return self.addSpaceBetweenFarEastAndAlpha;
     }
 
+
     // Sets addSpaceBetweenFarEastAndDigit. Gets or sets a value indicating whether inter-character spacing is automatically adjusted between regions of numbers and regions of East Asian text in the current paragraph.
     public func setAddSpaceBetweenFarEastAndDigit(addSpaceBetweenFarEastAndDigit : Bool?) -> ParagraphFormatBase {
         self.addSpaceBetweenFarEastAndDigit = addSpaceBetweenFarEastAndDigit;
@@ -1506,6 +1741,7 @@ public class ParagraphFormatBase : LinkElement {
     public func getAddSpaceBetweenFarEastAndDigit() -> Bool? {
         return self.addSpaceBetweenFarEastAndDigit;
     }
+
 
     // Sets alignment. Gets or sets text alignment for the paragraph.
     public func setAlignment(alignment : Alignment?) -> ParagraphFormatBase {
@@ -1518,6 +1754,7 @@ public class ParagraphFormatBase : LinkElement {
         return self.alignment;
     }
 
+
     // Sets bidi. Gets or sets a value indicating whether this is a right-to-left paragraph.
     public func setBidi(bidi : Bool?) -> ParagraphFormatBase {
         self.bidi = bidi;
@@ -1528,6 +1765,7 @@ public class ParagraphFormatBase : LinkElement {
     public func getBidi() -> Bool? {
         return self.bidi;
     }
+
 
     // Sets dropCapPosition. Gets or sets the position for a drop cap text.
     public func setDropCapPosition(dropCapPosition : DropCapPosition?) -> ParagraphFormatBase {
@@ -1540,6 +1778,7 @@ public class ParagraphFormatBase : LinkElement {
         return self.dropCapPosition;
     }
 
+
     // Sets firstLineIndent. Gets or sets the value (in points) for a first line or hanging indent. Use a positive value to set a first-line indent, and use a negative value to set a hanging indent.
     public func setFirstLineIndent(firstLineIndent : Double?) -> ParagraphFormatBase {
         self.firstLineIndent = firstLineIndent;
@@ -1550,6 +1789,7 @@ public class ParagraphFormatBase : LinkElement {
     public func getFirstLineIndent() -> Double? {
         return self.firstLineIndent;
     }
+
 
     // Sets keepTogether. Gets or sets a value indicating whether all lines in the paragraph are to remain on the same page.
     public func setKeepTogether(keepTogether : Bool?) -> ParagraphFormatBase {
@@ -1562,6 +1802,7 @@ public class ParagraphFormatBase : LinkElement {
         return self.keepTogether;
     }
 
+
     // Sets keepWithNext. Gets or sets a value indicating whether the paragraph is to remains on the same page as the paragraph that follows it.
     public func setKeepWithNext(keepWithNext : Bool?) -> ParagraphFormatBase {
         self.keepWithNext = keepWithNext;
@@ -1572,6 +1813,7 @@ public class ParagraphFormatBase : LinkElement {
     public func getKeepWithNext() -> Bool? {
         return self.keepWithNext;
     }
+
 
     // Sets leftIndent. Gets or sets the value (in points), that represents the left indent for paragraph.
     public func setLeftIndent(leftIndent : Double?) -> ParagraphFormatBase {
@@ -1584,6 +1826,7 @@ public class ParagraphFormatBase : LinkElement {
         return self.leftIndent;
     }
 
+
     // Sets lineSpacing. Gets or sets the line spacing (in points) for the paragraph.
     public func setLineSpacing(lineSpacing : Double?) -> ParagraphFormatBase {
         self.lineSpacing = lineSpacing;
@@ -1594,6 +1837,7 @@ public class ParagraphFormatBase : LinkElement {
     public func getLineSpacing() -> Double? {
         return self.lineSpacing;
     }
+
 
     // Sets lineSpacingRule. Gets or sets the line spacing for the paragraph.
     public func setLineSpacingRule(lineSpacingRule : LineSpacingRule?) -> ParagraphFormatBase {
@@ -1606,6 +1850,7 @@ public class ParagraphFormatBase : LinkElement {
         return self.lineSpacingRule;
     }
 
+
     // Sets linesToDrop. Gets or sets the number of lines of the paragraph text used to calculate the drop cap height.
     public func setLinesToDrop(linesToDrop : Int?) -> ParagraphFormatBase {
         self.linesToDrop = linesToDrop;
@@ -1616,6 +1861,7 @@ public class ParagraphFormatBase : LinkElement {
     public func getLinesToDrop() -> Int? {
         return self.linesToDrop;
     }
+
 
     // Sets noSpaceBetweenParagraphsOfSameStyle. Gets or sets a value indicating whether SpaceBefore and SpaceAfter will be ignored between the paragraphs of the same style.
     public func setNoSpaceBetweenParagraphsOfSameStyle(noSpaceBetweenParagraphsOfSameStyle : Bool?) -> ParagraphFormatBase {
@@ -1628,6 +1874,7 @@ public class ParagraphFormatBase : LinkElement {
         return self.noSpaceBetweenParagraphsOfSameStyle;
     }
 
+
     // Sets outlineLevel. Gets or sets the outline level of the paragraph in the document.
     public func setOutlineLevel(outlineLevel : OutlineLevel?) -> ParagraphFormatBase {
         self.outlineLevel = outlineLevel;
@@ -1638,6 +1885,7 @@ public class ParagraphFormatBase : LinkElement {
     public func getOutlineLevel() -> OutlineLevel? {
         return self.outlineLevel;
     }
+
 
     // Sets pageBreakBefore. Gets or sets a value indicating whether a page break is forced before the paragraph.
     public func setPageBreakBefore(pageBreakBefore : Bool?) -> ParagraphFormatBase {
@@ -1650,6 +1898,7 @@ public class ParagraphFormatBase : LinkElement {
         return self.pageBreakBefore;
     }
 
+
     // Sets rightIndent. Gets or sets the value (in points) that represents the right indent for paragraph.
     public func setRightIndent(rightIndent : Double?) -> ParagraphFormatBase {
         self.rightIndent = rightIndent;
@@ -1660,6 +1909,7 @@ public class ParagraphFormatBase : LinkElement {
     public func getRightIndent() -> Double? {
         return self.rightIndent;
     }
+
 
     // Sets shading. Gets or sets the Shading object, that refers to the shading formatting for the paragraph.
     public func setShading(shading : Shading?) -> ParagraphFormatBase {
@@ -1672,6 +1922,7 @@ public class ParagraphFormatBase : LinkElement {
         return self.shading;
     }
 
+
     // Sets spaceAfter. Gets or sets the amount of spacing (in points) after the paragraph.
     public func setSpaceAfter(spaceAfter : Double?) -> ParagraphFormatBase {
         self.spaceAfter = spaceAfter;
@@ -1682,6 +1933,7 @@ public class ParagraphFormatBase : LinkElement {
     public func getSpaceAfter() -> Double? {
         return self.spaceAfter;
     }
+
 
     // Sets spaceAfterAuto. Gets or sets a value indicating whether the amount of spacing after the paragraph is set automatically.
     public func setSpaceAfterAuto(spaceAfterAuto : Bool?) -> ParagraphFormatBase {
@@ -1694,6 +1946,7 @@ public class ParagraphFormatBase : LinkElement {
         return self.spaceAfterAuto;
     }
 
+
     // Sets spaceBefore. Gets or sets the amount of spacing (in points) before the paragraph.
     public func setSpaceBefore(spaceBefore : Double?) -> ParagraphFormatBase {
         self.spaceBefore = spaceBefore;
@@ -1704,6 +1957,7 @@ public class ParagraphFormatBase : LinkElement {
     public func getSpaceBefore() -> Double? {
         return self.spaceBefore;
     }
+
 
     // Sets spaceBeforeAuto. Gets or sets a value indicating whether the amount of spacing before the paragraph is set automatically.
     public func setSpaceBeforeAuto(spaceBeforeAuto : Bool?) -> ParagraphFormatBase {
@@ -1716,6 +1970,7 @@ public class ParagraphFormatBase : LinkElement {
         return self.spaceBeforeAuto;
     }
 
+
     // Sets styleIdentifier. Gets or sets the locale independent style identifier of the paragraph style applied to this formatting.
     public func setStyleIdentifier(styleIdentifier : StyleIdentifier?) -> ParagraphFormatBase {
         self.styleIdentifier = styleIdentifier;
@@ -1726,6 +1981,7 @@ public class ParagraphFormatBase : LinkElement {
     public func getStyleIdentifier() -> StyleIdentifier? {
         return self.styleIdentifier;
     }
+
 
     // Sets styleName. Gets or sets the name of the paragraph style applied to this formatting.
     public func setStyleName(styleName : String?) -> ParagraphFormatBase {
@@ -1738,6 +1994,7 @@ public class ParagraphFormatBase : LinkElement {
         return self.styleName;
     }
 
+
     // Sets suppressAutoHyphens. Gets or sets a value indicating whether the current paragraph should be exempted from any hyphenation which is applied in the document settings.
     public func setSuppressAutoHyphens(suppressAutoHyphens : Bool?) -> ParagraphFormatBase {
         self.suppressAutoHyphens = suppressAutoHyphens;
@@ -1749,6 +2006,7 @@ public class ParagraphFormatBase : LinkElement {
         return self.suppressAutoHyphens;
     }
 
+
     // Sets suppressLineNumbers. Gets or sets a value indicating whether the current paragraph's lines should be exempted from line numbering which is applied in the parent section.
     public func setSuppressLineNumbers(suppressLineNumbers : Bool?) -> ParagraphFormatBase {
         self.suppressLineNumbers = suppressLineNumbers;
@@ -1759,6 +2017,7 @@ public class ParagraphFormatBase : LinkElement {
     public func getSuppressLineNumbers() -> Bool? {
         return self.suppressLineNumbers;
     }
+
 
     // Sets widowControl. Gets or sets a value indicating whether the first and last lines in the paragraph are to remain on the same page as the rest of the paragraph.
     public func setWidowControl(widowControl : Bool?) -> ParagraphFormatBase {

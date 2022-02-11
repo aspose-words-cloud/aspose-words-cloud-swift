@@ -31,10 +31,28 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FilesUploadResult : Codable, WordsApiModel {
     // Field of errors. File upload result.
-    public var errors : [InternalError]?;
+    private var _errors : [InternalError]? = nil;
+
+    public var errors : [InternalError]? {
+        get {
+            return self._errors;
+        }
+        set {
+            self._errors = newValue;
+        }
+    }
 
     // Field of uploaded. File upload result.
-    public var uploaded : [String]?;
+    private var _uploaded : [String]? = nil;
+
+    public var uploaded : [String]? {
+        get {
+            return self._uploaded;
+        }
+        set {
+            self._uploaded = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case errors = "Errors";
@@ -71,6 +89,7 @@ public class FilesUploadResult : Codable, WordsApiModel {
     public func getErrors() -> [InternalError]? {
         return self.errors;
     }
+
 
     // Sets uploaded. List of uploaded file names.
     public func setUploaded(uploaded : [String]?) -> FilesUploadResult {

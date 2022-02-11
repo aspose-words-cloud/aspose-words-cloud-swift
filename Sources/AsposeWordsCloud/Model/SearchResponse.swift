@@ -31,10 +31,28 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SearchResponse : WordsResponse {
     // Field of searchingPattern. The REST response with a regular expression pattern and a collection of search results.
-    public var searchingPattern : String?;
+    private var _searchingPattern : String? = nil;
+
+    public var searchingPattern : String? {
+        get {
+            return self._searchingPattern;
+        }
+        set {
+            self._searchingPattern = newValue;
+        }
+    }
 
     // Field of searchResults. The REST response with a regular expression pattern and a collection of search results.
-    public var searchResults : SearchResultsCollection?;
+    private var _searchResults : SearchResultsCollection? = nil;
+
+    public var searchResults : SearchResultsCollection? {
+        get {
+            return self._searchResults;
+        }
+        set {
+            self._searchResults = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case searchingPattern = "SearchingPattern";
@@ -74,6 +92,7 @@ public class SearchResponse : WordsResponse {
     public func getSearchingPattern() -> String? {
         return self.searchingPattern;
     }
+
 
     // Sets searchResults. Gets or sets the collection of search results.
     public func setSearchResults(searchResults : SearchResultsCollection?) -> SearchResponse {

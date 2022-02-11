@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class CustomXmlPartsCollection : LinkElement {
     // Field of customXmlPartsList. The collection of CustomXmlPart.
-    public var customXmlPartsList : [CustomXmlPart]?;
+    private var _customXmlPartsList : [CustomXmlPart]? = nil;
+
+    public var customXmlPartsList : [CustomXmlPart]? {
+        get {
+            return self._customXmlPartsList;
+        }
+        set {
+            self._customXmlPartsList = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case customXmlPartsList = "CustomXmlPartsList";

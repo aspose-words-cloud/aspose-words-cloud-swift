@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DocumentResponse : WordsResponse {
     // Field of document. The REST response with a document description.
-    public var document : Document?;
+    private var _document : Document? = nil;
+
+    public var document : Document? {
+        get {
+            return self._document;
+        }
+        set {
+            self._document = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case document = "Document";

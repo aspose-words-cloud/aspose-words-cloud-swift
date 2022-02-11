@@ -31,10 +31,28 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class XmlColor : Codable, WordsApiModel {
     // Field of alpha. Utility class for Color serialization.
-    public var alpha : Int?;
+    private var _alpha : Int? = nil;
+
+    public var alpha : Int? {
+        get {
+            return self._alpha;
+        }
+        set {
+            self._alpha = newValue;
+        }
+    }
 
     // Field of web. Utility class for Color serialization.
-    public var web : String?;
+    private var _web : String? = nil;
+
+    public var web : String? {
+        get {
+            return self._web;
+        }
+        set {
+            self._web = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case alpha = "Alpha";
@@ -71,6 +89,7 @@ public class XmlColor : Codable, WordsApiModel {
     public func getAlpha() -> Int? {
         return self.alpha;
     }
+
 
     // Sets web. Gets or sets the HTML string color representation.
     public func setWeb(web : String?) -> XmlColor {

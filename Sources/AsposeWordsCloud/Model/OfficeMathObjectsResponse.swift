@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class OfficeMathObjectsResponse : WordsResponse {
     // Field of officeMathObjects. The REST response with a collection of OfficeMath objects.
-    public var officeMathObjects : OfficeMathObjectsCollection?;
+    private var _officeMathObjects : OfficeMathObjectsCollection? = nil;
+
+    public var officeMathObjects : OfficeMathObjectsCollection? {
+        get {
+            return self._officeMathObjects;
+        }
+        set {
+            self._officeMathObjects = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case officeMathObjects = "OfficeMathObjects";

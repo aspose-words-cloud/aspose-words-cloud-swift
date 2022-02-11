@@ -247,34 +247,124 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     }
 
     // Field of alignment. Represents a document list levels.
-    public var alignment : Alignment?;
+    private var _alignment : Alignment? = nil;
+
+    public var alignment : Alignment? {
+        get {
+            return self._alignment;
+        }
+        set {
+            self._alignment = newValue;
+        }
+    }
 
     // Field of isLegal. Represents a document list levels.
-    public var isLegal : Bool?;
+    private var _isLegal : Bool? = nil;
+
+    public var isLegal : Bool? {
+        get {
+            return self._isLegal;
+        }
+        set {
+            self._isLegal = newValue;
+        }
+    }
 
     // Field of numberFormat. Represents a document list levels.
-    public var numberFormat : String?;
+    private var _numberFormat : String? = nil;
+
+    public var numberFormat : String? {
+        get {
+            return self._numberFormat;
+        }
+        set {
+            self._numberFormat = newValue;
+        }
+    }
 
     // Field of numberPosition. Represents a document list levels.
-    public var numberPosition : Double?;
+    private var _numberPosition : Double? = nil;
+
+    public var numberPosition : Double? {
+        get {
+            return self._numberPosition;
+        }
+        set {
+            self._numberPosition = newValue;
+        }
+    }
 
     // Field of numberStyle. Represents a document list levels.
-    public var numberStyle : NumberStyle?;
+    private var _numberStyle : NumberStyle? = nil;
+
+    public var numberStyle : NumberStyle? {
+        get {
+            return self._numberStyle;
+        }
+        set {
+            self._numberStyle = newValue;
+        }
+    }
 
     // Field of restartAfterLevel. Represents a document list levels.
-    public var restartAfterLevel : Int?;
+    private var _restartAfterLevel : Int? = nil;
+
+    public var restartAfterLevel : Int? {
+        get {
+            return self._restartAfterLevel;
+        }
+        set {
+            self._restartAfterLevel = newValue;
+        }
+    }
 
     // Field of startAt. Represents a document list levels.
-    public var startAt : Int?;
+    private var _startAt : Int? = nil;
+
+    public var startAt : Int? {
+        get {
+            return self._startAt;
+        }
+        set {
+            self._startAt = newValue;
+        }
+    }
 
     // Field of tabPosition. Represents a document list levels.
-    public var tabPosition : Double?;
+    private var _tabPosition : Double? = nil;
+
+    public var tabPosition : Double? {
+        get {
+            return self._tabPosition;
+        }
+        set {
+            self._tabPosition = newValue;
+        }
+    }
 
     // Field of textPosition. Represents a document list levels.
-    public var textPosition : Double?;
+    private var _textPosition : Double? = nil;
+
+    public var textPosition : Double? {
+        get {
+            return self._textPosition;
+        }
+        set {
+            self._textPosition = newValue;
+        }
+    }
 
     // Field of trailingCharacter. Represents a document list levels.
-    public var trailingCharacter : TrailingCharacter?;
+    private var _trailingCharacter : TrailingCharacter? = nil;
+
+    public var trailingCharacter : TrailingCharacter? {
+        get {
+            return self._trailingCharacter;
+        }
+        set {
+            self._trailingCharacter = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case alignment = "Alignment";
@@ -352,6 +442,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
         return self.alignment;
     }
 
+
     // Sets isLegal. Gets or sets a value indicating whether the level turns all inherited numbers to Arabic, false if it preserves their number style.
     public func setIsLegal(isLegal : Bool?) -> ListLevelUpdate {
         self.isLegal = isLegal;
@@ -362,6 +453,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     public func getIsLegal() -> Bool? {
         return self.isLegal;
     }
+
 
     // Sets numberFormat. Gets or sets the number format for the list level.
     public func setNumberFormat(numberFormat : String?) -> ListLevelUpdate {
@@ -374,6 +466,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
         return self.numberFormat;
     }
 
+
     // Sets numberPosition. Gets or sets the position (in points) of the number or bullet for the list level.
     public func setNumberPosition(numberPosition : Double?) -> ListLevelUpdate {
         self.numberPosition = numberPosition;
@@ -384,6 +477,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     public func getNumberPosition() -> Double? {
         return self.numberPosition;
     }
+
 
     // Sets numberStyle. Gets or sets the number style for this list level.
     public func setNumberStyle(numberStyle : NumberStyle?) -> ListLevelUpdate {
@@ -396,6 +490,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
         return self.numberStyle;
     }
 
+
     // Sets restartAfterLevel. Gets or sets the list level that must appear before the specified list level restarts numbering.
     public func setRestartAfterLevel(restartAfterLevel : Int?) -> ListLevelUpdate {
         self.restartAfterLevel = restartAfterLevel;
@@ -406,6 +501,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     public func getRestartAfterLevel() -> Int? {
         return self.restartAfterLevel;
     }
+
 
     // Sets startAt. Gets or sets the starting number for this list level.
     public func setStartAt(startAt : Int?) -> ListLevelUpdate {
@@ -418,6 +514,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
         return self.startAt;
     }
 
+
     // Sets tabPosition. Gets or sets the tab position (in points) for the list level.
     public func setTabPosition(tabPosition : Double?) -> ListLevelUpdate {
         self.tabPosition = tabPosition;
@@ -429,6 +526,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
         return self.tabPosition;
     }
 
+
     // Sets textPosition. Gets or sets the position (in points) for the second line of wrapping text for the list level.
     public func setTextPosition(textPosition : Double?) -> ListLevelUpdate {
         self.textPosition = textPosition;
@@ -439,6 +537,7 @@ public class ListLevelUpdate : Codable, WordsApiModel {
     public func getTextPosition() -> Double? {
         return self.textPosition;
     }
+
 
     // Sets trailingCharacter. Gets or sets the character to be inserted after the number for the list level.
     public func setTrailingCharacter(trailingCharacter : TrailingCharacter?) -> ListLevelUpdate {

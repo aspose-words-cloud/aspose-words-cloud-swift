@@ -197,13 +197,40 @@ public class Shading : Codable, WordsApiModel {
     }
 
     // Field of backgroundPatternColor. DTO container with a paragraph format shading element.
-    public var backgroundPatternColor : XmlColor?;
+    private var _backgroundPatternColor : XmlColor? = nil;
+
+    public var backgroundPatternColor : XmlColor? {
+        get {
+            return self._backgroundPatternColor;
+        }
+        set {
+            self._backgroundPatternColor = newValue;
+        }
+    }
 
     // Field of foregroundPatternColor. DTO container with a paragraph format shading element.
-    public var foregroundPatternColor : XmlColor?;
+    private var _foregroundPatternColor : XmlColor? = nil;
+
+    public var foregroundPatternColor : XmlColor? {
+        get {
+            return self._foregroundPatternColor;
+        }
+        set {
+            self._foregroundPatternColor = newValue;
+        }
+    }
 
     // Field of texture. DTO container with a paragraph format shading element.
-    public var texture : Texture?;
+    private var _texture : Texture? = nil;
+
+    public var texture : Texture? {
+        get {
+            return self._texture;
+        }
+        set {
+            self._texture = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case backgroundPatternColor = "BackgroundPatternColor";
@@ -246,6 +273,7 @@ public class Shading : Codable, WordsApiModel {
         return self.backgroundPatternColor;
     }
 
+
     // Sets foregroundPatternColor. Gets or sets the color that's applied to the foreground of the Shading object.
     public func setForegroundPatternColor(foregroundPatternColor : XmlColor?) -> Shading {
         self.foregroundPatternColor = foregroundPatternColor;
@@ -256,6 +284,7 @@ public class Shading : Codable, WordsApiModel {
     public func getForegroundPatternColor() -> XmlColor? {
         return self.foregroundPatternColor;
     }
+
 
     // Sets texture. Gets or sets the shading texture.
     public func setTexture(texture : Texture?) -> Shading {

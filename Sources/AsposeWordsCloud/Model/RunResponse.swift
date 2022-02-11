@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class RunResponse : WordsResponse {
     // Field of run. The REST response with a Run element.
-    public var run : Run?;
+    private var _run : Run? = nil;
+
+    public var run : Run? {
+        get {
+            return self._run;
+        }
+        set {
+            self._run = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case run = "Run";

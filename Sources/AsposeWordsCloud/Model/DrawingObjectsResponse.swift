@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class DrawingObjectsResponse : WordsResponse {
     // Field of drawingObjects. The REST response with a collection of DrawingObjects.
-    public var drawingObjects : DrawingObjectCollection?;
+    private var _drawingObjects : DrawingObjectCollection? = nil;
+
+    public var drawingObjects : DrawingObjectCollection? {
+        get {
+            return self._drawingObjects;
+        }
+        set {
+            self._drawingObjects = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case drawingObjects = "DrawingObjects";

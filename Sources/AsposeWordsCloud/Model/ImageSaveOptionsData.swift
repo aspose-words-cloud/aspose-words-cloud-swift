@@ -31,40 +31,148 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     // Field of horizontalResolution. Container abstract class for image save options.
-    public var horizontalResolution : Double?;
+    private var _horizontalResolution : Double? = nil;
+
+    public var horizontalResolution : Double? {
+        get {
+            return self._horizontalResolution;
+        }
+        set {
+            self._horizontalResolution = newValue;
+        }
+    }
 
     // Field of imageBrightness. Container abstract class for image save options.
-    public var imageBrightness : Double?;
+    private var _imageBrightness : Double? = nil;
+
+    public var imageBrightness : Double? {
+        get {
+            return self._imageBrightness;
+        }
+        set {
+            self._imageBrightness = newValue;
+        }
+    }
 
     // Field of imageColorMode. Container abstract class for image save options.
-    public var imageColorMode : String?;
+    private var _imageColorMode : String? = nil;
+
+    public var imageColorMode : String? {
+        get {
+            return self._imageColorMode;
+        }
+        set {
+            self._imageColorMode = newValue;
+        }
+    }
 
     // Field of imageContrast. Container abstract class for image save options.
-    public var imageContrast : Double?;
+    private var _imageContrast : Double? = nil;
+
+    public var imageContrast : Double? {
+        get {
+            return self._imageContrast;
+        }
+        set {
+            self._imageContrast = newValue;
+        }
+    }
 
     // Field of paperColor. Container abstract class for image save options.
-    public var paperColor : String?;
+    private var _paperColor : String? = nil;
+
+    public var paperColor : String? {
+        get {
+            return self._paperColor;
+        }
+        set {
+            self._paperColor = newValue;
+        }
+    }
 
     // Field of pixelFormat. Container abstract class for image save options.
-    public var pixelFormat : String?;
+    private var _pixelFormat : String? = nil;
+
+    public var pixelFormat : String? {
+        get {
+            return self._pixelFormat;
+        }
+        set {
+            self._pixelFormat = newValue;
+        }
+    }
 
     // Field of resolution. Container abstract class for image save options.
-    public var resolution : Double?;
+    private var _resolution : Double? = nil;
+
+    public var resolution : Double? {
+        get {
+            return self._resolution;
+        }
+        set {
+            self._resolution = newValue;
+        }
+    }
 
     // Field of scale. Container abstract class for image save options.
-    public var scale : Double?;
+    private var _scale : Double? = nil;
+
+    public var scale : Double? {
+        get {
+            return self._scale;
+        }
+        set {
+            self._scale = newValue;
+        }
+    }
 
     // Field of useAntiAliasing. Container abstract class for image save options.
-    public var useAntiAliasing : Bool?;
+    private var _useAntiAliasing : Bool? = nil;
+
+    public var useAntiAliasing : Bool? {
+        get {
+            return self._useAntiAliasing;
+        }
+        set {
+            self._useAntiAliasing = newValue;
+        }
+    }
 
     // Field of useGdiEmfRenderer. Container abstract class for image save options.
-    public var useGdiEmfRenderer : Bool?;
+    private var _useGdiEmfRenderer : Bool? = nil;
+
+    public var useGdiEmfRenderer : Bool? {
+        get {
+            return self._useGdiEmfRenderer;
+        }
+        set {
+            self._useGdiEmfRenderer = newValue;
+        }
+    }
 
     // Field of useHighQualityRendering. Container abstract class for image save options.
-    public var useHighQualityRendering : Bool?;
+    private var _useHighQualityRendering : Bool? = nil;
+
+    public var useHighQualityRendering : Bool? {
+        get {
+            return self._useHighQualityRendering;
+        }
+        set {
+            self._useHighQualityRendering = newValue;
+        }
+    }
 
     // Field of verticalResolution. Container abstract class for image save options.
-    public var verticalResolution : Double?;
+    private var _verticalResolution : Double? = nil;
+
+    public var verticalResolution : Double? {
+        get {
+            return self._verticalResolution;
+        }
+        set {
+            self._verticalResolution = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case horizontalResolution = "HorizontalResolution";
@@ -82,7 +190,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         case invalidCodingKey;
     }
 
-    public override init() {
+    internal override init() {
         super.init();
     }
 
@@ -155,6 +263,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         return self.horizontalResolution;
     }
 
+
     // Sets imageBrightness. Gets or sets the brightness level of the image.
     public func setImageBrightness(imageBrightness : Double?) -> ImageSaveOptionsData {
         self.imageBrightness = imageBrightness;
@@ -165,6 +274,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     public func getImageBrightness() -> Double? {
         return self.imageBrightness;
     }
+
 
     // Sets imageColorMode. Gets or sets the color mode of the image.
     public func setImageColorMode(imageColorMode : String?) -> ImageSaveOptionsData {
@@ -177,6 +287,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         return self.imageColorMode;
     }
 
+
     // Sets imageContrast. Gets or sets the contrast level of the image.
     public func setImageContrast(imageContrast : Double?) -> ImageSaveOptionsData {
         self.imageContrast = imageContrast;
@@ -187,6 +298,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     public func getImageContrast() -> Double? {
         return self.imageContrast;
     }
+
 
     // Sets paperColor. Gets or sets the background (paper) color of the image.
     public func setPaperColor(paperColor : String?) -> ImageSaveOptionsData {
@@ -199,6 +311,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         return self.paperColor;
     }
 
+
     // Sets pixelFormat. Gets or sets the pixel format of the image.
     public func setPixelFormat(pixelFormat : String?) -> ImageSaveOptionsData {
         self.pixelFormat = pixelFormat;
@@ -209,6 +322,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     public func getPixelFormat() -> String? {
         return self.pixelFormat;
     }
+
 
     // Sets resolution. Gets or sets both horizontal and vertical resolution in dots per inch for the generated images. This property has effect only when saving to raster image formats. The default value is 96.
     public func setResolution(resolution : Double?) -> ImageSaveOptionsData {
@@ -221,6 +335,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         return self.resolution;
     }
 
+
     // Sets scale. Gets or sets the zoom factor of the image.
     public func setScale(scale : Double?) -> ImageSaveOptionsData {
         self.scale = scale;
@@ -231,6 +346,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     public func getScale() -> Double? {
         return self.scale;
     }
+
 
     // Sets useAntiAliasing. Gets or sets a value indicating whether to use anti-aliasing for rendering.
     public func setUseAntiAliasing(useAntiAliasing : Bool?) -> ImageSaveOptionsData {
@@ -243,6 +359,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         return self.useAntiAliasing;
     }
 
+
     // Sets useGdiEmfRenderer. Gets or sets a value indicating whether to use GDI+ or Aspose.Words metafile renderer when saving to EMF.
     public func setUseGdiEmfRenderer(useGdiEmfRenderer : Bool?) -> ImageSaveOptionsData {
         self.useGdiEmfRenderer = useGdiEmfRenderer;
@@ -254,6 +371,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         return self.useGdiEmfRenderer;
     }
 
+
     // Sets useHighQualityRendering. Gets or sets a value indicating whether to use high quality (i.e. slow) rendering algorithms.
     public func setUseHighQualityRendering(useHighQualityRendering : Bool?) -> ImageSaveOptionsData {
         self.useHighQualityRendering = useHighQualityRendering;
@@ -264,6 +382,7 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     public func getUseHighQualityRendering() -> Bool? {
         return self.useHighQualityRendering;
     }
+
 
     // Sets verticalResolution. Gets or sets the vertical resolution in dots per inch for the generated images. This property has effect only when saving to raster image formats. The default value is 96.
     public func setVerticalResolution(verticalResolution : Double?) -> ImageSaveOptionsData {

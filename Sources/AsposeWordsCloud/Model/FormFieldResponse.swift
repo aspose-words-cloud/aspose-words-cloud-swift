@@ -31,7 +31,16 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FormFieldResponse : WordsResponse {
     // Field of formField. The REST response with a form field.
-    public var formField : FormField?;
+    private var _formField : FormField? = nil;
+
+    public var formField : FormField? {
+        get {
+            return self._formField;
+        }
+        set {
+            self._formField = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case formField = "FormField";

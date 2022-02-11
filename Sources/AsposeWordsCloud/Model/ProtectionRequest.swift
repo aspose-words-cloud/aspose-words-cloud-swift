@@ -31,13 +31,40 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ProtectionRequest : Codable, WordsApiModel {
     // Field of newPassword. Request on changing of protection.
-    public var newPassword : String?;
+    private var _newPassword : String? = nil;
+
+    public var newPassword : String? {
+        get {
+            return self._newPassword;
+        }
+        set {
+            self._newPassword = newValue;
+        }
+    }
 
     // Field of password. Request on changing of protection.
-    public var password : String?;
+    private var _password : String? = nil;
+
+    public var password : String? {
+        get {
+            return self._password;
+        }
+        set {
+            self._password = newValue;
+        }
+    }
 
     // Field of protectionType. Request on changing of protection.
-    public var protectionType : String?;
+    private var _protectionType : String? = nil;
+
+    public var protectionType : String? {
+        get {
+            return self._protectionType;
+        }
+        set {
+            self._protectionType = newValue;
+        }
+    }
 
     private enum CodingKeys: String, CodingKey {
         case newPassword = "NewPassword";
@@ -80,6 +107,7 @@ public class ProtectionRequest : Codable, WordsApiModel {
         return self.newPassword;
     }
 
+
     // Sets password. Gets or sets the current password.
     public func setPassword(password : String?) -> ProtectionRequest {
         self.password = password;
@@ -90,6 +118,7 @@ public class ProtectionRequest : Codable, WordsApiModel {
     public func getPassword() -> String? {
         return self.password;
     }
+
 
     // Sets protectionType. Gets or sets the new type of protection.
     public func setProtectionType(protectionType : String?) -> ProtectionRequest {
