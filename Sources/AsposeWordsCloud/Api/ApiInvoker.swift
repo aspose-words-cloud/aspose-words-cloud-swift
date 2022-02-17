@@ -71,11 +71,13 @@ public class ApiInvoker {
     // Internal class for represent API response
     private class InvokeResponse {
         public var data : Data?;
+        public var headers : [String : String];
         public var errorCode : Int;
         public var errorMessage : String?;
 
         public init(errorCode : Int) {
             self.errorCode = errorCode;
+            self.headers = [String : String]();
         }
     }
 
@@ -85,7 +87,7 @@ public class ApiInvoker {
     }
 
     // Invoke request to the API with the specified set of arguments and execute callback after the request is completed
-    public func invoke(apiRequestData : WordsApiRequestData, callback: @escaping (_ response: Data?, _ error: Error?) -> ()
+    public func invoke(apiRequestData : WordsApiRequestData, callback: @escaping (_ response: Data?, _ headers: [String: String], _ error: Error?) -> ()
     ) {
         // Create URL request object
         var request = URLRequest(url: apiRequestData.getURL());
@@ -115,29 +117,29 @@ public class ApiInvoker {
                                 self.invokeRequest(urlRequest: &request, accessToken: accessToken, callback: { response in
                                     if (response.errorCode == self.httpStatusCodeOK) {
                                         // Api request success
-                                        callback(response.data, nil);
+                                        callback(response.data, response.headers, nil);
                                     }
                                     else {
-                                        callback(nil, WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
+                                        callback(nil, [String : String](), WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
                                     }
                                 });
                             }
                             else {
-                                callback(nil, WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
+                                callback(nil, [String : String](), WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
                             }
                         });
                     }
                     else if (response.errorCode == self.httpStatusCodeOK) {
                         // Api request success
-                        callback(response.data, nil);
+                        callback(response.data, response.headers, nil);
                     }
                     else {
-                        callback(nil, WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
+                        callback(nil, [String : String](), WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
                     }
                 });
             }
             else {
-                callback(nil, WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
+                callback(nil, [String : String](), WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
             }
         });
     }
@@ -189,6 +191,9 @@ public class ApiInvoker {
             if (rawResponse != nil) {
                 invokeResponse.errorCode = rawResponse!.statusCode;
                 invokeResponse.errorMessage = rawResponse!.description;
+                for header in rawResponse!.allHeaderFields {
+                    invokeResponse.headers[String(describing: header.key)] = String(describing: header.value);
+                }
             }
             else {
                 invokeResponse.errorCode = self.httpStatusCodeBadRequest;

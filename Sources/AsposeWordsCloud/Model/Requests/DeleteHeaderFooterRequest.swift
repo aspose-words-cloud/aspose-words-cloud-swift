@@ -174,7 +174,7 @@ public class DeleteHeaderFooterRequest : WordsApiRequest {
     }
 
     // Deserialize response of this request
-    public func deserializeResponse(data : Data) throws -> Any? {
+    public func deserializeResponse(data : Data, headers : [String: String]) throws -> Any? {
         return nil;
     }
 }

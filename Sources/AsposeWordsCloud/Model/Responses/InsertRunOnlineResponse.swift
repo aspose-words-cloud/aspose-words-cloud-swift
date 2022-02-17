@@ -31,7 +31,7 @@ import Foundation
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class InsertRunOnlineResponse {
     private let model : RunResponse?;
-    private let document : Data?;
+    private let document : [String: Data]?;
 
     private enum CodingKeys: String, CodingKey {
         case model;
@@ -40,7 +40,7 @@ public class InsertRunOnlineResponse {
     }
 
     // Initializes a new instance of the InsertRunOnlineResponse class.
-    public init(model : RunResponse?, document : Data?) {
+    public init(model : RunResponse?, document : [String: Data]?) {
         self.model = model;
         self.document = document;
     }
@@ -51,7 +51,7 @@ public class InsertRunOnlineResponse {
     }
 
     // The document after modification.
-    public func getDocument() -> Data? {
+    public func getDocument() -> [String: Data]? {
         return self.document;
     }
 }

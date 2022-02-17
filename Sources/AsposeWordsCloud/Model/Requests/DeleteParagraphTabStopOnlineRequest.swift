@@ -146,14 +146,14 @@ public class DeleteParagraphTabStopOnlineRequest : WordsApiRequest {
     }
 
     // Deserialize response of this request
-    public func deserializeResponse(data : Data) throws -> Any? {
+    public func deserializeResponse(data : Data, headers : [String: String]) throws -> Any? {
         let multipart = try ObjectSerializer.parseMultipart(data: data);
         return DeleteParagraphTabStopOnlineResponse(
             model: try ObjectSerializer.deserialize(
                 type: TabStopsResponse.self,
                 from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()
             ),
-            document: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document")).getBody()
+            document: try ObjectSerializer.parseFilesCollection(part: try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document"))
         );
     }
 }
