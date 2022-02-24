@@ -33,11 +33,10 @@ public class ApiInvoker {
     // An object containing the configuration for executing API requests 
     private let configuration : Configuration;
 
-    // RSA key for password encryption
 #if os(Linux)
     // Encryption of passwords in query params not supported on linux
 #else
-    private var encryptionKey : SecKey?;
+    private let encryptor : Encryptor;
 #endif
 
     // Cached value of oauth2 authorization tokeт. 
@@ -56,17 +55,20 @@ public class ApiInvoker {
     private let httpStatusCodeTimeout = 408;
 
     // Initialize ApiInvoker object with specific configuration
+#if os(Linux)
     public init(configuration : Configuration) {
         self.configuration = configuration;
         self.mutex = NSLock();
         self.accessTokenCache = nil;
-
-#if os(Linux)
-    // Encryption of passwords in query params not supported on linux
-#else
-        self.encryptionKey = nil;
-#endif
     }
+#else
+    public init(configuration : Configuration, encryptor: Encryptor) {
+        self.configuration = configuration;
+        self.mutex = NSLock();
+        self.accessTokenCache = nil;
+        this.encryptor = encryptor;
+    }
+#endif
 
     // Internal class for represent API response
     private class InvokeResponse {
@@ -301,65 +303,11 @@ public class ApiInvoker {
         return lengthField;
     }
 
-    public func setEncryptionData(data : PublicKeyResponse) throws {
 #if os(Linux)
-        // Encryption of passwords in query params not supported on linux
+    // Encryption of passwords in query params not supported on linux
 #else
-        let exponent = Data(base64Encoded: data.getExponent()!)!;
-        let modulus = Data(base64Encoded: data.getModulus()!)!;
-        let exponentBytes = [UInt8](exponent);
-        var modulusBytes = [UInt8](modulus);
-        modulusBytes.insert(0x00, at: 0);
-
-        var modulusEncoded: [UInt8] = [];
-        modulusEncoded.append(0x02);
-        modulusEncoded.append(contentsOf: lengthField(of: modulusBytes));
-        modulusEncoded.append(contentsOf: modulusBytes);
-
-        var exponentEncoded: [UInt8] = [];
-        exponentEncoded.append(0x02);
-        exponentEncoded.append(contentsOf: lengthField(of: exponentBytes));
-        exponentEncoded.append(contentsOf: exponentBytes);
-
-        var sequenceEncoded: [UInt8] = [];
-        sequenceEncoded.append(0x30);
-        sequenceEncoded.append(contentsOf: lengthField(of: (modulusEncoded + exponentEncoded)));
-        sequenceEncoded.append(contentsOf: (modulusEncoded + exponentEncoded));
-
-        let keyData = Data(bytes: sequenceEncoded);
-        let keySize = (modulusBytes.count * 8);
-
-        let attributes: [String: Any] = [
-            kSecAttrKeyType as String: kSecAttrKeyTypeRSA,
-            kSecAttrKeyClass as String: kSecAttrKeyClassPublic,
-            kSecAttrKeySizeInBits as String: keySize
-        ];
-
-        encryptionKey = SecKeyCreateWithData(keyData as CFData, attributes as CFDictionary, nil);
-#endif
+    public func encryptString(data : String) throws -> String {
+        return encryptor.encrypt(data);
     }
-
-    public func encryptString(value : String) throws -> String {
-#if os(Linux)
-        // Encryption of passwords in query params not supported on linux
-        return value;
-#else
-        let buffer = value.data(using: .utf8)!;
-        var error: Unmanaged<CFError>? = nil;
-
-        // Encrypto should less than key length
-        let secData = SecKeyCreateEncryptedData(encryptionKey!, .rsaEncryptionPKCS1, buffer as CFData, &error)!;
-        var secBuffer = [UInt8](repeating: 0, count: CFDataGetLength(secData));
-        CFDataGetBytes(secData, CFRangeMake(0, CFDataGetLength(secData)), &secBuffer);
-        return Data(bytes: secBuffer).base64EncodedString().replacingOccurrences(of: "+", with: "%2B").replacingOccurrences(of: "/", with: "%2F");
 #endif
-    }
-
-    public func isEncryptionAllowed() -> Bool {
-#if os(Linux)
-        return false;
-#else
-        return true;
-#endif
-    }
 }
