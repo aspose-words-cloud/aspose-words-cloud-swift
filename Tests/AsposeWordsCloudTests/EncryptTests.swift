@@ -41,7 +41,7 @@ class EncryptTests: BaseTestContext {
 #if os(Linux)        
         var thrownError: Error?
 
-        XCTAssertThrowsError(try super.getApi().encrypt("12345")) {
+        XCTAssertThrowsError(try super.getApi().encrypt(data: "12345")) {
             thrownError = $0
         }
 
@@ -50,7 +50,7 @@ class EncryptTests: BaseTestContext {
             "Unexpected error type: \(type(of: thrownError))"
         )
 #else          
-        let result = try super.getApi().encrypt("12345");
+        let result = try super.getApi().encrypt(data: "12345");
 
         XCTAssertFalse(result.isEmpty);
 #endif
