@@ -77,6 +77,7 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(TextTests.allTests),
         testCase(WatermarkTests.allTests),
         testCase(ExamplesTests.allTests),
+        testCase(EncryptTests.allTests),
     ]
 }
 #endif
