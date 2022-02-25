@@ -32,7 +32,8 @@ import XCTest
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 class EncryptTests: BaseTestContext {
     static var allTests = [
-        ("testEncrypt", testEncrypt)
+        ("testEncrypt", testEncrypt),
+        ("testIsEncryptionAllowed", testIsEncryptionAllowed")
     ];
 
     // Test for encrypt.
@@ -55,4 +56,17 @@ class EncryptTests: BaseTestContext {
         XCTAssertFalse(result.isEmpty);
 #endif
     }
+
+    // Test for isEncrypted.
+    func testIsEncryptionAllowed() throws {
+
+        let result = try super.getApi().isEncryptionAllowed();
+
+#if os(Linux) 
+        XCTAssertFalse(result);
+#else
+        XCTAssertTrue(result);
+#endif     
+    }
+
 }
