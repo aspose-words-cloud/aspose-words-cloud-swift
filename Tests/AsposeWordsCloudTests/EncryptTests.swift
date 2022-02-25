@@ -33,7 +33,7 @@ import XCTest
 class EncryptTests: BaseTestContext {
     static var allTests = [
         ("testEncrypt", testEncrypt),
-        ("testIsEncryptionAllowed", testIsEncryptionAllowed")
+        ("testIsEncryptionAllowed", testIsEncryptionAllowed)
     ];
 
     // Test for encrypt.
