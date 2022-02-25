@@ -30,10 +30,20 @@ import Foundation
 // Container class for details of encryption.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PdfEncryptionDetailsData : Codable, WordsApiModel {
-    // Field of encryptionAlgorithm. Container class for details of encryption.
-    private var _encryptionAlgorithm : String? = nil;
+    // Gets or sets the encryption algorithm to use.
+    public enum EncryptionAlgorithm : String, Codable
+    {
+        // Enum value "rC4_40"
+        case rC4_40 = "RC4_40"
 
-    public var encryptionAlgorithm : String? {
+        // Enum value "rC4_128"
+        case rC4_128 = "RC4_128"
+    }
+
+    // Field of encryptionAlgorithm. Container class for details of encryption.
+    private var _encryptionAlgorithm : EncryptionAlgorithm? = nil;
+
+    public var encryptionAlgorithm : EncryptionAlgorithm? {
         get {
             return self._encryptionAlgorithm;
         }
@@ -55,9 +65,9 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     }
 
     // Field of permissions. Container class for details of encryption.
-    private var _permissions : String? = nil;
+    private var _permissions : [PdfPermissions]? = nil;
 
-    public var permissions : String? {
+    public var permissions : [PdfPermissions]? {
         get {
             return self._permissions;
         }
@@ -91,9 +101,9 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.encryptionAlgorithm = try container.decodeIfPresent(String.self, forKey: .encryptionAlgorithm);
+        self.encryptionAlgorithm = try container.decodeIfPresent(EncryptionAlgorithm.self, forKey: .encryptionAlgorithm);
         self.ownerPassword = try container.decodeIfPresent(String.self, forKey: .ownerPassword);
-        self.permissions = try container.decodeIfPresent(String.self, forKey: .permissions);
+        self.permissions = try container.decodeIfPresent([PdfPermissions].self, forKey: .permissions);
         self.userPassword = try container.decodeIfPresent(String.self, forKey: .userPassword);
     }
 
@@ -114,13 +124,13 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
     }
 
     // Sets encryptionAlgorithm. Gets or sets the encryption algorithm to use.
-    public func setEncryptionAlgorithm(encryptionAlgorithm : String?) -> PdfEncryptionDetailsData {
+    public func setEncryptionAlgorithm(encryptionAlgorithm : EncryptionAlgorithm?) -> PdfEncryptionDetailsData {
         self.encryptionAlgorithm = encryptionAlgorithm;
         return self;
     }
 
     // Gets encryptionAlgorithm. Gets or sets the encryption algorithm to use.
-    public func getEncryptionAlgorithm() -> String? {
+    public func getEncryptionAlgorithm() -> EncryptionAlgorithm? {
         return self.encryptionAlgorithm;
     }
 
@@ -138,13 +148,13 @@ public class PdfEncryptionDetailsData : Codable, WordsApiModel {
 
 
     // Sets permissions. Gets or sets the operations that are allowed to a user on the encrypted PDF document.
-    public func setPermissions(permissions : String?) -> PdfEncryptionDetailsData {
+    public func setPermissions(permissions : [PdfPermissions]?) -> PdfEncryptionDetailsData {
         self.permissions = permissions;
         return self;
     }
 
     // Gets permissions. Gets or sets the operations that are allowed to a user on the encrypted PDF document.
-    public func getPermissions() -> String? {
+    public func getPermissions() -> [PdfPermissions]? {
         return self.permissions;
     }
 

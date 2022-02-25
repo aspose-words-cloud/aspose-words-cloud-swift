@@ -40,6 +40,40 @@ public class SaveOptionsData : Codable, WordsApiModel {
         case advanced = "Advanced"
     }
 
+    // Gets or sets the value determining how DrawingML effects are rendered.
+    // { Simplified | None | Fine }.
+    public enum DmlEffectsRenderingMode : String, Codable
+    {
+        // Enum value "simplified"
+        case simplified = "Simplified"
+
+        // Enum value "_none"
+        case _none = "None"
+
+        // Enum value "fine"
+        case fine = "Fine"
+    }
+
+    // Gets or sets the option that controls how DrawingML shapes are rendered.
+    public enum DmlRenderingMode : String, Codable
+    {
+        // Enum value "fallback"
+        case fallback = "Fallback"
+
+        // Enum value "drawingML"
+        case drawingML = "DrawingML"
+    }
+
+    // Gets or sets the value determining how ink (InkML) objects are rendered.
+    public enum ImlRenderingMode : String, Codable
+    {
+        // Enum value "fallback"
+        case fallback = "Fallback"
+
+        // Enum value "inkML"
+        case inkML = "InkML"
+    }
+
     // Field of allowEmbeddingPostScriptFonts. base container class for save options data.
     private var _allowEmbeddingPostScriptFonts : Bool? = nil;
 
@@ -77,9 +111,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of dmlEffectsRenderingMode. base container class for save options data.
-    private var _dmlEffectsRenderingMode : String? = nil;
+    private var _dmlEffectsRenderingMode : DmlEffectsRenderingMode? = nil;
 
-    public var dmlEffectsRenderingMode : String? {
+    public var dmlEffectsRenderingMode : DmlEffectsRenderingMode? {
         get {
             return self._dmlEffectsRenderingMode;
         }
@@ -89,9 +123,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of dmlRenderingMode. base container class for save options data.
-    private var _dmlRenderingMode : String? = nil;
+    private var _dmlRenderingMode : DmlRenderingMode? = nil;
 
-    public var dmlRenderingMode : String? {
+    public var dmlRenderingMode : DmlRenderingMode? {
         get {
             return self._dmlRenderingMode;
         }
@@ -125,9 +159,9 @@ public class SaveOptionsData : Codable, WordsApiModel {
     }
 
     // Field of imlRenderingMode. base container class for save options data.
-    private var _imlRenderingMode : String? = nil;
+    private var _imlRenderingMode : ImlRenderingMode? = nil;
 
-    public var imlRenderingMode : String? {
+    public var imlRenderingMode : ImlRenderingMode? {
         get {
             return self._imlRenderingMode;
         }
@@ -244,11 +278,11 @@ public class SaveOptionsData : Codable, WordsApiModel {
         self.allowEmbeddingPostScriptFonts = try container.decodeIfPresent(Bool.self, forKey: .allowEmbeddingPostScriptFonts);
         self.customTimeZoneInfoData = try container.decodeIfPresent(TimeZoneInfoData.self, forKey: .customTimeZoneInfoData);
         self.dml3DEffectsRenderingMode = try container.decodeIfPresent(Dml3DEffectsRenderingMode.self, forKey: .dml3DEffectsRenderingMode);
-        self.dmlEffectsRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlEffectsRenderingMode);
-        self.dmlRenderingMode = try container.decodeIfPresent(String.self, forKey: .dmlRenderingMode);
+        self.dmlEffectsRenderingMode = try container.decodeIfPresent(DmlEffectsRenderingMode.self, forKey: .dmlEffectsRenderingMode);
+        self.dmlRenderingMode = try container.decodeIfPresent(DmlRenderingMode.self, forKey: .dmlRenderingMode);
         self.fileName = try container.decodeIfPresent(String.self, forKey: .fileName);
         self.flatOpcXmlMappingOnly = try container.decodeIfPresent(Bool.self, forKey: .flatOpcXmlMappingOnly);
-        self.imlRenderingMode = try container.decodeIfPresent(String.self, forKey: .imlRenderingMode);
+        self.imlRenderingMode = try container.decodeIfPresent(ImlRenderingMode.self, forKey: .imlRenderingMode);
 
         self.updateCreatedTimeProperty = try container.decodeIfPresent(Bool.self, forKey: .updateCreatedTimeProperty);
         self.updateFields = try container.decodeIfPresent(Bool.self, forKey: .updateFields);
@@ -344,25 +378,25 @@ public class SaveOptionsData : Codable, WordsApiModel {
 
 
     // Sets dmlEffectsRenderingMode. Gets or sets the value determining how DrawingML effects are rendered. { Simplified | None | Fine }.
-    public func setDmlEffectsRenderingMode(dmlEffectsRenderingMode : String?) -> SaveOptionsData {
+    public func setDmlEffectsRenderingMode(dmlEffectsRenderingMode : DmlEffectsRenderingMode?) -> SaveOptionsData {
         self.dmlEffectsRenderingMode = dmlEffectsRenderingMode;
         return self;
     }
 
     // Gets dmlEffectsRenderingMode. Gets or sets the value determining how DrawingML effects are rendered. { Simplified | None | Fine }.
-    public func getDmlEffectsRenderingMode() -> String? {
+    public func getDmlEffectsRenderingMode() -> DmlEffectsRenderingMode? {
         return self.dmlEffectsRenderingMode;
     }
 
 
     // Sets dmlRenderingMode. Gets or sets the option that controls how DrawingML shapes are rendered.
-    public func setDmlRenderingMode(dmlRenderingMode : String?) -> SaveOptionsData {
+    public func setDmlRenderingMode(dmlRenderingMode : DmlRenderingMode?) -> SaveOptionsData {
         self.dmlRenderingMode = dmlRenderingMode;
         return self;
     }
 
     // Gets dmlRenderingMode. Gets or sets the option that controls how DrawingML shapes are rendered.
-    public func getDmlRenderingMode() -> String? {
+    public func getDmlRenderingMode() -> DmlRenderingMode? {
         return self.dmlRenderingMode;
     }
 
@@ -392,13 +426,13 @@ public class SaveOptionsData : Codable, WordsApiModel {
 
 
     // Sets imlRenderingMode. Gets or sets the value determining how ink (InkML) objects are rendered.
-    public func setImlRenderingMode(imlRenderingMode : String?) -> SaveOptionsData {
+    public func setImlRenderingMode(imlRenderingMode : ImlRenderingMode?) -> SaveOptionsData {
         self.imlRenderingMode = imlRenderingMode;
         return self;
     }
 
     // Gets imlRenderingMode. Gets or sets the value determining how ink (InkML) objects are rendered.
-    public func getImlRenderingMode() -> String? {
+    public func getImlRenderingMode() -> ImlRenderingMode? {
         return self.imlRenderingMode;
     }
 

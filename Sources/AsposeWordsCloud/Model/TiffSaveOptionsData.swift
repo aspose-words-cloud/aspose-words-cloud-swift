@@ -30,6 +30,35 @@ import Foundation
 // Container class for tiff save options.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class TiffSaveOptionsData : ImageSaveOptionsData {
+    // Gets or sets the method used while converting images to 1 bpp format.
+    public enum TiffBinarizationMethod : String, Codable
+    {
+        // Enum value "threshold"
+        case threshold = "Threshold"
+
+        // Enum value "floydSteinbergDithering"
+        case floydSteinbergDithering = "FloydSteinbergDithering"
+    }
+
+    // Gets or sets the type of compression.
+    public enum TiffCompression : String, Codable
+    {
+        // Enum value "_none"
+        case _none = "None"
+
+        // Enum value "rle"
+        case rle = "Rle"
+
+        // Enum value "lzw"
+        case lzw = "Lzw"
+
+        // Enum value "ccitt3"
+        case ccitt3 = "Ccitt3"
+
+        // Enum value "ccitt4"
+        case ccitt4 = "Ccitt4"
+    }
+
     // Field of saveFormat. Container class for tiff save options.
     private final let _saveFormat : String? = "tiff";
 
@@ -52,9 +81,9 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     }
 
     // Field of tiffBinarizationMethod. Container class for tiff save options.
-    private var _tiffBinarizationMethod : String? = nil;
+    private var _tiffBinarizationMethod : TiffBinarizationMethod? = nil;
 
-    public var tiffBinarizationMethod : String? {
+    public var tiffBinarizationMethod : TiffBinarizationMethod? {
         get {
             return self._tiffBinarizationMethod;
         }
@@ -64,9 +93,9 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
     }
 
     // Field of tiffCompression. Container class for tiff save options.
-    private var _tiffCompression : String? = nil;
+    private var _tiffCompression : TiffCompression? = nil;
 
-    public var tiffCompression : String? {
+    public var tiffCompression : TiffCompression? {
         get {
             return self._tiffCompression;
         }
@@ -90,8 +119,8 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.thresholdForFloydSteinbergDithering = try container.decodeIfPresent(Int.self, forKey: .thresholdForFloydSteinbergDithering);
-        self.tiffBinarizationMethod = try container.decodeIfPresent(String.self, forKey: .tiffBinarizationMethod);
-        self.tiffCompression = try container.decodeIfPresent(String.self, forKey: .tiffCompression);
+        self.tiffBinarizationMethod = try container.decodeIfPresent(TiffBinarizationMethod.self, forKey: .tiffBinarizationMethod);
+        self.tiffCompression = try container.decodeIfPresent(TiffCompression.self, forKey: .tiffCompression);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -121,25 +150,25 @@ public class TiffSaveOptionsData : ImageSaveOptionsData {
 
 
     // Sets tiffBinarizationMethod. Gets or sets the method used while converting images to 1 bpp format.
-    public func setTiffBinarizationMethod(tiffBinarizationMethod : String?) -> TiffSaveOptionsData {
+    public func setTiffBinarizationMethod(tiffBinarizationMethod : TiffBinarizationMethod?) -> TiffSaveOptionsData {
         self.tiffBinarizationMethod = tiffBinarizationMethod;
         return self;
     }
 
     // Gets tiffBinarizationMethod. Gets or sets the method used while converting images to 1 bpp format.
-    public func getTiffBinarizationMethod() -> String? {
+    public func getTiffBinarizationMethod() -> TiffBinarizationMethod? {
         return self.tiffBinarizationMethod;
     }
 
 
     // Sets tiffCompression. Gets or sets the type of compression.
-    public func setTiffCompression(tiffCompression : String?) -> TiffSaveOptionsData {
+    public func setTiffCompression(tiffCompression : TiffCompression?) -> TiffSaveOptionsData {
         self.tiffCompression = tiffCompression;
         return self;
     }
 
     // Gets tiffCompression. Gets or sets the type of compression.
-    public func getTiffCompression() -> String? {
+    public func getTiffCompression() -> TiffCompression? {
         return self.tiffCompression;
     }
 }

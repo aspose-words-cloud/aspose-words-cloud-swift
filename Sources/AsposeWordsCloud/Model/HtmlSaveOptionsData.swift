@@ -43,6 +43,54 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         case external = "External"
     }
 
+    // Gets or sets the option that controls how the document should be split when saving.
+    public enum DocumentSplitCriteria : String, Codable
+    {
+        // Enum value "_none"
+        case _none = "None"
+
+        // Enum value "pageBreak"
+        case pageBreak = "PageBreak"
+
+        // Enum value "columnBreak"
+        case columnBreak = "ColumnBreak"
+
+        // Enum value "sectionBreak"
+        case sectionBreak = "SectionBreak"
+
+        // Enum value "headingParagraph"
+        case headingParagraph = "HeadingParagraph"
+    }
+
+    // Gets or sets the option that controls how headers and footers are exported.
+    public enum ExportHeadersFootersMode : String, Codable
+    {
+        // Enum value "_none"
+        case _none = "None"
+
+        // Enum value "perSection"
+        case perSection = "PerSection"
+
+        // Enum value "firstSectionHeaderLastSectionFooter"
+        case firstSectionHeaderLastSectionFooter = "FirstSectionHeaderLastSectionFooter"
+
+        // Enum value "firstPageHeaderFooterPerSection"
+        case firstPageHeaderFooterPerSection = "FirstPageHeaderFooterPerSection"
+    }
+
+    // Gets or sets the option that controls how list labels are exported.
+    public enum ExportListLabels : String, Codable
+    {
+        // Enum value "auto"
+        case auto = "Auto"
+
+        // Enum value "asInlineText"
+        case asInlineText = "AsInlineText"
+
+        // Enum value "byHtmlTags"
+        case byHtmlTags = "ByHtmlTags"
+    }
+
     // Gets or sets the version of HTML standard, that should be used when saving the document to HTML or MHTML.
     // Default value is Aspose.Words.Saving.HtmlVersion.Xhtml.
     public enum HtmlVersion : String, Codable
@@ -81,6 +129,19 @@ public class HtmlSaveOptionsData : SaveOptionsData {
 
         // Enum value "text"
         case text = "Text"
+    }
+
+    // Gets or sets the option that controls how table, row and cell widths are exported.
+    public enum TableWidthOutputMode : String, Codable
+    {
+        // Enum value "all"
+        case all = "All"
+
+        // Enum value "relativeOnly"
+        case relativeOnly = "RelativeOnly"
+
+        // Enum value "_none"
+        case _none = "None"
     }
 
     // Field of allowNegativeIndent. Container class for html save options.
@@ -132,9 +193,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Field of documentSplitCriteria. Container class for html save options.
-    private var _documentSplitCriteria : String? = nil;
+    private var _documentSplitCriteria : DocumentSplitCriteria? = nil;
 
-    public var documentSplitCriteria : String? {
+    public var documentSplitCriteria : DocumentSplitCriteria? {
         get {
             return self._documentSplitCriteria;
         }
@@ -216,9 +277,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Field of exportHeadersFootersMode. Container class for html save options.
-    private var _exportHeadersFootersMode : String? = nil;
+    private var _exportHeadersFootersMode : ExportHeadersFootersMode? = nil;
 
-    public var exportHeadersFootersMode : String? {
+    public var exportHeadersFootersMode : ExportHeadersFootersMode? {
         get {
             return self._exportHeadersFootersMode;
         }
@@ -252,9 +313,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Field of exportListLabels. Container class for html save options.
-    private var _exportListLabels : String? = nil;
+    private var _exportListLabels : ExportListLabels? = nil;
 
-    public var exportListLabels : String? {
+    public var exportListLabels : ExportListLabels? {
         get {
             return self._exportListLabels;
         }
@@ -549,9 +610,9 @@ public class HtmlSaveOptionsData : SaveOptionsData {
     }
 
     // Field of tableWidthOutputMode. Container class for html save options.
-    private var _tableWidthOutputMode : String? = nil;
+    private var _tableWidthOutputMode : TableWidthOutputMode? = nil;
 
-    public var tableWidthOutputMode : String? {
+    public var tableWidthOutputMode : TableWidthOutputMode? {
         get {
             return self._tableWidthOutputMode;
         }
@@ -614,17 +675,17 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         self.cssClassNamePrefix = try container.decodeIfPresent(String.self, forKey: .cssClassNamePrefix);
         self.cssStyleSheetFileName = try container.decodeIfPresent(String.self, forKey: .cssStyleSheetFileName);
         self.cssStyleSheetType = try container.decodeIfPresent(CssStyleSheetType.self, forKey: .cssStyleSheetType);
-        self.documentSplitCriteria = try container.decodeIfPresent(String.self, forKey: .documentSplitCriteria);
+        self.documentSplitCriteria = try container.decodeIfPresent(DocumentSplitCriteria.self, forKey: .documentSplitCriteria);
         self.documentSplitHeadingLevel = try container.decodeIfPresent(Int.self, forKey: .documentSplitHeadingLevel);
         self.encoding = try container.decodeIfPresent(String.self, forKey: .encoding);
         self.exportDocumentProperties = try container.decodeIfPresent(Bool.self, forKey: .exportDocumentProperties);
         self.exportDropDownFormFieldAsText = try container.decodeIfPresent(Bool.self, forKey: .exportDropDownFormFieldAsText);
         self.exportFontResources = try container.decodeIfPresent(Bool.self, forKey: .exportFontResources);
         self.exportFontsAsBase64 = try container.decodeIfPresent(Bool.self, forKey: .exportFontsAsBase64);
-        self.exportHeadersFootersMode = try container.decodeIfPresent(String.self, forKey: .exportHeadersFootersMode);
+        self.exportHeadersFootersMode = try container.decodeIfPresent(ExportHeadersFootersMode.self, forKey: .exportHeadersFootersMode);
         self.exportImagesAsBase64 = try container.decodeIfPresent(Bool.self, forKey: .exportImagesAsBase64);
         self.exportLanguageInformation = try container.decodeIfPresent(Bool.self, forKey: .exportLanguageInformation);
-        self.exportListLabels = try container.decodeIfPresent(String.self, forKey: .exportListLabels);
+        self.exportListLabels = try container.decodeIfPresent(ExportListLabels.self, forKey: .exportListLabels);
         self.exportOriginalUrlForLinkedImages = try container.decodeIfPresent(Bool.self, forKey: .exportOriginalUrlForLinkedImages);
         self.exportPageMargins = try container.decodeIfPresent(Bool.self, forKey: .exportPageMargins);
         self.exportPageSetup = try container.decodeIfPresent(Bool.self, forKey: .exportPageSetup);
@@ -648,7 +709,7 @@ public class HtmlSaveOptionsData : SaveOptionsData {
         self.resourceFolder = try container.decodeIfPresent(String.self, forKey: .resourceFolder);
         self.resourceFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourceFolderAlias);
         self.scaleImageToShapeSize = try container.decodeIfPresent(Bool.self, forKey: .scaleImageToShapeSize);
-        self.tableWidthOutputMode = try container.decodeIfPresent(String.self, forKey: .tableWidthOutputMode);
+        self.tableWidthOutputMode = try container.decodeIfPresent(TableWidthOutputMode.self, forKey: .tableWidthOutputMode);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -822,13 +883,13 @@ public class HtmlSaveOptionsData : SaveOptionsData {
 
 
     // Sets documentSplitCriteria. Gets or sets the option that controls how the document should be split when saving.
-    public func setDocumentSplitCriteria(documentSplitCriteria : String?) -> HtmlSaveOptionsData {
+    public func setDocumentSplitCriteria(documentSplitCriteria : DocumentSplitCriteria?) -> HtmlSaveOptionsData {
         self.documentSplitCriteria = documentSplitCriteria;
         return self;
     }
 
     // Gets documentSplitCriteria. Gets or sets the option that controls how the document should be split when saving.
-    public func getDocumentSplitCriteria() -> String? {
+    public func getDocumentSplitCriteria() -> DocumentSplitCriteria? {
         return self.documentSplitCriteria;
     }
 
@@ -906,13 +967,13 @@ public class HtmlSaveOptionsData : SaveOptionsData {
 
 
     // Sets exportHeadersFootersMode. Gets or sets the option that controls how headers and footers are exported.
-    public func setExportHeadersFootersMode(exportHeadersFootersMode : String?) -> HtmlSaveOptionsData {
+    public func setExportHeadersFootersMode(exportHeadersFootersMode : ExportHeadersFootersMode?) -> HtmlSaveOptionsData {
         self.exportHeadersFootersMode = exportHeadersFootersMode;
         return self;
     }
 
     // Gets exportHeadersFootersMode. Gets or sets the option that controls how headers and footers are exported.
-    public func getExportHeadersFootersMode() -> String? {
+    public func getExportHeadersFootersMode() -> ExportHeadersFootersMode? {
         return self.exportHeadersFootersMode;
     }
 
@@ -942,13 +1003,13 @@ public class HtmlSaveOptionsData : SaveOptionsData {
 
 
     // Sets exportListLabels. Gets or sets the option that controls how list labels are exported.
-    public func setExportListLabels(exportListLabels : String?) -> HtmlSaveOptionsData {
+    public func setExportListLabels(exportListLabels : ExportListLabels?) -> HtmlSaveOptionsData {
         self.exportListLabels = exportListLabels;
         return self;
     }
 
     // Gets exportListLabels. Gets or sets the option that controls how list labels are exported.
-    public func getExportListLabels() -> String? {
+    public func getExportListLabels() -> ExportListLabels? {
         return self.exportListLabels;
     }
 
@@ -1230,13 +1291,13 @@ public class HtmlSaveOptionsData : SaveOptionsData {
 
 
     // Sets tableWidthOutputMode. Gets or sets the option that controls how table, row and cell widths are exported.
-    public func setTableWidthOutputMode(tableWidthOutputMode : String?) -> HtmlSaveOptionsData {
+    public func setTableWidthOutputMode(tableWidthOutputMode : TableWidthOutputMode?) -> HtmlSaveOptionsData {
         self.tableWidthOutputMode = tableWidthOutputMode;
         return self;
     }
 
     // Gets tableWidthOutputMode. Gets or sets the option that controls how table, row and cell widths are exported.
-    public func getTableWidthOutputMode() -> String? {
+    public func getTableWidthOutputMode() -> TableWidthOutputMode? {
         return self.tableWidthOutputMode;
     }
 }
