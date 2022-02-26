@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="LoadWebDocumentTests.swift">
+ * <copyright company="Aspose" file="EncryptTests.swift">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -28,28 +28,45 @@
 import XCTest
 @testable import AsposeWordsCloud
 
-// Example of how to load web document.
+// Example of how to use batch requests.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-class LoadWebDocumentTests: BaseTestContext {
+class EncryptTests: BaseTestContext {
     static var allTests = [
-        ("testLoadWebDocument", testLoadWebDocument)
+        ("testEncrypt", testEncrypt),
+        ("testIsEncryptionAllowed", testIsEncryptionAllowed)
     ];
 
-    // Test for loading web document.
-    func testLoadWebDocument() throws {
-      let requestDataSaveOptions = DocSaveOptionsData()
-        .setDmlEffectsRenderingMode(dmlEffectsRenderingMode: DocSaveOptionsData.DmlEffectsRenderingMode._none)
-        .setDmlRenderingMode(dmlRenderingMode: DocSaveOptionsData.DmlRenderingMode.drawingML)
-        .setFileName(fileName: "google.doc")
-        .setUpdateSdtContent(updateSdtContent: false)
-        .setZipOutput(zipOutput: false);
-      let requestData = LoadWebDocumentData()
-        .setLoadingDocumentUrl(loadingDocumentUrl: "http://google.com")
-        .setSaveOptions(saveOptions: requestDataSaveOptions as! DocSaveOptionsData);
-      let request = LoadWebDocumentRequest(data: requestData);
-      let actual = try super.getApi().loadWebDocument(request: request);
-      XCTAssertNotNil(actual.getSaveResult());
-      XCTAssertNotNil(actual.getSaveResult()!.getDestDocument());
-      XCTAssertEqual(actual.getSaveResult()!.getDestDocument()!.getHref(), "google.doc");
+    // Test for encrypt.
+    func testEncrypt() throws {
+
+#if os(Linux)        
+        var thrownError: Error?
+
+        XCTAssertThrowsError(try super.getApi().encrypt(data: "12345")) {
+            thrownError = $0
+        }
+
+        XCTAssertTrue(
+            thrownError is WordsApiError,
+            "Unexpected error type: \(type(of: thrownError))"
+        )
+#else          
+        let result = try super.getApi().encrypt(data: "12345");
+
+        XCTAssertFalse(result.isEmpty);
+#endif
     }
+
+    // Test for isEncrypted.
+    func testIsEncryptionAllowed() throws {
+
+        let result = try super.getApi().isEncryptionAllowed();
+
+#if os(Linux) 
+        XCTAssertFalse(result);
+#else
+        XCTAssertTrue(result);
+#endif     
+    }
+
 }

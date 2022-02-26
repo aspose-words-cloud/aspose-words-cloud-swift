@@ -30,6 +30,30 @@ import Foundation
 // Container class for fixed html save options.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
+    // Gets or sets the export format of fonts.
+    public enum FontFormat : String, Codable
+    {
+        // Enum value "woff"
+        case woff = "Woff"
+
+        // Enum value "ttf"
+        case ttf = "Ttf"
+    }
+
+    // Gets or sets the horizontal alignment of pages in the HTML document.
+    // The default value is HtmlFixedHorizontalPageAlignment.Center.
+    public enum PageHorizontalAlignment : String, Codable
+    {
+        // Enum value "_left"
+        case _left = "Left"
+
+        // Enum value "center"
+        case center = "Center"
+
+        // Enum value "_right"
+        case _right = "Right"
+    }
+
     // Field of cssClassNamesPrefix. Container class for fixed html save options.
     private var _cssClassNamesPrefix : String? = nil;
 
@@ -103,9 +127,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of fontFormat. Container class for fixed html save options.
-    private var _fontFormat : String? = nil;
+    private var _fontFormat : FontFormat? = nil;
 
-    public var fontFormat : String? {
+    public var fontFormat : FontFormat? {
         get {
             return self._fontFormat;
         }
@@ -115,9 +139,9 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of pageHorizontalAlignment. Container class for fixed html save options.
-    private var _pageHorizontalAlignment : String? = nil;
+    private var _pageHorizontalAlignment : PageHorizontalAlignment? = nil;
 
-    public var pageHorizontalAlignment : String? {
+    public var pageHorizontalAlignment : PageHorizontalAlignment? {
         get {
             return self._pageHorizontalAlignment;
         }
@@ -238,8 +262,8 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
         self.exportEmbeddedFonts = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedFonts);
         self.exportEmbeddedImages = try container.decodeIfPresent(Bool.self, forKey: .exportEmbeddedImages);
         self.exportFormFields = try container.decodeIfPresent(Bool.self, forKey: .exportFormFields);
-        self.fontFormat = try container.decodeIfPresent(String.self, forKey: .fontFormat);
-        self.pageHorizontalAlignment = try container.decodeIfPresent(String.self, forKey: .pageHorizontalAlignment);
+        self.fontFormat = try container.decodeIfPresent(FontFormat.self, forKey: .fontFormat);
+        self.pageHorizontalAlignment = try container.decodeIfPresent(PageHorizontalAlignment.self, forKey: .pageHorizontalAlignment);
         self.pageMargins = try container.decodeIfPresent(Double.self, forKey: .pageMargins);
         self.resourcesFolder = try container.decodeIfPresent(String.self, forKey: .resourcesFolder);
         self.resourcesFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourcesFolderAlias);
@@ -368,25 +392,25 @@ public class HtmlFixedSaveOptionsData : FixedPageSaveOptionsData {
 
 
     // Sets fontFormat. Gets or sets the export format of fonts.
-    public func setFontFormat(fontFormat : String?) -> HtmlFixedSaveOptionsData {
+    public func setFontFormat(fontFormat : FontFormat?) -> HtmlFixedSaveOptionsData {
         self.fontFormat = fontFormat;
         return self;
     }
 
     // Gets fontFormat. Gets or sets the export format of fonts.
-    public func getFontFormat() -> String? {
+    public func getFontFormat() -> FontFormat? {
         return self.fontFormat;
     }
 
 
     // Sets pageHorizontalAlignment. Gets or sets the horizontal alignment of pages in the HTML document. The default value is HtmlFixedHorizontalPageAlignment.Center.
-    public func setPageHorizontalAlignment(pageHorizontalAlignment : String?) -> HtmlFixedSaveOptionsData {
+    public func setPageHorizontalAlignment(pageHorizontalAlignment : PageHorizontalAlignment?) -> HtmlFixedSaveOptionsData {
         self.pageHorizontalAlignment = pageHorizontalAlignment;
         return self;
     }
 
     // Gets pageHorizontalAlignment. Gets or sets the horizontal alignment of pages in the HTML document. The default value is HtmlFixedHorizontalPageAlignment.Center.
-    public func getPageHorizontalAlignment() -> String? {
+    public func getPageHorizontalAlignment() -> PageHorizontalAlignment? {
         return self.pageHorizontalAlignment;
     }
 

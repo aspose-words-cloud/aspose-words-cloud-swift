@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="WordsApiError.swift">
+ * <copyright company="Aspose" file="PdfPermissions.swift">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,29 +27,36 @@
 
 import Foundation
 
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public enum WordsApiError : LocalizedError {
-    case requestError(errorCode: Int, message: String?)
-    case requiredArgumentError(argumentName: String)
-    case invalidTypeSerialization(typeName: String)
-    case invalidMultipartResponse(message: String)
-    case badHostAddress(hostName: String)
-    case notSupportedMethod(methodName: String)
+// Specifies the operations that are allowed to a user on an encrypted PDF document.
+public enum PdfPermissions : String, Codable
+{
+    // Enum value "disallowAll"
+    case disallowAll = "DisallowAll"
 
-    public var errorDescription: String? {
-        switch self {
-            case let .requestError(errorCode, message):
-                return "Request error: \(errorCode); Description: \(message ?? "")";
-            case let .requiredArgumentError(argumentName):
-                return "Required argument \(argumentName) not present.";
-            case let .invalidTypeSerialization(typeName):
-                return "Failed to serialize type '\(typeName)'.";
-            case let .invalidMultipartResponse(message):
-                return "Failed to parse multipart response: \(message).";
-            case let .badHostAddress(hostName):
-                return "Unable to resolve hostname address '\(hostName)' as url.";
-            case let .notSupportedMethod(methodName):
-                return "Method '\(methodName)' is not supported.";
-        }
-    }
+    // Enum value "printing"
+    case printing = "Printing"
+
+    // Enum value "modifyContents"
+    case modifyContents = "ModifyContents"
+
+    // Enum value "contentCopy"
+    case contentCopy = "ContentCopy"
+
+    // Enum value "modifyAnnotations"
+    case modifyAnnotations = "ModifyAnnotations"
+
+    // Enum value "fillIn"
+    case fillIn = "FillIn"
+
+    // Enum value "contentCopyForAccessibility"
+    case contentCopyForAccessibility = "ContentCopyForAccessibility"
+
+    // Enum value "documentAssembly"
+    case documentAssembly = "DocumentAssembly"
+
+    // Enum value "highResolutionPrinting"
+    case highResolutionPrinting = "HighResolutionPrinting"
+
+    // Enum value "allowAll"
+    case allowAll = "AllowAll"
 }

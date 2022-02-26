@@ -30,10 +30,40 @@ import Foundation
 // Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class FixedPageSaveOptionsData : SaveOptionsData {
-    // Field of colorMode. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var _colorMode : String? = nil;
+    // Gets or sets the value determining how colors are rendered.
+    // { Normal | Grayscale}.
+    public enum ColorMode : String, Codable
+    {
+        // Enum value "normal"
+        case normal = "Normal"
 
-    public var colorMode : String? {
+        // Enum value "grayscale"
+        case grayscale = "Grayscale"
+    }
+
+    // Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
+    public enum NumeralFormat : String, Codable
+    {
+        // Enum value "european"
+        case european = "European"
+
+        // Enum value "arabicIndic"
+        case arabicIndic = "ArabicIndic"
+
+        // Enum value "easternArabicIndic"
+        case easternArabicIndic = "EasternArabicIndic"
+
+        // Enum value "context"
+        case context = "Context"
+
+        // Enum value "system"
+        case system = "System"
+    }
+
+    // Field of colorMode. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
+    private var _colorMode : ColorMode? = nil;
+
+    public var colorMode : ColorMode? {
         get {
             return self._colorMode;
         }
@@ -67,9 +97,9 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     }
 
     // Field of numeralFormat. Contains common options that can be specified when saving a document into fixed page formats (PDF, XPS, images etc).
-    private var _numeralFormat : String? = nil;
+    private var _numeralFormat : NumeralFormat? = nil;
 
-    public var numeralFormat : String? {
+    public var numeralFormat : NumeralFormat? {
         get {
             return self._numeralFormat;
         }
@@ -132,10 +162,10 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.colorMode = try container.decodeIfPresent(String.self, forKey: .colorMode);
+        self.colorMode = try container.decodeIfPresent(ColorMode.self, forKey: .colorMode);
         self.jpegQuality = try container.decodeIfPresent(Int.self, forKey: .jpegQuality);
         self.metafileRenderingOptions = try container.decodeIfPresent(MetafileRenderingOptionsData.self, forKey: .metafileRenderingOptions);
-        self.numeralFormat = try container.decodeIfPresent(String.self, forKey: .numeralFormat);
+        self.numeralFormat = try container.decodeIfPresent(NumeralFormat.self, forKey: .numeralFormat);
         self.optimizeOutput = try container.decodeIfPresent(Bool.self, forKey: .optimizeOutput);
         self.pageCount = try container.decodeIfPresent(Int.self, forKey: .pageCount);
         self.pageIndex = try container.decodeIfPresent(Int.self, forKey: .pageIndex);
@@ -168,13 +198,13 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
     }
 
     // Sets colorMode. Gets or sets the value determining how colors are rendered. { Normal | Grayscale}.
-    public func setColorMode(colorMode : String?) -> FixedPageSaveOptionsData {
+    public func setColorMode(colorMode : ColorMode?) -> FixedPageSaveOptionsData {
         self.colorMode = colorMode;
         return self;
     }
 
     // Gets colorMode. Gets or sets the value determining how colors are rendered. { Normal | Grayscale}.
-    public func getColorMode() -> String? {
+    public func getColorMode() -> ColorMode? {
         return self.colorMode;
     }
 
@@ -204,13 +234,13 @@ public class FixedPageSaveOptionsData : SaveOptionsData {
 
 
     // Sets numeralFormat. Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
-    public func setNumeralFormat(numeralFormat : String?) -> FixedPageSaveOptionsData {
+    public func setNumeralFormat(numeralFormat : NumeralFormat?) -> FixedPageSaveOptionsData {
         self.numeralFormat = numeralFormat;
         return self;
     }
 
     // Gets numeralFormat. Gets or sets the symbol set, that is used to represent numbers while rendering to fixed page formats.
-    public func getNumeralFormat() -> String? {
+    public func getNumeralFormat() -> NumeralFormat? {
         return self.numeralFormat;
     }
 

@@ -30,6 +30,56 @@ import Foundation
 // Container abstract class for image save options.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class ImageSaveOptionsData : FixedPageSaveOptionsData {
+    // Gets or sets the color mode of the image.
+    public enum ImageColorMode : String, Codable
+    {
+        // Enum value "_none"
+        case _none = "None"
+
+        // Enum value "grayscale"
+        case grayscale = "Grayscale"
+
+        // Enum value "blackAndWhite"
+        case blackAndWhite = "BlackAndWhite"
+    }
+
+    // Gets or sets the pixel format of the image.
+    public enum PixelFormat : String, Codable
+    {
+        // Enum value "format16BppRgb555"
+        case format16BppRgb555 = "Format16BppRgb555"
+
+        // Enum value "format16BppRgb565"
+        case format16BppRgb565 = "Format16BppRgb565"
+
+        // Enum value "format16BppArgb1555"
+        case format16BppArgb1555 = "Format16BppArgb1555"
+
+        // Enum value "format24BppRgb"
+        case format24BppRgb = "Format24BppRgb"
+
+        // Enum value "format32BppRgb"
+        case format32BppRgb = "Format32BppRgb"
+
+        // Enum value "format32BppArgb"
+        case format32BppArgb = "Format32BppArgb"
+
+        // Enum value "format32BppPArgb"
+        case format32BppPArgb = "Format32BppPArgb"
+
+        // Enum value "format48BppRgb"
+        case format48BppRgb = "Format48BppRgb"
+
+        // Enum value "format64BppArgb"
+        case format64BppArgb = "Format64BppArgb"
+
+        // Enum value "format64BppPArgb"
+        case format64BppPArgb = "Format64BppPArgb"
+
+        // Enum value "format1bppIndexed"
+        case format1bppIndexed = "Format1bppIndexed"
+    }
+
     // Field of horizontalResolution. Container abstract class for image save options.
     private var _horizontalResolution : Double? = nil;
 
@@ -55,9 +105,9 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of imageColorMode. Container abstract class for image save options.
-    private var _imageColorMode : String? = nil;
+    private var _imageColorMode : ImageColorMode? = nil;
 
-    public var imageColorMode : String? {
+    public var imageColorMode : ImageColorMode? {
         get {
             return self._imageColorMode;
         }
@@ -91,9 +141,9 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of pixelFormat. Container abstract class for image save options.
-    private var _pixelFormat : String? = nil;
+    private var _pixelFormat : PixelFormat? = nil;
 
-    public var pixelFormat : String? {
+    public var pixelFormat : PixelFormat? {
         get {
             return self._pixelFormat;
         }
@@ -199,10 +249,10 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.horizontalResolution = try container.decodeIfPresent(Double.self, forKey: .horizontalResolution);
         self.imageBrightness = try container.decodeIfPresent(Double.self, forKey: .imageBrightness);
-        self.imageColorMode = try container.decodeIfPresent(String.self, forKey: .imageColorMode);
+        self.imageColorMode = try container.decodeIfPresent(ImageColorMode.self, forKey: .imageColorMode);
         self.imageContrast = try container.decodeIfPresent(Double.self, forKey: .imageContrast);
         self.paperColor = try container.decodeIfPresent(String.self, forKey: .paperColor);
-        self.pixelFormat = try container.decodeIfPresent(String.self, forKey: .pixelFormat);
+        self.pixelFormat = try container.decodeIfPresent(PixelFormat.self, forKey: .pixelFormat);
         self.resolution = try container.decodeIfPresent(Double.self, forKey: .resolution);
         self.scale = try container.decodeIfPresent(Double.self, forKey: .scale);
         self.useAntiAliasing = try container.decodeIfPresent(Bool.self, forKey: .useAntiAliasing);
@@ -277,13 +327,13 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
 
 
     // Sets imageColorMode. Gets or sets the color mode of the image.
-    public func setImageColorMode(imageColorMode : String?) -> ImageSaveOptionsData {
+    public func setImageColorMode(imageColorMode : ImageColorMode?) -> ImageSaveOptionsData {
         self.imageColorMode = imageColorMode;
         return self;
     }
 
     // Gets imageColorMode. Gets or sets the color mode of the image.
-    public func getImageColorMode() -> String? {
+    public func getImageColorMode() -> ImageColorMode? {
         return self.imageColorMode;
     }
 
@@ -313,13 +363,13 @@ public class ImageSaveOptionsData : FixedPageSaveOptionsData {
 
 
     // Sets pixelFormat. Gets or sets the pixel format of the image.
-    public func setPixelFormat(pixelFormat : String?) -> ImageSaveOptionsData {
+    public func setPixelFormat(pixelFormat : PixelFormat?) -> ImageSaveOptionsData {
         self.pixelFormat = pixelFormat;
         return self;
     }
 
     // Gets pixelFormat. Gets or sets the pixel format of the image.
-    public func getPixelFormat() -> String? {
+    public func getPixelFormat() -> PixelFormat? {
         return self.pixelFormat;
     }
 

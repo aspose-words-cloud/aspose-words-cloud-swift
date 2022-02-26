@@ -30,6 +30,58 @@ import Foundation
 // Container class for pdf save options.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PdfSaveOptionsData : FixedPageSaveOptionsData {
+    // Gets or sets the PDF standards compliance level for output documents.
+    public enum Compliance : String, Codable
+    {
+        // Enum value "pdf17"
+        case pdf17 = "Pdf17"
+
+        // Enum value "pdf15"
+        case pdf15 = "Pdf15"
+
+        // Enum value "pdfA1a"
+        case pdfA1a = "PdfA1a"
+
+        // Enum value "pdfA1b"
+        case pdfA1b = "PdfA1b"
+
+        // Enum value "pdfA2a"
+        case pdfA2a = "PdfA2a"
+
+        // Enum value "pdfA2u"
+        case pdfA2u = "PdfA2u"
+
+        // Enum value "pdfUa1"
+        case pdfUa1 = "PdfUa1"
+    }
+
+    // Gets or sets the option that controls the way CustomDocumentProperties are exported to PDF file.
+    // The default value is None.
+    public enum CustomPropertiesExport : String, Codable
+    {
+        // Enum value "_none"
+        case _none = "None"
+
+        // Enum value "standard"
+        case standard = "Standard"
+
+        // Enum value "metadata"
+        case metadata = "Metadata"
+    }
+
+    // Gets or sets the font embedding mode.
+    public enum FontEmbeddingMode : String, Codable
+    {
+        // Enum value "embedAll"
+        case embedAll = "EmbedAll"
+
+        // Enum value "embedNonstandard"
+        case embedNonstandard = "EmbedNonstandard"
+
+        // Enum value "embedNone"
+        case embedNone = "EmbedNone"
+    }
+
     // Gets or sets the option that controls how bookmarks in headers/footers are exported.
     // The default value is Aspose.Words.Saving.HeaderFooterBookmarksExportMode.All.
     public enum HeaderFooterBookmarksExportMode : String, Codable
@@ -44,10 +96,74 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         case all = "All"
     }
 
-    // Field of compliance. Container class for pdf save options.
-    private var _compliance : String? = nil;
+    // Gets or sets the option that controls how the color space will be selected for the images in PDF document.
+    public enum ImageColorSpaceExportMode : String, Codable
+    {
+        // Enum value "auto"
+        case auto = "Auto"
 
-    public var compliance : String? {
+        // Enum value "simpleCmyk"
+        case simpleCmyk = "SimpleCmyk"
+    }
+
+    // Gets or sets the option that controls how the PDF document should be displayed when opened in the PDF reader.
+    public enum PageMode : String, Codable
+    {
+        // Enum value "useNone"
+        case useNone = "UseNone"
+
+        // Enum value "useOutlines"
+        case useOutlines = "UseOutlines"
+
+        // Enum value "useThumbs"
+        case useThumbs = "UseThumbs"
+
+        // Enum value "fullScreen"
+        case fullScreen = "FullScreen"
+
+        // Enum value "useOC"
+        case useOC = "UseOC"
+
+        // Enum value "useAttachments"
+        case useAttachments = "UseAttachments"
+    }
+
+    // Gets or sets the compression type to be used for all textual content in the document.
+    public enum TextCompression : String, Codable
+    {
+        // Enum value "_none"
+        case _none = "None"
+
+        // Enum value "flate"
+        case flate = "Flate"
+    }
+
+    // Gets or sets the option that controls what type of zoom should be applied when a document is opened with a PDF viewer.
+    public enum ZoomBehavior : String, Codable
+    {
+        // Enum value "_none"
+        case _none = "None"
+
+        // Enum value "zoomFactor"
+        case zoomFactor = "ZoomFactor"
+
+        // Enum value "fitPage"
+        case fitPage = "FitPage"
+
+        // Enum value "fitWidth"
+        case fitWidth = "FitWidth"
+
+        // Enum value "fitHeight"
+        case fitHeight = "FitHeight"
+
+        // Enum value "fitBox"
+        case fitBox = "FitBox"
+    }
+
+    // Field of compliance. Container class for pdf save options.
+    private var _compliance : Compliance? = nil;
+
+    public var compliance : Compliance? {
         get {
             return self._compliance;
         }
@@ -69,9 +185,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of customPropertiesExport. Container class for pdf save options.
-    private var _customPropertiesExport : String? = nil;
+    private var _customPropertiesExport : CustomPropertiesExport? = nil;
 
-    public var customPropertiesExport : String? {
+    public var customPropertiesExport : CustomPropertiesExport? {
         get {
             return self._customPropertiesExport;
         }
@@ -165,9 +281,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of fontEmbeddingMode. Container class for pdf save options.
-    private var _fontEmbeddingMode : String? = nil;
+    private var _fontEmbeddingMode : FontEmbeddingMode? = nil;
 
-    public var fontEmbeddingMode : String? {
+    public var fontEmbeddingMode : FontEmbeddingMode? {
         get {
             return self._fontEmbeddingMode;
         }
@@ -189,9 +305,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of imageColorSpaceExportMode. Container class for pdf save options.
-    private var _imageColorSpaceExportMode : String? = nil;
+    private var _imageColorSpaceExportMode : ImageColorSpaceExportMode? = nil;
 
-    public var imageColorSpaceExportMode : String? {
+    public var imageColorSpaceExportMode : ImageColorSpaceExportMode? {
         get {
             return self._imageColorSpaceExportMode;
         }
@@ -249,9 +365,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of pageMode. Container class for pdf save options.
-    private var _pageMode : String? = nil;
+    private var _pageMode : PageMode? = nil;
 
-    public var pageMode : String? {
+    public var pageMode : PageMode? {
         get {
             return self._pageMode;
         }
@@ -294,9 +410,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of textCompression. Container class for pdf save options.
-    private var _textCompression : String? = nil;
+    private var _textCompression : TextCompression? = nil;
 
-    public var textCompression : String? {
+    public var textCompression : TextCompression? {
         get {
             return self._textCompression;
         }
@@ -330,9 +446,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of zoomBehavior. Container class for pdf save options.
-    private var _zoomBehavior : String? = nil;
+    private var _zoomBehavior : ZoomBehavior? = nil;
 
-    public var zoomBehavior : String? {
+    public var zoomBehavior : ZoomBehavior? {
         get {
             return self._zoomBehavior;
         }
@@ -389,9 +505,9 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.compliance = try container.decodeIfPresent(String.self, forKey: .compliance);
+        self.compliance = try container.decodeIfPresent(Compliance.self, forKey: .compliance);
         self.createNoteHyperlinks = try container.decodeIfPresent(Bool.self, forKey: .createNoteHyperlinks);
-        self.customPropertiesExport = try container.decodeIfPresent(String.self, forKey: .customPropertiesExport);
+        self.customPropertiesExport = try container.decodeIfPresent(CustomPropertiesExport.self, forKey: .customPropertiesExport);
         self.digitalSignatureDetails = try container.decodeIfPresent(PdfDigitalSignatureDetailsData.self, forKey: .digitalSignatureDetails);
         self.displayDocTitle = try container.decodeIfPresent(Bool.self, forKey: .displayDocTitle);
         self.downsampleOptions = try container.decodeIfPresent(DownsampleOptionsData.self, forKey: .downsampleOptions);
@@ -399,20 +515,20 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         self.encryptionDetails = try container.decodeIfPresent(PdfEncryptionDetailsData.self, forKey: .encryptionDetails);
         self.exportDocumentStructure = try container.decodeIfPresent(Bool.self, forKey: .exportDocumentStructure);
         self.exportLanguageToSpanTag = try container.decodeIfPresent(Bool.self, forKey: .exportLanguageToSpanTag);
-        self.fontEmbeddingMode = try container.decodeIfPresent(String.self, forKey: .fontEmbeddingMode);
+        self.fontEmbeddingMode = try container.decodeIfPresent(FontEmbeddingMode.self, forKey: .fontEmbeddingMode);
         self.headerFooterBookmarksExportMode = try container.decodeIfPresent(HeaderFooterBookmarksExportMode.self, forKey: .headerFooterBookmarksExportMode);
-        self.imageColorSpaceExportMode = try container.decodeIfPresent(String.self, forKey: .imageColorSpaceExportMode);
+        self.imageColorSpaceExportMode = try container.decodeIfPresent(ImageColorSpaceExportMode.self, forKey: .imageColorSpaceExportMode);
         self.imageCompression = try container.decodeIfPresent(String.self, forKey: .imageCompression);
         self.interpolateImages = try container.decodeIfPresent(Bool.self, forKey: .interpolateImages);
         self.openHyperlinksInNewWindow = try container.decodeIfPresent(Bool.self, forKey: .openHyperlinksInNewWindow);
         self.outlineOptions = try container.decodeIfPresent(OutlineOptionsData.self, forKey: .outlineOptions);
-        self.pageMode = try container.decodeIfPresent(String.self, forKey: .pageMode);
+        self.pageMode = try container.decodeIfPresent(PageMode.self, forKey: .pageMode);
         self.preblendImages = try container.decodeIfPresent(Bool.self, forKey: .preblendImages);
         self.preserveFormFields = try container.decodeIfPresent(Bool.self, forKey: .preserveFormFields);
-        self.textCompression = try container.decodeIfPresent(String.self, forKey: .textCompression);
+        self.textCompression = try container.decodeIfPresent(TextCompression.self, forKey: .textCompression);
         self.useBookFoldPrintingSettings = try container.decodeIfPresent(Bool.self, forKey: .useBookFoldPrintingSettings);
         self.useCoreFonts = try container.decodeIfPresent(Bool.self, forKey: .useCoreFonts);
-        self.zoomBehavior = try container.decodeIfPresent(String.self, forKey: .zoomBehavior);
+        self.zoomBehavior = try container.decodeIfPresent(ZoomBehavior.self, forKey: .zoomBehavior);
         self.zoomFactor = try container.decodeIfPresent(Int.self, forKey: .zoomFactor);
     }
 
@@ -497,13 +613,13 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Sets compliance. Gets or sets the PDF standards compliance level for output documents.
-    public func setCompliance(compliance : String?) -> PdfSaveOptionsData {
+    public func setCompliance(compliance : Compliance?) -> PdfSaveOptionsData {
         self.compliance = compliance;
         return self;
     }
 
     // Gets compliance. Gets or sets the PDF standards compliance level for output documents.
-    public func getCompliance() -> String? {
+    public func getCompliance() -> Compliance? {
         return self.compliance;
     }
 
@@ -521,13 +637,13 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
 
 
     // Sets customPropertiesExport. Gets or sets the option that controls the way CustomDocumentProperties are exported to PDF file. The default value is None.
-    public func setCustomPropertiesExport(customPropertiesExport : String?) -> PdfSaveOptionsData {
+    public func setCustomPropertiesExport(customPropertiesExport : CustomPropertiesExport?) -> PdfSaveOptionsData {
         self.customPropertiesExport = customPropertiesExport;
         return self;
     }
 
     // Gets customPropertiesExport. Gets or sets the option that controls the way CustomDocumentProperties are exported to PDF file. The default value is None.
-    public func getCustomPropertiesExport() -> String? {
+    public func getCustomPropertiesExport() -> CustomPropertiesExport? {
         return self.customPropertiesExport;
     }
 
@@ -617,13 +733,13 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
 
 
     // Sets fontEmbeddingMode. Gets or sets the font embedding mode.
-    public func setFontEmbeddingMode(fontEmbeddingMode : String?) -> PdfSaveOptionsData {
+    public func setFontEmbeddingMode(fontEmbeddingMode : FontEmbeddingMode?) -> PdfSaveOptionsData {
         self.fontEmbeddingMode = fontEmbeddingMode;
         return self;
     }
 
     // Gets fontEmbeddingMode. Gets or sets the font embedding mode.
-    public func getFontEmbeddingMode() -> String? {
+    public func getFontEmbeddingMode() -> FontEmbeddingMode? {
         return self.fontEmbeddingMode;
     }
 
@@ -641,13 +757,13 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
 
 
     // Sets imageColorSpaceExportMode. Gets or sets the option that controls how the color space will be selected for the images in PDF document.
-    public func setImageColorSpaceExportMode(imageColorSpaceExportMode : String?) -> PdfSaveOptionsData {
+    public func setImageColorSpaceExportMode(imageColorSpaceExportMode : ImageColorSpaceExportMode?) -> PdfSaveOptionsData {
         self.imageColorSpaceExportMode = imageColorSpaceExportMode;
         return self;
     }
 
     // Gets imageColorSpaceExportMode. Gets or sets the option that controls how the color space will be selected for the images in PDF document.
-    public func getImageColorSpaceExportMode() -> String? {
+    public func getImageColorSpaceExportMode() -> ImageColorSpaceExportMode? {
         return self.imageColorSpaceExportMode;
     }
 
@@ -701,13 +817,13 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
 
 
     // Sets pageMode. Gets or sets the option that controls how the PDF document should be displayed when opened in the PDF reader.
-    public func setPageMode(pageMode : String?) -> PdfSaveOptionsData {
+    public func setPageMode(pageMode : PageMode?) -> PdfSaveOptionsData {
         self.pageMode = pageMode;
         return self;
     }
 
     // Gets pageMode. Gets or sets the option that controls how the PDF document should be displayed when opened in the PDF reader.
-    public func getPageMode() -> String? {
+    public func getPageMode() -> PageMode? {
         return self.pageMode;
     }
 
@@ -737,13 +853,13 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
 
 
     // Sets textCompression. Gets or sets the compression type to be used for all textual content in the document.
-    public func setTextCompression(textCompression : String?) -> PdfSaveOptionsData {
+    public func setTextCompression(textCompression : TextCompression?) -> PdfSaveOptionsData {
         self.textCompression = textCompression;
         return self;
     }
 
     // Gets textCompression. Gets or sets the compression type to be used for all textual content in the document.
-    public func getTextCompression() -> String? {
+    public func getTextCompression() -> TextCompression? {
         return self.textCompression;
     }
 
@@ -773,13 +889,13 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
 
 
     // Sets zoomBehavior. Gets or sets the option that controls what type of zoom should be applied when a document is opened with a PDF viewer.
-    public func setZoomBehavior(zoomBehavior : String?) -> PdfSaveOptionsData {
+    public func setZoomBehavior(zoomBehavior : ZoomBehavior?) -> PdfSaveOptionsData {
         self.zoomBehavior = zoomBehavior;
         return self;
     }
 
     // Gets zoomBehavior. Gets or sets the option that controls what type of zoom should be applied when a document is opened with a PDF viewer.
-    public func getZoomBehavior() -> String? {
+    public func getZoomBehavior() -> ZoomBehavior? {
         return self.zoomBehavior;
     }
 

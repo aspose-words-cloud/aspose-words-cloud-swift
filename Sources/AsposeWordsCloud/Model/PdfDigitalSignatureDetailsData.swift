@@ -30,6 +30,25 @@ import Foundation
 // Container class for details of digital signature.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
+    // Gets or sets the hash algorithm.
+    public enum HashAlgorithm : String, Codable
+    {
+        // Enum value "sha1"
+        case sha1 = "Sha1"
+
+        // Enum value "sha256"
+        case sha256 = "Sha256"
+
+        // Enum value "sha384"
+        case sha384 = "Sha384"
+
+        // Enum value "sha512"
+        case sha512 = "Sha512"
+
+        // Enum value "md5"
+        case md5 = "Md5"
+    }
+
     // Field of certificateFilename. Container class for details of digital signature.
     private var _certificateFilename : String? = nil;
 
@@ -43,9 +62,9 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     }
 
     // Field of hashAlgorithm. Container class for details of digital signature.
-    private var _hashAlgorithm : String? = nil;
+    private var _hashAlgorithm : HashAlgorithm? = nil;
 
-    public var hashAlgorithm : String? {
+    public var hashAlgorithm : HashAlgorithm? {
         get {
             return self._hashAlgorithm;
         }
@@ -105,7 +124,7 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
         self.certificateFilename = try container.decodeIfPresent(String.self, forKey: .certificateFilename);
-        self.hashAlgorithm = try container.decodeIfPresent(String.self, forKey: .hashAlgorithm);
+        self.hashAlgorithm = try container.decodeIfPresent(HashAlgorithm.self, forKey: .hashAlgorithm);
         self.location = try container.decodeIfPresent(String.self, forKey: .location);
         self.reason = try container.decodeIfPresent(String.self, forKey: .reason);
         var raw_signatureDate = try container.decodeIfPresent(String.self, forKey: .signatureDate);
@@ -148,13 +167,13 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
 
 
     // Sets hashAlgorithm. Gets or sets the hash algorithm.
-    public func setHashAlgorithm(hashAlgorithm : String?) -> PdfDigitalSignatureDetailsData {
+    public func setHashAlgorithm(hashAlgorithm : HashAlgorithm?) -> PdfDigitalSignatureDetailsData {
         self.hashAlgorithm = hashAlgorithm;
         return self;
     }
 
     // Gets hashAlgorithm. Gets or sets the hash algorithm.
-    public func getHashAlgorithm() -> String? {
+    public func getHashAlgorithm() -> HashAlgorithm? {
         return self.hashAlgorithm;
     }
 
