@@ -47,6 +47,9 @@ public class PdfDigitalSignatureDetailsData : Codable, WordsApiModel {
 
         // Enum value "md5"
         case md5 = "Md5"
+
+        // Enum value "ripeMD160"
+        case ripeMD160 = "RipeMD160"
     }
 
     // Field of certificateFilename. Container class for details of digital signature.

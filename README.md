@@ -16,6 +16,9 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 ## Enhancements in Version 22.3
 
 - Online methods returns the dictionary of files with included original filename as key instead of single file content in responses.
+- Parameters contained sensitive data should be passed in encrypted form. Names of the parameters have 'encrypted' prefix.
+- Added Encrypt method to encrypt data on the API public key. Use it to prepare values for parameters required encrypted data.
+- GetPublicKey method is not billable.
 
 
 ## Enhancements in Version 22.2
@@ -194,7 +197,7 @@ Add link to this repository as dependency to your Package.swift:
 
 dependencies: [
     // Dependencies declare other packages that this package depends on.
-    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "22.2"),
+    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "22.3"),
 ],
 targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -212,7 +215,7 @@ targets: [
 Add link to git repository as dependency to your Podfile:
 
 ```ruby
-pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '22.2'
+pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '22.3'
 ```
 
 ## Getting Started

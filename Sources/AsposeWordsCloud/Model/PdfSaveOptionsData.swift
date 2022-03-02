@@ -36,8 +36,8 @@ public class PdfSaveOptionsData : FixedPageSaveOptionsData {
         // Enum value "pdf17"
         case pdf17 = "Pdf17"
 
-        // Enum value "pdf15"
-        case pdf15 = "Pdf15"
+        // Enum value "pdf20"
+        case pdf20 = "Pdf20"
 
         // Enum value "pdfA1a"
         case pdfA1a = "PdfA1a"
