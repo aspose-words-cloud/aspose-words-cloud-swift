@@ -38,8 +38,8 @@ class LoadWebDocumentTests: BaseTestContext {
     // Test for loading web document.
     func testLoadWebDocument() throws {
       let requestDataSaveOptions = DocSaveOptionsData()
-        .setDmlEffectsRenderingMode(dmlEffectsRenderingMode: "1")
-        .setDmlRenderingMode(dmlRenderingMode: "1")
+        .setDmlEffectsRenderingMode(dmlEffectsRenderingMode: DocSaveOptionsData.DmlEffectsRenderingMode._none)
+        .setDmlRenderingMode(dmlRenderingMode: DocSaveOptionsData.DmlRenderingMode.drawingML)
         .setFileName(fileName: "google.doc")
         .setUpdateSdtContent(updateSdtContent: false)
         .setZipOutput(zipOutput: false);

@@ -33,11 +33,10 @@ public class ApiInvoker {
     // An object containing the configuration for executing API requests 
     private let configuration : Configuration;
 
-    // RSA key for password encryption
 #if os(Linux)
     // Encryption of passwords in query params not supported on linux
 #else
-    private var encryptionKey : SecKey?;
+    private let encryptor : Encryptor;
 #endif
 
     // Cached value of oauth2 authorization tokeт. 
@@ -56,26 +55,31 @@ public class ApiInvoker {
     private let httpStatusCodeTimeout = 408;
 
     // Initialize ApiInvoker object with specific configuration
+#if os(Linux)
     public init(configuration : Configuration) {
         self.configuration = configuration;
         self.mutex = NSLock();
         self.accessTokenCache = nil;
-
-#if os(Linux)
-    // Encryption of passwords in query params not supported on linux
-#else
-        self.encryptionKey = nil;
-#endif
     }
+#else
+    public init(configuration : Configuration, encryptor: Encryptor) {
+        self.configuration = configuration;
+        self.mutex = NSLock();
+        self.accessTokenCache = nil;
+        this.encryptor = encryptor;
+    }
+#endif
 
     // Internal class for represent API response
     private class InvokeResponse {
         public var data : Data?;
+        public var headers : [String : String];
         public var errorCode : Int;
         public var errorMessage : String?;
 
         public init(errorCode : Int) {
             self.errorCode = errorCode;
+            self.headers = [String : String]();
         }
     }
 
@@ -85,7 +89,7 @@ public class ApiInvoker {
     }
 
     // Invoke request to the API with the specified set of arguments and execute callback after the request is completed
-    public func invoke(apiRequestData : WordsApiRequestData, callback: @escaping (_ response: Data?, _ error: Error?) -> ()
+    public func invoke(apiRequestData : WordsApiRequestData, callback: @escaping (_ response: Data?, _ headers: [String: String], _ error: Error?) -> ()
     ) {
         // Create URL request object
         var request = URLRequest(url: apiRequestData.getURL());
@@ -115,29 +119,29 @@ public class ApiInvoker {
                                 self.invokeRequest(urlRequest: &request, accessToken: accessToken, callback: { response in
                                     if (response.errorCode == self.httpStatusCodeOK) {
                                         // Api request success
-                                        callback(response.data, nil);
+                                        callback(response.data, response.headers, nil);
                                     }
                                     else {
-                                        callback(nil, WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
+                                        callback(nil, [String : String](), WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
                                     }
                                 });
                             }
                             else {
-                                callback(nil, WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
+                                callback(nil, [String : String](), WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
                             }
                         });
                     }
                     else if (response.errorCode == self.httpStatusCodeOK) {
                         // Api request success
-                        callback(response.data, nil);
+                        callback(response.data, response.headers, nil);
                     }
                     else {
-                        callback(nil, WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
+                        callback(nil, [String : String](), WordsApiError.requestError(errorCode: response.errorCode, message: response.errorMessage));
                     }
                 });
             }
             else {
-                callback(nil, WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
+                callback(nil, [String : String](), WordsApiError.requestError(errorCode: statusCode, message: "Authorization failed."));
             }
         });
     }
@@ -189,6 +193,9 @@ public class ApiInvoker {
             if (rawResponse != nil) {
                 invokeResponse.errorCode = rawResponse!.statusCode;
                 invokeResponse.errorMessage = rawResponse!.description;
+                for header in rawResponse!.allHeaderFields {
+                    invokeResponse.headers[String(describing: header.key)] = String(describing: header.value);
+                }
             }
             else {
                 invokeResponse.errorCode = self.httpStatusCodeBadRequest;
@@ -296,65 +303,11 @@ public class ApiInvoker {
         return lengthField;
     }
 
-    public func setEncryptionData(data : PublicKeyResponse) throws {
 #if os(Linux)
-        // Encryption of passwords in query params not supported on linux
+    // Encryption of passwords in query params not supported on linux
 #else
-        let exponent = Data(base64Encoded: data.getExponent()!)!;
-        let modulus = Data(base64Encoded: data.getModulus()!)!;
-        let exponentBytes = [UInt8](exponent);
-        var modulusBytes = [UInt8](modulus);
-        modulusBytes.insert(0x00, at: 0);
-
-        var modulusEncoded: [UInt8] = [];
-        modulusEncoded.append(0x02);
-        modulusEncoded.append(contentsOf: lengthField(of: modulusBytes));
-        modulusEncoded.append(contentsOf: modulusBytes);
-
-        var exponentEncoded: [UInt8] = [];
-        exponentEncoded.append(0x02);
-        exponentEncoded.append(contentsOf: lengthField(of: exponentBytes));
-        exponentEncoded.append(contentsOf: exponentBytes);
-
-        var sequenceEncoded: [UInt8] = [];
-        sequenceEncoded.append(0x30);
-        sequenceEncoded.append(contentsOf: lengthField(of: (modulusEncoded + exponentEncoded)));
-        sequenceEncoded.append(contentsOf: (modulusEncoded + exponentEncoded));
-
-        let keyData = Data(bytes: sequenceEncoded);
-        let keySize = (modulusBytes.count * 8);
-
-        let attributes: [String: Any] = [
-            kSecAttrKeyType as String: kSecAttrKeyTypeRSA,
-            kSecAttrKeyClass as String: kSecAttrKeyClassPublic,
-            kSecAttrKeySizeInBits as String: keySize
-        ];
-
-        encryptionKey = SecKeyCreateWithData(keyData as CFData, attributes as CFDictionary, nil);
-#endif
+    public func encryptString(data : String) throws -> String {
+        return encryptor.encrypt(data);
     }
-
-    public func encryptString(value : String) throws -> String {
-#if os(Linux)
-        // Encryption of passwords in query params not supported on linux
-        return value;
-#else
-        let buffer = value.data(using: .utf8)!;
-        var error: Unmanaged<CFError>? = nil;
-
-        // Encrypto should less than key length
-        let secData = SecKeyCreateEncryptedData(encryptionKey!, .rsaEncryptionPKCS1, buffer as CFData, &error)!;
-        var secBuffer = [UInt8](repeating: 0, count: CFDataGetLength(secData));
-        CFDataGetBytes(secData, CFRangeMake(0, CFDataGetLength(secData)), &secBuffer);
-        return Data(bytes: secBuffer).base64EncodedString().replacingOccurrences(of: "+", with: "%2B").replacingOccurrences(of: "/", with: "%2F");
 #endif
-    }
-
-    public func isEncryptionAllowed() -> Bool {
-#if os(Linux)
-        return false;
-#else
-        return true;
-#endif
-    }
 }

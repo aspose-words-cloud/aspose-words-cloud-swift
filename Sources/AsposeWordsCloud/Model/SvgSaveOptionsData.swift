@@ -30,6 +30,19 @@ import Foundation
 // Container class for svg save options.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class SvgSaveOptionsData : FixedPageSaveOptionsData {
+    // Gets or sets the option that controls how text should be rendered.
+    public enum TextOutputMode : String, Codable
+    {
+        // Enum value "useSvgFonts"
+        case useSvgFonts = "UseSvgFonts"
+
+        // Enum value "useTargetMachineFonts"
+        case useTargetMachineFonts = "UseTargetMachineFonts"
+
+        // Enum value "usePlacedGlyphs"
+        case usePlacedGlyphs = "UsePlacedGlyphs"
+    }
+
     // Field of exportEmbeddedImages. Container class for svg save options.
     private var _exportEmbeddedImages : Bool? = nil;
 
@@ -100,9 +113,9 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
     }
 
     // Field of textOutputMode. Container class for svg save options.
-    private var _textOutputMode : String? = nil;
+    private var _textOutputMode : TextOutputMode? = nil;
 
-    public var textOutputMode : String? {
+    public var textOutputMode : TextOutputMode? {
         get {
             return self._textOutputMode;
         }
@@ -133,7 +146,7 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
         self.resourcesFolder = try container.decodeIfPresent(String.self, forKey: .resourcesFolder);
         self.resourcesFolderAlias = try container.decodeIfPresent(String.self, forKey: .resourcesFolderAlias);
         self.showPageBorder = try container.decodeIfPresent(Bool.self, forKey: .showPageBorder);
-        self.textOutputMode = try container.decodeIfPresent(String.self, forKey: .textOutputMode);
+        self.textOutputMode = try container.decodeIfPresent(TextOutputMode.self, forKey: .textOutputMode);
     }
 
     public override func encode(to encoder: Encoder) throws {
@@ -220,13 +233,13 @@ public class SvgSaveOptionsData : FixedPageSaveOptionsData {
 
 
     // Sets textOutputMode. Gets or sets the option that controls how text should be rendered.
-    public func setTextOutputMode(textOutputMode : String?) -> SvgSaveOptionsData {
+    public func setTextOutputMode(textOutputMode : TextOutputMode?) -> SvgSaveOptionsData {
         self.textOutputMode = textOutputMode;
         return self;
     }
 
     // Gets textOutputMode. Gets or sets the option that controls how text should be rendered.
-    public func getTextOutputMode() -> String? {
+    public func getTextOutputMode() -> TextOutputMode? {
         return self.textOutputMode;
     }
 }

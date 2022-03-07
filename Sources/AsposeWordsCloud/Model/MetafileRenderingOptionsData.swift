@@ -30,10 +30,36 @@ import Foundation
 // Container class for options of metafile rendering.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class MetafileRenderingOptionsData : Codable, WordsApiModel {
-    // Field of emfPlusDualRenderingMode. Container class for options of metafile rendering.
-    private var _emfPlusDualRenderingMode : String? = nil;
+    // Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.
+    public enum EmfPlusDualRenderingMode : String, Codable
+    {
+        // Enum value "emfPlusWithFallback"
+        case emfPlusWithFallback = "EmfPlusWithFallback"
 
-    public var emfPlusDualRenderingMode : String? {
+        // Enum value "emfPlus"
+        case emfPlus = "EmfPlus"
+
+        // Enum value "emf"
+        case emf = "Emf"
+    }
+
+    // Gets or sets the option that controls how metafile images should be rendered.
+    public enum RenderingMode : String, Codable
+    {
+        // Enum value "vectorWithFallback"
+        case vectorWithFallback = "VectorWithFallback"
+
+        // Enum value "vector"
+        case vector = "Vector"
+
+        // Enum value "bitmap"
+        case bitmap = "Bitmap"
+    }
+
+    // Field of emfPlusDualRenderingMode. Container class for options of metafile rendering.
+    private var _emfPlusDualRenderingMode : EmfPlusDualRenderingMode? = nil;
+
+    public var emfPlusDualRenderingMode : EmfPlusDualRenderingMode? {
         get {
             return self._emfPlusDualRenderingMode;
         }
@@ -55,9 +81,9 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     }
 
     // Field of renderingMode. Container class for options of metafile rendering.
-    private var _renderingMode : String? = nil;
+    private var _renderingMode : RenderingMode? = nil;
 
-    public var renderingMode : String? {
+    public var renderingMode : RenderingMode? {
         get {
             return self._renderingMode;
         }
@@ -104,9 +130,9 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
 
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.emfPlusDualRenderingMode = try container.decodeIfPresent(String.self, forKey: .emfPlusDualRenderingMode);
+        self.emfPlusDualRenderingMode = try container.decodeIfPresent(EmfPlusDualRenderingMode.self, forKey: .emfPlusDualRenderingMode);
         self.emulateRasterOperations = try container.decodeIfPresent(Bool.self, forKey: .emulateRasterOperations);
-        self.renderingMode = try container.decodeIfPresent(String.self, forKey: .renderingMode);
+        self.renderingMode = try container.decodeIfPresent(RenderingMode.self, forKey: .renderingMode);
         self.scaleWmfFontsToMetafileSize = try container.decodeIfPresent(Bool.self, forKey: .scaleWmfFontsToMetafileSize);
         self.useEmfEmbeddedToWmf = try container.decodeIfPresent(Bool.self, forKey: .useEmfEmbeddedToWmf);
     }
@@ -131,13 +157,13 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
     }
 
     // Sets emfPlusDualRenderingMode. Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.
-    public func setEmfPlusDualRenderingMode(emfPlusDualRenderingMode : String?) -> MetafileRenderingOptionsData {
+    public func setEmfPlusDualRenderingMode(emfPlusDualRenderingMode : EmfPlusDualRenderingMode?) -> MetafileRenderingOptionsData {
         self.emfPlusDualRenderingMode = emfPlusDualRenderingMode;
         return self;
     }
 
     // Gets emfPlusDualRenderingMode. Gets or sets the option that controls how EMF+ Dual metafiles should be rendered.
-    public func getEmfPlusDualRenderingMode() -> String? {
+    public func getEmfPlusDualRenderingMode() -> EmfPlusDualRenderingMode? {
         return self.emfPlusDualRenderingMode;
     }
 
@@ -155,13 +181,13 @@ public class MetafileRenderingOptionsData : Codable, WordsApiModel {
 
 
     // Sets renderingMode. Gets or sets the option that controls how metafile images should be rendered.
-    public func setRenderingMode(renderingMode : String?) -> MetafileRenderingOptionsData {
+    public func setRenderingMode(renderingMode : RenderingMode?) -> MetafileRenderingOptionsData {
         self.renderingMode = renderingMode;
         return self;
     }
 
     // Gets renderingMode. Gets or sets the option that controls how metafile images should be rendered.
-    public func getRenderingMode() -> String? {
+    public func getRenderingMode() -> RenderingMode? {
         return self.renderingMode;
     }
 

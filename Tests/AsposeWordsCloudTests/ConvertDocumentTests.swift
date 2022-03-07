@@ -34,6 +34,7 @@ class ConvertDocumentTests: BaseTestContext {
     static var allTests = [
         ("testSaveAs", testSaveAs),
         ("testSaveAsOnline", testSaveAsOnline),
+        ("testSaveAsOnlineHtmlMultifile", testSaveAsOnlineHtmlMultifile),
         ("testSaveAsDocx", testSaveAsDocx),
         ("testSaveAsTiff", testSaveAsTiff),
         ("testSaveAsTiffOnline", testSaveAsTiffOnline),
@@ -66,6 +67,19 @@ class ConvertDocumentTests: BaseTestContext {
       let requestSaveOptionsData = PdfSaveOptionsData()
         .setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/TestSaveAs.pdf");
       let request = SaveAsOnlineRequest(document: requestDocument, saveOptionsData: requestSaveOptionsData as! PdfSaveOptionsData);
+      _ = try super.getApi().saveAsOnline(request: request);
+    }
+
+    // Test for converting document online to html with additional files like css and images.
+    func testSaveAsOnlineHtmlMultifile() throws {
+      let localName = "test_multi_pages.docx";
+
+      let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent("Common/" + localName, isDirectory: false))!;
+      let requestSaveOptionsData = HtmlSaveOptionsData()
+        .setCssStyleSheetFileName(cssStyleSheetFileName: BaseTestContext.getRemoteTestOut() + "/TestSaveAsHtml.css")
+        .setCssStyleSheetType(cssStyleSheetType: HtmlSaveOptionsData.CssStyleSheetType.external)
+        .setFileName(fileName: BaseTestContext.getRemoteTestOut() + "/TestSaveAsHtml.html");
+      let request = SaveAsOnlineRequest(document: requestDocument, saveOptionsData: requestSaveOptionsData as! HtmlSaveOptionsData);
       _ = try super.getApi().saveAsOnline(request: request);
     }
 

@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="InsertCommentOnlineResponse.swift">
+ * <copyright company="Aspose" file="EncryptTests.swift">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -25,33 +25,48 @@
  * --------------------------------------------------------------------------------
  */
 
-import Foundation
+import XCTest
+@testable import AsposeWordsCloud
 
-// Response model for insertCommentOnline operation.
+// Example of how to use batch requests.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class InsertCommentOnlineResponse {
-    private let model : CommentResponse?;
-    private let document : [String: Data]?;
+class EncryptTests: BaseTestContext {
+    static var allTests = [
+        ("testEncrypt", testEncrypt),
+        ("testIsEncryptionAllowed", testIsEncryptionAllowed)
+    ];
 
-    private enum CodingKeys: String, CodingKey {
-        case model;
-        case document;
-        case invalidCodingKey;
+    // Test for encrypt.
+    func testEncrypt() throws {
+
+#if os(Linux)        
+        var thrownError: Error?
+
+        XCTAssertThrowsError(try super.getApi().encrypt(data: "12345")) {
+            thrownError = $0
+        }
+
+        XCTAssertTrue(
+            thrownError is WordsApiError,
+            "Unexpected error type: \(type(of: thrownError))"
+        )
+#else          
+        let result = try super.getApi().encrypt(data: "12345");
+
+        XCTAssertFalse(result.isEmpty);
+#endif
     }
 
-    // Initializes a new instance of the InsertCommentOnlineResponse class.
-    public init(model : CommentResponse?, document : [String: Data]?) {
-        self.model = model;
-        self.document = document;
+    // Test for isEncrypted.
+    func testIsEncryptionAllowed() throws {
+
+        let result = try super.getApi().isEncryptionAllowed();
+
+#if os(Linux) 
+        XCTAssertFalse(result);
+#else
+        XCTAssertTrue(result);
+#endif     
     }
 
-    // The response model.
-    public func getModel() -> CommentResponse? {
-        return self.model;
-    }
-
-    // The document after modification.
-    public func getDocument() -> [String: Data]? {
-        return self.document;
-    }
 }

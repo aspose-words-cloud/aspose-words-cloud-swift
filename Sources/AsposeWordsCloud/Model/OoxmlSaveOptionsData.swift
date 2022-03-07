@@ -30,6 +30,19 @@ import Foundation
 // Container class for docx/docm/dotx/dotm/flatopc save options.
 @available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
 public class OoxmlSaveOptionsData : SaveOptionsData {
+    // Gets or sets the oOXML version for the output document.
+    public enum Compliance : String, Codable
+    {
+        // Enum value "ecma376_2006"
+        case ecma376_2006 = "Ecma376_2006"
+
+        // Enum value "iso29500_2008_Transitional"
+        case iso29500_2008_Transitional = "Iso29500_2008_Transitional"
+
+        // Enum value "iso29500_2008_Strict"
+        case iso29500_2008_Strict = "Iso29500_2008_Strict"
+    }
+
     // Gets or sets the compression level.
     public enum CompressionLevel : String, Codable
     {
@@ -47,9 +60,9 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     }
 
     // Field of compliance. Container class for docx/docm/dotx/dotm/flatopc save options.
-    private var _compliance : String? = nil;
+    private var _compliance : Compliance? = nil;
 
-    public var compliance : String? {
+    public var compliance : Compliance? {
         get {
             return self._compliance;
         }
@@ -109,7 +122,7 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder);
         let container = try decoder.container(keyedBy: CodingKeys.self);
-        self.compliance = try container.decodeIfPresent(String.self, forKey: .compliance);
+        self.compliance = try container.decodeIfPresent(Compliance.self, forKey: .compliance);
         self.compressionLevel = try container.decodeIfPresent(CompressionLevel.self, forKey: .compressionLevel);
         self.password = try container.decodeIfPresent(String.self, forKey: .password);
         self.prettyFormat = try container.decodeIfPresent(Bool.self, forKey: .prettyFormat);
@@ -133,13 +146,13 @@ public class OoxmlSaveOptionsData : SaveOptionsData {
     }
 
     // Sets compliance. Gets or sets the oOXML version for the output document.
-    public func setCompliance(compliance : String?) -> OoxmlSaveOptionsData {
+    public func setCompliance(compliance : Compliance?) -> OoxmlSaveOptionsData {
         self.compliance = compliance;
         return self;
     }
 
     // Gets compliance. Gets or sets the oOXML version for the output document.
-    public func getCompliance() -> String? {
+    public func getCompliance() -> Compliance? {
         return self.compliance;
     }
 

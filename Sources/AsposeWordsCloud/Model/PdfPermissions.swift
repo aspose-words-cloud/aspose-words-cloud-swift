@@ -1,6 +1,6 @@
 /*
  * --------------------------------------------------------------------------------
- * <copyright company="Aspose" file="InsertCommentOnlineResponse.swift">
+ * <copyright company="Aspose" file="PdfPermissions.swift">
  *   Copyright (c) 2022 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -27,31 +27,36 @@
 
 import Foundation
 
-// Response model for insertCommentOnline operation.
-@available(macOS 10.12, iOS 10.3, watchOS 3.3, tvOS 12.0, *)
-public class InsertCommentOnlineResponse {
-    private let model : CommentResponse?;
-    private let document : [String: Data]?;
+// Specifies the operations that are allowed to a user on an encrypted PDF document.
+public enum PdfPermissions : String, Codable
+{
+    // Enum value "disallowAll"
+    case disallowAll = "DisallowAll"
 
-    private enum CodingKeys: String, CodingKey {
-        case model;
-        case document;
-        case invalidCodingKey;
-    }
+    // Enum value "printing"
+    case printing = "Printing"
 
-    // Initializes a new instance of the InsertCommentOnlineResponse class.
-    public init(model : CommentResponse?, document : [String: Data]?) {
-        self.model = model;
-        self.document = document;
-    }
+    // Enum value "modifyContents"
+    case modifyContents = "ModifyContents"
 
-    // The response model.
-    public func getModel() -> CommentResponse? {
-        return self.model;
-    }
+    // Enum value "contentCopy"
+    case contentCopy = "ContentCopy"
 
-    // The document after modification.
-    public func getDocument() -> [String: Data]? {
-        return self.document;
-    }
+    // Enum value "modifyAnnotations"
+    case modifyAnnotations = "ModifyAnnotations"
+
+    // Enum value "fillIn"
+    case fillIn = "FillIn"
+
+    // Enum value "contentCopyForAccessibility"
+    case contentCopyForAccessibility = "ContentCopyForAccessibility"
+
+    // Enum value "documentAssembly"
+    case documentAssembly = "DocumentAssembly"
+
+    // Enum value "highResolutionPrinting"
+    case highResolutionPrinting = "HighResolutionPrinting"
+
+    // Enum value "allowAll"
+    case allowAll = "AllowAll"
 }

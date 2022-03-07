@@ -127,31 +127,108 @@ public class SplitDocumentOnlineRequest : WordsApiRequest {
          let urlPath = (try configuration.getApiRootUrl()).appendingPathComponent(rawPath);
          var urlBuilder = URLComponents(url: urlPath, resolvingAgainstBaseURL: false)!;
          var queryItems : [URLQueryItem] = [];
-         queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: self.getFormat())));
-         if (self.getLoadEncoding() != nil) {
-         queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
-         }
-         if (self.getPassword() != nil) {
-         queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
-         }
-         if (self.getEncryptedPassword() != nil) {
-         queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
-         }
-         if (self.getDestFileName() != nil) {
-         queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
-         }
-         if (self.getFrom() != nil) {
-         queryItems.append(URLQueryItem(name: "from", value: try ObjectSerializer.serializeToString(value: self.getFrom()!)));
-         }
-         if (self.getTo() != nil) {
-         queryItems.append(URLQueryItem(name: "to", value: try ObjectSerializer.serializeToString(value: self.getTo()!)));
-         }
-         if (self.getZipOutput() != nil) {
-         queryItems.append(URLQueryItem(name: "zipOutput", value: try ObjectSerializer.serializeToString(value: self.getZipOutput()!)));
-         }
-         if (self.getFontsLocation() != nil) {
-         queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
-         }
+         #if os(Linux) 
+             queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: self.getFormat())));
+         #else
+                 queryItems.append(URLQueryItem(name: "format", value: try ObjectSerializer.serializeToString(value: self.getFormat())));
+         #endif
+
+
+             if (self.getLoadEncoding() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "loadEncoding", value: try ObjectSerializer.serializeToString(value: self.getLoadEncoding()!)));
+
+         #endif        
+             }
+
+
+             if (self.getPassword() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "password", value: try ObjectSerializer.serializeToString(value: self.getPassword()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: apiInvoker.isEncryptionAllowed() ? "encryptedPassword" : "password", value: try apiInvoker.encryptString(value: self.getPassword()!)));
+
+         #endif        
+             }
+
+
+             if (self.getEncryptedPassword() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "encryptedPassword", value: try ObjectSerializer.serializeToString(value: self.getEncryptedPassword()!)));
+
+         #endif        
+             }
+
+
+             if (self.getDestFileName() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "destFileName", value: try ObjectSerializer.serializeToString(value: self.getDestFileName()!)));
+
+         #endif        
+             }
+
+
+             if (self.getFrom() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "from", value: try ObjectSerializer.serializeToString(value: self.getFrom()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "from", value: try ObjectSerializer.serializeToString(value: self.getFrom()!)));
+
+         #endif        
+             }
+
+
+             if (self.getTo() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "to", value: try ObjectSerializer.serializeToString(value: self.getTo()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "to", value: try ObjectSerializer.serializeToString(value: self.getTo()!)));
+
+         #endif        
+             }
+
+
+             if (self.getZipOutput() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "zipOutput", value: try ObjectSerializer.serializeToString(value: self.getZipOutput()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "zipOutput", value: try ObjectSerializer.serializeToString(value: self.getZipOutput()!)));
+
+         #endif        
+             }
+
+
+             if (self.getFontsLocation() != nil) {
+
+         #if os(Linux) 
+                     queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
+
+         #else
+                     queryItems.append(URLQueryItem(name: "fontsLocation", value: try ObjectSerializer.serializeToString(value: self.getFontsLocation()!)));
+
+         #endif        
+             }
+
          if (queryItems.count > 0) {
              urlBuilder.queryItems = queryItems;
          }
@@ -165,14 +242,14 @@ public class SplitDocumentOnlineRequest : WordsApiRequest {
     }
 
     // Deserialize response of this request
-    public func deserializeResponse(data : Data) throws -> Any? {
+    public func deserializeResponse(data : Data, headers : [String: String]) throws -> Any? {
         let multipart = try ObjectSerializer.parseMultipart(data: data);
         return SplitDocumentOnlineResponse(
             model: try ObjectSerializer.deserialize(
                 type: SplitDocumentResponse.self,
                 from: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Model")).getBody()
             ),
-            document: (try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document")).getBody()
+            document: try ObjectSerializer.parseFilesCollection(part: try ObjectSerializer.getMultipartByName(multipart: multipart, name: "Document"))
         );
     }
 }

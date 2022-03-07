@@ -131,6 +131,45 @@ class ObjectSerializer {
         return try customDecoder.decode(type, from: data);
     }
 
+    // Parse files collection
+    public static func parseFilesCollection(part: ResponseFormParam) throws -> [String : Data] {
+        return try parseFilesCollection(data: part.getBody(), headers: part.getHeaders());
+    }
+
+    // Parse files collection
+    public static func parseFilesCollection(data: Data, headers: [String : String]) throws -> [String : Data] {
+        var result = [String : Data]();
+        let contentType = headers["Content-Type"];
+        if (contentType?.starts(with: "multipart/mixed") == true) {
+            let parts = try parseMultipart(data: data);
+            for part in parts {
+                var filename = "";
+                let disposition = part.getHeaders()["Content-Disposition"];
+                if (disposition == nil) {
+                    continue;
+                }
+
+                let dispparts = disposition!.split(separator: ";");
+                for disppart in dispparts {
+                    let dispparttrim = disppart.trimmingCharacters(in: .whitespaces);
+                    if (dispparttrim.starts(with: "filename=")) {
+                        let subparts = dispparttrim.split(separator: "=");
+                        if (subparts.count == 2) {
+                            filename = subparts[1].trimmingCharacters(in: CharacterSet(charactersIn: " \""));
+                        }
+                    }
+                }
+
+                result[filename] = part.getBody();
+            }
+        }
+        else {
+            result[""] = data;
+        }
+
+        return result;
+    }
+
     // Deserialize an multipart response
     public static func parseMultipart(data: Data) throws -> [ResponseFormParam] {
         var result = [ResponseFormParam]();
@@ -192,7 +231,7 @@ class ObjectSerializer {
                     let componentDataParts = componentData.split(separator: "=");
                     if (componentDataParts.count == 2) {
                         let componentKey = componentDataParts[0].trimmingCharacters(in: .whitespaces);
-                        let componentValue = componentDataParts[1].trimmingCharacters(in: .whitespaces);
+                        let componentValue = componentDataParts[1].trimmingCharacters(in: CharacterSet(charactersIn: " \""));
                         if (componentKey == "name") {
                             partName = componentValue;
                             break;
@@ -256,13 +295,25 @@ class ObjectSerializer {
             throw WordsApiError.invalidMultipartResponse(message: "Failed to parse head content");
         }
 
+        var headers = [String : String]();
+        for headerLine in headParts {
+            if (!headerLine.contains(":")) {
+                continue;
+            }
+
+            let headerParts = headerLine.components(separatedBy: ":");
+            if (headerParts.count == 2) {
+                headers[headerParts[0].trimmingCharacters(in: .whitespacesAndNewlines)] = headerParts[1].trimmingCharacters(in: .whitespacesAndNewlines);
+            }
+        }
+
         let bodyData = data.subdata(in: partDataBounds!.upperBound..<data.endIndex);
         if (codeStatus != 200) {
             let errorMessage = String(decoding: bodyData, as: UTF8.self);
             return WordsApiError.requestError(errorCode: codeStatus!, message: errorMessage);
         }
 
-        return try request.deserializeResponse(data: bodyData);
+        return try request.deserializeResponse(data: bodyData, headers: headers);
     }
 
     // Configuration for DateTime serialization/deserialization
