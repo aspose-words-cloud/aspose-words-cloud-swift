@@ -867,6 +867,52 @@ public class WordsAPI : Encryptor {
         return responseObject!;
     }
 
+    // Async representation of copyStylesFromTemplate method
+    // Copies styles from the origin document to the target document.
+    public func copyStylesFromTemplate(request : CopyStylesFromTemplateRequest, callback : @escaping (_ response : WordsResponse?, _ error : Error?) -> ()) {
+        do {
+            apiInvoker.invoke(
+                apiRequestData: try request.createApiRequestData(apiInvoker: self.apiInvoker, configuration: self.configuration),
+                callback: { response, headers, error in
+                    if (error != nil) {
+                        callback(nil, error);
+                    }
+                    else {
+                        do {
+                            callback(try request.deserializeResponse(data: response!, headers: headers) as? WordsResponse, nil);
+                        }
+                        catch let deserializeError {
+                            callback(nil, deserializeError);
+                        }
+                    }
+                }
+            );
+        }
+        catch let error {
+            callback(nil, error);
+        }
+    }
+
+    // Sync representation of copyStylesFromTemplate method
+    // Copies styles from the origin document to the target document.
+    public func copyStylesFromTemplate(request : CopyStylesFromTemplateRequest) throws -> WordsResponse {
+        let semaphore = DispatchSemaphore(value: 0);
+        var responseObject : WordsResponse? = nil;
+        var responseError : Error? = nil;
+        self.copyStylesFromTemplate(request : request, callback: { response, error in
+            responseObject = response;
+            responseError = error;
+            semaphore.signal();
+        });
+
+        _ = semaphore.wait();
+
+        if (responseError != nil) {
+            throw responseError!;
+        }
+        return responseObject!;
+    }
+
     // Async representation of createDocument method
     // Supported extensions: ".doc", ".docx", ".docm", ".dot", ".dotm", ".dotx", ".flatopc", ".fopc", ".flatopc_macro", ".fopc_macro", ".flatopc_template", ".fopc_template", ".flatopc_template_macro", ".fopc_template_macro", ".wordml", ".wml", ".rtf".
     public func createDocument(request : CreateDocumentRequest, callback : @escaping (_ response : DocumentResponse?, _ error : Error?) -> ()) {

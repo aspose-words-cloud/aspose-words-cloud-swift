@@ -45,7 +45,8 @@ class StylesTests: BaseTestContext {
         ("testGetStyleFromDocumentElement", testGetStyleFromDocumentElement),
         ("testGetStyleFromDocumentElementOnline", testGetStyleFromDocumentElementOnline),
         ("testApplyStyleToDocumentElement", testApplyStyleToDocumentElement),
-        ("testApplyStyleToDocumentElementOnline", testApplyStyleToDocumentElementOnline)
+        ("testApplyStyleToDocumentElementOnline", testApplyStyleToDocumentElementOnline),
+        ("testCopyStylesFromTemplate", testCopyStylesFromTemplate)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Styles";
@@ -199,5 +200,18 @@ class StylesTests: BaseTestContext {
         .setStyleName(styleName: "Heading 1");
       let request = ApplyStyleToDocumentElementOnlineRequest(document: requestDocument, styledNodePath: "paragraphs/1/paragraphFormat", styleApply: requestStyleApply);
       _ = try super.getApi().applyStyleToDocumentElementOnline(request: request);
+    }
+
+    // Test for copying styles from a template.
+    func testCopyStylesFromTemplate() throws {
+      let remoteFileName = "TestCopyStylesFromTemplate.docx";
+      let templateFolder = "DocumentElements/Styles";
+      let templateName = "StyleTemplate.docx";
+
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false), path: remoteDataFolder + "/" + remoteFileName);
+      try super.uploadFile(fileContent: getLocalTestDataFolder().appendingPathComponent(templateFolder + "/" + templateName, isDirectory: false), path: remoteDataFolder + "/" + templateName);
+
+      let request = CopyStylesFromTemplateRequest(name: remoteFileName, templateName: templateName, folder: remoteDataFolder);
+      _ = try super.getApi().copyStylesFromTemplate(request: request);
     }
 }
