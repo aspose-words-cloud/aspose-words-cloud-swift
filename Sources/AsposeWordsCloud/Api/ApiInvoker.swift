@@ -66,7 +66,7 @@ public class ApiInvoker {
         self.configuration = configuration;
         self.mutex = NSLock();
         self.accessTokenCache = nil;
-        this.encryptor = encryptor;
+        self.encryptor = encryptor;
     }
 #endif
 
@@ -274,7 +274,7 @@ public class ApiInvoker {
         }
     }
 
-    private func lengthField(of valueField: [UInt8]) -> [UInt8] {
+    public func lengthField(of valueField: [UInt8]) -> [UInt8] {
         var count = valueField.count;
 
         if (count < 128) {
@@ -306,8 +306,8 @@ public class ApiInvoker {
 #if os(Linux)
     // Encryption of passwords in query params not supported on linux
 #else
-    public func encryptString(data : String) throws -> String {
-        return encryptor.encrypt(data);
+    public func encryptString(value : String) throws -> String {
+        return try encryptor.encrypt(data: value);
     }
 #endif
 }

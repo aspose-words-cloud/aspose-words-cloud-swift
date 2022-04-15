@@ -49,10 +49,10 @@ public class Configuration : Codable {
     // Encryption of passwords in query params not supported on linux
 #else    
     // Specify RSA exponent
-    private var rsaExponent: String;
+    private var rsaExponent: String?;
 
     // Specify RSA modulus
-    private var rsaModulus: String;
+    private var rsaModulus: String?;
 #endif
 
 
@@ -81,7 +81,7 @@ public class Configuration : Codable {
         self.timeout = timeout;
     }    
 #else
-    public init(clientId: String, clientSecret: String, baseUrl: String = "https://api.aspose.cloud", debugMode: Bool = false, timeout: TimeInterval = 300, rsaExponent: String = nil, rsaModulus: String = nil) {
+    public init(clientId: String, clientSecret: String, baseUrl: String = "https://api.aspose.cloud", debugMode: Bool = false, timeout: TimeInterval = 300, rsaExponent: String? = nil, rsaModulus: String? = nil) {
         self.clientId = clientId;
         self.clientSecret = clientSecret;
         self.baseUrl = baseUrl;
@@ -156,12 +156,12 @@ public class Configuration : Codable {
 #if os(Linux)
 #else
     // Returns RSA exponent
-    public func getRsaExponent() -> String {
+    public func getRsaExponent() -> String? {
         return self.rsaExponent;
     }
 
     // Returns RSA modulus
-    public func getRsaModulus() -> String {
+    public func getRsaModulus() -> String? {
         return self.rsaModulus;
     }
 #endif
