@@ -37,7 +37,7 @@ public protocol Encryptor {
 public class WordsAPI : Encryptor {
 
     private let configuration : Configuration;
-    private let apiInvoker : ApiInvoker?;
+    private var apiInvoker : ApiInvoker?;
 
 #if os(Linux)
     // Encryption of passwords in query params not supported on linux
