@@ -13,6 +13,12 @@ This repository contains Aspose.Words Cloud SDK for Swift source code. This SDK 
 * Watermarks and protection
 * Full read & write access to Document Object Model, including sections, paragraphs, text, images, tables, headers/footers and many others
 
+## Enhancements in Version 22.4
+
+- Added ExportShapesAsSvg to HtmlSaveOption.
+- Added new endpoint '~/styles/copy_from'.
+
+
 ## Enhancements in Version 22.3
 
 - Online methods returns the dictionary of files with included original filename as key instead of single file content in responses.
@@ -198,7 +204,7 @@ Add link to this repository as dependency to your Package.swift:
 
 dependencies: [
     // Dependencies declare other packages that this package depends on.
-    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "22.4"),
+    .package(url: "https://github.com/aspose-words-cloud/aspose-words-cloud-swift", from: "1.0"),
 ],
 targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -216,7 +222,7 @@ targets: [
 Add link to git repository as dependency to your Podfile:
 
 ```ruby
-pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '22.4'
+pod 'AsposeWordsCloud', :git => 'https://github.com/aspose-words-cloud/aspose-words-cloud-swift.git', :tag => '1.0'
 ```
 
 ## Getting Started
