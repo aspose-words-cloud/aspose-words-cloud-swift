@@ -37,7 +37,8 @@ class SectionTests: BaseTestContext {
         ("testGetSections", testGetSections),
         ("testGetSectionsOnline", testGetSectionsOnline),
         ("testDeleteSection", testDeleteSection),
-        ("testDeleteSectionOnline", testDeleteSectionOnline)
+        ("testDeleteSectionOnline", testDeleteSectionOnline),
+        ("testLinkHeaderFootersToPrevious", testLinkHeaderFootersToPrevious)
     ];
 
     let remoteDataFolder = BaseTestContext.getRemoteTestDataFolder() + "/DocumentElements/Section";
@@ -100,5 +101,11 @@ class SectionTests: BaseTestContext {
       let requestDocument = InputStream(url: self.getLocalTestDataFolder().appendingPathComponent(localFile, isDirectory: false))!;
       let request = DeleteSectionOnlineRequest(document: requestDocument, sectionIndex: 0);
       _ = try super.getApi().deleteSectionOnline(request: request);
+    }
+
+    // Test for linking headers and footers to previous section.
+    func testLinkHeaderFootersToPrevious() throws {
+      let request = LinkHeaderFootersToPreviousRequest(name: "DocumentElements/Sections/Source.docx", sectionIndex: 1);
+      try super.getApi().linkHeaderFootersToPrevious(request: request);
     }
 }
