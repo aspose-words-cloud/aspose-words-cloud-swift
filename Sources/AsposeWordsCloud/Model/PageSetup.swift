@@ -317,6 +317,9 @@ public class PageSetup : LinkElement {
         // Enum value "paper11x17"
         case paper11x17 = "Paper11x17"
 
+        // Enum value "number10Envelope"
+        case number10Envelope = "Number10Envelope"
+
         // Enum value "custom"
         case custom = "Custom"
     }

@@ -59,6 +59,9 @@ public class ParagraphFormatBase : LinkElement {
 
         // Enum value "thaiDistributed"
         case thaiDistributed = "ThaiDistributed"
+
+        // Enum value "mathElementCenterAsGroup"
+        case mathElementCenterAsGroup = "MathElementCenterAsGroup"
     }
 
     // Gets or sets the position for a drop cap text.
